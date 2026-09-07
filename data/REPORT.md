@@ -1,4 +1,4 @@
-# SEC dataset build — 2026-09-07T13:55:49Z
+# SEC dataset build — 2026-09-07T14:12:23Z
 
 - filers scanned: 20335
 - companies published: 7412
