@@ -345,32 +345,60 @@ def _fy_of_period(f: dict, filing_fy: int) -> int:
     return int(f["end"][:4])
 
 
+def _dur(f: dict) -> int | None:
+    return _days(f["start"], f["end"]) if f.get("start") else None
+
+
 def quarterly_rows(series: list[dict], kind: str) -> dict[str, dict]:
-    """period_end -> fact for genuine 3-month (flow) or instant (balance) values from 10-Q/10-K."""
-    by_end: dict[str, list[dict]] = defaultdict(list)
-    for f in series:
-        if f.get("form") not in ("10-Q", "10-Q/A", "10-K", "10-K/A"):
-            continue
-        if kind == "flow":
-            if not f.get("start"):
-                continue
-            d = _days(f["start"], f["end"])
-            if d < 80 or d > 100:
-                continue           # only true quarters; YTD and annual are excluded
-        by_end[f["end"]].append(f)
-    return {end: _pick_latest(v) for end, v in by_end.items()}
+    """period_end -> fact for the value of ONE quarter.
 
-
-def ytd_rows(series: list[dict]) -> dict[str, dict]:
-    """period_end -> 9-month YTD fact (used to derive Q4 when a company reports YTD only)."""
+    Instant items: the balance at each 10-Q / 10-K date.
+    Flow items: income-statement lines are usually tagged per quarter, but cash-flow lines in a
+    10-Q are year-to-date only (3, 6, 9 months). So, per fiscal year, take the cumulative facts
+    that start at the fiscal-year start and difference them:
+        Q1 = 3M · Q2 = 6M − 3M · Q3 = 9M − 6M · Q4 = FY − 9M
+    A genuine 3-month fact for a period, when the company tagged one, wins over the derivation.
+    """
     by_end: dict[str, list[dict]] = defaultdict(list)
+    if kind == "instant":
+        for f in series:
+            if f.get("form") in ("10-Q", "10-Q/A", "10-K", "10-K/A"):
+                by_end[f["end"]].append(f)
+        return {end: _pick_latest(v) for end, v in by_end.items()}
+
+    # 1. genuine ~3-month facts
     for f in series:
-        if f.get("form") not in ("10-Q", "10-Q/A") or not f.get("start"):
-            continue
-        d = _days(f["start"], f["end"])
-        if 260 <= d <= 290:
+        if f.get("form") in ("10-Q", "10-Q/A", "10-K", "10-K/A") and f.get("start") and 80 <= _dur(f) <= 100:
             by_end[f["end"]].append(f)
-    return {end: _pick_latest(v) for end, v in by_end.items()}
+    out = {end: _pick_latest(v) for end, v in by_end.items()}
+
+    # 2. cumulative (year-to-date) facts grouped by their start date = fiscal-year start
+    cum: dict[str, dict[str, list[dict]]] = defaultdict(lambda: defaultdict(list))   # start -> end -> facts
+    for f in series:
+        if f.get("form") in ("10-Q", "10-Q/A", "10-K", "10-K/A") and f.get("start"):
+            d = _dur(f)
+            if d is not None and 80 <= d <= 380:
+                cum[f["start"]][f["end"]].append(f)
+    for fy_start, ends in cum.items():
+        pts = sorted(((e, _pick_latest(v)) for e, v in ends.items()), key=lambda ev: ev[0])
+        # keep one fact per ~quarter bucket (3M, 6M, 9M, 12M) — the longest-duration first
+        prev_end, prev_val = None, 0.0
+        for e, f in pts:
+            d = _dur(f)
+            if d < 80:
+                continue
+            if e in out and out[e].get("_derived") is None:
+                # a genuine 3-month fact exists; it also anchors the running total
+                prev_end, prev_val = e, prev_val + out[e]["val"]
+                continue
+            if d <= 100:
+                q = f["val"]                      # first quarter of the year
+            else:
+                q = f["val"] - prev_val           # YTD minus prior YTD
+            g = dict(f); g["val"] = q; g["_derived"] = f"{d}d YTD − prior"
+            out[e] = g
+            prev_end, prev_val = e, f["val"]
+    return out
 
 
 def normalise_company(facts: dict) -> dict:
@@ -399,30 +427,8 @@ def normalise_company(facts: dict) -> dict:
         q = quarterly_rows(series, kind)
         for end, f in q.items():
             out_q[end][name] = f["val"]
-            out_q[end].setdefault("_form", f.get("form"))
+            out_q[end].setdefault("_form", f.get("form") + (" (derived from YTD)" if f.get("_derived") else ""))
             out_q[end].setdefault("_filed", f.get("filed"))
-
-        # derive Q4 for flow items: FY total minus the three quarters (or minus 9-month YTD)
-        if kind == "flow":
-            ytd = ytd_rows(series)
-            for fy, f in ann.items():
-                fy_end = f["end"]
-                if fy_end in out_q and name in out_q[fy_end]:
-                    continue       # company tagged Q4 explicitly (rare) — keep it
-                # 9-month YTD ending ~3 months before FY end
-                y = next((v for e, v in ytd.items() if 80 <= _days(e, fy_end) <= 100), None)
-                if y is not None:
-                    out_q[fy_end][name] = f["val"] - y["val"]
-                    out_q[fy_end].setdefault("_form", "10-K (Q4 derived: FY − 9M YTD)")
-                    out_q[fy_end].setdefault("_filed", f.get("filed"))
-                    continue
-                # else: three genuine quarters inside the fiscal year
-                qs = [v[name] for e, v in out_q.items()
-                      if name in v and f.get("start") and f["start"] <= e < fy_end and _days(e, fy_end) >= 80]
-                if len(qs) == 3:
-                    out_q[fy_end][name] = f["val"] - sum(qs)
-                    out_q[fy_end].setdefault("_form", "10-K (Q4 derived: FY − Q1..Q3)")
-                    out_q[fy_end].setdefault("_filed", f.get("filed"))
 
     # instant items at FY end also belong to the FY row (balance sheet at year end)
     for fy, row in out_annual.items():
