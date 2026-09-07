@@ -157,6 +157,14 @@ def main() -> int:
     print(f"  {pruned} stale records removed")
 
     print("3. recent index")
+    # The SEC's submissions record sometimes carries no tickers (American Electric Power, for one);
+    # fall back to the weekly build's manifest, which merges the SEC's ticker and exchange maps.
+    manifest_tickers: dict[int, list[str]] = {}
+    try:
+        for k, v in json.loads((OUT_DIR / "manifest.json").read_text()).get("companies", {}).items():
+            manifest_tickers[int(k)] = v.get("tickers", [])
+    except Exception:  # noqa: BLE001
+        pass
     cutoff = (date.today() - timedelta(days=RECENT_DAYS)).isoformat()
     recent = []
     for p in EV_DIR.glob("*.json"):
@@ -166,7 +174,8 @@ def main() -> int:
             continue
         for e in rec.get("events", []):
             if e["date"] >= cutoff:
-                recent.append({"date": e["date"], "cik": rec["cik"], "tickers": rec.get("tickers", []), "name": rec.get("name"),
+                tickers = rec.get("tickers") or manifest_tickers.get(rec["cik"], [])
+                recent.append({"date": e["date"], "cik": rec["cik"], "tickers": tickers, "name": rec.get("name"),
                                "form": e["form"], "items": e["items"], "period": e.get("period"), "url": e.get("url")})
     recent.sort(key=lambda x: (x["date"], x["cik"]), reverse=True)
     generated = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
