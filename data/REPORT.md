@@ -1,4 +1,4 @@
-# SEC dataset build — 2026-09-07T03:50:59Z
+# SEC dataset build — 2026-09-07T04:07:52Z
 
 - filers scanned: 20335
 - companies published: 7412
@@ -21,10 +21,10 @@
 - operating_cash_flow: 7385
 - operating_income: 6233
 - pretax_income: 6345
-- revenue: 6537
+- revenue: 6564
 - shares_diluted: 6715
 - shares_outstanding: 6855
 - stock_comp: 6182
 - total_assets: 7402
-- total_debt: 4827
+- total_debt: 5654
 - total_equity: 7270
