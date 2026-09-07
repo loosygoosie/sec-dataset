@@ -28,7 +28,7 @@ import sys
 import time
 import zipfile
 from collections import defaultdict
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 import requests
@@ -381,6 +381,52 @@ def normalise_company(facts: dict) -> dict:
     return {"annual": annual, "quarterly": quarterly, "tags_used": tags_used}
 
 
+CHECK_ITEMS = ("revenue", "net_income", "operating_cash_flow", "capex")
+RECON_TOL = 0.03         # four quarters must sum to the fiscal year within 3% (or $5m on small lines)
+
+
+def data_checks(ann: list[dict], qtr: list[dict]) -> dict:
+    """Self-check written into every company file and the manifest, so a reader can refuse a row
+    the pipeline itself cannot vouch for, instead of scoring a data gap as if it were the business.
+
+    latest_quarter_end / quarter_age_days: how current the quarterly series is (the SEC's structured
+        feed trails some filings by weeks; a reader treats a series older than its tolerance as unmeasured).
+    reconciles: for the most recent fiscal year whose four quarters are all present, whether their sum
+        matches the annual figure for each of CHECK_ITEMS — "ok", "off:<items>", or "n/a" when no fiscal
+        year has four quarters on file. A miss means a tag, a YTD derivation or a restatement is wrong
+        for that company, and its quarterly-based metrics should not be trusted until it is."""
+    q_ends = [r["period_end"] for r in qtr if r.get("period_end")]
+    latest_q = max(q_ends) if q_ends else None
+    age = None
+    if latest_q:
+        y, m, d = (int(x) for x in latest_q.split("-"))
+        age = (date.today() - date(y, m, d)).days
+    result, checked_fy, off = "n/a", None, []
+    q_by_end = {r["period_end"]: r for r in qtr if r.get("period_end")}
+    for a in reversed(ann):
+        end = a.get("period_end")
+        if not end:
+            continue
+        # the four quarter-ends inside this fiscal year: the FY end and the three before it within 12 months
+        y, m, d = (int(x) for x in end.split("-"))
+        start = (date(y, m, d) - timedelta(days=330)).isoformat()   # after the prior FY end, before Q1's end
+        ends = sorted(e for e in q_by_end if start < e <= end)
+        if len(ends) != 4:
+            continue
+        checked_fy, off = a.get("fiscal_year"), []
+        for item in CHECK_ITEMS:
+            av = a.get(item)
+            qs = [q_by_end[e].get(item) for e in ends]
+            if av is None or any(v is None for v in qs):
+                continue                                  # not on file for every quarter: nothing to compare
+            diff = abs(sum(qs) - av)
+            if diff > max(RECON_TOL * abs(av), 5e6):
+                off.append(item)
+        result = "ok" if not off else "off:" + ",".join(off)
+        break
+    return {"latest_quarter_end": latest_q, "quarter_age_days": age, "reconciles": result, "reconciled_fy": checked_fy}
+
+
 # --------------------------------------------------------------------------
 # Main
 # --------------------------------------------------------------------------
@@ -421,7 +467,7 @@ def main() -> int:
 
     print("3. normalise every filer")
     cutoff = (date.today().replace(year=date.today().year - 3)).isoformat()   # drop filers silent for 3+ years
-    manifest, coverage, written = {}, defaultdict(int), set()
+    manifest, coverage, written, recon = {}, defaultdict(int), set(), defaultdict(int)
     n_seen = n_kept = 0
     with zipfile.ZipFile(zpath) as z:
         entries = sorted(n for n in z.namelist() if n.startswith("CIK") and n.endswith(".json"))
@@ -445,15 +491,19 @@ def main() -> int:
             if latest_filed < cutoff:
                 continue
             cik = int(facts.get("cik") or n[3:13])     # the CIK is in the file name; a few records omit the field
+            checks = data_checks(ann, qtr)
             rec = {"cik": cik, "sec_name": facts.get("entityName"), "tickers": by_cik.get(cik, []),
-                   "annual": ann, "quarterly": qtr, "tags_used": norm["tags_used"]}
+                   "annual": ann, "quarterly": qtr, "tags_used": norm["tags_used"], "checks": checks}
             path = comp_dir / f"{cik}.json"
             body = json.dumps(rec, separators=(",", ":"), sort_keys=True)
             if not path.exists() or path.read_text() != body:      # unchanged files stay untouched -> small commits
                 path.write_text(body)
             written.add(path.name)
             manifest[str(cik)] = {"name": facts.get("entityName"), "tickers": rec["tickers"], "latest_filed": latest_filed,
-                                  "fiscal_year_end": ann[-1].get("period_end"), "annual_rows": len(ann), "quarterly_rows": len(qtr)}
+                                  "fiscal_year_end": ann[-1].get("period_end"), "annual_rows": len(ann), "quarterly_rows": len(qtr),
+                                  "latest_quarter_end": checks["latest_quarter_end"], "quarter_age_days": checks["quarter_age_days"],
+                                  "reconciles": checks["reconciles"]}
+            recon[checks["reconciles"].split(":")[0]] += 1
             for k, v in norm["tags_used"].items():
                 if v: coverage[k] += 1
             n_kept += 1
@@ -480,6 +530,10 @@ def main() -> int:
     report = [f"# SEC dataset build — {generated}", "", f"- filers scanned: {n_seen}", f"- companies published: {n_kept}",
               f"- tickers in map: {len(by_ticker)}", "", "## Coverage by line item (companies with at least one value)", ""]
     report += [f"- {k}: {v}" for k, v in sorted(coverage.items())]
+    report += ["", "## Self-check: four quarters sum to the fiscal year (revenue, net income, operating cash flow, capex)", "",
+               f"- ok: {recon.get('ok', 0)}", f"- off (one or more items miss by >3%): {recon.get('off', 0)}",
+               f"- n/a (no fiscal year with four quarters on file): {recon.get('n/a', 0)}", "",
+               "Readers treat an `off` company, or one whose latest quarter is more than 150 days old (a 10-K may lawfully take 90 days; anything older means the structured feed is behind the filing), as unmeasured on its quarterly metrics."]
     (OUT_DIR / "REPORT.md").write_text("\n".join(report) + "\n")
     print(f"done in {time.time()-t0:.0f}s -> {n_kept} files in {comp_dir}/, manifest.json, tickers.json")
     return 0
