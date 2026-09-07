@@ -1,6 +1,6 @@
-# SEC events build — 2026-09-07T14:43:08Z
+# SEC events build — 2026-09-07T14:57:08Z
 
-- filers refreshed this run: 6123 (changed: 5386)
+- filers refreshed this run: 737 (changed: 0)
 - filings in the last 90 days: 22055
 
 ## 8-K items in the window
