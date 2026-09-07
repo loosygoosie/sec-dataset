@@ -1,4 +1,4 @@
-# SEC dataset build — 2026-09-07T02:02:57Z
+# SEC dataset build — 2026-09-07T03:26:39Z
 
 - constituents: 503 (datasets/s-and-p-500-companies CSV)
 - resolved to CIK: 503
@@ -23,10 +23,10 @@
 - operating_cash_flow: 503
 - operating_income: 420
 - pretax_income: 497
-- revenue: 501
+- revenue: 502
 - shares_diluted: 495
 - shares_outstanding: 487
 - stock_comp: 492
 - total_assets: 503
-- total_debt: 460
+- total_debt: 461
 - total_equity: 503
