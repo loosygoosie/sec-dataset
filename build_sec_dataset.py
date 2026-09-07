@@ -3,8 +3,9 @@
 build_sec_dataset.py — S&P 500 fundamentals straight from the SEC, no data vendor.
 
 What it does, once per run:
-  1. Pulls the current S&P 500 membership from the iShares IVV holdings file
-     (the ETF that tracks the index publishes its holdings daily, free).
+  1. Pulls the current S&P 500 membership from the maintained datasets/s-and-p-500-companies
+     CSV on GitHub (Symbol, GICS sector, CIK); iShares IVV holdings and Wikipedia are fallbacks.
+     Refuses to build if no source returns a full list.
   2. Maps each ticker to its SEC registrant number (CIK) via the SEC's own
      company_tickers.json.
   3. Downloads the SEC's bulk XBRL "companyfacts" zip (every filer, every
@@ -48,7 +49,9 @@ IVV_HOLDINGS_URL = (
     "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf/"
     "1467271812596.ajax?fileType=csv&fileName=IVV_holdings&dataType=fund"
 )
-WIKI_SP500_URL = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"  # fallback only
+CONSTITUENTS_CSV_URL = "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv"
+WIKI_SP500_URL = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"  # last-resort fallback
+MIN_CONSTITUENTS = 480   # below this the list is wrong; refuse to build
 
 ANNUAL_YEARS = 8        # fiscal years of annual history to keep
 QUARTERS = 12           # quarters of quarterly history to keep
@@ -216,16 +219,39 @@ def sp500_from_wikipedia() -> list[dict]:
     return out
 
 
+def sp500_from_datasets_csv() -> list[dict]:
+    """Maintained machine-readable list (Symbol, Security, GICS Sector, CIK, ...) — primary source."""
+    r = get(CONSTITUENTS_CSV_URL)
+    rows = list(csv.DictReader(io.StringIO(r.content.decode("utf-8-sig", errors="replace"))))
+    out = []
+    for row in rows:
+        t = (row.get("Symbol") or "").strip()
+        if not t:
+            continue
+        cik = (row.get("CIK") or "").strip()
+        out.append({"ticker": t, "name": (row.get("Security") or "").strip(),
+                    "sector": (row.get("GICS Sector") or "").strip(),
+                    "sub_industry": (row.get("GICS Sub-Industry") or "").strip(),
+                    "cik_hint": int(cik) if cik.isdigit() else None, "weight": None})
+    return out
+
+
 def sp500_members() -> tuple[list[dict], str]:
-    try:
-        m = sp500_from_ishares()
-        if len(m) >= 480:
-            return m, "iShares IVV holdings"
-        print(f"  iShares returned only {len(m)} equities; falling back")
-    except Exception as e:
-        print(f"  iShares fetch failed: {e}; falling back")
-    m = sp500_from_wikipedia()
-    return m, "Wikipedia list (fallback)"
+    """Try the sources in order; log each attempt; never accept a short list."""
+    attempts = [("datasets/s-and-p-500-companies CSV", sp500_from_datasets_csv),
+                ("iShares IVV holdings", sp500_from_ishares),
+                ("Wikipedia list", sp500_from_wikipedia)]
+    notes = []
+    for label, fn in attempts:
+        try:
+            m = fn()
+            notes.append(f"{label}: {len(m)} rows")
+            if len(m) >= MIN_CONSTITUENTS:
+                print("  " + "; ".join(notes))
+                return m, label
+        except Exception as e:
+            notes.append(f"{label}: failed ({e})")
+    raise SystemExit("REFUSING TO BUILD — no constituent source returned a full list: " + "; ".join(notes))
 
 
 # --------------------------------------------------------------------------
@@ -421,6 +447,8 @@ def main() -> int:
         for t in norm_ticker(m["ticker"]):
             if t in cmap:
                 hit = cmap[t]; break
+        if hit is None and m.get("cik_hint"):
+            hit = (m["cik_hint"], m["name"])            # CIK from the constituents file
         if hit:
             resolved[m["ticker"]] = {"cik": hit[0], "sec_name": hit[1], **m}
         else:
@@ -449,6 +477,9 @@ def main() -> int:
                 print(f"  {i}/{len(resolved)}", flush=True)
     print(f"  {len(companies)} companies; no facts file for: {missing}")
 
+    if len(companies) < MIN_CONSTITUENTS:
+        raise SystemExit(f"REFUSING TO WRITE — only {len(companies)} companies normalised (need ≥ {MIN_CONSTITUENTS}); "
+                         f"unresolved={unresolved} missing_facts={missing}")
     generated = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
     out = {
         "generated_utc": generated,
