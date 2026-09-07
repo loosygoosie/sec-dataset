@@ -1,4 +1,4 @@
-# SEC dataset build — 2026-09-07T14:12:23Z
+# SEC dataset build — 2026-09-07T19:48:28Z
 
 - filers scanned: 20335
 - companies published: 7412
@@ -28,3 +28,11 @@
 - total_assets: 7402
 - total_debt: 5654
 - total_equity: 7270
+
+## Self-check: four quarters sum to the fiscal year (revenue, net income, operating cash flow, capex)
+
+- ok: 6633
+- off (one or more items miss by >3%): 34
+- n/a (no fiscal year with four quarters on file): 745
+
+Readers treat an `off` company, or one whose latest quarter is more than 150 days old (a 10-K may lawfully take 90 days; anything older means the structured feed is behind the filing), as unmeasured on its quarterly metrics.
