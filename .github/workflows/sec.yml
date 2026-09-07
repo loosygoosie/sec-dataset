@@ -28,6 +28,10 @@ jobs:
       - name: Install dependency
         run: pip install --quiet requests
 
+      - name: Refuse an empty script
+        # A phone upload once produced a 0-byte file that "ran" and did nothing.
+        run: test -s build_sec_dataset.py || { echo "build_sec_dataset.py is empty"; exit 1; }
+
       - name: Build dataset
         env:
           # Set this in the repo: Settings → Secrets and variables → Actions → Secrets → SEC_USER_AGENT (a secret so it is masked in public logs)
