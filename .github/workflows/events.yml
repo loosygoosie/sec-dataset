@@ -6,7 +6,12 @@ on:
     # 22:00 ET filing cutoff, so a day's 8-Ks are all in the daily index, and before
     # the 08:30 ET pre-open monitor reads data/events_recent.json.
     - cron: "0 3 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      lookback_days:
+        description: "Weekdays of the daily index to scan (nightly default 5; 65 backfills ~90 calendar days)"
+        default: "5"
+        required: false
 
 permissions:
   contents: write
@@ -36,6 +41,7 @@ jobs:
       - name: Build events feed
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          LOOKBACK_DAYS: ${{ inputs.lookback_days || '5' }}
         run: python build_sec_events.py
 
       - name: Show report
