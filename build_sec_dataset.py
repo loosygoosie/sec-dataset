@@ -286,17 +286,26 @@ def _days(a: str, b: str) -> int:
 
 
 def _pick_latest(cands: list[dict]) -> dict | None:
-    """Same period reported in several filings (restatements, comparatives): take the latest filed."""
+    """Same period from several tags/filings: prefer the most-preferred tag, then the latest filing
+    (restated comparatives win over the original)."""
     if not cands:
         return None
-    return max(cands, key=lambda f: (f.get("filed", ""), f.get("accn", "")))
+    return min(cands, key=lambda f: (f.get("_rank", 0), -_filed_key(f)))
+
+
+def _filed_key(f: dict) -> int:
+    return int((f.get("filed") or "0000-00-00").replace("-", "") or 0)
 
 
 def extract_series(facts: dict, tags: list[str], unit_pref: str | None) -> tuple[list[dict], str | None]:
-    """Return the facts list for the first tag that has data, in the preferred unit."""
+    """Return the facts of EVERY listed tag, each fact annotated with its tag's preference rank,
+    so later steps can pick, per period, the value from the most-preferred tag that has one.
+    (Companies switch tags over time — e.g. Revenues before 2018, RevenueFromContract… after —
+    so 'first tag with any data' silently drops recent years.)"""
     us = facts.get("facts", {}).get("us-gaap", {})
     dei = facts.get("facts", {}).get("dei", {})
-    for tag in tags:
+    out, used = [], []
+    for rank, tag in enumerate(tags):
         src, key = (dei, tag[4:]) if tag.startswith("dei:") else (us, tag)
         node = src.get(key)
         if not node:
@@ -304,27 +313,25 @@ def extract_series(facts: dict, tags: list[str], unit_pref: str | None) -> tuple
         units = node.get("units", {})
         unit = unit_pref if unit_pref in units else next((u for u in ("USD", "shares", "USD/shares") if u in units), None)
         if unit and units[unit]:
-            return units[unit], tag
-    return [], None
+            used.append(tag)
+            for f in units[unit]:
+                g = dict(f); g["_rank"] = rank; out.append(g)
+    return out, (",".join(used) if used else None)
 
 
 def annual_rows(series: list[dict], kind: str) -> dict[int, dict]:
-    """fy -> {value, end, filed, form} from 10-K filings."""
+    """fy -> fact, from 10-K filings. Flow items only — a balance-sheet or cover-page instant is
+    attached to the annual row later, by matching the row's period end (a cover-page share count is
+    dated the filing date, which would otherwise create a phantom fiscal year)."""
+    if kind != "flow":
+        return {}
     by_fy: dict[int, list[dict]] = defaultdict(list)
     for f in series:
-        if f.get("form") not in ("10-K", "10-K/A", "20-F", "40-F"):
+        if f.get("form") not in ("10-K", "10-K/A", "20-F", "40-F") or f.get("fp") != "FY":
             continue
-        if f.get("fp") != "FY":
+        if not f.get("start") or not (340 <= _days(f["start"], f["end"]) <= 380):
             continue
-        if kind == "flow":
-            if not f.get("start") or _days(f["start"], f["end"]) < 340 or _days(f["start"], f["end"]) > 380:
-                continue           # skip cumulative / partial-year durations
-        fy = f.get("fy")
-        if fy is None:
-            continue
-        # 10-Ks carry 3 years of comparatives; key each by ITS OWN period end, not the filing's fy
-        end_year = int(f["end"][:4])
-        by_fy[end_year if kind == "instant" else _fy_of_period(f, fy)].append(f)
+        by_fy[_fy_of_period(f, f.get("fy"))].append(f)
     return {fy: _pick_latest(v) for fy, v in by_fy.items()}
 
 
@@ -420,6 +427,10 @@ def normalise_company(facts: dict) -> dict:
             for k, v in out_q[end].items():
                 if not k.startswith("_") and CONCEPTS.get(k, {}).get("kind") == "instant":
                     row.setdefault(k, v)
+    # drop quarterly rows that carry only instant items on a non-statement date (cover-page share
+    # counts dated the filing date) — a real quarter-end row always has at least one flow item
+    flow_names = {n for n, sp in CONCEPTS.items() if sp["kind"] == "flow"}
+    out_q = {end: row for end, row in out_q.items() if any(k in flow_names for k in row)}
 
     annual = [dict(fiscal_year=fy, period_end=row.pop("_end", None), filed=row.pop("_filed", None), **row)
               for fy, row in sorted(out_annual.items())][-ANNUAL_YEARS:]
