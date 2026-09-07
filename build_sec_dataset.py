@@ -52,15 +52,16 @@ WORK_DIR = Path("work")
 # "instant" items are balances at a date (balance sheet / share counts).
 CONCEPTS: dict[str, dict] = {
     "revenue": {"kind": "flow", "pick": "dominant", "tags": [   # ranked, but a lower-ranked tag ≥3× larger wins (a REIT's contract revenue is a component beside its lease income)
+        "RevenuesNetOfInterestExpense",                      # banks / card issuers / brokers: the total they headline (only financials tag it)
         "Revenues",
-        "RevenueFromContractWithCustomerExcludingAssessedTax",
         "SalesRevenueNet",
-        "RevenuesNetOfInterestExpense",                      # banks / brokers
+        "RevenueFromContractWithCustomerExcludingAssessedTax",   # for a financial this is a component (AmEx: $41bn of $66bn)
         "RevenueFromContractWithCustomerIncludingAssessedTax",
         "TotalRevenuesAndOtherIncome",
         "OperatingLeaseLeaseIncome",                         # REITs
         "RealEstateRevenueNet",
         "InterestAndDividendIncomeOperating",                # banks that tag no total
+        "NoninterestIncome",
     ]},
     "gross_profit": {"kind": "flow", "tags": ["GrossProfit"]},
     "operating_income": {"kind": "flow", "tags": ["OperatingIncomeLoss"]},
