@@ -423,18 +423,19 @@ def main() -> int:
             try:
                 with z.open(n) as fh:
                     facts = json.load(fh)
-            except Exception:  # noqa: BLE001
+                if not isinstance(facts, dict) or not facts.get("facts", {}).get("us-gaap"):
+                    continue                               # funds, trusts, foreign private issuers on IFRS
+                norm = normalise_company(facts)
+            except Exception as e:  # noqa: BLE001
+                print(f"  skipped {n}: {type(e).__name__}: {e}")
                 continue
-            if not facts.get("facts", {}).get("us-gaap"):
-                continue                                   # funds, trusts, foreign private issuers on IFRS
-            norm = normalise_company(facts)
             ann, qtr = norm["annual"], norm["quarterly"]
             if not ann or not any(r.get("revenue") is not None or r.get("net_income") is not None for r in ann):
                 continue                                   # nothing an investor can read
             latest_filed = max([r.get("filed") or "" for r in ann + qtr] or [""])
             if latest_filed < cutoff:
                 continue
-            cik = int(facts["cik"])
+            cik = int(facts.get("cik") or n[3:13])     # the CIK is in the file name; a few records omit the field
             rec = {"cik": cik, "sec_name": facts.get("entityName"), "tickers": by_cik.get(cik, []),
                    "annual": ann, "quarterly": qtr, "tags_used": norm["tags_used"]}
             path = comp_dir / f"{cik}.json"
