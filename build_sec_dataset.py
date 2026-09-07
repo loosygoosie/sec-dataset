@@ -1,21 +1,17 @@
 #!/usr/bin/env python3
 """
-build_sec_dataset.py — S&P 500 fundamentals straight from the SEC, no data vendor.
+build_sec_dataset.py — fundamentals for EVERY SEC filer, straight from the SEC, no data vendor.
 
 What it does, once per run:
-  1. Pulls the current S&P 500 membership from the maintained datasets/s-and-p-500-companies
-     CSV on GitHub (Symbol, GICS sector, CIK); iShares IVV holdings and Wikipedia are fallbacks.
-     Refuses to build if no source returns a full list.
-  2. Maps each ticker to its SEC registrant number (CIK) via the SEC's own
-     company_tickers.json.
-  3. Downloads the SEC's bulk XBRL "companyfacts" zip (every filer, every
-     tagged number) and reads only the ~503 files we need out of it.
-  4. Normalises ~18 line items per company — resolving the tag synonyms
-     companies use for the same line — into clean annual (last 8 fiscal
-     years) and quarterly (last 12 quarters, Q4 derived from the 10-K)
-     rows, always taking the most recently filed value for a period.
-  5. Writes data/sec_facts.json (and a flat data/sec_facts_annual.csv /
-     data/sec_facts_quarterly.csv) plus a coverage report.
+  1. Fetches the SEC's own ticker -> CIK maps (regenerated daily from filing cover pages).
+  2. Downloads the SEC's bulk XBRL "companyfacts" zip (every filer, every tagged number).
+  3. Normalises ~22 line items for every operating company in it — resolving the tag
+     synonyms companies use for the same line — into clean annual (last 8 fiscal years)
+     and quarterly (last 12 quarters, year-to-date cash flows differenced) rows.
+  4. Writes one small file per company, data/companies/<CIK>.json (a file changes only when
+     the company files something new, so weekly commits stay small), plus data/manifest.json
+     (every CIK with name, tickers, latest filing date), data/tickers.json (the SEC map) and
+     data/REPORT.md. Who is in the S&P 500, and what is held, is decided by the reader.
 
 Run by GitHub Actions on a schedule (see .github/workflows/sec.yml).
 Needs only `requests`. The SEC asks for a descriptive User-Agent with a
@@ -45,15 +41,6 @@ HEADERS = {"User-Agent": USER_AGENT, "Accept-Encoding": "gzip, deflate"}
 
 COMPANYFACTS_ZIP = "https://www.sec.gov/Archives/edgar/daily-index/xbrl/companyfacts.zip"
 TICKER_MAP_URL = "https://www.sec.gov/files/company_tickers.json"
-IVV_HOLDINGS_URL = (
-    "https://www.ishares.com/us/products/239726/ishares-core-sp-500-etf/"
-    "1467271812596.ajax?fileType=csv&fileName=IVV_holdings&dataType=fund"
-)
-CONSTITUENTS_CSV_URL = "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv"
-WIKI_SP500_URL = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"  # last-resort fallback
-MIN_CONSTITUENTS = 480   # below this the list is wrong; refuse to build
-MAX_UNRESOLVED = 5       # more tickers than this without an SEC CIK means the mapping broke; fail loudly (GitHub emails the owner)
-
 ANNUAL_YEARS = 8        # fiscal years of annual history to keep
 QUARTERS = 12           # quarters of quarterly history to keep
 
@@ -198,100 +185,6 @@ def download(url: str, dest: Path) -> Path:
 # --------------------------------------------------------------------------
 # Step 1 — S&P 500 membership
 # --------------------------------------------------------------------------
-def sp500_from_ishares() -> list[dict]:
-    r = get(IVV_HOLDINGS_URL)
-    text = r.content.decode("utf-8-sig", errors="replace")
-    # The file has a preamble; the table starts at the line beginning with "Ticker,"
-    lines = text.splitlines()
-    start = next(i for i, l in enumerate(lines) if l.startswith("Ticker,"))
-    rows = list(csv.DictReader(io.StringIO("\n".join(lines[start:]))))
-    out = []
-    for row in rows:
-        if (row.get("Asset Class") or "").strip() != "Equity":
-            continue
-        t = (row.get("Ticker") or "").strip()
-        if not t or t in {"-", "USD"}:
-            continue
-        out.append({"ticker": t, "name": (row.get("Name") or "").strip(),
-                    "sector": (row.get("Sector") or "").strip(),
-                    "weight": float((row.get("Weight (%)") or "0").replace(",", "") or 0)})
-    return out
-
-
-def sp500_from_wikipedia() -> list[dict]:
-    r = get(WIKI_SP500_URL)
-    html = r.text
-    table = html.split('id="constituents"', 1)[1].split("</table>", 1)[0]
-    rows = re.findall(r"<tr>(.*?)</tr>", table, flags=re.S)
-    out = []
-    for tr in rows[1:]:
-        cells = [re.sub(r"<[^>]+>", "", c).strip() for c in re.findall(r"<td[^>]*>(.*?)</td>", tr, flags=re.S)]
-        if len(cells) >= 4:
-            out.append({"ticker": cells[0].replace(".", "-"), "name": cells[1], "sector": cells[2], "weight": None})
-    return out
-
-
-def sp500_from_datasets_csv() -> list[dict]:
-    """Maintained machine-readable list (Symbol, Security, GICS Sector, CIK, ...) — primary source."""
-    r = get(CONSTITUENTS_CSV_URL)
-    rows = list(csv.DictReader(io.StringIO(r.content.decode("utf-8-sig", errors="replace"))))
-    out = []
-    for row in rows:
-        t = (row.get("Symbol") or "").strip()
-        if not t:
-            continue
-        cik = (row.get("CIK") or "").strip()
-        out.append({"ticker": t, "name": (row.get("Security") or "").strip(),
-                    "sector": (row.get("GICS Sector") or "").strip(),
-                    "sub_industry": (row.get("GICS Sub-Industry") or "").strip(),
-                    "cik_hint": int(cik) if cik.isdigit() else None, "weight": None})
-    return out
-
-
-def sp500_members() -> tuple[list[dict], str]:
-    """Try the sources in order; log each attempt; never accept a short list."""
-    attempts = [("datasets/s-and-p-500-companies CSV", sp500_from_datasets_csv),
-                ("iShares IVV holdings", sp500_from_ishares),
-                ("Wikipedia list", sp500_from_wikipedia)]
-    notes = []
-    for label, fn in attempts:
-        try:
-            m = fn()
-            notes.append(f"{label}: {len(m)} rows")
-            if len(m) >= MIN_CONSTITUENTS:
-                print("  " + "; ".join(notes))
-                return m, label
-        except Exception as e:
-            notes.append(f"{label}: failed ({e})")
-    raise SystemExit("REFUSING TO BUILD — no constituent source returned a full list: " + "; ".join(notes))
-
-
-# --------------------------------------------------------------------------
-# Step 2 — ticker -> CIK
-# --------------------------------------------------------------------------
-def ticker_to_cik() -> dict[str, tuple[int, str]]:
-    data = get(TICKER_MAP_URL).json()
-    out = {}
-    for _, v in data.items():
-        out[v["ticker"].upper()] = (int(v["cik_str"]), v["title"])
-    return out
-
-
-def norm_ticker(t: str) -> list[str]:
-    """iShares uses BRKB / BF.B style; SEC uses BRK-B / BF-B. Try the variants."""
-    t = t.upper().strip()
-    cands = [t, t.replace(".", "-"), t.replace("-", "."), t.replace(".", ""), t.replace("-", "")]
-    if len(t) == 5 and t[-1] in "AB" and "-" not in t and "." not in t:
-        cands.append(t[:4] + "-" + t[4])
-    seen, out = set(), []
-    for c in cands:
-        if c not in seen:
-            seen.add(c); out.append(c)
-    return out
-
-
-# --------------------------------------------------------------------------
-# Step 4 — normalise one company's facts
 # --------------------------------------------------------------------------
 def _days(a: str, b: str) -> int:
     return (date.fromisoformat(b) - date.fromisoformat(a)).days
@@ -482,89 +375,103 @@ def normalise_company(facts: dict) -> dict:
 # --------------------------------------------------------------------------
 # Main
 # --------------------------------------------------------------------------
+def load_ticker_maps() -> tuple[dict[str, dict], dict[int, list[str]]]:
+    """SEC's own ticker map (regenerated daily from filing cover pages): ticker -> {cik, name}, and cik -> [tickers].
+    The exchange-listed variant is merged in when reachable — it carries a few tickers the plain map lacks."""
+    by_ticker: dict[str, dict] = {}
+    j = get(TICKER_MAP_URL).json()
+    for v in (j.values() if isinstance(j, dict) else j):
+        by_ticker[v["ticker"].upper().replace(".", "-")] = {"cik": int(v["cik_str"]), "name": v["title"]}
+    try:
+        jx = get(TICKER_MAP_URL.replace("company_tickers.json", "company_tickers_exchange.json")).json()
+        cols = jx["fields"]; ci, ni, ti = cols.index("cik"), cols.index("name"), cols.index("ticker")
+        for row in jx["data"]:
+            if row[ti]:
+                by_ticker.setdefault(row[ti].upper().replace(".", "-"), {"cik": int(row[ci]), "name": row[ni]})
+    except Exception as e:  # noqa: BLE001
+        print(f"  exchange map skipped: {e}")
+    by_cik: dict[int, list[str]] = defaultdict(list)
+    for t, v in sorted(by_ticker.items()):
+        by_cik[v["cik"]].append(t)
+    return by_ticker, dict(by_cik)
+
+
 def main() -> int:
+    """The everything-build: no index filter. Every operating filer in the SEC bulk file is normalised and
+    published as its own file; who is in the S&P 500, and what is held, is decided by the reader."""
     t0 = time.time()
     OUT_DIR.mkdir(exist_ok=True); WORK_DIR.mkdir(exist_ok=True)
+    comp_dir = OUT_DIR / "companies"; comp_dir.mkdir(exist_ok=True)
 
-    print("1. S&P 500 membership")
-    members, src = sp500_members()
-    print(f"  {len(members)} equities from {src}")
+    print("1. SEC ticker maps")
+    by_ticker, by_cik = load_ticker_maps()
+    print(f"  {len(by_ticker)} tickers, {len(by_cik)} CIKs")
 
-    print("2. ticker -> CIK")
-    cmap = ticker_to_cik()
-    resolved, unresolved = {}, []
-    for m in members:
-        hit = None
-        for t in norm_ticker(m["ticker"]):
-            if t in cmap:
-                hit = cmap[t]; break
-        if hit is None and m.get("cik_hint"):
-            hit = (m["cik_hint"], m["name"])            # CIK from the constituents file
-        if hit:
-            resolved[m["ticker"].upper().replace(".", "-")] = {"cik": hit[0], "sec_name": hit[1], **m}
-        else:
-            unresolved.append(m["ticker"])
-    print(f"  resolved {len(resolved)}; unresolved: {unresolved}")
-    if len(unresolved) > MAX_UNRESOLVED:
-        raise SystemExit(f"REFUSING TO BUILD — {len(unresolved)} tickers have no SEC CIK (limit {MAX_UNRESOLVED}): {unresolved}")
-
-    print("3. companyfacts bulk zip")
+    print("2. companyfacts bulk zip")
     zpath = download(COMPANYFACTS_ZIP, WORK_DIR / "companyfacts.zip")
 
-    print("4. normalise")
-    companies, missing, coverage = {}, [], defaultdict(int)
+    print("3. normalise every filer")
+    cutoff = (date.today().replace(year=date.today().year - 3)).isoformat()   # drop filers silent for 3+ years
+    manifest, coverage, written = {}, defaultdict(int), set()
+    n_seen = n_kept = 0
     with zipfile.ZipFile(zpath) as z:
-        names = set(z.namelist())
-        for i, (tick, meta) in enumerate(sorted(resolved.items()), 1):
-            fname = f"CIK{meta['cik']:010d}.json"
-            if fname not in names:
-                missing.append(tick); continue
-            with z.open(fname) as fh:
-                facts = json.load(fh)
+        entries = sorted(n for n in z.namelist() if n.startswith("CIK") and n.endswith(".json"))
+        for n in entries:
+            n_seen += 1
+            if n_seen % 2000 == 0:
+                print(f"  {n_seen}/{len(entries)} scanned, {n_kept} kept", flush=True)
+            try:
+                with z.open(n) as fh:
+                    facts = json.load(fh)
+            except Exception:  # noqa: BLE001
+                continue
+            if not facts.get("facts", {}).get("us-gaap"):
+                continue                                   # funds, trusts, foreign private issuers on IFRS
             norm = normalise_company(facts)
-            companies[tick] = {"cik": meta["cik"], "name": meta["name"], "sec_name": facts.get("entityName", meta["sec_name"]),
-                               "sector": meta["sector"], "index_weight": meta.get("weight"), **norm}
+            ann, qtr = norm["annual"], norm["quarterly"]
+            if not ann or not any(r.get("revenue") is not None or r.get("net_income") is not None for r in ann):
+                continue                                   # nothing an investor can read
+            latest_filed = max([r.get("filed") or "" for r in ann + qtr] or [""])
+            if latest_filed < cutoff:
+                continue
+            cik = int(facts["cik"])
+            rec = {"cik": cik, "sec_name": facts.get("entityName"), "tickers": by_cik.get(cik, []),
+                   "annual": ann, "quarterly": qtr, "tags_used": norm["tags_used"]}
+            path = comp_dir / f"{cik}.json"
+            body = json.dumps(rec, separators=(",", ":"), sort_keys=True)
+            if not path.exists() or path.read_text() != body:      # unchanged files stay untouched -> small commits
+                path.write_text(body)
+            written.add(path.name)
+            manifest[str(cik)] = {"name": facts.get("entityName"), "tickers": rec["tickers"], "latest_filed": latest_filed,
+                                  "fiscal_year_end": ann[-1].get("period_end"), "annual_rows": len(ann), "quarterly_rows": len(qtr)}
             for k, v in norm["tags_used"].items():
                 if v: coverage[k] += 1
-            if i % 50 == 0:
-                print(f"  {i}/{len(resolved)}", flush=True)
-    print(f"  {len(companies)} companies; no facts file for: {missing}")
+            n_kept += 1
+    print(f"  {n_kept} companies kept of {n_seen} filers")
+    if n_kept < 3000:
+        raise SystemExit(f"REFUSING TO WRITE — only {n_kept} companies normalised; the bulk file or the parser is broken")
 
-    if len(companies) < MIN_CONSTITUENTS:
-        raise SystemExit(f"REFUSING TO WRITE — only {len(companies)} companies normalised (need ≥ {MIN_CONSTITUENTS}); "
-                         f"unresolved={unresolved} missing_facts={missing}")
+    # remove files for filers that dropped out, and the old single-file outputs
+    for p in comp_dir.iterdir():
+        if p.name not in written:
+            p.unlink()
+    for stale in ("sec_facts.json", "sec_facts_annual.csv", "sec_facts_quarterly.csv"):
+        if (OUT_DIR / stale).exists():
+            (OUT_DIR / stale).unlink()
+
     generated = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
-    out = {
-        "generated_utc": generated,
-        "sources": {"facts": COMPANYFACTS_ZIP, "constituents": src, "cik_map": TICKER_MAP_URL},
-        "concepts": {k: {"kind": v["kind"], "tags": v["tags"]} for k, v in CONCEPTS.items()},
-        "counts": {"constituents": len(members), "resolved": len(resolved), "with_facts": len(companies)},
-        "unresolved_tickers": unresolved, "missing_facts": missing,
+    (OUT_DIR / "tickers.json").write_text(json.dumps(by_ticker, separators=(",", ":"), sort_keys=True))
+    (OUT_DIR / "manifest.json").write_text(json.dumps({
+        "generated_utc": generated, "sources": {"facts": COMPANYFACTS_ZIP, "cik_map": TICKER_MAP_URL},
+        "concepts": {k: {"kind": v["kind"], "tags": v["tags"], "pick": v.get("pick", "rank")} for k, v in CONCEPTS.items()},
+        "counts": {"filers_scanned": n_seen, "companies": n_kept, "tickers": len(by_ticker)},
         "coverage_by_item": dict(sorted(coverage.items())),
-        "companies": companies,
-    }
-    (OUT_DIR / "sec_facts.json").write_text(json.dumps(out, separators=(",", ":")))
-
-    # flat CSVs for anything that prefers tables
-    items = list(CONCEPTS.keys())
-    with open(OUT_DIR / "sec_facts_annual.csv", "w", newline="") as f:
-        w = csv.writer(f); w.writerow(["ticker", "cik", "sector", "fiscal_year", "period_end", "filed"] + items)
-        for t, c in sorted(companies.items()):
-            for r in c["annual"]:
-                w.writerow([t, c["cik"], c["sector"], r["fiscal_year"], r["period_end"], r["filed"]] + [r.get(k) for k in items])
-    with open(OUT_DIR / "sec_facts_quarterly.csv", "w", newline="") as f:
-        w = csv.writer(f); w.writerow(["ticker", "cik", "sector", "period_end", "form", "filed"] + items)
-        for t, c in sorted(companies.items()):
-            for r in c["quarterly"]:
-                w.writerow([t, c["cik"], c["sector"], r["period_end"], r["form"], r["filed"]] + [r.get(k) for k in items])
-
-    report = [f"# SEC dataset build — {generated}", "",
-              f"- constituents: {len(members)} ({src})", f"- resolved to CIK: {len(resolved)}",
-              f"- with facts: {len(companies)}", f"- unresolved tickers: {unresolved}", f"- no facts file: {missing}", "",
-              "## Coverage by line item (companies with at least one value)", ""]
+        "companies": manifest}, separators=(",", ":"), sort_keys=True))
+    report = [f"# SEC dataset build — {generated}", "", f"- filers scanned: {n_seen}", f"- companies published: {n_kept}",
+              f"- tickers in map: {len(by_ticker)}", "", "## Coverage by line item (companies with at least one value)", ""]
     report += [f"- {k}: {v}" for k, v in sorted(coverage.items())]
     (OUT_DIR / "REPORT.md").write_text("\n".join(report) + "\n")
-    print(f"done in {time.time()-t0:.0f}s -> {OUT_DIR}/sec_facts.json ({(OUT_DIR/'sec_facts.json').stat().st_size/1e6:.1f} MB)")
+    print(f"done in {time.time()-t0:.0f}s -> {n_kept} files in {comp_dir}/, manifest.json, tickers.json")
     return 0
 
 
