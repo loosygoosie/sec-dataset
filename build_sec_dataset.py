@@ -52,6 +52,7 @@ IVV_HOLDINGS_URL = (
 CONSTITUENTS_CSV_URL = "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv"
 WIKI_SP500_URL = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"  # last-resort fallback
 MIN_CONSTITUENTS = 480   # below this the list is wrong; refuse to build
+MAX_UNRESOLVED = 5       # more tickers than this without an SEC CIK means the mapping broke; fail loudly (GitHub emails the owner)
 
 ANNUAL_YEARS = 8        # fiscal years of annual history to keep
 QUARTERS = 12           # quarters of quarterly history to keep
@@ -63,13 +64,16 @@ WORK_DIR = Path("work")
 # preference. "flow" items are period totals (income/cash-flow statements);
 # "instant" items are balances at a date (balance sheet / share counts).
 CONCEPTS: dict[str, dict] = {
-    "revenue": {"kind": "flow", "tags": [
+    "revenue": {"kind": "flow", "pick": "dominant", "tags": [   # ranked, but a lower-ranked tag ≥3× larger wins (a REIT's contract revenue is a component beside its lease income)
         "Revenues",
         "RevenueFromContractWithCustomerExcludingAssessedTax",
         "SalesRevenueNet",
         "RevenuesNetOfInterestExpense",                      # banks / brokers
         "RevenueFromContractWithCustomerIncludingAssessedTax",
         "TotalRevenuesAndOtherIncome",
+        "OperatingLeaseLeaseIncome",                         # REITs
+        "RealEstateRevenueNet",
+        "InterestAndDividendIncomeOperating",                # banks that tag no total
     ]},
     "gross_profit": {"kind": "flow", "tags": ["GrossProfit"]},
     "operating_income": {"kind": "flow", "tags": ["OperatingIncomeLoss"]},
@@ -77,6 +81,8 @@ CONCEPTS: dict[str, dict] = {
         "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
         "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
         "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic",
+        "IncomeLossFromContinuingOperationsBeforeIncomeTaxesForeign",
+        "IncomeLossAttributableToParentBeforeTax",
     ]},
     "income_tax": {"kind": "flow", "tags": ["IncomeTaxExpenseBenefit"]},
     "net_income": {"kind": "flow", "tags": [
@@ -125,11 +131,13 @@ CONCEPTS: dict[str, dict] = {
         "CashAndCashEquivalentsAtCarryingValue",
         "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
     ]},
-    "total_debt": {"kind": "instant", "tags": [
+    "total_debt": {"kind": "instant", "pick": "max", "tags": [   # Marriott tags a $23m LongTermDebt beside $14bn of DebtAndCapitalLeaseObligations: take the larger
         "LongTermDebt",                                     # usually total incl. current portion
         "DebtAndCapitalLeaseObligations",
         "LongTermDebtAndCapitalLeaseObligations",
         "DebtInstrumentCarryingAmount",
+        "LongTermDebtAndFinanceLeases",
+        "DebtLongtermAndShorttermCombinedAmount",
     ]},
     "lt_debt_noncurrent": {"kind": "instant", "tags": [
         "LongTermDebtNoncurrent",
@@ -302,13 +310,19 @@ def _pick_latest(cands: list[dict], pick: str = "rank") -> dict | None:
         full_year = f.get("start") and _days(f["start"], f["end"]) >= 340
         form_pen = 1 if (full_year and not str(f.get("form", "")).startswith("10-K")) else 0
         return (f.get("_rank", 0), form_pen, -_filed_key(f))
-    if pick == "max":
+    if pick in ("max", "dominant"):
         per_tag = {}
         for f in cands:
             r = f.get("_rank", 0)
             if r not in per_tag or _k(f) < _k(per_tag[r]):
                 per_tag[r] = f
-        return max(per_tag.values(), key=lambda f: (f.get("val") or 0))
+        if pick == "max":
+            return max(per_tag.values(), key=lambda f: (f.get("val") or 0))
+        best = per_tag[min(per_tag)]                       # the most-preferred tag that has a value...
+        big = max(per_tag.values(), key=lambda f: abs(f.get("val") or 0))
+        if abs(big.get("val") or 0) >= 3 * abs(best.get("val") or 0):   # ...unless it is plainly a component of a larger one
+            return big
+        return best
     return min(cands, key=_k)
 
 
@@ -357,7 +371,8 @@ def annual_rows(series: list[dict], kind: str, pick: str = "rank") -> dict[int, 
 def _fy_of_period(f: dict, filing_fy: int) -> int:
     """A 10-K for fy=2025 also restates 2024 and 2023; label each fact by the calendar year its
     period ENDS in (Deckers' year ending 2026-03-31 is 2026; Costco's ending 2025-08-31 is 2025)."""
-    return int(f["end"][:4])
+    y, m, d = int(f["end"][:4]), int(f["end"][5:7]), int(f["end"][8:10])
+    return y - 1 if (m == 1 and d <= 7) else y          # Snap-on's year ending 3 Jan 2026 is fiscal 2025
 
 
 def _dur(f: dict) -> int | None:
@@ -486,10 +501,12 @@ def main() -> int:
         if hit is None and m.get("cik_hint"):
             hit = (m["cik_hint"], m["name"])            # CIK from the constituents file
         if hit:
-            resolved[m["ticker"]] = {"cik": hit[0], "sec_name": hit[1], **m}
+            resolved[m["ticker"].upper().replace(".", "-")] = {"cik": hit[0], "sec_name": hit[1], **m}
         else:
             unresolved.append(m["ticker"])
     print(f"  resolved {len(resolved)}; unresolved: {unresolved}")
+    if len(unresolved) > MAX_UNRESOLVED:
+        raise SystemExit(f"REFUSING TO BUILD — {len(unresolved)} tickers have no SEC CIK (limit {MAX_UNRESOLVED}): {unresolved}")
 
     print("3. companyfacts bulk zip")
     zpath = download(COMPANYFACTS_ZIP, WORK_DIR / "companyfacts.zip")
