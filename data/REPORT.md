@@ -1,4 +1,4 @@
-# SEC dataset build — 2026-09-07T01:37:30Z
+# SEC dataset build — 2026-09-07T01:57:22Z
 
 - constituents: 503 (datasets/s-and-p-500-companies CSV)
 - resolved to CIK: 503
@@ -9,7 +9,7 @@
 ## Coverage by line item (companies with at least one value)
 
 - buybacks: 480
-- capex: 477
+- capex: 480
 - cash: 502
 - d_and_a: 497
 - debt_current: 398
