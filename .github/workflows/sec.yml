@@ -30,9 +30,9 @@ jobs:
 
       - name: Build dataset
         env:
-          # Set this in the repo: Settings → Secrets and variables → Actions → Variables → SEC_USER_AGENT
+          # Set this in the repo: Settings → Secrets and variables → Actions → Secrets → SEC_USER_AGENT (a secret so it is masked in public logs)
           # Format the SEC asks for: "Your Name your@email"  (it is only sent to sec.gov)
-          SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT }}
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
         run: python build_sec_dataset.py
 
       - name: Show report
