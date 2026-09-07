@@ -92,6 +92,10 @@ CONCEPTS: dict[str, dict] = {
     "capex": {"kind": "flow", "tags": [
         "PaymentsToAcquirePropertyPlantAndEquipment",
         "PaymentsToAcquireProductiveAssets",
+        "PaymentsForConstructionInProcess",                 # regulated utilities (AEP, DUK: "construction expenditures")
+        "PaymentsToAcquireAndDevelopRealEstate",            # REITs
+        "PaymentsToDevelopRealEstateAssets",
+        "PaymentsToAcquireRealEstate",
         "PaymentsForCapitalImprovements",
         "PaymentsToAcquireOtherPropertyPlantAndEquipment",
     ]},

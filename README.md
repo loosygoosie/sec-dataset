@@ -15,7 +15,7 @@ GitHub can then read it.
    - `.github/workflows/sec.yml`
    - `README.md` (this file)
 3. Tell the SEC who is calling — they require it. In the repo:
-   **Settings → Secrets and variables → Actions → Variables → New repository variable**
+   **Settings → Secrets and variables → Actions → Secrets → New repository secret** (a secret, so it is masked in the public run logs)
    - Name: `SEC_USER_AGENT`
    - Value: `Your Name your@email.com` (any real contact; it is sent only to sec.gov)
 4. Go to the **Actions** tab. If GitHub asks you to enable workflows, enable them.
@@ -74,6 +74,16 @@ Shape:
 - Free cash flow is not stored; compute it as `operating_cash_flow − capex`. Net debt is
   `total_debt − cash` (fall back to `lt_debt_noncurrent + debt_current` when `total_debt`
   is empty). EBITDA is `operating_income + d_and_a`.
+- Definitions to know: for banks and card issuers `revenue` is the net-of-interest-expense
+  figure the company headlines (American Express ≈ $41bn, not the ~$80bn gross that some vendors
+  show); `net_income` is net income attributable to the parent (before preferred dividends of
+  subsidiaries, so a utility's figure can sit ~3% above the per-share-reconciling number); `d_and_a`
+  is the cash-flow-statement figure (includes accretion and regulatory amortisation for
+  utilities), which is the right add-back for cash-flow work; `capex` follows the tag list in
+  the script (PP&E purchases, then utilities' construction expenditures, then REIT development).
+- The SEC's structured data can trail a filing by weeks: on 7 Sep 2026 about 60 of 503
+  companies' June-quarter 10-Qs were on EDGAR but not yet in the XBRL feed. Quarterly rows
+  therefore lag press releases; annual rows are complete.
 - No prices, no market caps, no estimates, no analyst data. Membership comes from the
   iShares IVV holdings file (falls back to Wikipedia's list if that is unavailable).
 
