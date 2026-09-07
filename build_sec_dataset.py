@@ -89,7 +89,7 @@ CONCEPTS: dict[str, dict] = {
         "NetCashProvidedByUsedInOperatingActivities",
         "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations",
     ]},
-    "capex": {"kind": "flow", "tags": [
+    "capex": {"kind": "flow", "pick": "max", "tags": [   # utilities/REITs tag a small PP&E line AND the big construction line: take the larger
         "PaymentsToAcquirePropertyPlantAndEquipment",
         "PaymentsToAcquireProductiveAssets",
         "PaymentsForConstructionInProcess",                 # regulated utilities (AEP, DUK: "construction expenditures")
@@ -289,12 +289,27 @@ def _days(a: str, b: str) -> int:
     return (date.fromisoformat(b) - date.fromisoformat(a)).days
 
 
-def _pick_latest(cands: list[dict]) -> dict | None:
-    """Same period from several tags/filings: prefer the most-preferred tag, then the latest filing
-    (restated comparatives win over the original)."""
+def _pick_latest(cands: list[dict], pick: str = "rank") -> dict | None:
+    """Same period from several tags/filings.
+    pick="rank": prefer the most-preferred tag, then a 10-K over a 10-Q for a full-year period
+    (a 10-Q occasionally carries a mis-dated full-year comparative), then the latest filing
+    (restated comparatives win over the original).
+    pick="max": within each tag take the latest filing, then the largest value across tags —
+    for capex, where a utility tags a token PP&E line next to its real construction spend."""
     if not cands:
         return None
-    return min(cands, key=lambda f: (f.get("_rank", 0), -_filed_key(f)))
+    def _k(f):
+        full_year = f.get("start") and _days(f["start"], f["end"]) >= 340
+        form_pen = 1 if (full_year and not str(f.get("form", "")).startswith("10-K")) else 0
+        return (f.get("_rank", 0), form_pen, -_filed_key(f))
+    if pick == "max":
+        per_tag = {}
+        for f in cands:
+            r = f.get("_rank", 0)
+            if r not in per_tag or _k(f) < _k(per_tag[r]):
+                per_tag[r] = f
+        return max(per_tag.values(), key=lambda f: (f.get("val") or 0))
+    return min(cands, key=_k)
 
 
 def _filed_key(f: dict) -> int:
@@ -323,7 +338,7 @@ def extract_series(facts: dict, tags: list[str], unit_pref: str | None) -> tuple
     return out, (",".join(used) if used else None)
 
 
-def annual_rows(series: list[dict], kind: str) -> dict[int, dict]:
+def annual_rows(series: list[dict], kind: str, pick: str = "rank") -> dict[int, dict]:
     """fy -> fact, from 10-K filings. Flow items only — a balance-sheet or cover-page instant is
     attached to the annual row later, by matching the row's period end (a cover-page share count is
     dated the filing date, which would otherwise create a phantom fiscal year)."""
@@ -336,7 +351,7 @@ def annual_rows(series: list[dict], kind: str) -> dict[int, dict]:
         if not f.get("start") or not (340 <= _days(f["start"], f["end"]) <= 380):
             continue
         by_fy[_fy_of_period(f, f.get("fy"))].append(f)
-    return {fy: _pick_latest(v) for fy, v in by_fy.items()}
+    return {fy: _pick_latest(v, pick) for fy, v in by_fy.items()}
 
 
 def _fy_of_period(f: dict, filing_fy: int) -> int:
@@ -349,7 +364,7 @@ def _dur(f: dict) -> int | None:
     return _days(f["start"], f["end"]) if f.get("start") else None
 
 
-def quarterly_rows(series: list[dict], kind: str) -> dict[str, dict]:
+def quarterly_rows(series: list[dict], kind: str, pick: str = "rank") -> dict[str, dict]:
     """period_end -> fact for the value of ONE quarter.
 
     Instant items: the balance at each 10-Q / 10-K date.
@@ -364,13 +379,13 @@ def quarterly_rows(series: list[dict], kind: str) -> dict[str, dict]:
         for f in series:
             if f.get("form") in ("10-Q", "10-Q/A", "10-K", "10-K/A"):
                 by_end[f["end"]].append(f)
-        return {end: _pick_latest(v) for end, v in by_end.items()}
+        return {end: _pick_latest(v, pick) for end, v in by_end.items()}
 
     # 1. genuine ~3-month facts
     for f in series:
         if f.get("form") in ("10-Q", "10-Q/A", "10-K", "10-K/A") and f.get("start") and 80 <= _dur(f) <= 100:
             by_end[f["end"]].append(f)
-    out = {end: _pick_latest(v) for end, v in by_end.items()}
+    out = {end: _pick_latest(v, pick) for end, v in by_end.items()}
 
     # 2. cumulative (year-to-date) facts grouped by their start date = fiscal-year start
     cum: dict[str, dict[str, list[dict]]] = defaultdict(lambda: defaultdict(list))   # start -> end -> facts
@@ -380,24 +395,23 @@ def quarterly_rows(series: list[dict], kind: str) -> dict[str, dict]:
             if d is not None and 80 <= d <= 380:
                 cum[f["start"]][f["end"]].append(f)
     for fy_start, ends in cum.items():
-        pts = sorted(((e, _pick_latest(v)) for e, v in ends.items()), key=lambda ev: ev[0])
+        pts = sorted(((e, _pick_latest(v, pick)) for e, v in ends.items()), key=lambda ev: ev[0])
         # keep one fact per ~quarter bucket (3M, 6M, 9M, 12M) — the longest-duration first
-        prev_end, prev_val = None, 0.0
         for e, f in pts:
             d = _dur(f)
-            if d < 80:
-                continue
-            if e in out and out[e].get("_derived") is None:
-                # a genuine 3-month fact exists; it also anchors the running total
-                prev_end, prev_val = e, prev_val + out[e]["val"]
-                continue
+            if d < 80 or (e in out and out[e].get("_derived") is None):
+                continue                          # a genuine 3-month fact exists
             if d <= 100:
                 q = f["val"]                      # first quarter of the year
             else:
-                q = f["val"] - prev_val           # YTD minus prior YTD
+                # subtract the quarters already known for this fiscal year (genuine or derived);
+                # require exactly the expected number so a missing quarter never silently inflates one
+                prior = [out[x]["val"] for x in out if fy_start < x < e]
+                if len(prior) != round(d / 91) - 1:
+                    continue
+                q = f["val"] - sum(prior)
             g = dict(f); g["val"] = q; g["_derived"] = f"{d}d YTD − prior"
             out[e] = g
-            prev_end, prev_val = e, f["val"]
     return out
 
 
@@ -415,7 +429,8 @@ def normalise_company(facts: dict) -> dict:
         kind = spec["kind"]
 
         # annual
-        ann = annual_rows(series, kind)
+        pick = spec.get("pick", "rank")
+        ann = annual_rows(series, kind, pick)
         for fy, f in ann.items():
             out_annual[fy][name] = f["val"]
             if name == "revenue" or name == "net_income":
@@ -424,7 +439,7 @@ def normalise_company(facts: dict) -> dict:
             out_annual[fy].setdefault("_filed", f.get("filed"))
 
         # quarterly (true 3-month values)
-        q = quarterly_rows(series, kind)
+        q = quarterly_rows(series, kind, pick)
         for end, f in q.items():
             out_q[end][name] = f["val"]
             out_q[end].setdefault("_form", f.get("form") + (" (derived from YTD)" if f.get("_derived") else ""))

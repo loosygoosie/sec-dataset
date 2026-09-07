@@ -62,8 +62,9 @@ Shape:
 - Every value is the company's own tagged figure from its 10-K or 10-Q, as filed with the
   SEC. Where a period was reported more than once (restated comparatives), the most
   recently filed value wins.
-- Quarterly rows are true three-month values. Q4 is not tagged by most companies; it is
-  derived as the fiscal-year total minus the nine-month year-to-date (or minus Q1–Q3).
+- Quarterly rows are true three-month values. Cash-flow lines in a 10-Q are year-to-date only,
+  and Q4 is not tagged by most companies, so those quarters are derived by differencing
+  (6M − 3M, 9M − 6M, FY − 9M), and only when every earlier quarter of that year is present.
   The `form` field says when that happened.
 - Fiscal years are labelled by the calendar year the period ends in. Deckers' year ending
   31 March 2026 is `2026`; Costco's ending 31 August 2025 is `2025`.
@@ -79,8 +80,9 @@ Shape:
   show); `net_income` is net income attributable to the parent (before preferred dividends of
   subsidiaries, so a utility's figure can sit ~3% above the per-share-reconciling number); `d_and_a`
   is the cash-flow-statement figure (includes accretion and regulatory amortisation for
-  utilities), which is the right add-back for cash-flow work; `capex` follows the tag list in
-  the script (PP&E purchases, then utilities' construction expenditures, then REIT development).
+  utilities), which is the right add-back for cash-flow work; `capex` takes the LARGEST of the tags in
+  the script's list for each period (PP&E purchases, utilities' construction expenditures, REIT
+  development) — a utility such as AEP tags a token PP&E line beside its multi-billion construction line.
 - The SEC's structured data can trail a filing by weeks: on 7 Sep 2026 about 60 of 503
   companies' June-quarter 10-Qs were on EDGAR but not yet in the XBRL feed. Quarterly rows
   therefore lag press releases; annual rows are complete.
