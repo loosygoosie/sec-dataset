@@ -1,4 +1,4 @@
-# SEC dataset build — 2026-09-08T19:43:44Z
+# SEC dataset build — 2026-09-08T20:05:15Z
 
 - filers scanned: 20335
 - companies published: 7412
@@ -83,7 +83,8 @@ A reader does not drop a name on a per-share test it cannot run; `shares` in the
 - snapshot date: 2026-09-08
 - constituents: 503
 - resolved to a CIK via the SEC ticker map: 503
-- unmatched: none
+- unmatched (no CIK in the SEC ticker map): none
+- resolved but with no company file, so nothing to join to: HONA
 
 Membership comes from a public constituents list, not from the SEC — it is a fact about
 an index, not a company fundamental. `cik` is resolved through the SEC's own ticker map, so a
