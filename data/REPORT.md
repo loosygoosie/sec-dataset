@@ -1,4 +1,4 @@
-# SEC dataset build — 2026-09-08T19:18:41Z
+# SEC dataset build — 2026-09-08T19:43:44Z
 
 - filers scanned: 20335
 - companies published: 7412
@@ -76,3 +76,15 @@ A reader does not drop a name on a per-share test it cannot run; `shares` in the
 ## Items added 8 Sep 2026
 
 `current_assets`, `current_liabilities` (current ratio); `operating_leases` (beside `total_debt`; the gate treatment is a rule decision); `receivables`, `inventory`, `total_liabilities` (working-capital quality); `acquisitions`, `goodwill`, `intangibles`, `impairments`; `rd_expense`, `sga_expense`; `pension_funded_status`; `debt_due_1y/2y/3y`; bank items `net_interest_income`, `interest_income`, `deposits`, `loans`, `credit_loss_provision`, `loan_loss_allowance`, `tier1_capital_ratio` (thin — tagged by regulatory entity, which companyfacts drops); insurer items `premiums_earned`, `claims_incurred`, `acquisition_cost_amort`, `loss_reserves`. Segment revenue and per-class share data are dimensioned facts and cannot come from this file; the business briefs carry segments in words. Coverage per item is listed above — an item with low coverage is a tag most filers do not use, not a bug.
+
+## S&P 500 constituents
+
+- source: https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv
+- snapshot date: 2026-09-08
+- constituents: 503
+- resolved to a CIK via the SEC ticker map: 503
+- unmatched: none
+
+Membership comes from a public constituents list, not from the SEC — it is a fact about
+an index, not a company fundamental. `cik` is resolved through the SEC's own ticker map, so a
+ticker the map has not caught up with is listed under `unmatched` rather than guessed at.
