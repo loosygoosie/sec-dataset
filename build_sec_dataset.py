@@ -28,7 +28,7 @@ import sys
 import time
 import zipfile
 from collections import defaultdict
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
@@ -584,7 +584,7 @@ def main() -> int:
         if (OUT_DIR / stale).exists():
             (OUT_DIR / stale).unlink()
 
-    generated = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    generated = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     (OUT_DIR / "tickers.json").write_text(json.dumps(by_ticker, separators=(",", ":"), sort_keys=True))
     (OUT_DIR / "manifest.json").write_text(json.dumps({
         "generated_utc": generated, "sources": {"facts": COMPANYFACTS_ZIP, "cik_map": TICKER_MAP_URL},

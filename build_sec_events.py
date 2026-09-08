@@ -29,7 +29,7 @@ import re
 import sys
 import time
 from collections import defaultdict
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
@@ -186,7 +186,7 @@ def main() -> int:
                 recent.append({"date": e["date"], "cik": rec["cik"], "tickers": tickers, "name": rec.get("name"),
                                "form": e["form"], "items": e["items"], "period": e.get("period"), "url": e.get("url")})
     recent.sort(key=lambda x: (x["date"], x["cik"]), reverse=True)
-    generated = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    generated = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     (OUT_DIR / "events_recent.json").write_text(json.dumps({"generated_utc": generated, "days": RECENT_DAYS, "rows": recent}, separators=(",", ":")))
     by_item: dict[str, int] = defaultdict(int)
     for r in recent:
