@@ -63,12 +63,20 @@ def get(url: str, retries: int = 4, timeout: int = 60) -> requests.Response | No
 
 
 def index_days(n: int) -> list[date]:
-    out, d = [], date.today()
+    """Today, plus the n most recent weekdays before it.
+
+    EDGAR accepts filings 06:00-22:00 ET, so at the 03:00 UTC run time today's index does
+    not exist yet and get() returns None for it. Counting today towards n therefore made
+    the nightly LOOKBACK_DAYS=5 cover only four published days, eating the margin that is
+    meant to absorb a weekend plus a missed run. Today is still scanned — a manual midday
+    dispatch should see the current day — it just no longer consumes the budget."""
+    out, d = [], date.today() - timedelta(days=1)
     while len(out) < n:
         if d.weekday() < 5:
             out.append(d)
         d -= timedelta(days=1)
-    return out
+    today = date.today()
+    return ([today] if today.weekday() < 5 else []) + out
 
 
 def filings_from_daily_index(d: date) -> set[int]:
