@@ -151,8 +151,19 @@ CONCEPTS: dict[str, dict] = {
         "StockholdersEquity",
         "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
     ]},
-    "shares_diluted": {"kind": "flow", "tags": ["WeightedAverageNumberOfDilutedSharesOutstanding"], "unit": "shares"},
+    "shares_diluted": {"kind": "flow", "tags": [
+        "WeightedAverageNumberOfDilutedSharesOutstanding",
+        "WeightedAverageNumberOfShareOutstandingBasicAndDiluted",
+        "WeightedAverageNumberOfSharesOutstandingBasic",       # basic as a floor when no diluted count is tagged
+    ], "unit": "shares"},
     "shares_outstanding": {"kind": "instant", "tags": ["dei:EntityCommonStockSharesOutstanding", "CommonStockSharesOutstanding"], "unit": "shares"},
+    # --- added 8 Sep 2026 (research-gap review): three balance-sheet items the screen was missing ---
+    "current_assets": {"kind": "instant", "tags": ["AssetsCurrent"]},            # -> current ratio (Piotroski's 9th signal, Altman's working-capital term)
+    "current_liabilities": {"kind": "instant", "tags": ["LiabilitiesCurrent"]},
+    "operating_leases": {"kind": "instant", "pick": "max", "tags": [            # debt in all but name for retailers, restaurants, airlines;
+        "OperatingLeaseLiability",                                               #   the total where tagged, else the non-current part as a floor
+        "OperatingLeaseLiabilityNoncurrent",
+    ]},
 }
 
 # --------------------------------------------------------------------------
@@ -385,7 +396,7 @@ CHECK_ITEMS = ("revenue", "net_income", "operating_cash_flow", "capex")
 RECON_TOL = 0.03         # four quarters must sum to the fiscal year within 3% (or $5m on small lines)
 
 
-def data_checks(ann: list[dict], qtr: list[dict]) -> dict:
+def data_checks(ann: list[dict], qtr: list[dict], tags_used: dict | None = None) -> dict:
     """Self-check written into every company file and the manifest, so a reader can refuse a row
     the pipeline itself cannot vouch for, instead of scoring a data gap as if it were the business.
 
@@ -424,7 +435,19 @@ def data_checks(ann: list[dict], qtr: list[dict]) -> dict:
                 off.append(item)
         result = "ok" if not off else "off:" + ",".join(off)
         break
-    return {"latest_quarter_end": latest_q, "quarter_age_days": age, "reconciles": result, "reconciled_fy": checked_fy}
+    # share count: some multi-class filers (Visa, Berkshire) tag every per-share and share-count fact by class of
+    # stock, and the SEC's companyfacts file carries no dimensioned facts, so the count is simply absent. A reader
+    # must not drop such a name on a test it cannot run (revenue per share); it flags it instead.
+    st = (tags_used or {}).get("shares_diluted")
+    if st and "Diluted" in st:
+        shares = "ok"
+    elif st:
+        shares = "basic-only"
+    elif (tags_used or {}).get("shares_outstanding"):
+        shares = "outstanding-only"
+    else:
+        shares = "none"
+    return {"latest_quarter_end": latest_q, "quarter_age_days": age, "reconciles": result, "reconciled_fy": checked_fy, "shares": shares}
 
 
 # --------------------------------------------------------------------------
@@ -491,7 +514,7 @@ def main() -> int:
             if latest_filed < cutoff:
                 continue
             cik = int(facts.get("cik") or n[3:13])     # the CIK is in the file name; a few records omit the field
-            checks = data_checks(ann, qtr)
+            checks = data_checks(ann, qtr, norm["tags_used"])
             rec = {"cik": cik, "sec_name": facts.get("entityName"), "tickers": by_cik.get(cik, []),
                    "annual": ann, "quarterly": qtr, "tags_used": norm["tags_used"], "checks": checks}
             path = comp_dir / f"{cik}.json"
@@ -502,8 +525,9 @@ def main() -> int:
             manifest[str(cik)] = {"name": facts.get("entityName"), "tickers": rec["tickers"], "latest_filed": latest_filed,
                                   "fiscal_year_end": ann[-1].get("period_end"), "annual_rows": len(ann), "quarterly_rows": len(qtr),
                                   "latest_quarter_end": checks["latest_quarter_end"], "quarter_age_days": checks["quarter_age_days"],
-                                  "reconciles": checks["reconciles"]}
+                                  "reconciles": checks["reconciles"], "shares": checks["shares"]}
             recon[checks["reconciles"].split(":")[0]] += 1
+            recon["shares:" + checks["shares"]] += 1
             for k, v in norm["tags_used"].items():
                 if v: coverage[k] += 1
             n_kept += 1
@@ -533,7 +557,11 @@ def main() -> int:
     report += ["", "## Self-check: four quarters sum to the fiscal year (revenue, net income, operating cash flow, capex)", "",
                f"- ok: {recon.get('ok', 0)}", f"- off (one or more items miss by >3%): {recon.get('off', 0)}",
                f"- n/a (no fiscal year with four quarters on file): {recon.get('n/a', 0)}", "",
-               "Readers treat an `off` company, or one whose latest quarter is more than 150 days old (a 10-K may lawfully take 90 days; anything older means the structured feed is behind the filing), as unmeasured on its quarterly metrics."]
+               "Readers treat an `off` company, or one whose latest quarter is more than 150 days old (a 10-K may lawfully take 90 days; anything older means the structured feed is behind the filing), as unmeasured on its quarterly metrics.",
+               "", "## Share counts (added 8 Sep 2026)", "",
+               f"- diluted count on file: {recon.get('shares:ok', 0)}", f"- basic count only: {recon.get('shares:basic-only', 0)}",
+               f"- cover-page count only: {recon.get('shares:outstanding-only', 0)}", f"- none (multi-class filers tag by class; companyfacts drops dimensioned facts): {recon.get('shares:none', 0)}", "",
+               "A reader does not drop a name on a per-share test it cannot run; `shares` in the manifest says which case applies. Also new this build: `current_assets`, `current_liabilities` (current ratio) and `operating_leases` (lease liabilities beside `total_debt`; the gate treatment is a rule decision, not a data one)."]
     (OUT_DIR / "REPORT.md").write_text("\n".join(report) + "\n")
     print(f"done in {time.time()-t0:.0f}s -> {n_kept} files in {comp_dir}/, manifest.json, tickers.json")
     return 0
