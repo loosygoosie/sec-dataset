@@ -45,6 +45,7 @@ EVENT_DAYS = 400                                            # per-company histor
 RECENT_DAYS = 90                                            # the cross-company recent file
 FORMS = {"8-K", "8-K/A", "10-K", "10-K/A", "10-Q", "10-Q/A"}
 OUT_DIR = Path("data"); EV_DIR = OUT_DIR / "events"
+CIK_OVERRIDES_PATH = OUT_DIR / "cik_overrides.json"   # hand-maintained; shared with build_sec_dataset.py
 
 _last = [0.0]
 def get(url: str, retries: int = 4, timeout: int = 60) -> requests.Response | None:
@@ -60,6 +61,39 @@ def get(url: str, retries: int = 4, timeout: int = 60) -> requests.Response | No
             return None
         time.sleep(2 * (i + 1))
     return None
+
+
+def load_ticker_overrides() -> dict[int, list[str]]:
+    """cik -> tickers, inverted from the hand-maintained data/cik_overrides.json.
+
+    When a reorganisation moves a ticker to a new holding CIK, the SEC's submissions record
+    for the operating company carries no ticker at all, so its 8-Ks and 10-Qs arrive in the
+    feed untagged and a monitor watching by ticker never sees them. The override puts the
+    ticker back on that CIK. It does not take the ticker off the new registrant: during a
+    reorganisation both entities file, and both streams matter."""
+    try:
+        j = json.loads(CIK_OVERRIDES_PATH.read_text())
+    except FileNotFoundError:
+        return {}
+    except Exception as e:  # noqa: BLE001
+        print(f"  cik_overrides.json unreadable ({type(e).__name__}); ignoring it")
+        return {}
+    out: dict[int, list[str]] = defaultdict(list)
+    for t, v in (j.get("overrides") or {}).items():
+        cik = v.get("cik") if isinstance(v, dict) else v
+        try:
+            out[int(cik)].append(t.upper().replace(".", "-"))
+        except (TypeError, ValueError):
+            print(f"  cik_overrides.json: skipping {t!r}, its cik is not a number")
+    return {k: sorted(v) for k, v in out.items()}
+
+
+def tickers_for(cik: int, rec_tickers: list[str] | None, overrides: dict[int, list[str]],
+                manifest_tickers: dict[int, list[str]]) -> list[str]:
+    """Which tickers a filing is tagged with: the hand-maintained override first, then the SEC's
+    own submissions record, then the weekly manifest (which merges the SEC's ticker and exchange
+    maps, and carries names the submissions record omits — American Electric Power, for one)."""
+    return overrides.get(cik) or rec_tickers or manifest_tickers.get(cik, [])
 
 
 def index_days(n: int) -> list[date]:
@@ -137,12 +171,17 @@ def main() -> int:
     print(f"  {len(ciks)} filers to refresh")
 
     since = date.today() - timedelta(days=EVENT_DAYS)
+    overrides = load_ticker_overrides()
+    if overrides:
+        print(f"  ticker overrides in force: {overrides}")
     print("2. submissions records")
     written = changed = 0
     for i, cik in enumerate(sorted(ciks), 1):
         meta, rows = company_events(cik, since)
         if not meta:
             continue
+        if cik in overrides:
+            meta["tickers"] = overrides[cik]
         rec = {**meta, "events": rows}
         body = json.dumps(rec, separators=(",", ":"), sort_keys=True)
         p = EV_DIR / f"{cik}.json"
@@ -182,7 +221,7 @@ def main() -> int:
             continue
         for e in rec.get("events", []):
             if e["date"] >= cutoff:
-                tickers = rec.get("tickers") or manifest_tickers.get(rec["cik"], [])
+                tickers = tickers_for(rec["cik"], rec.get("tickers"), overrides, manifest_tickers)
                 recent.append({"date": e["date"], "cik": rec["cik"], "tickers": tickers, "name": rec.get("name"),
                                "form": e["form"], "items": e["items"], "period": e.get("period"), "url": e.get("url")})
     recent.sort(key=lambda x: (x["date"], x["cik"]), reverse=True)

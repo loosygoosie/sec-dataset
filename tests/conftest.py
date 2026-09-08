@@ -75,3 +75,10 @@ def b():
     import build_sec_dataset
 
     return build_sec_dataset
+
+
+@pytest.fixture(scope="session")
+def ev():
+    import build_sec_events
+
+    return build_sec_events

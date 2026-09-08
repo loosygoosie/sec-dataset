@@ -47,6 +47,7 @@ SP500_CSV_URL = "https://raw.githubusercontent.com/datasets/s-and-p-500-companie
 # plain User-Agent rather than the HEADERS above.
 SP500_HEADERS = {"User-Agent": "sec-dataset build (+https://github.com/loosygoosie/sec-dataset)"}
 SP500_MIN = 400         # a list shorter than this is a broken fetch, not a smaller index
+CIK_OVERRIDES_PATH = Path("data/cik_overrides.json")   # hand-maintained; the build reads it, never writes it
 ANNUAL_YEARS = 8        # fiscal years of annual history to keep
 QUARTERS = 12           # quarters of quarterly history to keep
 
@@ -500,6 +501,29 @@ def data_checks(ann: list[dict], qtr: list[dict], tags_used: dict | None = None)
 # --------------------------------------------------------------------------
 # Main
 # --------------------------------------------------------------------------
+def load_cik_overrides() -> dict[str, dict]:
+    """Hand-maintained ticker -> CIK corrections, for when the SEC's map points a ticker at a
+    freshly registered shell and leaves the operating company — with all the history — carrying
+    no ticker. Returns {} when the file is absent, and skips (rather than dies on) a bad entry:
+    a typo in a hand-edited file must not take a build down."""
+    try:
+        j = json.loads(CIK_OVERRIDES_PATH.read_text())
+    except FileNotFoundError:
+        return {}
+    except Exception as e:  # noqa: BLE001
+        print(f"  cik_overrides.json unreadable ({type(e).__name__}); ignoring it")
+        return {}
+    out: dict[str, dict] = {}
+    for t, v in (j.get("overrides") or {}).items():
+        cik = v.get("cik") if isinstance(v, dict) else v
+        try:
+            out[t.upper().replace(".", "-")] = {"cik": int(cik),
+                                                "name": (v.get("name") if isinstance(v, dict) else None)}
+        except (TypeError, ValueError):
+            print(f"  cik_overrides.json: skipping {t!r}, its cik is not a number")
+    return out
+
+
 def _sp500_csv() -> str | None:
     """The constituents CSV, or None if it cannot be had. Never raises: a build must not
     fail because a list of index members was unreachable."""
@@ -586,6 +610,13 @@ def load_ticker_maps() -> tuple[dict[str, dict], dict[int, list[str]]]:
                 by_ticker.setdefault(row[ti].upper().replace(".", "-"), {"cik": int(row[ci]), "name": row[ni]})
     except Exception as e:  # noqa: BLE001
         print(f"  exchange map skipped: {e}")
+    for t, ov in load_cik_overrides().items():
+        was = by_ticker.get(t, {}).get("cik")
+        if was == ov["cik"]:
+            continue                                  # the SEC map has caught up; the entry is now a no-op
+        by_ticker[t] = {"cik": ov["cik"], "name": ov["name"] or by_ticker.get(t, {}).get("name") or t}
+        print(f"  override: {t} -> CIK {ov['cik']}" + (f" (SEC map says {was})" if was else ""))
+
     by_cik: dict[int, list[str]] = defaultdict(list)
     for t, v in sorted(by_ticker.items()):
         by_cik[v["cik"]].append(t)

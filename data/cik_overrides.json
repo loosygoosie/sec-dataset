@@ -1,0 +1,28 @@
+{
+  "_readme": [
+    "Hand-maintained. The build script reads this file and never rewrites it.",
+    "",
+    "The SEC's ticker map is regenerated daily from filing cover pages, so when a company",
+    "reorganises, a ticker can move to a freshly registered holding CIK that has filed",
+    "nothing yet — leaving the operating company, with all the history, carrying no ticker.",
+    "A reader resolving the ticker then joins to a CIK with no fundamentals at all.",
+    "",
+    "Each entry forces one ticker to one CIK. It is applied where data/tickers.json is built,",
+    "so it flows through to every company file's `tickers`, to the manifest, and to",
+    "data/sp500.json; build_sec_events.py reads the same file so the operating company's",
+    "8-Ks are tagged with the ticker too.",
+    "",
+    "Add an entry only when the SEC map points a ticker at a shell with no filings, and say",
+    "why. Remove it once the SEC map catches up — check before assuming an entry is still",
+    "needed. `name` is optional and only cosmetic (data/tickers.json); the authoritative name",
+    "is the entityName in the company's own file."
+  ],
+  "overrides": {
+    "XOM": {
+      "cik": 34088,
+      "name": "Exxon Mobil Corporation",
+      "added": "2026-09-08",
+      "why": "The SEC map points XOM at CIK 2115436 (ExxonMobil Holdings Corp), a new registrant with no companyfacts history. All the fundamentals — 8 fiscal years to FY2025, revenue $332bn — are filed under CIK 34088, which the map left with no ticker."
+    }
+  }
+}
