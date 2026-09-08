@@ -517,10 +517,16 @@ def _sp500_csv() -> str | None:
     return None
 
 
-def sp500_snapshot(by_ticker: dict[str, dict], generated: str) -> tuple[dict | None, str]:
+def sp500_snapshot(by_ticker: dict[str, dict], generated: str,
+                   published: set[int] | None = None) -> tuple[dict | None, str]:
     """Who is in the index today, each ticker resolved to a CIK through the SEC's own ticker
     map. Membership is a fact about an index, not a fundamental — every number in the company
     files still comes from the filer's own filing.
+
+    `published` is the set of CIKs this build actually wrote a company file for. A constituent
+    can resolve to a CIK cleanly and still have no fundamentals behind it — a reorganisation
+    moves a ticker to a new registrant, a spinoff has not filed yet — so those are named in
+    `no_fundamentals` rather than left to fail silently when a reader joins on cik.
 
     Returns (record, note). The record is None when the list could not be fetched or came back
     implausibly short; main then leaves the previous data/sp500.json alone and REPORT.md says
@@ -557,10 +563,12 @@ def sp500_snapshot(by_ticker: dict[str, dict], generated: str) -> tuple[dict | N
     if total < SP500_MIN:
         print(f"  constituents list came back with only {total} tickers; keeping the previous file")
         return None, f"the list came back with only {total} tickers"
+    no_fundamentals = sorted(c["ticker"] for c in companies
+                             if published is not None and c["cik"] not in published)
     return {"generated_utc": generated, "date": generated[:10], "source": SP500_CSV_URL,
             "constituents": total, "matched": len(companies),
             "companies": sorted(companies, key=lambda c: c["ticker"]),
-            "unmatched": sorted(unmatched)}, "ok"
+            "unmatched": sorted(unmatched), "no_fundamentals": no_fundamentals}, "ok"
 
 
 def load_ticker_maps() -> tuple[dict[str, dict], dict[int, list[str]]]:
@@ -657,7 +665,7 @@ def main() -> int:
 
     print("4. S&P 500 constituents")
     sp500_path = OUT_DIR / "sp500.json"
-    sp500, sp500_note = sp500_snapshot(by_ticker, generated)
+    sp500, sp500_note = sp500_snapshot(by_ticker, generated, {int(k) for k in manifest})
     if sp500 is not None:
         sp500_path.write_text(json.dumps(sp500, separators=(",", ":"), sort_keys=True))
         print(f"  {sp500['matched']}/{sp500['constituents']} tickers resolved to a CIK")
@@ -687,7 +695,8 @@ def main() -> int:
         report += [f"- source: {SP500_CSV_URL}", f"- snapshot date: {sp500['date']}",
                    f"- constituents: {sp500['constituents']}",
                    f"- resolved to a CIK via the SEC ticker map: {sp500['matched']}",
-                   f"- unmatched: {', '.join(sp500['unmatched']) if sp500['unmatched'] else 'none'}"]
+                   f"- unmatched (no CIK in the SEC ticker map): {', '.join(sp500['unmatched']) if sp500['unmatched'] else 'none'}",
+                   f"- resolved but with no company file, so nothing to join to: {', '.join(sp500['no_fundamentals']) if sp500['no_fundamentals'] else 'none'}"]
     elif sp500_path.exists():
         report += [f"- **NOT REFRESHED THIS RUN** — {sp500_note}; `data/sp500.json` is unchanged from the previous build.",
                    "- Membership is therefore as of the last successful fetch. Every fundamental in this build",

@@ -125,3 +125,48 @@ def test_the_constituents_request_does_not_carry_the_sec_user_agent(b):
     assert b.SP500_HEADERS["User-Agent"] != b.HEADERS["User-Agent"]
     assert "sec.gov" not in b.SP500_CSV_URL
     assert b.USER_AGENT not in b.SP500_HEADERS["User-Agent"]
+
+
+# --------------------------------------------------------------------------
+# no_fundamentals: resolved to a CIK, but nothing behind it
+# --------------------------------------------------------------------------
+def test_a_constituent_with_no_company_file_is_named(b, fetch, monkeypatch):
+    """A spinoff that has not filed yet, or a ticker moved to a new registrant, resolves
+    cleanly and then joins to nothing. Silence there looks identical to a company with no
+    revenue, so it is stated instead."""
+    monkeypatch.setattr(b, "SP500_MIN", 2)
+    fetch(csv_rows("AAPL", "MMM"))
+
+    rec, _ = b.sp500_snapshot(MAP, GENERATED, published={320193})   # MMM's CIK absent
+
+    assert rec["no_fundamentals"] == ["MMM"]
+    assert rec["matched"] == 2                  # still matched: it has a CIK, just no file
+
+
+def test_nothing_is_flagged_when_every_constituent_has_a_file(b, fetch, monkeypatch):
+    monkeypatch.setattr(b, "SP500_MIN", 2)
+    fetch(csv_rows("AAPL", "MMM"))
+
+    rec, _ = b.sp500_snapshot(MAP, GENERATED, published={320193, 66740})
+
+    assert rec["no_fundamentals"] == []
+
+
+def test_an_unmatched_ticker_is_not_also_reported_as_lacking_fundamentals(b, fetch, monkeypatch):
+    """The two lists answer different questions; a ticker with no CIK belongs only in unmatched."""
+    monkeypatch.setattr(b, "SP500_MIN", 2)
+    fetch(csv_rows("AAPL", "NEWCO"))
+
+    rec, _ = b.sp500_snapshot(MAP, GENERATED, published={320193})
+
+    assert rec["unmatched"] == ["NEWCO"]
+    assert rec["no_fundamentals"] == []
+
+
+def test_without_a_published_set_the_check_is_skipped_not_guessed(b, fetch, monkeypatch):
+    monkeypatch.setattr(b, "SP500_MIN", 1)
+    fetch(csv_rows("AAPL"))
+
+    rec, _ = b.sp500_snapshot(MAP, GENERATED)
+
+    assert rec["no_fundamentals"] == []
