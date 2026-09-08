@@ -1,4 +1,4 @@
-# SEC dataset build — 2026-09-08T20:05:15Z
+# SEC dataset build — 2026-09-08T20:47:18Z
 
 - filers scanned: 20335
 - companies published: 7412
@@ -76,6 +76,16 @@ A reader does not drop a name on a per-share test it cannot run; `shares` in the
 ## Items added 8 Sep 2026
 
 `current_assets`, `current_liabilities` (current ratio); `operating_leases` (beside `total_debt`; the gate treatment is a rule decision); `receivables`, `inventory`, `total_liabilities` (working-capital quality); `acquisitions`, `goodwill`, `intangibles`, `impairments`; `rd_expense`, `sga_expense`; `pension_funded_status`; `debt_due_1y/2y/3y`; bank items `net_interest_income`, `interest_income`, `deposits`, `loans`, `credit_loss_provision`, `loan_loss_allowance`, `tier1_capital_ratio` (thin — tagged by regulatory entity, which companyfacts drops); insurer items `premiums_earned`, `claims_incurred`, `acquisition_cost_amort`, `loss_reserves`. Segment revenue and per-class share data are dimensioned facts and cannot come from this file; the business briefs carry segments in words. Coverage per item is listed above — an item with low coverage is a tag most filers do not use, not a bug.
+
+## Stale-name fallback
+
+- companies whose companyfacts quarterly series was behind their own filings: 192
+- of those, patched from the filing's own XBRL this run: 72 (cap 100 filings)
+
+A quarterly row carrying `"source": "filing"` was derived from the filing's own XBRL instance,
+through the same tag map, picking rules and year-to-date differencing as every other row. A row
+with no `source` came from the SEC's bulk companyfacts file. Only quarters missing from
+companyfacts are added; the prior-year comparatives a filing also carries are left alone.
 
 ## S&P 500 constituents
 
