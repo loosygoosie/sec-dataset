@@ -41,6 +41,12 @@ HEADERS = {"User-Agent": USER_AGENT, "Accept-Encoding": "gzip, deflate"}
 
 COMPANYFACTS_ZIP = "https://www.sec.gov/Archives/edgar/daily-index/xbrl/companyfacts.zip"
 TICKER_MAP_URL = "https://www.sec.gov/files/company_tickers.json"
+SP500_CSV_URL = "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv"
+# The constituent list is the one thing here that is not an SEC file. SEC_USER_AGENT carries a
+# real name and email and is sent to sec.gov and nowhere else, so this request uses its own
+# plain User-Agent rather than the HEADERS above.
+SP500_HEADERS = {"User-Agent": "sec-dataset build (+https://github.com/loosygoosie/sec-dataset)"}
+SP500_MIN = 400         # a list shorter than this is a broken fetch, not a smaller index
 ANNUAL_YEARS = 8        # fiscal years of annual history to keep
 QUARTERS = 12           # quarters of quarterly history to keep
 
@@ -494,6 +500,69 @@ def data_checks(ann: list[dict], qtr: list[dict], tags_used: dict | None = None)
 # --------------------------------------------------------------------------
 # Main
 # --------------------------------------------------------------------------
+def _sp500_csv() -> str | None:
+    """The constituents CSV, or None if it cannot be had. Never raises: a build must not
+    fail because a list of index members was unreachable."""
+    last = None
+    for i in range(3):
+        try:
+            r = requests.get(SP500_CSV_URL, headers=SP500_HEADERS, timeout=60)
+            if r.status_code == 200:
+                return r.text
+            last = f"HTTP {r.status_code}"
+        except requests.RequestException as e:
+            last = type(e).__name__
+        time.sleep(2 * (i + 1))
+    print(f"  constituents fetch failed: {last}")
+    return None
+
+
+def sp500_snapshot(by_ticker: dict[str, dict], generated: str) -> tuple[dict | None, str]:
+    """Who is in the index today, each ticker resolved to a CIK through the SEC's own ticker
+    map. Membership is a fact about an index, not a fundamental — every number in the company
+    files still comes from the filer's own filing.
+
+    Returns (record, note). The record is None when the list could not be fetched or came back
+    implausibly short; main then leaves the previous data/sp500.json alone and REPORT.md says
+    the snapshot is stale, because a reader acting on a silently empty index is worse off than
+    one acting on last week's."""
+    text = _sp500_csv()
+    if text is None:
+        return None, "the fetch failed"
+
+    def cell(row: dict, *names: str) -> str:
+        for n in names:
+            for k, v in row.items():
+                if k and k.strip().lower() == n:
+                    return (v or "").strip()
+        return ""
+
+    companies, unmatched, seen = [], [], set()
+    for row in csv.DictReader(io.StringIO(text)):
+        raw = cell(row, "symbol", "ticker")
+        if not raw:
+            continue
+        t = raw.upper().replace(".", "-")        # the SEC map's own spelling: BRK.B -> BRK-B
+        if t in seen:
+            continue
+        seen.add(t)
+        hit = by_ticker.get(t)
+        if hit:
+            companies.append({"ticker": t, "cik": hit["cik"],
+                              "name": cell(row, "security", "name", "company") or hit["name"]})
+        else:
+            unmatched.append(t)                  # a fresh addition the SEC map has not caught up with
+
+    total = len(companies) + len(unmatched)
+    if total < SP500_MIN:
+        print(f"  constituents list came back with only {total} tickers; keeping the previous file")
+        return None, f"the list came back with only {total} tickers"
+    return {"generated_utc": generated, "date": generated[:10], "source": SP500_CSV_URL,
+            "constituents": total, "matched": len(companies),
+            "companies": sorted(companies, key=lambda c: c["ticker"]),
+            "unmatched": sorted(unmatched)}, "ok"
+
+
 def load_ticker_maps() -> tuple[dict[str, dict], dict[int, list[str]]]:
     """SEC's own ticker map (regenerated daily from filing cover pages): ticker -> {cik, name}, and cik -> [tickers].
     The exchange-listed variant is merged in when reachable — it carries a few tickers the plain map lacks."""
@@ -585,6 +654,14 @@ def main() -> int:
             (OUT_DIR / stale).unlink()
 
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    print("4. S&P 500 constituents")
+    sp500_path = OUT_DIR / "sp500.json"
+    sp500, sp500_note = sp500_snapshot(by_ticker, generated)
+    if sp500 is not None:
+        sp500_path.write_text(json.dumps(sp500, separators=(",", ":"), sort_keys=True))
+        print(f"  {sp500['matched']}/{sp500['constituents']} tickers resolved to a CIK")
+
     (OUT_DIR / "tickers.json").write_text(json.dumps(by_ticker, separators=(",", ":"), sort_keys=True))
     (OUT_DIR / "manifest.json").write_text(json.dumps({
         "generated_utc": generated, "sources": {"facts": COMPANYFACTS_ZIP, "cik_map": TICKER_MAP_URL},
@@ -605,6 +682,25 @@ def main() -> int:
                "A reader does not drop a name on a per-share test it cannot run; `shares` in the manifest says which case applies.",
                "", "## Items added 8 Sep 2026", "",
                "`current_assets`, `current_liabilities` (current ratio); `operating_leases` (beside `total_debt`; the gate treatment is a rule decision); `receivables`, `inventory`, `total_liabilities` (working-capital quality); `acquisitions`, `goodwill`, `intangibles`, `impairments`; `rd_expense`, `sga_expense`; `pension_funded_status`; `debt_due_1y/2y/3y`; bank items `net_interest_income`, `interest_income`, `deposits`, `loans`, `credit_loss_provision`, `loan_loss_allowance`, `tier1_capital_ratio` (thin — tagged by regulatory entity, which companyfacts drops); insurer items `premiums_earned`, `claims_incurred`, `acquisition_cost_amort`, `loss_reserves`. Segment revenue and per-class share data are dimensioned facts and cannot come from this file; the business briefs carry segments in words. Coverage per item is listed above — an item with low coverage is a tag most filers do not use, not a bug."]
+    report += ["", "## S&P 500 constituents", ""]
+    if sp500 is not None:
+        report += [f"- source: {SP500_CSV_URL}", f"- snapshot date: {sp500['date']}",
+                   f"- constituents: {sp500['constituents']}",
+                   f"- resolved to a CIK via the SEC ticker map: {sp500['matched']}",
+                   f"- unmatched: {', '.join(sp500['unmatched']) if sp500['unmatched'] else 'none'}"]
+    elif sp500_path.exists():
+        report += [f"- **NOT REFRESHED THIS RUN** — {sp500_note}; `data/sp500.json` is unchanged from the previous build.",
+                   "- Membership is therefore as of the last successful fetch. Every fundamental in this build",
+                   "  comes from the filings as usual and is unaffected; only the index list is stale."]
+    else:
+        report += [f"- **NOT WRITTEN** — {sp500_note}, and there is no earlier snapshot to fall back on,",
+                   "  so `data/sp500.json` is absent from this build.",
+                   "- A reader must treat the file as missing, not as an empty index. Every fundamental in this",
+                   "  build comes from the filings as usual and is unaffected."]
+    report += ["", "Membership comes from a public constituents list, not from the SEC — it is a fact about",
+               "an index, not a company fundamental. `cik` is resolved through the SEC's own ticker map, so a",
+               "ticker the map has not caught up with is listed under `unmatched` rather than guessed at."]
+
     (OUT_DIR / "REPORT.md").write_text("\n".join(report) + "\n")
     print(f"done in {time.time()-t0:.0f}s -> {n_kept} files in {comp_dir}/, manifest.json, tickers.json")
     return 0
