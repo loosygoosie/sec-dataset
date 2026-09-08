@@ -272,6 +272,41 @@ def main() -> int:
             p.unlink(); pruned += 1
     print(f"  {pruned} stale records removed")
 
+    # A company that has not filed inside the lookback window is never refreshed above, so its
+    # 8-Ks would never pick up exhibits however many times the feed runs — ADSK's 27 Aug earnings
+    # release was still bare after a 5-day run. Sweep whatever is left of the window with the
+    # remaining budget, newest first, so the filings a monitor is most likely to open come first.
+    if ex_budget > 0:
+        todo: list[tuple[str, int, str]] = []
+        for p in EV_DIR.glob("*.json"):
+            try:
+                rec = json.loads(p.read_text())
+            except Exception:  # noqa: BLE001
+                continue
+            for e in rec.get("events", []):
+                if e["form"] in EXHIBIT_FORMS and e["date"] >= ex_cutoff and e.get("exhibits") is None:
+                    todo.append((e["date"], rec["cik"], e["accession"]))
+        todo.sort(reverse=True)
+        found: dict[int, dict[str, list]] = defaultdict(dict)
+        for _, cik, acc in todo[:ex_budget]:
+            got = exhibits_for(cik, acc)
+            if got is not None:
+                found[cik][acc] = got
+        for cik, got in found.items():
+            p = EV_DIR / f"{cik}.json"
+            try:
+                rec = json.loads(p.read_text())
+            except Exception:  # noqa: BLE001
+                continue
+            for e in rec["events"]:
+                if e["accession"] in got:
+                    e["exhibits"] = got[e["accession"]]
+            p.write_text(json.dumps(rec, separators=(",", ":"), sort_keys=True))
+            changed += 1
+        done = sum(len(v) for v in found.values())
+        print(f"  backfill: {done} of {len(todo)} older filings indexed"
+              + (f"; {len(todo) - done} left for the next run" if len(todo) > done else ""))
+
     print("3. recent index")
     # The SEC's submissions record sometimes carries no tickers (American Electric Power, for one);
     # fall back to the weekly build's manifest, which merges the SEC's ticker and exchange maps.
