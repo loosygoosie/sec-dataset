@@ -51,6 +51,15 @@ jobs:
             echo "no changes"
           else
             git commit -q -m "SEC dataset $(date -u +%Y-%m-%d) [skip ci]"
-            git pull --rebase -q origin main || true
-            git push
+            # Push to the branch this run is on, and only fetch/rebase if the remote
+            # moved under us. The old line was hardcoded to main and, against the
+            # depth-1 checkout, had no merge base: on any other branch it turned every
+            # touched file into an add/add conflict and left the runner on a detached
+            # HEAD, so the push failed with exit 128.
+            git push origin "HEAD:$GITHUB_REF_NAME" || {
+              echo "push rejected - remote moved; rebasing onto it and retrying"
+              git fetch --unshallow origin "$GITHUB_REF_NAME" 2>/dev/null || git fetch origin "$GITHUB_REF_NAME"
+              git rebase "origin/$GITHUB_REF_NAME"
+              git push origin "HEAD:$GITHUB_REF_NAME"
+            }
           fi
