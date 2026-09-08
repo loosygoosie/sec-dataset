@@ -164,6 +164,37 @@ CONCEPTS: dict[str, dict] = {
         "OperatingLeaseLiability",                                               #   the total where tagged, else the non-current part as a floor
         "OperatingLeaseLiabilityNoncurrent",
     ]},
+    # --- added 8 Sep 2026, afternoon (Andrew: "the absolute complete picture") ---
+    # working-capital quality: receivables and inventory outrunning sales is the earliest warning the statements give
+    "receivables": {"kind": "instant", "tags": ["AccountsReceivableNetCurrent", "ReceivablesNetCurrent"]},
+    "inventory": {"kind": "instant", "tags": ["InventoryNet"]},
+    "total_liabilities": {"kind": "instant", "tags": ["Liabilities"]},
+    # acquisitions and what they leave behind
+    "acquisitions": {"kind": "flow", "tags": ["PaymentsToAcquireBusinessesNetOfCashAcquired", "PaymentsToAcquireBusinessesGross"]},
+    "goodwill": {"kind": "instant", "tags": ["Goodwill"]},
+    "intangibles": {"kind": "instant", "tags": ["IntangibleAssetsNetExcludingGoodwill"]},
+    "impairments": {"kind": "flow", "pick": "max", "tags": ["GoodwillImpairmentLoss", "AssetImpairmentCharges", "ImpairmentOfLongLivedAssetsHeldForUse"]},
+    # operating expense lines the pillars were taking from FMP
+    "rd_expense": {"kind": "flow", "tags": ["ResearchAndDevelopmentExpense", "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost"]},
+    "sga_expense": {"kind": "flow", "tags": ["SellingGeneralAndAdministrativeExpense"]},
+    # pension underfunding (negative = underfunded) and the debt wall
+    "pension_funded_status": {"kind": "instant", "tags": ["DefinedBenefitPlanFundedStatusOfPlan"]},
+    "debt_due_1y": {"kind": "instant", "tags": ["LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths"]},
+    "debt_due_2y": {"kind": "instant", "tags": ["LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo"]},
+    "debt_due_3y": {"kind": "instant", "tags": ["LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree"]},
+    # banks: the yardsticks Financial Services should be judged on (the November quarterly tests these definitions)
+    "net_interest_income": {"kind": "flow", "tags": ["InterestIncomeExpenseNet"]},
+    "interest_income": {"kind": "flow", "tags": ["InterestAndDividendIncomeOperating", "InterestIncomeOperating"]},
+    "deposits": {"kind": "instant", "tags": ["Deposits"]},
+    "loans": {"kind": "instant", "tags": ["LoansAndLeasesReceivableNetReportedAmount", "NotesReceivableNet", "FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLoss"]},
+    "credit_loss_provision": {"kind": "flow", "tags": ["ProvisionForLoanLeaseAndOtherLosses", "ProvisionForLoanLossesExpensed", "ProvisionForCreditLossesFinancingReceivables"]},
+    "loan_loss_allowance": {"kind": "instant", "tags": ["FinancingReceivableAllowanceForCreditLosses", "AllowanceForLoanAndLeaseLosses"]},
+    "tier1_capital_ratio": {"kind": "instant", "tags": ["TierOneRiskBasedCapitalToRiskWeightedAssets"], "unit": "pure"},   # most banks tag this by regulatory entity/framework, which companyfacts drops: expect thin coverage
+    # insurers: combined-ratio components
+    "premiums_earned": {"kind": "flow", "tags": ["PremiumsEarnedNet"]},
+    "claims_incurred": {"kind": "flow", "tags": ["PolicyholderBenefitsAndClaimsIncurredNet", "IncurredClaimsPropertyCasualtyAndLiability"]},
+    "acquisition_cost_amort": {"kind": "flow", "tags": ["DeferredPolicyAcquisitionCostAmortizationExpense"]},
+    "loss_reserves": {"kind": "instant", "tags": ["LiabilityForClaimsAndClaimsAdjustmentExpense"]},
 }
 
 # --------------------------------------------------------------------------
@@ -561,7 +592,9 @@ def main() -> int:
                "", "## Share counts (added 8 Sep 2026)", "",
                f"- diluted count on file: {recon.get('shares:ok', 0)}", f"- basic count only: {recon.get('shares:basic-only', 0)}",
                f"- cover-page count only: {recon.get('shares:outstanding-only', 0)}", f"- none (multi-class filers tag by class; companyfacts drops dimensioned facts): {recon.get('shares:none', 0)}", "",
-               "A reader does not drop a name on a per-share test it cannot run; `shares` in the manifest says which case applies. Also new this build: `current_assets`, `current_liabilities` (current ratio) and `operating_leases` (lease liabilities beside `total_debt`; the gate treatment is a rule decision, not a data one)."]
+               "A reader does not drop a name on a per-share test it cannot run; `shares` in the manifest says which case applies.",
+               "", "## Items added 8 Sep 2026", "",
+               "`current_assets`, `current_liabilities` (current ratio); `operating_leases` (beside `total_debt`; the gate treatment is a rule decision); `receivables`, `inventory`, `total_liabilities` (working-capital quality); `acquisitions`, `goodwill`, `intangibles`, `impairments`; `rd_expense`, `sga_expense`; `pension_funded_status`; `debt_due_1y/2y/3y`; bank items `net_interest_income`, `interest_income`, `deposits`, `loans`, `credit_loss_provision`, `loan_loss_allowance`, `tier1_capital_ratio` (thin — tagged by regulatory entity, which companyfacts drops); insurer items `premiums_earned`, `claims_incurred`, `acquisition_cost_amort`, `loss_reserves`. Segment revenue and per-class share data are dimensioned facts and cannot come from this file; the business briefs carry segments in words. Coverage per item is listed above — an item with low coverage is a tag most filers do not use, not a bug."]
     (OUT_DIR / "REPORT.md").write_text("\n".join(report) + "\n")
     print(f"done in {time.time()-t0:.0f}s -> {n_kept} files in {comp_dir}/, manifest.json, tickers.json")
     return 0
