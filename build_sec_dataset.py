@@ -26,6 +26,7 @@ import os
 import re
 import sys
 import time
+import xml.etree.ElementTree as ET
 import zipfile
 from collections import defaultdict
 from datetime import date, datetime, timedelta, timezone
@@ -48,6 +49,13 @@ SP500_CSV_URL = "https://raw.githubusercontent.com/datasets/s-and-p-500-companie
 SP500_HEADERS = {"User-Agent": "sec-dataset build (+https://github.com/loosygoosie/sec-dataset)"}
 SP500_MIN = 400         # a list shorter than this is a broken fetch, not a smaller index
 CIK_OVERRIDES_PATH = Path("data/cik_overrides.json")   # hand-maintained; the build reads it, never writes it
+FILING_INDEX = "https://www.sec.gov/Archives/edgar/data/{cik}/{acc_nodash}/{acc}-index.html"
+EVENTS_DIR = Path("data/events")    # written by build_sec_events.py; read here to spot a filing the bulk file has not caught up with
+STALE_DAYS = 150                    # the tolerance REPORT.md tells readers to apply
+PATCH_CAP = 100                     # filings fetched per build
+PATCH_PER_COMPANY = 3               # a company missing several quarters needs them filled in order
+XBRLI = "http://www.xbrl.org/2003/instance"
+XSI_NIL = "{http://www.w3.org/2001/XMLSchema-instance}nil"
 ANNUAL_YEARS = 8        # fiscal years of annual history to keep
 QUARTERS = 12           # quarters of quarterly history to keep
 
@@ -207,11 +215,18 @@ CONCEPTS: dict[str, dict] = {
 # --------------------------------------------------------------------------
 # HTTP helpers
 # --------------------------------------------------------------------------
+_last_get = [0.0]
+
+
 def get(url: str, retries: int = 4, stream: bool = False, timeout: int = 120) -> requests.Response:
     last = None
     for i in range(retries):
         try:
+            gap = time.time() - _last_get[0]
+            if gap < 0.12:                        # ~8 requests/second, under the SEC's 10/s
+                time.sleep(0.12 - gap)
             r = requests.get(url, headers=HEADERS, timeout=timeout, stream=stream)
+            _last_get[0] = time.time()
             if r.status_code == 200:
                 return r
             last = f"HTTP {r.status_code}"
@@ -501,6 +516,134 @@ def data_checks(ann: list[dict], qtr: list[dict], tags_used: dict | None = None)
 # --------------------------------------------------------------------------
 # Main
 # --------------------------------------------------------------------------
+def parse_xbrl_instance(xml_text: str, form: str, filed: str) -> dict:
+    """One filing's XBRL instance, reshaped into the companyfacts layout the normaliser reads.
+
+    The SEC's bulk companyfacts file trails some filers by months. The filing itself carries the
+    same facts on the day it lands, so for a company that has fallen behind we read its instance
+    document and feed it through the very same tag map, picking rules and YTD differencing.
+
+    Only consolidated facts survive: a context carrying a <segment> is a breakdown by business
+    segment or class of stock, and companyfacts drops dimensioned facts too, so keeping them
+    would put a segment's revenue where the company's total belongs. Namespaces are matched by
+    URI, not by prefix, because filers choose their own prefixes."""
+    root = ET.fromstring(xml_text)
+
+    ctx: dict[str, dict] = {}
+    for c in root.findall(f"{{{XBRLI}}}context"):
+        if c.find(f".//{{{XBRLI}}}segment") is not None:
+            continue
+        per = c.find(f"{{{XBRLI}}}period")
+        if per is None:
+            continue
+        inst = per.find(f"{{{XBRLI}}}instant")
+        if inst is not None and inst.text:
+            ctx[c.get("id")] = {"end": inst.text}
+            continue
+        sd, ed = per.find(f"{{{XBRLI}}}startDate"), per.find(f"{{{XBRLI}}}endDate")
+        if sd is not None and ed is not None and sd.text and ed.text:
+            ctx[c.get("id")] = {"start": sd.text, "end": ed.text}
+
+    units: dict[str, str] = {}
+    for u in root.findall(f"{{{XBRLI}}}unit"):
+        m = u.find(f"{{{XBRLI}}}measure")
+        if m is not None and m.text:
+            units[u.get("id")] = m.text.split(":")[-1]          # iso4217:USD -> USD
+            continue
+        num = u.find(f".//{{{XBRLI}}}unitNumerator/{{{XBRLI}}}measure")
+        den = u.find(f".//{{{XBRLI}}}unitDenominator/{{{XBRLI}}}measure")
+        if num is not None and den is not None and num.text and den.text:
+            units[u.get("id")] = f"{num.text.split(':')[-1]}/{den.text.split(':')[-1]}"
+
+    fp = "FY" if form.startswith("10-K") else "Q"
+    out: dict[str, dict] = {"us-gaap": {}, "dei": {}}
+    seen: set = set()
+    for el in root.iter():
+        if not el.tag.startswith("{"):
+            continue
+        uri, tag = el.tag[1:].split("}", 1)
+        if "us-gaap" in uri:
+            ns = "us-gaap"
+        elif "/dei" in uri:
+            ns = "dei"
+        else:
+            continue                                            # the filer's own extension tags mean nothing to CONCEPTS
+        if el.get(XSI_NIL) == "true" or not (el.text or "").strip():
+            continue
+        c, unit = ctx.get(el.get("contextRef") or ""), units.get(el.get("unitRef") or "")
+        if c is None or unit is None:
+            continue
+        try:
+            val = float(el.text)
+        except ValueError:
+            continue
+        if val.is_integer():
+            val = int(val)
+        key = (ns, tag, unit, c.get("start"), c["end"], val)
+        if key in seen:
+            continue                                            # one fact is tagged in several places in a document
+        seen.add(key)
+        f = {"end": c["end"], "val": val, "form": form, "filed": filed, "fp": fp, "fy": int(c["end"][:4])}
+        if "start" in c:
+            f["start"] = c["start"]
+        out[ns].setdefault(tag, {"units": {}})["units"].setdefault(unit, []).append(f)
+    return {"facts": out}
+
+
+def merge_facts(base: dict, extra: dict) -> None:
+    """Fold a filing's facts into a company's companyfacts record, in place. `base` is read fresh
+    from the zip for this one company and thrown away after, so mutating it is safe. The
+    normaliser's own rules then decide which value wins per period — the filing's facts carry a
+    later `filed`, so where they restate something they take precedence, as a restatement should."""
+    for ns, tags in extra.get("facts", {}).items():
+        b = base.setdefault("facts", {}).setdefault(ns, {})
+        for tag, node in tags.items():
+            bu = b.setdefault(tag, {"units": {}}).setdefault("units", {})
+            for unit, facts in node["units"].items():
+                bu.setdefault(unit, []).extend(facts)
+
+
+def filing_instance_url(cik: int, accession: str) -> str | None:
+    """The filing's XBRL instance document, from its index page: the row EDGAR labels
+    'EXTRACTED XBRL INSTANCE DOCUMENT'."""
+    r = get(FILING_INDEX.format(cik=cik, acc_nodash=accession.replace("-", ""), acc=accession), retries=2, timeout=60)
+    for row in re.findall(r"<tr[^>]*>(.*?)</tr>", r.text, re.S):
+        cells = [re.sub(r"<[^>]+>", "", c).strip() for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", row, re.S)]
+        if len(cells) >= 4 and "INSTANCE" in cells[1].upper():
+            m = re.search(r'href="([^"]+)"', row)
+            if m:
+                return "https://www.sec.gov" + m.group(1)
+    return None
+
+
+def patch_targets(manifest: dict, priority: set[int]) -> list[tuple[int, list[dict]]]:
+    """Companies whose companyfacts quarterly series has fallen behind a filing the events feed
+    already knows about: stale beyond STALE_DAYS, with a 10-Q or 10-K on file for a period later
+    than the last quarter we hold. Filings come back oldest first, because deriving a quarter from
+    a year-to-date figure needs the earlier quarters of that year to exist. S&P 500 constituents
+    are served first, then the most stale, so a capped run spends its budget where it is read."""
+    out: list[tuple[int, list[dict]]] = []
+    for cik_s, v in manifest.items():
+        age, lq = v.get("quarter_age_days"), v.get("latest_quarter_end")
+        if age is None or age <= STALE_DAYS or not lq:
+            continue
+        p = EVENTS_DIR / f"{cik_s}.json"
+        if not p.exists():
+            continue
+        try:
+            evs = json.loads(p.read_text()).get("events", [])
+        except Exception:  # noqa: BLE001
+            continue
+        newer = [e for e in evs if str(e.get("form", "")).startswith(("10-Q", "10-K"))
+                 and e.get("period") and e["period"] > lq and e.get("accession")]
+        if not newer:
+            continue
+        newer.sort(key=lambda e: e["period"])
+        out.append((int(cik_s), newer[:PATCH_PER_COMPANY]))
+    out.sort(key=lambda t: (t[0] not in priority, -(manifest[str(t[0])]["quarter_age_days"] or 0)))
+    return out
+
+
 def load_cik_overrides() -> dict[str, dict]:
     """Hand-maintained ticker -> CIK corrections, for when the SEC's map points a ticker at a
     freshly registered shell and leaves the operating company — with all the history — carrying
@@ -701,6 +844,64 @@ def main() -> int:
         sp500_path.write_text(json.dumps(sp500, separators=(",", ":"), sort_keys=True))
         print(f"  {sp500['matched']}/{sp500['constituents']} tickers resolved to a CIK")
 
+    print("5. stale-name fallback")
+    patched: list[int] = []
+    targets = patch_targets(manifest, {c["cik"] for c in (sp500 or {}).get("companies", [])})
+    print(f"  {len(targets)} companies are behind their own filings; budget {PATCH_CAP} filings")
+    budget = PATCH_CAP
+    with zipfile.ZipFile(zpath) as z:
+        for cik, filings in targets:
+            if budget <= 0:
+                break
+            path = comp_dir / f"{cik}.json"
+            try:
+                with z.open(f"CIK{cik:010d}.json") as fh:
+                    facts = json.load(fh)
+                rec = json.loads(path.read_text())
+            except (KeyError, OSError, ValueError):
+                continue
+            before = {r["period_end"] for r in rec["quarterly"]}
+            used = 0
+            for e in filings:
+                if budget <= 0:
+                    break
+                budget -= 1
+                try:
+                    url = filing_instance_url(cik, e["accession"])
+                    if not url:
+                        continue                      # a filing with no XBRL instance: nothing to read
+                    merge_facts(facts, parse_xbrl_instance(get(url, retries=2, timeout=180).text,
+                                                           e["form"], e.get("date") or ""))
+                    used += 1
+                except Exception as ex:  # noqa: BLE001
+                    print(f"  {cik} {e['accession']}: {type(ex).__name__}: {ex}")
+            if not used:
+                continue
+            try:
+                norm = normalise_company(facts)
+            except Exception as ex:  # noqa: BLE001
+                print(f"  {cik}: re-normalise failed: {type(ex).__name__}")
+                continue
+            # Only genuinely new quarters are taken. The filing also carries prior-year
+            # comparatives, and rewriting settled history from it is not what this is for.
+            fresh = [r for r in norm["quarterly"] if r["period_end"] not in before]
+            if not fresh:
+                continue
+            for r in fresh:
+                r["source"] = "filing"                # absent on a row means it came from companyfacts
+            rec["quarterly"] = sorted(rec["quarterly"] + fresh, key=lambda r: r["period_end"])[-QUARTERS:]
+            was = rec["checks"]["reconciles"].split(":")[0]
+            rec["checks"] = data_checks(rec["annual"], rec["quarterly"], rec["tags_used"])
+            path.write_text(json.dumps(rec, separators=(",", ":"), sort_keys=True))
+            recon[was] -= 1
+            recon[rec["checks"]["reconciles"].split(":")[0]] += 1
+            manifest[str(cik)].update(quarterly_rows=len(rec["quarterly"]),
+                                      latest_quarter_end=rec["checks"]["latest_quarter_end"],
+                                      quarter_age_days=rec["checks"]["quarter_age_days"],
+                                      reconciles=rec["checks"]["reconciles"], patched_from_filing=True)
+            patched.append(cik)
+    print(f"  patched {len(patched)} companies from their own filings ({PATCH_CAP - budget} filings fetched)")
+
     (OUT_DIR / "tickers.json").write_text(json.dumps(by_ticker, separators=(",", ":"), sort_keys=True))
     (OUT_DIR / "manifest.json").write_text(json.dumps({
         "generated_utc": generated, "sources": {"facts": COMPANYFACTS_ZIP, "cik_map": TICKER_MAP_URL},
@@ -721,7 +922,15 @@ def main() -> int:
                "A reader does not drop a name on a per-share test it cannot run; `shares` in the manifest says which case applies.",
                "", "## Items added 8 Sep 2026", "",
                "`current_assets`, `current_liabilities` (current ratio); `operating_leases` (beside `total_debt`; the gate treatment is a rule decision); `receivables`, `inventory`, `total_liabilities` (working-capital quality); `acquisitions`, `goodwill`, `intangibles`, `impairments`; `rd_expense`, `sga_expense`; `pension_funded_status`; `debt_due_1y/2y/3y`; bank items `net_interest_income`, `interest_income`, `deposits`, `loans`, `credit_loss_provision`, `loan_loss_allowance`, `tier1_capital_ratio` (thin — tagged by regulatory entity, which companyfacts drops); insurer items `premiums_earned`, `claims_incurred`, `acquisition_cost_amort`, `loss_reserves`. Segment revenue and per-class share data are dimensioned facts and cannot come from this file; the business briefs carry segments in words. Coverage per item is listed above — an item with low coverage is a tag most filers do not use, not a bug."]
-    report += ["", "## S&P 500 constituents", ""]
+    report += ["", "## Stale-name fallback", "",
+               f"- companies whose companyfacts quarterly series was behind their own filings: {len(targets)}",
+               f"- of those, patched from the filing's own XBRL this run: {len(patched)} (cap {PATCH_CAP} filings)",
+               "",
+               "A quarterly row carrying `\"source\": \"filing\"` was derived from the filing's own XBRL instance,",
+               "through the same tag map, picking rules and year-to-date differencing as every other row. A row",
+               "with no `source` came from the SEC's bulk companyfacts file. Only quarters missing from",
+               "companyfacts are added; the prior-year comparatives a filing also carries are left alone.",
+               "", "## S&P 500 constituents", ""]
     if sp500 is not None:
         report += [f"- source: {SP500_CSV_URL}", f"- snapshot date: {sp500['date']}",
                    f"- constituents: {sp500['constituents']}",
