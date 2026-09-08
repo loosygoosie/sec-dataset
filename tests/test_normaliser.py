@@ -1,0 +1,287 @@
+"""Tests for build_sec_dataset.py's normaliser, on synthetic companyfacts documents.
+
+Every case here is a shape the SEC bulk file actually contains and the pipeline has
+a deliberate rule for — a filer that renames its revenue tag mid-decade, a utility
+that tags a token PP&E line beside its real construction spend, a 10-Q that reports
+cash flow year-to-date only. The tests pin the rule, not the implementation: they
+asks what value a reader ends up with, and what the file says about how far to
+trust it.
+
+No network, no fixtures on disk: each test builds the few facts it needs.
+"""
+from __future__ import annotations
+
+from datetime import date, timedelta
+
+import pytest
+
+from conftest import doc, fact, fy_fact, shares, usd, ytd_fact
+
+
+# --------------------------------------------------------------------------
+# Tag resolution: the same line item under different names
+# --------------------------------------------------------------------------
+def test_revenue_tag_switch_mid_decade_keeps_every_year(b):
+    """Companies renamed revenue when ASC 606 landed. Taking 'the first tag with any
+    data' would silently drop either the early years or the recent ones."""
+    old_years = {"2019-12-31": 10_000_000_000, "2020-12-31": 11_000_000_000, "2021-12-31": 12_000_000_000}
+    new_years = {"2022-12-31": 13_000_000_000, "2023-12-31": 14_000_000_000, "2024-12-31": 15_000_000_000}
+    d = doc(us_gaap={
+        "Revenues": usd(*[fy_fact(v, e) for e, v in old_years.items()]),
+        "RevenueFromContractWithCustomerExcludingAssessedTax": usd(*[fy_fact(v, e) for e, v in new_years.items()]),
+    })
+
+    norm = b.normalise_company(d)
+    got = {r["fiscal_year"]: r.get("revenue") for r in norm["annual"]}
+
+    assert got == {2019: 10_000_000_000, 2020: 11_000_000_000, 2021: 12_000_000_000,
+                   2022: 13_000_000_000, 2023: 14_000_000_000, 2024: 15_000_000_000}
+    assert norm["tags_used"]["revenue"] == "Revenues,RevenueFromContractWithCustomerExcludingAssessedTax"
+
+
+def test_dominant_pick_takes_a_lower_ranked_tag_that_is_much_larger(b):
+    """A financial tags contract revenue (a component) beside its real total. The
+    preferred tag loses when another is at least 3x bigger."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(1_000_000_000, "2024-12-31")),                    # rank 1, a component
+        "TotalRevenuesAndOtherIncome": usd(fy_fact(5_000_000_000, "2024-12-31")),  # rank 5, the real total
+    })
+
+    assert b.normalise_company(d)["annual"][-1]["revenue"] == 5_000_000_000
+
+
+def test_dominant_pick_keeps_the_preferred_tag_below_the_3x_threshold(b):
+    """Merely larger is not enough — otherwise any bigger neighbouring line would win."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(1_000_000_000, "2024-12-31")),
+        "TotalRevenuesAndOtherIncome": usd(fy_fact(2_000_000_000, "2024-12-31")),
+    })
+
+    assert b.normalise_company(d)["annual"][-1]["revenue"] == 1_000_000_000
+
+
+def test_max_pick_for_capex_takes_the_real_construction_spend(b):
+    """A regulated utility tags a token PP&E line and its actual construction budget."""
+    d = doc(us_gaap={
+        "NetIncomeLoss": usd(fy_fact(500_000_000, "2024-12-31")),
+        "PaymentsToAcquirePropertyPlantAndEquipment": usd(fy_fact(50_000_000, "2024-12-31")),
+        "PaymentsForConstructionInProcess": usd(fy_fact(3_000_000_000, "2024-12-31")),
+    })
+
+    assert b.normalise_company(d)["annual"][-1]["capex"] == 3_000_000_000
+
+
+def test_max_pick_for_total_debt_ignores_a_token_long_term_debt_line(b):
+    """total_debt is an instant, so it reaches the annual row via the balance sheet at
+    year end rather than through annual_rows."""
+    d = doc(us_gaap={
+        "NetIncomeLoss": usd(fy_fact(500_000_000, "2024-12-31")),
+        "LongTermDebt": usd(fact(23_000_000, "2024-12-31")),
+        "DebtAndCapitalLeaseObligations": usd(fact(14_000_000_000, "2024-12-31")),
+    })
+
+    assert b.normalise_company(d)["annual"][-1]["total_debt"] == 14_000_000_000
+
+
+def test_the_latest_filing_wins_so_restatements_replace_originals(b):
+    d = doc(us_gaap={"NetIncomeLoss": usd(
+        fy_fact(900_000_000, "2024-12-31", filed="2025-02-01"),
+        fy_fact(850_000_000, "2024-12-31", filed="2026-02-01"),   # restated a year later
+    )})
+
+    assert b.normalise_company(d)["annual"][-1]["net_income"] == 850_000_000
+
+
+# --------------------------------------------------------------------------
+# Quarters: genuine 3-month facts, and the ones that have to be derived
+# --------------------------------------------------------------------------
+FY24 = "2024-01-01"
+
+
+def _ocf_ytd(**overrides):
+    """A calendar-2024 cash-flow series as a 10-Q files it: cumulative, not per quarter."""
+    ytd = {"2024-03-31": 100_000_000, "2024-06-30": 250_000_000, "2024-09-30": 400_000_000}
+    ytd.update(overrides.pop("ytd", {}))
+    for k in overrides.pop("drop", []):
+        ytd.pop(k)
+    facts = [ytd_fact(v, FY24, e) for e, v in ytd.items()]
+    facts.append(ytd_fact(600_000_000, FY24, "2024-12-31", form="10-K", fp="FY"))
+    return doc(us_gaap={"NetCashProvidedByUsedInOperatingActivities": usd(*facts)})
+
+
+def test_ytd_cash_flow_is_differenced_into_single_quarters(b):
+    norm = b.normalise_company(_ocf_ytd())
+    got = {r["period_end"]: r["operating_cash_flow"] for r in norm["quarterly"]}
+
+    assert got == {"2024-03-31": 100_000_000,   # 3M as filed
+                   "2024-06-30": 150_000_000,   # 6M - 3M
+                   "2024-09-30": 150_000_000,   # 9M - 6M
+                   "2024-12-31": 200_000_000}   # FY - 9M
+    assert norm["annual"][-1]["operating_cash_flow"] == 600_000_000
+
+
+def test_a_derived_quarter_says_so_in_its_form_field(b):
+    rows = {r["period_end"]: r["form"] for r in b.normalise_company(_ocf_ytd())["quarterly"]}
+
+    assert "derived from YTD" in rows["2024-06-30"]
+    assert "derived from YTD" not in rows["2024-03-31"]   # a genuine 3-month fact
+
+
+def test_a_missing_prior_quarter_is_refused_not_absorbed(b):
+    """Without the 6M fact, Q3 cannot be derived: 9M minus 3M would silently book two
+    quarters of cash flow as one. The pipeline declines instead."""
+    norm = b.normalise_company(_ocf_ytd(drop=["2024-06-30"]))
+    got = {r["period_end"]: r["operating_cash_flow"] for r in norm["quarterly"]}
+
+    assert got == {"2024-03-31": 100_000_000}
+    assert 300_000_000 not in got.values()      # 9M - 3M, the number we must not produce
+
+
+def test_a_genuine_three_month_fact_beats_the_derivation(b):
+    """When the company tags the quarter itself, that value is used verbatim."""
+    facts = [ytd_fact(100_000_000, FY24, "2024-03-31"),
+             ytd_fact(250_000_000, FY24, "2024-06-30"),
+             fact(155_000_000, "2024-06-30", start="2024-04-01", form="10-Q", fp="Q2")]
+    d = doc(us_gaap={"NetCashProvidedByUsedInOperatingActivities": usd(*facts)})
+
+    rows = {r["period_end"]: r["operating_cash_flow"] for r in b.normalise_company(d)["quarterly"]}
+
+    assert rows["2024-06-30"] == 155_000_000    # not the 150m the subtraction would give
+
+
+# --------------------------------------------------------------------------
+# The dei: prefix, and cover-page facts that are not quarters
+# --------------------------------------------------------------------------
+def test_dei_prefixed_tags_are_read_from_the_dei_namespace(b):
+    d = doc(dei={"EntityCommonStockSharesOutstanding": shares(fact(1_000_000, "2025-02-14"))})
+
+    series, tag = b.extract_series(d, b.CONCEPTS["shares_outstanding"]["tags"], "shares")
+
+    assert tag == "dei:EntityCommonStockSharesOutstanding"
+    assert [f["val"] for f in series] == [1_000_000]
+
+
+def test_a_cover_page_share_count_does_not_invent_a_quarter(b):
+    """EntityCommonStockSharesOutstanding is dated the filing date, not a period end.
+    A row carrying only instants is not a quarter and must be dropped."""
+    d = doc(us_gaap={"NetCashProvidedByUsedInOperatingActivities": usd(
+                ytd_fact(100_000_000, FY24, "2024-03-31"))},
+            dei={"EntityCommonStockSharesOutstanding": shares(fact(1_000_000, "2025-02-14"))})
+
+    ends = [r["period_end"] for r in b.normalise_company(d)["quarterly"]]
+
+    assert ends == ["2024-03-31"]
+    assert "2025-02-14" not in ends
+
+
+# --------------------------------------------------------------------------
+# Fiscal-year labelling
+# --------------------------------------------------------------------------
+@pytest.mark.parametrize("end, expected", [
+    ("2025-12-31", 2025),
+    ("2026-03-31", 2026),   # Deckers: year ending in March is that calendar year
+    ("2025-08-31", 2025),   # Costco
+    ("2026-01-03", 2025),   # Snap-on: a 52/53-week year ending days into January
+    ("2026-01-07", 2025),
+    ("2026-01-08", 2026),   # past the cutoff, a genuine January year end
+])
+def test_fiscal_year_is_labelled_by_the_year_the_period_ends_in(b, end, expected):
+    assert b._fy_of_period({"end": end}, None) == expected
+
+
+@pytest.mark.parametrize("today, expected", [
+    ("2026-09-08", "2023-09-08"),
+    ("2028-02-29", "2025-02-28"),   # the year three back is never a leap year
+    ("2024-02-29", "2021-02-28"),
+    ("2028-03-01", "2025-03-01"),
+])
+def test_the_silent_filer_cutoff_survives_a_leap_day(b, today, expected):
+    assert b._years_ago(date.fromisoformat(today), 3).isoformat() == expected
+
+
+# --------------------------------------------------------------------------
+# data_checks: what the file says about how far to trust itself
+# --------------------------------------------------------------------------
+BILLION = 1_000_000_000
+
+
+def _year_and_quarters(annual=BILLION, quarters=(250_000_000,) * 4, fy_end="2024-12-31"):
+    ends = ["2024-03-31", "2024-06-30", "2024-09-30", "2024-12-31"]
+    ann = [{"fiscal_year": 2024, "period_end": fy_end,
+            "revenue": annual, "net_income": annual, "operating_cash_flow": annual, "capex": annual}]
+    qtr = [{"period_end": e, "revenue": v, "net_income": v, "operating_cash_flow": v, "capex": v}
+           for e, v in zip(ends, quarters)]
+    return ann, qtr
+
+
+def test_four_quarters_that_sum_to_the_year_reconcile(b):
+    checks = b.data_checks(*_year_and_quarters(), tags_used={})
+
+    assert checks["reconciles"] == "ok"
+    assert checks["reconciled_fy"] == 2024
+
+
+def test_quarters_that_miss_the_year_are_flagged_off_with_the_items(b):
+    ann, qtr = _year_and_quarters(quarters=(300_000_000,) * 4)   # sums to 1.2bn against 1.0bn
+
+    checks = b.data_checks(ann, qtr, tags_used={})
+
+    assert checks["reconciles"].startswith("off:")
+    for item in ("revenue", "net_income", "operating_cash_flow", "capex"):
+        assert item in checks["reconciles"]
+
+
+def test_a_rounding_sized_gap_is_not_flagged(b):
+    ann, qtr = _year_and_quarters(quarters=(250_000_000, 250_000_000, 250_000_000, 251_000_000))
+
+    assert b.data_checks(ann, qtr, tags_used={})["reconciles"] == "ok"
+
+
+def test_a_year_without_four_quarters_is_not_available_rather_than_wrong(b):
+    ann, qtr = _year_and_quarters()
+
+    checks = b.data_checks(ann, qtr[:3], tags_used={})
+
+    assert checks["reconciles"] == "n/a"
+    assert checks["reconciled_fy"] is None
+
+
+def test_quarter_age_days_is_measured_from_the_latest_quarter_end(b):
+    latest = date.today() - timedelta(days=40)
+    qtr = [{"period_end": latest.isoformat(), "revenue": 1}]
+
+    checks = b.data_checks([], qtr, tags_used={})
+
+    assert checks["latest_quarter_end"] == latest.isoformat()
+    assert checks["quarter_age_days"] == 40
+
+
+def test_no_quarters_at_all_leaves_the_age_unknown(b):
+    checks = b.data_checks([], [], tags_used={})
+
+    assert checks["latest_quarter_end"] is None
+    assert checks["quarter_age_days"] is None
+
+
+@pytest.mark.parametrize("tags_used, expected", [
+    ({"shares_diluted": "WeightedAverageNumberOfDilutedSharesOutstanding"}, "ok"),
+    ({"shares_diluted": "WeightedAverageNumberOfShareOutstandingBasicAndDiluted"}, "ok"),
+    ({"shares_diluted": "WeightedAverageNumberOfSharesOutstandingBasic"}, "basic-only"),
+    ({"shares_diluted": None, "shares_outstanding": "dei:EntityCommonStockSharesOutstanding"}, "outstanding-only"),
+    ({"shares_diluted": None, "shares_outstanding": None}, "none"),
+    ({}, "none"),
+])
+def test_the_shares_flag_says_which_per_share_tests_a_reader_can_run(b, tags_used, expected):
+    """Multi-class filers tag share counts by class, and companyfacts drops dimensioned
+    facts, so the count is simply absent. A reader must flag that, not score it as zero."""
+    assert b.data_checks([], [], tags_used=tags_used)["shares"] == expected
+
+
+def test_the_shares_flag_survives_the_whole_pipeline(b):
+    d = doc(us_gaap={
+        "NetIncomeLoss": usd(fy_fact(500_000_000, "2024-12-31")),
+        "WeightedAverageNumberOfSharesOutstandingBasic": shares(fy_fact(1_000_000, "2024-12-31")),
+    })
+    norm = b.normalise_company(d)
+
+    assert b.data_checks(norm["annual"], norm["quarterly"], norm["tags_used"])["shares"] == "basic-only"

@@ -1,0 +1,29 @@
+name: Tests
+
+# The two build workflows commit with "[skip ci]", so a nightly data push does not
+# drag the suite along with it; a code push does.
+on:
+  push:
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        # requests only because the builder imports it at module scope; the tests
+        # themselves touch no network.
+        run: pip install --quiet pytest requests
+
+      - name: Refuse an empty script
+        run: test -s build_sec_dataset.py || { echo "build_sec_dataset.py is empty"; exit 1; }
+
+      - name: Run tests
+        run: python -m pytest tests/ -q
