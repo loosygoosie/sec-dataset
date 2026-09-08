@@ -241,6 +241,16 @@ def _days(a: str, b: str) -> int:
     return (date.fromisoformat(b) - date.fromisoformat(a)).days
 
 
+def _years_ago(d: date, years: int) -> date:
+    """The same calendar day `years` back. 29 February has no counterpart in a non-leap
+    year — and the year three back from a leap year never is one — so it lands on 28 Feb
+    rather than raising ValueError and killing the build on that one day."""
+    try:
+        return d.replace(year=d.year - years)
+    except ValueError:
+        return d.replace(year=d.year - years, day=28)
+
+
 def _pick_latest(cands: list[dict], pick: str = "rank") -> dict | None:
     """Same period from several tags/filings.
     pick="rank": prefer the most-preferred tag, then a 10-K over a 10-Q for a full-year period
@@ -520,7 +530,7 @@ def main() -> int:
     zpath = download(COMPANYFACTS_ZIP, WORK_DIR / "companyfacts.zip")
 
     print("3. normalise every filer")
-    cutoff = (date.today().replace(year=date.today().year - 3)).isoformat()   # drop filers silent for 3+ years
+    cutoff = _years_ago(date.today(), 3).isoformat()   # drop filers silent for 3+ years
     manifest, coverage, written, recon = {}, defaultdict(int), set(), defaultdict(int)
     n_seen = n_kept = 0
     with zipfile.ZipFile(zpath) as z:
