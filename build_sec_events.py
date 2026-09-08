@@ -39,11 +39,15 @@ HEADERS = {"User-Agent": USER_AGENT, "Accept-Encoding": "gzip, deflate"}
 DAILY_INDEX = "https://www.sec.gov/Archives/edgar/daily-index/{year}/QTR{q}/form.{ymd}.idx"
 SUBMISSIONS = "https://data.sec.gov/submissions/CIK{cik:010d}.json"
 ARCHIVE_DOC = "https://www.sec.gov/Archives/edgar/data/{cik}/{acc_nodash}/{doc}"
+FILING_INDEX = "https://www.sec.gov/Archives/edgar/data/{cik}/{acc_nodash}/{acc}-index.html"
 
 LOOKBACK_DAYS = int(os.environ.get("LOOKBACK_DAYS", "5"))   # index days to scan each run (covers a weekend + a missed run)
 EVENT_DAYS = 400                                            # per-company history kept
 RECENT_DAYS = 90                                            # the cross-company recent file
 FORMS = {"8-K", "8-K/A", "10-K", "10-K/A", "10-Q", "10-Q/A"}
+EXHIBIT_FORMS = {"8-K", "8-K/A"}       # the substance of a 2.02 is in EX-99.1, not the cover page
+EXHIBIT_DAYS = RECENT_DAYS             # resolve exhibits for the window the recent feed covers
+EXHIBIT_CAP = 2000                     # index fetches per run; a filing's index never changes, so this is a one-off cost per filing
 OUT_DIR = Path("data"); EV_DIR = OUT_DIR / "events"
 CIK_OVERRIDES_PATH = OUT_DIR / "cik_overrides.json"   # hand-maintained; shared with build_sec_dataset.py
 
@@ -61,6 +65,45 @@ def get(url: str, retries: int = 4, timeout: int = 60) -> requests.Response | No
             return None
         time.sleep(2 * (i + 1))
     return None
+
+
+_ROW = re.compile(r"<tr[^>]*>(.*?)</tr>", re.S)
+_CELL = re.compile(r"<t[dh][^>]*>(.*?)</t[dh]>", re.S)
+_HREF = re.compile(r'href="([^"]+)"')
+_TAGS = re.compile(r"<[^>]+>")
+
+
+def exhibits_for(cik: int, accession: str) -> list[dict] | None:
+    """The documents attached to a filing, from its EDGAR index page.
+
+    `url` on an event is the primary document, which for an 8-K is the cover page — it says a
+    2.02 happened but not what was announced. The earnings release itself is EX-99.1. The index
+    page's document table carries a Type per row, which is the only place that label appears:
+    index.json's `type` is the icon name, and the SGML header carries only the filing's own type.
+
+    Returns [] when the filing genuinely attached nothing readable, and None when the index could
+    not be read — the caller keeps those distinct so a transient failure is retried next run
+    rather than cached as 'no exhibits'. EX-100/EX-101 rows are the XBRL taxonomy files, not
+    something a reader would open."""
+    r = get(FILING_INDEX.format(cik=cik, acc_nodash=accession.replace("-", ""), acc=accession))
+    if r is None:
+        return None
+    out: list[dict] = []
+    for row in _ROW.findall(r.text):
+        cells = [_TAGS.sub("", c).strip() for c in _CELL.findall(row)]
+        if len(cells) < 4:
+            continue
+        typ = cells[3]
+        if not typ.startswith("EX-") or typ.startswith(("EX-100", "EX-101")):
+            continue
+        m = _HREF.search(row)
+        if not m:
+            continue
+        href = m.group(1)
+        if href.startswith("/ix?doc="):          # inline-XBRL documents are linked through the viewer
+            href = href[len("/ix?doc="):]
+        out.append({"type": typ, "url": "https://www.sec.gov" + href})
+    return out
 
 
 def load_ticker_overrides() -> dict[int, list[str]]:
@@ -175,6 +218,8 @@ def main() -> int:
     if overrides:
         print(f"  ticker overrides in force: {overrides}")
     print("2. submissions records")
+    ex_cutoff = (date.today() - timedelta(days=EXHIBIT_DAYS)).isoformat()
+    ex_budget, ex_fetched, ex_reused = EXHIBIT_CAP, 0, 0
     written = changed = 0
     for i, cik in enumerate(sorted(ciks), 1):
         meta, rows = company_events(cik, since)
@@ -182,15 +227,39 @@ def main() -> int:
             continue
         if cik in overrides:
             meta["tickers"] = overrides[cik]
+
+        # A filing's index never changes, so exhibits already resolved in the file on disk are
+        # reused: the fetch is a one-off cost per filing, not per run.
+        p = EV_DIR / f"{cik}.json"
+        cached: dict[str, list[dict]] = {}
+        if p.exists():
+            try:
+                for e in json.loads(p.read_text()).get("events", []):
+                    if e.get("exhibits") is not None:
+                        cached[e["accession"]] = e["exhibits"]
+            except Exception:  # noqa: BLE001
+                pass
+        for e in rows:
+            if e["form"] not in EXHIBIT_FORMS or e["date"] < ex_cutoff:
+                continue                       # older than the recent window: `url` alone, as before
+            if e["accession"] in cached:
+                e["exhibits"] = cached[e["accession"]]; ex_reused += 1
+            elif ex_budget > 0:
+                ex_budget -= 1
+                got = exhibits_for(cik, e["accession"])
+                if got is not None:            # None = index unreadable; leave the key off and retry next run
+                    e["exhibits"] = got; ex_fetched += 1
+
         rec = {**meta, "events": rows}
         body = json.dumps(rec, separators=(",", ":"), sort_keys=True)
-        p = EV_DIR / f"{cik}.json"
         if not p.exists() or p.read_text() != body:
             p.write_text(body); changed += 1
         written += 1
         if i % 100 == 0:
             print(f"  {i}/{len(ciks)}", flush=True)
     print(f"  {written} records, {changed} changed")
+    print(f"  exhibits: {ex_fetched} filings indexed this run, {ex_reused} reused"
+          + ("" if ex_budget else f" (hit the {EXHIBIT_CAP} cap; the rest resolve next run)"))
 
     # prune companies whose newest kept filing has aged out of the EVENT_DAYS window
     pruned = 0
@@ -222,8 +291,11 @@ def main() -> int:
         for e in rec.get("events", []):
             if e["date"] >= cutoff:
                 tickers = tickers_for(rec["cik"], rec.get("tickers"), overrides, manifest_tickers)
-                recent.append({"date": e["date"], "cik": rec["cik"], "tickers": tickers, "name": rec.get("name"),
-                               "form": e["form"], "items": e["items"], "period": e.get("period"), "url": e.get("url")})
+                row = {"date": e["date"], "cik": rec["cik"], "tickers": tickers, "name": rec.get("name"),
+                       "form": e["form"], "items": e["items"], "period": e.get("period"), "url": e.get("url")}
+                if e.get("exhibits"):
+                    row["exhibits"] = e["exhibits"]
+                recent.append(row)
     recent.sort(key=lambda x: (x["date"], x["cik"]), reverse=True)
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     (OUT_DIR / "events_recent.json").write_text(json.dumps({"generated_utc": generated, "days": RECENT_DAYS, "rows": recent}, separators=(",", ":")))
