@@ -1,4 +1,4 @@
-# SEC dataset build — 2026-09-09T19:39:23Z
+# SEC dataset build — 2026-09-09T23:08:31Z
 
 - filers scanned: 20337
 - companies published: 7411
@@ -67,9 +67,9 @@ Readers treat an `off` company, or one whose latest quarter is more than 150 day
 ## Share counts (added 8 Sep 2026)
 
 - diluted count on file: 6590
-- basic count only: 61
+- basic count only: 63
 - cover-page count only: 186
-- none (multi-class filers tag by class; companyfacts drops dimensioned facts): 310
+- none (multi-class filers tag by class; companyfacts drops dimensioned facts): 308
 - **invalid (a share count of zero or less somewhere in the file): 264**
 
 A reader does not drop a name on a per-share test it cannot run; `shares` in the manifest says which case applies.
