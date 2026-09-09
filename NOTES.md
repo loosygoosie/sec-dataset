@@ -103,7 +103,23 @@ is `data/filings_report.md` — specifically how many of the filings fetched car
 which names are in the "left without text" list. Companies whose MD&A is incorporated by
 reference will legitimately be missing `item7`; a company missing `item1` is the parser.
 
-## 7. Smaller things
+## 7. The cross-reference filers have no narrative in the dataset
+
+A dozen S&P 500 companies publish an integrated annual report and put a **cross-reference index**
+in the 10-K instead of item headings — General Electric, Citigroup, Morgan Stanley, Cardinal
+Health, Church & Dwight, Cincinnati Financial, Edison International and Interactive Brokers among
+those seen on 9 Sep 2026. GE's primary document is 461,146 characters of narrative with 22 index
+rows at the end and not one item heading in the body. There is nothing for the extractor to
+slice, and the first version of it stored three of those index rows as sections: "Item 3. Legal
+Proceedings 70-71" is a page reference, not a disclosure. That is fixed — such a run is now
+recognised as a table of the whole form and dropped — so these companies are reported by name and
+left without text, which is the honest answer.
+
+Closing the gap means following the index into the exhibit (usually EX-13, the annual report
+itself) and slicing by the page ranges the index gives. That is a different parser and it was not
+started here. Until it exists, the briefs task names these companies rather than writing them.
+
+## 8. Smaller things
 
 - **`shares_outstanding` of 59,176 for WAT FY2023** (CIK 1000697) — five orders of magnitude
   below its neighbours, sitting under a `shares: ok` flag. Same class of defect as §1, on the
