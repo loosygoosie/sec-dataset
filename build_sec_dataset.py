@@ -1007,6 +1007,16 @@ def main() -> int:
                f"- cover-page count only: {recon.get('shares:outstanding-only', 0)}", f"- none (multi-class filers tag by class; companyfacts drops dimensioned facts): {recon.get('shares:none', 0)}",
                f"- **invalid (a share count of zero or less somewhere in the file): {recon.get('shares:invalid', 0)}**", "",
                "A reader does not drop a name on a per-share test it cannot run; `shares` in the manifest says which case applies.",
+               "", "## Share scale (added 9 Sep 2026)", "",
+               f"- consistent: {recon.get('share_scale:ok', 0)}",
+               f"- **suspect: {sum(v for k, v in recon.items() if k.startswith('share_scale:suspect'))}** "
+               f"(`scale` — a diluted count more than fifty times its own outstanding count, or less than a "
+               f"fiftieth; `levels` — the quarterly series steps between levels more than once, so no per-share "
+               f"figure spans it)",
+               f"- no share data at all: {recon.get('share_scale:n/a', 0)}", "",
+               "`share_scale` says whether a company's share counts can all be true at once. It is not a reason "
+               "to drop a name — it says the per-share metrics for that company are unmeasured. Both the flag "
+               "and `shares` are in the manifest, so a reader need not open 7,411 company files to screen on them.",
                "", "## Items added 8 Sep 2026", "",
                "`current_assets`, `current_liabilities` (current ratio); `operating_leases` (beside `total_debt`; the gate treatment is a rule decision); `receivables`, `inventory`, `total_liabilities` (working-capital quality); `acquisitions`, `goodwill`, `intangibles`, `impairments`; `rd_expense`, `sga_expense`; `pension_funded_status`; `debt_due_1y/2y/3y`; bank items `net_interest_income`, `interest_income`, `deposits`, `loans`, `credit_loss_provision`, `loan_loss_allowance`, `tier1_capital_ratio` (thin — tagged by regulatory entity, which companyfacts drops); insurer items `premiums_earned`, `claims_incurred`, `acquisition_cost_amort`, `loss_reserves`. Segment revenue and per-class share data are dimensioned facts and cannot come from this file; the business briefs carry segments in words. Coverage per item is listed above — an item with low coverage is a tag most filers do not use, not a bug."]
     report += ["", "## Stale-name fallback", "",
