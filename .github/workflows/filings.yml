@@ -1,0 +1,76 @@
+name: Build SEC filing text (10-K narrative items)
+
+on:
+  schedule:
+    # Every Sunday 08:00 UTC, two hours after the dataset build: this reads the S&P 500 list
+    # that build writes, so it must not overtake it. 10-Ks land in February and March, so most
+    # weeks this fetches nothing and finishes in a minute.
+    - cron: "0 8 * * 0"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Filings to fetch this run (the whole index fits in 600)"
+        default: "600"
+        required: false
+      tickers:
+        description: "Restrict to these tickers, comma-separated. Blank means the whole index."
+        default: ""
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sec-filings
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependency
+        run: pip install --quiet requests
+
+      - name: Refuse an empty script
+        # A phone upload once produced a 0-byte file that "ran" and did nothing.
+        run: test -s build_sec_filings.py || { echo "build_sec_filings.py is empty"; exit 1; }
+
+      - name: Prove the parser before it touches the data
+        # The extractor is the whole risk here: a mis-sliced section reads exactly like a
+        # correct one. Its tests run against synthetic filings and cost seconds.
+        run: pip install --quiet pytest && python -m pytest tests/test_filings.py -q
+
+      - name: Build filing text
+        env:
+          # A secret so it stays masked in public logs. It is only ever sent to sec.gov.
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          FILINGS_LIMIT: ${{ inputs.limit || '600' }}
+          FILINGS_TICKERS: ${{ inputs.tickers || '' }}
+        run: python build_sec_filings.py
+
+      - name: Show report
+        run: cat data/filings_report.md
+
+      - name: Commit results
+        run: |
+          git config user.name  "sec-dataset-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A data/
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -q -m "SEC filing text $(date -u +%Y-%m-%d) [skip ci]"
+            git push origin "HEAD:$GITHUB_REF_NAME" || {
+              echo "push rejected - remote moved; rebasing onto it and retrying"
+              git fetch --unshallow origin "$GITHUB_REF_NAME" 2>/dev/null || git fetch origin "$GITHUB_REF_NAME"
+              git rebase "origin/$GITHUB_REF_NAME"
+              git push origin "HEAD:$GITHUB_REF_NAME"
+            }
+          fi
