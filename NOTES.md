@@ -135,6 +135,61 @@ started here. Until it exists, the briefs task names these companies rather than
   1,076 have an adjacent-quarter jump beyond 5×/0.2×. Most are micro-caps and many are
   real splits or reverse splits — the S&P 500 subsets above are the useful signal.
 
+## 9. The annual share series steps at a split, and no flag sees it
+
+Found 9 Sep 2026 while moving the monthly re-score's valuation tilt off FMP and onto this
+dataset. The tilt needs a market cap at each of six fiscal year ends, and the only share count
+available for a past year is `shares_diluted` on the annual row. That series is **not on one
+basis**: companyfacts carries the latest reported value for each fiscal year, and a 10-K
+restates only the two or three comparative years it prints, so a split reaches back a few rows
+and stops. The series steps by the split factor part-way through.
+
+Ten of the thirty-six book holdings step inside their own six-year window:
+
+| | step | | | step |
+|---|---|---|---|---|
+| FTNT | 4.79x at FY2020 | | VICI | 1.52x at FY2022 (real dilution, not a split) |
+| DECK | 5.76x at FY2023 | | CMG | 49.21x at FY2023 |
+| NFLX | 9.96x at FY2023 | | DXCM | 4.55x at FY2020 |
+| MNST | 2.00x at FY2021 | | NVDA | 3.96x at FY2020, 9.89x at FY2023 |
+| CTAS | 3.92x at FY2023 | | TPL | 2.99x at FY2022, 2.98x at FY2023 |
+
+**`share_scale` reads `ok` for eight of the ten, and that is correct** — `levels` counts steps in
+the *quarterly* series and needs more than one, because a single step is exactly what an ordinary
+split looks like and flagging it would make the check noise (`tests/test_share_scale.py::
+test_one_step_is_a_split_and_is_left_alone` pins that deliberately). `scale` compares diluted
+against outstanding on one row at `SCALE_RATIO = 50`, aimed at the million-fold tagging error, so
+a 2x mismatch passes. Neither check is wrong; neither covers this.
+
+**Monster is the sharp case.** Its whole series — annual *and* quarterly, through 2026-06-30 —
+sits near 984m, while the broker reports 1,959,051,827 shares outstanding today. A 2:1 split is
+absent from the dataset entirely, under `shares: ok` and `share_scale: ok`. Its FY2021 row is
+also internally inconsistent: `shares_diluted` 1,071,278,000 against `shares_outstanding`
+529,323,000, the 2021 split restated into one field and not the other.
+
+**Why it matters.** A pre-split share count multiplied by a split-adjusted price does not fail
+loudly. It produces a market cap wrong by the split factor, a plausible-looking six-year median,
+and a tilt multiplier pinned at one end of its 0.80–1.20 range — which sizes a real position.
+Chipotle's would have been wrong by 49x, Monster's by 2x in the other direction.
+
+**What was done.** No data changed. The consumers were taught the shape of the defect instead:
+`claude/rebuild-from-scratch.md` in the book repo carries `usable_years()`, which walks the
+annual series back from the latest row, stops at the first adjacent-year ratio outside
+0.72–1.4, and treats everything beyond as unmeasured; it also cross-checks the latest row
+against the broker's shares outstanding (25% band) and refuses the whole name when that fails.
+Fewer than four surviving years means a neutral 1.00 tilt, named in the reply. Against the 36
+holdings on 9 Sep 2026 that leaves 26 with a full six years, 7 with four or five, and 3 neutral
+(NFLX, TPL, MNST). The same rule is stated in the monthly re-score prompt and in the runbook's
+Stage 5b.
+
+**The durable fix, not done here.** Carry an as-filed share count alongside the restated one —
+the fiscal year's own 10-K value, selected on the fact's `form`/`fy`/`fp` rather than by taking
+the latest — so a six-year window survives a split instead of being truncated by it. That is a
+change to `build_sec_dataset.py`'s fact selection with its own tests, and it should not be made
+in the same pass as a prompt migration. Until then the truncation above is the safe behaviour.
+To reproduce: read `shares_diluted` across `annual` for the tickers in the table and compare
+adjacent years; compare the latest against `get_equity_fundamentals`' `shares_outstanding`.
+
 ---
 
 ## Ground rules for anyone picking this up
