@@ -84,16 +84,18 @@ the Class A count where the others carry the total. Not yet confirmed against th
 confirm before changing anything. `shares` reads `ok`; `reconciles` does not test share
 counts, so nothing flags it.
 
-## 5. `share_scale` never reached the manifest
+## 5. `share_scale` never reached the manifest  ✅ FIXED 9 Sep 2026
 
 `data_checks` computes `share_scale` and every company file carries it, but the manifest row
 written in `build_sec_dataset.py` copies only `reconciles` and `shares`. The manifest is what a
 reader opens first — it is the 1.8 MB index every task uses to go from ticker to CIK — so the
 flag is currently invisible to anyone who does not open all 7,411 company files. Adding the key
-is additive and safe under the ground rules below. Not done yet because it belongs to the same
-run as the next full dataset build, not to the filing-text change.
+is additive and safe under the ground rules below. **Done:** the manifest row now carries
+`share_scale`, and the patch pass moves its counter (and the `shares` counter) instead of leaving
+both on the pre-patch value — REPORT.md had been counting the old flag for all 71 patched
+companies. The published manifest carries it from the next dataset build.
 
-## 6. The filing-text parser has not met a real 10-K
+## 6. The filing-text parser has now met 502 real 10-Ks  ✅ RESOLVED 9 Sep 2026
 
 `build_sec_filings.py` and its twenty tests were written on 9 Sep 2026 against synthetic
 filings. That is not a shortcut: the SEC refuses requests without the declared contact, so the
@@ -106,9 +108,9 @@ reference will legitimately be missing `item7`; a company missing `item1` is the
 ## 7. The cross-reference filers have no narrative in the dataset
 
 A dozen S&P 500 companies publish an integrated annual report and put a **cross-reference index**
-in the 10-K instead of item headings — General Electric, Citigroup, Morgan Stanley, Cardinal
-Health, Church & Dwight, Cincinnati Financial, Edison International and Interactive Brokers among
-those seen on 9 Sep 2026. GE's primary document is 461,146 characters of narrative with 22 index
+in the 10-K instead of item headings — the twelve seen on 9 Sep 2026 were Citigroup, Cardinal Health, Church & Dwight, Cincinnati
+Financial, Edison International, General Electric, Honeywell, Intel, McDonald's, Morgan Stanley,
+Synchrony and Weyerhaeuser. (Interactive Brokers is NOT one of them — that was an error here.) GE's primary document is 461,146 characters of narrative with 22 index
 rows at the end and not one item heading in the body. There is nothing for the extractor to
 slice, and the first version of it stored three of those index rows as sections: "Item 3. Legal
 Proceedings 70-71" is a page reference, not a disclosure. That is fixed — such a run is now
@@ -140,8 +142,10 @@ started here. Until it exists, the briefs task names these companies rather than
   dispatch the workflow instead, so the real user-agent is used.
 - Other tasks read these files by field name. Do not rename, remove or change the meaning
   of any existing key. Adding a field or a new flag value is fine.
-- Both workflows refuse an empty script (`test -s`) and refuse to write if fewer than 3,000
-  companies parse. Keep those guards.
+- All three workflows refuse an empty script (`test -s`). The fundamentals build refuses to write
+  if fewer than 3,000 companies parse; the filing-text build refuses if Item 1 parses for under
+  60% of the filings it fetched, and runs the extractor's tests before touching any data. Keep
+  every one of those guards.
 - Never delete files in `data/` by hand; the build script owns that directory.
 - No scoring or screening logic in this repo, and no Form 4 / insider feed unless asked.
 - If a test finds a builder bug, stop and report it rather than working around it.

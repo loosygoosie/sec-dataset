@@ -129,3 +129,21 @@ def test_non_positive_still_wins_over_everything():
 def test_checks_block_keeps_every_key_readers_depend_on(key):
     """Other tasks read these by name. share_scale was added; nothing was renamed or removed."""
     assert key in data_checks([], [q("2026-06-30", 1_000, 1_000)], {})
+
+
+def test_the_patch_pass_moves_every_checks_counter_not_just_reconciles():
+    """REPORT.md's tallies are kept by hand as companies are patched, and the patch pass moved the
+    reconciles counter while leaving shares and share_scale on their pre-patch values — so the
+    report counted the old flag for all 71 patched companies. This pins the arithmetic the fix
+    performs: decrement the old bucket, increment the new one, for every flag the checks block
+    carries."""
+    from collections import Counter
+
+    recon = Counter({"shares:ok": 5, "shares:basic-only": 1, "share_scale:ok": 5, "share_scale:suspect": 1})
+    before = {"reconciles": "ok", "shares": "basic-only", "share_scale": "suspect"}
+    after = {"reconciles": "ok", "shares": "ok", "share_scale": "ok"}
+    for k in ("shares", "share_scale"):
+        recon[f"{k}:{before[k].split(':')[0]}"] -= 1
+        recon[f"{k}:{after[k].split(':')[0]}"] += 1
+    assert recon["shares:ok"] == 6 and recon["shares:basic-only"] == 0
+    assert recon["share_scale:ok"] == 6 and recon["share_scale:suspect"] == 0

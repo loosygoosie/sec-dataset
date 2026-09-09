@@ -894,9 +894,11 @@ def main() -> int:
             manifest[str(cik)] = {"name": facts.get("entityName"), "tickers": rec["tickers"], "latest_filed": latest_filed,
                                   "fiscal_year_end": ann[-1].get("period_end"), "annual_rows": len(ann), "quarterly_rows": len(qtr),
                                   "latest_quarter_end": checks["latest_quarter_end"], "quarter_age_days": checks["quarter_age_days"],
-                                  "reconciles": checks["reconciles"], "shares": checks["shares"]}
+                                  "reconciles": checks["reconciles"], "shares": checks["shares"],
+                                  "share_scale": checks["share_scale"]}
             recon[checks["reconciles"].split(":")[0]] += 1
             recon["shares:" + checks["shares"].split(":")[0]] += 1
+            recon["share_scale:" + checks["share_scale"].split(":")[0]] += 1
             for k, v in norm["tags_used"].items():
                 if v: coverage[k] += 1
             n_kept += 1
@@ -967,11 +969,17 @@ def main() -> int:
             for r in fresh:
                 r["source"] = "filing"                # absent on a row means it came from companyfacts
             rec["quarterly"] = sorted(rec["quarterly"] + fresh, key=lambda r: r["period_end"])[-QUARTERS:]
-            was = rec["checks"]["reconciles"].split(":")[0]
+            # Every counter the checks feed has to move, not just reconciles: patching a company
+            # with figures read from its filing can change its shares flag too, and REPORT.md's
+            # shares tallies were counting the pre-patch value for all 71 patched companies.
+            was = {k: rec["checks"][k].split(":")[0] for k in ("reconciles", "shares", "share_scale")}
             rec["checks"] = data_checks(rec["annual"], rec["quarterly"], rec["tags_used"])
             path.write_text(json.dumps(rec, separators=(",", ":"), sort_keys=True))
-            recon[was] -= 1
+            recon[was["reconciles"]] -= 1
             recon[rec["checks"]["reconciles"].split(":")[0]] += 1
+            for k in ("shares", "share_scale"):
+                recon[f"{k}:{was[k]}"] -= 1
+                recon[f"{k}:" + rec["checks"][k].split(":")[0]] += 1
             manifest[str(cik)].update(quarterly_rows=len(rec["quarterly"]),
                                       latest_quarter_end=rec["checks"]["latest_quarter_end"],
                                       quarter_age_days=rec["checks"]["quarter_age_days"],

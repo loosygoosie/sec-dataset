@@ -4,8 +4,9 @@ A small pipeline that rebuilds a clean fundamentals dataset for every operating 
 with the SEC, straight from the SEC's own XBRL data, on a schedule, with no data vendor in between.
 GitHub Actions downloads the SEC's bulk `companyfacts` file, keeps the 49 line items an investor
 reads, and commits one small file per company to `data/companies/`. Anything that can fetch a file
-from GitHub can then read it. The pipeline knows nothing about any index: which companies matter —
-an S&P 500 list, a watchlist, a portfolio — is decided by whoever reads the data.
+from GitHub can then read it. The fundamentals pipeline treats every filer alike: which companies matter — a watchlist, a
+portfolio — is decided by whoever reads the data. It does resolve the S&P 500 constituent list
+into `data/sp500.json` as a convenience, and the filing-text build scopes itself to that list.
 
 ## One-time setup (about five minutes)
 
@@ -14,6 +15,8 @@ an S&P 500 list, a watchlist, a portfolio — is decided by whoever reads the da
 2. Add these files, keeping the paths exactly:
    - `build_sec_dataset.py` and `.github/workflows/sec.yml` — the weekly fundamentals build
    - `build_sec_events.py` and `.github/workflows/events.yml` — the nightly 8-K/10-K/10-Q feed
+   - `build_sec_filings.py` and `.github/workflows/filings.yml` — the weekly 10-K narrative build
+     (Sundays 08:00 UTC, two hours after the fundamentals build, which writes the list it scopes to)
    - `tests/` and `.github/workflows/tests.yml` — the suite that runs on every push
    - `data/cik_overrides.json` — hand-maintained ticker→CIK corrections (see below)
    - `README.md` (this file)
@@ -77,7 +80,7 @@ class shares, `BRK-B`), fetch `companies/<cik>.json` for each. A company file:
 
 ## Read the `checks` block before trusting a row
 
-Every company file carries one, and the manifest repeats it. It exists because a tag the
+Every company file carries one, and the manifest repeats `latest_quarter_end`, `quarter_age_days`, `reconciles`, `shares` and `share_scale` per company. It does NOT repeat `reconciled_fy` — read that from the company file. It exists because a tag the
 pipeline does not know, or a feed that trails the filing, produces a wrong number that
 looks right.
 
@@ -121,8 +124,9 @@ from the bulk file.
   the first week of January, which belongs to the year before (Snap-on's year ending
   3 Jan 2026 is `2025`). Deckers' year ending 31 March 2026 is `2026`.
 - Line items are resolved through a short list of tag synonyms (see `CONCEPTS` in the
-  script and `tags_used` per company). Three items use a different rule because companies
-  tag a small line beside the real one: `capex` and `total_debt` take the LARGEST tag
+  script and `tags_used` per company). Five items use a different rule because companies
+  tag a small line beside the real one: `capex`, `total_debt`, `operating_leases` and
+  `impairments` take the LARGEST tag
   present for the period (AEP's token PP&E line beside $8bn of construction spend; Marriott's
   $23m "long-term debt" beside $14bn of borrowings); `revenue` keeps the preferred tag unless
   another is at least three times larger (a REIT's contract revenue beside its lease income —
@@ -143,7 +147,8 @@ from the bulk file.
 - The SEC's structured data can trail a filing by weeks: on 7 Sep 2026 about 60 of 503
   S&P 500 companies' June-quarter 10-Qs were on EDGAR but not yet in the XBRL feed. Quarterly
   rows therefore lag press releases; annual rows are complete.
-- No prices, no market caps, no estimates, no analyst data, no index membership.
+- No prices, no market caps, no estimates, no analyst data. No per-company index-membership field either
+  — though the build does publish the S&P 500 constituent list separately, as `data/sp500.json`.
 - Filers with no US-GAAP facts (funds, trusts, IFRS filers), nothing readable, or nothing filed in
   three years are skipped. The build refuses to publish if fewer than 3,000 companies come out.
 
@@ -163,8 +168,12 @@ entry records why it exists; a bad one is skipped, never fatal.
 five published weekdays, takes every 8-K, 10-K and 10-Q, and publishes each filer's recent
 filings with the SEC's own **item codes** — 2.02 results and guidance, 4.01 auditor change,
 4.02 non-reliance (restatement), 5.02 officer departure, 1.05 cybersecurity incident, and the
-rest. Each 8-K also carries an `exhibits` list: an event's `url` is the cover page, and the
-substance of a 2.02 is in EX-99.1.
+rest. SOME 8-Ks carry an `exhibits` list: an event's `url` is the cover page, and the
+substance of a 2.02 is in EX-99.1. Exhibits are resolved only for 8-Ks inside the 90-day recent
+window, only for filers seen in that night's index scan, and under a per-run fetch budget — so
+today about a quarter of the 8-K rows in `events_recent.json`, and 8% of those in
+`events/<CIK>.json`, carry one. **The key is absent, not empty, when unresolved**: read it with
+`.get("exhibits")` and fall back to the cover-page `url`.
 
 ## The filing text
 
@@ -218,7 +227,7 @@ dispatch the workflow with `tickers: DECK,DUK,AEP,FCX,VMC`.
 
 ## Tests
 
-`pytest tests/` — 152 tests, run on every push. They cover the normaliser against synthetic
+`pytest tests/` — 154 tests, run on every push. They cover the normaliser against synthetic
 companyfacts documents (tag switches, the dominant and max picks, year-to-date differencing,
 the fiscal-year labelling, the checks block) and assert properties of the published dataset
 itself, because the share-count defect was invisible to unit tests: nothing had looked at what
