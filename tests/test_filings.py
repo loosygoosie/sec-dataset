@@ -259,3 +259,58 @@ def test_a_combined_heading_still_bounds_the_section_before_it():
     s = parse(html)
     assert "RISKS" in s["item1a"]
     assert "patent claim" not in s["item1a"]
+
+
+# ---------------------------------------------------------------- what real filings do
+
+def test_a_word_split_by_a_drop_cap_span_is_still_the_title():
+    """Microsoft's Item 1 heading reads "B usiness" once the tags come out, because the filing
+    wraps the first letter in its own span. On the first full run that cost Microsoft its
+    Business and Risk Factors sections outright."""
+    html = ("<html><body>"
+            f"<p>Item 1. <span>B</span><span>usiness</span></p><p>{'WE SELL SOFTWARE ' * 100}</p>"
+            f"<p>Item 1A. Risk Factors</p><p>{LONG}</p></body></html>")
+    assert "WE SELL SOFTWARE" in parse(html)["item1"]
+
+
+def test_a_heading_whose_title_sits_on_the_next_line_is_found():
+    """Filings that put the number and the title in separate table cells."""
+    html = ("<html><body>"
+            f"<table><tr><td>Item 1.</td><td>Business</td></tr></table><p>{'BOOTS ' * 300}</p>"
+            f"<p>Item 1A. Risk Factors</p><p>{LONG}</p></body></html>")
+    assert "BOOTS" in parse(html)["item1"]
+
+
+def test_a_cross_reference_index_at_the_back_is_not_a_set_of_sections():
+    """General Electric's 10-K carries no item headings: it is an integrated report with an
+    index at the back mapping each item to a page. On the first full run all 22 of those rows
+    were the only matches in the document, and three were stored as sections — "Item 3. Legal
+    Proceedings 70-71" is a page reference, not a disclosure. Nothing is the right answer here,
+    and the report names the company rather than the parser inventing a section."""
+    body = "<p>Our results improved. " + ("Integrated narrative. " * 2000) + "</p>"
+    index = "".join(f"<tr><td>Item {n}.</td><td>{t}</td><td>{40 + i}</td></tr>" for i, (n, t) in
+                    enumerate([("1", "Business"), ("1A", "Risk Factors"),
+                               ("3", "Legal Proceedings"), ("7", "Management's Discussion"),
+                               ("7A", "Quantitative and Qualitative Disclosures"),
+                               ("8", "Financial Statements"), ("10", "Directors"),
+                               ("15", "Exhibits")]))
+    assert parse(f"<html><body>{body}<table>{index}</table></body></html>") == {}
+
+
+def test_a_body_run_of_short_items_is_not_mistaken_for_an_index():
+    """1B, 1C, 2, 3, 4, 5 and 6 can all be one line, with Item 7 straight after — seven
+    increasing items inside a page, which counting alone cannot tell from an index."""
+    html = ("<html><body>"
+            f"<p>Item 1. Business</p><p>{LONG}</p><p>Item 1A. Risk Factors</p><p>{LONG}</p>"
+            "<p>Item 1B. Unresolved Staff Comments</p><p>None.</p>"
+            "<p>Item 1C. Cybersecurity</p><p>See below.</p>"
+            "<p>Item 2. Properties</p><p>Leased.</p>"
+            "<p>Item 3. Legal Proceedings</p><p>A patent claim.</p>"
+            "<p>Item 4. Mine Safety Disclosures</p><p>Not applicable.</p>"
+            "<p>Item 5. Market for Registrant's Common Equity</p><p>NASDAQ.</p>"
+            "<p>Item 6. [Reserved]</p>"
+            f"<p>Item 7. Management's Discussion and Analysis</p><p>{'CASH ' * 300}</p>"
+            "<p>Item 8. Financial Statements</p><p>See the index.</p></body></html>")
+    s = parse(html)
+    assert "patent claim" in s["item3"]
+    assert "CASH" in s["item7"]

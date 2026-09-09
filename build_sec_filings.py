@@ -164,28 +164,48 @@ _ITEM_RE = re.compile(
     r"items?[\s\.]{0,3}([0-9]{1,2}[abc]?)[\s\.\-–—:\)]{0,4}(.{0,90})")
 
 
+def _squash(s: str) -> str:
+    """Letters and digits only, lowercased.
+
+    Filings wrap the first letter of a heading in its own span for a drop cap, and stripping
+    tags to a space then puts that space inside the word: Microsoft's Item 1 reads "B usiness"
+    and Church & Dwight's Item 5 reads "mar ket for". Comparing squashed forms makes the split
+    invisible, and it takes the apostrophe out of "Management's" at the same time."""
+    return re.sub(r"[^a-z0-9]+", "", s.lower())
+
+
+_SQUASHED_TITLES = {k: tuple(_squash(t) for t in v) for k, v in ITEM_TITLES.items()}
+
+
 def _matches(text: str) -> list[tuple[int, str, str]]:
     """Every line that opens like an item heading, as (position, item key, rest of the line)."""
     out = []
     for m in _ITEM_RE.finditer(text):
         key = m.group(1).lower()
         if key in ITEM_INDEX:
-            out.append((m.start(), key, m.group(2).strip().lower()))
+            out.append((m.start(), key, _squash(m.group(2))))
     return out
 
 
 def _contents(ms: list[tuple[int, str, str]], length: int) -> set[int]:
     """The indexes of matches that are rows of a table of contents rather than headings.
 
-    A contents block is a run of item mentions packed a few hundred characters apart whose item
-    numbers only ever go up. Both halves matter. Density alone would swallow the real Item 1 in
-    the filings where the table runs straight into it with nothing between — but the table ends
-    at Item 15 and the body restarts at Item 1, and that fall is where the run breaks.
+    A table of items is a run of mentions packed a few hundred characters apart whose item
+    numbers only ever go up. Density alone would swallow the real Item 1 in the filings where
+    the contents run straight into it with nothing between — but the table ends at Item 15 and
+    the body restarts at Item 1, and that fall is where the run breaks.
 
-    The body has a run of its own that looks the same: "Item 1B. Unresolved Staff Comments. None."
-    followed by 1C, 2, 3 and 4 is five increasing items inside a page. It is told apart by where
-    it sits — past the first quarter of the filing, because Item 1A stands in front of it and is
-    the longest item in the form."""
+    Two kinds of table exist and only one is at the front. General Electric's 10-K carries no
+    item headings at all: it is an integrated report with a **cross-reference index at the back**
+    mapping each item to a page, and on the first full run all 22 of its rows sat at 99% of the
+    document and three of them were stored as if they were sections — "Item 3. Legal Proceedings
+    70-71" is a page reference, not a disclosure. So a long run is a table wherever it sits.
+
+    Any other run is a table only at the front, because the body has one of its own that looks
+    the same: "Item 1B. Unresolved Staff Comments. None." followed by 1C, 2, 3, 4, 5 and 6 is
+    six increasing items inside a page, and Item 7 can follow immediately. That one sits past
+    the first quarter of the filing, because Item 1A stands in front of it and is the longest
+    item in the form."""
     flagged: set[int] = set()
     i = 0
     while i < len(ms):
@@ -193,7 +213,11 @@ def _contents(ms: list[tuple[int, str, str]], length: int) -> set[int]:
         while (j + 1 < len(ms) and ms[j + 1][0] - ms[j][0] < 600
                and ITEM_INDEX[ms[j + 1][1]] > ITEM_INDEX[ms[j][1]]):
             j += 1
-        if len({m[1] for m in ms[i:j + 1]}) >= 5 and ms[i][0] < 0.25 * length:
+        keys = {m[1] for m in ms[i:j + 1]}
+        # A run that reaches from Item 1 to Item 10 or beyond is a table of the whole form. No
+        # body does that: Item 1 is never one line, so it can never sit inside a dense run.
+        whole_form = bool(keys & {"1", "1a"}) and max(ITEM_INDEX[k] for k in keys) >= ITEM_INDEX["10"]
+        if whole_form or (len(keys) >= 5 and ms[i][0] < 0.25 * length):
             flagged.update(range(i, j + 1))
         i = j + 1
     return flagged
@@ -220,7 +244,7 @@ def sections(text: str) -> dict[str, str]:
     out: dict[str, str] = {}
     for name in WANTED:
         key = WANTED_KEY[name]
-        idx, titles = ITEM_INDEX[key], ITEM_TITLES[key]
+        idx, titles = ITEM_INDEX[key], _SQUASHED_TITLES[key]
         spans = []
         for n, (pos, k, title) in enumerate(ms):
             if n in skip or k != key or not any(t in title for t in titles):
