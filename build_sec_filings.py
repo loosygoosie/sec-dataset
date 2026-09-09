@@ -350,6 +350,9 @@ def main() -> int:
           + (" — REFRESH: re-parsing filings already stored" if REFRESH else ""))
     budget = FETCH_CAP
     results: dict[int, bytes] = {}
+    # Companies we fetched and parsed to nothing this run. Anything already stored for them is
+    # wrong and must go — see the unlink in the write phase.
+    parsed_to_nothing: set[int] = set()
     skipped = attempted = no_filing = no_text = 0
     found: dict[str, int] = defaultdict(int)
     empty: list[str] = []
@@ -398,6 +401,7 @@ def main() -> int:
         if not secs:
             no_text += 1
             empty.append(f"{ticker} (no item headings parsed)")
+            parsed_to_nothing.add(cik)
             continue
         truncated = [k for k, v in secs.items() if len(v) > SECTION_CAP]
         secs = {k: v[:SECTION_CAP] for k, v in secs.items()}
@@ -428,6 +432,19 @@ def main() -> int:
                              f"{attempted} filings ({rate:.0%}); the parser is broken")
 
     print("2. writing")
+    # A company that now parses to nothing may still have a file from an earlier, worse parser.
+    # On 9 Sep 2026 four did — GE, Honeywell, Intel and McDonald's — each holding two rows of a
+    # cross-reference index stored as if they were sections, so data/filings/40545.json.gz offered
+    # "Item 3. Legal Proceedings 70-71", a page reference, as a legal-proceedings disclosure. The
+    # report named all four as left without text in the same run, which is the giveaway: the fix
+    # that stopped writing them never removed the ones already written. Reporting a gap and
+    # publishing a wrong answer for the same company is worse than either alone.
+    dropped = 0
+    for cik in parsed_to_nothing:
+        p = FIL_DIR / f"{cik}.json.gz"
+        if p.exists():
+            p.unlink()
+            dropped += 1
     changed = 0
     for cik, body in results.items():
         p = FIL_DIR / f"{cik}.json.gz"
@@ -443,14 +460,16 @@ def main() -> int:
                 p.unlink()
                 pruned += 1
     stored = len(list(FIL_DIR.glob("*.json.gz")))
-    print(f"  {changed} written, {pruned} pruned, {stored} companies stored")
+    print(f"  {changed} written, {dropped} dropped (parsed to nothing), {pruned} pruned, "
+          f"{stored} companies stored")
 
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     report = [f"# SEC filing text build — {generated}", "",
               f"- companies in scope (S&P 500): {len(universe)}",
               f"- companies with stored filing text: {stored}",
               f"- fetched this run: {attempted} (already current: {skipped})",
-              f"- written this run: {changed}", "",
+              f"- written this run: {changed}",
+              f"- dropped this run (parsed to nothing, stale file removed): {dropped}", "",
               "## Sections found, of the filings fetched this run", ""]
     for k in WANTED:
         report.append(f"- {k}: {found[k]}")

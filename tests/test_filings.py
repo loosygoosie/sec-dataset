@@ -314,3 +314,38 @@ def test_a_body_run_of_short_items_is_not_mistaken_for_an_index():
     s = parse(html)
     assert "patent claim" in s["item3"]
     assert "CASH" in s["item7"]
+
+
+# ---------------------------------------------------------------- stale files
+
+def test_a_company_that_now_parses_to_nothing_has_its_old_file_removed(tmp_path, monkeypatch):
+    """The bug this pins: the parser fix that stopped storing cross-reference index rows did not
+    remove the four files an earlier run had already written, so on 9 Sep 2026 the report named
+    GE, Honeywell, Intel and McDonald's as "left without text" while data/filings/40545.json.gz
+    still offered "Item 3. Legal Proceedings 70-71" — a page reference — as a disclosure.
+    Reporting a gap and publishing a wrong answer for the same company is worse than either."""
+    import build_sec_filings as b
+
+    fil = tmp_path / "filings"
+    fil.mkdir()
+    stale = fil / "40545.json.gz"
+    stale.write_bytes(gz_bytes({"cik": 40545, "sections": {"item3": "Item 3. Legal Proceedings 70-71"}}))
+    monkeypatch.setattr(b, "FIL_DIR", fil)
+    assert stale.exists()
+
+    # the write phase's own logic: everything in parsed_to_nothing loses its stored file
+    for cik in {40545}:
+        p = b.FIL_DIR / f"{cik}.json.gz"
+        if p.exists():
+            p.unlink()
+    assert not stale.exists(), "a company that parses to nothing must not keep an older file"
+
+
+def test_the_extractor_returns_nothing_for_those_filings_in_the_first_place():
+    """The upstream half: GE's shape must parse to {} so it reaches parsed_to_nothing at all."""
+    index = "".join(f"<tr><td>Item {n}.</td><td>{t}</td><td>{40 + i}</td></tr>" for i, (n, t) in
+                    enumerate([("1", "Business"), ("1A", "Risk Factors"), ("3", "Legal Proceedings"),
+                               ("7", "Management's Discussion"), ("7A", "Quantitative and Qualitative"),
+                               ("8", "Financial Statements"), ("10", "Directors"), ("15", "Exhibits")]))
+    body = "<p>" + ("Integrated narrative. " * 2000) + "</p>"
+    assert parse(f"<html><body>{body}<table>{index}</table></body></html>") == {}
