@@ -285,3 +285,120 @@ def test_the_shares_flag_survives_the_whole_pipeline(b):
     norm = b.normalise_company(d)
 
     assert b.data_checks(norm["annual"], norm["quarterly"], norm["tags_used"])["shares"] == "basic-only"
+
+
+# --------------------------------------------------------------------------
+# Non-additive items: a weighted-average share count is not a sum of quarters
+# --------------------------------------------------------------------------
+def _apple_fy2025_shares():
+    """Apple's FY2025 diluted count as filed: three quarterly averages, a nine-month average,
+    and the fiscal year's own average in the 10-K. Nothing here is a running total."""
+    return [
+        fact(15_050_000_000, "2024-12-28", start="2024-09-29", form="10-Q", fp="Q1"),
+        fact(15_000_000_000, "2025-03-29", start="2024-12-29", form="10-Q", fp="Q2"),
+        fact(14_948_179_000, "2025-06-28", start="2025-03-30", form="10-Q", fp="Q3"),
+        fact(15_050_000_000, "2025-06-28", start="2024-09-29", form="10-Q", fp="Q3"),
+        fact(15_004_697_000, "2025-09-27", start="2024-09-29", form="10-K", fp="FY"),
+    ]
+
+
+def test_a_weighted_average_share_count_is_taken_as_filed_not_differenced(b):
+    """Subtracting nine months of a weighted average from the year gives roughly minus twice the
+    real count: Apple's fiscal-year quarter read -30,150,480,000 against a true ~15bn."""
+    q = b.quarterly_rows(_apple_fy2025_shares(), "flow", additive=False)
+
+    assert q["2025-09-27"]["val"] == 15_004_697_000
+
+
+def test_differencing_a_weighted_average_is_what_produced_the_negative(b):
+    """The old behaviour, kept as a test so the defect cannot come back unnoticed."""
+    q = b.quarterly_rows(_apple_fy2025_shares(), "flow", additive=True)
+
+    assert q["2025-09-27"]["val"] < 0
+
+
+def test_the_share_count_stays_in_band_with_its_neighbouring_quarters(b):
+    q = b.quarterly_rows(_apple_fy2025_shares(), "flow", additive=False)
+    vals = [q[e]["val"] for e in sorted(q)]
+
+    assert min(vals) > 0
+    assert max(vals) / min(vals) < 1.1
+
+
+def test_a_value_taken_as_filed_is_not_labelled_a_derivation(b):
+    q = b.quarterly_rows(_apple_fy2025_shares(), "flow", additive=False)
+
+    assert q["2025-09-27"].get("_derived") is None
+
+
+def test_flows_on_the_same_filing_are_still_differenced(b):
+    """The fix must not stop revenue or cash flow being derived — only averages."""
+    q = b.quarterly_rows([
+        ytd_fact(100_000_000, FY24, "2024-03-31"),
+        ytd_fact(250_000_000, FY24, "2024-06-30"),
+    ], "flow", additive=True)
+
+    assert q["2024-06-30"]["val"] == 150_000_000
+    assert q["2024-06-30"]["_derived"]
+
+
+def test_the_shares_concept_is_declared_non_additive(b):
+    """The wiring, not just the mechanism: a weighted average must never be summed."""
+    assert b.CONCEPTS["shares_diluted"].get("additive") is False
+    assert all(spec.get("additive", True) for name, spec in b.CONCEPTS.items() if name != "shares_diluted")
+
+
+def test_apple_shaped_company_ends_with_a_sane_fiscal_year_quarter(b):
+    """End to end through normalise_company, the shape that shipped the defect."""
+    d = doc(us_gaap={
+        "Revenues": usd(*[ytd_fact(v, "2024-09-29", e, form=fm, fp=fp) for v, e, fm, fp in [
+            (100_000_000_000, "2024-12-28", "10-Q", "Q1"), (200_000_000_000, "2025-03-29", "10-Q", "Q2"),
+            (300_000_000_000, "2025-06-28", "10-Q", "Q3"), (400_000_000_000, "2025-09-27", "10-K", "FY")]]),
+        "WeightedAverageNumberOfDilutedSharesOutstanding": shares(*_apple_fy2025_shares()),
+    })
+
+    rows = {r["period_end"]: r for r in b.normalise_company(d)["quarterly"]}
+
+    assert rows["2025-09-27"]["shares_diluted"] == 15_004_697_000
+    assert rows["2025-09-27"]["revenue"] == 100_000_000_000      # the flow is still differenced
+
+
+# --------------------------------------------------------------------------
+# The check that should have caught it
+# --------------------------------------------------------------------------
+def test_a_negative_share_count_fails_the_check_instead_of_reading_ok(b):
+    """478 of 479 affected companies reported "shares": "ok" while carrying a negative count."""
+    qtr = [{"period_end": "2025-09-27", "shares_diluted": -30_150_480_000}]
+
+    checks = b.data_checks([], qtr, tags_used={"shares_diluted": "WeightedAverageNumberOfDilutedSharesOutstanding"})
+
+    assert checks["shares"].startswith("invalid")
+    assert "shares_diluted" in checks["shares"]
+
+
+def test_a_zero_share_count_also_fails(b):
+    """No per-share figure can be computed from zero either."""
+    checks = b.data_checks([], [{"period_end": "2020-06-30", "shares_outstanding": 0}], tags_used={})
+
+    assert checks["shares"] == "invalid:shares_outstanding"
+
+
+def test_a_bad_count_in_an_annual_row_fails_too(b):
+    checks = b.data_checks([{"fiscal_year": 2025, "shares_diluted": -1}], [], tags_used={})
+
+    assert checks["shares"].startswith("invalid")
+
+
+def test_the_check_names_every_affected_item(b):
+    checks = b.data_checks([], [{"period_end": "2025-09-27", "shares_diluted": -1, "shares_outstanding": 0}],
+                           tags_used={})
+
+    assert checks["shares"] == "invalid:shares_diluted,shares_outstanding"
+
+
+def test_healthy_share_counts_still_report_their_normal_flag(b):
+    qtr = [{"period_end": "2025-09-27", "shares_diluted": 15_004_697_000, "shares_outstanding": 14_773_260_000}]
+
+    checks = b.data_checks([], qtr, tags_used={"shares_diluted": "WeightedAverageNumberOfDilutedSharesOutstanding"})
+
+    assert checks["shares"] == "ok"

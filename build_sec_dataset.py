@@ -166,7 +166,11 @@ CONCEPTS: dict[str, dict] = {
         "StockholdersEquity",
         "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
     ]},
-    "shares_diluted": {"kind": "flow", "tags": [
+    # A weighted-average share count has a period like a flow, but it is an AVERAGE over that
+    # period, not a total accumulated across it: four quarters do not sum to the year. Differencing
+    # it out of a year-to-date figure produced roughly minus twice the real count (Apple's FY2025
+    # quarter read -30,150,480,000 against a true ~14.8bn), so it is taken as filed instead.
+    "shares_diluted": {"kind": "flow", "additive": False, "tags": [
         "WeightedAverageNumberOfDilutedSharesOutstanding",
         "WeightedAverageNumberOfShareOutstandingBasicAndDiluted",
         "WeightedAverageNumberOfSharesOutstandingBasic",       # basic as a floor when no diluted count is tagged
@@ -355,7 +359,7 @@ def _dur(f: dict) -> int | None:
     return _days(f["start"], f["end"]) if f.get("start") else None
 
 
-def quarterly_rows(series: list[dict], kind: str, pick: str = "rank") -> dict[str, dict]:
+def quarterly_rows(series: list[dict], kind: str, pick: str = "rank", additive: bool = True) -> dict[str, dict]:
     """period_end -> fact for the value of ONE quarter.
 
     Instant items: the balance at each 10-Q / 10-K date.
@@ -364,6 +368,10 @@ def quarterly_rows(series: list[dict], kind: str, pick: str = "rank") -> dict[st
     that start at the fiscal-year start and difference them:
         Q1 = 3M · Q2 = 6M − 3M · Q3 = 9M − 6M · Q4 = FY − 9M
     A genuine 3-month fact for a period, when the company tagged one, wins over the derivation.
+
+    `additive` is False for an item that carries a period but is not accumulated over it — a
+    weighted-average share count is the average of the year, not the sum of its quarters. For
+    those, the cumulative figure is taken as the filing reports it rather than differenced.
     """
     by_end: dict[str, list[dict]] = defaultdict(list)
     if kind == "instant":
@@ -392,8 +400,10 @@ def quarterly_rows(series: list[dict], kind: str, pick: str = "rank") -> dict[st
             d = _dur(f)
             if d < 80 or (e in out and out[e].get("_derived") is None):
                 continue                          # a genuine 3-month fact exists
-            if d <= 100:
-                q = f["val"]                      # first quarter of the year
+            if d <= 100 or not additive:
+                # d <= 100: the first quarter of the year, where year-to-date IS the quarter.
+                # not additive: an average, which cannot be differenced — take it as filed.
+                q = f["val"]
             else:
                 # subtract the quarters already known for this fiscal year (genuine or derived);
                 # require exactly the expected number so a missing quarter never silently inflates one
@@ -401,7 +411,9 @@ def quarterly_rows(series: list[dict], kind: str, pick: str = "rank") -> dict[st
                 if len(prior) != round(d / 91) - 1:
                     continue
                 q = f["val"] - sum(prior)
-            g = dict(f); g["val"] = q; g["_derived"] = f"{d}d YTD − prior"
+            g = dict(f); g["val"] = q
+            if additive:
+                g["_derived"] = f"{d}d YTD − prior"    # a value taken as filed is not a derivation
             out[e] = g
     return out
 
@@ -430,7 +442,7 @@ def normalise_company(facts: dict) -> dict:
             out_annual[fy].setdefault("_filed", f.get("filed"))
 
         # quarterly (true 3-month values)
-        q = quarterly_rows(series, kind, pick)
+        q = quarterly_rows(series, kind, pick, spec.get("additive", True))
         for end, f in q.items():
             out_q[end][name] = f["val"]
             out_q[end].setdefault("_form", f.get("form") + (" (derived from YTD)" if f.get("_derived") else ""))
@@ -456,6 +468,7 @@ def normalise_company(facts: dict) -> dict:
 
 
 CHECK_ITEMS = ("revenue", "net_income", "operating_cash_flow", "capex")
+SHARE_ITEMS = ("shares_diluted", "shares_outstanding")
 RECON_TOL = 0.03         # four quarters must sum to the fiscal year within 3% (or $5m on small lines)
 
 
@@ -510,6 +523,14 @@ def data_checks(ann: list[dict], qtr: list[dict], tags_used: dict | None = None)
         shares = "outstanding-only"
     else:
         shares = "none"
+    # A share count of zero or less is never a real one — it is a pipeline artefact or a filer
+    # tagging nothing. Either way no per-share figure can be computed from it, so the flag says
+    # so rather than reporting "ok" over the top of it, which is how a whole index of negative
+    # counts went unnoticed.
+    bad = sorted({item for rows in (ann, qtr) for r in rows for item in SHARE_ITEMS
+                  if r.get(item) is not None and r[item] <= 0})
+    if bad:
+        shares = "invalid:" + ",".join(bad)
     return {"latest_quarter_end": latest_q, "quarter_age_days": age, "reconciles": result, "reconciled_fy": checked_fy, "shares": shares}
 
 
@@ -819,7 +840,7 @@ def main() -> int:
                                   "latest_quarter_end": checks["latest_quarter_end"], "quarter_age_days": checks["quarter_age_days"],
                                   "reconciles": checks["reconciles"], "shares": checks["shares"]}
             recon[checks["reconciles"].split(":")[0]] += 1
-            recon["shares:" + checks["shares"]] += 1
+            recon["shares:" + checks["shares"].split(":")[0]] += 1
             for k, v in norm["tags_used"].items():
                 if v: coverage[k] += 1
             n_kept += 1
@@ -898,7 +919,8 @@ def main() -> int:
             manifest[str(cik)].update(quarterly_rows=len(rec["quarterly"]),
                                       latest_quarter_end=rec["checks"]["latest_quarter_end"],
                                       quarter_age_days=rec["checks"]["quarter_age_days"],
-                                      reconciles=rec["checks"]["reconciles"], patched_from_filing=True)
+                                      reconciles=rec["checks"]["reconciles"], shares=rec["checks"]["shares"],
+                                      patched_from_filing=True)
             patched.append(cik)
     print(f"  patched {len(patched)} companies from their own filings ({PATCH_CAP - budget} filings fetched)")
 
@@ -918,7 +940,8 @@ def main() -> int:
                "Readers treat an `off` company, or one whose latest quarter is more than 150 days old (a 10-K may lawfully take 90 days; anything older means the structured feed is behind the filing), as unmeasured on its quarterly metrics.",
                "", "## Share counts (added 8 Sep 2026)", "",
                f"- diluted count on file: {recon.get('shares:ok', 0)}", f"- basic count only: {recon.get('shares:basic-only', 0)}",
-               f"- cover-page count only: {recon.get('shares:outstanding-only', 0)}", f"- none (multi-class filers tag by class; companyfacts drops dimensioned facts): {recon.get('shares:none', 0)}", "",
+               f"- cover-page count only: {recon.get('shares:outstanding-only', 0)}", f"- none (multi-class filers tag by class; companyfacts drops dimensioned facts): {recon.get('shares:none', 0)}",
+               f"- **invalid (a share count of zero or less somewhere in the file): {recon.get('shares:invalid', 0)}**", "",
                "A reader does not drop a name on a per-share test it cannot run; `shares` in the manifest says which case applies.",
                "", "## Items added 8 Sep 2026", "",
                "`current_assets`, `current_liabilities` (current ratio); `operating_leases` (beside `total_debt`; the gate treatment is a rule decision); `receivables`, `inventory`, `total_liabilities` (working-capital quality); `acquisitions`, `goodwill`, `intangibles`, `impairments`; `rd_expense`, `sga_expense`; `pension_funded_status`; `debt_due_1y/2y/3y`; bank items `net_interest_income`, `interest_income`, `deposits`, `loans`, `credit_loss_provision`, `loan_loss_allowance`, `tier1_capital_ratio` (thin — tagged by regulatory entity, which companyfacts drops); insurer items `premiums_earned`, `claims_incurred`, `acquisition_cost_amort`, `loss_reserves`. Segment revenue and per-class share data are dimensioned facts and cannot come from this file; the business briefs carry segments in words. Coverage per item is listed above — an item with low coverage is a tag most filers do not use, not a bug."]
