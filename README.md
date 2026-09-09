@@ -70,7 +70,8 @@ class shares, `BRK-B`), fetch `companies/<cik>.json` for each. A company file:
   "quarterly": [{"period_end": "2026-06-30", "form": "10-Q", "filed": "2026-07-30", "revenue": 9.6e8, "...": "..."}],
   "tags_used": {"revenue": "RevenueFromContractWithCustomerExcludingAssessedTax", "...": "..."},
   "checks": {"latest_quarter_end": "2026-06-30", "quarter_age_days": 71,
-             "reconciles": "ok", "reconciled_fy": 2026, "shares": "ok"}
+             "reconciles": "ok", "reconciled_fy": 2026, "shares": "ok",
+             "share_scale": "ok"}
 }
 ```
 
@@ -86,8 +87,21 @@ looks right.
 - `quarter_age_days` — how old the newest quarter is. Over 150 means the structured feed is
   behind the filing (a 10-K may lawfully take 90 days; beyond that the feed is late).
 - `shares` — `ok`, `basic-only`, `outstanding-only`, `none`, or **`invalid:<items>`** when a
-  share count of zero or less appears anywhere in the file. Never compute a per-share figure
-  from a file flagged invalid. Never drop a company for failing a per-share test it cannot run.
+  share count of zero or less appears anywhere in the file. Read off the values, not off which
+  tag resolved: a company whose diluted tag matched but whose rows are all empty reads `none`,
+  not `ok`. Never compute a per-share figure from a file flagged invalid. Never drop a company
+  for failing a per-share test it cannot run.
+- `share_scale` — `ok`, `n/a`, or **`suspect:<why>`** when the share counts cannot all be true at
+  once. `scale` means a diluted count more than fifty times its own outstanding count, or less
+  than a fiftieth — the shape you get when a filer tags the figure in millions (McDonald's files
+  716.4 for 716 million shares) or overstates it by a thousand (Waters, 98,204,000,000 against
+  98m outstanding). `levels` means the quarterly series steps between levels more than once: a
+  split steps once and stays, so anything that comes back is mixing bases — Netflix alternates
+  437m and 4,392m across its 10:1 split, Booking runs two quarters near 33m then two near 800m,
+  KLA's fiscal-year rows are ten times its own interims, and Interactive Brokers mixes its Class A
+  count with its total. **28 of the S&P 500 are flagged.** A flagged company is not wrong about
+  its business and is never dropped for this — it is unusable for anything per-share until a
+  human looks, and which side of the series is right is not knowable from the numbers alone.
 
 A quarterly row may carry `"source": "filing"`. That quarter was read from the company's own
 10-Q or 10-K XBRL because companyfacts had not caught up; it went through the same tag map,
@@ -154,7 +168,7 @@ substance of a 2.02 is in EX-99.1.
 
 ## Tests
 
-`pytest tests/` — 103 tests, run on every push. They cover the normaliser against synthetic
+`pytest tests/` — 125 tests, run on every push. They cover the normaliser against synthetic
 companyfacts documents (tag switches, the dominant and max picks, year-to-date differencing,
 the fiscal-year labelling, the checks block) and assert properties of the published dataset
 itself, because the share-count defect was invisible to unit tests: nothing had looked at what

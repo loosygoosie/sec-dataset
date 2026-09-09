@@ -9,114 +9,48 @@ The reader decides what to do with a flagged company; the pipeline's job is to f
 
 ---
 
-## 1. Share counts that are wrong at source, and are not flagged
+## 1. Share counts wrong at source — now flagged, not fixed  ✅ FLAGGED 9 Sep 2026
 
-The 9 Sep fix (`8562584d`) stopped the pipeline from *creating* bad share counts by
-differencing a weighted average out of a year-to-date figure. It did not address counts
-that arrive wrong from the filer. `checks.shares` catches only non-positive values
-(`invalid:<items>`); a count that is off by a factor of ten or a million reads `ok`.
+`checks.share_scale` was added (`build_sec_dataset.py`, `share_scale()`), and `checks.shares` now
+reads off the values rather than off which tag resolved. Both are covered by
+`tests/test_share_scale.py`. Nothing about the underlying figures changed — the pipeline cannot
+invent a count a filer tagged wrongly — but a reader is no longer told the data is fine.
 
-Two distinct shapes, which need different tests:
+**28 of the S&P 500** carry `share_scale: suspect`: AMCR BKNG BRO CRWD CVNA DD DLR ECHO EG GEHC
+GRMN HST IBKR KLAC MCD NFLX NOW ORLY PEG PSKY SW TER TPL VLTO VTRS WAT WRB WSM. Every one was
+checked by hand and none is a false positive.
 
-**Unit-scale errors** — the filer tagged a figure in millions against a `shares` unit,
-so the value is 1,000× or 1,000,000× too small, or too large.
+Two shapes, two reasons:
+- **`scale`** — a diluted count more than 50× its own outstanding count or less than 1/50.
+  McDonald's files `716.4` for 716 million shares; Waters files 98,204,000,000 against 98m.
+- **`levels`** — the quarterly series steps between levels more than once. A split steps once and
+  stays. Netflix alternates 437m and 4,392m *before* its split date; Booking runs two quarters
+  near 33m then two near 800m on a stock that never split 25:1; KLA's fiscal-year rows are 10×
+  its own interims; Interactive Brokers mixes its ~107m Class A count with its ~440m total.
 
-| Ticker | CIK | What is on file |
-|---|---|---|
-| WAT | 1000697 | Quarters ending 2026-04-04 and 2026-07-04 carry `shares_diluted` of 82,139,000,000 and 98,204,000,000 against `shares_outstanding` of ~98.2m — 1,000× too large. Earlier periods are correct at ~59.7m. (Outstanding genuinely rose 59.5m → 98.2m; that part is the BD Biosciences combination, not an error.) |
-| SR | 1126956 | Annual `shares_diluted` of 52.6, 56.3, 58.7 — the figure in millions. Quarters from 2025-12-31 onward are correct at ~59.2m. |
-| VHI | 59255 | Annual and quarterly `shares_diluted` of 28.5 through 2025-12-31; correct at 28,500,000 from 2026-03-31. |
-| SW, PSKY, VLTO, GEHC, VTRS, PEG | | Same shape, ratios from 678,000× to 5,165,000×. |
+**Two designs were tried and discarded, both recorded because the reasoning is not obvious:**
+1. A `shares_diluted ÷ shares_outstanding` cross-check alone reads a clean **1.013** for KLA,
+   where both fields are 10× out together. It also cannot see Booking, which has no outstanding
+   count at all.
+2. Grouping the series by `round(log10(value))` made Goldman — sitting at ~3.1e8, either side of
+   10^8.5 — cross a rounding boundary on a 3% move. Adjacent ratios have no such boundary.
 
-**A whole fiscal year 10× out while its own interim quarters are right** — KLA (CIK 319201):
+**What is still not caught:** a company with no `shares_outstanding` whose series changes level
+exactly once, in the wrong direction, at the edge of the window. There is nothing in the numbers
+to distinguish that from a split.
 
-```
-A 2024-06-30  dil=1,361,869,000   out=  134,425,000
-A 2025-06-30  dil=1,337,502,000   out=1,320,227,000
-A 2026-06-30  dil=1,319,633,000   out=1,306,983,000
-Q 2026-03-31  dil=  131,750,000            <- correct
-Q 2026-06-30  dil=1,319,633,000            <- the Q4 row takes the annual as filed
-```
+## 2. `checks.shares` described tag resolution, not data  ✅ FIXED 9 Sep 2026
 
-The real count is ~132m. Note the Q4 row inherits the annual error by design: a weighted
-average is not additive, so the fiscal-year quarter takes the figure as filed. That is
-correct behaviour on a correct input.
+`data_checks` set the flag from `tags_used` alone, so a company whose diluted tag resolved but
+whose rows were all empty read `ok` — 76 companies dataset-wide, and BKR, ERIE, HSY and LYB in
+the S&P 500, every one promising a per-share figure it could not supply. It now reads the values.
+The vocabulary is unchanged; seven S&P 500 flags corrected (ARES, BKR, BRK-B, ERIE, HSY, LYB, V).
 
-### Why the obvious check does not work, and what does
-
-A `shares_diluted ÷ shares_outstanding` cross-check catches WAT (1,001×) but reads a clean
-**1.013** for KLA's FY2025 — because *both* fields are 10× out together. It also fires on
-30 S&P 500 rows, most of them not errors at all:
-
-```
-python3 - <<'PY'
-import json, pathlib
-sp = json.load(open('data/sp500.json'))
-for c in sp['companies']:
-    p = pathlib.Path(f"data/companies/{c['cik']}.json")
-    if not p.exists(): continue
-    d = json.load(open(p))
-    for r in d['annual'] + d['quarterly']:
-        a, b = r.get('shares_diluted'), r.get('shares_outstanding')
-        if a and b and b > 0 and (a/b > 5 or a/b < 0.2):
-            print(f"{c['ticker']}:{r['period_end']}:{a/b:,.0f}x"); break
-PY
-```
-
-The 30 fall into two populations that must not be treated alike. Ratios landing on a known
-split factor — AMZN 20×, NVDA 10×, ORLY 15×, DECK 6×, TSCO 5× — are a split-adjustment
-mismatch between two fields that come from different places: `shares_diluted` is the
-weighted average as filed for that period, `shares_outstanding` is `dei:EntityCommonStockSharesOutstanding`
-from a filing's cover page. Ratios of 1,000× and up are genuine unit-scale errors.
-
-**An adjacent-quarter jump test is the better instrument.** Nine S&P 500 names, and it
-catches both WAT and KLAC, which no single ratio test does:
-
-```
-AMCR 2024-06-30->2024-09-30  5.01x      ECHO 2023-09-30->2023-12-31    998.51x
-BKNG 2024-12-31->2025-03-31 24.28x      KLAC 2024-03-31->2024-06-30     10.02x
-CVNA 2024-12-31->2025-06-30  5.42x      NFLX 2023-09-30->2023-12-31      9.99x
-ORLY 2023-09-30->2023-12-31 15.10x      TSCO 2023-09-30->2023-12-30      5.02x
-WAT  2024-12-31->2025-03-29  1,001.11x
-```
-
-Splits and errors separate on **whether the jump persists**: after a real split the series
-stays at the new level and `shares_outstanding` moves with it (BKNG, NFLX, ORLY, TSCO,
-AMCR, CVNA); KLA's jumps to 1.3bn and reverts to 132m the next quarter. That two-part rule
-— jump, then reversion or corroboration by `shares_outstanding` — is the design worth
-implementing. It is not implemented.
-
-Whatever is added must be a **new** flag value or a new key, never a change to the meaning
-of `shares`. Other tasks read these files by field name.
-
-## 2. `checks.shares` describes tag resolution, not data
-
-`data_checks` (`build_sec_dataset.py:517`) sets the flag from `tags_used` alone:
-
-```python
-st = (tags_used or {}).get("shares_diluted")
-if st and "Diluted" in st:
-    shares = "ok"
-```
-
-So a company where a diluted tag *resolved* but no value ever landed in a row reads `ok`.
-ERIE (CIK 922621) is the clean example: `shares: ok`, and every `shares_diluted`,
-`shares_basic` and `shares_outstanding` in the file is `null`. Four S&P 500 names —
-**BKR, ERIE, HSY, LYB** — and 76 companies dataset-wide.
-
-Not dangerous: a reader gets `None`, not a wrong number. But the flag reads as a promise it
-does not make, and README.md's "Read the `checks` block before trusting a row" describes it
-as though it did. Either the flag should require a value to be present, or the README
-should say what it actually measures.
-
-```
-python3 -c "
-import json,pathlib
-n=[p for p in pathlib.Path('data/companies').glob('*.json')
-   if (d:=json.load(open(p)))['checks'].get('shares')=='ok'
-   and not any(r.get('shares_diluted') for r in d['annual']+d['quarterly'])]
-print(len(n))"
-```
+**The unit test asserted the bug.** `test_the_shares_flag_says_which_per_share_tests_a_reader_can_run`
+called `data_checks([], [], tags_used=...)` — no rows at all — and expected `"ok"`. Code and test
+agreed with each other and neither ever looked at data, which is how this survived a suite that
+was written specifically to catch share-count defects. It now passes rows, including the empty
+case that was the bug.
 
 ## 3. Diluted share counts still missing
 

@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import csv
 import io
+import math
 import json
 import os
 import re
@@ -472,6 +473,54 @@ SHARE_ITEMS = ("shares_diluted", "shares_outstanding")
 RECON_TOL = 0.03         # four quarters must sum to the fiscal year within 3% (or $5m on small lines)
 
 
+
+# The largest stock split in this dataset is Amazon's 20:1, so a diluted count fifty times its own
+# outstanding count is not a split — it is a scale error, and they are common enough to matter.
+SCALE_RATIO = 50
+# A step this large between adjacent quarters is a change of level. One of them is a stock split,
+# which happens and stays. Two or more means the series comes back — some periods carry a restated
+# or mis-scaled figure and the rest do not — and no per-share figure spans it.
+STEP_RATIO = 3
+
+
+def share_scale(ann: list[dict], qtr: list[dict]) -> str:
+    """Whether a company's share counts are all on the same scale — "ok", "n/a", or "suspect:<why>".
+
+    Filers get this wrong in two shapes, and the non-positive test that `shares` runs catches
+    neither. Some tag the figure in millions against a `shares` unit, so the count is a million
+    times too small — McDonald's files 716.4 for 716 million shares — or, where only some periods
+    are wrong, far too large: Waters files 98,204,000,000 against 98m outstanding. Others mix
+    split-adjusted and unadjusted figures in one series, so it sawtooths: Netflix alternates 437m
+    and 4,392m across its 10:1 split, Booking runs two quarters near 33m then two near 800m, and
+    KLA's fiscal-year rows are ten times its own interim quarters.
+
+    "scale"  — a diluted count more than fifty times its own outstanding count, or less than a
+               fiftieth. No split is that large.
+    "levels" — the quarterly series steps between levels more than once. A split steps once and
+               stays; anything that comes back is an inconsistency, and which side is right is not
+               knowable from the numbers alone, so the whole series is suspect rather than some
+               rows of it.
+
+    A flagged company is not wrong about its business. It is unusable for anything per-share until
+    a human looks, exactly as `shares: invalid` is. Never drop a name on it. It is a separate key
+    because it measures something `shares` and `reconciles` do not, and because adding a key is
+    safe where changing the meaning of one is not."""
+    why, rows = [], ann + qtr
+    if any(d and o and o > 0 and not (1 / SCALE_RATIO <= d / o <= SCALE_RATIO)
+           for d, o in ((r.get("shares_diluted"), r.get("shares_outstanding")) for r in rows)):
+        why.append("scale")
+    # Adjacent ratios, not rounded magnitudes: a company sitting near a power of ten (Goldman at
+    # ~3.1e8) would otherwise cross a rounding boundary on a 3% move and look broken.
+    q = [r["shares_diluted"] for r in sorted(qtr, key=lambda r: r.get("period_end") or "")
+         if r.get("period_end") and r.get("shares_diluted") and r["shares_diluted"] > 0]
+    steps = sum(1 for a, b in zip(q, q[1:]) if b / a > STEP_RATIO or b / a < 1 / STEP_RATIO)
+    if steps > 1:
+        why.append("levels")
+    if why:
+        return "suspect:" + ",".join(why)
+    return "ok" if any(r.get("shares_diluted") or r.get("shares_outstanding") for r in rows) else "n/a"
+
+
 def data_checks(ann: list[dict], qtr: list[dict], tags_used: dict | None = None) -> dict:
     """Self-check written into every company file and the manifest, so a reader can refuse a row
     the pipeline itself cannot vouch for, instead of scoring a data gap as if it were the business.
@@ -514,12 +563,18 @@ def data_checks(ann: list[dict], qtr: list[dict], tags_used: dict | None = None)
     # share count: some multi-class filers (Visa, Berkshire) tag every per-share and share-count fact by class of
     # stock, and the SEC's companyfacts file carries no dimensioned facts, so the count is simply absent. A reader
     # must not drop such a name on a test it cannot run (revenue per share); it flags it instead.
+    #
+    # This is measured on the VALUES, not on which tag resolved. Until 9 Sep 2026 it read the tag map, so a
+    # company whose diluted tag matched but whose rows were all empty reported "ok" — ERIE, BKR, HSY and LYB
+    # in the S&P 500, 76 companies dataset-wide, every one of them promising a per-share figure it could not
+    # supply. The vocabulary is unchanged; the values are now true.
+    rows = ann + qtr
+    has_dil = any(r.get("shares_diluted") is not None for r in rows)
+    has_out = any(r.get("shares_outstanding") is not None for r in rows)
     st = (tags_used or {}).get("shares_diluted")
-    if st and "Diluted" in st:
-        shares = "ok"
-    elif st:
-        shares = "basic-only"
-    elif (tags_used or {}).get("shares_outstanding"):
+    if has_dil:
+        shares = "ok" if (st and "Diluted" in st) else "basic-only"
+    elif has_out:
         shares = "outstanding-only"
     else:
         shares = "none"
@@ -531,7 +586,8 @@ def data_checks(ann: list[dict], qtr: list[dict], tags_used: dict | None = None)
                   if r.get(item) is not None and r[item] <= 0})
     if bad:
         shares = "invalid:" + ",".join(bad)
-    return {"latest_quarter_end": latest_q, "quarter_age_days": age, "reconciles": result, "reconciled_fy": checked_fy, "shares": shares}
+    return {"latest_quarter_end": latest_q, "quarter_age_days": age, "reconciles": result,
+            "reconciled_fy": checked_fy, "shares": shares, "share_scale": share_scale(ann, qtr)}
 
 
 # --------------------------------------------------------------------------

@@ -263,18 +263,33 @@ def test_no_quarters_at_all_leaves_the_age_unknown(b):
     assert checks["quarter_age_days"] is None
 
 
-@pytest.mark.parametrize("tags_used, expected", [
-    ({"shares_diluted": "WeightedAverageNumberOfDilutedSharesOutstanding"}, "ok"),
-    ({"shares_diluted": "WeightedAverageNumberOfShareOutstandingBasicAndDiluted"}, "ok"),
-    ({"shares_diluted": "WeightedAverageNumberOfSharesOutstandingBasic"}, "basic-only"),
-    ({"shares_diluted": None, "shares_outstanding": "dei:EntityCommonStockSharesOutstanding"}, "outstanding-only"),
-    ({"shares_diluted": None, "shares_outstanding": None}, "none"),
-    ({}, "none"),
+DIL = "WeightedAverageNumberOfDilutedSharesOutstanding"
+BOTH = "WeightedAverageNumberOfShareOutstandingBasicAndDiluted"
+BASIC = "WeightedAverageNumberOfSharesOutstandingBasic"
+OUT = "dei:EntityCommonStockSharesOutstanding"
+
+
+@pytest.mark.parametrize("tags_used, row, expected", [
+    ({"shares_diluted": DIL},   {"shares_diluted": 1_000_000}, "ok"),
+    ({"shares_diluted": BOTH},  {"shares_diluted": 1_000_000}, "ok"),
+    ({"shares_diluted": BASIC}, {"shares_diluted": 1_000_000}, "basic-only"),
+    ({"shares_diluted": None, "shares_outstanding": OUT}, {"shares_outstanding": 1_000_000}, "outstanding-only"),
+    ({"shares_diluted": None, "shares_outstanding": None}, {}, "none"),
+    ({}, {}, "none"),
+    # the tag resolved and nothing landed behind it: for a year this read "ok"
+    ({"shares_diluted": DIL}, {}, "none"),
+    ({"shares_diluted": DIL}, {"shares_outstanding": 1_000_000}, "outstanding-only"),
 ])
-def test_the_shares_flag_says_which_per_share_tests_a_reader_can_run(b, tags_used, expected):
+def test_the_shares_flag_says_which_per_share_tests_a_reader_can_run(b, tags_used, row, expected):
     """Multi-class filers tag share counts by class, and companyfacts drops dimensioned
-    facts, so the count is simply absent. A reader must flag that, not score it as zero."""
-    assert b.data_checks([], [], tags_used=tags_used)["shares"] == expected
+    facts, so the count is simply absent. A reader must flag that, not score it as zero.
+
+    The flag is read off the VALUES. Until 9 Sep 2026 it was read off the tag map, and this
+    test passed no rows at all — so both the code and the test agreed that a resolved tag
+    meant usable data, and neither of them ever looked. That is how 76 companies came to
+    promise a per-share figure they could not supply."""
+    qtr = [{"period_end": "2026-06-30", **row}]
+    assert b.data_checks([], qtr, tags_used=tags_used)["shares"] == expected
 
 
 def test_the_shares_flag_survives_the_whole_pipeline(b):
