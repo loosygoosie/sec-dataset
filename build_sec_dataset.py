@@ -5,7 +5,7 @@ build_sec_dataset.py — fundamentals for EVERY SEC filer, straight from the SEC
 What it does, once per run:
   1. Fetches the SEC's own ticker -> CIK maps (regenerated daily from filing cover pages).
   2. Downloads the SEC's bulk XBRL "companyfacts" zip (every filer, every tagged number).
-  3. Normalises ~22 line items for every operating company in it — resolving the tag
+  3. Normalises the 49 line items for every operating company in it — resolving the tag
      synonyms companies use for the same line — into clean annual (last 8 fiscal years)
      and quarterly (last 12 quarters, year-to-date cash flows differenced) rows.
   4. Writes one small file per company, data/companies/<CIK>.json (a file changes only when

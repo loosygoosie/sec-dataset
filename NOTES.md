@@ -2,7 +2,7 @@
 
 Known defects and unfinished work in this pipeline, written down so they survive a
 conversation ending. Everything here was reproduced against the published dataset on
-2026-09-09 (7,411 companies, build `3c0126ed`); each item says how to reproduce it.
+2026-09-09 (7,411 companies, build `42cded4e` — the first published build carrying `checks.share_scale`); each item says how to reproduce it.
 
 Nothing here is a scoring or screening rule, and none of it belongs in this repo as one.
 The reader decides what to do with a flagged company; the pipeline's job is to flag it.
@@ -58,11 +58,13 @@ case that was the bug.
 
 | Ticker | CIK | Flag | Why |
 |---|---|---|---|
-| V | 1403161 | `outstanding-only` | Multi-class filer: every share fact is tagged by class of stock, and companyfacts carries no dimensioned facts. |
-| BRK-B | 1067983 | `basic-only` | Same. |
-| ARES | 1176948 | `basic-only` | Only `WeightedAverageNumberOfSharesOutstandingBasic` resolves. |
-| ERIE | 922621 | `ok` (see §2) | Diluted tag resolves, no values. |
-| REG | 910606 | `ok` (see §2) | `shares_outstanding` is present; diluted is not. |
+| V | 1403161 | `none` | Multi-class filer: every share fact is tagged by class of stock, and companyfacts carries no dimensioned facts — so neither a diluted nor an outstanding count survives. |
+| BRK-B | 1067983 | `none` | Same. |
+| ARES | 1176948 | `outstanding-only` | An outstanding count resolves; no diluted figure does. |
+| ERIE | 922621 | `none` | The diluted tag resolves but carries no values, which is exactly the case §2 stopped reporting as `ok`. |
+
+REG (CIK 910606) was listed here and does not belong: its `shares_diluted` is populated and its
+flag is `ok`. Removed 9 Sep 2026 — the row was describing a company that does not have the defect.
 
 The per-filing XBRL fallback added in `f325f4ed` reads instance documents and already
 excludes dimensioned contexts. Reading the *class-dimensioned* facts and summing across
