@@ -60,6 +60,10 @@ FETCH_CAP = int(os.environ.get("FILINGS_LIMIT", "600"))
 # instead of five hundred — the parser can only be tested against real filings on the runner,
 # because the SEC refuses requests that do not carry the declared contact in SEC_USER_AGENT.
 ONLY = {t.strip().upper() for t in os.environ.get("FILINGS_TICKERS", "").split(",") if t.strip()}
+# Re-fetch and re-parse filings already stored. The stored text is only as good as the parser
+# that made it, so every change to the extractor leaves the data behind — and the alternative,
+# deleting files out of data/ by hand, is the one thing nobody may do here.
+REFRESH = os.environ.get("FILINGS_REFRESH", "").strip().lower() in {"1", "true", "yes"}
 
 # Each stored section is capped. Item 1A alone runs past 200,000 characters at some banks, and
 # nothing downstream reads that far — a brief needs the dependencies, which are stated up front.
@@ -146,9 +150,14 @@ ITEM_TITLES = {
 WANTED = ["item1", "item1a", "item3", "item7", "item7a"]
 WANTED_KEY = {"item1": "1", "item1a": "1a", "item3": "3", "item7": "7", "item7a": "7a"}
 
+# "Items 1. and 2. Business and Properties" is the standard heading in the extractive
+# industries and in many REITs, and "Items 7. and 7A." is common wherever market risk is
+# discussed inside MD&A. Requiring "item" to be followed straight away by a number missed both,
+# which cost Freeport-McMoRan its entire Item 1 on the first real run. Only the first number is
+# captured: the section starts there and runs to the next item either way.
 _ITEM_RE = re.compile(
     r"(?im)^[^\S\n]{0,12}(?:part\s+[ivx]{1,4}\s*[\.\-–—:]?\s*)?"
-    r"item[\s\.]{0,3}([0-9]{1,2}[abc]?)[\s\.\-–—:\)]{0,4}(.{0,90})")
+    r"items?[\s\.]{0,3}([0-9]{1,2}[abc]?)[\s\.\-–—:\)]{0,4}(.{0,90})")
 
 
 def _matches(text: str) -> list[tuple[int, str, str]]:
@@ -309,12 +318,14 @@ def main() -> int:
         raise SystemExit("REFUSING TO RUN — no companies in scope")
     FIL_DIR.mkdir(parents=True, exist_ok=True)
 
-    print(f"1. {len(universe)} companies in scope, cap {FETCH_CAP} fetches")
+    print(f"1. {len(universe)} companies in scope, cap {FETCH_CAP} fetches"
+          + (" — REFRESH: re-parsing filings already stored" if REFRESH else ""))
     budget = FETCH_CAP
     results: dict[int, bytes] = {}
     skipped = attempted = no_filing = no_text = 0
     found: dict[str, int] = defaultdict(int)
     empty: list[str] = []
+    short: list[str] = []
     for n, c in enumerate(universe, 1):
         cik, ticker = int(c["cik"]), c.get("ticker", "")
         filing = latest_10k_from_events(cik)
@@ -327,7 +338,7 @@ def main() -> int:
             no_filing += 1
             empty.append(f"{ticker} (no 10-K found)")
             continue
-        if stored_accession(cik) == filing["accession"]:
+        if not REFRESH and stored_accession(cik) == filing["accession"]:
             skipped += 1
             continue
         if budget <= 0:
@@ -351,6 +362,9 @@ def main() -> int:
         secs = {k: v[:SECTION_CAP] for k, v in secs.items()}
         for k in secs:
             found[k] += 1
+        gap = [k for k in WANTED if k not in secs]
+        if gap:
+            short.append(f"{ticker}: {', '.join(gap)}")
         results[cik] = gz_bytes({
             "cik": cik, "name": c.get("name"), "tickers": [ticker] if ticker else [],
             "form": filing["form"], "accession": filing["accession"], "filed": filing["filed"],
@@ -399,6 +413,11 @@ def main() -> int:
               "## Sections found, of the filings fetched this run", ""]
     for k in WANTED:
         report.append(f"- {k}: {found[k]}")
+    if short:
+        report += ["", "## Sections not found, by company", "",
+                   "A missing `item7` is often the filing's own doing — some filers put MD&A in an",
+                   "exhibit and incorporate it by reference. A missing `item1` is the parser.", ""]
+        report += [f"- {e}" for e in sorted(short)]
     if empty:
         report += ["", "## Left without text this run", ""] + [f"- {e}" for e in sorted(empty)]
     (OUT_DIR / "filings_report.md").write_text("\n".join(report) + "\n")

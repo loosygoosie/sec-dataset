@@ -16,6 +16,10 @@ on:
         description: "Restrict to these tickers, comma-separated. Blank means the whole index."
         default: ""
         required: false
+      refresh:
+        description: "Re-fetch filings already stored. Needed after any change to the extractor."
+        default: "false"
+        required: false
 
 permissions:
   contents: write
@@ -53,6 +57,7 @@ jobs:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
           FILINGS_LIMIT: ${{ inputs.limit || '600' }}
           FILINGS_TICKERS: ${{ inputs.tickers || '' }}
+          FILINGS_REFRESH: ${{ inputs.refresh || 'false' }}
         run: python build_sec_filings.py
 
       - name: Show report

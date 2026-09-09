@@ -224,3 +224,38 @@ def test_what_is_written_reads_back_as_what_went_in():
     body = gz_bytes({"cik": 320193, "sections": {"item1": "Cafés & bars."}})
     with gzip.open(io.BytesIO(body), "rt") as fh:
         assert json.load(fh)["sections"]["item1"] == "Cafés & bars."
+
+
+# ---------------------------------------------------------------- combined headings
+
+def test_items_1_and_2_combined_is_item_1():
+    """The standard heading in mining and oil: Business and Properties are one section. On the
+    first real run this cost Freeport-McMoRan its entire Item 1 — the filing had no heading that
+    read "Item 1" at all, and a company with no Business section is not something to shrug at."""
+    html = ("<html><body>"
+            f"<p>Items 1. and 2. Business and Properties</p><p>{'WE MINE COPPER ' * 200}</p>"
+            f"<p>Item 1A. Risk Factors</p><p>{LONG}</p></body></html>")
+    s = parse(html)
+    assert "WE MINE COPPER" in s["item1"]
+
+
+def test_items_7_and_7a_combined_is_item_7():
+    html = ("<html><body>"
+            f"<p>Item 1. Business</p><p>{LONG}</p>"
+            f"<p>Item 1A. Risk Factors</p><p>{LONG}</p>"
+            f"<p>Items 7. and 7A. Management's Discussion and Analysis</p><p>{'CASH FLOWS ' * 200}</p>"
+            "<p>Item 8. Financial Statements</p><p>See the index.</p></body></html>")
+    assert "CASH FLOWS" in parse(html)["item7"]
+
+
+def test_a_combined_heading_still_bounds_the_section_before_it():
+    """Items 1 and 2 together means there is no separate Item 2 heading to stop at, so Item 1A
+    has to run to Item 3 rather than off the end of the filing."""
+    html = ("<html><body>"
+            f"<p>Items 1. and 2. Business and Properties</p><p>{LONG}</p>"
+            f"<p>Item 1A. Risk Factors</p><p>{'RISKS ' * 300}</p>"
+            "<p>Item 3. Legal Proceedings</p><p>A patent claim.</p>"
+            f"<p>Item 7. Management's Discussion and Analysis</p><p>{LONG}</p></body></html>")
+    s = parse(html)
+    assert "RISKS" in s["item1a"]
+    assert "patent claim" not in s["item1a"]
