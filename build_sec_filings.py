@@ -64,6 +64,10 @@ ONLY = {t.strip().upper() for t in os.environ.get("FILINGS_TICKERS", "").split("
 # that made it, so every change to the extractor leaves the data behind — and the alternative,
 # deleting files out of data/ by hand, is the one thing nobody may do here.
 REFRESH = os.environ.get("FILINGS_REFRESH", "").strip().lower() in {"1", "true", "yes"}
+# Dump the heading table for every company in scope, to the workflow log, and write nothing.
+# The only way to see what a real filing looks like to the parser: it cannot be fetched anywhere
+# but the runner. Use it with FILINGS_TICKERS or it prints five hundred tables.
+DEBUG = os.environ.get("FILINGS_DEBUG", "").strip().lower() in {"1", "true", "yes"}
 
 # Each stored section is capped. Item 1A alone runs past 200,000 characters at some banks, and
 # nothing downstream reads that far — a brief needs the dependencies, which are stated up front.
@@ -353,7 +357,20 @@ def main() -> int:
             no_text += 1
             empty.append(f"{ticker} (document unreadable)")
             continue
-        secs = sections(to_text(r.text))
+        text = to_text(r.text)
+        if DEBUG:
+            ms = _matches(text)
+            skip = _contents(ms, len(text))
+            print(f"\n=== {ticker} {url}")
+            print(f"    raw {len(r.text)} chars, text {len(text)} chars, {len(ms)} item matches")
+            for n, (pos, k, title) in enumerate(ms[:70]):
+                mark = "TOC" if n in skip else "   "
+                print(f"    {mark} {pos:8d} item{k:<3s} {title[:64]!r}")
+            if len(ms) > 70:
+                print(f"    ... {len(ms) - 70} more")
+            print(f"    parsed: {sorted(sections(text))}")
+            continue
+        secs = sections(text)
         if not secs:
             no_text += 1
             empty.append(f"{ticker} (no item headings parsed)")

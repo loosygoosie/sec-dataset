@@ -20,6 +20,10 @@ on:
         description: "Re-fetch filings already stored. Needed after any change to the extractor."
         default: "false"
         required: false
+      debug:
+        description: "Print each filing's heading table to this log and write nothing. Use with tickers."
+        default: "false"
+        required: false
 
 permissions:
   contents: write
@@ -58,6 +62,7 @@ jobs:
           FILINGS_LIMIT: ${{ inputs.limit || '600' }}
           FILINGS_TICKERS: ${{ inputs.tickers || '' }}
           FILINGS_REFRESH: ${{ inputs.refresh || 'false' }}
+          FILINGS_DEBUG: ${{ inputs.debug || 'false' }}
         run: python build_sec_filings.py
 
       - name: Show report
