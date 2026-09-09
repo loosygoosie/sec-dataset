@@ -1,4 +1,4 @@
-# SEC dataset build — 2026-09-09T23:08:31Z
+# SEC dataset build — 2026-09-09T23:17:07Z
 
 - filers scanned: 20337
 - companies published: 7411
@@ -73,6 +73,14 @@ Readers treat an `off` company, or one whose latest quarter is more than 150 day
 - **invalid (a share count of zero or less somewhere in the file): 264**
 
 A reader does not drop a name on a per-share test it cannot run; `shares` in the manifest says which case applies.
+
+## Share scale (added 9 Sep 2026)
+
+- consistent: 6006
+- **suspect: 1060** (`scale` — a diluted count more than fifty times its own outstanding count, or less than a fiftieth; `levels` — the quarterly series steps between levels more than once, so no per-share figure spans it)
+- no share data at all: 345
+
+`share_scale` says whether a company's share counts can all be true at once. It is not a reason to drop a name — it says the per-share metrics for that company are unmeasured. Both the flag and `shares` are in the manifest, so a reader need not open 7,411 company files to screen on them.
 
 ## Items added 8 Sep 2026
 
