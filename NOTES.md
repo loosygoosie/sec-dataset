@@ -84,7 +84,26 @@ the Class A count where the others carry the total. Not yet confirmed against th
 confirm before changing anything. `shares` reads `ok`; `reconciles` does not test share
 counts, so nothing flags it.
 
-## 5. Smaller things
+## 5. `share_scale` never reached the manifest
+
+`data_checks` computes `share_scale` and every company file carries it, but the manifest row
+written in `build_sec_dataset.py` copies only `reconciles` and `shares`. The manifest is what a
+reader opens first — it is the 1.8 MB index every task uses to go from ticker to CIK — so the
+flag is currently invisible to anyone who does not open all 7,411 company files. Adding the key
+is additive and safe under the ground rules below. Not done yet because it belongs to the same
+run as the next full dataset build, not to the filing-text change.
+
+## 6. The filing-text parser has not met a real 10-K
+
+`build_sec_filings.py` and its twenty tests were written on 9 Sep 2026 against synthetic
+filings. That is not a shortcut: the SEC refuses requests without the declared contact, so the
+parser cannot be exercised anywhere but the workflow. Until a dispatched run reports its
+coverage, the honest statement is that the rules are pinned, not proven. The first thing to read
+is `data/filings_report.md` — specifically how many of the filings fetched carry `item1`, and
+which names are in the "left without text" list. Companies whose MD&A is incorporated by
+reference will legitimately be missing `item7`; a company missing `item1` is the parser.
+
+## 7. Smaller things
 
 - **`shares_outstanding` of 59,176 for WAT FY2023** (CIK 1000697) — five orders of magnitude
   below its neighbours, sitting under a `shares: ok` flag. Same class of defect as §1, on the

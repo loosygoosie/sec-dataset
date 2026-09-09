@@ -166,9 +166,59 @@ filings with the SEC's own **item codes** — 2.02 results and guidance, 4.01 au
 rest. Each 8-K also carries an `exhibits` list: an event's `url` is the cover page, and the
 substance of a 2.02 is in EX-99.1.
 
+## The filing text
+
+`build_sec_filings.py` runs weekly, Sunday 08:00 UTC, two hours after the dataset build whose
+S&P 500 list it reads. Everything else here is numbers; this is the words. It fetches each
+S&P 500 company's latest 10-K from EDGAR and stores the narrative items as plain text:
+
+    data/filings/<CIK>.json.gz
+
+        {cik, name, tickers, form, accession, filed, period, url,
+         sections: {item1, item1a, item3, item7, item7a},
+         chars: {...}, truncated: [...]}
+
+`item1` Business, `item1a` Risk Factors, `item3` Legal Proceedings, `item7` MD&A, `item7a`
+market risk. A key is **absent** when the heading was not found — some filers put MD&A in an
+exhibit and incorporate it by reference — and absent means absent, not empty: nothing here
+guesses at a section it could not locate. Each section is capped at 80,000 characters and the
+`truncated` list names any that hit the cap. Read one with:
+
+```python
+import gzip, json
+with gzip.open("data/filings/320193.json.gz", "rt") as fh:
+    item1 = json.load(fh)["sections"]["item1"]
+```
+
+Scope is the index because it is the universe every task screens from; storing 7,411 filers'
+narrative would be gigabytes nobody reads. A 10-K never changes once filed, so a company whose
+stored accession is still the latest is skipped without a request — outside February and March
+a run fetches almost nothing.
+
+**Why this exists.** The briefs the monitors read are prose, and until this existed they had to
+be written from a vendor's copy of the filing text. On 9 Sep 2026 that route failed: the
+vendor's index listed every 10-K while its reader returned "content is not available" for
+DECK, DUK, AEP, FCX and VMC, and for their prior-year filings too. A gap shaped by someone
+else's ingestion looks, in a finished brief, exactly like a judgement about the company.
+
+**The slicing is the risk.** A mis-sliced section reads exactly like a correct one, so the rules
+are narrow and tested. Every filing names its items at least twice, and many print the item in
+a running page header on every page. Contents rows are found as a dense run of mentions whose
+item numbers only ever rise — the rise is what ends the run where the table meets the body,
+which a density rule alone got wrong. Among what is left, the heading with the longest reach to
+the next item wins, which is what separates the top of a section from the page headers below
+it. The build refuses to publish if Item 1 parses for under 60% of the filings it fetched,
+because filings do not change overnight and a collapse in coverage is the parser breaking.
+
+The parser cannot be exercised outside the workflow: the SEC refuses requests that do not carry
+the declared contact in `SEC_USER_AGENT`, and that secret belongs to the build. So it is pinned
+by tests against synthetic filings shaped like real ones, and the workflow runs those tests
+before the build touches any data. To try a change on five companies instead of five hundred,
+dispatch the workflow with `tickers: DECK,DUK,AEP,FCX,VMC`.
+
 ## Tests
 
-`pytest tests/` — 125 tests, run on every push. They cover the normaliser against synthetic
+`pytest tests/` — 145 tests, run on every push. They cover the normaliser against synthetic
 companyfacts documents (tag switches, the dominant and max picks, year-to-date differencing,
 the fiscal-year labelling, the checks block) and assert properties of the published dataset
 itself, because the share-count defect was invisible to unit tests: nothing had looked at what
