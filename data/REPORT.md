@@ -1,13 +1,13 @@
-# SEC dataset build — 2026-09-09T04:28:38Z
+# SEC dataset build — 2026-09-09T19:39:23Z
 
-- filers scanned: 20335
+- filers scanned: 20337
 - companies published: 7411
-- tickers in map: 10425
+- tickers in map: 10407
 
 ## Coverage by line item (companies with at least one value)
 
 - acquisition_cost_amort: 157
-- acquisitions: 3776
+- acquisitions: 3777
 - buybacks: 4113
 - capex: 6136
 - cash: 7327
@@ -16,16 +16,16 @@
 - current_assets: 6119
 - current_liabilities: 6103
 - d_and_a: 6418
-- debt_current: 3422
+- debt_current: 3423
 - debt_due_1y: 3312
 - debt_due_2y: 3303
 - debt_due_3y: 3202
 - deposits: 1032
-- dividends_paid: 2912
+- dividends_paid: 2913
 - eps_diluted: 6689
 - goodwill: 4121
 - gross_profit: 3699
-- impairments: 4995
+- impairments: 4996
 - income_tax: 6521
 - intangibles: 3775
 - interest_expense: 6000
@@ -66,10 +66,10 @@ Readers treat an `off` company, or one whose latest quarter is more than 150 day
 
 ## Share counts (added 8 Sep 2026)
 
-- diluted count on file: 6666
-- basic count only: 71
-- cover-page count only: 283
-- none (multi-class filers tag by class; companyfacts drops dimensioned facts): 127
+- diluted count on file: 6590
+- basic count only: 61
+- cover-page count only: 186
+- none (multi-class filers tag by class; companyfacts drops dimensioned facts): 310
 - **invalid (a share count of zero or less somewhere in the file): 264**
 
 A reader does not drop a name on a per-share test it cannot run; `shares` in the manifest says which case applies.
@@ -80,7 +80,7 @@ A reader does not drop a name on a per-share test it cannot run; `shares` in the
 
 ## Stale-name fallback
 
-- companies whose companyfacts quarterly series was behind their own filings: 188
+- companies whose companyfacts quarterly series was behind their own filings: 186
 - of those, patched from the filing's own XBRL this run: 71 (cap 100 filings)
 
 A quarterly row carrying `"source": "filing"` was derived from the filing's own XBRL instance,
