@@ -477,3 +477,44 @@ rows only and cannot change an annual top line, and `rec` comes from disk withou
 recomputing would silently reset every patched company to `ok`.
 
 **`data/` does not change until the next scheduled build runs.** Nothing here rewrites it by hand.
+
+
+## 13. The concept map collapsed parent scope and consolidated scope into one field ✅ FIXED
+
+Found 10 Sep 2026 by a per-sector coverage diagnostic asking, of every derivation the model needs,
+whether a failure was the COMPANY's, our DATA's, or the MODEL's — with sector concentration as the
+discriminator, because a derivation failing for one name in seventy is that filing while the same
+one failing for half a sector is the model asking something the sector does not report.
+
+One probe dominated every sector: **equity scope**, structural in Utilities and Communication
+Services and the largest company-level failure in the other nine — about 106 names.
+
+The cause is architectural rather than a bug. `CONCEPTS` treats a field as *one number with several
+possible tag names*, and in three places several of those names are **different quantities**:
+
+| field | collapsed |
+|---|---|
+| `total_equity` | `StockholdersEquity` (PARENT) and `...IncludingPortionAttributableToNoncontrollingInterest` (CONSOLIDATED) |
+| `net_income` | `NetIncomeLoss` (PARENT) and `ProfitLoss` (CONSOLIDATED) |
+| `pretax_income` | consolidated totals, `...AttributableToParentBeforeTax`, **and** `Domestic`/`Foreign`, which are COMPONENTS rather than totals |
+
+Whichever tag the filer used wins, the other is discarded, and the file never records which — so
+scope is unknowable downstream and every consumer has to infer it. Both workarounds in the scoring
+repo are exactly that: `assets - liabilities` standing in for consolidated equity, and an identity
+on `net income == pretax - tax` to detect whether a minority interest was deducted.
+
+**The stand-in fails for 140 of 502 S&P names, which do not tag `Liabilities` at all — and 113 of
+those 140 tag the consolidated equity figure explicitly, beside the parent one.** The number was
+there the whole time.
+
+Four fields ADDED, nothing renamed and nothing removed, so no existing reader changes behaviour:
+`total_equity_parent`, `total_equity_incl_nci`, `net_income_parent`, `net_income_incl_nci`. A
+minority interest is now `total_equity_incl_nci - total_equity_parent` rather than an inference. A
+filer tagging only one scope leaves the other ABSENT rather than defaulted — defaulting would
+recreate the collapse inside the new fields.
+
+**Still open:** `pretax_income` mixes `Domestic` and `Foreign` components with totals. A filer that
+tags only the two components gets ONE of them as its pretax income rather than the sum. Not yet
+fixed; it needs a summing rule, not another tag.
+
+`data/` does not change until the next scheduled build runs.
