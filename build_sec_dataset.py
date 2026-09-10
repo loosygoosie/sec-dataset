@@ -481,7 +481,39 @@ def quarterly_rows(series: list[dict], kind: str, pick: str = "rank", additive: 
     return out
 
 
+def top_line_repair(row: dict, cands: list[dict]) -> str | None:
+    """Revenue is the top line. A figure BELOW the same row's own income is not revenue.
+
+    `_pick_latest` takes the highest-PREFERENCE tag that has any value for the period, and a filer
+    who tags a sub-item as `Revenues` therefore beats one who tags the consolidated total under a
+    less-preferred name. DTE Energy reads $61m of revenue against $2.374bn of operating income;
+    Synchrony reads $520m against $4.62bn of pretax income. Both are impossible — operating and
+    pretax income are revenue minus costs — and both were rejected from a screen on the strength of
+    the resulting margin. That is the direction of this class of bug that nobody sees: a wrong
+    figure that makes a company look BAD produces no symptom, it just quietly removes it.
+
+    76 of 5,882 filers with a revenue figure (1.29%) are in this state.
+
+    Where a larger candidate exists for the same period the pick is simply re-made, which is a
+    strict improvement. Where none does, the value is left alone and the caller flags it: a reader
+    can then refuse the row rather than score a sub-item as a top line.
+    """
+    rev = row.get("revenue")
+    if rev is None or rev <= 0:
+        return None
+    floor = max((row[k] for k in ("operating_income", "pretax_income", "net_income")
+                 if row.get(k) is not None), default=None)
+    if floor is None or floor <= rev:
+        return None
+    better = max((c.get("val") or 0) for c in cands) if cands else 0
+    if better > rev:
+        row["revenue"] = better
+        return None if better >= floor else "below-income"
+    return "below-income"
+
+
 def normalise_company(facts: dict) -> dict:
+    revenue_groups: dict[int, list[dict]] = {}
     out_annual: dict[int, dict] = defaultdict(dict)
     out_q: dict[str, dict] = defaultdict(dict)
     tags_used: dict[str, str | None] = {}
@@ -498,6 +530,8 @@ def normalise_company(facts: dict) -> dict:
         pick = spec.get("pick", "rank")
         groups: dict[int, list[dict]] = {}
         ann = annual_rows(series, kind, pick, groups)
+        if name == "revenue":
+            revenue_groups = groups          # kept for the top-line check after the loop
         for fy, f in ann.items():
             out_annual[fy][name] = f["val"]
             if name in ASFILED_ITEMS:
@@ -537,11 +571,16 @@ def normalise_company(facts: dict) -> dict:
     flow_names = {n for n, sp in CONCEPTS.items() if sp["kind"] == "flow"}
     out_q = {end: row for end, row in out_q.items() if any(k in flow_names for k in row)}
 
+    # Every concept is on the row by now, so the top line can be checked against its own income.
+    top_line = sorted({fy for fy, row in out_annual.items()
+                       if top_line_repair(row, revenue_groups.get(fy) or [])})
+
     annual = [dict(fiscal_year=fy, period_end=row.pop("_end", None), filed=row.pop("_filed", None), **row)
               for fy, row in sorted(out_annual.items())][-ANNUAL_YEARS:]
     quarterly = [dict(period_end=end, form=row.pop("_form", None), filed=row.pop("_filed", None), **row)
                  for end, row in sorted(out_q.items())][-QUARTERS:]
-    return {"annual": annual, "quarterly": quarterly, "tags_used": tags_used}
+    return {"annual": annual, "quarterly": quarterly, "tags_used": tags_used,
+            "_top_line": top_line}
 
 
 CHECK_ITEMS = ("revenue", "net_income", "operating_cash_flow", "capex")
@@ -597,7 +636,8 @@ def share_scale(ann: list[dict], qtr: list[dict]) -> str:
     return "ok" if any(r.get("shares_diluted") or r.get("shares_outstanding") for r in rows) else "n/a"
 
 
-def data_checks(ann: list[dict], qtr: list[dict], tags_used: dict | None = None) -> dict:
+def data_checks(ann: list[dict], qtr: list[dict], tags_used: dict | None = None,
+                top_line: list | None = None) -> dict:
     """Self-check written into every company file and the manifest, so a reader can refuse a row
     the pipeline itself cannot vouch for, instead of scoring a data gap as if it were the business.
 
@@ -670,8 +710,14 @@ def data_checks(ann: list[dict], qtr: list[dict], tags_used: dict | None = None)
                   if r.get(item) is not None and r[item] <= 0})
     if bad:
         shares = "invalid:" + ",".join(bad)
+    # `top_line` names the fiscal years whose revenue is still below their own income after the
+    # repair — a sub-item wearing the preferred tag, with no larger candidate to swap in. Every
+    # margin, growth rate and conversion ratio for that year divides by it, so a reader must be
+    # able to refuse the row. "ok" for the ~99% where the top line is sound.
     return {"latest_quarter_end": latest_q, "quarter_age_days": age, "reconciles": result,
-            "reconciled_fy": checked_fy, "shares": shares, "share_scale": share_scale(ann, qtr)}
+            "reconciled_fy": checked_fy, "shares": shares, "share_scale": share_scale(ann, qtr),
+            "revenue": ("below-income:" + ",".join(str(fy) for fy in top_line)
+                        if top_line else "ok")}
 
 
 # --------------------------------------------------------------------------
@@ -987,7 +1033,7 @@ def main() -> int:
             if latest_filed < cutoff:
                 continue
             cik = int(facts.get("cik") or n[3:13])     # the CIK is in the file name; a few records omit the field
-            checks = data_checks(ann, qtr, norm["tags_used"])
+            checks = data_checks(ann, qtr, norm["tags_used"], norm.get("_top_line"))
             rec = {"cik": cik, "sec_name": facts.get("entityName"), "tickers": by_cik.get(cik, []),
                    "annual": ann, "quarterly": qtr, "tags_used": norm["tags_used"], "checks": checks}
             path = comp_dir / f"{cik}.json"
@@ -1078,7 +1124,12 @@ def main() -> int:
             # with figures read from its filing can change its shares flag too, and REPORT.md's
             # shares tallies were counting the pre-patch value for all 71 patched companies.
             was = {k: rec["checks"][k].split(":")[0] for k in ("reconciles", "shares", "share_scale")}
-            rec["checks"] = data_checks(rec["annual"], rec["quarterly"], rec["tags_used"])
+            # The patch adds QUARTERLY rows only, so it cannot change an annual top line. Carry
+            # the stored flag through rather than recomputing it: `rec` comes from disk and never
+            # holds `_top_line`, so passing it would silently reset every patched company to "ok".
+            prior_tl = (rec["checks"].get("revenue") or "ok")
+            prior_tl = prior_tl.split(":", 1)[1].split(",") if prior_tl.startswith("below-income:") else None
+            rec["checks"] = data_checks(rec["annual"], rec["quarterly"], rec["tags_used"], prior_tl)
             path.write_text(json.dumps(rec, separators=(",", ":"), sort_keys=True))
             recon[was["reconciles"]] -= 1
             recon[rec["checks"]["reconciles"].split(":")[0]] += 1

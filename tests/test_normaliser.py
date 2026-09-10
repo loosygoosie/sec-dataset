@@ -480,3 +480,56 @@ def test_an_accumulated_deficit_keeps_the_sign_the_filer_gave_it(b):
         "RetainedEarningsAccumulatedDeficit": usd(fact(-4_500_000_000, "2025-12-31")),
     })
     assert b.normalise_company(d)["annual"][-1]["retained_earnings"] == -4_500_000_000
+
+
+# --------------------------------------------------------------- the top line
+
+def test_a_sub_item_wearing_the_preferred_tag_is_repaired(b):
+    """DTE Energy: $61m of revenue against $2.374bn of operating income.
+
+    `_pick_latest` takes the highest-PREFERENCE tag holding any value for the period, so a filer
+    who tags a sub-item as `Revenues` beats one who tags the consolidated total under a
+    less-preferred name. Where a larger candidate exists for the same period, re-making the pick is
+    a strict improvement.
+    """
+    row = {"revenue": 61_000_000, "operating_income": 2_374_000_000,
+           "pretax_income": 1_550_000_000, "net_income": 1_462_000_000}
+    assert b.top_line_repair(row, [{"val": 61_000_000}, {"val": 13_200_000_000}]) is None
+    assert row["revenue"] == 13_200_000_000
+
+
+def test_an_unrepairable_top_line_is_flagged_not_silently_kept(b):
+    """Synchrony: only `NoninterestIncome` is tagged, so there is nothing larger to swap in.
+
+    Every margin, growth rate and conversion ratio for that year divides by this number, so the
+    reader has to be told. The value is left alone — this module does not invent one — and the
+    caller turns the return into `checks.revenue`.
+    """
+    row = {"revenue": 520_000_000, "operating_income": None,
+           "pretax_income": 4_621_000_000, "net_income": 3_552_000_000}
+    assert b.top_line_repair(row, [{"val": 520_000_000}]) == "below-income"
+    assert row["revenue"] == 520_000_000
+
+
+def test_a_sound_top_line_is_never_touched(b):
+    """The check must fire on roughly 1% of filers, not reshape the other 99%."""
+    row = {"revenue": 100_000_000_000, "operating_income": 20_000_000_000,
+           "net_income": 15_000_000_000}
+    assert b.top_line_repair(row, [{"val": 100_000_000_000}, {"val": 5_000_000}]) is None
+    assert row["revenue"] == 100_000_000_000
+
+
+def test_a_one_off_gain_does_not_trigger_a_repair(b):
+    """Net income can legitimately approach revenue after a divestiture. The floor is the MAX of
+    the income lines, so this only fires when one genuinely EXCEEDS the top line."""
+    row = {"revenue": 1_000_000_000, "operating_income": 100_000_000,
+           "net_income": 950_000_000}
+    assert b.top_line_repair(row, [{"val": 1_000_000_000}]) is None
+
+
+def test_checks_carries_revenue_ok_by_default(b):
+    """Every existing consumer reads `checks` by field name. A new key is fine; a changed meaning
+    is not, so the ~99% of sound filers must read a plain "ok"."""
+    ann = [{"fiscal_year": 2025, "period_end": "2025-12-31", "revenue": 1e9, "net_income": 1e8}]
+    assert b.data_checks(ann, [], {}, None)["revenue"] == "ok"
+    assert b.data_checks(ann, [], {}, [2024, 2025])["revenue"] == "below-income:2024,2025"
