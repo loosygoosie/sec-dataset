@@ -135,6 +135,23 @@ started here. Until it exists, the briefs task names these companies rather than
   1,076 have an adjacent-quarter jump beyond 5×/0.2×. Most are micro-caps and many are
   real splits or reverse splits — the S&P 500 subsets above are the useful signal.
 
+- **No row records WHICH tag supplied a value, and for two concepts that is load-bearing.**
+  `net_income` ranks `NetIncomeLoss` (parent-only) above `ProfitLoss` (consolidated, includes
+  non-controlling interests); `total_equity` ranks `StockholdersEquity` (parent-only) above the
+  including-NCI variant. For most filers the preferred pair matches — parent numerator over parent
+  denominator — and the design is right. For filers with large non-controlling interests it can
+  silently mismatch, and a consumer cannot tell. Interactive Brokers reads an 81% ROE:
+  `total_equity` $5.36bn against `total_assets − total_liabilities` of $20.47bn, because IBKR
+  Group owns about a quarter of IBG LLC. A 9% effective tax rate is the tell. 23 of the 253
+  durable S&P names have a gap over 5% between reported equity and assets minus liabilities;
+  the widest are CL 85%, IBKR 74%, AMT 65%, BX 60%, FCX 39%.
+
+  The consumer's interim guard is to correct ROIC (whose numerator is consolidated regardless) and
+  to leave ROE unmeasured. Carrying the source tag — a `net_income_tag` / `total_equity_tag`, or a
+  single `tags` sub-object on the row — would let it be resolved properly instead of refused. A
+  companion `total_equity_incl_nci` concept would help independently, and is cheap: the tag is
+  already in the ranked list, just never reached when the parent-only one is present.
+
 ## 9. The annual share series steps at a split, and no flag sees it
 
 Found 9 Sep 2026 while moving the monthly re-score's valuation tilt off FMP and onto this
