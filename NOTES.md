@@ -380,6 +380,50 @@ not enough to validate one, and a consumer that reports it as validation has fab
 it set out to test. Going deeper means keeping more than 8 annual rows, which companyfacts supports
 and this builder currently discards.
 
+## 11. `checks.shares` says `ok` for a count that stopped years ago
+
+Found 10 Sep 2026, by a consumer, and it is the same bug as §2 one level down.
+
+§2 fixed the flag on 9 Sep so that it measures VALUES rather than which tag resolved. The line it
+now runs is:
+
+```python
+has_dil = any(r.get("shares_diluted") is not None for r in rows)   # rows = ann + qtr
+```
+
+`any`, over every annual and quarterly row the file holds. So one diluted count in 2018 makes the
+flag read `ok` for ever, however long ago the series stopped:
+
+| | `checks.shares` | last diluted count | every row since |
+|---|---|---|---|
+| Regency Centers (REG) | `ok` | FY2020 | null — five annual years and every quarter |
+| J.M. Smucker (SJM) | `ok` | FY2022 | null — three annual years and every quarter |
+
+**162 companies dataset-wide are in this state, 2 of them in the S&P 500.** A consumer reading
+`shares: ok` runs a per-share test and gets nothing back — which is exactly the failure §2 set out
+to remove, since the point of the flag is to tell a reader which tests it can actually run.
+
+**The fix is to ask the question the consumer asks:** whether a diluted count exists in the window
+that will be USED, not whether one exists anywhere in the file. Something like `any(... for r in
+ann[-3:] + qtr[-4:])`, matching the window `reconciles` already looks at. A name whose count
+stopped should read `outstanding-only` where a cover-page count survives, and `none` where it does
+not — REG and SJM both have `shares_outstanding`, so both would read `outstanding-only`.
+
+Not patched here, per this repo's ground rule that a builder bug is reported rather than worked
+around: the flag is published for 7,411 companies, changing its meaning is a deliberate act, and it
+cannot be tested from a sandbox that must not reach sec.gov.
+
+**Not to be confused with the eleven S&P names that carry no diluted count at all** (ARES, BKR,
+BRK-B, ERIE, HSY, KKR, LYB, REG, SJM, STZ, V — Visa and Berkshire among them). That is the
+documented companyfacts limitation described at `share_scale()`'s comment and in §2: multi-class
+filers tag every share-count fact by class of stock, and companyfacts carries no dimensioned facts,
+so the count is genuinely absent rather than missed. Those names are correctly flagged, and the
+consuming screen reports them UNMEASURED rather than failing them. What it costs is real and worth
+stating: those eleven can never clear a revenue-per-share test or be scored on a share-count
+dimension, so they cannot enter the book — Visa sits on the bench and is unreachable. Six of the
+eleven do have a cover-page `shares_outstanding` that could serve as a fallback basis, which is a
+decision for the consumer rather than a change here.
+
 ---
 
 ## Ground rules for anyone picking this up
