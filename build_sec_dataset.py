@@ -787,6 +787,25 @@ def patch_targets(manifest: dict, priority: set[int]) -> list[tuple[int, list[di
     return out
 
 
+def load_sics() -> dict[str, str]:
+    """The SEC's own `sicDescription` per CIK, from the submissions record the events build stores.
+
+    Raw source data, not a classification. Which sector a SIC belongs to is a screening decision and
+    lives with the screen, not here — this repo carries no scoring or screening logic. It is copied
+    onto the manifest so a consumer can read one file instead of opening 7,411 events files, which
+    is what the manifest is for.
+    """
+    out: dict[str, str] = {}
+    for p in EVENTS_DIR.glob("*.json"):
+        try:
+            j = json.loads(p.read_text())
+        except Exception:  # noqa: BLE001
+            continue
+        if j.get("sic"):
+            out[p.stem] = j["sic"]
+    return out
+
+
 def load_cik_overrides() -> dict[str, dict]:
     """Hand-maintained ticker -> CIK corrections, for when the SEC's map points a ticker at a
     freshly registered shell and leaves the operating company — with all the history — carrying
@@ -926,6 +945,7 @@ def main() -> int:
     print("3. normalise every filer")
     cutoff = _years_ago(date.today(), 3).isoformat()   # drop filers silent for 3+ years
     manifest, coverage, written, recon = {}, defaultdict(int), set(), defaultdict(int)
+    sics = load_sics()      # SEC sicDescription per CIK, from the events build's submissions record
     n_seen = n_kept = 0
     with zipfile.ZipFile(zpath) as z:
         entries = sorted(n for n in z.namelist() if n.startswith("CIK") and n.endswith(".json"))
@@ -957,7 +977,8 @@ def main() -> int:
             if not path.exists() or path.read_text() != body:      # unchanged files stay untouched -> small commits
                 path.write_text(body)
             written.add(path.name)
-            manifest[str(cik)] = {"name": facts.get("entityName"), "tickers": rec["tickers"], "latest_filed": latest_filed,
+            manifest[str(cik)] = {"name": facts.get("entityName"), "tickers": rec["tickers"],
+                                  "sic": sics.get(str(cik)), "latest_filed": latest_filed,
                                   "fiscal_year_end": ann[-1].get("period_end"), "annual_rows": len(ann), "quarterly_rows": len(qtr),
                                   "latest_quarter_end": checks["latest_quarter_end"], "quarter_age_days": checks["quarter_age_days"],
                                   "reconciles": checks["reconciles"], "shares": checks["shares"],
