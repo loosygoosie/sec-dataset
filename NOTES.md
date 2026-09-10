@@ -445,3 +445,35 @@ decision for the consumer rather than a change here.
 - Never delete files in `data/` by hand; the build script owns that directory.
 - No scoring or screening logic in this repo, and no Form 4 / insider feed unless asked.
 - If a test finds a builder bug, stop and report it rather than working around it.
+
+
+## 12. `revenue` could resolve to a sub-item, and a wrong-low top line has no symptom ✅ FIXED
+
+Found 10 Sep 2026 by a plausibility screen over the whole screened universe, not by a name
+misbehaving — which is the point of the entry.
+
+`_pick_latest` takes the highest-PREFERENCE tag holding any value for a period. A filer who tags a
+sub-item as `Revenues` therefore beats one who tags the consolidated total under a less-preferred
+name. **DTE Energy read $61m of revenue against $2.374bn of operating income. Synchrony read $520m
+against $4.62bn of pretax income.** Both impossible — operating and pretax income are revenue minus
+costs.
+
+**76 of 5,882 filers carrying a revenue figure (1.29%) had income above 1.5x their own revenue.**
+
+The reason it went unseen for so long is the direction of the error. Every artefact found in this
+system before this one — the NCI mismatch, McKesson's vanishing invested capital, AEP's folded-in
+non-operating item, Netflix's split basis — was found because a name ROSE far enough up a ranking
+for somebody to look. A revenue figure that is too LOW inflates every margin... and then the name
+fails a margin sanity check somewhere downstream and is quietly dropped from the universe. No
+symptom, no alert, no name to notice. DTE and Synchrony were both sitting in the rejected pile.
+
+`top_line_repair()` re-makes the pick where a larger candidate exists for the same period, which is
+a strict improvement. Where none exists the value is left alone — the normaliser does not invent a
+figure — and `checks.revenue` carries `below-income:<fiscal years>` so a reader can refuse the row.
+It reads `ok` for the ~99% that are sound, so no existing consumer changes behaviour.
+
+The patch path carries the stored flag through rather than recomputing it: a patch adds quarterly
+rows only and cannot change an annual top line, and `rec` comes from disk without `_top_line`, so
+recomputing would silently reset every patched company to `ok`.
+
+**`data/` does not change until the next scheduled build runs.** Nothing here rewrites it by hand.
