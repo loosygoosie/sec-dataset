@@ -644,7 +644,15 @@ def data_checks(ann: list[dict], qtr: list[dict], tags_used: dict | None = None)
     # company whose diluted tag matched but whose rows were all empty reported "ok" — ERIE, BKR, HSY and LYB
     # in the S&P 500, 76 companies dataset-wide, every one of them promising a per-share figure it could not
     # supply. The vocabulary is unchanged; the values are now true.
-    rows = ann + qtr
+    # The window is the RECENT rows, not every row the file holds. `any` over the whole history
+    # was this flag's third form and its third bug: §2 moved it from "which tag resolved" to
+    # "does a value exist", and "exists anywhere" is not "exists where a reader will look".
+    # Regency Centers last tagged a diluted count for FY2020 and J.M. Smucker for FY2022; every
+    # row since is empty in both, and both reported `ok`. 162 companies were in that state on
+    # 10 Sep 2026, 2 of them in the S&P 500. A consumer reading `ok` runs a per-share test and
+    # gets nothing — exactly what the flag exists to prevent. The window matches the one
+    # `reconciles` already looks at, so the flag answers the question a reader actually asks.
+    rows = ann[-3:] + qtr[-4:]
     has_dil = any(r.get("shares_diluted") is not None for r in rows)
     has_out = any(r.get("shares_outstanding") is not None for r in rows)
     st = (tags_used or {}).get("shares_diluted")
