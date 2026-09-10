@@ -2,7 +2,7 @@
 
 A small pipeline that rebuilds a clean fundamentals dataset for every operating company that files
 with the SEC, straight from the SEC's own XBRL data, on a schedule, with no data vendor in between.
-GitHub Actions downloads the SEC's bulk `companyfacts` file, keeps the 49 line items an investor
+GitHub Actions downloads the SEC's bulk `companyfacts` file, keeps the 50 line items an investor
 reads, and commits one small file per company to `data/companies/`. Anything that can fetch a file
 from GitHub can then read it. The fundamentals pipeline treats every filer alike: which companies matter — a watchlist, a
 portfolio — is decided by whoever reads the data. It does resolve the S&P 500 constituent list
@@ -262,7 +262,7 @@ dispatch the workflow with `tickers: DECK,DUK,AEP,FCX,VMC`.
 
 ## Tests
 
-`pytest tests/` — 180 tests, run on every push. They cover the normaliser against synthetic
+`pytest tests/` — 182 tests, run on every push. They cover the normaliser against synthetic
 companyfacts documents (tag switches, the dominant and max picks, year-to-date differencing,
 the fiscal-year labelling, the checks block) and assert properties of the published dataset
 itself, because the share-count defect was invisible to unit tests: nothing had looked at what

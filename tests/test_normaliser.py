@@ -417,3 +417,28 @@ def test_healthy_share_counts_still_report_their_normal_flag(b):
     checks = b.data_checks([], qtr, tags_used={"shares_diluted": "WeightedAverageNumberOfDilutedSharesOutstanding"})
 
     assert checks["shares"] == "ok"
+
+
+def test_retained_earnings_is_carried_for_altmans_second_term(b):
+    """Added 10 Sep 2026. The book's screen scored Altman Z from a vendor's arithmetic until FMP
+    was removed; its X2 term is retained earnings over total assets, and no other field here
+    stands in for it — `total_equity` nets in paid-in capital and buybacks, so a company that has
+    bought back stock can show negative equity on decades of retained profit."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(8_000_000_000, "2025-12-31")),
+        "RetainedEarningsAccumulatedDeficit": usd(fact(21_000_000_000, "2025-12-31")),
+        "Assets": usd(fact(60_000_000_000, "2025-12-31")),
+    })
+    row = b.normalise_company(d)["annual"][-1]
+    assert row["retained_earnings"] == 21_000_000_000
+    assert row["total_assets"] == 60_000_000_000
+
+
+def test_an_accumulated_deficit_keeps_the_sign_the_filer_gave_it(b):
+    """A deficit is the same concept with a negative value. Taking its absolute value would turn a
+    loss-making balance sheet into a strong Altman score."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(1_000_000_000, "2025-12-31")),
+        "RetainedEarningsAccumulatedDeficit": usd(fact(-4_500_000_000, "2025-12-31")),
+    })
+    assert b.normalise_company(d)["annual"][-1]["retained_earnings"] == -4_500_000_000
