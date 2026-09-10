@@ -32,6 +32,16 @@ jobs:
         # A phone upload once produced a 0-byte file that "ran" and did nothing.
         run: test -s build_sec_dataset.py || { echo "build_sec_dataset.py is empty"; exit 1; }
 
+      - name: Prove fact selection before it touches the data
+        # This build overwrites every company file and PRUNES any it does not rewrite, and the
+        # only other guard is the 3,000-company floor inside the script — which catches a
+        # catastrophic parse failure, not a field that is silently wrong for most filers.
+        # Which fact wins for a period is the whole risk: a restated value reads exactly like an
+        # as-filed one. Same shape as filings.yml's parser gate, and it costs seconds.
+        # Deliberately NOT the whole suite: test_dataset_integrity.py asserts the data on disk,
+        # which is the previous build's, and would fail before this one has written anything.
+        run: pip install --quiet pytest && python -m pytest tests/test_as_filed_shares.py tests/test_normaliser.py tests/test_share_scale.py -q
+
       - name: Build dataset
         env:
           # Set this in the repo: Settings → Secrets and variables → Actions → Secrets → SEC_USER_AGENT (a secret so it is masked in public logs)

@@ -311,6 +311,46 @@ def _filed_key(f: dict) -> int:
     return int((f.get("filed") or "0000-00-00").replace("-", "") or 0)
 
 
+ASFILED_ITEMS = ("shares_diluted",)   # items that also carry what their own fiscal year first reported
+
+
+def _pick_as_filed(cands: list[dict]) -> dict | None:
+    """The value a fiscal year's OWN annual report carried, before any later restatement.
+
+    `_pick_latest` deliberately prefers the newest filing, so a split restates the recent years of
+    `shares_diluted` and leaves the older ones as filed: the series then steps by the split factor
+    part-way through the window (NOTES.md section 9). This picks the other end — the EARLIEST filing
+    that reported the year, which is that year's own 10-K, because comparatives are always later.
+
+    Selecting on `filed` rather than on the fact's `fy` is deliberate, and the difference is not
+    cosmetic. `fy` is the FILING's fiscal-year focus, and filers do not agree on what to call a year
+    that starts in one calendar year and ends in the next: Ross and Target name it for the year it
+    BEGAN, while TJX, Autodesk and NVIDIA name it for the year it ENDED — all with period ends
+    within days of each other in late January. `_fy_of_period` labels by the period end, so `fy`
+    agrees with it for the second group and is a year behind for the first. An
+    `fy == the period's year` test would therefore reject the own-year fact of every
+    beginning-year filer and accept the NEXT year's comparative instead — precisely the restated
+    value this field exists to avoid, and silently, since nothing downstream would flag it.
+    Because the convention is not uniform, no rule written on `fy` can be right for every filer.
+    `filed` needs no fiscal-year semantics at all, which also makes it immune to a filer that
+    mis-tags its focus year or omits it entirely.
+
+    `_filed_key` returns 0 for a missing or empty date, which would otherwise sort first and win;
+    `or 99999999` sends those to the back. Tag rank breaks a same-day tie only.
+
+    Note the ordering differs from `_pick_latest`, which sorts by tag rank FIRST and takes the
+    latest filing within that tag. Here the date has to come first, or the field defeats itself: a
+    year whose own 10-K tagged only a basic count, later restated with a diluted one, would be
+    handed the diluted value from the LATER filing — the restated number this field exists to
+    avoid. Preferring the original filing can therefore mean preferring a basic count over a
+    diluted one, which is the same basic-as-a-floor trade `CONCEPTS` already makes for
+    `shares_diluted` itself, and it is what "as filed" means.
+    """
+    if not cands:
+        return None
+    return min(cands, key=lambda f: (_filed_key(f) or 99999999, f.get("_rank", 0)))
+
+
 def extract_series(facts: dict, tags: list[str], unit_pref: str | None) -> tuple[list[dict], str | None]:
     """Return the facts of EVERY listed tag, each fact annotated with its tag's preference rank,
     so later steps can pick, per period, the value from the most-preferred tag that has one.
@@ -333,7 +373,8 @@ def extract_series(facts: dict, tags: list[str], unit_pref: str | None) -> tuple
     return out, (",".join(used) if used else None)
 
 
-def annual_rows(series: list[dict], kind: str, pick: str = "rank") -> dict[int, dict]:
+def annual_rows(series: list[dict], kind: str, pick: str = "rank",
+                groups: dict[int, list[dict]] | None = None) -> dict[int, dict]:
     """fy -> fact, from 10-K filings. Flow items only — a balance-sheet or cover-page instant is
     attached to the annual row later, by matching the row's period end (a cover-page share count is
     dated the filing date, which would otherwise create a phantom fiscal year)."""
@@ -346,6 +387,8 @@ def annual_rows(series: list[dict], kind: str, pick: str = "rank") -> dict[int, 
         if not f.get("start") or not (340 <= _days(f["start"], f["end"]) <= 380):
             continue
         by_fy[_fy_of_period(f, f.get("fy"))].append(f)
+    if groups is not None:
+        groups.update(by_fy)          # the candidate set, for a caller that wants a second pick
     return {fy: _pick_latest(v, pick) for fy, v in by_fy.items()}
 
 
@@ -434,9 +477,17 @@ def normalise_company(facts: dict) -> dict:
 
         # annual
         pick = spec.get("pick", "rank")
-        ann = annual_rows(series, kind, pick)
+        groups: dict[int, list[dict]] = {}
+        ann = annual_rows(series, kind, pick, groups)
         for fy, f in ann.items():
             out_annual[fy][name] = f["val"]
+            if name in ASFILED_ITEMS:
+                af = _pick_as_filed(groups.get(fy) or [])
+                # Omitted rather than defaulted to the restated value: a reader must be able to tell
+                # "companyfacts no longer carries the original filing" from "original and
+                # restatement agree". A silent fallback would rebuild the very defect this fixes.
+                if af and (af.get("val") or 0) > 0:
+                    out_annual[fy][name + "_as_filed"] = af["val"]
             if name == "revenue" or name == "net_income":
                 fy_end_dates.setdefault(fy, f["end"])
             out_annual[fy].setdefault("_end", f["end"])
@@ -984,6 +1035,7 @@ def main() -> int:
                                       latest_quarter_end=rec["checks"]["latest_quarter_end"],
                                       quarter_age_days=rec["checks"]["quarter_age_days"],
                                       reconciles=rec["checks"]["reconciles"], shares=rec["checks"]["shares"],
+                                      share_scale=rec["checks"]["share_scale"],
                                       patched_from_filing=True)
             patched.append(cik)
     print(f"  patched {len(patched)} companies from their own filings ({PATCH_CAP - budget} filings fetched)")

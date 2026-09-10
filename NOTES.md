@@ -161,11 +161,20 @@ test_one_step_is_a_split_and_is_left_alone` pins that deliberately). `scale` com
 against outstanding on one row at `SCALE_RATIO = 50`, aimed at the million-fold tagging error, so
 a 2x mismatch passes. Neither check is wrong; neither covers this.
 
-**Monster is the sharp case.** Its whole series — annual *and* quarterly, through 2026-06-30 —
-sits near 984m, while the broker reports 1,959,051,827 shares outstanding today. A 2:1 split is
-absent from the dataset entirely, under `shares: ok` and `share_scale: ok`. Its FY2021 row is
-also internally inconsistent: `shares_diluted` 1,071,278,000 against `shares_outstanding`
-529,323,000, the 2021 split restated into one field and not the other.
+**Monster is TWO defects at once, and only one of them is this one.** Corrected 10 Sep 2026 — an
+earlier draft of this section implied the as-filed field would close both. It does not.
+1. *A restatement artefact, which the as-filed field fixes.* Its FY2021 row jumps to
+   `shares_diluted` 1,071,278,000 while `shares_outstanding` on the same row still reads
+   529,323,000 — a 2:1 split restated into the income statement's three comparative years but only
+   the balance sheet's two. The row is internally inconsistent by exactly 2x. The `filed` dates
+   make the mechanism plain: each fiscal year's value comes from a 10-K filed about three years
+   later (FY2020 from 2023-03-01, FY2021 from 2024-02-29), so the split landed between those two.
+2. *A split AFTER the last filed period, which no filing-derived field can fix.* The whole series
+   — annual through FY2025 and quarterly through 2026-06-30, filed 2026-08-07 — sits near 984m,
+   while the broker reports 1,959,051,827 shares outstanding today. That is a second 2:1 split
+   that no filing carries yet. The only correct source for it is the broker's live share count,
+   which is why the consumer's 25% anchor cross-check exists and why it refuses the name outright
+   rather than trusting any field in this dataset.
 
 **Why it matters.** A pre-split share count multiplied by a split-adjusted price does not fail
 loudly. It produces a market cap wrong by the split factor, a plausible-looking six-year median,
@@ -182,13 +191,53 @@ holdings on 9 Sep 2026 that leaves 26 with a full six years, 7 with four or five
 (NFLX, TPL, MNST). The same rule is stated in the monthly re-score prompt and in the runbook's
 Stage 5b.
 
-**The durable fix, not done here.** Carry an as-filed share count alongside the restated one —
-the fiscal year's own 10-K value, selected on the fact's `form`/`fy`/`fp` rather than by taking
-the latest — so a six-year window survives a split instead of being truncated by it. That is a
-change to `build_sec_dataset.py`'s fact selection with its own tests, and it should not be made
-in the same pass as a prompt migration. Until then the truncation above is the safe behaviour.
-To reproduce: read `shares_diluted` across `annual` for the tickers in the table and compare
-adjacent years; compare the latest against `get_equity_fundamentals`' `shares_outstanding`.
+**The durable fix — done 10 Sep 2026.** Annual rows now also carry `shares_diluted_as_filed`:
+what that fiscal year's own annual report said, before any restatement. `_pick_as_filed`
+(`build_sec_dataset.py`) takes the EARLIEST filing that reported the year, because comparatives
+are always filed later.
+
+Selection is on `filed`, **not** on the fact's `fy`, and that choice is load-bearing. `fy` is the
+*filing's* fiscal-year focus, and **filers do not agree on what to call a fiscal year that spans
+two calendar years.** Ross and Target name it for the year it began; TJX, Autodesk and NVIDIA name
+it for the year it ended — and all of those end within days of each other in late January.
+`_fy_of_period` labels by the period end, so `fy` agrees for the second group and sits a year
+behind for the first. An `fy == the period's year` test would reject the own-year fact of every
+beginning-year filer and silently accept the *next* year's comparative — exactly the restated value
+the field exists to avoid. Because the convention is not uniform, no rule written on `fy` can be
+right for every filer, which is the whole argument for `filed`. Pinned by
+`tests/test_as_filed_shares.py::test_a_january_retailer_labelling_its_year_backwards_still_picks_its_own_filing`.
+
+*(An earlier draft named TJX as a beginning-year filer. It is not — TJX's year ending 2026-01-31
+is its fiscal 2026. ROST is the correct example among the holdings. The tagged `fy` values
+themselves cannot be checked from a sandbox, since there is no local copy of companyfacts; what is
+verifiable here is that the naming convention differs across filers, and that is sufficient.)*
+
+**The as-filed series still steps at a split, and that is correct** — each year is denominated in
+the shares of its own era. What is invariant is the product with a RAW, unadjusted price. A test
+asserting a smooth as-filed series would enshrine a second bug; the suite asserts the invariance
+instead. Hence the contract now in README.md: `shares_diluted_as_filed` may only be multiplied by
+a raw price, `shares_diluted` only by a split-adjusted one, and the two may never be mixed across
+a window. Feeding the new field into a consumer that still holds a split-adjusted price series
+*inverts* the error rather than fixing it.
+
+The field is **absent, not defaulted**, where no original fact survives — a reader must be able to
+tell "companyfacts no longer carries the original" from "original and restatement agree". It is
+deliberately not in `SHARE_ITEMS` (that would change what `checks.shares` means for three book
+prompts) and not in `CONCEPTS` (that would put it in `flow_names` and could let a quarterly row
+carrying only it survive the cover-page filter as a phantom quarter). Quarterly rows are unchanged;
+that path has different guards and needs its own decision.
+
+**Not yet done:** the consumers still truncate. `claude/rebuild-from-scratch.md`'s `usable_years()`
+and the monthly re-score prompt read `shares_diluted` and stop at the first step, which stays the
+safe behaviour until the book repo has a raw price series to pair the new field with. Until the two
+repos move together the field does nothing for the tilt. A `share_basis` check — flagging where the
+as-filed and restated series disagree on the same fiscal year by a near-round factor, which is
+positive evidence of a split rather than the adjacent-year guess — is a good next step and is not
+in this pass.
+
+To reproduce the original defect: read `shares_diluted` across `annual` for the tickers in the
+table and compare adjacent years; compare the latest against `get_equity_fundamentals`'
+`shares_outstanding`.
 
 ---
 

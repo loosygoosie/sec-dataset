@@ -69,7 +69,8 @@ class shares, `BRK-B`), fetch `companies/<cik>.json` for each. A company file:
   "cik": 910521, "sec_name": "DECKERS OUTDOOR CORP", "tickers": ["DECK"],
   "annual":    [{"fiscal_year": 2026, "period_end": "2026-03-31", "filed": "2026-05-22",
                  "revenue": 5.2e9, "operating_income": 1.2e9, "net_income": 9.7e8,
-                 "operating_cash_flow": 1.1e9, "capex": 6.0e7, "stock_comp": 5.0e7, "...": "..."}],
+                 "operating_cash_flow": 1.1e9, "capex": 6.0e7, "stock_comp": 5.0e7,
+                 "shares_diluted": 1.53e8, "shares_diluted_as_filed": 2.55e7, "...": "..."}],
   "quarterly": [{"period_end": "2026-06-30", "form": "10-Q", "filed": "2026-07-30", "revenue": 9.6e8, "...": "..."}],
   "tags_used": {"revenue": "RevenueFromContractWithCustomerExcludingAssessedTax", "...": "..."},
   "checks": {"latest_quarter_end": "2026-06-30", "quarter_age_days": 71,
@@ -137,8 +138,17 @@ from the bulk file.
   use `pretax_income + interest_expense`, then `net_income + income_tax + interest_expense`.
 - Definitions to know: for banks and card issuers `revenue` is the net-of-interest-expense
   figure the company headlines; `net_income` is net income attributable to the parent; `d_and_a`
-  is the cash-flow-statement figure. Share counts are as filed for each period — NOT adjusted for
-  later splits; detect a split as a >1.4× or <0.7× jump between adjacent periods.
+  is the cash-flow-statement figure.
+- **Share counts come on two bases, and mixing them is the one way to get a badly wrong answer.**
+  `shares_diluted` is the LATEST reported value for that fiscal year, so a split restates the two
+  or three most recent years and leaves the older ones alone — the series steps by the split factor
+  part-way through the window, and no check flags it (NOTES.md §9). `shares_diluted_as_filed` is
+  what that year's own annual report said, before any restatement. The contract:
+  **`shares_diluted_as_filed` may only be multiplied by a RAW, unadjusted price; `shares_diluted`
+  only by a split-adjusted one.** Never mix the two across a window, and never divide one by the
+  other across years. Paired correctly, either gives the same market cap; paired wrongly, the
+  answer is off by the split factor and looks entirely plausible. `shares_diluted_as_filed` is
+  absent, not defaulted, where companyfacts no longer carries the original filing's fact.
 - `shares_diluted` is a weighted AVERAGE over its period, not a total accumulated across it, so
   it is never differenced out of a year-to-date figure — the fiscal-year quarter takes the
   figure as filed. Doing otherwise produced roughly minus twice the real count on most of the
@@ -227,7 +237,7 @@ dispatch the workflow with `tickers: DECK,DUK,AEP,FCX,VMC`.
 
 ## Tests
 
-`pytest tests/` — 155 tests, run on every push. They cover the normaliser against synthetic
+`pytest tests/` — 171 tests, run on every push. They cover the normaliser against synthetic
 companyfacts documents (tag switches, the dominant and max picks, year-to-date differencing,
 the fiscal-year labelling, the checks block) and assert properties of the published dataset
 itself, because the share-count defect was invisible to unit tests: nothing had looked at what
