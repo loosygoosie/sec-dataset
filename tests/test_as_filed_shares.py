@@ -156,6 +156,66 @@ def test_the_original_filing_beats_a_better_tag_in_a_later_one(b):
     assert row["shares_diluted"] == 1_398_100_000              # unchanged: best tag, latest filing
 
 
+# ------------------------------------------------------------------ the basis date
+def test_the_filing_date_of_each_count_is_emitted(b):
+    """The load-bearing part. A share count is denominated in whatever split basis prevailed when
+    it was FILED, so without that date no past market cap can be computed from it."""
+    row = _row(b, _reported_twice(27_962_000, 1_398_100_000), "2022-12-31")
+    assert row["shares_diluted_filed"] == "2025-02-01"            # the restated fact's own filing
+    assert row["shares_diluted_as_filed_filed"] == "2023-02-01"   # the original's
+
+
+def test_a_split_between_year_end_and_the_10k_makes_as_filed_already_post_split(b):
+    """"As filed" does NOT mean "pre-split". ASC 260 makes a company restate share counts
+    retroactively in any filing issued after a split, so a fiscal year whose own 10-K went out
+    after one carries a post-split count. Walmart's FY2024 is the live instance: year end
+    2024-01-31, 3:1 split 2024-02-26, 10-K filed 2024-03-15. Multiplying that by a RAW price from
+    the fiscal year — when the stock was still pre-split — is wrong by exactly 3x. Only the
+    emitted filing date reveals it, which is why it is emitted."""
+    post = 8_415_000_000
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(648_125_000_000, "2024-01-31", filed="2024-03-15")),
+        DILUTED: shares(fy_fact(post, "2024-01-31", filed="2024-03-15")),
+    })
+    row = _row(b, d, "2024-01-31")
+    assert row["shares_diluted_as_filed"] == post                 # already restated by the split
+    assert row["shares_diluted_as_filed_filed"] == "2024-03-15"   # ...and dated after it
+
+    raw_at_year_end, split = 165.0, 3
+    naive = row["shares_diluted_as_filed"] * raw_at_year_end
+    correct = row["shares_diluted_as_filed"] * (raw_at_year_end / split) * 1.0   # k = 1 after the split
+    assert naive / correct == split                               # the trap, quantified
+
+
+def test_a_fiscal_year_end_change_does_not_take_as_filed_from_the_other_period(b):
+    """`_fy_of_period` buckets by the calendar year a period ENDS in, so a company that moves its
+    year end can put two full-length periods in one bucket. `_pick_as_filed` sorts opposite to
+    `_pick_latest`, so without a period guard it would describe the year the row does not name."""
+    d = doc(us_gaap={
+        "Revenues": usd(fact(5_000_000_000, "2022-03-31", start="2021-03-31", filed="2022-06-01"),
+                        fact(7_000_000_000, "2022-12-31", start="2021-12-31", filed="2023-03-01")),
+        DILUTED: shares(fact(11_000_000, "2022-03-31", start="2021-03-31", filed="2022-06-01"),
+                        fact(99_000_000, "2022-12-31", start="2021-12-31", filed="2023-03-01")),
+    })
+    row = _row(b, d, "2022-12-31")
+    assert row["shares_diluted"] == 99_000_000
+    assert row["shares_diluted_as_filed"] == 99_000_000     # the row's OWN period, not 2022-03-31
+    assert row["shares_diluted_as_filed_filed"] == "2023-03-01"
+
+
+def test_a_mistagged_fiscal_year_focus_cannot_steer_the_pick(b):
+    """Discriminates against an fy-primary picker, which the other tests do not: their fixtures
+    omit `fy` entirely, so a `min(key=(fy, filed))` mutant ties and falls through to `filed`. Here
+    the ORIGINAL carries a higher focus year than the restatement — a mis-tag, which the docstring
+    claims immunity to — so an fy-primary picker returns the restated value and fails."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(8_000_000_000, "2022-12-31", filed="2023-02-01")),
+        DILUTED: shares(fy_fact(27_962_000, "2022-12-31", filed="2023-02-01", fy=2025),
+                        fy_fact(1_398_100_000, "2022-12-31", filed="2025-02-01", fy=2024)),
+    })
+    assert _row(b, d, "2022-12-31")["shares_diluted_as_filed"] == 27_962_000
+
+
 # ------------------------------------------------------------------ absence, not a fallback
 def test_a_non_positive_as_filed_count_is_omitted_rather_than_written(b):
     """A reader must be able to tell "no original on file" from "original agrees with the

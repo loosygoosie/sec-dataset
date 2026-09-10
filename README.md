@@ -70,7 +70,9 @@ class shares, `BRK-B`), fetch `companies/<cik>.json` for each. A company file:
   "annual":    [{"fiscal_year": 2026, "period_end": "2026-03-31", "filed": "2026-05-22",
                  "revenue": 5.2e9, "operating_income": 1.2e9, "net_income": 9.7e8,
                  "operating_cash_flow": 1.1e9, "capex": 6.0e7, "stock_comp": 5.0e7,
-                 "shares_diluted": 1.53e8, "shares_diluted_as_filed": 2.55e7, "...": "..."}],
+                 "shares_diluted": 1.46e8, "shares_diluted_filed": "2026-05-22",
+                 "shares_diluted_as_filed": 1.46e8, "shares_diluted_as_filed_filed": "2026-05-22",
+                 "...": "..."}],
   "quarterly": [{"period_end": "2026-06-30", "form": "10-Q", "filed": "2026-07-30", "revenue": 9.6e8, "...": "..."}],
   "tags_used": {"revenue": "RevenueFromContractWithCustomerExcludingAssessedTax", "...": "..."},
   "checks": {"latest_quarter_end": "2026-06-30", "quarter_age_days": 71,
@@ -139,16 +141,39 @@ from the bulk file.
 - Definitions to know: for banks and card issuers `revenue` is the net-of-interest-expense
   figure the company headlines; `net_income` is net income attributable to the parent; `d_and_a`
   is the cash-flow-statement figure.
-- **Share counts come on two bases, and mixing them is the one way to get a badly wrong answer.**
-  `shares_diluted` is the LATEST reported value for that fiscal year, so a split restates the two
-  or three most recent years and leaves the older ones alone — the series steps by the split factor
-  part-way through the window, and no check flags it (NOTES.md §9). `shares_diluted_as_filed` is
-  what that year's own annual report said, before any restatement. The contract:
-  **`shares_diluted_as_filed` may only be multiplied by a RAW, unadjusted price; `shares_diluted`
-  only by a split-adjusted one.** Never mix the two across a window, and never divide one by the
-  other across years. Paired correctly, either gives the same market cap; paired wrongly, the
-  answer is off by the split factor and looks entirely plausible. `shares_diluted_as_filed` is
-  absent, not defaulted, where companyfacts no longer carries the original filing's fact.
+- **A share count is only meaningful next to the date it was filed.** Every share count is
+  denominated in whatever split basis prevailed when its filing went out, and a split silently
+  re-denominates every count filed after it. There is no field on these rows that is uniformly
+  "pre-split" or "post-split", and any rule of the form *multiply this field by that kind of price*
+  is wrong for some fiscal year of some company. So each count is emitted with its own filing date:
+  `shares_diluted` with `shares_diluted_filed`, and `shares_diluted_as_filed` with
+  `shares_diluted_as_filed_filed`.
+
+  **To compute a market cap at a past fiscal year end**, with `k(d)` = the cumulative split factor
+  applied after date `d`, which is just `raw_price(d) ÷ split_adjusted_price(d)` from any price
+  source that serves both:
+
+  > `market_cap(period_end) = shares × split_adjusted_price(period_end) × k(shares_filed_date)`
+
+  That works for either field, needs no split detection and no guessing, and is the only formula
+  here that is right for every year. Two worked examples, both real:
+  Chipotle's FY2021 `shares_diluted` is 28,511,000 filed 2024-02-08, before its June 2024 50:1
+  split — so `k` = 50, and `28,511,000 × ($1,748 ÷ 50) × 50 ≈ $49.8bn`, against a true ~$49bn.
+  Multiplying it by a split-adjusted price alone gives $1.0bn, wrong by fifty.
+  Walmart's FY2024 ended 2024-01-31, its 3:1 split was effective 2024-02-26, and its own 10-K was
+  filed 2024-03-15 — *after* the split, so even the as-filed count is already restated to
+  8.4bn while the raw price that year was still pre-split. Multiplying as-filed by a raw price
+  gives $1.34tn against a true ~$445bn. `k` = 1 there, and the formula gives ~$446bn.
+
+- **What `shares_diluted_as_filed` is, and is not.** It is the value from the EARLIEST filing that
+  reported the year — that year's own annual report, since comparatives are always filed later.
+  It is *not* a guarantee of a pre-split figure (Walmart above), and it is *not* proof that an
+  original survives: where companyfacts no longer carries the year's own filing, the earliest
+  surviving fact is a later comparative and is returned as one. Both cases are visible by comparing
+  `shares_diluted_as_filed_filed` against `shares_diluted_filed` and the row's `period_end`;
+  neither is detectable without them. `shares_diluted` remains the LATEST reported value, so after
+  a split it is restated for the two or three most recent years and left alone for the older ones —
+  the series steps part-way through the window and no check flags it (NOTES.md §9).
 - `shares_diluted` is a weighted AVERAGE over its period, not a total accumulated across it, so
   it is never differenced out of a year-to-date figure — the fiscal-year quarter takes the
   figure as filed. Doing otherwise produced roughly minus twice the real count on most of the
@@ -237,7 +262,7 @@ dispatch the workflow with `tickers: DECK,DUK,AEP,FCX,VMC`.
 
 ## Tests
 
-`pytest tests/` — 171 tests, run on every push. They cover the normaliser against synthetic
+`pytest tests/` — 175 tests, run on every push. They cover the normaliser against synthetic
 companyfacts documents (tag switches, the dominant and max picks, year-to-date differencing,
 the fiscal-year labelling, the checks block) and assert properties of the published dataset
 itself, because the share-count defect was invisible to unit tests: nothing had looked at what

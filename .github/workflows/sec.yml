@@ -32,15 +32,23 @@ jobs:
         # A phone upload once produced a 0-byte file that "ran" and did nothing.
         run: test -s build_sec_dataset.py || { echo "build_sec_dataset.py is empty"; exit 1; }
 
-      - name: Prove fact selection before it touches the data
+      - name: Prove the builder before it touches the data
         # This build overwrites every company file and PRUNES any it does not rewrite, and the
         # only other guard is the 3,000-company floor inside the script — which catches a
         # catastrophic parse failure, not a field that is silently wrong for most filers.
-        # Which fact wins for a period is the whole risk: a restated value reads exactly like an
-        # as-filed one. Same shape as filings.yml's parser gate, and it costs seconds.
-        # Deliberately NOT the whole suite: test_dataset_integrity.py asserts the data on disk,
-        # which is the previous build's, and would fail before this one has written anything.
-        run: pip install --quiet pytest && python -m pytest tests/test_as_filed_shares.py tests/test_normaliser.py tests/test_share_scale.py -q
+        # Which fact wins for a period is the sharpest risk (a restated value reads exactly like
+        # an as-filed one), but the patch path, the CIK overrides and the S&P 500 snapshot are all
+        # build_sec_dataset.py code this workflow executes, so they are gated too. Same shape as
+        # filings.yml's parser gate, and it costs seconds.
+        # The three suites left out belong to other builders or to other data:
+        # test_filings.py and test_exhibits.py cover build_sec_filings.py / build_sec_events.py,
+        # and test_dataset_integrity.py asserts the data already on disk — the PREVIOUS build's —
+        # so passing it would vouch for the wrong thing here. It gates that data in tests.yml.
+        run: |
+          pip install --quiet pytest
+          python -m pytest -q \
+            tests/test_normaliser.py tests/test_as_filed_shares.py tests/test_share_scale.py \
+            tests/test_filing_fallback.py tests/test_cik_overrides.py tests/test_sp500.py
 
       - name: Build dataset
         env:

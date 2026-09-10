@@ -338,6 +338,15 @@ def _pick_as_filed(cands: list[dict]) -> dict | None:
     `_filed_key` returns 0 for a missing or empty date, which would otherwise sort first and win;
     `or 99999999` sends those to the back. Tag rank breaks a same-day tie only.
 
+    Two things this CANNOT do, both of which the emitted filing date is the answer to. It cannot
+    tell an original from a restatement: if companyfacts no longer carries the year's own filing,
+    the earliest surviving fact is a later comparative and is returned as though it were original.
+    And "as filed" does not mean "pre-split" — ASC 260 makes a company restate share counts
+    retroactively in any filing issued after a split, so a fiscal year whose own 10-K was filed
+    after a split (Walmart's FY2024: year end 2024-01-31, 3:1 split 2024-02-26, 10-K filed
+    2024-03-15) carries a POST-split count as filed. Both cases are readable from
+    `<item>_as_filed_filed` against `<item>_filed`, and neither is detectable without them.
+
     Note the ordering differs from `_pick_latest`, which sorts by tag rank FIRST and takes the
     latest filing within that tag. Here the date has to come first, or the field defeats itself: a
     year whose own 10-K tagged only a basic count, later restated with a diluted one, would be
@@ -482,12 +491,18 @@ def normalise_company(facts: dict) -> dict:
         for fy, f in ann.items():
             out_annual[fy][name] = f["val"]
             if name in ASFILED_ITEMS:
-                af = _pick_as_filed(groups.get(fy) or [])
-                # Omitted rather than defaulted to the restated value: a reader must be able to tell
-                # "companyfacts no longer carries the original filing" from "original and
-                # restatement agree". A silent fallback would rebuild the very defect this fixes.
+                # The FILING DATE is the load-bearing part, not the second value: a share count is
+                # denominated in whatever split basis prevailed when it was filed, and without that
+                # date no past market cap can be computed from it at all. See README's contract.
+                out_annual[fy][name + "_filed"] = f.get("filed") or None
+                # Same period only. `_fy_of_period` buckets by the calendar year a period ENDS in,
+                # so a company that changes its fiscal year end can put two full-length periods in
+                # one bucket; `_pick_as_filed` sorts the opposite way to `_pick_latest` and would
+                # otherwise describe a different period from the one the row's `period_end` names.
+                af = _pick_as_filed([c for c in (groups.get(fy) or []) if c.get("end") == f.get("end")])
                 if af and (af.get("val") or 0) > 0:
                     out_annual[fy][name + "_as_filed"] = af["val"]
+                    out_annual[fy][name + "_as_filed_filed"] = af.get("filed") or None
             if name == "revenue" or name == "net_income":
                 fy_end_dates.setdefault(fy, f["end"])
             out_annual[fy].setdefault("_end", f["end"])

@@ -149,7 +149,7 @@ Ten of the thirty-six book holdings step inside their own six-year window:
 | | step | | | step |
 |---|---|---|---|---|
 | FTNT | 4.79x at FY2020 | | VICI | 1.52x at FY2022 (real dilution, not a split) |
-| DECK | 5.76x at FY2023 | | CMG | 49.21x at FY2023 |
+| DECK | 5.76x at FY2023 | | CMG | 49.21x at FY2022 |
 | NFLX | 9.96x at FY2023 | | DXCM | 4.55x at FY2020 |
 | MNST | 2.00x at FY2021 | | NVDA | 3.96x at FY2020, 9.89x at FY2023 |
 | CTAS | 3.92x at FY2023 | | TPL | 2.99x at FY2022, 2.98x at FY2023 |
@@ -212,28 +212,59 @@ is its fiscal 2026. ROST is the correct example among the holdings. The tagged `
 themselves cannot be checked from a sandbox, since there is no local copy of companyfacts; what is
 verifiable here is that the naming convention differs across filers, and that is sufficient.)*
 
-**The as-filed series still steps at a split, and that is correct** — each year is denominated in
-the shares of its own era. What is invariant is the product with a RAW, unadjusted price. A test
-asserting a smooth as-filed series would enshrine a second bug; the suite asserts the invariance
-instead. Hence the contract now in README.md: `shares_diluted_as_filed` may only be multiplied by
-a raw price, `shares_diluted` only by a split-adjusted one, and the two may never be mixed across
-a window. Feeding the new field into a consumer that still holds a split-adjusted price series
-*inverts* the error rather than fixing it.
+**What the field actually turned out to be worth — corrected after review.** A first draft of this
+section, and of the README, claimed a simple contract: multiply as-filed by a raw price, multiply
+`shares_diluted` by a split-adjusted one. **That is wrong in both directions**, and adversarial
+review caught it with two real counter-examples:
 
-The field is **absent, not defaulted**, where no original fact survives — a reader must be able to
-tell "companyfacts no longer carries the original" from "original and restatement agree". It is
-deliberately not in `SHARE_ITEMS` (that would change what `checks.shares` means for three book
-prompts) and not in `CONCEPTS` (that would put it in `flow_names` and could let a quarterly row
-carrying only it survive the cover-page filter as a phantom quarter). Quarterly rows are unchanged;
-that path has different guards and needs its own decision.
+- *Chipotle FY2021.* `shares_diluted` there is 28,511,000, filed 2024-02-08 — before the June 2024
+  50:1 split, so the "restated" field holds a PRE-split count. Multiplying it by a split-adjusted
+  price gives $1.0bn against a true ~$49bn. The restatement only ever reaches the two or three most
+  recent years; the rule was stated as if it reached all of them.
+- *Walmart FY2024.* Year ended 2024-01-31, 3:1 split effective 2024-02-26, own 10-K filed
+  2024-03-15 — after the split. ASC 260 makes a company restate share counts retroactively in any
+  filing issued after a split, so **"as filed" does not mean "pre-split"**: that count is already
+  8.4bn while the raw price through the year was still pre-split. Multiplying as-filed by a raw
+  price gives $1.34tn against a true ~$445bn.
 
-**Not yet done:** the consumers still truncate. `claude/rebuild-from-scratch.md`'s `usable_years()`
-and the monthly re-score prompt read `shares_diluted` and stop at the first step, which stays the
-safe behaviour until the book repo has a raw price series to pair the new field with. Until the two
-repos move together the field does nothing for the tilt. A `share_basis` check — flagging where the
-as-filed and restated series disagree on the same fiscal year by a near-round factor, which is
-positive evidence of a split rather than the adjacent-year guess — is a good next step and is not
-in this pass.
+The real missing ingredient was never a second value. It was **the date that says which split basis
+a count sits on**. Every count is denominated in the basis prevailing when its filing went out, so
+each is now emitted with its own filing date — `shares_diluted_filed` and
+`shares_diluted_as_filed_filed` — and the market cap of a past year is:
+
+> `shares × split_adjusted_price(period_end) × k(that count's filed date)`,
+> where `k(d) = raw_price(d) ÷ split_adjusted_price(d)`, the cumulative split factor after `d`.
+
+Checked against both counter-examples: Chipotle ~$49.8bn, Walmart ~$446bn. It needs no split
+detection, no round-factor guessing, no truncated window, and it works off the EXISTING
+`shares_diluted` — which means the eight-year history was usable all along and only the basis date
+was missing. That is the durable fix; the as-filed value is the lesser half of it.
+
+Two further claims from the first draft were also wrong and are withdrawn. The field is **not**
+"absent, not defaulted, where no original survives" — `_pick_as_filed` cannot tell an original from
+a restatement, so where companyfacts no longer carries the year's own filing the earliest surviving
+comparative is returned as though it were original. Absence happens only when there are no
+candidates or the value is non-positive. And a test asserting the as-filed series is *smooth*
+across a split would enshrine a second bug: it steps too, in step with the raw price of its era.
+
+The field is deliberately not in `SHARE_ITEMS` (that would change what `checks.shares` means for
+three book prompts) and not in `CONCEPTS` (that would put it in `flow_names`, where a quarterly row
+carrying only it could survive the cover-page filter as a phantom quarter). Quarterly rows are
+unchanged; that path has different guards and needs its own decision. `_pick_as_filed` is also
+constrained to the row's own `period_end`, because `_fy_of_period` buckets by the calendar year a
+period ends in and a fiscal-year-end change can put two full-length periods in one bucket.
+
+**Not yet done, and this is the part that matters.** The consumers still truncate.
+`claude/rebuild-from-scratch.md`'s `usable_years()` and the monthly re-score prompt read
+`shares_diluted`, walk back to the first step and drop everything beyond — which is *sound*, since
+the years it keeps all share the anchor's basis, but it costs the window. Once the basis dates are
+in a published build, that whole heuristic can go: the formula above restores all eight years for
+every company, including the three that currently fall to a neutral tilt (NFLX, TPL, MNST) and
+VICI, whose 1.52x step is real dilution from the MGM Growth acquisition rather than a split and
+which the step-walk truncates wrongly. That is a coordinated change across both repos and it waits
+on a real build. A `share_basis` check — flagging where the as-filed and restated counts for the
+SAME fiscal year disagree by a near-round factor, which is positive evidence of a split rather than
+the adjacent-year guess — is a good next step and is not in this pass.
 
 To reproduce the original defect: read `shares_diluted` across `annual` for the tickers in the
 table and compare adjacent years; compare the latest against `get_equity_fundamentals`'
