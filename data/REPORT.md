@@ -1,6 +1,6 @@
-# SEC dataset build — 2026-09-10T01:50:55Z
+# SEC dataset build — 2026-09-10T18:24:00Z
 
-- filers scanned: 20337
+- filers scanned: 20343
 - companies published: 7411
 - tickers in map: 10407
 
@@ -15,8 +15,8 @@
 - credit_loss_provision: 1110
 - current_assets: 6119
 - current_liabilities: 6103
-- d_and_a: 6418
-- debt_current: 3423
+- d_and_a: 6419
+- debt_current: 3424
 - debt_due_1y: 3312
 - debt_due_2y: 3303
 - debt_due_3y: 3202
@@ -34,50 +34,55 @@
 - loan_loss_allowance: 965
 - loans: 1239
 - loss_reserves: 203
-- lt_debt_noncurrent: 3156
+- lt_debt_noncurrent: 3157
 - net_income: 7411
+- net_income_incl_nci: 5285
+- net_income_parent: 7387
 - net_interest_income: 2161
 - operating_cash_flow: 7383
 - operating_income: 6232
 - operating_leases: 5799
 - pension_funded_status: 499
 - premiums_earned: 170
-- pretax_income: 6343
+- pretax_income: 6344
 - rd_expense: 3341
 - receivables: 4948
+- retained_earnings: 7156
 - revenue: 6562
-- sga_expense: 2659
+- sga_expense: 2660
 - shares_diluted: 6961
 - shares_outstanding: 6854
 - stock_comp: 6180
 - tier1_capital_ratio: 290
 - total_assets: 7401
-- total_debt: 5652
+- total_debt: 5653
 - total_equity: 7268
+- total_equity_incl_nci: 3662
+- total_equity_parent: 7179
 - total_liabilities: 6823
 
 ## Self-check: four quarters sum to the fiscal year (revenue, net income, operating cash flow, capex)
 
-- ok: 6630
-- off (one or more items miss by >3%): 34
+- ok: 6627
+- off (one or more items miss by >3%): 37
 - n/a (no fiscal year with four quarters on file): 747
 
 Readers treat an `off` company, or one whose latest quarter is more than 150 days old (a 10-K may lawfully take 90 days; anything older means the structured feed is behind the filing), as unmeasured on its quarterly metrics.
 
 ## Share counts (added 8 Sep 2026)
 
-- diluted count on file: 6590
-- basic count only: 63
-- cover-page count only: 186
-- none (multi-class filers tag by class; companyfacts drops dimensioned facts): 308
+- diluted count on file: 6428
+- basic count only: 54
+- cover-page count only: 224
+- none (multi-class filers tag by class; companyfacts drops dimensioned facts): 441
 - **invalid (a share count of zero or less somewhere in the file): 264**
 
 A reader does not drop a name on a per-share test it cannot run; `shares` in the manifest says which case applies.
 
 ## Share scale (added 9 Sep 2026)
 
-- consistent: 6006
-- **suspect: 1060** (`scale` — a diluted count more than fifty times its own outstanding count, or less than a fiftieth; `levels` — the quarterly series steps between levels more than once, so no per-share figure spans it)
+- consistent: 6007
+- **suspect: 1059** (`scale` — a diluted count more than fifty times its own outstanding count, or less than a fiftieth; `levels` — the quarterly series steps between levels more than once, so no per-share figure spans it)
 - no share data at all: 345
 
 `share_scale` says whether a company's share counts can all be true at once. It is not a reason to drop a name — it says the per-share metrics for that company are unmeasured. Both the flag and `shares` are in the manifest, so a reader need not open 7,411 company files to screen on them.
