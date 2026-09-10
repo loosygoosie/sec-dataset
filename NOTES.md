@@ -319,6 +319,52 @@ table and compare adjacent years; compare the latest against `get_equity_fundame
 
 ---
 
+## 10. `filed` is when a value was *reported*, not when its fiscal year was first reported
+
+Found 10 Sep 2026, by a consumer trying to use the dataset for point-in-time work and discovering
+it could not.
+
+`annual_rows` keeps, for each fiscal year, the value from the **latest** filing that reports it —
+`_pick_latest`, which is the right default, because a restated figure is the better figure. The row
+then carries that filing's date in `filed`. So:
+
+| company | fiscal year | `filed` | the 10-K it came from | when FY was first reported |
+|---|---|---|---|---|
+| MSFT | 2019-06-30 | 2021-07-29 | the FY2021 10-K | 2019-08-01 |
+| KO | 2018-12-31 | 2021-02-25 | the FY2020 10-K | 2019-02-21 |
+| AAPL | 2019-09-28 | 2021-10-29 | the FY2021 10-K | 2019-10-31 |
+
+This is not a bug, and the field is not mislabelled — `filed` says truthfully where the value we
+hold came from. But it means **`filed <= asof` does not reconstruct what was knowable at `asof`.**
+It is conservative in the wrong direction: everything it keeps was indeed known by `asof`, but it
+silently deletes the older fiscal years, because the only value we carry for them arrived later.
+A consumer filtering that way at asof = 2023-01-01 gets two annual rows for Microsoft, not four,
+and no error to say so.
+
+**The mechanism to fix it already exists and is already proven.** `_pick_as_filed` selects the
+earliest-filed fact for a period, and `ASFILED_ITEMS` restricts it to `shares_diluted`. That field
+recovers exactly the right dates — MSFT FY2019 `shares_diluted_as_filed_filed` reads **2019-08-01**,
+the original 10-K. Widening the same treatment to the rest of the line items is what point-in-time
+work needs. Two design notes for whoever does it:
+
+- Prefer a parallel `annual_as_filed` array over two more keys on every one of the 50 concepts,
+  which would roughly triple the annual rows. One row per fiscal year, same concept keys, values
+  picked by `_pick_as_filed`.
+- That row's own `filed` should be the **maximum** over the facts actually present in it, not the
+  minimum: the honest semantics are "the date by which this whole row was computable". Different
+  facts in one fiscal year can come from different filings when a concept was absent from the
+  original 10-K.
+
+**Do not oversell what it would buy.** The dataset holds at most 8 annual rows and the earliest
+fiscal year anywhere in it is 2018, so even after the fix the usable as-of dates are roughly 2023,
+2024 and 2025 — three non-overlapping annual observations — against a universe that is today's
+S&P 500 and therefore survivors. That is enough to check a scoring model is not *inverted*. It is
+not enough to validate one, and a consumer that reports it as validation has fabricated the thing
+it set out to test. Going deeper means keeping more than 8 annual rows, which companyfacts supports
+and this builder currently discards.
+
+---
+
 ## Ground rules for anyone picking this up
 
 - `SEC_USER_AGENT` is a repo secret. Never hardcode it, never print it, never send it
