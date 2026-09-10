@@ -135,6 +135,23 @@ started here. Until it exists, the briefs task names these companies rather than
   1,076 have an adjacent-quarter jump beyond 5×/0.2×. Most are micro-caps and many are
   real splits or reverse splits — the S&P 500 subsets above are the useful signal.
 
+- **No row records WHICH tag supplied a value, and for two concepts that is load-bearing.**
+  `net_income` ranks `NetIncomeLoss` (parent-only) above `ProfitLoss` (consolidated, includes
+  non-controlling interests); `total_equity` ranks `StockholdersEquity` (parent-only) above the
+  including-NCI variant. For most filers the preferred pair matches — parent numerator over parent
+  denominator — and the design is right. For filers with large non-controlling interests it can
+  silently mismatch, and a consumer cannot tell. Interactive Brokers reads an 81% ROE:
+  `total_equity` $5.36bn against `total_assets − total_liabilities` of $20.47bn, because IBKR
+  Group owns about a quarter of IBG LLC. A 9% effective tax rate is the tell. 23 of the 253
+  durable S&P names have a gap over 5% between reported equity and assets minus liabilities;
+  the widest are CL 85%, IBKR 74%, AMT 65%, BX 60%, FCX 39%.
+
+  The consumer's interim guard is to correct ROIC (whose numerator is consolidated regardless) and
+  to leave ROE unmeasured. Carrying the source tag — a `net_income_tag` / `total_equity_tag`, or a
+  single `tags` sub-object on the row — would let it be resolved properly instead of refused. A
+  companion `total_equity_incl_nci` concept would help independently, and is cheap: the tag is
+  already in the ranked list, just never reached when the parent-only one is present.
+
 ## 9. The annual share series steps at a split, and no flag sees it
 
 Found 9 Sep 2026 while moving the monthly re-score's valuation tilt off FMP and onto this
@@ -316,6 +333,52 @@ the adjacent-year guess — is a good next step and is not in this pass.
 To reproduce the original defect: read `shares_diluted` across `annual` for the tickers in the
 table and compare adjacent years; compare the latest against `get_equity_fundamentals`'
 `shares_outstanding`.
+
+---
+
+## 10. `filed` is when a value was *reported*, not when its fiscal year was first reported
+
+Found 10 Sep 2026, by a consumer trying to use the dataset for point-in-time work and discovering
+it could not.
+
+`annual_rows` keeps, for each fiscal year, the value from the **latest** filing that reports it —
+`_pick_latest`, which is the right default, because a restated figure is the better figure. The row
+then carries that filing's date in `filed`. So:
+
+| company | fiscal year | `filed` | the 10-K it came from | when FY was first reported |
+|---|---|---|---|---|
+| MSFT | 2019-06-30 | 2021-07-29 | the FY2021 10-K | 2019-08-01 |
+| KO | 2018-12-31 | 2021-02-25 | the FY2020 10-K | 2019-02-21 |
+| AAPL | 2019-09-28 | 2021-10-29 | the FY2021 10-K | 2019-10-31 |
+
+This is not a bug, and the field is not mislabelled — `filed` says truthfully where the value we
+hold came from. But it means **`filed <= asof` does not reconstruct what was knowable at `asof`.**
+It is conservative in the wrong direction: everything it keeps was indeed known by `asof`, but it
+silently deletes the older fiscal years, because the only value we carry for them arrived later.
+A consumer filtering that way at asof = 2023-01-01 gets two annual rows for Microsoft, not four,
+and no error to say so.
+
+**The mechanism to fix it already exists and is already proven.** `_pick_as_filed` selects the
+earliest-filed fact for a period, and `ASFILED_ITEMS` restricts it to `shares_diluted`. That field
+recovers exactly the right dates — MSFT FY2019 `shares_diluted_as_filed_filed` reads **2019-08-01**,
+the original 10-K. Widening the same treatment to the rest of the line items is what point-in-time
+work needs. Two design notes for whoever does it:
+
+- Prefer a parallel `annual_as_filed` array over two more keys on every one of the 50 concepts,
+  which would roughly triple the annual rows. One row per fiscal year, same concept keys, values
+  picked by `_pick_as_filed`.
+- That row's own `filed` should be the **maximum** over the facts actually present in it, not the
+  minimum: the honest semantics are "the date by which this whole row was computable". Different
+  facts in one fiscal year can come from different filings when a concept was absent from the
+  original 10-K.
+
+**Do not oversell what it would buy.** The dataset holds at most 8 annual rows and the earliest
+fiscal year anywhere in it is 2018, so even after the fix the usable as-of dates are roughly 2023,
+2024 and 2025 — three non-overlapping annual observations — against a universe that is today's
+S&P 500 and therefore survivors. That is enough to check a scoring model is not *inverted*. It is
+not enough to validate one, and a consumer that reports it as validation has fabricated the thing
+it set out to test. Going deeper means keeping more than 8 annual rows, which companyfacts supports
+and this builder currently discards.
 
 ---
 
