@@ -81,7 +81,15 @@ CONCEPTS: dict[str, dict] = {
     ]},
     "gross_profit": {"kind": "flow", "tags": ["GrossProfit"]},
     "operating_income": {"kind": "flow", "tags": ["OperatingIncomeLoss"]},
-    "pretax_income": {"kind": "flow", "tags": [
+    # `components` are PARTS of the total, not other names for it. `_pick_latest` takes the
+    # highest-preference tag holding a value, so a filer who tags only Domestic and Foreign — and
+    # not a consolidated total — has had ONE OF THE TWO stored as its pretax income ever since.
+    # Half a company's pre-tax profit then feeds the effective tax rate, the income-scope identity
+    # and every gate that reads it. See `component_sum`.
+    "pretax_income": {"kind": "flow", "components": (
+        "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic",
+        "IncomeLossFromContinuingOperationsBeforeIncomeTaxesForeign",
+    ), "tags": [
         "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
         "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
         "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic",
@@ -512,6 +520,36 @@ def quarterly_rows(series: list[dict], kind: str, pick: str = "rank", additive: 
     return out
 
 
+def component_sum(cands: list[dict], component_ranks: set[int]):
+    """Add the parts up where the filer never tagged a whole.
+
+    Some concepts list tags that are COMPONENTS of the figure rather than alternative names for it —
+    `...BeforeIncomeTaxesDomestic` and `...Foreign` are the two halves of pre-tax income, not two
+    ways of writing it. `_pick_latest` cannot know that: it takes the highest-preference tag holding
+    a value, so a filer who tags both halves and no consolidated total has had ONE HALF stored as
+    its pre-tax income. That figure then sets the effective tax rate, decides the income-scope
+    identity, and feeds every gate that reads it.
+
+    Two conditions, and both matter. A total must be ABSENT — where the filer tagged one it is
+    authoritative and nothing here should touch it. And at least TWO components must be present:
+    a lone `Domestic` on a filer with no foreign operations IS the total, and summing a single part
+    would simply reproduce the original bug in a new place.
+
+    One fact per component, latest filing wins, so a restatement does not get added to the figure it
+    restated.
+    """
+    if any(c.get("_rank") not in component_ranks for c in cands):
+        return None
+    best: dict[int, dict] = {}
+    for c in cands:
+        r = c.get("_rank")
+        if r in component_ranks and (r not in best or _filed_key(c) > _filed_key(best[r])):
+            best[r] = c
+    if len(best) < 2:
+        return None
+    return sum(c.get("val") or 0 for c in best.values())
+
+
 def top_line_repair(row: dict, cands: list[dict]) -> str | None:
     """Revenue is the top line. A figure BELOW the same row's own income is not revenue.
 
@@ -563,6 +601,16 @@ def normalise_company(facts: dict) -> dict:
         ann = annual_rows(series, kind, pick, groups)
         if name == "revenue":
             revenue_groups = groups          # kept for the top-line check after the loop
+
+        # Where a concept lists COMPONENTS, a period with no total must be summed rather than
+        # having one part stand in for the whole. Done here, per period, while the candidate facts
+        # and their tag ranks are still to hand.
+        comp_ranks = {i for i, t in enumerate(spec["tags"]) if t in (spec.get("components") or ())}
+        if comp_ranks:
+            for fy, cands in (groups or {}).items():
+                summed = component_sum(cands, comp_ranks)
+                if summed is not None and fy in ann:
+                    ann[fy] = dict(ann[fy], val=summed)
         for fy, f in ann.items():
             out_annual[fy][name] = f["val"]
             if name in ASFILED_ITEMS:

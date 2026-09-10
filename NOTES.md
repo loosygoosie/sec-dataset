@@ -518,3 +518,40 @@ tags only the two components gets ONE of them as its pretax income rather than t
 fixed; it needs a summing rule, not another tag.
 
 `data/` does not change until the next scheduled build runs.
+
+
+## 14. `pretax_income` stored one half of a company ✅ FIXED
+
+Flagged as open in section 13 and fixed the same day.
+
+`...BeforeIncomeTaxesDomestic` and `...Foreign` are the two HALVES of pre-tax income, not two ways
+of writing it, and the concept map listed them beside the consolidated totals as though they were
+alternatives. `_pick_latest` takes the highest-preference tag holding a value, so a filer tagging
+both halves and no total had ONE HALF stored — feeding the effective tax rate, the income-scope
+identity, and every gate that reads pre-tax income.
+
+**26 of 6,343 filers with a pretax figure (0.41%); 3 of the 496 S&P names.** Small, and the ones it
+hits it hits hard — the symptom is a company reporting more net income than pre-tax income, which
+cannot happen:
+
+| | pretax | net income | implied tax rate |
+|---|---|---|---|
+| McDonald's | $3,291m | $8,563m | 70.9% |
+| LabCorp | $728.9m | $876.5m | 31.5% |
+| Principal Financial | $1,041m | $1,185m | 15.4% |
+
+`component_sum` adds the parts where no whole was tagged. Two conditions, both load-bearing: a total
+must be ABSENT, because where the filer reported one it is authoritative and the components may not
+even be exhaustive; and at least TWO components must be present, because a lone `Domestic` on a
+filer with no foreign operations IS the total and summing a single part would reproduce the bug in a
+new place. One fact per component, latest filing wins, so a restatement is not added to the figure
+it restated.
+
+The loop closed on itself: `score.income_scope` got a direction check earlier the same day — net
+income ABOVE pretax minus tax means no deduction explains the gap, so the scope is unknown. That
+check was catching this bug's symptom without anyone knowing the cause.
+
+`components` is now a general facility of the concept map, not a pretax-income special case. Any
+concept whose tag list mixes parts with wholes can declare them.
+
+`data/` does not change until the next scheduled build runs.
