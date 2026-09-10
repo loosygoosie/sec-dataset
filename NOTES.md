@@ -380,7 +380,7 @@ not enough to validate one, and a consumer that reports it as validation has fab
 it set out to test. Going deeper means keeping more than 8 annual rows, which companyfacts supports
 and this builder currently discards.
 
-## 11. `checks.shares` says `ok` for a count that stopped years ago
+## 11. `checks.shares` says `ok` for a count that stopped years ago  ✅ FIXED 10 Sep 2026
 
 Found 10 Sep 2026, by a consumer, and it is the same bug as §2 one level down.
 
@@ -409,9 +409,14 @@ ann[-3:] + qtr[-4:])`, matching the window `reconciles` already looks at. A name
 stopped should read `outstanding-only` where a cover-page count survives, and `none` where it does
 not — REG and SJM both have `shares_outstanding`, so both would read `outstanding-only`.
 
-Not patched here, per this repo's ground rule that a builder bug is reported rather than worked
-around: the flag is published for 7,411 companies, changing its meaning is a deliberate act, and it
-cannot be tested from a sandbox that must not reach sec.gov.
+**Fixed the same day, on Andrew's instruction.** The window is now `ann[-3:] + qtr[-4:]`, matching
+the one `reconciles` already reads. Verified against the live data before and after: REG and SJM
+move from `ok` to `outstanding-only`, and MSFT, KKR and Visa are unchanged. Three tests were added
+— the Regency shape, a current count that must still read `ok`, and the zero/negative scan, which
+deliberately still reads the WHOLE history because a non-positive count is a defect whenever it
+landed and narrowing both scans together would have quietly stopped reporting old ones.
+
+The published files still carry the old flag until the next Sunday build rewrites them.
 
 **Not to be confused with the eleven S&P names that carry no diluted count at all** (ARES, BKR,
 BRK-B, ERIE, HSY, KKR, LYB, REG, SJM, STZ, V — Visa and Berkshire among them). That is the

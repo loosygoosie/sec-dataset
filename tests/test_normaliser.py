@@ -292,6 +292,44 @@ def test_the_shares_flag_says_which_per_share_tests_a_reader_can_run(b, tags_use
     assert b.data_checks([], qtr, tags_used=tags_used)["shares"] == expected
 
 
+def test_the_shares_flag_reads_the_window_a_consumer_uses(b):
+    """The flag's third form and its third bug, found 10 Sep 2026 by a consumer.
+
+    §2 moved it from "which tag resolved" to "does a value exist". It then read `any` over every
+    annual and quarterly row the file holds — and "exists anywhere" is not "exists where a reader
+    will look". Regency Centers last tagged a diluted count for FY2020 and J.M. Smucker for
+    FY2022; every row since is empty in both, and both reported `ok`. 162 companies were in that
+    state, 2 of them in the S&P 500.
+
+    This is the Regency shape: a count five years back, nothing since. It must NOT read `ok`, and
+    where a cover-page count survives it should say `outstanding-only` — which is exactly what a
+    consumer needs to know, since that is the only basis left to it."""
+    ann = ([{"period_end": f"{y}-12-31", "shares_diluted": 170_000_000, "shares_outstanding": 170_000_000}
+            for y in (2018, 2019, 2020)]
+           + [{"period_end": f"{y}-12-31", "shares_outstanding": 180_000_000}
+              for y in (2021, 2022, 2023, 2024, 2025)])
+    qtr = [{"period_end": "2026-06-30", "shares_outstanding": 180_000_000}]
+    assert b.data_checks(ann, qtr, tags_used={"shares_diluted": DIL})["shares"] == "outstanding-only"
+
+
+def test_a_current_diluted_count_still_reads_ok(b):
+    """The other half: narrowing the window must not start failing companies that are fine. A
+    count in the recent rows is usable however long the history behind it runs."""
+    ann = [{"period_end": f"{y}-12-31", "shares_diluted": 1_000_000} for y in range(2018, 2026)]
+    qtr = [{"period_end": "2026-06-30", "shares_diluted": 1_000_000}]
+    assert b.data_checks(ann, qtr, tags_used={"shares_diluted": DIL})["shares"] == "ok"
+
+
+def test_a_non_positive_count_is_caught_wherever_it_landed(b):
+    """The zero/negative scan deliberately still reads the WHOLE history while the window above
+    narrowed. A count of zero or less is a defect whenever it happened, and narrowing that scan
+    with the other would have quietly stopped reporting old ones."""
+    ann = [{"period_end": "2018-12-31", "shares_diluted": -5}] + \
+          [{"period_end": f"{y}-12-31", "shares_diluted": 1_000_000} for y in range(2019, 2026)]
+    qtr = [{"period_end": "2026-06-30", "shares_diluted": 1_000_000}]
+    assert b.data_checks(ann, qtr, tags_used={"shares_diluted": DIL})["shares"] == "invalid:shares_diluted"
+
+
 def test_the_shares_flag_survives_the_whole_pipeline(b):
     d = doc(us_gaap={
         "NetIncomeLoss": usd(fy_fact(500_000_000, "2024-12-31")),
