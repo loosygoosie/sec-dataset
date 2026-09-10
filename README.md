@@ -42,6 +42,26 @@ into `data/sp500.json` as a convenience, and the filing-text build scopes itself
    8-K / 10-K / 10-Q with item codes and exhibit links), `events_recent.json` (the last 90
    days across every filer — the file a monitor reads) and `events_report.md`.
 
+### The payload key in each file, because guessing it fails silently
+
+Every top-level file is an object with metadata beside the data, so a consumer has to reach
+through one key. Guessing the wrong one does not raise — it yields an empty list, which reads as
+"nothing filed" or "no constituents" and is indistinguishable from a genuinely empty answer. A
+consumer on 10 Sep 2026 guessed `events`/`data` on `events_recent.json`, got `[]`, and would have
+reported that no company in a 36-name book had filed an 8-K in three days. Four had, three of
+them carrying material item codes.
+
+| file | reach through | holds |
+|---|---|---|
+| `events_recent.json` | **`rows`** | every filing in the window, each with `cik` (an INTEGER), `date`, `form`, `items`, `exhibits`, `url` |
+| `sp500.json` | **`companies`** | one row per constituent, with `ticker` and `cik` |
+| `manifest.json` | **`companies`** | one row per company, keyed by CIK **as a STRING** |
+| `tickers.json` | — | already a flat map of ticker to `{cik, ...}` |
+| `companies/<cik>.json` | `annual`, `quarterly`, `checks` | the line items; read `checks` before trusting a row |
+
+The integer/string mismatch between an events row's `cik` and the manifest's keys is the other
+way this fails quietly: matching them without a cast finds nothing and looks like no coverage.
+
 After that it re-runs itself every Sunday. A company's file only changes when it files something
 new, so the weekly commit is small. You never need to touch it.
 
