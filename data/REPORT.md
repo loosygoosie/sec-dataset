@@ -1,4 +1,4 @@
-# SEC dataset build — 2026-09-09T23:17:07Z
+# SEC dataset build — 2026-09-10T01:50:55Z
 
 - filers scanned: 20337
 - companies published: 7411
@@ -99,7 +99,7 @@ companyfacts are added; the prior-year comparatives a filing also carries are le
 ## S&P 500 constituents
 
 - source: https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv
-- snapshot date: 2026-09-09
+- snapshot date: 2026-09-10
 - constituents: 503
 - resolved to a CIK via the SEC ticker map: 503
 - unmatched (no CIK in the SEC ticker map): none
