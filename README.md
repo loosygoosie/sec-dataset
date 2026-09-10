@@ -262,7 +262,7 @@ dispatch the workflow with `tickers: DECK,DUK,AEP,FCX,VMC`.
 
 ## Tests
 
-`pytest tests/` — 175 tests, run on every push. They cover the normaliser against synthetic
+`pytest tests/` — 180 tests, run on every push. They cover the normaliser against synthetic
 companyfacts documents (tag switches, the dominant and max picks, year-to-date differencing,
 the fiscal-year labelling, the checks block) and assert properties of the published dataset
 itself, because the share-count defect was invisible to unit tests: nothing had looked at what

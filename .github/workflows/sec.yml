@@ -48,7 +48,8 @@ jobs:
           pip install --quiet pytest
           python -m pytest -q \
             tests/test_normaliser.py tests/test_as_filed_shares.py tests/test_share_scale.py \
-            tests/test_filing_fallback.py tests/test_cik_overrides.py tests/test_sp500.py
+            tests/test_filing_fallback.py tests/test_cik_overrides.py tests/test_sp500.py \\
+            tests/test_sic.py
 
       - name: Build dataset
         env:
