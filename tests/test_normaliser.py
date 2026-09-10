@@ -597,3 +597,60 @@ def test_a_filer_tagging_only_one_scope_leaves_the_other_absent(b):
     assert row["total_equity_parent"] == 500
     assert "total_equity_incl_nci" not in row
     assert "net_income_incl_nci" not in row
+
+
+# --------------------------------------------- components are parts, not aliases
+
+def test_two_halves_with_no_total_are_summed(b):
+    """`...BeforeIncomeTaxesDomestic` and `...Foreign` are the two halves of pre-tax income, not two
+    ways of writing it. `_pick_latest` cannot know that — it takes the highest-preference tag with a
+    value — so a filer tagging both halves and no consolidated total had ONE HALF stored as its
+    pre-tax income, feeding the effective tax rate, the income-scope identity and every gate."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(10_000, "2025-12-31")),
+        "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic":
+            usd(fy_fact(600, "2025-12-31")),
+        "IncomeLossFromContinuingOperationsBeforeIncomeTaxesForeign":
+            usd(fy_fact(400, "2025-12-31")),
+    })
+    assert b.normalise_company(d)["annual"][-1]["pretax_income"] == 1_000
+
+
+def test_a_tagged_total_is_authoritative_and_is_not_recomputed(b):
+    """Where the filer reported a whole, that is the whole. The sum never overrides it — the
+    components may not even be exhaustive."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(10_000, "2025-12-31")),
+        "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest":
+            usd(fy_fact(1_100, "2025-12-31")),
+        "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic":
+            usd(fy_fact(600, "2025-12-31")),
+        "IncomeLossFromContinuingOperationsBeforeIncomeTaxesForeign":
+            usd(fy_fact(400, "2025-12-31")),
+    })
+    assert b.normalise_company(d)["annual"][-1]["pretax_income"] == 1_100
+
+
+def test_a_lone_component_is_left_alone(b):
+    """A filer with no foreign operations tags only Domestic, and that IS its total. Summing a
+    single part would reproduce the original bug in a new place, so two are required."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(10_000, "2025-12-31")),
+        "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic":
+            usd(fy_fact(600, "2025-12-31")),
+    })
+    assert b.normalise_company(d)["annual"][-1]["pretax_income"] == 600
+
+
+def test_a_restated_component_replaces_rather_than_adds_to_itself(b):
+    """One fact per component, latest filing wins — or a restatement would be added to the figure
+    it restated and the total would come out larger than either version of the year."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(10_000, "2025-12-31")),
+        "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic": usd(
+            fy_fact(600, "2025-12-31", filed="2026-02-01"),
+            fy_fact(650, "2025-12-31", filed="2027-02-01")),
+        "IncomeLossFromContinuingOperationsBeforeIncomeTaxesForeign":
+            usd(fy_fact(400, "2025-12-31", filed="2026-02-01")),
+    })
+    assert b.normalise_company(d)["annual"][-1]["pretax_income"] == 1_050
