@@ -290,6 +290,17 @@ adjacent-year heuristic cannot: a company restating a share count for a reason t
 split. Across the 36 holdings every other differing ratio is a clean split factor
 (2, 3, 4, 5, 6, 9, 10, 50).
 
+**A second consumer was hit by this, and worse (found 10 Sep 2026).** The re-screen's Stage 2
+requires three-year revenue per share to be rising, computed as `revenue` ÷ `shares_diluted` across
+fiscal years — mixed bases, so a split makes revenue per share appear to collapse. Netflix's revenue
+rose 43% across FY2022–FY2025 while its raw revenue per share fell from $70.06 to $10.40. Unlike the
+tilt, which is clamped to a ±20% sizing effect, **this one is a binary exclusion**: the name drops
+out of the durable pool and therefore out of the book. A rehearsal found it wrongly excluding twelve
+S&P 500 names — CVNA, EXE, FAST, IBKR, KLAC, NFLX, NOW, ORLY, PANW, RDDT, TPL, WRB — two of them
+current holdings. The same basis correction fixes it (Netflix normalised: 7.01 → 7.50 → 8.88 →
+10.40, up 48%), and the book repo's runbook now carries it. Worth assuming other per-share
+comparisons in that repo have the same shape until each has been checked.
+
 **Not yet done, and this is the part that matters.** The consumers still truncate.
 `claude/rebuild-from-scratch.md`'s `usable_years()` and the monthly re-score prompt read
 `shares_diluted`, walk back to the first step and drop everything beyond — which is *sound*, since
