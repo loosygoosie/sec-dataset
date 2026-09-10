@@ -533,3 +533,67 @@ def test_checks_carries_revenue_ok_by_default(b):
     ann = [{"fiscal_year": 2025, "period_end": "2025-12-31", "revenue": 1e9, "net_income": 1e8}]
     assert b.data_checks(ann, [], {}, None)["revenue"] == "ok"
     assert b.data_checks(ann, [], {}, [2024, 2025])["revenue"] == "below-income:2024,2025"
+
+
+# ------------------------------------------------------- parent vs consolidated scope
+
+def test_the_two_equity_scopes_are_stored_separately(b):
+    """A filer reporting both must have both kept.
+
+    `total_equity` lists the parent tag and the consolidated tag as a preference pair, so whichever
+    the filer used wins and the other is discarded — and the file never records which. That is the
+    single architectural gap behind every scope workaround in this system: `assets - liabilities` as
+    a stand-in for consolidated equity, and an identity on `net income == pretax - tax` to detect a
+    deducted minority interest. 113 of the 140 S&P names missing `Liabilities` tag the consolidated
+    figure explicitly; it was there and was being thrown away.
+    """
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(6_205, "2025-12-31")),      # a flow item, so an annual row exists
+        "StockholdersEquity": usd(fy_fact(5_363, "2025-12-31")),
+        "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest":
+            usd(fy_fact(20_472, "2025-12-31")),
+    })
+    row = b.normalise_company(d)["annual"][-1]
+    assert row["total_equity_parent"] == 5_363
+    assert row["total_equity_incl_nci"] == 20_472
+    assert row["total_equity"] == 5_363, "the existing key must keep its exact meaning"
+
+
+def test_a_minority_interest_becomes_a_subtraction_rather_than_an_inference(b):
+    """With both scopes present the minority interest is just the difference — no assets-minus-
+    liabilities stand-in, and no arithmetic identity needed to guess whether one was deducted."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(6_205, "2025-12-31")),      # a flow item, so an annual row exists
+        "StockholdersEquity": usd(fy_fact(5_363, "2025-12-31")),
+        "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest":
+            usd(fy_fact(20_472, "2025-12-31")),
+    })
+    row = b.normalise_company(d)["annual"][-1]
+    assert row["total_equity_incl_nci"] - row["total_equity_parent"] == 15_109
+
+
+def test_the_two_income_scopes_are_stored_separately(b):
+    """`NetIncomeLoss` is the parent's share, `ProfitLoss` the consolidated total. Dividing one by
+    the other's equity is what read an 81% ROE for Interactive Brokers."""
+    d = doc(us_gaap={
+        "NetIncomeLoss": usd(fy_fact(1_000, "2025-12-31")),
+        "ProfitLoss": usd(fy_fact(4_357, "2025-12-31")),
+    })
+    row = b.normalise_company(d)["annual"][-1]
+    assert row["net_income_parent"] == 1_000
+    assert row["net_income_incl_nci"] == 4_357
+    assert row["net_income"] == 1_000, "the existing key must keep its exact meaning"
+
+
+def test_a_filer_tagging_only_one_scope_leaves_the_other_absent(b):
+    """Absent, not defaulted to the one we do have — that would recreate the collapse in a new
+    field and hide the very thing these exist to expose."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(1_000, "2025-12-31")),
+        "StockholdersEquity": usd(fy_fact(500, "2025-12-31")),
+        "NetIncomeLoss": usd(fy_fact(100, "2025-12-31")),
+    })
+    row = b.normalise_company(d)["annual"][-1]
+    assert row["total_equity_parent"] == 500
+    assert "total_equity_incl_nci" not in row
+    assert "net_income_incl_nci" not in row

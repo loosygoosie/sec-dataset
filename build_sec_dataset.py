@@ -94,6 +94,16 @@ CONCEPTS: dict[str, dict] = {
         "ProfitLoss",
         "NetIncomeLossAvailableToCommonStockholdersBasic",
     ]},
+    # The same collapse, on the income statement. `NetIncomeLoss` is the parent's share; `ProfitLoss`
+    # is consolidated including the minority. Interactive Brokers reads an 81% return on equity when
+    # a consolidated numerator is divided by a parent-only denominator — the artefact that cost a day
+    # and produced an arithmetic identity to work around it. With both stored, the scope is read
+    # rather than deduced. ADDED alongside; `net_income` is untouched.
+    "net_income_parent": {"kind": "flow", "tags": [
+        "NetIncomeLoss",
+        "NetIncomeLossAvailableToCommonStockholdersBasic",
+    ]},
+    "net_income_incl_nci": {"kind": "flow", "tags": ["ProfitLoss"]},
     "eps_diluted": {"kind": "flow", "tags": ["EarningsPerShareDiluted"], "unit": "USD/shares"},
     "operating_cash_flow": {"kind": "flow", "tags": [
         "NetCashProvidedByUsedInOperatingActivities",
@@ -165,6 +175,27 @@ CONCEPTS: dict[str, dict] = {
     "total_assets": {"kind": "instant", "tags": ["Assets"]},
     "total_equity": {"kind": "instant", "tags": [
         "StockholdersEquity",
+        "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+    ]},
+    # SCOPE, READ DIRECTLY RATHER THAN INFERRED (added 10 Sep 2026).
+    #
+    # The two tags above are not two names for one number. `StockholdersEquity` is the PARENT's
+    # slice; the second is the CONSOLIDATED total including non-controlling interests. Listing them
+    # as a preference pair means whichever the filer tagged wins, the other is discarded, and the
+    # file never records which — so every downstream consumer has to infer the scope or work around
+    # not knowing it. Both workarounds this repo grew are that: `assets - liabilities` as a stand-in
+    # for consolidated equity, and an arithmetic identity on `net income == pretax - tax` to tell
+    # whether a minority interest was deducted.
+    #
+    # The stand-in fails for 140 of 502 S&P names, because they do not tag `Liabilities` at all —
+    # and 113 of those 140 tag the consolidated equity figure explicitly, right beside the parent
+    # one. The number was there the whole time and the concept map threw it away.
+    #
+    # These two fields are ADDED, never replacing: `total_equity` keeps its exact meaning and its
+    # preference order, so no existing reader changes behaviour. A consumer that needs the scope can
+    # now read it, and a minority interest is simply `total_equity_incl_nci - total_equity_parent`.
+    "total_equity_parent": {"kind": "instant", "tags": ["StockholdersEquity"]},
+    "total_equity_incl_nci": {"kind": "instant", "tags": [
         "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
     ]},
     # A weighted-average share count has a period like a flow, but it is an AVERAGE over that
