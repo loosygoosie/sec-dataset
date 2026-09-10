@@ -254,6 +254,42 @@ unchanged; that path has different guards and needs its own decision. `_pick_as_
 constrained to the row's own `period_end`, because `_fy_of_period` buckets by the calendar year a
 period ends in and a fiscal-year-end change can put two full-length periods in one bucket.
 
+**Verified against a real build — 10 Sep 2026, run 34426622576 on the branch.** The assumption
+everything rested on was that companyfacts still carries the ORIGINAL fact alongside the restated
+one. It does:
+
+- **3,447 annual rows** dataset-wide carry an as-filed count that differs from the restated one.
+  Had this been near zero, the as-filed half would have been worthless.
+- **490 of 499** S&P 500 companies carry the field (98.2%), on 97.4% of their annual rows.
+- **35 of the 36 holdings** now have six or more usable as-filed years, against 26 under the
+  truncation rule. The exception is Alphabet, whose `shares_diluted` is null for FY2018–FY2021 —
+  a pre-existing multi-class gap (§3), confirmed null in a pre-build snapshot, not caused by this.
+- **0 of 49,107 pre-existing annual values moved.** Proved, not asserted: every company's
+  `shares_diluted` and `revenue` were snapshotted before the build and compared after.
+
+Every predicted case came back exactly as predicted. Chipotle FY2022 restated 1,403,077,000
+against as-filed 28,062,000 — 50.0x. Deckers FY2023, 160,111,000 against 26,686,000 — 6.0x.
+NVIDIA FY2020, 2,472,000,000 against **618,000,000** — 4.0x, and FY2023 25,070,000,000 against
+2,507,000,000 — 10.0x. Monster FY2021, 1,071,278,000 against 535,639,000 — 2.0x, confirming that
+half of Monster's problem is a restatement artefact. And Walmart, the case that broke the first
+draft's contract: FY2022 restated 8,415,000,000 against as-filed 2,805,000,000 (3.0x), but
+**FY2024 as-filed equals the restated 8,108,000,000, dated 2024-03-15** — after the 2024-02-26
+split, exactly as predicted. "As filed" is not "pre-split", and only the emitted date shows it.
+
+The formula was checked end to end against live broker prices, not just arithmetic. Deckers FY2022
+gives $7.608bn against a true $7.608bn (0.0000%); NVIDIA FY2020 gives $154.8bn against $154.8bn
+(0.000%). NVIDIA is the case that justifies emitting the date at all: its period end (2020-01-24)
+and its value's filing date (2022-03-18) sit on opposite sides of the 2021 4:1 split, so `k` is 40
+at one and 10 at the other. Using the period end instead gives $619bn — **wrong by exactly 4x**.
+Both `k` values were read straight off raw ÷ split-adjusted at those dates: 40.00 and 10.00.
+
+One case worth knowing about. Dexcom's FY2020 and FY2021 ratios are **4.31 and 4.28, not a clean
+4.0** — its split accounts for 4x and the remaining ~8% is a restatement of the count itself, not
+a split. Whatever its cause, that residual is exactly the thing the field exposes and the
+adjacent-year heuristic cannot: a company restating a share count for a reason that is not a
+split. Across the 36 holdings every other differing ratio is a clean split factor
+(2, 3, 4, 5, 6, 9, 10, 50).
+
 **Not yet done, and this is the part that matters.** The consumers still truncate.
 `claude/rebuild-from-scratch.md`'s `usable_years()` and the monthly re-score prompt read
 `shares_diluted`, walk back to the first step and drop everything beyond — which is *sound*, since
