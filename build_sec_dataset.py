@@ -556,9 +556,26 @@ def top_line_repair(row: dict, cands: list[dict]) -> str | None:
     `_pick_latest` takes the highest-PREFERENCE tag that has any value for the period, and a filer
     who tags a sub-item as `Revenues` therefore beats one who tags the consolidated total under a
     less-preferred name. DTE Energy reads $61m of revenue against $2.374bn of operating income;
-    Synchrony reads $520m against $4.62bn of pretax income. Both are impossible — operating and
-    pretax income are revenue minus costs — and both were rejected from a screen on the strength of
-    the resulting margin. That is the direction of this class of bug that nobody sees: a wrong
+    Synchrony reads $520m against $4.62bn of pretax income. Both were rejected from a screen on the
+    strength of the resulting margin.
+
+    **The floor is deliberately a superset, and a reader must not treat the flag as proof.** Only
+    the OPERATING line gives an identity: operating income is revenue minus operating costs, and
+    those are not negative, so operating income above revenue cannot be true of a real top line.
+    Pretax adds non-operating items and net income adds discontinued operations, and BOTH can
+    legitimately exceed revenue on a large one-off gain. An earlier version of this docstring
+    claimed all three were impossible; that was wrong, and on the 10 Sep 2026 build it made four of
+    the eight flagged S&P names false positives — eBay 2021 (Adevinta and Adyen), NortonLifeLock
+    FY2020 (the Broadcom Enterprise sale), Cooper FY2021 and Public Storage 2022 (PS Business
+    Parks) all carry correct revenue, and KKR's pretax exceeds its revenue tag structurally, as an
+    asset manager's gains do.
+
+    The wider floor is kept ON PURPOSE rather than narrowed to the operating line: banks, REITs and
+    asset managers often report no operating line at all, and Synchrony — a real defect — would go
+    unflagged if pretax were dropped. What the flag means is "these years are worth checking", and
+    the consumer decides. `robinhood-book/tools/rescreen.py::revenue_unmeasured` is the reference
+    reading: refuse on the operating identity, or where the breach spans at least half the window
+    being read, since a mis-mapped tag is wrong every year while a gain is wrong once. That is the direction of this class of bug that nobody sees: a wrong
     figure that makes a company look BAD produces no symptom, it just quietly removes it.
 
     76 of 5,882 filers with a revenue figure (1.29%) are in this state.
