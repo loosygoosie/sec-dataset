@@ -6,12 +6,13 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '.tool_input.command // \"\"' | head -1 | grep -qE '(^[[:space:]]*|[;&|][[:space:]]*|[[:space:]]-m[[:space:]]+)pytest([^A-Za-z0-9_-]|$)' && printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Blocked by .claude/settings.json: the suite is not run in this sandbox. CI is what verifies (see CLAUDE.md). This suite is fast, which is why it is tempting and why the rule needs a guard here too: on 10 Sep 2026 a session ran it, got 216 passed, and only then read CI - the right answer by luck, not by rule. A local pass is a hypothesis. Push the branch and read the CI run instead. Investigation is still allowed: read the data, compute a figure, compare builds with git worktree.\"}}' || true",
+            "command": "jq -r '.tool_input.command // \"\"' | head -1 | grep -qE '(^[[:space:]]*|[;&|][[:space:]]*|[[:space:]]-m[[:space:]]+|[[:space:]](run|exec)[[:space:]]+)pytest([^A-Za-z0-9_-]|$)' && printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Blocked by .claude/settings.json: the suite is not run in this sandbox. CI is what verifies (see CLAUDE.md). This suite is fast, which is why it is tempting and why the rule needs a guard here too: on 10 Sep 2026 a session ran it, got 216 passed, and only then read CI - the right answer by luck, not by rule. A local pass is a hypothesis. Push the branch and read the CI run instead. Investigation is still allowed: read the data, compute a figure, compare builds with git worktree.\"}}' || true",
             "timeout": 10,
             "statusMessage": "checking against the CI-verifies rule"
           }
         ]
       }
     ]
-  }
+  },
+  "_comment": "The CI-verifies guard for a session run INSIDE this repo. A multi-repo remote session's project root is the PARENT of the clones, so this file is never read there \u2014 robinhood-book/tools/install_guard.py installs the merged guard at that level and is what makes it work remotely."
 }
