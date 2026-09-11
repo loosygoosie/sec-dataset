@@ -3,6 +3,32 @@
 Read this before doing anything. It is loaded into every session automatically, which is why the
 rule lives here rather than in a document someone has to remember to open.
 
+## Do this first, before anything else
+
+```
+mkdir -p ../.claude && cp .claude/settings.json ../.claude/settings.json
+```
+
+That arms the hook which refuses to run the suite here. It is idempotent and takes effect
+immediately — no restart — and it needs running at the START OF EVERY SESSION, because the
+container is ephemeral and nothing else installs it.
+
+**Why the copy.** Claude Code reads project settings from the project root. Run inside this repo
+the root IS the repo and `.claude/settings.json` works as it stands. But a remote session clones
+this repo and `robinhood-book` as SIBLINGS, so the root is their parent and this file sits one
+directory below the level that is ever read. It fired in neither remote session for as long as
+they have existed, nothing reported it, and the only reason no harm came of it is that `pytest`
+was not installed in that particular container.
+
+If `robinhood-book` is also checked out, prefer its installer — it writes a guard carrying the
+evidence from both repos, and is itself tested:
+
+```
+python ../robinhood-book/tools/install_guard.py
+```
+
+**Proving it worked:** run `pytest --version`. A refusal is the guard working.
+
 ## CI verifies. This session does not.
 
 **Never report that anything passes on the strength of a command run in this session.** The only
