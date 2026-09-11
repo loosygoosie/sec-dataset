@@ -638,3 +638,70 @@ absent value as UNMEASURED: scoring Adobe as spending nothing on research would 
 failure this dataset's flags exist to prevent.
 
 **Neither item changes `data/` until a build runs.**
+
+## 17. What the next build should carry — batch it, because a build is not cheap
+
+A build fetches 7,411 companies from sec.gov, **overwrites every company file and prunes any it
+does not rewrite**. So the cost is the same whether it carries one change or ten, and the mistake
+to avoid is running it twice. This is the standing list of everything that needs one. Add to it
+rather than dispatching for a single item.
+
+**Nothing here changes the meaning of an existing key.** Every entry is either a NEW field or a
+WIDER tag list for a field that already exists — which raises coverage and changes no definition.
+
+### A. New fields
+
+| field | why | blocked today |
+|---|---|---|
+| `depreciation`, `amortisation` | Item 15. `d_and_a` mixes them, so it does not mean the same thing between companies. | maintenance-capex proxy reads 0.81x where it should read ~1.0 |
+| `ppe_gross`, `accumulated_depreciation` | Neither is in `CONCEPTS`. Gross PP&E against the net figure gives asset age, and a real maintenance-capex estimate rather than a depreciation proxy. | the split is measured and deliberately not scored |
+| `accounts_payable` | `receivables` and `inventory` are carried; payables is the third leg. Without it, working-capital quality reads only half the cycle — a company stretching suppliers looks identical to one collecting faster. | `accrual_gap` sees the total and not the cause |
+| `ASFILED_ITEMS` widened | Item 10. Today only `shares_diluted` carries what its own fiscal year first reported, so no point-in-time reconstruction is possible and the consumer's model cannot be validated at all. | see the caveat below |
+
+`ASFILED_ITEMS = ("shares_diluted",)` is a one-line tuple and `_pick_as_filed` is already general,
+so this is cheap to implement. The eleven items a composite reads — revenue, net income, operating
+income, pretax, tax, operating cash flow, capex, D&A, total debt, cash, equity — add roughly 9 KB
+per company against a 15 KB average, so **`data/` grows by something like half again**. Worth
+scoping to those eleven rather than all 54.
+
+**It does not solve validation, and should not be sold as doing so.** The dataset holds at most 8
+annual rows from fiscal 2018, so even with perfect as-filed dates the honest as-of points are about
+2023, 2024 and 2025 — three non-overlapping observations, on a universe that is today's index and
+therefore survivors. That can show a model is not inverted. It cannot validate a weighting.
+
+### B. Tag lists narrower than the filings
+
+Item 16 found this for two fields. It is not confined to two — these are the tag counts for items
+the consumer reads:
+
+| field | tags | coverage of the S&P 500 |
+|---|---|---|
+| `sga_expense` | **1** | — 32% of the index carries neither this nor `rd_expense` |
+| `buybacks` | **1** | 87% |
+| `inventory` | **1** | 59% |
+| `debt_due_1y` | **1** | 65% |
+| `rd_expense` | 2 | 44% |
+| `dividends_paid` | 2 | 77% |
+| `receivables` | 2 | 76% |
+| `acquisitions` | 2 | 57% |
+
+For comparison `total_debt` carries 14 tags and reaches 87%, `capex` 8 and reaches 91%. A
+single-tag item is a guess that every filer uses the same concept, and the ones above are the
+fields the capital-allocation work depends on. `dividends_paid` at 77% is the clearest symptom:
+Johnson & Johnson pays a dividend and carries no value.
+
+Candidates must be checked against real filings before being added — this sandbox cannot probe
+sec.gov, so that check belongs in a dispatched run or a session with the real user agent.
+
+### C. NOT fixable in this build, and the record should be straight about it
+
+**Customer and segment concentration.** One customer at 30%, one regulator, one patent cliff —
+never in a ratio, and it kills companies. `robinhood-book`'s `measure.py` carries it as a permanent
+UNMEASURED so it shows in the coverage table as a zero rather than being quietly absent.
+
+An earlier note in that module said `parse_xbrl_instance` "sees them and discards them", implying
+the fix is to stop discarding. **That overstates how close it is.** That parser runs only as a
+FALLBACK, for filers whose companyfacts has fallen behind — it is not the path most companies take.
+Harvesting dimensional facts would mean fetching and parsing instance documents for all 7,411
+companies, which is a different build, not a flag on this one.
+
