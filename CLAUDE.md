@@ -87,3 +87,10 @@ the workflow instead, so the real `SEC_USER_AGENT` secret is used.
 `loosygoosie/robinhood-book` screens, scores and values the S&P 500 from these files and acts on the
 result through a live brokerage account. A field that silently changes meaning here changes what
 gets bought there.
+
+**What that system is FOR is written down** in `robinhood-book/VISION.md` — the intents it was
+designed to serve, in its owner's words, each marked BUILT, PARTIAL or OPEN. Two of them turn on
+fields published here and not yet read there: comparing a company against its own sector, and
+seeing where a company's money actually goes (`capex`, `buybacks`, `dividends_paid`,
+`acquisitions`, `stock_comp`). Worth reading before deciding a field here is unused — it may be
+unused only so far.
