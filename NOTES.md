@@ -641,10 +641,23 @@ failure this dataset's flags exist to prevent.
 
 ## 17. What the next build should carry — batch it, because a build is not cheap
 
-A build fetches 7,411 companies from sec.gov, **overwrites every company file and prunes any it
-does not rewrite**. So the cost is the same whether it carries one change or ten, and the mistake
-to avoid is running it twice. This is the standing list of everything that needs one. Add to it
-rather than dispatching for a single item.
+A build **overwrites every company file and prunes any it does not rewrite**, so the cost is the
+same whether it carries one change or ten and the mistake to avoid is running it twice. This is the
+standing list of everything that needs one. Add to it rather than dispatching for a single item.
+
+**What a build actually costs, because an earlier draft of this note got it wrong.** It is not
+7,411 requests to sec.gov. `main()` downloads ONE bulk file — `companyfacts.zip` — and iterates its
+entries locally; the only per-company fetches are the budgeted fallback for filers whose
+companyfacts has fallen behind. So the expense is a large download and local CPU, not SEC traffic.
+
+**And the build cannot usefully be scoped to the index.** `main()`'s own docstring states the
+design — *"The everything-build: no index filter. Every operating filer in the SEC bulk file is
+normalised and published as its own file; who is in the S&P 500, and what is held, is decided by
+the reader"* — and two mechanisms enforce it. `if n_kept < 3000: raise SystemExit("REFUSING TO
+WRITE")` rejects a suspiciously small result outright, so a 500-company run would not write at all;
+and the prune would delete every file it did not rewrite, which is what makes a name ENTERING the
+index already present rather than missing until the next build. Scoping trades that safety for CPU
+nobody is paying for in network.
 
 **Nothing here changes the meaning of an existing key.** Every entry is either a NEW field or a
 WIDER tag list for a field that already exists — which raises coverage and changes no definition.
