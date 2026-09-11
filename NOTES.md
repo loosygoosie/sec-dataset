@@ -555,3 +555,86 @@ check was catching this bug's symptom without anyone knowing the cause.
 concept whose tag list mixes parts with wholes can declare them.
 
 `data/` does not change until the next scheduled build runs.
+
+## 15. `d_and_a` mixes pure depreciation with depreciation-plus-amortisation
+
+**Found 11 Sep 2026, from the consumer side.** `robinhood-book` began measuring maintenance capex
+against depreciation — is a company's capital spending keeping the lights on or building something
+new — and the proxy behaved backwards from what was expected. That led here.
+
+**What the field is.** The concept map offers four tags in preference order:
+
+```
+"d_and_a": {"kind": "flow", "tags": [
+    "DepreciationDepletionAndAmortization",
+    "DepreciationAndAmortization",
+    "DepreciationAmortizationAndAccretionNet",
+    "Depreciation",
+]},
+```
+
+The first three include amortisation of intangibles; the fourth does not. Across the S&P 500, **40
+companies resolve `Depreciation` alone** and the rest resolve one of the combined tags. So the
+field does not mean the same thing from one company to the next, and a sector model comparing
+companies inside a sector is exactly the consumer that needs it to.
+
+**The measurable consequence.** A company whose revenue has been flat for six years needs
+maintenance capital spending and little else, so if D&A stood in for maintenance it should spend
+about 1.0x D&A. Across the 28 such companies in the index the median is **0.81x**, and 61% spend
+BELOW their own depreciation. Amortising a purchased customer list creates no replacement
+requirement at all, which is the most likely reason the combined figure overstates what standing
+still costs.
+
+**What would fix it, and what it must not break.** Two ADDED fields — `depreciation` and
+`amortisation` — leaving `d_and_a` exactly as it is. Under this repo's standing constraint an
+existing key may not change meaning, and `d_and_a` has real consumers: `rescreen.py` uses
+`operating_income + d_and_a` as EBITDA in the leverage and coverage gates, and `score.py` uses
+`pretax + d_and_a` in cash conversion. Changing it would silently move both.
+
+Coverage will be partial — a filer reporting only `DepreciationDepletionAndAmortization` can give
+neither half — and partial is the honest answer. The consumer treats an absent value as unmeasured,
+never as zero.
+
+**Until then** `robinhood-book` measures the split and does not score it, because a proxy whose
+error runs one way would systematically favour capital-light businesses.
+
+## 16. `rd_expense` and `sga_expense` are narrower than the filings that carry them
+
+**Found 11 Sep 2026, same work.** R&D is money spent on the future that never appears as a use of
+cash, because it is expensed rather than capitalised — so it is the one operating line a
+capital-allocation measure genuinely needs. Coverage is 44% of the index, and some of that gap is
+real while some is not.
+
+**Real.** Insurers, drug distributors, hospitals and labs — UNH, MCK, CAH, HCA, DGX — resolve no
+R&D tag because there is no R&D. Absent is the true answer and nothing should be imputed.
+
+**Not real, and this is the part to look at.** **Adobe resolves NO tag for either `rd_expense` or
+`sga_expense`** while plainly reporting both kinds of spending, and Amazon is in the same state.
+**163 of 502 companies — 32% — carry neither field in their latest annual row.** Separately, 22
+companies resolve an `rd_expense` tag somewhere in their history and still carry no value in the
+latest row (BALL, CDNS, ED, EL, FIS, FLEX, GD, GM among them), and 13 do the same for
+`sga_expense`.
+
+**The likely cause is the tag list, not the parser.** `sga_expense` offers exactly ONE tag:
+
+```
+"sga_expense": {"kind": "flow", "tags": ["SellingGeneralAndAdministrativeExpense"]},
+```
+
+Many filers do not use it, reporting `GeneralAndAdministrativeExpense` and `SellingAndMarketingExpense`
+as separate lines instead. `rd_expense` offers two. Candidate additions, to be checked against real
+filings rather than assumed:
+
+| field | candidates |
+|---|---|
+| `sga_expense` | `GeneralAndAdministrativeExpense`, `SellingAndMarketingExpense`, `SellingGeneralAndAdministrativeExpenseExcludingAcquisitionCosts` |
+| `rd_expense` | `ResearchAndDevelopmentExpenseSoftwareExcludingAcquiredInProcessCost`, `ResearchAndDevelopmentInProcess` |
+
+Where a filer reports the two halves separately, summing them into `sga_expense` is a `components`
+case — the general facility item 14 added for `pretax_income` — rather than a new special case.
+
+**This is reported rather than worked around**, per `CLAUDE.md`. The consumer must keep reading an
+absent value as UNMEASURED: scoring Adobe as spending nothing on research would be the exact
+failure this dataset's flags exist to prevent.
+
+**Neither item changes `data/` until a build runs.**
