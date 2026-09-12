@@ -84,13 +84,30 @@ the workflow instead, so the real `SEC_USER_AGENT` secret is used.
 
 ## Who reads this data
 
-`loosygoosie/robinhood-book` screens, scores and values the S&P 500 from these files and acts on the
-result through a live brokerage account. A field that silently changes meaning here changes what
-gets bought there.
+`loosygoosie/robinhood-book` scores and values the S&P 500 from these files and acts on the result
+through a live brokerage account. A field that silently changes meaning here changes what gets
+bought there. (It SCREENED, until 11 Sep 2026 — the screens were deleted and the word is wrong now:
+nothing is excluded for being a bad business, only for being unmeasurable.)
+
+**TWO FIELDS HERE NOW DECIDE WHETHER A COMPANY CAN BE OWNED AT ALL, and that is new on 12 Sep 2026.**
+`deposits` / `total_assets` and `premiums_earned` / `revenue` are how that repo identifies banks and
+insurers, and those two groups — with REITs — are no longer scored, because the six dimensions
+cannot be read honestly for them. So the markers are no longer a reporting nicety:
+
+  a company whose premium tags do not resolve falls through to the FEE group, which IS scored,
+  and an underwriter then gets ranked on cash conversion and operating margin that mean nothing
+  for it.
+
+That is `sec-dataset` NOTES 16 — neither `premiums_earned` nor `loss_reserves` resolves a tag for
+Berkshire Hathaway, the largest insurer in the index — and it is held today by ONE hand placement in
+`robinhood-book/claude/group-overrides.json`. Fixing the tags here removes that dependency. It used
+to matter because a thin group made a frozen median unstable; it matters more now, because it
+decides membership.
 
 **What that system is FOR is written down** in `robinhood-book/VISION.md` — the intents it was
-designed to serve, in its owner's words, each marked BUILT, PARTIAL or OPEN. Two of them turn on
-fields published here and not yet read there: comparing a company against its own sector, and
-seeing where a company's money actually goes (`capex`, `buybacks`, `dividends_paid`,
-`acquisitions`, `stock_comp`). Worth reading before deciding a field here is unused — it may be
-unused only so far.
+designed to serve, in its owner's words, each marked BUILT, PARTIAL or OPEN. Fields published here
+and not yet read there: where a company's money actually goes (`capex`, `buybacks`,
+`dividends_paid`, `acquisitions`, `stock_comp` — intent 5, and the candidate for a seventh
+dimension), and `data/events_recent.json`, the 90-day filing feed, which is proposed as the pre-buy
+event check and has never been read. Worth reading before deciding a field here is unused — it may
+be unused only so far.
