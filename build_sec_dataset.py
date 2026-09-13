@@ -675,8 +675,18 @@ def normalise_company(facts: dict) -> dict:
               for fy, row in sorted(out_annual.items())][-ANNUAL_YEARS:]
     quarterly = [dict(period_end=end, form=row.pop("_form", None), filed=row.pop("_filed", None), **row)
                  for end, row in sorted(out_q.items())][-QUARTERS:]
+    # HOW MANY OF THE PUBLISHED ANNUAL ROWS ACTUALLY CARRY EACH FIELD. `tags_used` answers a
+    # different question — whether a tag resolved ANYWHERE in the filing history — and the two
+    # part company more often than anyone expected: Philip Morris resolves
+    # `AllocatedShareBasedCompensationExpense`, last used in an FY2023 filing and never on a
+    # full-year period, and not one published row carries `stock_comp`. That is §2 and §11 one
+    # level up: a resolution signal that says `ok` for a series that stopped years ago. This says
+    # how many of the eight years a reader can actually read, and 0 means the field is absent from
+    # this file whatever `tags_used` says. Computed on the TRUNCATED list, because that is what
+    # the file publishes.
+    coverage = {name: sum(1 for r in annual if r.get(name) is not None) for name in CONCEPTS}
     return {"annual": annual, "quarterly": quarterly, "tags_used": tags_used,
-            "_top_line": top_line}
+            "annual_coverage": coverage, "_top_line": top_line}
 
 
 CHECK_ITEMS = ("revenue", "net_income", "operating_cash_flow", "capex")
@@ -1105,6 +1115,7 @@ def main() -> int:
     print("3. normalise every filer")
     cutoff = _years_ago(date.today(), 3).isoformat()   # drop filers silent for 3+ years
     manifest, coverage, written, recon = {}, defaultdict(int), set(), defaultdict(int)
+    tag_resolved: dict[str, int] = defaultdict(int)   # counts the TAG; `coverage` counts VALUES
     sics = load_sics()      # SEC sicDescription per CIK, from the events build's submissions record
     n_seen = n_kept = 0
     with zipfile.ZipFile(zpath) as z:
@@ -1131,7 +1142,8 @@ def main() -> int:
             cik = int(facts.get("cik") or n[3:13])     # the CIK is in the file name; a few records omit the field
             checks = data_checks(ann, qtr, norm["tags_used"], norm.get("_top_line"))
             rec = {"cik": cik, "sec_name": facts.get("entityName"), "tickers": by_cik.get(cik, []),
-                   "annual": ann, "quarterly": qtr, "tags_used": norm["tags_used"], "checks": checks}
+                   "annual": ann, "quarterly": qtr, "tags_used": norm["tags_used"],
+                   "annual_coverage": norm["annual_coverage"], "checks": checks}
             path = comp_dir / f"{cik}.json"
             body = json.dumps(rec, separators=(",", ":"), sort_keys=True)
             if not path.exists() or path.read_text() != body:      # unchanged files stay untouched -> small commits
@@ -1147,7 +1159,13 @@ def main() -> int:
             recon["shares:" + checks["shares"].split(":")[0]] += 1
             recon["share_scale:" + checks["share_scale"].split(":")[0]] += 1
             for k, v in norm["tags_used"].items():
-                if v: coverage[k] += 1
+                if v: tag_resolved[k] += 1
+            # The report has always called this "companies with at least one value" while counting
+            # companies whose TAG resolved. For 6,178 filers stock_comp resolved a tag; far fewer
+            # carry a figure in a year the file publishes. Count the values, and keep the tag count
+            # under its own name rather than quietly redefining `coverage_by_item`.
+            for k, n in norm["annual_coverage"].items():
+                if n: coverage[k] += 1
             n_kept += 1
     print(f"  {n_kept} companies kept of {n_seen} filers")
     if n_kept < 3000:
@@ -1246,11 +1264,19 @@ def main() -> int:
         "generated_utc": generated, "sources": {"facts": COMPANYFACTS_ZIP, "cik_map": TICKER_MAP_URL},
         "concepts": {k: {"kind": v["kind"], "tags": v["tags"], "pick": v.get("pick", "rank")} for k, v in CONCEPTS.items()},
         "counts": {"filers_scanned": n_seen, "companies": n_kept, "tickers": len(by_ticker)},
-        "coverage_by_item": dict(sorted(coverage.items())),
+        "coverage_by_item": dict(sorted(tag_resolved.items())),
+        "values_by_item": dict(sorted(coverage.items())),
         "companies": manifest}, separators=(",", ":"), sort_keys=True))
     report = [f"# SEC dataset build — {generated}", "", f"- filers scanned: {n_seen}", f"- companies published: {n_kept}",
-              f"- tickers in map: {len(by_ticker)}", "", "## Coverage by line item (companies with at least one value)", ""]
+              f"- tickers in map: {len(by_ticker)}", "",
+              "## Coverage by line item (companies carrying a value in a published annual row)", "",
+              "The question a consumer asks. A field can resolve a tag and still carry no figure in any",
+              "of the eight years this file publishes — see the tag count below, and NOTES §18.", ""]
     report += [f"- {k}: {v}" for k, v in sorted(coverage.items())]
+    report += ["", "## Tag resolved anywhere in the filing history", "",
+               "The older count, under a name that says what it measures. A company that tagged a line",
+               "in 2012 and stopped is counted here and not above.", ""]
+    report += [f"- {k}: {v}" for k, v in sorted(tag_resolved.items())]
     report += ["", "## Self-check: four quarters sum to the fiscal year (revenue, net income, operating cash flow, capex)", "",
                f"- ok: {recon.get('ok', 0)}", f"- off (one or more items miss by >3%): {recon.get('off', 0)}",
                f"- n/a (no fiscal year with four quarters on file): {recon.get('n/a', 0)}", "",

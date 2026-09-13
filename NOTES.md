@@ -718,3 +718,64 @@ FALLBACK, for filers whose companyfacts has fallen behind — it is not the path
 Harvesting dimensional facts would mean fetching and parsing instance documents for all 7,411
 companies, which is a different build, not a flag on this one.
 
+
+---
+
+## 18. `stock_comp` is absent for seventeen S&P 500 companies, and NO tag addition fixes it
+
+Found 13 Sep 2026, by the consumer. `robinhood-book` is weighing a correction to its
+`cash_conversion` dimension — stock compensation is a non-cash expense, so it is added back in
+operating cash flow and subtracted in pretax income, and the ratio `OCF / (pretax + D&A)` is
+flattered twice over by it. Charging it needs the figure. Seventeen eligible S&P 500 companies
+carry no `stock_comp` in ANY of the three years that dimension reads:
+
+    CMS  CNP  CTVA  DTE  EME  ERIE  ETN  ETR  EXC  FE  HAL  IP  KMI  MO  PM  VZ  XOM
+
+and three more carry it on some rows and not others (FANG, GEV, RSG — the newest fiscal year).
+
+**Why that is dangerous rather than untidy.** Charge everyone else and re-cut the anchors, and a
+company charged nothing is not neutral, it is REWARDED. Altria enters that repo's ownable set at
+65.2 against a bar of 65 on exactly that free pass. Absence reading as good news, which is the
+failure family §11 and NOTES 16 both belong to.
+
+**The evidence.** `probe_tags.py`, dispatched 13 Sep 2026 (`--pattern
+sharebased|stockcomp|stockoption|sharebasedpayment --field stock_comp`), over those twenty
+companies, against companyfacts:
+
+| shape | companies | what companyfacts carries |
+|---|---|---|
+| no SBC expense tag at all | CMS CNP ERIE IP MO XOM | grant-date, tax-effect and option-count tags only |
+| tagged once, long ago | EME (FY2011) ETR (FY2010) HAL (FY2014) KMI (→FY2014) VZ (→FY2016) CTVA (FY2019) DTE (→FY2019) ETN (→FY2019) EXC (→FY2019) FE (→FY2020) | the tag resolved; the series stopped |
+| tagged, never on a full year | PM (`Allocated…`, 30 facts to FY2023, latest period end 30 Sep) | interim periods only, so no annual row |
+| newest year only | FANG GEV RSG | filing lag, not a gap in the concept |
+
+**So the tag list is not the problem, and lengthening it would not help.** Two of these companies
+tag the figure only WITH A DIMENSION — Altria and Verizon both tag `ShareBasedCompensation` or
+`AllocatedShareBasedCompensationExpense` by `AwardTypeAxis` — and companyfacts carries no
+dimensioned facts, the same wall as Visa's share counts. The rest genuinely stopped tagging a
+separate share-based line.
+
+**The one reachable alternative means something else.** Verizon and Exelon both moved to
+`EmployeeBenefitsAndShareBasedCompensationNoncash`, undimensioned and current (VZ: 56 facts,
+FY2020-2026). It is the cash-flow add-back for employee benefits AND share-based compensation
+together — pension and other non-cash employee costs included. Folding it into `stock_comp` would
+change what that field means for those filers, which the working agreement forbids. It could be
+published as its own field if a consumer wants the add-back rather than the expense; nobody has
+asked yet, and the decision belongs with whoever charges it.
+
+### What WAS fixed here, because it is the more general defect
+
+**`tags_used` says a field resolved when it resolved only in years the file no longer publishes.**
+That is §2 and §11 one level up, and it is what made this gap invisible: Philip Morris's
+`tags_used["stock_comp"]` reads `AllocatedShareBasedCompensationExpense` — a consumer checking it
+to decide whether absence means zero is told the field resolves, for a company that has no figure
+in any published row. REPORT.md carried the same overstatement under a header that made the
+stronger claim: "Coverage by line item (companies with at least one value)" was counting companies
+whose TAG resolved. 6,178 filers for `stock_comp`.
+
+Company files now carry **`annual_coverage`** beside `tags_used`: how many of the published annual
+rows carry each field, `0` where none do. The report's coverage table now counts values and says
+so, and the tag count keeps its own section under a name that describes it. `manifest.json` keeps
+`coverage_by_item` with its existing meaning — the tag count — and adds `values_by_item`.
+
+**Nothing reaches `data/` until a build runs.**
