@@ -699,6 +699,27 @@ def normalise_company(facts: dict) -> dict:
     flow_names = {n for n, sp in CONCEPTS.items() if sp["kind"] == "flow"}
     out_q = {end: row for end, row in out_q.items() if any(k in flow_names for k in row)}
 
+    # TOTAL DEBT FROM ITS COMPONENTS, added 13 Sep 2026. `total_debt` carries aggregate tags only,
+    # and it resolved on all eight published rows for just 42.1% of the 4,656 companies that had
+    # eight — by a wide margin the worst-covered field, and single-handedly the reason 854 otherwise
+    # complete companies could not be measured.
+    #
+    # THE REASON IT IS A BUILDER GAP AND NOT A FACT ABOUT THE COMPANIES: 704 of those 854 carry
+    # `debt_current` or `lt_debt_noncurrent` in the SAME FILE while the aggregate resolves to
+    # nothing. Only four look genuinely debt-free. So absence was reading as "no debt" for companies
+    # whose debt is sitting on the next line, and a leverage measure that skips them is not
+    # measuring leverage — it is excluding the borrowers it could not parse.
+    #
+    # STRICTLY ADDITIVE. A row where the aggregate already resolved is never recomputed, so no
+    # published value changes; the sum fills only rows that had nothing. `total_debt_basis` records
+    # which happened, because the two are NOT interchangeable — component tags exclude finance
+    # leases where several aggregate tags include them, so a figure built from parts can run a few
+    # percent under one built from a total. A consumer comparing companies across the two bases
+    # should know it is doing so, and `components_partial` marks the weaker case again: only one
+    # side of the balance sheet resolved, so the sum is a FLOOR on total debt rather than a total.
+    for row in out_annual.values():
+        derive_total_debt(row)
+
     # Every concept is on the row by now, so the top line can be checked against its own income.
     top_line = sorted({fy for fy, row in out_annual.items()
                        if top_line_repair(row, revenue_groups.get(fy) or [])})
@@ -719,6 +740,31 @@ def normalise_company(facts: dict) -> dict:
     coverage = {name: sum(1 for r in annual if r.get(name) is not None) for name in CONCEPTS}
     return {"annual": annual, "quarterly": quarterly, "tags_used": tags_used,
             "annual_coverage": coverage, "_top_line": top_line}
+
+
+DEBT_COMPONENTS = ("debt_current", "lt_debt_noncurrent")
+
+
+def derive_total_debt(row: dict) -> None:
+    """Fill `total_debt` from its components when no aggregate tag resolved, and say which.
+
+    Mutates the row. Sets `total_debt_basis` to one of:
+
+        tagged               an aggregate tag resolved; the value is untouched
+        components           both components resolved and were summed
+        components_partial   one component resolved; the sum is a FLOOR on total debt
+
+    and leaves both keys absent when neither an aggregate nor any component resolved, which is the
+    only case where a reader should still conclude nothing about this company's borrowings.
+    """
+    if row.get("total_debt") is not None:
+        row["total_debt_basis"] = "tagged"
+        return
+    present = [row[k] for k in DEBT_COMPONENTS if row.get(k) is not None]
+    if not present:
+        return
+    row["total_debt"] = sum(present)
+    row["total_debt_basis"] = "components" if len(present) == len(DEBT_COMPONENTS) else "components_partial"
 
 
 CHECK_ITEMS = ("revenue", "net_income", "operating_cash_flow", "capex")

@@ -746,3 +746,96 @@ def test_raising_the_cap_cannot_invent_history_a_filer_does_not_have(b):
 
     assert len(norm["annual"]) == len(years) < b.ANNUAL_YEARS
     assert norm["annual_coverage"]["revenue"] == len(years)
+
+
+# ---------------------------------------------------------------------------------------------
+# total_debt from its components, 13 Sep 2026. MEASURED FIRST: of the 4,656 companies carrying
+# eight annual rows, `total_debt` resolved on all eight for 42.1% — the worst-covered core field by
+# a wide margin, and single-handedly the reason 854 otherwise complete companies were unmeasurable.
+# 704 of those 854 carry `debt_current` or `lt_debt_noncurrent` in the SAME FILE. So absence was
+# reading as "no debt" for companies whose debt sits on the next line.
+# ---------------------------------------------------------------------------------------------
+
+def test_total_debt_is_summed_from_components_when_no_aggregate_tag_resolves(b):
+    """THE 704. Neither aggregate tag is present; both component tags are. A leverage measure that
+    skipped these is not measuring leverage, it is excluding the borrowers it could not parse."""
+    d = doc(us_gaap={
+        "NetIncomeLoss": usd(fy_fact(500_000_000, "2024-12-31")),
+        "DebtCurrent": usd(fact(1_000_000_000, "2024-12-31")),
+        "LongTermDebtNoncurrent": usd(fact(9_000_000_000, "2024-12-31")),
+    })
+
+    row = b.normalise_company(d)["annual"][-1]
+
+    assert row["total_debt"] == 10_000_000_000
+    assert row["total_debt_basis"] == "components"
+
+
+def test_one_component_alone_is_marked_as_a_floor_not_a_total(b):
+    """Only the long-term side resolves. The sum is still worth having — it is a FLOOR on total
+    debt, far better than reading nothing — but a reader comparing it against a tagged total is
+    comparing two different things, so the basis says which this is."""
+    d = doc(us_gaap={
+        "NetIncomeLoss": usd(fy_fact(500_000_000, "2024-12-31")),
+        "LongTermDebtNoncurrent": usd(fact(9_000_000_000, "2024-12-31")),
+    })
+
+    row = b.normalise_company(d)["annual"][-1]
+
+    assert row["total_debt"] == 9_000_000_000
+    assert row["total_debt_basis"] == "components_partial"
+
+
+def test_a_resolved_aggregate_is_never_recomputed_from_components(b):
+    """STRICTLY ADDITIVE, and this is the regression that proves it. Marriott's shape — a token
+    `LongTermDebt` beside a real `DebtAndCapitalLeaseObligations` — is why `total_debt` picks the
+    MAX of its tags. If the derivation ran on a row that already resolved, a component sum smaller
+    than the aggregate would silently undo that rule and halve the company's debt."""
+    d = doc(us_gaap={
+        "NetIncomeLoss": usd(fy_fact(500_000_000, "2024-12-31")),
+        "LongTermDebt": usd(fact(23_000_000, "2024-12-31")),
+        "DebtAndCapitalLeaseObligations": usd(fact(14_000_000_000, "2024-12-31")),
+        "DebtCurrent": usd(fact(10_000_000, "2024-12-31")),
+        "LongTermDebtNoncurrent": usd(fact(20_000_000, "2024-12-31")),
+    })
+
+    row = b.normalise_company(d)["annual"][-1]
+
+    assert row["total_debt"] == 14_000_000_000, "the aggregate still wins; components did not run"
+    assert row["total_debt_basis"] == "tagged"
+
+
+def test_a_company_with_no_debt_tag_of_any_kind_still_carries_nothing(b):
+    """THE FOUR. Absence of every debt tag is the one case where a reader may still conclude
+    something, and filling it with a zero would be the invention this whole change is against —
+    a company that reports no debt line and a company whose debt failed to parse must not become
+    indistinguishable."""
+    d = doc(us_gaap={
+        "NetIncomeLoss": usd(fy_fact(500_000_000, "2024-12-31")),
+        "Assets": usd(fact(60_000_000_000, "2024-12-31")),
+    })
+
+    row = b.normalise_company(d)["annual"][-1]
+
+    assert "total_debt" not in row or row["total_debt"] is None
+    assert "total_debt_basis" not in row
+
+
+def test_the_basis_is_recorded_on_every_row_that_carries_a_total(b):
+    """A flag present on some rows and absent on others is unreadable. Wherever `total_debt` has a
+    value, `total_debt_basis` says where it came from — which is what lets a consumer tell a
+    ten-year series built from one basis from one that switched partway."""
+    d = doc(us_gaap={
+        "NetIncomeLoss": usd(fy_fact(5, "2023-12-31"), fy_fact(5, "2024-12-31")),
+        "LongTermDebt": usd(fact(8_000_000_000, "2023-12-31")),
+        "DebtCurrent": usd(fact(1_000_000_000, "2024-12-31")),
+        "LongTermDebtNoncurrent": usd(fact(7_000_000_000, "2024-12-31")),
+    })
+
+    rows = b.normalise_company(d)["annual"]
+    carrying = [r for r in rows if r.get("total_debt") is not None]
+
+    assert len(carrying) == 2, "both years carry a total"
+    assert all("total_debt_basis" in r for r in carrying)
+    assert [r["total_debt_basis"] for r in carrying] == ["tagged", "components"], (
+        "and the series switched basis partway, which is exactly what the flag exists to show")
