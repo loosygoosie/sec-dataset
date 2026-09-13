@@ -57,7 +57,19 @@ PATCH_CAP = 100                     # filings fetched per build
 PATCH_PER_COMPANY = 3               # a company missing several quarters needs them filled in order
 XBRLI = "http://www.xbrl.org/2003/instance"
 XSI_NIL = "{http://www.w3.org/2001/XMLSchema-instance}nil"
-ANNUAL_YEARS = 8        # fiscal years of annual history to keep
+# TWELVE, and it is derived rather than chosen. `robinhood-book/claude/clean-slate.md` makes every
+# measure a TEN-YEAR one — return on capital averaged, consistency of that return, cash conversion,
+# the retained-earnings test — because persistence through a cycle is the only honest substitute for
+# judging durability, which cannot be automated. Ten is therefore the consumer's window and this file
+# has to publish at least it. The extra two are headroom with a reason each: a company missing one
+# year stays measurable rather than dropping out of the universe entirely, and a ten-year figure can
+# be seen to MOVE between readings rather than only to exist.
+#
+# It was 8 until 13 Sep 2026, which predates that design and bounded nothing in particular. Raising a
+# cap cannot fabricate history: a filer whose companyfacts carries eight years still yields eight
+# rows. What it changes is that the ones carrying more stop being truncated below what the consumer
+# needs. `tests/test_normaliser.py` binds the relationship rather than the number.
+ANNUAL_YEARS = 12       # fiscal years of annual history to keep; >= the consumer's measure window
 QUARTERS = 12           # quarters of quarterly history to keep
 
 OUT_DIR = Path("data")

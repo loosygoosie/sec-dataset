@@ -712,3 +712,37 @@ def test_coverage_is_cut_on_the_published_rows_not_the_whole_history(b):
 
     assert len(norm["annual"]) == b.ANNUAL_YEARS
     assert norm["annual_coverage"]["revenue"] == b.ANNUAL_YEARS < len(years)
+
+
+# ---------------------------------------------------------------------------------------------
+# Depth, 13 Sep 2026. `ANNUAL_YEARS` went 8 -> 12 because the consumer's design turned every measure
+# into a ten-year one. The number itself is uninteresting; what matters is that it never falls back
+# below what the consumer reads, and a constant with no test saying why is the `SEATS = 30` shape.
+# ---------------------------------------------------------------------------------------------
+
+CONSUMER_MEASURE_WINDOW = 10   # robinhood-book/claude/clean-slate.md: every measure is ten-year
+
+
+def test_annual_history_covers_the_consumer_measure_window_with_headroom(b):
+    """A ten-year measure cannot be computed from nine rows, and a dataset that publishes exactly
+    ten leaves a company one missing year away from being unmeasurable. The headroom is the point:
+    it also lets a ten-year figure be seen to MOVE between readings rather than only to exist."""
+    assert b.ANNUAL_YEARS >= CONSUMER_MEASURE_WINDOW, (
+        f"ANNUAL_YEARS={b.ANNUAL_YEARS} publishes less history than the {CONSUMER_MEASURE_WINDOW}-year "
+        f"window robinhood-book's measures read. Every one of them would be unmeasurable.")
+    assert b.ANNUAL_YEARS >= CONSUMER_MEASURE_WINDOW + 2, (
+        f"ANNUAL_YEARS={b.ANNUAL_YEARS} leaves no headroom: a company missing one year drops out of "
+        f"the universe, and a ten-year figure can never be seen to move.")
+
+
+def test_raising_the_cap_cannot_invent_history_a_filer_does_not_have(b):
+    """The guard against reading the change as 'now everyone has twelve years'. A filer whose facts
+    carry five years yields five rows at any cap, and `annual_coverage` counts the rows that exist
+    rather than the cap."""
+    years = [f"{y}-12-31" for y in range(2021, 2026)]          # five years, well under the cap
+    d = doc(us_gaap={"Revenues": usd(*[fy_fact(10, e) for e in years])})
+
+    norm = b.normalise_company(d)
+
+    assert len(norm["annual"]) == len(years) < b.ANNUAL_YEARS
+    assert norm["annual_coverage"]["revenue"] == len(years)
