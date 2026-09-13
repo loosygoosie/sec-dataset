@@ -256,3 +256,49 @@ def test_the_new_field_is_not_a_concept_so_it_cannot_create_a_phantom_quarter(b)
     filter. Registering the field there could let a quarter carrying only it survive."""
     assert "shares_diluted_as_filed" not in b.CONCEPTS
     assert b.ASFILED_ITEMS == ("shares_diluted",)
+
+
+# ------------------------------------------------------- the guard, per item rather than blanket
+#
+# THE BUG WAS LATENT, so these tests exercise the path it was pointing at. Until 13 Sep 2026 the
+# as-filed guard read `if af and (af.get("val") or 0) > 0`, applied to every item. `shares_diluted`
+# was the only member of ASFILED_ITEMS, and a non-positive share count is a parse failure, so the
+# published data was never wrong. What the line was, was a loaded gun: the moment revenue or net
+# income joined that tuple — which the harness in `robinhood-book/claude/how-i-would-build-it.md`
+# needs them to — every LOSS YEAR would have vanished from the as-filed record silently, and a
+# point-in-time reconstruction built on it would have shown a universe that never had a bad year.
+
+def test_a_non_positive_share_count_is_still_dropped(b):
+    """The protection that was right, kept. Zero diluted shares is a parse failure, not a company."""
+    d = doc(us_gaap={"Revenues": usd(fy_fact(8_635_000_000, "2022-12-31", filed="2023-02-01")),
+                     DILUTED: shares(fy_fact(0, "2022-12-31", filed="2023-02-01"))})
+    assert "shares_diluted_as_filed" not in _row(b, d, "2022-12-31")
+
+
+def test_a_negative_as_filed_FLOW_survives_the_guard(b, monkeypatch):
+    """THE LOSS YEAR. A company that lost money reported a negative net income, and that is a fact
+    about the year rather than a parse failure. It is the single most important row a backtest
+    reads, because a model tested on a universe with no bad years is not tested at all."""
+    monkeypatch.setattr(b, "ASFILED_ITEMS", ("shares_diluted", "net_income"))
+    d = doc(us_gaap={"Revenues": usd(fy_fact(8_635_000_000, "2022-12-31", filed="2023-02-01")),
+                     "NetIncomeLoss": usd(fy_fact(-1_200_000_000, "2022-12-31", filed="2023-02-01"))})
+    row = _row(b, d, "2022-12-31")
+    assert row["net_income_as_filed"] == -1_200_000_000
+    assert row["net_income_as_filed_filed"] == "2023-02-01"
+
+
+def test_an_as_filed_flow_of_exactly_zero_survives_too(b, monkeypatch):
+    """`(af.get("val") or 0) > 0` dropped zero as well as negatives, and zero capex or zero buybacks
+    is a real answer — 'this company spent nothing' — not a missing one."""
+    monkeypatch.setattr(b, "ASFILED_ITEMS", ("shares_diluted", "net_income"))
+    d = doc(us_gaap={"Revenues": usd(fy_fact(8_635_000_000, "2022-12-31", filed="2023-02-01")),
+                     "NetIncomeLoss": usd(fy_fact(0, "2022-12-31", filed="2023-02-01"))})
+    assert _row(b, d, "2022-12-31")["net_income_as_filed"] == 0
+
+
+def test_the_positive_only_set_names_the_items_and_not_a_shape(b):
+    """A guard keyed on 'looks like a share count' would be the next silent failure. It is a named
+    set, and every member must be an item the builder actually publishes as-filed or could."""
+    assert "shares_diluted" in b.ASFILED_MUST_BE_POSITIVE
+    for item in b.ASFILED_MUST_BE_POSITIVE:
+        assert item in b.CONCEPTS, f"{item} is not a concept this builder knows"
