@@ -484,3 +484,124 @@ def test_the_excluded_set_names_items_the_builder_actually_publishes_as_filed(b)
     — the dead-weight shape this repo keeps finding in override files."""
     for item in b.RESTATEMENT_EXCLUDED:
         assert item in b.ASFILED_ITEMS, f"{item} is excluded from a check it was never subject to"
+
+
+# ---------------------------------------------------------------------------------------------
+# THE FIRST REAL BUILD, 13 Sep 2026, and the two defects it exposed in the widening above. Both
+# were found by MEASURING THE OUTPUT, not by any test here — which is the finding about the tests.
+# ---------------------------------------------------------------------------------------------
+
+# One fact per as-filed item, restated once in a later filing. Every tag is the concept's FIRST
+# choice on both filings, so any difference detected is a restatement and never a tag switch.
+_FIRST_TAG = {
+    "revenue": "Revenues", "operating_income": "OperatingIncomeLoss",
+    "net_income": "NetIncomeLoss",
+    "pretax_income": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+    "income_tax": "IncomeTaxExpenseBenefit",
+    "operating_cash_flow": "NetCashProvidedByUsedInOperatingActivities",
+    "capex": "PaymentsToAcquirePropertyPlantAndEquipment",
+    "buybacks": "PaymentsForRepurchaseOfCommonStock",
+    "dividends_paid": "PaymentsOfDividendsCommonStock",
+    "shares_diluted": DILUTED,
+    "current_assets": "AssetsCurrent", "current_liabilities": "LiabilitiesCurrent",
+    "total_assets": "Assets", "total_debt": "LongTermDebt", "cash": "CashAndCashEquivalentsAtCarryingValue",
+    "retained_earnings": "RetainedEarningsAccumulatedDeficit",
+}
+
+
+def test_EVERY_as_filed_item_actually_produces_a_value(b):
+    """THE TEST THAT SHOULD HAVE CAUGHT IT, and did not exist until the build did.
+
+    `test_as_filed_covers_every_input_the_measures_read` compares the ASFILED_ITEMS tuple against
+    the measure inputs. It passed the whole time and could never have failed for the reason that
+    mattered: it tested set membership and never asked whether the mechanism emits anything.
+
+    It does not, for six of the sixteen. `annual_rows()` returns {} for any kind that is not
+    "flow", the as-filed pass lived inside the loop over its result, and balance-sheet items reach
+    the annual row through a different merge entirely. Measured on the first real build:
+    `current_assets`, `current_liabilities`, `total_assets`, `total_debt`, `cash` and
+    `retained_earnings` carried exactly ZERO as-filed values across 22,072 sampled rows.
+
+    A contract test that reads the contract instead of the output is not a contract test."""
+    gaap = {}
+    for name, tag in _FIRST_TAG.items():
+        mk = shares if name == "shares_diluted" else usd
+        kind = b.CONCEPTS[name]["kind"]
+        f = fy_fact if kind == "flow" else fact
+        gaap[tag] = mk(f(1_000_000, "2022-12-31", filed="2023-02-01"))
+
+    row = _row(b, doc(us_gaap=gaap), "2022-12-31")
+
+    missing = sorted(i for i in b.ASFILED_ITEMS if row.get(i + "_as_filed") is None)
+    assert not missing, (
+        f"these ASFILED_ITEMS emit no value even when the fact is present — the tuple names them "
+        f"and the builder does not publish them: {missing}")
+
+
+def test_a_BALANCE_SHEET_item_carries_what_its_own_year_reported(b):
+    """The regression for the flow-only defect, stated as the property rather than the plumbing.
+    Total assets is an instant; it must reconstruct like any flow, or `capital_employed` and
+    `resilience` — four of the seven measures between them — cannot be read at a past date, which
+    is the entire purpose of the as-filed record."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(8_000_000_000, "2022-12-31", filed="2023-02-01")),
+        "Assets": usd(fact(60_000_000_000, "2022-12-31", filed="2023-02-01"),
+                      fact(58_000_000_000, "2022-12-31", filed="2025-02-01")),
+    })
+
+    row = _row(b, d, "2022-12-31")
+
+    assert row["total_assets"] == 58_000_000_000, "the field still means the latest reported value"
+    assert row["total_assets_as_filed"] == 60_000_000_000, "and 2023 saw sixty"
+    assert row["total_assets_as_filed_filed"] == "2023-02-01"
+    assert row["restated"] == ["total_assets"]
+
+
+def test_A_TAG_SWITCH_IS_NOT_A_RESTATEMENT(b):
+    """THE SECOND DEFECT, and the more dangerous one because it produced a confident number.
+
+    `_pick_as_filed` sorts earliest-filing-then-tag-rank; `_pick_latest` sorts
+    tag-rank-then-latest-filing. They routinely land on DIFFERENT TAGS — the test two hundred lines
+    up asserts they should — and a filer relabelling its top line from `Revenues` to
+    `RevenueFromContractWithCustomerExcludingAssessedTax` has changed how it names the line, not
+    what it reported.
+
+    The first build counted those as restatements: 25.2% of rows, 65.7% of companies, 45.5% of the
+    differences above 10%, and not one balance-sheet item among them — which cannot be true,
+    because net income cannot be restated without retained earnings moving with it.
+
+    The as-filed VALUE is still published here. Only the restatement claim is withheld, because
+    that is the claim that would be wrong.
+
+    THE FIXTURE HAS TO PUT THE LESS-PREFERRED TAG IN THE EARLIER FILING, which is the direction the
+    first draft got backwards — and CI run 89 caught it, correctly, on "the two genuinely differ".
+    `Revenues` is rank 1 and `RevenueFromContractWithCustomerExcludingAssessedTax` is rank 3; with
+    the preferred tag in the early filing BOTH selectors land on it and there is no switch to test.
+    Reversed, the two pull apart exactly as they do in the wild:
+
+        as-filed  earliest filing first  -> the 2023 contract-revenue tag (rank 3)
+        latest    lowest rank first      -> the 2025 `Revenues` tag        (rank 1)
+    """
+    d = doc(us_gaap={
+        "RevenueFromContractWithCustomerExcludingAssessedTax":
+            usd(fy_fact(7_400_000_000, "2022-12-31", filed="2023-02-01")),
+        "Revenues": usd(fy_fact(8_000_000_000, "2022-12-31", filed="2025-02-01")),
+    })
+
+    row = _row(b, d, "2022-12-31")
+
+    assert row["revenue"] == 8_000_000_000, "the preferred tag wins the field"
+    assert row["revenue_as_filed"] == 7_400_000_000, "the value is still published"
+    assert row["revenue"] != row["revenue_as_filed"], "and the two genuinely differ"
+    assert "restated" not in row, "but a relabelled line is not a restatement"
+
+
+def test_the_same_tag_reporting_differently_IS_still_caught(b):
+    """The guard against over-correcting. Requiring the same tag must not deafen the detector to
+    the thing it exists for."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(8_000_000_000, "2022-12-31", filed="2023-02-01"),
+                        fy_fact(7_400_000_000, "2022-12-31", filed="2025-02-01")),
+    })
+
+    assert _row(b, d, "2022-12-31")["restated"] == ["revenue"]
