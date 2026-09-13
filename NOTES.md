@@ -779,3 +779,48 @@ so, and the tag count keeps its own section under a name that describes it. `man
 `coverage_by_item` with its existing meaning — the tag count — and adds `values_by_item`.
 
 **Nothing reaches `data/` until a build runs.**
+
+---
+
+## 19. The dimensioned facts ARE reachable — just not from companyfacts
+
+Andrew, 13 Sep 2026: *"Would the Robinhood connector alone now hold all the information we would
+need for this?"* Measured against the connector rather than argued.
+
+**§16 and §18 have the same root cause and it is now confirmed from the other side.** Both say a
+figure is unreachable because the filer tags it only with a dimension and companyfacts carries no
+dimensioned facts. The broker connector reads per-filing XBRL, which does, and both figures came
+straight back:
+
+| what §16 / §18 say is unreachable | what the filing actually carries |
+|---|---|
+| Berkshire `premiums_earned` resolves no tag | `PremiumsEarnedNet`, **9 facts, every one dimensioned, zero undimensioned**. FY2025 P&C 83,633M + L&H 5,269M = 88,902M, equal to the `InsuranceAndOther` member exactly |
+| Altria `stock_comp` resolves no tag | `ShareBasedCompensation` → nothing. `AllocatedShareBasedCompensationExpense` → 6 facts, all under `AwardTypeAxis`. FY2025 RSU 51M + PSU 11M = **62M** |
+
+So the diagnosis in both sections was right and the conclusion "unreachable" needs one word added:
+**unreachable FROM COMPANYFACTS.** The figures exist, they are tagged, and a source that reads
+filing instance documents rather than the companyfacts aggregation returns them.
+
+**THE CORRECTION THAT MATTERS MORE, and it points back at `robinhood-book`.** §16 says the insurer
+gap is held by one hand placement and that fixing the tags here removes that dependency. **It does
+not.** Berkshire's premiums are 88,902 / 371,444 = **23.9% of revenue**, and that repo's
+`partition.PREMIUM_FLOOR` is 0.30. Publishing the figure would leave Berkshire BELOW the floor and
+still falling through to FEE. What places it as an insurer today is `CARRIER_SIC` reading the SEC's
+own industry code, and that would be unchanged. The tag gap was never the only thing holding that
+name — the floor sits above Berkshire too, and nothing had measured it.
+
+**What it would take to publish these here.** Not a tag addition — a different source. The
+companyfacts endpoint this builder reads aggregates undimensioned facts only; reaching the rest
+means parsing XBRL instance documents per filing. Three things make that a real build rather than
+a switch:
+
+- **Volume.** One 10-K asked for 10 concepts returned 220 facts / 86,806 characters. Times 7,409
+  filers times eight years.
+- **Every dimensioned concept needs its own summing rule.** Berkshire's three premium members
+  overlap: P&C + L&H = InsuranceAndOther, so adding all three double-counts the whole figure.
+- **Filing depth is uneven per company** in the connector's own index — AAPL 6 annual reports,
+  MO 3, BRK.B 1 — which is a property of that index rather than of the SEC, but it is a warning
+  that "read the filings instead" is not uniformly available either.
+
+**Not proposed and not started.** Recorded so the next reader does not re-derive "unreachable" as
+"does not exist", and so the Berkshire floor correction is not lost.
