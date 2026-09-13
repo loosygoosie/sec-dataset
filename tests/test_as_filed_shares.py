@@ -571,16 +571,27 @@ def test_A_TAG_SWITCH_IS_NOT_A_RESTATEMENT(b):
     because net income cannot be restated without retained earnings moving with it.
 
     The as-filed VALUE is still published here. Only the restatement claim is withheld, because
-    that is the claim that would be wrong."""
+    that is the claim that would be wrong.
+
+    THE FIXTURE HAS TO PUT THE LESS-PREFERRED TAG IN THE EARLIER FILING, which is the direction the
+    first draft got backwards — and CI run 89 caught it, correctly, on "the two genuinely differ".
+    `Revenues` is rank 1 and `RevenueFromContractWithCustomerExcludingAssessedTax` is rank 3; with
+    the preferred tag in the early filing BOTH selectors land on it and there is no switch to test.
+    Reversed, the two pull apart exactly as they do in the wild:
+
+        as-filed  earliest filing first  -> the 2023 contract-revenue tag (rank 3)
+        latest    lowest rank first      -> the 2025 `Revenues` tag        (rank 1)
+    """
     d = doc(us_gaap={
-        "Revenues": usd(fy_fact(8_000_000_000, "2022-12-31", filed="2023-02-01")),
         "RevenueFromContractWithCustomerExcludingAssessedTax":
-            usd(fy_fact(7_400_000_000, "2022-12-31", filed="2025-02-01")),
+            usd(fy_fact(7_400_000_000, "2022-12-31", filed="2023-02-01")),
+        "Revenues": usd(fy_fact(8_000_000_000, "2022-12-31", filed="2025-02-01")),
     })
 
     row = _row(b, d, "2022-12-31")
 
-    assert row["revenue_as_filed"] == 8_000_000_000, "the value is still published"
+    assert row["revenue"] == 8_000_000_000, "the preferred tag wins the field"
+    assert row["revenue_as_filed"] == 7_400_000_000, "the value is still published"
     assert row["revenue"] != row["revenue_as_filed"], "and the two genuinely differ"
     assert "restated" not in row, "but a relabelled line is not a restatement"
 
