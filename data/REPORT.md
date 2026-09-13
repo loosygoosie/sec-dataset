@@ -1,10 +1,73 @@
-# SEC dataset build — 2026-09-13T06:24:14Z
+# SEC dataset build — 2026-09-13T17:09:49Z
 
 - filers scanned: 20359
 - companies published: 7409
 - tickers in map: 10426
 
-## Coverage by line item (companies with at least one value)
+## Coverage by line item (companies carrying a value in a published annual row)
+
+The question a consumer asks. A field can resolve a tag and still carry no figure in any
+of the eight years this file publishes — see the tag count below, and NOTES §18.
+
+- acquisition_cost_amort: 134
+- acquisitions: 3124
+- buybacks: 3492
+- capex: 5903
+- cash: 6664
+- claims_incurred: 146
+- credit_loss_provision: 963
+- current_assets: 5471
+- current_liabilities: 5452
+- d_and_a: 6284
+- debt_current: 2832
+- debt_due_1y: 2686
+- debt_due_2y: 2687
+- debt_due_3y: 2622
+- deposits: 703
+- dividends_paid: 2594
+- eps_diluted: 6365
+- goodwill: 3662
+- gross_profit: 3343
+- impairments: 4461
+- income_tax: 6312
+- intangibles: 3082
+- interest_expense: 5511
+- interest_income: 987
+- inventory: 2999
+- loan_loss_allowance: 781
+- loans: 947
+- loss_reserves: 176
+- lt_debt_noncurrent: 2558
+- net_income: 7407
+- net_income_incl_nci: 4647
+- net_income_parent: 7350
+- net_interest_income: 1668
+- operating_cash_flow: 7369
+- operating_income: 6074
+- operating_leases: 5173
+- pension_funded_status: 379
+- premiums_earned: 158
+- pretax_income: 6179
+- rd_expense: 3202
+- receivables: 4182
+- retained_earnings: 6497
+- revenue: 6423
+- sga_expense: 2417
+- shares_diluted: 6705
+- shares_outstanding: 5495
+- stock_comp: 5988
+- tier1_capital_ratio: 240
+- total_assets: 6769
+- total_debt: 4887
+- total_equity: 6619
+- total_equity_incl_nci: 2805
+- total_equity_parent: 6518
+- total_liabilities: 6173
+
+## Tag resolved anywhere in the filing history
+
+The older count, under a name that says what it measures. A company that tagged a line
+in 2012 and stopped is counted here and not above.
 
 - acquisition_cost_amort: 157
 - acquisitions: 3777
