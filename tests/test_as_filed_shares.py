@@ -402,3 +402,85 @@ def test_a_negative_as_filed_flow_survives_on_a_real_member_of_the_set(b):
 
     assert row["operating_income_as_filed"] == -450_000_000
     assert row["operating_income_as_filed_filed"] == "2023-02-01"
+
+
+# ---------------------------------------------------------------------------------------------
+# RESTATEMENTS AS A MEASURE, 13 Sep 2026. The seventh measure in clean-slate.md, and Fable's idea:
+# a company that keeps restating is telling you about its management, and it is the one signal that
+# falls out of the data's STRUCTURE rather than needing a new figure published. It needs no version
+# store — the as-filed widening above already carries both values, so a restatement is exactly
+# where they disagree.
+# ---------------------------------------------------------------------------------------------
+
+def test_a_restated_item_is_named_on_the_row(b):
+    """The row says WHICH item was restated, not how many. A count cannot be taken apart later;
+    a list can be diagnosed."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(8_000_000_000, "2022-12-31", filed="2023-02-01"),
+                        fy_fact(7_400_000_000, "2022-12-31", filed="2025-02-01")),
+    })
+
+    assert _row(b, d, "2022-12-31")["restated"] == ["revenue"]
+
+
+def test_an_unrestated_row_carries_no_key_at_all(b):
+    """The ordinary case for most rows of most companies. An empty list on every row would be
+    noise in 7,409 files, and `"restated" in row` is the cleaner question."""
+    d = doc(us_gaap={"Revenues": usd(fy_fact(8_000_000_000, "2022-12-31", filed="2023-02-01"))})
+
+    assert "restated" not in _row(b, d, "2022-12-31")
+
+
+def test_a_STOCK_SPLIT_is_not_counted_as_a_restatement(b):
+    """THE ONE THAT MATTERS, and the reason RESTATEMENT_EXCLUDED exists. A 10-K restates the
+    comparative share counts it prints onto the post-split basis, so after any split every
+    published year disagrees with its own as-filed count — Chipotle's by 49x. Counting that would
+    make a company that has split twice read as the most serially restating filer in the index,
+    which is the exact opposite of what the measure is for: a split is a re-basing of the unit,
+    not management changing what it reported."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(8_000_000_000, "2022-12-31", filed="2023-02-01")),
+        DILUTED: shares(fy_fact(27_962_000, "2022-12-31", filed="2023-02-01"),
+                        fy_fact(1_398_100_000, "2022-12-31", filed="2025-02-01")),   # 50:1
+    })
+
+    row = _row(b, d, "2022-12-31")
+
+    assert row["shares_diluted"] != row["shares_diluted_as_filed"], "the 50x step is really there"
+    assert "restated" not in row, "and it is a split, not a restatement"
+
+
+def test_a_real_restatement_is_still_caught_in_the_same_row_as_a_split(b):
+    """The guard against over-excluding. Dropping share counts must not deafen the row: a company
+    that split AND restated its revenue in the same year has restated its revenue."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(8_000_000_000, "2022-12-31", filed="2023-02-01"),
+                        fy_fact(7_400_000_000, "2022-12-31", filed="2025-02-01")),
+        DILUTED: shares(fy_fact(27_962_000, "2022-12-31", filed="2023-02-01"),
+                        fy_fact(1_398_100_000, "2022-12-31", filed="2025-02-01")),
+    })
+
+    assert _row(b, d, "2022-12-31")["restated"] == ["revenue"]
+
+
+def test_only_items_carrying_an_as_filed_value_can_be_judged(b):
+    """An item with no as-filed value cannot be known to be unrestated — it is unmeasured, which is
+    a different thing. Absence must not read as a clean record, which is this repository's oldest
+    failure family pointed at the one measure built to detect sloppiness."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(8_000_000_000, "2022-12-31", filed="2023-02-01")),
+        "GrossProfit": usd(fy_fact(3_000_000_000, "2022-12-31", filed="2023-02-01")),
+    })
+
+    row = _row(b, d, "2022-12-31")
+
+    assert "gross_profit" not in b.ASFILED_ITEMS, "the fixture's premise"
+    assert "restated" not in row
+    assert "gross_profit_as_filed" not in row, "so nothing claims it was checked"
+
+
+def test_the_excluded_set_names_items_the_builder_actually_publishes_as_filed(b):
+    """An exclusion naming an item outside ASFILED_ITEMS excludes nothing and reads as protection
+    — the dead-weight shape this repo keeps finding in override files."""
+    for item in b.RESTATEMENT_EXCLUDED:
+        assert item in b.ASFILED_ITEMS, f"{item} is excluded from a check it was never subject to"

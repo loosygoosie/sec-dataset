@@ -752,6 +752,7 @@ def normalise_company(facts: dict) -> dict:
     # side of the balance sheet resolved, so the sum is a FLOOR on total debt rather than a total.
     for row in out_annual.values():
         derive_total_debt(row)
+        mark_restatements(row)
 
     # Every concept is on the row by now, so the top line can be checked against its own income.
     top_line = sorted({fy for fy, row in out_annual.items()
@@ -773,6 +774,44 @@ def normalise_company(facts: dict) -> dict:
     coverage = {name: sum(1 for r in annual if r.get(name) is not None) for name in CONCEPTS}
     return {"annual": annual, "quarterly": quarterly, "tags_used": tags_used,
             "annual_coverage": coverage, "_top_line": top_line}
+
+
+# A SPLIT IS NOT A RESTATEMENT, and this set is the whole reason the detection below is not just
+# "as-filed differs from current". A 10-K restates the comparative share counts it prints onto the
+# post-split basis, so after any split EVERY published year disagrees with its own as-filed value —
+# Chipotle's by 49x — and a company that has split twice would read as the most serially restating
+# filer in the index. That is a re-basing of the unit, not management changing what it reported.
+# `shares_diluted_as_filed` exists precisely so both bases can be read; it must not also be counted
+# as evidence against the company.
+RESTATEMENT_EXCLUDED = frozenset({"shares_diluted"})
+
+
+def mark_restatements(row: dict) -> None:
+    """List the items on this row a later filing reported differently from the year's own report.
+
+    WHY IT IS A QUALITY MEASURE AND NOT BOOKKEEPING. A company that keeps restating is telling you
+    something about its management and its controls, and it is the one signal here that falls out of
+    the data's STRUCTURE rather than needing a new figure to be published. Credit where due: the
+    idea is Fable's, from the two-model comparison in robinhood-book/claude/clean-slate.md.
+
+    NO TOLERANCE, DELIBERATELY. A threshold here would be a frozen number cut on nothing, and the
+    alternative is better: the field names the ITEMS rather than counting them, so a difference that
+    turns out to be a precision artefact is visible and can be diagnosed, instead of being averaged
+    into a score nobody can take apart. If artefacts do appear in a real build they are a finding
+    about the builder, which is the reporting direction this repo requires.
+
+    Only ASFILED_ITEMS can be checked — nothing else carries what its own year first said — and the
+    key is omitted entirely when nothing was restated, which is the ordinary case for most rows.
+    """
+    restated = sorted(
+        name for name in ASFILED_ITEMS
+        if name not in RESTATEMENT_EXCLUDED
+        and row.get(name) is not None
+        and row.get(name + "_as_filed") is not None
+        and row[name] != row[name + "_as_filed"]
+    )
+    if restated:
+        row["restated"] = restated
 
 
 DEBT_COMPONENTS = ("debt_current", "lt_debt_noncurrent")
