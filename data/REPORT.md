@@ -1,77 +1,77 @@
-# SEC dataset build — 2026-09-10T18:24:00Z
+# SEC dataset build — 2026-09-13T06:24:14Z
 
-- filers scanned: 20343
-- companies published: 7411
-- tickers in map: 10407
+- filers scanned: 20359
+- companies published: 7409
+- tickers in map: 10426
 
 ## Coverage by line item (companies with at least one value)
 
 - acquisition_cost_amort: 157
 - acquisitions: 3777
 - buybacks: 4113
-- capex: 6136
-- cash: 7327
+- capex: 6135
+- cash: 7325
 - claims_incurred: 163
 - credit_loss_provision: 1110
-- current_assets: 6119
-- current_liabilities: 6103
-- d_and_a: 6419
+- current_assets: 6117
+- current_liabilities: 6101
+- d_and_a: 6417
 - debt_current: 3424
-- debt_due_1y: 3312
-- debt_due_2y: 3303
-- debt_due_3y: 3202
-- deposits: 1032
+- debt_due_1y: 3311
+- debt_due_2y: 3302
+- debt_due_3y: 3201
+- deposits: 1031
 - dividends_paid: 2913
-- eps_diluted: 6689
-- goodwill: 4121
-- gross_profit: 3699
-- impairments: 4996
+- eps_diluted: 6687
+- goodwill: 4120
+- gross_profit: 3697
+- impairments: 4994
 - income_tax: 6521
-- intangibles: 3775
-- interest_expense: 6000
+- intangibles: 3774
+- interest_expense: 5998
 - interest_income: 1190
-- inventory: 3567
+- inventory: 3566
 - loan_loss_allowance: 965
 - loans: 1239
-- loss_reserves: 203
+- loss_reserves: 204
 - lt_debt_noncurrent: 3157
-- net_income: 7411
-- net_income_incl_nci: 5285
-- net_income_parent: 7387
+- net_income: 7409
+- net_income_incl_nci: 5283
+- net_income_parent: 7385
 - net_interest_income: 2161
-- operating_cash_flow: 7383
-- operating_income: 6232
-- operating_leases: 5799
+- operating_cash_flow: 7381
+- operating_income: 6231
+- operating_leases: 5798
 - pension_funded_status: 499
 - premiums_earned: 170
-- pretax_income: 6344
-- rd_expense: 3341
-- receivables: 4948
-- retained_earnings: 7156
-- revenue: 6562
-- sga_expense: 2660
-- shares_diluted: 6961
-- shares_outstanding: 6854
-- stock_comp: 6180
+- pretax_income: 6343
+- rd_expense: 3342
+- receivables: 4947
+- retained_earnings: 7154
+- revenue: 6561
+- sga_expense: 2658
+- shares_diluted: 6959
+- shares_outstanding: 6852
+- stock_comp: 6178
 - tier1_capital_ratio: 290
-- total_assets: 7401
-- total_debt: 5653
-- total_equity: 7268
+- total_assets: 7399
+- total_debt: 5652
+- total_equity: 7266
 - total_equity_incl_nci: 3662
-- total_equity_parent: 7179
-- total_liabilities: 6823
+- total_equity_parent: 7177
+- total_liabilities: 6821
 
 ## Self-check: four quarters sum to the fiscal year (revenue, net income, operating cash flow, capex)
 
 - ok: 6627
 - off (one or more items miss by >3%): 37
-- n/a (no fiscal year with four quarters on file): 747
+- n/a (no fiscal year with four quarters on file): 745
 
 Readers treat an `off` company, or one whose latest quarter is more than 150 days old (a 10-K may lawfully take 90 days; anything older means the structured feed is behind the filing), as unmeasured on its quarterly metrics.
 
 ## Share counts (added 8 Sep 2026)
 
-- diluted count on file: 6428
+- diluted count on file: 6426
 - basic count only: 54
 - cover-page count only: 224
 - none (multi-class filers tag by class; companyfacts drops dimensioned facts): 441
@@ -82,7 +82,7 @@ A reader does not drop a name on a per-share test it cannot run; `shares` in the
 ## Share scale (added 9 Sep 2026)
 
 - consistent: 6007
-- **suspect: 1059** (`scale` — a diluted count more than fifty times its own outstanding count, or less than a fiftieth; `levels` — the quarterly series steps between levels more than once, so no per-share figure spans it)
+- **suspect: 1057** (`scale` — a diluted count more than fifty times its own outstanding count, or less than a fiftieth; `levels` — the quarterly series steps between levels more than once, so no per-share figure spans it)
 - no share data at all: 345
 
 `share_scale` says whether a company's share counts can all be true at once. It is not a reason to drop a name — it says the per-share metrics for that company are unmeasured. Both the flag and `shares` are in the manifest, so a reader need not open 7,411 company files to screen on them.
@@ -93,7 +93,7 @@ A reader does not drop a name on a per-share test it cannot run; `shares` in the
 
 ## Stale-name fallback
 
-- companies whose companyfacts quarterly series was behind their own filings: 186
+- companies whose companyfacts quarterly series was behind their own filings: 181
 - of those, patched from the filing's own XBRL this run: 71 (cap 100 filings)
 
 A quarterly row carrying `"source": "filing"` was derived from the filing's own XBRL instance,
@@ -104,7 +104,7 @@ companyfacts are added; the prior-year comparatives a filing also carries are le
 ## S&P 500 constituents
 
 - source: https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv
-- snapshot date: 2026-09-10
+- snapshot date: 2026-09-13
 - constituents: 503
 - resolved to a CIK via the SEC ticker map: 503
 - unmatched (no CIK in the SEC ticker map): none
