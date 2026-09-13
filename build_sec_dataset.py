@@ -372,7 +372,40 @@ def _filed_key(f: dict) -> int:
     return int((f.get("filed") or "0000-00-00").replace("-", "") or 0)
 
 
-ASFILED_ITEMS = ("shares_diluted",)   # items that also carry what their own fiscal year first reported
+# ITEMS THAT ALSO CARRY WHAT THEIR OWN FISCAL YEAR FIRST REPORTED, before any later restatement.
+#
+# WHAT THE SET IS FOR, so nothing is added to it for tidiness. A point-in-time reconstruction is the
+# only thing that makes a selection rule testable: at a past date you must read the figures that were
+# KNOWABLE then, not the ones a 2026 filing restated into 2021. Truncating today's annual rows gives
+# the restated series and reads as history, which is lookahead wearing a date.
+#
+# So the rule is exact: AS-FILED COVERS WHAT THE MEASURES READ, AND NOTHING ELSE. These sixteen are
+# the inputs to the seven measures in robinhood-book/claude/clean-slate.md —
+#
+#   return on capital employed   operating_income, income_tax, pretax_income, current_assets,
+#   and its consistency          current_liabilities, total_assets
+#   cash conversion              operating_cash_flow, capex, net_income
+#   capital allocation           retained_earnings, buybacks, dividends_paid
+#   balance-sheet resilience     total_debt, cash, operating_cash_flow
+#   share count                  shares_diluted
+#   readability checks           revenue
+#
+# — and restatement frequency, the seventh, needs version history rather than an as-filed value.
+#
+# IT COSTS SIZE AND THE COST WAS MEASURED: about 17 KB per company on top of a 17.7 KB median, so
+# `data/` roughly doubles again after the depth change. That is the price of the only artefact that
+# can tell whether this system works at all, and it was weighed rather than discovered.
+#
+# The per-item `_as_filed_filed` date is kept rather than collapsed to one row-level date. Items in
+# a row USUALLY come from the same original 10-K, and a design that assumes it would be silently
+# wrong for the field that first appeared in a later filing — the one case a reconstruction most
+# needs to see.
+ASFILED_ITEMS = (
+    "revenue", "operating_income", "net_income", "pretax_income", "income_tax",
+    "operating_cash_flow", "capex", "current_assets", "current_liabilities",
+    "total_assets", "total_debt", "cash", "retained_earnings",
+    "buybacks", "dividends_paid", "shares_diluted",
+)
 
 # ITEMS WHOSE AS-FILED VALUE IS MEANINGLESS UNLESS POSITIVE. A diluted share count of zero or below
 # is a parse failure, never a fact about a company, so it is dropped rather than published.

@@ -275,11 +275,14 @@ def test_a_non_positive_share_count_is_still_dropped(b):
     assert "shares_diluted_as_filed" not in _row(b, d, "2022-12-31")
 
 
-def test_a_negative_as_filed_FLOW_survives_the_guard(b, monkeypatch):
+def test_a_negative_as_filed_FLOW_survives_the_guard(b):
     """THE LOSS YEAR. A company that lost money reported a negative net income, and that is a fact
     about the year rather than a parse failure. It is the single most important row a backtest
-    reads, because a model tested on a universe with no bad years is not tested at all."""
-    monkeypatch.setattr(b, "ASFILED_ITEMS", ("shares_diluted", "net_income"))
+    reads, because a model tested on a universe with no bad years is not tested at all.
+
+    NO LONGER HYPOTHETICAL. This monkeypatched a widened ASFILED_ITEMS when the guard was fixed on
+    13 Sep 2026, because the bug could not be demonstrated on a set holding only `shares_diluted`.
+    `net_income` is a real member now, so the test runs against the shipped configuration."""
     d = doc(us_gaap={"Revenues": usd(fy_fact(8_635_000_000, "2022-12-31", filed="2023-02-01")),
                      "NetIncomeLoss": usd(fy_fact(-1_200_000_000, "2022-12-31", filed="2023-02-01"))})
     row = _row(b, d, "2022-12-31")
@@ -287,10 +290,10 @@ def test_a_negative_as_filed_FLOW_survives_the_guard(b, monkeypatch):
     assert row["net_income_as_filed_filed"] == "2023-02-01"
 
 
-def test_an_as_filed_flow_of_exactly_zero_survives_too(b, monkeypatch):
+def test_an_as_filed_flow_of_exactly_zero_survives_too(b):
     """`(af.get("val") or 0) > 0` dropped zero as well as negatives, and zero capex or zero buybacks
-    is a real answer — 'this company spent nothing' — not a missing one."""
-    monkeypatch.setattr(b, "ASFILED_ITEMS", ("shares_diluted", "net_income"))
+    is a real answer — 'this company spent nothing' — not a missing one. `capex` and `buybacks` are
+    both real members of ASFILED_ITEMS now, so this is the shipped path rather than a fixture."""
     d = doc(us_gaap={"Revenues": usd(fy_fact(8_635_000_000, "2022-12-31", filed="2023-02-01")),
                      "NetIncomeLoss": usd(fy_fact(0, "2022-12-31", filed="2023-02-01"))})
     assert _row(b, d, "2022-12-31")["net_income_as_filed"] == 0
@@ -302,3 +305,88 @@ def test_the_positive_only_set_names_the_items_and_not_a_shape(b):
     assert "shares_diluted" in b.ASFILED_MUST_BE_POSITIVE
     for item in b.ASFILED_MUST_BE_POSITIVE:
         assert item in b.CONCEPTS, f"{item} is not a concept this builder knows"
+
+
+# ---------------------------------------------------------------------------------------------
+# The WIDENING, 13 Sep 2026. ASFILED_ITEMS went from one member to sixteen, because a point-in-time
+# reconstruction is what makes a selection rule testable and one field reconstructs nothing. The
+# guard was made per-item first (the loaded gun above); this is the change it was clearing the way
+# for.
+# ---------------------------------------------------------------------------------------------
+
+# What the seven measures in robinhood-book/claude/clean-slate.md actually read. Kept here rather
+# than imported because the consumer is a different repository: this is the CONTRACT, written down
+# on the side that has to honour it.
+MEASURE_INPUTS = {
+    "operating_income", "income_tax", "pretax_income",          # NOPAT
+    "current_assets", "current_liabilities", "total_assets",    # capital employed
+    "operating_cash_flow", "capex", "net_income",               # cash conversion
+    "retained_earnings", "buybacks", "dividends_paid",          # capital allocation
+    "total_debt", "cash",                                       # resilience
+    "shares_diluted",                                           # dilution
+    "revenue",                                                  # readability, and every ratio's base
+}
+
+
+def test_as_filed_covers_every_input_the_measures_read(b):
+    """THE CONTRACT. A measure whose input has no as-filed value cannot be reconstructed at a past
+    date, and a backtest that silently substitutes the RESTATED figure is lookahead wearing a date.
+    Each missing item would fail quietly — the reconstruction still runs, it is just reading 2026's
+    opinion of 2019."""
+    missing = sorted(MEASURE_INPUTS - set(b.ASFILED_ITEMS))
+    assert not missing, (
+        f"these measure inputs carry no as-filed value, so any point-in-time read of them is the "
+        f"restated number: {missing}")
+
+
+def test_as_filed_carries_nothing_the_measures_do_not_read(b):
+    """The other direction, and it is not tidiness. Every member costs about 17 KB per company
+    across the published rows, and a set that grows by habit stops being a statement about what the
+    system needs. If a member here is genuinely no longer read, the measure that dropped it should
+    drop it from this tuple in the same commit."""
+    extra = sorted(set(b.ASFILED_ITEMS) - MEASURE_INPUTS)
+    assert not extra, (
+        f"these are published as-filed but no measure reads them — remove them, or add the measure "
+        f"to MEASURE_INPUTS with the reason: {extra}")
+
+
+def test_every_as_filed_item_is_a_concept_the_builder_actually_resolves(b):
+    """A typo in the tuple is silent: the item simply never appears, and the reconstruction is
+    short one input with nothing saying so."""
+    unknown = sorted(i for i in b.ASFILED_ITEMS if i not in b.CONCEPTS)
+    assert not unknown, f"ASFILED_ITEMS names items this builder cannot resolve: {unknown}"
+
+
+def test_a_restated_FLOW_keeps_what_the_year_originally_reported(b):
+    """THE PROPERTY THE WIDENING EXISTS FOR, on a field that is not a share count. A company
+    reports revenue of $8.0bn for 2022, then restates it to $7.4bn in a later filing — a divestiture
+    moved to discontinued operations, which is ordinary. `revenue` must carry the restatement,
+    because that is what the field means; `revenue_as_filed` must carry the $8.0bn a reader had in
+    2023, because that is what anyone acting in 2023 could see.
+
+    Getting this backwards is undetectable from the output: the series looks clean either way."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(8_000_000_000, "2022-12-31", filed="2023-02-01"),
+                        fy_fact(7_400_000_000, "2022-12-31", filed="2025-02-01")),
+    })
+
+    row = _row(b, d, "2022-12-31")
+
+    assert row["revenue"] == 7_400_000_000, "the field itself still means the latest reported value"
+    assert row["revenue_as_filed"] == 8_000_000_000, "and the as-filed value is what 2023 could see"
+    assert row["revenue_as_filed_filed"] == "2023-02-01"
+
+
+def test_a_negative_as_filed_flow_survives_on_a_real_member_of_the_set(b):
+    """The loss-year guard, exercised on `operating_income` rather than a monkeypatched fixture.
+    An operating loss is the row a backtest most needs and the one a blanket positivity guard
+    silently deleted until 13 Sep 2026."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(8_000_000_000, "2022-12-31", filed="2023-02-01")),
+        "OperatingIncomeLoss": usd(fy_fact(-450_000_000, "2022-12-31", filed="2023-02-01")),
+    })
+
+    row = _row(b, d, "2022-12-31")
+
+    assert row["operating_income_as_filed"] == -450_000_000
+    assert row["operating_income_as_filed_filed"] == "2023-02-01"
