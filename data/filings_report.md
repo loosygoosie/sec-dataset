@@ -1,18 +1,18 @@
-# SEC filing text build — 2026-09-09T22:58:13Z
+# SEC filing text build — 2026-09-13T08:01:49Z
 
-- companies in scope (S&P 500): 12
+- companies in scope (S&P 500): 503
 - companies with stored filing text: 487
-- fetched this run: 12 (already current: 0)
-- written this run: 0
-- dropped this run (parsed to nothing, stale file removed): 4
+- fetched this run: 14 (already current: 488)
+- written this run: 2
+- dropped this run (parsed to nothing, stale file removed): 0
 
 ## Sections found, of the filings fetched this run
 
-- item1: 0
-- item1a: 0
-- item3: 0
-- item7: 0
-- item7a: 0
+- item1: 2
+- item1a: 2
+- item3: 2
+- item7: 2
+- item7a: 2
 
 ## Left without text this run
 
@@ -23,6 +23,7 @@
 - EIX (no item headings parsed)
 - GE (no item headings parsed)
 - HON (no item headings parsed)
+- HONA (no 10-K found)
 - INTC (no item headings parsed)
 - MCD (no item headings parsed)
 - MS (no item headings parsed)
