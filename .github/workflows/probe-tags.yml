@@ -1,0 +1,64 @@
+name: Probe XBRL tags
+
+# Answers one question, on demand: for these companies, what does companyfacts actually carry
+# under tags matching this pattern? A field that comes back empty is either a tag we do not list
+# or a figure the filer tags only with a dimension — companyfacts drops those — and the two look
+# identical from the outside. Guessing between them grows a tag list with tags that resolve
+# nothing, so the tag list is changed on this output and not on a hunch.
+#
+# It runs here rather than in a sandbox because it needs the real SEC_USER_AGENT: CLAUDE.md
+# forbids sending a placeholder user-agent to sec.gov. It reads only; `data/` belongs to sec.yml.
+
+on:
+  workflow_dispatch:
+    inputs:
+      pattern:
+        description: "Regex matched against us-gaap tag names, e.g. ShareBased"
+        required: true
+      tickers:
+        description: "Comma-separated tickers, e.g. XOM,VZ,MO"
+        required: true
+      field:
+        description: "Optional CONCEPTS field (e.g. stock_comp) — marks which hits are already listed"
+        required: false
+        default: ""
+
+permissions:
+  contents: read          # it publishes nothing; the answer is the log
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependency
+        run: pip install --quiet requests
+
+      - name: Prove the probe before believing its answer
+        # An empty result is the FINDING here — it is what says a figure is unreachable rather
+        # than untagged — so a probe that silently reports nothing would read as evidence.
+        run: |
+          pip install --quiet pytest
+          python -m pytest -q tests/test_probe_tags.py
+
+      - name: Probe
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          # The three inputs go through the environment, never interpolated into the command line:
+          # ${{ inputs.x }} pasted into a run: block is executed by the shell, and these are
+          # free text typed at dispatch time.
+          PATTERN: ${{ inputs.pattern }}
+          TICKERS: ${{ inputs.tickers }}
+          FIELD: ${{ inputs.field }}
+        run: |
+          if [ -n "$FIELD" ]; then
+            python probe_tags.py --pattern "$PATTERN" --tickers "$TICKERS" --field "$FIELD"
+          else
+            python probe_tags.py --pattern "$PATTERN" --tickers "$TICKERS"
+          fi
