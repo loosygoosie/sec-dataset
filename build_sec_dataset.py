@@ -661,6 +661,7 @@ def top_line_repair(row: dict, cands: list[dict]) -> str | None:
 
 def normalise_company(facts: dict) -> dict:
     revenue_groups: dict[int, list[dict]] = {}
+    instant_cands: dict[str, dict[str, list[dict]]] = {}
     out_annual: dict[int, dict] = defaultdict(dict)
     out_q: dict[str, dict] = defaultdict(dict)
     tags_used: dict[str, str | None] = {}
@@ -700,18 +701,23 @@ def normalise_company(facts: dict) -> dict:
                 # so a company that changes its fiscal year end can put two full-length periods in
                 # one bucket; `_pick_as_filed` sorts the opposite way to `_pick_latest` and would
                 # otherwise describe a different period from the one the row's `period_end` names.
-                af = _pick_as_filed([c for c in (groups.get(fy) or []) if c.get("end") == f.get("end")])
-                val = af.get("val") if af else None
-                # A share count must be positive to mean anything; a flow may be negative or zero,
-                # and a loss year is exactly the year a reconstruction most needs. See
-                # ASFILED_MUST_BE_POSITIVE.
-                if val is not None and not (name in ASFILED_MUST_BE_POSITIVE and val <= 0):
-                    out_annual[fy][name + "_as_filed"] = val
-                    out_annual[fy][name + "_as_filed_filed"] = af.get("filed") or None
+                record_as_filed(out_annual[fy], name, f,
+                                [c for c in (groups.get(fy) or []) if c.get("end") == f.get("end")])
             if name == "revenue" or name == "net_income":
                 fy_end_dates.setdefault(fy, f["end"])
             out_annual[fy].setdefault("_end", f["end"])
             out_annual[fy].setdefault("_filed", f.get("filed"))
+
+        # INSTANT CANDIDATES BY PERIOD END, kept for the as-filed pass below. `annual_rows` is
+        # flow-only, so a balance-sheet item never passes through the branch above; without this
+        # the six instant members of ASFILED_ITEMS publish nothing at all, which is precisely what
+        # the first real build showed.
+        if kind == "instant" and name in ASFILED_ITEMS:
+            by_end: dict[str, list[dict]] = defaultdict(list)
+            for c in series:
+                if c.get("end"):
+                    by_end[c["end"]].append(c)
+            instant_cands[name] = by_end
 
         # quarterly (true 3-month values)
         q = quarterly_rows(series, kind, pick, spec.get("additive", True))
@@ -727,6 +733,16 @@ def normalise_company(facts: dict) -> dict:
             for k, v in out_q[end].items():
                 if not k.startswith("_") and CONCEPTS.get(k, {}).get("kind") == "instant":
                     row.setdefault(k, v)
+        # ...and so does what the year's OWN report said the balance sheet was. This is the second
+        # call site, and the reason `record_as_filed` is a function: the instant path reaches the
+        # annual row here rather than through `annual_rows`, so an as-filed pass written only into
+        # that loop covers flows and silently skips every balance-sheet item.
+        if end:
+            for name, by_end in instant_cands.items():
+                cands = by_end.get(end)
+                if cands:
+                    record_as_filed(row, name, _pick_latest(cands, CONCEPTS[name].get("pick", "rank")),
+                                    cands)
     # drop quarterly rows that carry only instant items on a non-statement date (cover-page share
     # counts dated the filing date) — a real quarter-end row always has at least one flow item
     flow_names = {n for n, sp in CONCEPTS.items() if sp["kind"] == "flow"}
@@ -786,6 +802,45 @@ def normalise_company(facts: dict) -> dict:
 RESTATEMENT_EXCLUDED = frozenset({"shares_diluted"})
 
 
+def record_as_filed(row: dict, name: str, latest: dict | None, cands: list[dict]) -> None:
+    """Attach `<name>_as_filed` for one item, and note a restatement where one is detectable.
+
+    CALLED FOR FLOWS AND INSTANTS BOTH, which is the whole reason it is a function. Until the first
+    real build on 13 Sep 2026 the as-filed pick lived inline in the loop over `annual_rows()`, and
+    that function returns `{}` for anything whose kind is not "flow" — balance-sheet items reach the
+    annual row later through a separate merge. So six of the sixteen as-filed items produced NOTHING
+    and nothing said so: `current_assets`, `current_liabilities`, `total_assets`, `total_debt`,
+    `cash` and `retained_earnings`, measured at exactly zero values across 22,072 sampled rows.
+    Four of the seven measures that reconstruction exists to test could not be reconstructed at all.
+
+    A RESTATEMENT IS THE SAME TAG REPORTING A DIFFERENT VALUE IN A LATER FILING, and the tag part is
+    load-bearing. `_pick_as_filed` sorts earliest-filing-then-tag-rank while `_pick_latest` sorts
+    tag-rank-then-latest-filing, so the two routinely resolve to DIFFERENT TAGS — which
+    `test_the_original_filing_beats_a_better_tag_in_a_later_one` asserts they should. A filer moving
+    from `Revenues` to `RevenueFromContractWithCustomerExcludingAssessedTax` has changed how it
+    labels the line, not what it reported. The first build counted those: 25.2% of rows flagged,
+    65.7% of companies, 45.5% of the differences above 10%, and not one balance-sheet item among
+    them — which cannot be true, because net income cannot be restated without retained earnings
+    moving with it.
+
+    Where the ranks differ the value is still published; only the RESTATEMENT claim is withheld,
+    because that is the claim that would be wrong.
+    """
+    af = _pick_as_filed(cands)
+    val = af.get("val") if af else None
+    if val is None:
+        return
+    # A share count must be positive to mean anything; a flow may be negative or zero, and a loss
+    # year is exactly the year a reconstruction most needs. See ASFILED_MUST_BE_POSITIVE.
+    if name in ASFILED_MUST_BE_POSITIVE and val <= 0:
+        return
+    row[name + "_as_filed"] = val
+    row[name + "_as_filed_filed"] = af.get("filed") or None
+    if (name not in RESTATEMENT_EXCLUDED and latest is not None
+            and af.get("_rank") == latest.get("_rank") and latest.get("val") != val):
+        row.setdefault("_restated", set()).add(name)
+
+
 def mark_restatements(row: dict) -> None:
     """List the items on this row a later filing reported differently from the year's own report.
 
@@ -803,15 +858,9 @@ def mark_restatements(row: dict) -> None:
     Only ASFILED_ITEMS can be checked — nothing else carries what its own year first said — and the
     key is omitted entirely when nothing was restated, which is the ordinary case for most rows.
     """
-    restated = sorted(
-        name for name in ASFILED_ITEMS
-        if name not in RESTATEMENT_EXCLUDED
-        and row.get(name) is not None
-        and row.get(name + "_as_filed") is not None
-        and row[name] != row[name + "_as_filed"]
-    )
-    if restated:
-        row["restated"] = restated
+    found = row.pop("_restated", None)
+    if found:
+        row["restated"] = sorted(found)
 
 
 DEBT_COMPONENTS = ("debt_current", "lt_debt_noncurrent")
