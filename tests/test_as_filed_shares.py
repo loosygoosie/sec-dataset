@@ -251,11 +251,23 @@ def test_the_new_field_is_not_in_share_items_so_checks_shares_keeps_its_meaning(
     assert "shares_diluted_as_filed" not in b.SHARE_ITEMS
 
 
-def test_the_new_field_is_not_a_concept_so_it_cannot_create_a_phantom_quarter(b):
+def test_no_as_filed_key_is_a_concept_so_none_can_create_a_phantom_quarter(b):
     """`flow_names` is built from CONCEPTS and decides which quarterly rows survive the cover-page
-    filter. Registering the field there could let a quarter carrying only it survive."""
-    assert "shares_diluted_as_filed" not in b.CONCEPTS
-    assert b.ASFILED_ITEMS == ("shares_diluted",)
+    filter. Registering an as-filed key there could let a quarter carrying only it survive.
+
+    GENERALISED 13 Sep 2026, and the reason is worth keeping. This read:
+
+        assert "shares_diluted_as_filed" not in b.CONCEPTS
+        assert b.ASFILED_ITEMS == ("shares_diluted",)
+
+    — one real check plus a literal pin, because with a single member the pin was what made the
+    check exhaustive. Widening the set to sixteen turned that pin red on CI run 84, which is the
+    pin doing its job: it refused to let the set grow while the check above it still covered one
+    item. The fix is to make the check itself cover the whole set — thirty-two keys now rather than
+    one — instead of re-pinning a longer literal that would go stale the same way."""
+    for item in b.ASFILED_ITEMS:
+        assert f"{item}_as_filed" not in b.CONCEPTS
+        assert f"{item}_as_filed_filed" not in b.CONCEPTS
 
 
 # ------------------------------------------------------- the guard, per item rather than blanket
