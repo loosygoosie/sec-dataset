@@ -1,4 +1,4 @@
-# SEC dataset build — 2026-09-13T17:09:49Z
+# SEC dataset build — 2026-09-13T23:21:14Z
 
 - filers scanned: 20359
 - companies published: 7409
@@ -9,60 +9,60 @@
 The question a consumer asks. A field can resolve a tag and still carry no figure in any
 of the eight years this file publishes — see the tag count below, and NOTES §18.
 
-- acquisition_cost_amort: 134
-- acquisitions: 3124
-- buybacks: 3492
-- capex: 5903
-- cash: 6664
-- claims_incurred: 146
-- credit_loss_provision: 963
-- current_assets: 5471
-- current_liabilities: 5452
-- d_and_a: 6284
-- debt_current: 2832
-- debt_due_1y: 2686
-- debt_due_2y: 2687
-- debt_due_3y: 2622
-- deposits: 703
-- dividends_paid: 2594
-- eps_diluted: 6365
-- goodwill: 3662
-- gross_profit: 3343
-- impairments: 4461
-- income_tax: 6312
-- intangibles: 3082
-- interest_expense: 5511
-- interest_income: 987
-- inventory: 2999
-- loan_loss_allowance: 781
-- loans: 947
-- loss_reserves: 176
-- lt_debt_noncurrent: 2558
+- acquisition_cost_amort: 139
+- acquisitions: 3394
+- buybacks: 3694
+- capex: 5976
+- cash: 6682
+- claims_incurred: 156
+- credit_loss_provision: 990
+- current_assets: 5484
+- current_liabilities: 5470
+- d_and_a: 6319
+- debt_current: 2986
+- debt_due_1y: 2873
+- debt_due_2y: 2885
+- debt_due_3y: 2802
+- deposits: 742
+- dividends_paid: 2707
+- eps_diluted: 6393
+- goodwill: 3739
+- gross_profit: 3439
+- impairments: 4678
+- income_tax: 6380
+- intangibles: 3255
+- interest_expense: 5692
+- interest_income: 1028
+- inventory: 3083
+- loan_loss_allowance: 820
+- loans: 1033
+- loss_reserves: 190
+- lt_debt_noncurrent: 2721
 - net_income: 7407
-- net_income_incl_nci: 4647
-- net_income_parent: 7350
-- net_interest_income: 1668
+- net_income_incl_nci: 4795
+- net_income_parent: 7359
+- net_interest_income: 1795
 - operating_cash_flow: 7369
-- operating_income: 6074
+- operating_income: 6136
 - operating_leases: 5173
-- pension_funded_status: 379
-- premiums_earned: 158
-- pretax_income: 6179
-- rd_expense: 3202
-- receivables: 4182
-- retained_earnings: 6497
-- revenue: 6423
-- sga_expense: 2417
-- shares_diluted: 6705
-- shares_outstanding: 5495
-- stock_comp: 5988
-- tier1_capital_ratio: 240
-- total_assets: 6769
-- total_debt: 4887
-- total_equity: 6619
-- total_equity_incl_nci: 2805
-- total_equity_parent: 6518
-- total_liabilities: 6173
+- pension_funded_status: 428
+- premiums_earned: 165
+- pretax_income: 6238
+- rd_expense: 3253
+- receivables: 4243
+- retained_earnings: 6511
+- revenue: 6464
+- sga_expense: 2470
+- shares_diluted: 6725
+- shares_outstanding: 5572
+- stock_comp: 6048
+- tier1_capital_ratio: 265
+- total_assets: 6775
+- total_debt: 5248
+- total_equity: 6635
+- total_equity_incl_nci: 2991
+- total_equity_parent: 6546
+- total_liabilities: 6205
 
 ## Tag resolved anywhere in the filing history
 
@@ -126,27 +126,27 @@ in 2012 and stopped is counted here and not above.
 
 ## Self-check: four quarters sum to the fiscal year (revenue, net income, operating cash flow, capex)
 
-- ok: 6627
-- off (one or more items miss by >3%): 37
-- n/a (no fiscal year with four quarters on file): 745
+- ok: 6629
+- off (one or more items miss by >3%): 38
+- n/a (no fiscal year with four quarters on file): 742
 
 Readers treat an `off` company, or one whose latest quarter is more than 150 days old (a 10-K may lawfully take 90 days; anything older means the structured feed is behind the filing), as unmeasured on its quarterly metrics.
 
 ## Share counts (added 8 Sep 2026)
 
-- diluted count on file: 6426
-- basic count only: 54
-- cover-page count only: 224
-- none (multi-class filers tag by class; companyfacts drops dimensioned facts): 441
-- **invalid (a share count of zero or less somewhere in the file): 264**
+- diluted count on file: 6355
+- basic count only: 52
+- cover-page count only: 223
+- none (multi-class filers tag by class; companyfacts drops dimensioned facts): 434
+- **invalid (a share count of zero or less somewhere in the file): 345**
 
 A reader does not drop a name on a per-share test it cannot run; `shares` in the manifest says which case applies.
 
 ## Share scale (added 9 Sep 2026)
 
-- consistent: 6007
-- **suspect: 1057** (`scale` — a diluted count more than fifty times its own outstanding count, or less than a fiftieth; `levels` — the quarterly series steps between levels more than once, so no per-share figure spans it)
-- no share data at all: 345
+- consistent: 5953
+- **suspect: 1134** (`scale` — a diluted count more than fifty times its own outstanding count, or less than a fiftieth; `levels` — the quarterly series steps between levels more than once, so no per-share figure spans it)
+- no share data at all: 322
 
 `share_scale` says whether a company's share counts can all be true at once. It is not a reason to drop a name — it says the per-share metrics for that company are unmeasured. Both the flag and `shares` are in the manifest, so a reader need not open 7,411 company files to screen on them.
 
