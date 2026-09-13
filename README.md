@@ -95,11 +95,25 @@ class shares, `BRK-B`), fetch `companies/<cik>.json` for each. A company file:
                  "...": "..."}],
   "quarterly": [{"period_end": "2026-06-30", "form": "10-Q", "filed": "2026-07-30", "revenue": 9.6e8, "...": "..."}],
   "tags_used": {"revenue": "RevenueFromContractWithCustomerExcludingAssessedTax", "...": "..."},
+  "annual_coverage": {"revenue": 8, "stock_comp": 8, "premiums_earned": 0, "...": "..."},
   "checks": {"latest_quarter_end": "2026-06-30", "quarter_age_days": 71,
              "reconciles": "ok", "reconciled_fy": 2026, "shares": "ok",
              "share_scale": "ok"}
 }
 ```
+
+## `tags_used` is a lifetime record; `annual_coverage` is about the years you can read
+
+`tags_used` says which XBRL tag resolved for a field ANYWHERE in the company's filing history,
+and `null` where none did. It does not say the field has a figure in the eight years published
+here. Philip Morris resolves `AllocatedShareBasedCompensationExpense` — last used in an FY2023
+filing, never on a full-year period — and not one published row carries `stock_comp`.
+
+**`annual_coverage` is the count a consumer should read**: how many of the published annual rows
+carry each field. `0` means the field is absent from this file whatever `tags_used` says. A field
+absent here is UNMEASURED, never zero — for `stock_comp` in particular, seventeen S&P 500
+companies (CMS CNP CTVA DTE EME ERIE ETN ETR EXC FE HAL IP KMI MO PM VZ XOM) carry no figure in
+recent years, and every one of them pays share-based compensation. See NOTES §18.
 
 ## Read the `checks` block before trusting a row
 

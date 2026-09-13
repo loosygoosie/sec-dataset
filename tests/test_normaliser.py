@@ -654,3 +654,61 @@ def test_a_restated_component_replaces_rather_than_adds_to_itself(b):
             usd(fy_fact(400, "2025-12-31", filed="2026-02-01")),
     })
     assert b.normalise_company(d)["annual"][-1]["pretax_income"] == 1_050
+
+
+# --------------------------------------------------------------------------
+# annual_coverage: what the published rows carry, not what a tag once resolved
+# --------------------------------------------------------------------------
+def test_annual_coverage_counts_the_rows_that_carry_the_field(b):
+    """The question a consumer asks is 'can I read this field here', and until 13 Sep 2026 the
+    only answer in the file was `tags_used`, which asks a different one."""
+    d = doc(us_gaap={
+        "Revenues": usd(fy_fact(10, "2023-12-31"), fy_fact(11, "2024-12-31"), fy_fact(12, "2025-12-31")),
+        "ShareBasedCompensation": usd(fy_fact(1, "2025-12-31")),
+    })
+
+    cov = b.normalise_company(d)["annual_coverage"]
+
+    assert cov["revenue"] == 3
+    assert cov["stock_comp"] == 1
+
+
+def test_a_field_no_row_carries_reads_zero_rather_than_being_absent(b):
+    """A missing key would leave a reader to infer absence, which is how absence starts reading
+    as zero. Every concept appears, so a new field cannot slip out of the count either."""
+    d = doc(us_gaap={"Revenues": usd(fy_fact(10, "2025-12-31"))})
+
+    cov = b.normalise_company(d)["annual_coverage"]
+
+    assert cov["stock_comp"] == 0
+    assert set(cov) == set(b.CONCEPTS), "every concept must be counted, present or not"
+
+
+def test_a_tag_that_resolved_only_in_years_no_longer_published_reads_zero(b):
+    """NOTES §18, and §11 one level up. Philip Morris resolves
+    `AllocatedShareBasedCompensationExpense` and carries no `stock_comp` in any published row; a
+    consumer reading `tags_used` alone is told the field resolves. The two signals answer
+    different questions and the file has to carry both."""
+    years = [f"{y}-12-31" for y in range(2014, 2027)]          # more than ANNUAL_YEARS of history
+    d = doc(us_gaap={
+        "Revenues": usd(*[fy_fact(10, e) for e in years]),
+        "ShareBasedCompensation": usd(fy_fact(1, "2014-12-31")),
+    })
+
+    norm = b.normalise_company(d)
+
+    assert norm["tags_used"]["stock_comp"] == "ShareBasedCompensation", "the tag did resolve"
+    assert [r["fiscal_year"] for r in norm["annual"]][0] > 2014, "the year it resolved is off the end"
+    assert norm["annual_coverage"]["stock_comp"] == 0, "and no published row carries it"
+
+
+def test_coverage_is_cut_on_the_published_rows_not_the_whole_history(b):
+    """`annual` is truncated to ANNUAL_YEARS. A count taken before the truncation would promise
+    years the file does not contain."""
+    years = [f"{y}-12-31" for y in range(2014, 2027)]
+    d = doc(us_gaap={"Revenues": usd(*[fy_fact(10, e) for e in years])})
+
+    norm = b.normalise_company(d)
+
+    assert len(norm["annual"]) == b.ANNUAL_YEARS
+    assert norm["annual_coverage"]["revenue"] == b.ANNUAL_YEARS < len(years)
