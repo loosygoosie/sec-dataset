@@ -362,6 +362,22 @@ def _filed_key(f: dict) -> int:
 
 ASFILED_ITEMS = ("shares_diluted",)   # items that also carry what their own fiscal year first reported
 
+# ITEMS WHOSE AS-FILED VALUE IS MEANINGLESS UNLESS POSITIVE. A diluted share count of zero or below
+# is a parse failure, never a fact about a company, so it is dropped rather than published.
+#
+# EVERYTHING ELSE MAY BE NEGATIVE OR ZERO, AND THIS DISTINCTION IS THE WHOLE POINT OF THE SET.
+# Until 13 Sep 2026 the guard below was a blanket `> 0` applied to every as-filed item. With
+# `shares_diluted` the only member of ASFILED_ITEMS that did no harm — and it was a LOADED GUN
+# pointing at the next field added. The moment revenue, net income or operating cash flow joined
+# that tuple, every LOSS YEAR would have been dropped from the as-filed record with nothing saying
+# so, and a point-in-time reconstruction built on it would have shown a universe that never had a
+# bad year. That is the absent-reads-as-good-news family arriving in the one place built to make
+# the model testable.
+#
+# Found by reading, 13 Sep 2026, while planning the harness that needs those fields. Nothing was
+# wrong in the published data — the bug had not been reached yet.
+ASFILED_MUST_BE_POSITIVE = frozenset({"shares_diluted", "shares_outstanding"})
+
 
 def _pick_as_filed(cands: list[dict]) -> dict | None:
     """The value a fiscal year's OWN annual report carried, before any later restatement.
@@ -640,8 +656,12 @@ def normalise_company(facts: dict) -> dict:
                 # one bucket; `_pick_as_filed` sorts the opposite way to `_pick_latest` and would
                 # otherwise describe a different period from the one the row's `period_end` names.
                 af = _pick_as_filed([c for c in (groups.get(fy) or []) if c.get("end") == f.get("end")])
-                if af and (af.get("val") or 0) > 0:
-                    out_annual[fy][name + "_as_filed"] = af["val"]
+                val = af.get("val") if af else None
+                # A share count must be positive to mean anything; a flow may be negative or zero,
+                # and a loss year is exactly the year a reconstruction most needs. See
+                # ASFILED_MUST_BE_POSITIVE.
+                if val is not None and not (name in ASFILED_MUST_BE_POSITIVE and val <= 0):
+                    out_annual[fy][name + "_as_filed"] = val
                     out_annual[fy][name + "_as_filed_filed"] = af.get("filed") or None
             if name == "revenue" or name == "net_income":
                 fy_end_dates.setdefault(fy, f["end"])
