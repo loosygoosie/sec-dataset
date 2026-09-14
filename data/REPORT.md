@@ -1,4 +1,4 @@
-# SEC dataset build — 2026-09-14T15:53:14Z
+# SEC dataset build — 2026-09-14T18:21:31Z
 
 - filers scanned: 20359
 - companies published: 7410
@@ -134,7 +134,7 @@ Readers treat an `off` company, or one whose latest quarter is more than 150 day
 
 ## Share counts (added 8 Sep 2026)
 
-- diluted count on file: 6310
+- diluted count on file: 5554
 - basic count only: 49
 - cover-page count only: 223
 - none (multi-class filers tag by class; companyfacts drops dimensioned facts): 433
@@ -156,7 +156,7 @@ A reader does not drop a name on a per-share test it cannot run; `shares` in the
 
 ## Stale-name fallback
 
-- companies whose companyfacts quarterly series was behind their own filings: 181
+- companies whose companyfacts quarterly series was behind their own filings: 184
 - of those, patched from the filing's own XBRL this run: 71 (cap 100 filings)
 
 A quarterly row carrying `"source": "filing"` was derived from the filing's own XBRL instance,
