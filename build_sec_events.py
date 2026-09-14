@@ -196,7 +196,23 @@ def company_events(cik: int, since: date) -> tuple[dict, list[dict]]:
         items = [x.strip() for x in (cols["items"][i] if i < len(cols["items"]) else "").split(",") if x.strip()]
         rows.append({"date": fd, "form": form, "items": items, "period": (cols["reportDate"][i] if i < len(cols["reportDate"]) else None),
                      "accession": acc, "url": ARCHIVE_DOC.format(cik=cik, acc_nodash=acc.replace("-", ""), doc=doc) if doc else None})
-    meta = {"cik": cik, "name": j.get("name"), "tickers": j.get("tickers", []), "sic": j.get("sicDescription")}
+    # `sic` HOLDS THE DESCRIPTION AND `sic_code` HOLDS THE CODE, and the naming is the SEC's own
+    # confusion inherited rather than ours to fix: in the submissions record `sic` IS the four-digit
+    # code and `sicDescription` is the text. This file has published the text under the key `sic`
+    # since it was written, and consumers read it by that name, so renaming it would break them for
+    # no gain — the standing rule is that adding a key is safe where changing the meaning of one is
+    # not. `sic_code` is added 14 Sep 2026.
+    #
+    # WHY THE CODE IS WORTH CARRYING when the description was not enough. The description is too
+    # granular to answer a concentration question: `robinhood-book`'s top fifty spans 42 distinct
+    # descriptions, which reads as well diversified while "Services-Prepackaged Software",
+    # "Services-Computer Integrated Systems Design" and "Services-Business Services, NEC" are one
+    # exposure wearing three labels. The first two digits of the code are the SIC MAJOR GROUP, which
+    # is the coarser bucket — and it is the SEC's own assignment published with the filing, not a
+    # taxonomy anyone here maintains, which is what makes it usable in a repo that deleted its
+    # thirteen groups for rotting.
+    meta = {"cik": cik, "name": j.get("name"), "tickers": j.get("tickers", []),
+            "sic": j.get("sicDescription"), "sic_code": j.get("sic")}
     rows.sort(key=lambda x: x["date"], reverse=True)
     return meta, rows
 
