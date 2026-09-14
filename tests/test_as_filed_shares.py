@@ -329,10 +329,16 @@ def test_the_positive_only_set_names_the_items_and_not_a_shape(b):
 # What the seven measures in robinhood-book/claude/clean-slate.md actually read. Kept here rather
 # than imported because the consumer is a different repository: this is the CONTRACT, written down
 # on the side that has to honour it.
+# `stock_comp` WAS MISSING FROM HERE FOR A DAY AND THE TEST BELOW STILL PASSED. The consumer's
+# `cash_conversion` started subtracting it on 14 Sep 2026 — free cash flow less stock compensation,
+# because a company paying its people in shares flatters operating cash flow — which made it an
+# input the moment that shipped. Both sides of the contract omitted it, so the check compared one
+# copy of the mistake against the other. That is the failure mode this whole file exists to catch,
+# arriving in the file itself.
 MEASURE_INPUTS = {
     "operating_income", "income_tax", "pretax_income",          # NOPAT
     "current_assets", "current_liabilities", "total_assets",    # capital employed
-    "operating_cash_flow", "capex", "net_income",               # cash conversion
+    "operating_cash_flow", "capex", "net_income", "stock_comp",  # cash conversion
     "retained_earnings", "buybacks", "dividends_paid",          # capital allocation
     "total_debt", "cash",                                       # resilience
     "shares_diluted",                                           # dilution
@@ -360,6 +366,29 @@ def test_as_filed_carries_nothing_the_measures_do_not_read(b):
     assert not extra, (
         f"these are published as-filed but no measure reads them — remove them, or add the measure "
         f"to MEASURE_INPUTS with the reason: {extra}")
+
+
+def test_stock_comp_CARRIES_AN_AS_FILED_VALUE_because_a_measure_reads_it(b):
+    """THE MEMBER THAT WAS MISSING, pinned by name rather than left to the set check above, because
+    the set check could not catch it: MEASURE_INPUTS omitted `stock_comp` too, so both sides of the
+    contract agreed on the same mistake and the comparison reported nothing.
+
+    WHAT IT COST. `cash_conversion` subtracts stock compensation from free cash flow — 14 Sep 2026,
+    because a company paying its people in shares flatters operating cash flow and neither free cash
+    flow nor a share count catches the case where it buys them back to offset. That made it an
+    input. Without an as-filed twin there is no point-in-time reading of it, the consumer scores
+    only companies resolving ALL SEVEN measures, and so a backtest could either leak the restated
+    figure into a past formation date or rank nobody.
+
+    AND THE SILENCE WAS THE TELL. `restated` is derived by comparing an item against its own
+    as-filed value, so it exists only for members of this tuple. `stock_comp` appeared in no
+    `restated` list across 8,490 index rows — which said nothing about how often it is restated,
+    only that nothing was looking. Absent is not zero here either."""
+    assert "stock_comp" in b.ASFILED_ITEMS
+    assert "stock_comp" in MEASURE_INPUTS
+    assert "stock_comp" not in b.ASFILED_MUST_BE_POSITIVE, (
+        "stock comp is legitimately zero for a company that grants none, and dropping a zero would "
+        "put the worst disclosure at the top of a measure where low is good")
 
 
 def test_every_as_filed_item_is_a_concept_the_builder_actually_resolves(b):

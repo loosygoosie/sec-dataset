@@ -427,8 +427,23 @@ ASFILED_ITEMS = (
     "revenue", "operating_income", "net_income", "pretax_income", "income_tax",
     "operating_cash_flow", "capex", "current_assets", "current_liabilities",
     "total_assets", "total_debt", "cash", "retained_earnings",
-    "buybacks", "dividends_paid", "shares_diluted",
+    "buybacks", "dividends_paid", "shares_diluted", "stock_comp",
 )
+# `stock_comp` JOINED ON 14 Sep 2026 AND ITS ABSENCE WAS SILENCE, NOT EVIDENCE. The consumer's
+# `cash_conversion` began subtracting stock compensation from free cash flow earlier the same day,
+# which made it a measure input; this tuple was not updated, and the contract test in
+# `tests/test_as_filed_shares.py` went on passing because MEASURE_INPUTS omitted it too. A check
+# that agrees with the thing it is checking reports nothing.
+#
+# WHAT IT BLOCKED, which is why it is worth more than a line. Without an as-filed twin there is no
+# point-in-time `cash_conversion`, and the consumer scores only companies resolving ALL SEVEN
+# measures — so a backtest either leaks 2026's opinion of 2019 into a 2019 formation date, or ranks
+# nobody. Neither is a validation. One missing member of this tuple was the whole blocker.
+#
+# AND NOTHING COULD HAVE MEASURED THE LEAK, which is the part that settles it rather than the
+# inconvenience. `restated` is derived by comparing an item against its own as-filed value, so it
+# can only be computed FOR MEMBERS OF THIS TUPLE. `stock_comp` never appeared in a `restated` list
+# across 8,490 index rows — not because it is never restated, but because nothing was looking.
 
 # ITEMS WHOSE AS-FILED VALUE IS MEANINGLESS UNLESS POSITIVE. A diluted share count of zero or below
 # is a parse failure, never a fact about a company, so it is dropped rather than published.
