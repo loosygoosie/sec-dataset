@@ -689,23 +689,28 @@ def test_a_tag_that_resolved_only_in_years_no_longer_published_reads_zero(b):
     `AllocatedShareBasedCompensationExpense` and carries no `stock_comp` in any published row; a
     consumer reading `tags_used` alone is told the field resolves. The two signals answer
     different questions and the file has to carry both."""
-    years = [f"{y}-12-31" for y in range(2014, 2027)]          # more than ANNUAL_YEARS of history
+    # DERIVED FROM THE CAP, not written out. Hardcoded 2014-2026 until 14 Sep 2026, when
+    # ANNUAL_YEARS went 12 -> 25 and thirteen years stopped being "more than" it — the fixture
+    # would have quietly tested nothing while still passing its first assertion.
+    years = [f"{y}-12-31" for y in range(2026 - b.ANNUAL_YEARS, 2027)]   # ANNUAL_YEARS + 1 of them
+    oldest = years[0][:4]
     d = doc(us_gaap={
         "Revenues": usd(*[fy_fact(10, e) for e in years]),
-        "ShareBasedCompensation": usd(fy_fact(1, "2014-12-31")),
+        "ShareBasedCompensation": usd(fy_fact(1, years[0])),
     })
 
     norm = b.normalise_company(d)
 
     assert norm["tags_used"]["stock_comp"] == "ShareBasedCompensation", "the tag did resolve"
-    assert [r["fiscal_year"] for r in norm["annual"]][0] > 2014, "the year it resolved is off the end"
+    assert [r["fiscal_year"] for r in norm["annual"]][0] > int(oldest), (
+        "the year it resolved is off the end")
     assert norm["annual_coverage"]["stock_comp"] == 0, "and no published row carries it"
 
 
 def test_coverage_is_cut_on_the_published_rows_not_the_whole_history(b):
     """`annual` is truncated to ANNUAL_YEARS. A count taken before the truncation would promise
     years the file does not contain."""
-    years = [f"{y}-12-31" for y in range(2014, 2027)]
+    years = [f"{y}-12-31" for y in range(2026 - b.ANNUAL_YEARS, 2027)]   # ANNUAL_YEARS + 1 of them
     d = doc(us_gaap={"Revenues": usd(*[fy_fact(10, e) for e in years])})
 
     norm = b.normalise_company(d)
@@ -715,12 +720,22 @@ def test_coverage_is_cut_on_the_published_rows_not_the_whole_history(b):
 
 
 # ---------------------------------------------------------------------------------------------
-# Depth, 13 Sep 2026. `ANNUAL_YEARS` went 8 -> 12 because the consumer's design turned every measure
-# into a ten-year one. The number itself is uninteresting; what matters is that it never falls back
-# below what the consumer reads, and a constant with no test saying why is the `SEATS = 30` shape.
+# Depth, 13 Sep 2026, WIDENED 14 Sep 2026. `ANNUAL_YEARS` went 8 -> 12 because the consumer's design
+# turned every measure into a ten-year one; it then went 12 -> 25 because that same 12 was ALSO the
+# truncation, and nothing here had ever tested the ceiling — only the floor. A cap tested from one
+# side is a cap that can rot from the other, which is what it did: every build threw away every year
+# past the twelfth, and the cost was invisible until the consumer wanted to VALIDATE a ten-year
+# measure rather than read one. Twelve years of history admits exactly one formation date.
 # ---------------------------------------------------------------------------------------------
 
 CONSUMER_MEASURE_WINDOW = 10   # robinhood-book/claude/clean-slate.md: every measure is ten-year
+
+# The earliest fiscal year any filer's companyfacts can reach. XBRL annual reporting began with
+# periods ending after 15 June 2009 and phased in through 2011, and those first filings tagged their
+# COMPARATIVE years too, which is what pulls the floor below the mandate itself. 2007 is the
+# conservative reading of that; it is deliberately early, because this constant's only job is to
+# make the assertion below strict.
+XBRL_REACHES_BACK_TO = 2007
 
 
 def test_annual_history_covers_the_consumer_measure_window_with_headroom(b):
@@ -733,6 +748,32 @@ def test_annual_history_covers_the_consumer_measure_window_with_headroom(b):
     assert b.ANNUAL_YEARS >= CONSUMER_MEASURE_WINDOW + 2, (
         f"ANNUAL_YEARS={b.ANNUAL_YEARS} leaves no headroom: a company missing one year drops out of "
         f"the universe, and a ten-year figure can never be seen to move.")
+
+
+def test_THE_CAP_CANNOT_QUIETLY_BECOME_THE_CEILING_AGAIN(b):
+    """The other side of the same constant, and the side nothing tested until 14 Sep 2026.
+
+    `annual` is truncated with `[-ANNUAL_YEARS:]`, so the cap is a CEILING as well as a floor. Set
+    to 12 it threw away every year past the twelfth on every build, silently, for as long as it
+    stood — and the test above passed throughout, because it only ever asked whether the number was
+    big enough for one reading.
+
+    BOUND TO THE CALENDAR RATHER THAN TO A NUMBER SOMEBODY CHECKS. The depth the source can hold
+    grows by one every year on its own, so a cap that is comfortable today becomes binding by doing
+    nothing at all. This fails the moment the cap comes within two years of what companyfacts could
+    reach, which makes the passage of time re-ask the question instead of a person having to.
+
+    IT IS NOT THE SAME AS "the data has this depth". A filer carrying eight years yields eight rows
+    at any cap. This asserts only that when a filer HAS more, this file is not the reason it is lost.
+    """
+    import datetime
+    this_year = datetime.date.today().year
+    reachable = this_year - XBRL_REACHES_BACK_TO + 1
+    assert b.ANNUAL_YEARS >= reachable + 2, (
+        f"ANNUAL_YEARS={b.ANNUAL_YEARS} is within reach of the {reachable} fiscal years a filer's "
+        f"companyfacts could carry in {this_year} (back to {XBRL_REACHES_BACK_TO}). The cap is "
+        f"becoming the ceiling again: raise it, and do NOT lower XBRL_REACHES_BACK_TO to make this "
+        f"pass — that constant is about the SEC's phase-in, not about what is convenient here.")
 
 
 def test_raising_the_cap_cannot_invent_history_a_filer_does_not_have(b):

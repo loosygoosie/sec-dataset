@@ -105,10 +105,24 @@ nothing for the biggest filer in its category is a measurement failure whether o
 currently reading it**, and the replacement design — a READABILITY gate over seven ten-year measures,
 in `robinhood-book/claude/clean-slate.md` — will read exactly these markers when it is built.
 
-What the new consumer reads TODAY, and what this build was changed on 14 Sep 2026 to supply:
-twelve annual years (`ANNUAL_YEARS`), as-filed values for sixteen items across flows and the balance
-sheet, `restated` per row, and `total_debt` summed from its components. Those four are load-bearing
-now in a way the group markers are not.
+What the new consumer reads TODAY, and what this build was changed on 14 Sep 2026 to supply: as
+much annual history as companyfacts holds (`ANNUAL_YEARS`), as-filed values for sixteen items across
+flows and the balance sheet, `restated` per row, and `total_debt` summed from its components. Those
+four are load-bearing now in a way the group markers are not.
+
+**`ANNUAL_YEARS` WAS A CEILING AS WELL AS A FLOOR, and only the floor was ever argued for.** It read
+12 — the consumer's ten-year window plus two — and the truncation is `[-ANNUAL_YEARS:]`, so every
+build threw away every year past the twelfth. Nothing said so, because the test bound only the lower
+side. It cost nothing while the consumer wanted to READ a ten-year measure; it blocks
+`robinhood-book` #48 outright once the consumer wants to VALIDATE one, because twelve years of
+history admits exactly ONE formation date and leaves about two and a half years of forward returns.
+Raised to 25 on 14 Sep 2026 so the SOURCE decides the depth — XBRL reaches back to roughly 2007 —
+and `tests/test_normaliser.py` now fails if the cap ever comes within two years of what the calendar
+says companyfacts could hold.
+
+**THE PUBLISHED DEPTH DOES NOT CHANGE UNTIL A BUILD RUNS.** Nothing in a commit reaches `data/`.
+Until `sec.yml` is dispatched, every company file still carries twelve rows and every figure derived
+from one is a twelve-year figure.
 
 **What that system is FOR is written down** in `robinhood-book/VISION.md` — the intents it was
 designed to serve, in its owner's words, each marked BUILT, PARTIAL or OPEN. Fields published here
