@@ -89,20 +89,26 @@ through a live brokerage account. A field that silently changes meaning here cha
 bought there. (It SCREENED, until 11 Sep 2026 — the screens were deleted and the word is wrong now:
 nothing is excluded for being a bad business, only for being unmeasurable.)
 
-**TWO FIELDS HERE NOW DECIDE WHETHER A COMPANY CAN BE OWNED AT ALL, and that is new on 12 Sep 2026.**
-`deposits` / `total_assets` and `premiums_earned` / `revenue` are how that repo identifies banks and
-insurers, and those two groups — with REITs — are no longer scored, because the six dimensions
-cannot be read honestly for them. So the markers are no longer a reporting nicety:
+**WHAT DECIDES OWNABILITY THERE CHANGED AGAIN ON 14 Sep 2026, and this section said the opposite for
+two days.** It read: *two fields here now decide whether a company can be owned at all* —
+`deposits` / `total_assets` and `premiums_earned` / `revenue`, which identified banks and insurers so
+that they and REITs could be held out of a six-dimension score that cannot read them honestly. That
+whole model was DELETED. The thirteen-group taxonomy, the six dimensions, the bar and
+`robinhood-book/claude/group-overrides.json` all went, and **nothing over there decides eligibility
+today** — a company is simply unmeasured when its figures cannot be read, which is the same idea
+without a taxonomy in front of it.
 
-  a company whose premium tags do not resolve falls through to the FEE group, which IS scored,
-  and an underwriter then gets ranked on cash conversion and operating margin that mean nothing
-  for it.
+So the pressure on the identification tags is OFF for now, and the reason to fix them is unchanged
+and better: `sec-dataset` NOTES 16 records that neither `premiums_earned` nor `loss_reserves`
+resolves a tag for Berkshire Hathaway, the largest insurer in the index. **A field that reports
+nothing for the biggest filer in its category is a measurement failure whether or not a consumer is
+currently reading it**, and the replacement design — a READABILITY gate over seven ten-year measures,
+in `robinhood-book/claude/clean-slate.md` — will read exactly these markers when it is built.
 
-That is `sec-dataset` NOTES 16 — neither `premiums_earned` nor `loss_reserves` resolves a tag for
-Berkshire Hathaway, the largest insurer in the index — and it is held today by ONE hand placement in
-`robinhood-book/claude/group-overrides.json`. Fixing the tags here removes that dependency. It used
-to matter because a thin group made a frozen median unstable; it matters more now, because it
-decides membership.
+What the new consumer reads TODAY, and what this build was changed on 14 Sep 2026 to supply:
+twelve annual years (`ANNUAL_YEARS`), as-filed values for sixteen items across flows and the balance
+sheet, `restated` per row, and `total_debt` summed from its components. Those four are load-bearing
+now in a way the group markers are not.
 
 **What that system is FOR is written down** in `robinhood-book/VISION.md` — the intents it was
 designed to serve, in its owner's words, each marked BUILT, PARTIAL or OPEN. Fields published here
