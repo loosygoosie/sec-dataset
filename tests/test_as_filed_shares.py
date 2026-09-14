@@ -522,20 +522,23 @@ def test_the_excluded_set_names_items_the_builder_actually_publishes_as_filed(b)
 
 # One fact per as-filed item, restated once in a later filing. Every tag is the concept's FIRST
 # choice on both filings, so any difference detected is a restatement and never a tag switch.
-_FIRST_TAG = {
-    "revenue": "Revenues", "operating_income": "OperatingIncomeLoss",
-    "net_income": "NetIncomeLoss",
-    "pretax_income": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
-    "income_tax": "IncomeTaxExpenseBenefit",
-    "operating_cash_flow": "NetCashProvidedByUsedInOperatingActivities",
-    "capex": "PaymentsToAcquirePropertyPlantAndEquipment",
-    "buybacks": "PaymentsForRepurchaseOfCommonStock",
-    "dividends_paid": "PaymentsOfDividendsCommonStock",
-    "shares_diluted": DILUTED,
-    "current_assets": "AssetsCurrent", "current_liabilities": "LiabilitiesCurrent",
-    "total_assets": "Assets", "total_debt": "LongTermDebt", "cash": "CashAndCashEquivalentsAtCarryingValue",
-    "retained_earnings": "RetainedEarningsAccumulatedDeficit",
-}
+#
+# DERIVED FROM `CONCEPTS` SINCE 14 Sep 2026, and it was a hand-kept dict of sixteen entries before
+# that. `stock_comp` joined ASFILED_ITEMS and this map did not, so the fixture supplied no stock
+# compensation fact and the assertion below failed for a reason that had nothing to do with the
+# builder — which does publish it. A hand-kept copy of information that already exists in the code
+# is the drift this repository keeps finding in tables; it is no better inside a test.
+#
+# `revenue` KEEPS ITS OVERRIDE and the reason is worth a line. `CONCEPTS["revenue"]` leads with
+# `RevenuesNetOfInterestExpense`, which is the bank form; the fixture wants the ordinary one so the
+# row it builds looks like an ordinary filer's.
+_FIRST_TAG_OVERRIDE = {"revenue": "Revenues"}
+
+
+def _first_tags(b) -> dict[str, str]:
+    """{item: the tag the builder tries first} for every as-filed item, read from the builder."""
+    return {name: _FIRST_TAG_OVERRIDE.get(name, b.CONCEPTS[name]["tags"][0])
+            for name in b.ASFILED_ITEMS}
 
 
 def test_EVERY_as_filed_item_actually_produces_a_value(b):
@@ -553,7 +556,7 @@ def test_EVERY_as_filed_item_actually_produces_a_value(b):
 
     A contract test that reads the contract instead of the output is not a contract test."""
     gaap = {}
-    for name, tag in _FIRST_TAG.items():
+    for name, tag in _first_tags(b).items():
         mk = shares if name == "shares_diluted" else usd
         kind = b.CONCEPTS[name]["kind"]
         f = fy_fact if kind == "flow" else fact
