@@ -730,11 +730,21 @@ def test_coverage_is_cut_on_the_published_rows_not_the_whole_history(b):
 
 CONSUMER_MEASURE_WINDOW = 10   # robinhood-book/claude/clean-slate.md: every measure is ten-year
 
-# The earliest fiscal year any filer's companyfacts can reach. XBRL annual reporting began with
-# periods ending after 15 June 2009 and phased in through 2011, and those first filings tagged their
-# COMPARATIVE years too, which is what pulls the floor below the mandate itself. 2007 is the
-# conservative reading of that; it is deliberately early, because this constant's only job is to
-# make the assertion below strict.
+# The earliest fiscal year any filer's REAL annual history can reach. XBRL annual reporting began
+# with periods ending after 15 June 2009 and phased in through 2011, and those first filings tagged
+# their COMPARATIVE years too, which pulls the floor below the mandate itself. 2007 is the
+# conservative reading of that.
+#
+# THE BUILD REACHES FURTHER AND THAT IS NOT HISTORY. Measured on the first deep build, 14 Sep 2026:
+# rows appear as early as 1987. They come from DEVELOPMENT-STAGE FILERS — before ASC 915 was
+# withdrawn in 2015 such companies reported cumulative-since-inception amounts, tagged with a
+# context that starts at inception, so a 2013 filing carries a "FY1997" period holding four fields
+# and no revenue. Every one of the 38 filers still at the cap is a shell of that kind.
+#
+# So this constant is deliberately NOT the observed minimum. It is what a real filer can reach, and
+# its only job is to make the assertion below strict. Lowering it to 1987 to match the data would
+# make the check weaker by nineteen years in service of rows that are an artefact of a withdrawn
+# accounting standard.
 XBRL_REACHES_BACK_TO = 2007
 
 
