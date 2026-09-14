@@ -1215,23 +1215,37 @@ def patch_targets(manifest: dict, priority: set[int]) -> list[tuple[int, list[di
     return out
 
 
-def load_sics() -> dict[str, str]:
-    """The SEC's own `sicDescription` per CIK, from the submissions record the events build stores.
+def load_sics() -> tuple[dict[str, str], dict[str, str]]:
+    """(descriptions, codes) per CIK, from the submissions record the events build stores.
 
     Raw source data, not a classification. Which sector a SIC belongs to is a screening decision and
     lives with the screen, not here — this repo carries no scoring or screening logic. It is copied
     onto the manifest so a consumer can read one file instead of opening 7,411 events files, which
     is what the manifest is for.
+
+    THE CODE IS CARRIED FROM 14 Sep 2026 BECAUSE THE DESCRIPTION CANNOT BE GROUPED. A consumer
+    asking whether a fifty-name book is one bet gets 42 distinct descriptions across fifty
+    companies, which reads as diversified while three of those descriptions are all software. The
+    first two digits of the code are the SIC major group, which is the bucket that question needs,
+    and it is the SEC's own assignment rather than a taxonomy this repo would have to maintain.
+
+    A FILER MISSING FROM `data/events/` HAS NEITHER, and that is not a gap this function can close:
+    the events directory keeps only filers with a filing inside its own window, so coverage here is
+    exactly events coverage. Measured 14 Sep 2026: 679 of `robinhood-book`'s 730 ranked filers, and
+    50 of its top 50.
     """
-    out: dict[str, str] = {}
+    desc: dict[str, str] = {}
+    code: dict[str, str] = {}
     for p in EVENTS_DIR.glob("*.json"):
         try:
             j = json.loads(p.read_text())
         except Exception:  # noqa: BLE001
             continue
         if j.get("sic"):
-            out[p.stem] = j["sic"]
-    return out
+            desc[p.stem] = j["sic"]
+        if j.get("sic_code"):
+            code[p.stem] = str(j["sic_code"])
+    return desc, code
 
 
 def load_cik_overrides() -> dict[str, dict]:
@@ -1374,7 +1388,7 @@ def main() -> int:
     cutoff = _years_ago(date.today(), 3).isoformat()   # drop filers silent for 3+ years
     manifest, coverage, written, recon = {}, defaultdict(int), set(), defaultdict(int)
     tag_resolved: dict[str, int] = defaultdict(int)   # counts the TAG; `coverage` counts VALUES
-    sics = load_sics()      # SEC sicDescription per CIK, from the events build's submissions record
+    sics, sic_codes = load_sics()   # description and four-digit code per CIK, from the events build
     n_seen = n_kept = 0
     with zipfile.ZipFile(zpath) as z:
         entries = sorted(n for n in z.namelist() if n.startswith("CIK") and n.endswith(".json"))
@@ -1408,7 +1422,8 @@ def main() -> int:
                 path.write_text(body)
             written.add(path.name)
             manifest[str(cik)] = {"name": facts.get("entityName"), "tickers": rec["tickers"],
-                                  "sic": sics.get(str(cik)), "latest_filed": latest_filed,
+                                  "sic": sics.get(str(cik)), "sic_code": sic_codes.get(str(cik)),
+                                  "latest_filed": latest_filed,
                                   "fiscal_year_end": ann[-1].get("period_end"), "annual_rows": len(ann), "quarterly_rows": len(qtr),
                                   "latest_quarter_end": checks["latest_quarter_end"], "quarter_age_days": checks["quarter_age_days"],
                                   "reconciles": checks["reconciles"], "shares": checks["shares"],
