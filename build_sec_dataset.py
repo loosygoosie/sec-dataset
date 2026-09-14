@@ -76,10 +76,16 @@ XSI_NIL = "{http://www.w3.org/2001/XMLSchema-instance}nil"
 #
 # SO THE SOURCE DECIDES THE DEPTH NOW, NOT THIS FILE. XBRL annual reporting began with fiscal periods
 # ending after 15 June 2009 and phased in through 2011, and companyfacts also carries the comparative
-# years those first filings tagged, so the deepest filer reaches back somewhere around 2007. 25 is
-# above that by a margin, which is the whole intent: a filer yields what it has and this constant
-# stops being the binding constraint. It cannot fabricate history — a filer carrying eight years
-# still yields eight rows.
+# years those first filings tagged, so a real filer reaches back somewhere around 2007. Measured on
+# the first deep build: median depth 11, the MODE 17 (FY2009-FY2025, the mandate window exactly), and
+# 3,927 of 7,410 filers never came near the old cap of 12 at all.
+#
+# 25 STILL BINDS FOR 38 FILERS, and they are the reason it should not be raised. Rows turn up as
+# early as 1987 — from development-stage companies, which before ASC 915 was withdrawn in 2015
+# reported cumulative-since-inception amounts under a context starting at inception. A 2013 filing
+# then carries a "FY1997" period holding four fields and no revenue. Every filer at the cap is a
+# shell of that kind, so the truncation there is discarding an artefact rather than history. That is
+# luck rather than design and is written down so nobody "fixes" it by chasing the tail.
 #
 # AND IT CANNOT QUIETLY BECOME A CEILING AGAIN, because the test binds it against the calendar rather
 # than against a number somebody remembered to check: `tests/test_normaliser.py` fails if the cap
