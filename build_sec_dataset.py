@@ -634,9 +634,13 @@ def top_line_repair(row: dict, cands: list[dict]) -> str | None:
     The wider floor is kept ON PURPOSE rather than narrowed to the operating line: banks, REITs and
     asset managers often report no operating line at all, and Synchrony — a real defect — would go
     unflagged if pretax were dropped. What the flag means is "these years are worth checking", and
-    the consumer decides. `robinhood-book/tools/rescreen.py::revenue_unmeasured` is the reference
-    reading: refuse on the operating identity, or where the breach spans at least half the window
-    being read, since a mis-mapped tag is wrong every year while a gain is wrong once. That is the direction of this class of bug that nobody sees: a wrong
+    the consumer decides. The reference reading was `robinhood-book/tools/rescreen.py`, then
+    `dataset.revenue_unmeasured`, and **as of 14 Sep 2026 NOTHING READS IT** — the measurability
+    gates went with that repo's group taxonomy, and the readability gate meant to replace them is
+    unbuilt, which its `tests/test_flag_registry.py` records rather than hides. The reading itself
+    still stands and is written down here so it survives the gap: refuse on the operating identity,
+    or where the breach spans at least half the window being read, since a mis-mapped tag is wrong
+    every year while a gain is wrong once. That is the direction of this class of bug that nobody sees: a wrong
     figure that makes a company look BAD produces no symptom, it just quietly removes it.
 
     76 of 5,882 filers with a revenue figure (1.29%) are in this state.

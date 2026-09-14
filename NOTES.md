@@ -809,6 +809,12 @@ still falling through to FEE. What places it as an insurer today is `CARRIER_SIC
 own industry code, and that would be unchanged. The tag gap was never the only thing holding that
 name — the floor sits above Berkshire too, and nothing had measured it.
 
+*(Added 14 Sep 2026: `partition.PREMIUM_FLOOR` and `CARRIER_SIC` no longer exist. That repo deleted
+its thirteen-group taxonomy along with the six-dimension model, so **nothing over there identifies an
+insurer at all today** and nothing is excluded for being one. The measurement above is unaffected and
+is the reason this correction is worth keeping: it says the tag fix alone was never sufficient, which
+stays true for whatever reads these markers next.)*
+
 **What it would take to publish these here.** Not a tag addition — a different source. The
 companyfacts endpoint this builder reads aggregates undimensioned facts only; reaching the rest
 means parsing XBRL instance documents per filing. Three things make that a real build rather than
