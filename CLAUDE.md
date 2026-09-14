@@ -116,13 +116,33 @@ build threw away every year past the twelfth. Nothing said so, because the test 
 side. It cost nothing while the consumer wanted to READ a ten-year measure; it blocks
 `robinhood-book` #48 outright once the consumer wants to VALIDATE one, because twelve years of
 history admits exactly ONE formation date and leaves about two and a half years of forward returns.
-Raised to 25 on 14 Sep 2026 so the SOURCE decides the depth — XBRL reaches back to roughly 2007 —
-and `tests/test_normaliser.py` now fails if the cap ever comes within two years of what the calendar
-says companyfacts could hold.
+Raised to 25 on 14 Sep 2026 so the SOURCE decides the depth, and `tests/test_normaliser.py` now
+fails if the cap ever comes within two years of what the calendar says companyfacts could hold.
 
-**THE PUBLISHED DEPTH DOES NOT CHANGE UNTIL A BUILD RUNS.** Nothing in a commit reaches `data/`.
-Until `sec.yml` is dispatched, every company file still carries twelve rows and every figure derived
-from one is a twelve-year figure.
+**THE BUILD HAS RUN, and this section said it had not for as long as it took to dispatch one.** It
+read: *"every company file still carries twelve rows and every figure derived from one is a
+twelve-year figure."* True when written, false the moment `sec.yml` finished. The rule behind it is
+unchanged and still worth keeping in mind — nothing in a commit reaches `data/` until a build runs —
+but the state it described is gone. Build `024d4f7f9`, 14 Sep 2026: median depth **11**, mode **17**
+(FY2009-FY2025, the XBRL mandate window exactly), deepest 25, `data/companies` 218 MB to 246 MB.
+3,927 of 7,410 filers never came near the old cap at all.
+
+**AND THE CAP STILL BINDS FOR 38 FILERS, which is not what raising it predicted.** That change said
+a real filer "reaches back somewhere around 2007". Rows turn up from **1987** — development-stage
+companies, which before ASC 915 was withdrawn in 2015 reported cumulative-since-inception amounts
+under a context starting at inception, so a 2013 filing carries a "FY1997" period holding four
+fields and no revenue. Every filer at the cap is a shell of that kind, so truncating there discards
+an artefact rather than history. That is luck, not design, and `XBRL_REACHES_BACK_TO` must NOT be
+lowered to 1987 to match the observed minimum — it is what a REAL filer can reach, and its only job
+is to keep the anti-ceiling assertion strict.
+
+**WHAT IT COST THE CONSUMER, because a build that changes nothing over there is the claim to
+distrust.** `robinhood-book` predicted no figure would move — every measure windows to the last ten
+rows — and 731 of its 734 composites moved while membership held exactly. The cause was on its side,
+exposed rather than created here: `persistence.effective_tax_rate` read the whole row list, so three
+measures documented as ten-year were not. At twelve published years it had been ACCIDENTALLY almost
+windowed. Fixed at `4d8d21e` there, with its dataset pin bumped to this build and its coverage
+baseline regenerated in the same commit.
 
 **What that system is FOR is written down** in `robinhood-book/VISION.md` — the intents it was
 designed to serve, in its owner's words, each marked BUILT, PARTIAL or OPEN. Fields published here
