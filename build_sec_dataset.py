@@ -915,6 +915,13 @@ def derive_total_debt(row: dict) -> None:
     row["total_debt_basis"] = "components" if len(present) == len(DEBT_COMPONENTS) else "components_partial"
 
 
+# The annual window `checks.shares` reports gaps across. TEN, for the same reason ANNUAL_YEARS is
+# at least ten: `robinhood-book/claude/clean-slate.md` makes every measure a ten-year one, and
+# `persistence.share_trend` reads exactly this span. A flag about per-share usability that checked a
+# different number of years than the consumer reads would be answering its own question rather than
+# the reader's, which is the defect this window exists to close.
+SHARE_WINDOW = 10
+
 CHECK_ITEMS = ("revenue", "net_income", "operating_cash_flow", "capex")
 SHARE_ITEMS = ("shares_diluted", "shares_outstanding")
 RECON_TOL = 0.03         # four quarters must sum to the fiscal year within 3% (or $5m on small lines)
@@ -1029,7 +1036,32 @@ def data_checks(ann: list[dict], qtr: list[dict], tags_used: dict | None = None,
     has_out = any(r.get("shares_outstanding") is not None for r in rows)
     st = (tags_used or {}).get("shares_diluted")
     if has_dil:
-        shares = "ok" if (st and "Diluted" in st) else "basic-only"
+        # THE FOURTH FORM, AND THE FOURTH BUG OF THE SAME SHAPE — 14 Sep 2026. Each earlier fix
+        # narrowed the ROWS; none of them questioned the QUANTIFIER. `any` answers "does a count
+        # exist somewhere in here", and a consumer computing a TEN-YEAR per-share trend is asking
+        # "does one exist in each of these years". Those are different questions and only the
+        # second one is the one being asked.
+        #
+        # Worse, `rows` mixes the two series. Tanger (SKT, cik 899715) carries a diluted count in
+        # its recent QUARTERS and in NONE of its ten annual rows, so the annual series a ten-year
+        # measure reads is empty while this flag reported `ok`. 343 filers were in some version of
+        # that state on the 14 Sep build, 232 of them scorable, 11 in the rank, 5 with nothing at
+        # all in the annual window. `tags_used` agrees with the flag in every one — the tag really
+        # did resolve, in the quarterly filings — so both signals a reader has said fine.
+        #
+        # `annual-gaps:<n>` is a NEW VALUE for an existing flag, which is what the standing
+        # constraint permits; the vocabulary above is untouched and `ok` only gets stricter, so a
+        # consumer branching on it can become more careful and never less. The quarterly fallback
+        # is kept for a filer with NO annual rows at all, because there the annual window is not
+        # holed, it is absent — and that is the case every test below was written against.
+        win = ann[-SHARE_WINDOW:]
+        missing = sum(1 for r in win if r.get("shares_diluted") is None)
+        if not (st and "Diluted" in st):
+            shares = "basic-only"
+        elif win and missing:
+            shares = f"annual-gaps:{missing}"
+        else:
+            shares = "ok"
     elif has_out:
         shares = "outstanding-only"
     else:

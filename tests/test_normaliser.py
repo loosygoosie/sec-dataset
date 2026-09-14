@@ -320,6 +320,65 @@ def test_a_current_diluted_count_still_reads_ok(b):
     assert b.data_checks(ann, qtr, tags_used={"shares_diluted": DIL})["shares"] == "ok"
 
 
+def test_QUARTERLY_ROWS_CANNOT_PAPER_OVER_A_HOLE_IN_THE_ANNUAL_SERIES(b):
+    """The flag's FOURTH form and its fourth bug of the same shape, found 14 Sep 2026.
+
+    Every earlier fix narrowed the ROWS the flag reads. None questioned the QUANTIFIER. `any` asks
+    "does a count exist somewhere in here"; a consumer computing a ten-year per-share trend asks
+    "does one exist in each of these years". And because the row set mixes annual with quarterly,
+    a filer can answer the first on quarterly data while the annual series is empty.
+
+    TANGER IS THE INSTANCE. SKT (cik 899715) carries a diluted count in its recent quarters and in
+    NONE of its ten annual rows. It reported `ok`, and so did `tags_used` — the tag really did
+    resolve, in the quarterly filings — so both signals a reader has said fine while
+    `persistence.share_trend` could return nothing at all. 343 filers were in some version of that
+    state on the 14 Sep build; 232 scorable, 11 in the rank, 5 with an empty annual window.
+    """
+    ann = [{"period_end": f"{y}-12-31", "shares_outstanding": 114_000_000}
+           for y in range(2016, 2026)]                      # ten annual rows, no diluted count
+    qtr = [{"period_end": "2026-06-30", "shares_diluted": 115_733_000}]
+
+    assert b.data_checks(ann, qtr, tags_used={"shares_diluted": DIL})["shares"] == "annual-gaps:10"
+
+
+def test_a_PARTIAL_annual_series_reports_how_many_years_are_missing(b):
+    """The common case, and why the value carries a COUNT rather than being another bare word.
+
+    `persistence.share_trend` needs MIN_YEARS of the window, not all of it, so a filer missing one
+    year is fine and one missing six is not. A flag that said only "gapped" would make a consumer
+    re-derive the number it already knows, and a consumer that re-derives a published fact is how
+    two definitions of the same thing start to drift.
+    """
+    ann = ([{"period_end": f"{y}-12-31", "shares_diluted": 1_000_000} for y in range(2016, 2023)]
+           + [{"period_end": f"{y}-12-31", "shares_outstanding": 1_000_000} for y in (2023, 2024, 2025)])
+    qtr = [{"period_end": "2026-06-30", "shares_diluted": 1_000_000}]
+
+    assert b.data_checks(ann, qtr, tags_used={"shares_diluted": DIL})["shares"] == "annual-gaps:3"
+
+
+def test_a_filer_with_NO_annual_rows_is_still_judged_on_its_quarters(b):
+    """The deliberate limit of the fix above, kept because it is the difference between a hole and
+    an absence. A company with no annual rows has no annual window to be gapped — the quarterly
+    count is not covering anything up, it is all there is. Every case in the table above is this
+    shape, which is why narrowing `ok` left them untouched.
+    """
+    assert b.data_checks([], [{"period_end": "2026-06-30", "shares_diluted": 1_000_000}],
+                         tags_used={"shares_diluted": DIL})["shares"] == "ok"
+
+
+def test_SHARE_WINDOW_is_the_window_the_consumer_actually_reads(b):
+    """`SEATS = 30` in miniature again. The point of this whole fix is that the flag answers the
+    READER's question, so the span it checks has to be the span the reader uses — ten years, the
+    same one every measure in `robinhood-book/claude/clean-slate.md` is built on and the same
+    reason `ANNUAL_YEARS` must be at least ten. If they drift apart the flag is answering its own
+    question again, which is exactly the defect it was just fixed for."""
+    assert b.SHARE_WINDOW == CONSUMER_MEASURE_WINDOW, (
+        f"SHARE_WINDOW={b.SHARE_WINDOW} but the consumer's measures read "
+        f"{CONSUMER_MEASURE_WINDOW} years")
+    assert b.ANNUAL_YEARS >= b.SHARE_WINDOW, (
+        "the file cannot report gaps across a window deeper than it publishes")
+
+
 def test_a_non_positive_count_is_caught_wherever_it_landed(b):
     """The zero/negative scan deliberately still reads the WHOLE history while the window above
     narrowed. A count of zero or less is a defect whenever it happened, and narrowing that scan
