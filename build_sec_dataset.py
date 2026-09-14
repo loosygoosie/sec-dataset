@@ -57,19 +57,36 @@ PATCH_CAP = 100                     # filings fetched per build
 PATCH_PER_COMPANY = 3               # a company missing several quarters needs them filled in order
 XBRLI = "http://www.xbrl.org/2003/instance"
 XSI_NIL = "{http://www.w3.org/2001/XMLSchema-instance}nil"
-# TWELVE, and it is derived rather than chosen. `robinhood-book/claude/clean-slate.md` makes every
-# measure a TEN-YEAR one — return on capital averaged, consistency of that return, cash conversion,
-# the retained-earnings test — because persistence through a cycle is the only honest substitute for
-# judging durability, which cannot be automated. Ten is therefore the consumer's window and this file
-# has to publish at least it. The extra two are headroom with a reason each: a company missing one
-# year stays measurable rather than dropping out of the universe entirely, and a ten-year figure can
-# be seen to MOVE between readings rather than only to exist.
+# THIS NUMBER HAS TWO JOBS AND IT WAS ONLY EVER ARGUED FOR ONE OF THEM. As a FLOOR it is derived:
+# `robinhood-book/claude/clean-slate.md` makes every measure a TEN-YEAR one — return on capital
+# averaged, consistency of that return, cash conversion, the retained-earnings test — because
+# persistence through a cycle is the only honest substitute for judging durability, which cannot be
+# automated. Ten is the consumer's window, this file must publish at least it, and two years of
+# headroom mean a company missing one year stays measurable and a ten-year figure can be seen to
+# MOVE between readings rather than only to exist. That argument is intact and is why it went 8 -> 12
+# on 13 Sep 2026.
 #
-# It was 8 until 13 Sep 2026, which predates that design and bounded nothing in particular. Raising a
-# cap cannot fabricate history: a filer whose companyfacts carries eight years still yields eight
-# rows. What it changes is that the ones carrying more stop being truncated below what the consumer
-# needs. `tests/test_normaliser.py` binds the relationship rather than the number.
-ANNUAL_YEARS = 12       # fiscal years of annual history to keep; >= the consumer's measure window
+# BUT IT IS ALSO A CEILING, because the truncation below is `[-ANNUAL_YEARS:]`, and nothing ever
+# argued for THAT. Set to 12 it silently threw away every year beyond the twelfth on every build.
+# What that costs was invisible until the consumer needed depth for something other than a single
+# reading: a ten-year measure formed over twelve years of history can be formed at ONE date, which
+# leaves about two and a half years of forward returns to test it against. That is not a backtest,
+# and `robinhood-book` #48 — the model is unvalidated — is blocked on it. Prices over there already
+# reach back to 2005.
+#
+# SO THE SOURCE DECIDES THE DEPTH NOW, NOT THIS FILE. XBRL annual reporting began with fiscal periods
+# ending after 15 June 2009 and phased in through 2011, and companyfacts also carries the comparative
+# years those first filings tagged, so the deepest filer reaches back somewhere around 2007. 25 is
+# above that by a margin, which is the whole intent: a filer yields what it has and this constant
+# stops being the binding constraint. It cannot fabricate history — a filer carrying eight years
+# still yields eight rows.
+#
+# AND IT CANNOT QUIETLY BECOME A CEILING AGAIN, because the test binds it against the calendar rather
+# than against a number somebody remembered to check: `tests/test_normaliser.py` fails if the cap
+# ever falls within reach of what the source could hold in the year the suite runs. That is the
+# ratchet this file was missing — the old test bound only the floor, so the ceiling could rot for
+# three years without anything saying so.
+ANNUAL_YEARS = 25       # fiscal years of annual history to keep; the SOURCE is meant to bind, not this
 QUARTERS = 12           # quarters of quarterly history to keep
 
 OUT_DIR = Path("data")
