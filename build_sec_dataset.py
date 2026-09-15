@@ -48,6 +48,32 @@ SP500_CSV_URL = "https://raw.githubusercontent.com/datasets/s-and-p-500-companie
 # real name and email and is sent to sec.gov and nowhere else, so this request uses its own
 # plain User-Agent rather than the HEADERS above.
 SP500_HEADERS = {"User-Agent": "sec-dataset build (+https://github.com/loosygoosie/sec-dataset)"}
+
+# HOW LONG A FILER STAYS IN THE DATASET AFTER IT STOPS FILING — the survivorship dial, and until
+# 15 Sep 2026 it was an unnamed `3` inline with the comment "drop filers silent for 3+ years".
+#
+# THAT ONE LINE IS WHY EVERY BACKTEST OVER THERE WAS WRONG. `robinhood-book` measured its book
+# against a universe assembled from this file, and the universe contained almost no company that had
+# died: 19 of 7,410 filers had stopped filing before 2021, 0.3%. Measured on 14 Sep 2026, that
+# universe beat RSP — an equal-weight basket of large US companies chosen WITHOUT knowing the future
+# — by 3.46pp/yr. Two equal-weight baskets of large US filers over identical months differ by three
+# and a half points a year because one of them was assembled knowing who would still be here.
+#
+# Every spread that repository has ever quoted against SPY or RSP carries that. The fix is not a new
+# data source: FMP prices delisted and failed companies, TWTR and SIVB both confirmed, but a company
+# that failed in 2018 has to EXIST IN THIS FILE before any price source can reach it.
+#
+# PUBLISH AND MARK RATHER THAN DROP, which is this file's own stated pattern — "who is in the S&P
+# 500, and what is held, is decided by the reader". A dead filer cannot be bought: it has no ticker,
+# so the consumer keys it on its CIK, and it has no price series, so nothing can rank or hold it.
+# Carrying it costs the live system nothing and is the only way the backtest can see the companies
+# that failed.
+PUBLISH_SILENT_YEARS = 15   # reaches 2011 — the XBRL mandate era, and every formation date the
+                            # as-filed record can support. Bounded rather than unlimited so the
+                            # repository does not grow without a reason anyone can state.
+ACTIVE_SILENT_YEARS = 3     # unchanged, and now a FLAG rather than a filter: `active` is false for
+                            # a filer that has not filed in this long. The old behaviour is exactly
+                            # `active is True`, so a reader wanting it has one field to test.
 SP500_MIN = 400         # a list shorter than this is a broken fetch, not a smaller index
 CIK_OVERRIDES_PATH = Path("data/cik_overrides.json")   # hand-maintained; the build reads it, never writes it
 FILING_INDEX = "https://www.sec.gov/Archives/edgar/data/{cik}/{acc_nodash}/{acc}-index.html"
@@ -360,6 +386,23 @@ def _years_ago(d: date, years: int) -> date:
         return d.replace(year=d.year - years)
     except ValueError:
         return d.replace(year=d.year - years, day=28)
+
+
+def universe_window(latest_filed: str, today: date) -> tuple[bool, bool]:
+    """Two separate decisions about one filer, both taken from its most recent filing date:
+    whether to PUBLISH it at all, and whether it is still ACTIVE.
+
+    They were one decision until 15 Sep 2026, and that is the bug. `latest_filed < 3 years ago`
+    meant `continue`, so a company that stopped filing — acquired, taken private, bankrupt — left
+    the dataset entirely a few years later. 19 of 7,410 filers had gone quiet before 2021, which is
+    not a plausible death rate for public companies over a decade; it is the shape of a universe
+    assembled knowing who would survive.
+
+    Separating them keeps this file's stated pattern: publish, mark, and let the reader decide. The
+    old behaviour is exactly the second element being true.
+    """
+    return (latest_filed >= _years_ago(today, PUBLISH_SILENT_YEARS).isoformat(),
+            latest_filed >= _years_ago(today, ACTIVE_SILENT_YEARS).isoformat())
 
 
 def _pick_latest(cands: list[dict], pick: str = "rank") -> dict | None:
@@ -1400,7 +1443,7 @@ def main() -> int:
     zpath = download(COMPANYFACTS_ZIP, WORK_DIR / "companyfacts.zip")
 
     print("3. normalise every filer")
-    cutoff = _years_ago(date.today(), 3).isoformat()   # drop filers silent for 3+ years
+    today = date.today()
     manifest, coverage, written, recon = {}, defaultdict(int), set(), defaultdict(int)
     tag_resolved: dict[str, int] = defaultdict(int)   # counts the TAG; `coverage` counts VALUES
     sics, sic_codes = load_sics()   # description and four-digit code per CIK, from the events build
@@ -1424,8 +1467,9 @@ def main() -> int:
             if not ann or not any(r.get("revenue") is not None or r.get("net_income") is not None for r in ann):
                 continue                                   # nothing an investor can read
             latest_filed = max([r.get("filed") or "" for r in ann + qtr] or [""])
-            if latest_filed < cutoff:
-                continue
+            publish, active = universe_window(latest_filed, today)
+            if not publish:
+                continue                                   # older than the XBRL era this can reach
             cik = int(facts.get("cik") or n[3:13])     # the CIK is in the file name; a few records omit the field
             checks = data_checks(ann, qtr, norm["tags_used"], norm.get("_top_line"))
             rec = {"cik": cik, "sec_name": facts.get("entityName"), "tickers": by_cik.get(cik, []),
@@ -1438,7 +1482,7 @@ def main() -> int:
             written.add(path.name)
             manifest[str(cik)] = {"name": facts.get("entityName"), "tickers": rec["tickers"],
                                   "sic": sics.get(str(cik)), "sic_code": sic_codes.get(str(cik)),
-                                  "latest_filed": latest_filed,
+                                  "latest_filed": latest_filed, "active": active,
                                   "fiscal_year_end": ann[-1].get("period_end"), "annual_rows": len(ann), "quarterly_rows": len(qtr),
                                   "latest_quarter_end": checks["latest_quarter_end"], "quarter_age_days": checks["quarter_age_days"],
                                   "reconciles": checks["reconciles"], "shares": checks["shares"],
@@ -1455,7 +1499,8 @@ def main() -> int:
             for k, n in norm["annual_coverage"].items():
                 if n: coverage[k] += 1
             n_kept += 1
-    print(f"  {n_kept} companies kept of {n_seen} filers")
+    n_inactive = sum(1 for v in manifest.values() if not v["active"])
+    print(f"  {n_kept} companies kept of {n_seen} filers ({n_inactive} no longer filing)")
     if n_kept < 3000:
         raise SystemExit(f"REFUSING TO WRITE — only {n_kept} companies normalised; the bulk file or the parser is broken")
 
@@ -1551,12 +1596,19 @@ def main() -> int:
     (OUT_DIR / "manifest.json").write_text(json.dumps({
         "generated_utc": generated, "sources": {"facts": COMPANYFACTS_ZIP, "cik_map": TICKER_MAP_URL},
         "concepts": {k: {"kind": v["kind"], "tags": v["tags"], "pick": v.get("pick", "rank")} for k, v in CONCEPTS.items()},
-        "counts": {"filers_scanned": n_seen, "companies": n_kept, "tickers": len(by_ticker)},
+        "counts": {"filers_scanned": n_seen, "companies": n_kept, "inactive": n_inactive,
+                   "tickers": len(by_ticker)},
         "coverage_by_item": dict(sorted(tag_resolved.items())),
         "values_by_item": dict(sorted(coverage.items())),
         "companies": manifest}, separators=(",", ":"), sort_keys=True))
     report = [f"# SEC dataset build — {generated}", "", f"- filers scanned: {n_seen}", f"- companies published: {n_kept}",
+              f"- of those, no longer filing (`active: false`): {n_inactive}",
               f"- tickers in map: {len(by_ticker)}", "",
+              f"A filer is published while it has filed within {PUBLISH_SILENT_YEARS} years and marked",
+              f"`active` while it has filed within {ACTIVE_SILENT_YEARS}. The second window was the first",
+              "until 15 Sep 2026, so a company that was acquired or failed left the dataset entirely and",
+              "every universe assembled from this file knew in advance who would survive. Inactive filers",
+              "carry no `sic` — the events build keeps 400 days and has already pruned them.", "",
               "## Coverage by line item (companies carrying a value in a published annual row)", "",
               "The question a consumer asks. A field can resolve a tag and still carry no figure in any",
               "of the eight years this file publishes — see the tag count below, and NOTES §18.", ""]

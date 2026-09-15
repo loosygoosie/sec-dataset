@@ -949,3 +949,67 @@ def test_the_basis_is_recorded_on_every_row_that_carries_a_total(b):
     assert all("total_debt_basis" in r for r in carrying)
     assert [r["total_debt_basis"] for r in carrying] == ["tagged", "components"], (
         "and the series switched basis partway, which is exactly what the flag exists to show")
+
+
+# --- the survivorship dial, named 15 Sep 2026 ----------------------------------------------------
+
+def test_the_two_silence_windows_are_NAMED_and_the_publish_one_reaches_the_XBRL_era(b):
+    """PUBLISH_SILENT_YEARS / ACTIVE_SILENT_YEARS. Until 15 Sep 2026 the first of these was an
+    unnamed `3` inline, with the comment "drop filers silent for 3+ years", and it was the entire
+    survivorship mechanism of both repositories.
+
+    IT IS WHY EVERY BACKTEST NEXT DOOR WAS WRONG. `robinhood-book` measures its book against a
+    universe assembled from this file, and that universe held almost no company that had died — 19
+    of 7,410 filers had stopped filing before 2021. Measured 14 Sep 2026, it beat RSP, an
+    equal-weight basket of large US companies chosen without knowing the future, by 3.46pp/yr. Two
+    equal-weight baskets of large US filers over identical months cannot differ by three and a half
+    points a year for any reason except that one of them knew who would survive.
+
+    The publish window must reach the XBRL mandate (2009-2011), because a formation date in 2017
+    needs companies that were filing then and may have died at any point since. A window that only
+    reaches back a few years reintroduces exactly the bias it was widened to remove.
+    """
+    assert b.PUBLISH_SILENT_YEARS >= 14, (
+        "the publish window no longer reaches the XBRL era, so filers that died mid-backtest are "
+        "dropped again and every spread measured against this universe is inflated")
+    assert b.ACTIVE_SILENT_YEARS == 3, "the definition of a live filer changed without a reason"
+    assert b.ACTIVE_SILENT_YEARS < b.PUBLISH_SILENT_YEARS, (
+        "a filer would be marked inactive only after it had already been dropped, which makes the "
+        "flag unreachable")
+
+
+def test_active_MARKS_rather_than_DROPS_so_the_reader_decides(b):
+    """This file's own stated pattern: "who is in the S&P 500, and what is held, is decided by the
+    reader". A dead filer cannot be bought — no ticker, so the consumer keys it on its CIK, and no
+    price series, so nothing can rank or hold it. Carrying it costs the live system nothing and is
+    the only way a backtest can see the companies that failed.
+
+    The old behaviour is exactly the ACTIVE leg, so a reader who wants it tests one field."""
+    today = date(2026, 9, 15)
+
+    # A filer that went quiet in 2018 — the case the old rule deleted outright.
+    publish, active = b.universe_window("2018-04-30", today)
+    assert publish, "a filer that died mid-backtest is dropped again, and every spread is inflated"
+    assert not active, "and it must still be distinguishable from one that is filing today"
+
+    # One filing this quarter.
+    assert b.universe_window("2026-08-01", today) == (True, True)
+
+    # Either side of the ACTIVE boundary, which is where the old cutoff sat.
+    assert b.universe_window("2023-09-16", today)[1] is True
+    assert b.universe_window("2023-09-14", today)[1] is False
+
+    # The publish window is still a window: pre-XBRL rows are not carried for ever.
+    assert b.universe_window("2005-06-30", today) == (False, False), (
+        "an unbounded dataset is a different change from a widened one, and is not what was decided")
+
+
+def test_publish_window_is_read_from_the_constant_not_a_second_copy(b):
+    """The two windows were one inline `3` until 15 Sep 2026. If either ever stops deriving from its
+    constant, raising the constant would silently do nothing — which is how the original went
+    unnoticed for as long as it did."""
+    today = date(2026, 9, 15)
+    boundary = date(today.year - b.PUBLISH_SILENT_YEARS, today.month, today.day).isoformat()
+
+    assert b.universe_window(boundary, today)[0] is True
+    assert b.universe_window(str(int(boundary[:4]) - 1) + boundary[4:], today)[0] is False
