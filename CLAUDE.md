@@ -151,3 +151,31 @@ and not yet read there: where a company's money actually goes (`capex`, `buyback
 dimension), and `data/events_recent.json`, the 90-day filing feed, which is proposed as the pre-buy
 event check and has never been read. Worth reading before deciding a field here is unused — it may
 be unused only so far.
+
+**THIS BUILD DECIDED WHO EXISTS, AND IT DECIDED IT KNOWING THE ANSWER.** One line — `cutoff =
+_years_ago(date.today(), 3)`, commented "drop filers silent for 3+ years" — deleted every company
+that stopped filing. Acquired, taken private, bankrupt: gone from the dataset a few years later,
+file and manifest entry both. Nothing here called that a universe decision, because from inside
+this repo it reads as housekeeping.
+
+It is not housekeeping. `robinhood-book` assembles its backtest universe from this file, and
+**19 of 7,410 filers had gone quiet before 2021** — which is not a death rate, it is the shape of a
+list drawn up after the fact. Measured 14 Sep 2026, an equal-weight book off this universe beat
+RSP — an equal-weight basket of large US companies picked without knowing the future — by
+**3.46pp/yr**. Two equal-weight baskets of large US filers over identical months cannot differ by
+three and a half points a year for any reason except that one of them knew who would survive. Every
+spread that repository has quoted against SPY or RSP carries it.
+
+**Fixed 15 Sep 2026 by splitting one decision into two**, which is this file's own stated pattern —
+"who is in the S&P 500, and what is held, is decided by the reader". `universe_window()` returns
+both: `PUBLISH_SILENT_YEARS = 15` reaches the XBRL mandate era and decides whether a filer is
+written at all; `ACTIVE_SILENT_YEARS = 3` is the old number, now a manifest flag rather than a
+filter. **The old behaviour is exactly `active is True`** — a reader who wants live filers only
+tests one field. A dead filer has no ticker, so the consumer keys it on its CIK, and no price
+series, so nothing can rank or hold it; carrying it costs the live system nothing.
+
+Two consequences worth knowing before reading the next build. **Inactive filers carry `sic: null`**
+— SIC comes from the events build, which keeps 400 days and has already pruned them; that is a real
+coverage hole for `robinhood-book` #79. And **`data/` grows**: 246 MB was the count under the
+three-year cutoff. Nothing here has measured what fifteen years costs, because that number does not
+exist until a build runs.
