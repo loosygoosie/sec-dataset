@@ -1,9 +1,9 @@
-# SEC dataset build — 2026-09-15T03:55:58Z
+# SEC dataset build — 2026-09-20T06:19:25Z
 
-- filers scanned: 20359
-- companies published: 14608
+- filers scanned: 20390
+- companies published: 14609
 - of those, no longer filing (`active: false`): 7199
-- tickers in map: 10422
+- tickers in map: 10438
 
 A filer is published while it has filed within 15 years and marked
 `active` while it has filed within 3. The second window was the first
@@ -17,59 +17,59 @@ The question a consumer asks. A field can resolve a tag and still carry no figur
 of the eight years this file publishes — see the tag count below, and NOTES §18.
 
 - acquisition_cost_amort: 220
-- acquisitions: 5648
-- buybacks: 5937
-- capex: 11040
-- cash: 13142
+- acquisitions: 5649
+- buybacks: 5938
+- capex: 11041
+- cash: 13143
 - claims_incurred: 245
 - credit_loss_provision: 1442
-- current_assets: 11153
-- current_liabilities: 11112
-- d_and_a: 11890
-- debt_current: 5336
-- debt_due_1y: 4687
-- debt_due_2y: 4726
-- debt_due_3y: 4589
+- current_assets: 11154
+- current_liabilities: 11113
+- d_and_a: 11891
+- debt_current: 5339
+- debt_due_1y: 4688
+- debt_due_2y: 4727
+- debt_due_3y: 4590
 - deposits: 1490
 - dividends_paid: 4347
 - eps_diluted: 9674
-- goodwill: 6416
-- gross_profit: 6455
-- impairments: 7951
-- income_tax: 11435
-- intangibles: 5793
-- interest_expense: 10902
+- goodwill: 6417
+- gross_profit: 6457
+- impairments: 7952
+- income_tax: 11437
+- intangibles: 5794
+- interest_expense: 10903
 - interest_income: 1998
-- inventory: 5877
+- inventory: 5878
 - loan_loss_allowance: 1253
 - loans: 1903
 - loss_reserves: 278
-- lt_debt_noncurrent: 4828
-- net_income: 14577
-- net_income_incl_nci: 8297
-- net_income_parent: 14443
+- lt_debt_noncurrent: 4830
+- net_income: 14578
+- net_income_incl_nci: 8298
+- net_income_parent: 14444
 - net_interest_income: 3203
-- operating_cash_flow: 14460
-- operating_income: 11813
-- operating_leases: 6210
+- operating_cash_flow: 14461
+- operating_income: 11814
+- operating_leases: 6211
 - pension_funded_status: 723
 - premiums_earned: 249
-- pretax_income: 11502
+- pretax_income: 11503
 - rd_expense: 5358
-- receivables: 8096
-- retained_earnings: 12678
-- revenue: 12037
-- sga_expense: 4511
+- receivables: 8097
+- retained_earnings: 12679
+- revenue: 12038
+- sga_expense: 4512
 - shares_diluted: 12559
 - shares_outstanding: 11463
-- stock_comp: 10966
+- stock_comp: 10967
 - tier1_capital_ratio: 553
-- total_assets: 13649
-- total_debt: 9591
-- total_equity: 13230
-- total_equity_incl_nci: 5808
-- total_equity_parent: 13041
-- total_liabilities: 12173
+- total_assets: 13650
+- total_debt: 9593
+- total_equity: 13231
+- total_equity_incl_nci: 5810
+- total_equity_parent: 13042
+- total_liabilities: 12175
 
 ## Tag resolved anywhere in the filing history
 
@@ -77,82 +77,82 @@ The older count, under a name that says what it measures. A company that tagged 
 in 2012 and stopped is counted here and not above.
 
 - acquisition_cost_amort: 244
-- acquisitions: 6185
-- buybacks: 6442
-- capex: 11413
-- cash: 14087
+- acquisitions: 6186
+- buybacks: 6443
+- capex: 11414
+- cash: 14088
 - claims_incurred: 256
 - credit_loss_provision: 1612
-- current_assets: 12047
-- current_liabilities: 12012
-- d_and_a: 12130
-- debt_current: 5909
-- debt_due_1y: 5187
-- debt_due_2y: 5242
-- debt_due_3y: 5087
+- current_assets: 12048
+- current_liabilities: 12013
+- d_and_a: 12132
+- debt_current: 5912
+- debt_due_1y: 5189
+- debt_due_2y: 5244
+- debt_due_3y: 5089
 - deposits: 1800
 - dividends_paid: 4621
 - eps_diluted: 10578
-- goodwill: 7019
-- gross_profit: 6964
-- impairments: 8461
-- income_tax: 11901
-- intangibles: 6424
-- interest_expense: 11419
+- goodwill: 7021
+- gross_profit: 6965
+- impairments: 8462
+- income_tax: 11903
+- intangibles: 6428
+- interest_expense: 11421
 - interest_income: 2209
-- inventory: 6531
+- inventory: 6532
 - loan_loss_allowance: 1396
 - loans: 2135
 - loss_reserves: 293
-- lt_debt_noncurrent: 5308
-- net_income: 14597
-- net_income_incl_nci: 9328
-- net_income_parent: 14502
+- lt_debt_noncurrent: 5311
+- net_income: 14598
+- net_income_incl_nci: 9330
+- net_income_parent: 14503
 - net_interest_income: 3753
-- operating_cash_flow: 14504
-- operating_income: 12058
-- operating_leases: 7093
+- operating_cash_flow: 14505
+- operating_income: 12059
+- operating_leases: 7094
 - pension_funded_status: 781
 - premiums_earned: 257
-- pretax_income: 11901
+- pretax_income: 11903
 - rd_expense: 5533
-- receivables: 9116
-- retained_earnings: 13584
-- revenue: 12433
-- sga_expense: 4840
-- shares_diluted: 13191
+- receivables: 9117
+- retained_earnings: 13585
+- revenue: 12434
+- sga_expense: 4841
+- shares_diluted: 13192
 - shares_outstanding: 13599
-- stock_comp: 11325
+- stock_comp: 11326
 - tier1_capital_ratio: 575
-- total_assets: 14543
-- total_debt: 10041
-- total_equity: 14133
-- total_equity_incl_nci: 6465
-- total_equity_parent: 13931
-- total_liabilities: 13025
+- total_assets: 14544
+- total_debt: 10043
+- total_equity: 14134
+- total_equity_incl_nci: 6468
+- total_equity_parent: 13932
+- total_liabilities: 13027
 
 ## Self-check: four quarters sum to the fiscal year (revenue, net income, operating cash flow, capex)
 
-- ok: 13161
-- off (one or more items miss by >3%): 154
-- n/a (no fiscal year with four quarters on file): 1293
+- ok: 13162
+- off (one or more items miss by >3%): 155
+- n/a (no fiscal year with four quarters on file): 1292
 
 Readers treat an `off` company, or one whose latest quarter is more than 150 days old (a 10-K may lawfully take 90 days; anything older means the structured feed is behind the filing), as unmeasured on its quarterly metrics.
 
 ## Share counts (added 8 Sep 2026)
 
-- diluted count on file: 9222
+- diluted count on file: 9224
 - basic count only: 330
 - cover-page count only: 653
 - none (multi-class filers tag by class; companyfacts drops dimensioned facts): 965
-- **invalid (a share count of zero or less somewhere in the file): 898**
+- **invalid (a share count of zero or less somewhere in the file): 897**
 
 A reader does not drop a name on a per-share test it cannot run; `shares` in the manifest says which case applies.
 
 ## Share scale (added 9 Sep 2026)
 
-- consistent: 11223
-- **suspect: 2529** (`scale` — a diluted count more than fifty times its own outstanding count, or less than a fiftieth; `levels` — the quarterly series steps between levels more than once, so no per-share figure spans it)
+- consistent: 11222
+- **suspect: 2531** (`scale` — a diluted count more than fifty times its own outstanding count, or less than a fiftieth; `levels` — the quarterly series steps between levels more than once, so no per-share figure spans it)
 - no share data at all: 856
 
 `share_scale` says whether a company's share counts can all be true at once. It is not a reason to drop a name — it says the per-share metrics for that company are unmeasured. Both the flag and `shares` are in the manifest, so a reader need not open 7,411 company files to screen on them.
@@ -163,8 +163,8 @@ A reader does not drop a name on a per-share test it cannot run; `shares` in the
 
 ## Stale-name fallback
 
-- companies whose companyfacts quarterly series was behind their own filings: 216
-- of those, patched from the filing's own XBRL this run: 73 (cap 100 filings)
+- companies whose companyfacts quarterly series was behind their own filings: 205
+- of those, patched from the filing's own XBRL this run: 72 (cap 100 filings)
 
 A quarterly row carrying `"source": "filing"` was derived from the filing's own XBRL instance,
 through the same tag map, picking rules and year-to-date differencing as every other row. A row
@@ -174,7 +174,7 @@ companyfacts are added; the prior-year comparatives a filing also carries are le
 ## S&P 500 constituents
 
 - source: https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv
-- snapshot date: 2026-09-15
+- snapshot date: 2026-09-20
 - constituents: 503
 - resolved to a CIK via the SEC ticker map: 503
 - unmatched (no CIK in the SEC ticker map): none
