@@ -1,18 +1,18 @@
-# SEC filing text build — 2026-09-13T08:01:49Z
+# SEC filing text build — 2026-09-20T08:02:39Z
 
 - companies in scope (S&P 500): 503
 - companies with stored filing text: 487
-- fetched this run: 14 (already current: 488)
-- written this run: 2
+- fetched this run: 12 (already current: 490)
+- written this run: 0
 - dropped this run (parsed to nothing, stale file removed): 0
 
 ## Sections found, of the filings fetched this run
 
-- item1: 2
-- item1a: 2
-- item3: 2
-- item7: 2
-- item7a: 2
+- item1: 0
+- item1a: 0
+- item3: 0
+- item7: 0
+- item7a: 0
 
 ## Left without text this run
 
