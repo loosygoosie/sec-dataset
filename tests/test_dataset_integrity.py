@@ -36,10 +36,32 @@ def _derived(rec):
 
 def test_no_year_to_date_derived_row_carries_a_negative_share_count(dataset):
     """The defect itself: the fiscal-year quarter was FY minus nine months of a weighted
-    average, which came out at roughly minus twice the real count on 479 of 500 constituents."""
-    offenders = [(rec["cik"], r["period_end"], item, r[item])
-                 for rec in dataset for r in _derived(rec) for item in SHARE_ITEMS
-                 if (r.get(item) or 0) < 0]
+    average, which came out at roughly minus twice the real count on 479 of 500 constituents.
+
+    WHAT IT MUST NOT CATCH, found 22 Sep 2026. Once the build began publishing filers silent for up
+    to fifteen years, three dead shells arrived that tagged their EPS as the weighted-average share
+    count at source (DIGITAL CREATIVE DEVELOPMENT, VRDT, CEPHAS HOLDING: -0.01, -0.03/-0.12, -1.17).
+    A share count is non-additive and is never differenced any more, so on a row labelled
+    "derived from YTD" (the label comes from the row's flow items) the count is the fiscal year's
+    own figure taken as filed. That is the flag-not-fix case `test_a_bad_share_count_is_always_
+    flagged_invalid` exists for, and every one of those files says `invalid:shares_diluted`.
+
+    The two are told apart by the arithmetic, not by a tolerance: FY minus nine months can never
+    equal the annual row's own figure, while a value taken as filed is identical to it. So a
+    negative is excused ONLY when the same period's annual row carries exactly that value AND the
+    file is flagged invalid. A return of the derivation bug fails this at once, on thousands of rows."""
+    offenders = []
+    for rec in dataset:
+        annual = {(r.get("period_end"), item): r.get(item) for r in rec["annual"] for item in SHARE_ITEMS}
+        flagged = (rec.get("checks", {}).get("shares") or "").startswith("invalid")
+        for r in _derived(rec):
+            for item in SHARE_ITEMS:
+                v = r.get(item)
+                if (v or 0) >= 0:
+                    continue
+                as_filed = annual.get((r["period_end"], item)) == v
+                if not (as_filed and flagged):
+                    offenders.append((rec["cik"], r["period_end"], item, v))
 
     assert offenders == [], f"{len(offenders)} derived rows carry a negative share count: {offenders[:5]}"
 

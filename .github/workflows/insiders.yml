@@ -1,0 +1,68 @@
+name: Build SEC insiders feed (Form 4 purchases and sales)
+
+on:
+  schedule:
+    # Every day 03:30 UTC: after EDGAR's 22:00 ET cutoff, half an hour after the events
+    # build so the two commits rarely race (the push step below rebases if they do).
+    - cron: "30 3 * * *"
+  workflow_dispatch:
+    inputs:
+      lookback_days:
+        description: "Weekdays of the daily index to scan (nightly default 5)"
+        default: "5"
+        required: false
+      max_filings:
+        description: "Form 4s to read this run (the rest are read next run)"
+        default: "20000"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sec-insiders
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependency
+        run: pip install --quiet requests
+
+      - name: Refuse an empty script
+        run: test -s build_sec_insiders.py || { echo "build_sec_insiders.py is empty"; exit 1; }
+
+      - name: Build insiders feed
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          LOOKBACK_DAYS: ${{ inputs.lookback_days || '5' }}
+          MAX_FILINGS: ${{ inputs.max_filings || '20000' }}
+        run: python build_sec_insiders.py
+
+      - name: Show report
+        run: cat data/insiders_report.md
+
+      - name: Commit results
+        run: |
+          git config user.name  "sec-dataset-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A data/
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -q -m "SEC insiders $(date -u +%Y-%m-%d) [skip ci]"
+            git push origin "HEAD:$GITHUB_REF_NAME" || {
+              echo "push rejected - remote moved; rebasing onto it and retrying"
+              git fetch --unshallow origin "$GITHUB_REF_NAME" 2>/dev/null || git fetch origin "$GITHUB_REF_NAME"
+              git rebase "origin/$GITHUB_REF_NAME"
+              git push origin "HEAD:$GITHUB_REF_NAME"
+            }
+          fi

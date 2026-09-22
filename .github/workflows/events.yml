@@ -12,6 +12,14 @@ on:
         description: "Weekdays of the daily index to scan (nightly default 5; 65 backfills ~90 calendar days)"
         default: "5"
         required: false
+      history_since:
+        description: "Backfill events_history/ back to this date (YYYY-MM-DD); blank = no backfill"
+        default: ""
+        required: false
+      backfill_all:
+        description: "Refresh every filer in the manifest, not just the daily index (true/false)"
+        default: "false"
+        required: false
 
 permissions:
   contents: write
@@ -23,7 +31,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    # 60 covers the nightly run; a full backfill (every filer, older submission pages) needs more
+    timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
 
@@ -42,6 +51,8 @@ jobs:
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
           LOOKBACK_DAYS: ${{ inputs.lookback_days || '5' }}
+          HISTORY_SINCE: ${{ inputs.history_since || '' }}
+          BACKFILL_ALL: ${{ inputs.backfill_all || 'false' }}
         run: python build_sec_events.py
 
       - name: Show report
