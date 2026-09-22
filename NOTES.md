@@ -830,3 +830,23 @@ a switch:
 
 **Not proposed and not started.** Recorded so the next reader does not re-derive "unreachable" as
 "does not exist", and so the Berkshire floor correction is not lost.
+
+---
+
+## Negative share counts from dead shells, tagged wrong at source  ✅ TEST CORRECTED 22 Sep 2026
+
+The first build publishing filers silent for up to fifteen years brought in three shells that
+tagged their EPS as the weighted-average diluted share count: DIGITAL CREATIVE DEVELOPMENT (cik
+1016951, -0.01), VRDT (1399480, -0.03 and -0.12), CEPHAS HOLDING (1061169, -1.17), FY2010-2012.
+`tests/test_dataset_integrity.py::test_no_year_to_date_derived_row_carries_a_negative_share_count`
+went red on them.
+
+**Not a builder bug.** Share counts are non-additive and never differenced; the "derived from YTD"
+label on those rows comes from their flow items. Each value is identical to the same fiscal year's
+annual row, i.e. taken as filed, and every one of the three files already says
+`shares: invalid:shares_diluted`, which is this repo's flag-not-fix policy (item 1 above,
+`test_a_bad_share_count_is_always_flagged_invalid`).
+
+The test now excuses a negative only when the annual row for the same period carries exactly that
+value AND the file is flagged invalid. FY minus nine months can never equal the annual figure, so a
+return of the original derivation bug still fails it on thousands of rows.
