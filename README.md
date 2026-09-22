@@ -40,7 +40,15 @@ into `data/sp500.json` as a convenience, and the filing-text build scopes itself
 
    The nightly events job additionally writes `events/<CIK>.json` (400 days of that filer's
    8-K / 10-K / 10-Q with item codes and exhibit links), `events_recent.json` (the last 90
-   days across every filer — the file a monitor reads) and `events_report.md`.
+   days across every filer — the file a monitor reads) and `events_report.md`. Alongside it,
+   `events_history/<CIK>.json` keeps the same records with nothing aged out, so the filing
+   history grows every night instead of rolling off after 400 days.
+
+   The nightly insiders job (`build_sec_insiders.py`, `.github/workflows/insiders.yml`, 03:30
+   UTC) reads every Form 4 and keeps insiders' open-market purchases (P) and sales (S):
+   `insiders/<ISSUER CIK>.json` (every such trade seen for that company, never pruned),
+   `insiders_recent.json` (the last 90 days across every company) and `insiders_report.md`
+   (counts, and the companies where two or more directors/officers bought in the last 30 days).
 
 ### The payload key in each file, because guessing it fails silently
 
@@ -54,6 +62,9 @@ them carrying material item codes.
 | file | reach through | holds |
 |---|---|---|
 | `events_recent.json` | **`rows`** | every filing in the window, each with `cik` (an INTEGER), `date`, `form`, `items`, `exhibits`, `url` |
+| `insiders_recent.json` | **`rows`** | every P/S trade filed in the window, each with `cik` (an INTEGER), `ticker`, `code`, `date`, `filed`, `shares`, `price`, `value`, `owned_after`, `roles`, `title`, `owner` |
+| `events_history/<cik>.json` | **`events`** | the same rows as `events/<cik>.json`, never pruned |
+| `insiders/<cik>.json` | **`trades`** | that company's P/S trades, newest filing first |
 | `sp500.json` | **`companies`** | one row per constituent, with `ticker` and `cik` |
 | `manifest.json` | **`companies`** | one row per company, keyed by CIK **as a STRING** |
 | `tickers.json` | — | already a flat map of ticker to `{cik, ...}` |
@@ -76,6 +87,9 @@ https://raw.githubusercontent.com/USER/REPO/main/data/sp500.json
 https://raw.githubusercontent.com/USER/REPO/main/data/companies/<CIK>.json
 https://raw.githubusercontent.com/USER/REPO/main/data/events_recent.json
 https://raw.githubusercontent.com/USER/REPO/main/data/events/<CIK>.json
+https://raw.githubusercontent.com/USER/REPO/main/data/events_history/<CIK>.json
+https://raw.githubusercontent.com/USER/REPO/main/data/insiders_recent.json
+https://raw.githubusercontent.com/USER/REPO/main/data/insiders/<CIK>.json
 ```
 
 These work only while the repository is public. A private repo needs an authenticated
