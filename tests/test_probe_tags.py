@@ -9,7 +9,7 @@ about one it does.
 import re
 
 import pytest
-from conftest import doc, fy_fact, usd
+from conftest import doc, fact, fy_fact, usd
 
 import probe_tags as P
 
@@ -100,3 +100,37 @@ def test_the_probe_never_writes():
     src = (P.__file__ and open(P.__file__).read())
     for forbidden in ("write_text(", "json.dump(", "mkdir(", '"w"', "'w'"):
         assert forbidden not in src, f"probe_tags.py contains {forbidden} — it must only read"
+
+
+# --- `--show`, 23 Sep 2026: a verification reads the fields the NEXT build would publish ----------
+
+def test_show_prints_what_the_builder_would_publish(monkeypatch, capsys):
+    """The spot-check route for new fields. It must go through `normalise_company` itself — a probe
+    re-implementing the debt or share rules would check a copy of them, not them."""
+    _fake_source(monkeypatch, {
+        "Revenues": usd(fy_fact(50_000_000_000, "2026-07-25")),
+        "LongTermDebt": usd(fact(22_900_000_000, "2026-07-25")),
+        "DebtCurrent": usd(fact(10_161_000_000, "2026-07-25")),
+        "LongTermDebtNoncurrent": usd(fact(19_372_000_000, "2026-07-25")),
+    }, None)
+    P.probe(["ZZZ"], SBC, None, show=True)
+    out = capsys.readouterr().out
+    assert "total_debt " in out and "29,533,000,000" in out
+    assert "components_exceed_tagged" in out
+    assert "splits: []" in out
+
+
+def test_show_is_off_unless_asked(monkeypatch, capsys):
+    _fake_source(monkeypatch, {"Revenues": usd(fy_fact(1, "2026-07-25"))}, None)
+    P.probe(["ZZZ"], SBC, None)
+    assert "splits:" not in capsys.readouterr().out
+
+
+def test_a_ticker_outside_the_index_is_still_found(tmp_path, monkeypatch):
+    """The verification that asked for this was about small caps (Winmark, Red Violet); a probe
+    limited to the S&P 500 list skipped every one of them."""
+    (tmp_path / "tickers.json").write_text('{"WINA": {"cik": 908315, "name": "Winmark"}}')
+    (tmp_path / "sp500.json").write_text('{"companies": [{"ticker": "AAPL", "cik": 320193}]}')
+    monkeypatch.setattr(P, "TICKERS_PATH", tmp_path / "tickers.json")
+    monkeypatch.setattr(P, "SP500_PATH", tmp_path / "sp500.json")
+    assert P.ticker_map() == {"WINA": 908315, "AAPL": 320193}

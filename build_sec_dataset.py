@@ -79,7 +79,18 @@ CIK_OVERRIDES_PATH = Path("data/cik_overrides.json")   # hand-maintained; the bu
 FILING_INDEX = "https://www.sec.gov/Archives/edgar/data/{cik}/{acc_nodash}/{acc}-index.html"
 EVENTS_DIR = Path("data/events")    # written by build_sec_events.py; read here to spot a filing the bulk file has not caught up with
 STALE_DAYS = 150                    # the tolerance REPORT.md tells readers to apply
-PATCH_CAP = 100                     # filings fetched per build
+# FRESHNESS, 23 Sep 2026. The cap was 100 and it BOUND: the 20 Sep build found 205 companies behind
+# their own filings and patched 72 (Rambus's June-quarter 10-Q, filed 28 Jul, was among the ones it
+# never reached). That build's whole patch pass — 100 filings, two requests each at the ~8/s the
+# SEC allows — finished inside the ~50 s between the end of normalising and the end of the run, and
+# the build took 7 minutes of a 120-minute budget. So the cap goes to 600 (~5 min at that rate),
+# and PATCH_SECONDS stops the pass outright long before the budget, whatever the SEC's speed that day.
+PATCH_CAP = 600                     # filings fetched per build
+PATCH_SECONDS = 40 * 60             # and never more than this much wall-clock on them
+# A filing counts as NEWER only when its period ends this far past the last quarter held. A
+# 52/53-week filer's quarter ends a few days off the calendar date the events feed may carry
+# (Apple's 2026-06-27 against 2026-06-30) — that is the same quarter, not a missing one.
+PATCH_MIN_GAP_DAYS = 45
 PATCH_PER_COMPANY = 3               # a company missing several quarters needs them filled in order
 XBRLI = "http://www.xbrl.org/2003/instance"
 XSI_NIL = "{http://www.w3.org/2001/XMLSchema-instance}nil"
@@ -188,6 +199,20 @@ CONCEPTS: dict[str, dict] = {
         "PaymentsForCapitalImprovements",
         "PaymentsToAcquireOtherPropertyPlantAndEquipment",
     ]},
+    # CAPITALISED SOFTWARE, added 23 Sep 2026, as its OWN field and deliberately not folded into
+    # `capex`: a software-heavy company's real reinvestment runs through this line (ADP $468m a
+    # year; Paylocity, InterDigital, Red Violet, Winmark), and folding it in would change what
+    # `capex` means for every reader already subtracting it. A reader wanting total reinvestment
+    # subtracts both. `PaymentsForSoftware` is the total; developing and acquiring are its two
+    # halves, summed where the filer tags both and no total (the `components` rule).
+    "capitalized_software": {"kind": "flow", "components": (
+        "PaymentsToDevelopSoftware",
+        "PaymentsToAcquireSoftware",
+    ), "tags": [
+        "PaymentsForSoftware",
+        "PaymentsToDevelopSoftware",
+        "PaymentsToAcquireSoftware",
+    ]},
     "stock_comp": {"kind": "flow", "tags": [
         "ShareBasedCompensation",
         "AllocatedShareBasedCompensationExpense",
@@ -241,6 +266,65 @@ CONCEPTS: dict[str, dict] = {
         "LongTermDebtAndCapitalLeaseObligationsCurrent",
         "LongTermDebtAndFinanceLeasesCurrent",
     ]},
+    # --- added 23 Sep 2026: the pieces of debt `total_debt` kept missing -------------------------
+    #
+    # A verification of ~360 companies against their own filings found `total_debt` 0 or absent
+    # (SLB, LH, DIS, CAT) or short by a whole line (Cisco's $6.7bn of commercial paper, PepsiCo's
+    # short-term borrowings, the current portions at ATR/RPM/MRSH). `debt_current` could not carry
+    # the difference because its FIRST tag is `LongTermDebtCurrent` — the current portion of
+    # long-term debt only — so a filer tagging both that and the full `DebtCurrent` line has the
+    # narrower one stored. Cisco's FY2026 10-K: LongTermDebtCurrent 3.500bn, DebtCurrent 10.161bn
+    # (of which commercial paper 6.661bn). `debt_current` keeps its meaning; these say which piece
+    # is which, so `derive_total_debt` can add them up without counting anything twice.
+    "lt_debt_current": {"kind": "instant", "tags": [              # current portion of LONG-TERM debt only
+        "LongTermDebtCurrent",
+        "LongTermDebtAndCapitalLeaseObligationsCurrent",
+        "LongTermDebtAndFinanceLeasesCurrent",
+    ]},
+    "debt_current_total": {"kind": "instant", "tags": ["DebtCurrent"]},   # ALL current debt: short-term borrowings + current portion
+    "short_term_borrowings": {"kind": "instant", "tags": [        # borrowings due within a year, EXCLUDING the current portion of LTD
+        "ShortTermBorrowings",
+        "ShortTermBankLoansAndNotesPayable",
+        "OtherShortTermBorrowings",
+    ]},
+    "commercial_paper": {"kind": "instant", "tags": ["CommercialPaper"]},   # usually a PART of short_term_borrowings
+    # Finance leases are debt in all but name, but the aggregate debt tags disagree about including
+    # them (`DebtAndCapitalLeaseObligations` does, `LongTermDebt` does not), so they are published
+    # beside `total_debt` rather than folded into it. The total where tagged, else current plus
+    # non-current summed, else whichever half the filer tagged.
+    "finance_lease_liabilities": {"kind": "instant", "components": (
+        "FinanceLeaseLiabilityCurrent",
+        "FinanceLeaseLiabilityNoncurrent",
+    ), "tags": [
+        "FinanceLeaseLiability",
+        "FinanceLeaseLiabilityNoncurrent",
+        "FinanceLeaseLiabilityCurrent",
+    ]},
+    # --- added 23 Sep 2026: investments beside cash ----------------------------------------------
+    # `cash` is cash and equivalents only, so a company holding most of its liquidity in marketable
+    # securities read tens of billions short of its real net cash (Adobe, Southern Copper, Applied
+    # Materials, Penumbra, Monster, Intuitive Surgical, Amazon). Ranked: the balance-sheet line
+    # first, then the securities-by-kind tags a filer uses when it tags no line total.
+    "short_term_investments": {"kind": "instant", "tags": [
+        "ShortTermInvestments",
+        "MarketableSecuritiesCurrent",
+        "AvailableForSaleSecuritiesDebtSecuritiesCurrent",
+        "AvailableForSaleSecuritiesCurrent",
+        "HeldToMaturitySecuritiesCurrent",
+        "OtherShortTermInvestments",
+    ]},
+    # MARKETABLE securities first. `LongTermInvestments` is last because it can hold equity-method
+    # stakes and strategic holdings that are not liquid — a reader treating this as cash should
+    # know which it may be reading, and `tags_used` says.
+    "long_term_investments": {"kind": "instant", "tags": [
+        "MarketableSecuritiesNoncurrent",
+        "AvailableForSaleSecuritiesDebtSecuritiesNoncurrent",
+        "AvailableForSaleSecuritiesNoncurrent",
+        "HeldToMaturitySecuritiesNoncurrent",
+        "LongTermInvestments",
+    ]},
+    # The combined line, for a filer that tags only it: short-term investments are then this less `cash`.
+    "cash_and_short_term_investments": {"kind": "instant", "tags": ["CashCashEquivalentsAndShortTermInvestments"]},
     "total_assets": {"kind": "instant", "tags": ["Assets"]},
     "total_equity": {"kind": "instant", "tags": [
         "StockholdersEquity",
@@ -751,6 +835,8 @@ def normalise_company(facts: dict) -> dict:
     out_q: dict[str, dict] = defaultdict(dict)
     tags_used: dict[str, str | None] = {}
     fy_end_dates: dict[int, str] = {}
+    debt_cands: dict[str, dict[str, list[dict]]] = {}
+    q_share_facts: dict[str, dict] = {}
 
     for name, spec in CONCEPTS.items():
         series, tag = extract_series(facts, spec["tags"], spec.get("unit"))
@@ -803,9 +889,32 @@ def normalise_company(facts: dict) -> dict:
                 if c.get("end"):
                     by_end[c["end"]].append(c)
             instant_cands[name] = by_end
+        # The debt pieces' candidates too, so a total BUILT from them can carry what the year's own
+        # report said (`total_debt_as_filed`) on the same basis as the value. Kept apart from
+        # `instant_cands` because these items are not themselves published as-filed.
+        if kind == "instant" and name in DEBT_BUILD_ITEMS:
+            d_by_end: dict[str, list[dict]] = defaultdict(list)
+            for c in series:
+                if c.get("end"):
+                    d_by_end[c["end"]].append(c)
+            debt_cands[name] = d_by_end
 
         # quarterly (true 3-month values)
         q = quarterly_rows(series, kind, pick, spec.get("additive", True))
+        # The same parts-without-a-whole rule for a BALANCE-SHEET concept (23 Sep 2026, for
+        # `finance_lease_liabilities`). An instant reaches the annual row through these period-end
+        # values, so summing here covers both series. Same candidate forms as `quarterly_rows`.
+        if comp_ranks and kind == "instant":
+            by_end_c: dict[str, list[dict]] = defaultdict(list)
+            for c in series:
+                if c.get("form") in ("10-Q", "10-Q/A", "10-K", "10-K/A") and c.get("end") in q:
+                    by_end_c[c["end"]].append(c)
+            for end, cands in by_end_c.items():
+                summed = component_sum(cands, comp_ranks)
+                if summed is not None:
+                    q[end] = dict(q[end], val=summed)
+        if name == "shares_diluted":
+            q_share_facts = q                 # the picked fact per quarter, WITH its filing date
         for end, f in q.items():
             out_q[end][name] = f["val"]
             out_q[end].setdefault("_form", f.get("form") + (" (derived from YTD)" if f.get("_derived") else ""))
@@ -851,9 +960,17 @@ def normalise_company(facts: dict) -> dict:
     # percent under one built from a total. A consumer comparing companies across the two bases
     # should know it is doing so, and `components_partial` marks the weaker case again: only one
     # side of the balance sheet resolved, so the sum is a FLOOR on total debt rather than a total.
+    #
+    # WIDENED 23 Sep 2026 (see `derive_total_debt`): the pieces now include short-term borrowings,
+    # commercial paper and the full current-debt line, a tagged aggregate that is plainly SHORT of
+    # its own pieces is replaced rather than kept, and quarterly rows get the same treatment —
+    # the latest quarter's balance sheet is what a valuation reads.
     for row in out_annual.values():
-        derive_total_debt(row)
+        end = row.get("_end")
+        derive_total_debt(row, as_filed_debt_parts(debt_cands, end) if end else None)
         mark_restatements(row)
+    for row in out_q.values():
+        derive_total_debt(row)
 
     # Every concept is on the row by now, so the top line can be checked against its own income.
     top_line = sorted({fy for fy, row in out_annual.items()
@@ -873,8 +990,15 @@ def normalise_company(facts: dict) -> dict:
     # this file whatever `tags_used` says. Computed on the TRUNCATED list, because that is what
     # the file publishes.
     coverage = {name: sum(1 for r in annual if r.get(name) is not None) for name in CONCEPTS}
+    # SHARE COUNTS A READER CAN USE ACROSS A SPLIT (23 Sep 2026). Nothing above changes: every
+    # as-filed value and its filing date stay exactly as they were. What is ADDED is a filled count
+    # (`shares_diluted_filled`, saying where it came from) and that count put on the basis of the
+    # newest filing (`shares_diluted_adj`), from the splits this file's own share counts reveal.
+    splits = detect_splits(facts)
+    attach_share_counts(facts, annual, quarterly, q_share_facts)
+    apply_split_adjustment(annual + quarterly, splits)
     return {"annual": annual, "quarterly": quarterly, "tags_used": tags_used,
-            "annual_coverage": coverage, "_top_line": top_line}
+            "annual_coverage": coverage, "_top_line": top_line, "splits": splits}
 
 
 # A SPLIT IS NOT A RESTATEMENT, and this set is the whole reason the detection below is not just
@@ -948,29 +1072,371 @@ def mark_restatements(row: dict) -> None:
         row["restated"] = sorted(found)
 
 
-DEBT_COMPONENTS = ("debt_current", "lt_debt_noncurrent")
+DEBT_COMPONENTS = ("debt_current", "lt_debt_noncurrent")   # the original pair; kept for readers of this name
+# Every balance-sheet piece the build below reads. Each is its own published field, so a reader
+# can always redo the sum and see which piece moved it.
+DEBT_BUILD_ITEMS = ("lt_debt_noncurrent", "lt_debt_current", "debt_current_total",
+                    "short_term_borrowings", "commercial_paper")
+# How far a tagged aggregate may sit below its own pieces before it is treated as a PART of the
+# debt rather than the whole of it. Rounding (Cisco tags `LongTermDebt` 22.9bn at -8 decimals
+# beside 22.872bn of pieces) must not flip a row's basis; a missing line — Cisco's 6.7bn of
+# commercial paper, SLB's zero — is far outside it.
+DEBT_REPAIR_TOL = 0.02
 
 
-def derive_total_debt(row: dict) -> None:
-    """Fill `total_debt` from its components when no aggregate tag resolved, and say which.
+def debt_build(vals: dict) -> tuple[float | None, bool]:
+    """Total debt added up from its balance-sheet pieces, WITHOUT counting any piece twice.
+
+    Returns (total, both_sides) — `both_sides` False when only the current or only the non-current
+    side resolved, in which case the total is a FLOOR.
+
+    The pieces overlap, and the rules are what keep them from being double-counted:
+      short-term     the LARGER of `short_term_borrowings` and `commercial_paper`, never the sum —
+                     commercial paper is usually a part of short-term borrowings, and where it is
+                     not, the larger is still a floor.
+      current side   the LARGER of `debt_current_total` (`DebtCurrent`, which already includes
+                     short-term borrowings) and `lt_debt_current` + short-term — again never both.
+      non-current    `lt_debt_noncurrent`, which by definition excludes the current portion.
+    Finance leases are left out on purpose: they are `finance_lease_liabilities`, and some
+    non-current tags already include them.
+    """
+    st_parts = [vals[k] for k in ("short_term_borrowings", "commercial_paper") if vals.get(k) is not None]
+    st = max(st_parts) if st_parts else None
+    cur_opts = []
+    if vals.get("debt_current_total") is not None:
+        cur_opts.append(vals["debt_current_total"])
+    if vals.get("lt_debt_current") is not None or st is not None:
+        cur_opts.append((vals.get("lt_debt_current") or 0) + (st or 0))
+    current = max(cur_opts) if cur_opts else None
+    nonc = vals.get("lt_debt_noncurrent")
+    if current is None and nonc is None:
+        return None, False
+    return (current or 0) + (nonc or 0), (current is not None and nonc is not None)
+
+
+def as_filed_debt_parts(debt_cands: dict, end: str) -> dict[str, tuple]:
+    """{piece: (as-filed value, its filing date, restated?)} at one balance-sheet date, picked with
+    the same two selectors the as-filed record uses everywhere else. `restated` follows
+    `record_as_filed`'s rule: the SAME tag reporting a different value later, never a tag switch."""
+    out = {}
+    for name in DEBT_BUILD_ITEMS:
+        cands = (debt_cands.get(name) or {}).get(end)
+        if not cands:
+            continue
+        af, latest = _pick_as_filed(cands), _pick_latest(cands, CONCEPTS[name].get("pick", "rank"))
+        if af is None or af.get("val") is None:
+            continue
+        restated = (latest is not None and af.get("_rank") == latest.get("_rank")
+                    and latest.get("val") != af.get("val"))
+        out[name] = (af["val"], af.get("filed") or None, restated)
+    return out
+
+
+def derive_total_debt(row: dict, af_parts: dict | None = None) -> None:
+    """Make `total_debt` the whole of a company's borrowings, and say how it was reached.
 
     Mutates the row. Sets `total_debt_basis` to one of:
 
-        tagged               an aggregate tag resolved; the value is untouched
-        components           both components resolved and were summed
-        components_partial   one component resolved; the sum is a FLOOR on total debt
+        tagged                    an aggregate tag resolved and its pieces do not exceed it; untouched
+        components                no aggregate; both the current and non-current side resolved and were summed
+        components_partial        no aggregate; one side resolved; the sum is a FLOOR on total debt
+        components_exceed_tagged  an aggregate resolved but its own pieces add up to MORE than it by
+                                  over DEBT_REPAIR_TOL — the tag was a part of the debt (a credit line,
+                                  long-term debt without the commercial paper, a zero). The pieces win,
+                                  and the tagged figure is kept as `total_debt_tagged`.
 
-    and leaves both keys absent when neither an aggregate nor any component resolved, which is the
+    and leaves both keys absent when neither an aggregate nor any piece resolved, which is the
     only case where a reader should still conclude nothing about this company's borrowings.
+
+    WHY THE LAST CASE EXISTS (23 Sep 2026). `total_debt` has always been the LARGEST of its
+    candidate tags (`pick: max`) because filers tag a small line beside the real one. The sum of
+    the balance-sheet pieces is one more candidate for that same max, and until now it was only
+    consulted when no tag resolved at all. So SLB (a `DebtInstrumentCarryingAmount` of 0 beside
+    $11.1bn of long-term debt) and Disney read ZERO debt, Eversource $0.4bn of $29.1bn, P&G $5.3bn
+    of $29.3bn, and Cisco $23.0bn where its balance sheet shows $29.5bn. Measured on the 20 Sep
+    build before the change: ~5% of rows with pieces on file sit >2% above their tagged figure. A
+    row whose aggregate is at least its pieces is never touched, so Marriott's rule still holds.
+
+    `af_parts` (annual rows) carries the pieces' as-filed values. Where the pieces decide the
+    value, `total_debt_as_filed` is rebuilt from THEM, so the point-in-time figure sits on the same
+    basis as the current one — the aggregate's as-filed value would describe a different number.
+    Its `_filed` date is the LATEST of the pieces used: the date by which the whole figure existed.
     """
-    if row.get("total_debt") is not None:
-        row["total_debt_basis"] = "tagged"
+    build, both_sides = debt_build(row)
+    tagged = row.get("total_debt")
+    if tagged is not None:
+        if build is None or build <= tagged * (1 + DEBT_REPAIR_TOL):
+            row["total_debt_basis"] = "tagged"
+            return
+        row["total_debt_tagged"] = tagged
+        row["total_debt"] = build
+        row["total_debt_basis"] = "components_exceed_tagged"
+    else:
+        if build is None:
+            return
+        row["total_debt"] = build
+        row["total_debt_basis"] = "components" if both_sides else "components_partial"
+    if af_parts is None:
         return
-    present = [row[k] for k in DEBT_COMPONENTS if row.get(k) is not None]
-    if not present:
+    # the aggregate's as-filed pair and restatement claim described the tagged number; replace both
+    row.pop("total_debt_as_filed", None)
+    row.pop("total_debt_as_filed_filed", None)
+    if isinstance(row.get("_restated"), set):
+        row["_restated"].discard("total_debt")
+    af, _ = debt_build({k: v[0] for k, v in af_parts.items()})
+    if af is None:
         return
-    row["total_debt"] = sum(present)
-    row["total_debt_basis"] = "components" if len(present) == len(DEBT_COMPONENTS) else "components_partial"
+    row["total_debt_as_filed"] = af
+    row["total_debt_as_filed_filed"] = max((v[1] for v in af_parts.values() if v[1]), default=None)
+    if any(v[2] for v in af_parts.values()):
+        row.setdefault("_restated", set()).add("total_debt")
+
+
+# --------------------------------------------------------------------------
+# Stock splits and a share count on one basis (23 Sep 2026)
+# --------------------------------------------------------------------------
+# A split re-denominates every count filed after it (ASC 260), so a file's share series mixes
+# bases: BKNG's quarters read 33m and 800m, NFLX's 434m and 4,344m, TPL's steps twice. The README
+# contract — multiply by k(filed date) from a price source — is still right and still the only
+# rule that needs nothing from here. This adds the other route: the file finds its own splits
+# and publishes a count already on the NEWEST filing's basis.
+#
+# THE EVIDENCE IS A RESTATEMENT OF THE SAME PERIOD. A filing after a split reprints its
+# comparatives on the new basis, so one weighted-average count for one period, filed twice, differs
+# by exactly the split ratio. That is positive evidence (NOTES §9 proposed exactly this), unlike an
+# adjacent-period jump, which issuance, a merger or a mis-scaled tag can also produce.
+SPLIT_RATIOS = (1.5, 2, 2.5, 3, 4, 5, 6, 7, 8, 10, 12, 15, 20, 25, 30, 40, 50)
+SPLIT_TOL = 0.03          # a restated weighted average lands within a percent or two of the exact ratio
+COVER_TOL = 0.10          # cover counts also move with buybacks and issuance between filings
+SPLIT_COUNT_TAGS = ("WeightedAverageNumberOfDilutedSharesOutstanding",
+                    "WeightedAverageNumberOfSharesOutstandingBasic",
+                    "WeightedAverageNumberOfShareOutstandingBasicAndDiluted")
+SPLIT_RATIO_TAG = "StockholdersEquityNoteStockSplitConversionRatio1"
+COVER_TAG = "dei:EntityCommonStockSharesOutstanding"
+BASIC_TAG = "WeightedAverageNumberOfSharesOutstandingBasic"
+
+
+def _clean_ratio(r: float) -> float | None:
+    """The split ratio `r` is (new shares per old share), or None when it is not near one. A reverse
+    split comes back below 1 (a 1-for-10 is 0.1)."""
+    if not r or r <= 0:
+        return None
+    for c in SPLIT_RATIOS:
+        if abs(r / c - 1) <= SPLIT_TOL:
+            return float(c)
+        if abs(r * c - 1) <= SPLIT_TOL:
+            return 1.0 / c
+    return None
+
+
+def _num(v) -> bool:
+    return isinstance(v, (int, float)) and not isinstance(v, bool)
+
+
+def detect_splits(facts: dict) -> list[dict]:
+    """Every split the company's own share counts reveal, oldest first:
+
+        {"date": first filing seen on the NEW basis (the split is on or before it),
+         "after": last filing seen on the OLD basis (the split is after it),
+         "ratio": new shares per old share, "evidence": how many (tag, period) restatements show it,
+         "cover": the cover-page count jumps by the ratio inside the window,
+         "xbrl": the filer tagged this ratio in StockholdersEquityNoteStockSplitConversionRatio1,
+         "applied": True}
+
+    An event needs two restated (tag, period) pairs, or one plus a cover-page jump or the XBRL ratio,
+    so one mis-scaled restatement cannot invent a split. Two splits seen at once (a period reported
+    before the first and next after the second: TPL's 3 x 3 = 9) are recognised as that, not as a
+    third split. A ratio the filer TAGGED but no count yet shows — a split after the newest filing —
+    is listed with `applied: False`: this file cannot say which of its counts it re-denominates.
+    """
+    series, _ = extract_series(facts, list(SPLIT_COUNT_TAGS), "shares")
+    groups: dict[tuple, dict[str, set]] = defaultdict(dict)
+    for f in series:
+        if not f.get("start") or not f.get("filed") or not _num(f.get("val")) or f["val"] <= 0:
+            continue
+        groups[(f.get("_rank"), f["start"], f["end"])].setdefault(f["filed"], set()).add(f["val"])
+    evidence = []
+    for key, by_filed in groups.items():
+        seq = [(d, next(iter(v))) for d, v in sorted(by_filed.items()) if len(v) == 1]
+        for (d0, v0), (d1, v1) in zip(seq, seq[1:]):
+            r = _clean_ratio(v1 / v0)
+            if r is not None:
+                evidence.append({"ratio": r, "after": d0, "date": d1, "key": key})
+
+    events: list[dict] = []
+    for e in sorted(evidence, key=lambda e: (_days(e["after"], e["date"]), e["date"])):
+        overlap = [ev for ev in events if ev["after"] < e["date"] and e["after"] < ev["date"]]
+        same = [ev for ev in overlap if abs(ev["ratio"] / e["ratio"] - 1) < 1e-9]
+        if same:
+            ev = same[0]
+            ev["after"], ev["date"] = max(ev["after"], e["after"]), min(ev["date"], e["date"])
+            ev["_keys"].add(e["key"])
+            continue
+        if len(overlap) >= 2 and abs(math.prod(ev["ratio"] for ev in overlap) / e["ratio"] - 1) <= SPLIT_TOL:
+            continue                                  # several splits seen across one long gap
+        if overlap:
+            continue                                  # contradicts an event already found; not trusted
+        events.append({"ratio": e["ratio"], "after": e["after"], "date": e["date"], "_keys": {e["key"]}})
+
+    covers, _ = extract_series(facts, [COVER_TAG], "shares")
+    by_filed: dict[str, set] = defaultdict(set)
+    for f in covers:
+        if f.get("filed") and _num(f.get("val")) and f["val"] > 0:
+            by_filed[f["filed"]].add(f["val"])
+    cov = [(d, next(iter(v))) for d, v in sorted(by_filed.items()) if len(v) == 1]
+    for (d0, v0), (d1, v1) in zip(cov, cov[1:]):
+        for ev in events:
+            if abs((v1 / v0) / ev["ratio"] - 1) <= COVER_TOL and d0 < ev["date"] and ev["after"] < d1:
+                ev["after"], ev["date"] = max(ev["after"], d0), min(ev["date"], d1)
+                ev["cover"] = True
+
+    tagged, _ = extract_series(facts, [SPLIT_RATIO_TAG], "pure")
+    tagged_first: dict[float, str] = {}
+    for f in tagged:
+        r = _clean_ratio(f.get("val")) if _num(f.get("val")) else None
+        if r is not None and f.get("filed"):
+            tagged_first[r] = min(tagged_first.get(r, f["filed"]), f["filed"])
+    for ev in events:
+        if any(abs(r / ev["ratio"] - 1) < 1e-9 or abs(r * ev["ratio"] - 1) < 1e-9 for r in tagged_first):
+            ev["xbrl"] = True
+
+    kept = [ev for ev in events if len(ev["_keys"]) >= 2 or ev.get("cover") or ev.get("xbrl")]
+    out = [{"date": ev["date"], "after": ev["after"], "ratio": _ratio_out(ev["ratio"]),
+            "evidence": len(ev["_keys"]), "cover": bool(ev.get("cover")), "xbrl": bool(ev.get("xbrl")),
+            "applied": True} for ev in kept]
+    newest = max([d for d, _ in cov] + [d for g in groups.values() for d in g], default="")
+    for r, first in tagged_first.items():
+        seen = any(abs(r / ev["ratio"] - 1) < 1e-9 or abs(r * ev["ratio"] - 1) < 1e-9 for ev in kept)
+        if not seen and newest and first >= _shift(newest, -400):
+            out.append({"date": first, "after": None, "ratio": _ratio_out(r), "evidence": 0,
+                        "cover": False, "xbrl": True, "applied": False})
+    return sorted(out, key=lambda s: s["date"])
+
+
+def _ratio_out(r: float):
+    return int(r) if float(r).is_integer() else round(r, 6)
+
+
+def _shift(d: str, days: int) -> str:
+    return (date.fromisoformat(d) + timedelta(days=days)).isoformat()
+
+
+def split_factor(filed: str | None, splits: list[dict]) -> float | None:
+    """What a count filed on `filed` must be multiplied by to sit on the newest filing's basis.
+    None when a split's window straddles that date, so which basis the count is on is unknown."""
+    if not filed:
+        return None
+    k = 1.0
+    for s in splits:
+        if not s.get("applied"):
+            continue
+        if filed <= s["after"]:
+            k *= s["ratio"]
+        elif filed < s["date"]:
+            return None
+    return k
+
+
+def _cover_points(facts: dict) -> list[tuple[str, float, str]]:
+    """(end, value, filed) of every undimensioned cover-page count, latest filing per date."""
+    covers, _ = extract_series(facts, [COVER_TAG], "shares")
+    best: dict[str, dict] = {}
+    for f in covers:
+        if f.get("end") and _num(f.get("val")) and f["val"] > 0:
+            if f["end"] not in best or _filed_key(f) > _filed_key(best[f["end"]]):
+                best[f["end"]] = f
+    return sorted((e, f["val"], f.get("filed")) for e, f in best.items())
+
+
+def _share_reference(period_end: str, covers: list, outstanding) -> float | None:
+    """The scale a diluted count should be near: the MEDIAN cover-page count within two years
+    (robust to one mis-scaled cover), else the row's own outstanding count."""
+    near = sorted(v for e, v, _ in covers if abs(_days(period_end, e)) <= 730)
+    if near:
+        return near[len(near) // 2]
+    return outstanding if _num(outstanding) and outstanding > 0 else None
+
+
+def _plausible(v, ref) -> bool:
+    return _num(v) and v > 0 and (ref is None or ref / SCALE_RATIO <= v <= ref * SCALE_RATIO)
+
+
+def fill_share_count(row: dict, dil: tuple | None, basic: tuple | None, covers: list) -> None:
+    """`shares_diluted_filled`: the row's diluted count where it is usable, else the next best, with
+    `shares_diluted_filled_source` saying which and `shares_diluted_filled_filed` the filing date
+    (the split basis) of the value used:
+
+        shares_diluted   the row's own `shares_diluted`, unchanged
+        basic            weighted-average BASIC count for the same period
+        cover            the cover-page count (dei:EntityCommonStockSharesOutstanding) of the filing
+                         that reported the period — a point-in-time count, not an average
+        outstanding      the row's balance-sheet `shares_outstanding`
+
+    "Usable" means positive and within SCALE_RATIO of the company's own cover-page counts: McDonald's
+    tags 716.4 for 716 million, and a fallback that accepted that would publish a count a million
+    times too small under a fallback flag. `shares_diluted` itself is never altered, and a row with
+    nothing usable carries none of the three keys — absent, never zero.
+    """
+    pe = row.get("period_end")
+    if not pe:
+        return
+    ref = _share_reference(pe, covers, row.get("shares_outstanding"))
+    for source, cand in (("shares_diluted", dil), ("basic", basic)):
+        if cand and _plausible(cand[0], ref):
+            row["shares_diluted_filled"], row["shares_diluted_filled_filed"] = cand[0], cand[1]
+            row["shares_diluted_filled_source"] = source
+            return
+    own = [(e, v, d) for e, v, d in covers if 0 <= _days(pe, e) <= 120]
+    if own:
+        e, v, d = own[0]
+        row["shares_diluted_filled"], row["shares_diluted_filled_filed"] = v, d
+        row["shares_diluted_filled_source"] = "cover"
+        return
+    so = row.get("shares_outstanding")
+    if _num(so) and so > 0:
+        row["shares_diluted_filled"], row["shares_diluted_filled_filed"] = so, row.get("filed")
+        row["shares_diluted_filled_source"] = "outstanding"
+
+
+def attach_share_counts(facts: dict, annual: list[dict], quarterly: list[dict],
+                        q_dil: dict[str, dict]) -> None:
+    """Run `fill_share_count` over every published row, with each candidate's own filing date."""
+    covers = _cover_points(facts)
+    basic_series, _ = extract_series(facts, [BASIC_TAG], "shares")
+    b_groups: dict[int, list[dict]] = {}
+    annual_rows(basic_series, "flow", "rank", b_groups)
+    b_q = quarterly_rows(basic_series, "flow", "rank", additive=False) if basic_series else {}
+    for r in annual:
+        pe = r.get("period_end")
+        dil = ((r["shares_diluted"], r.get("shares_diluted_filed"))
+               if r.get("shares_diluted") is not None else None)
+        same = [c for c in (b_groups.get(r.get("fiscal_year")) or []) if c.get("end") == pe]
+        bf = _pick_latest(same) if same else None
+        fill_share_count(r, dil, (bf["val"], bf.get("filed")) if bf else None, covers)
+    for r in quarterly:
+        pe = r.get("period_end")
+        df, bf = q_dil.get(pe), b_q.get(pe)
+        dil = (df["val"], df.get("filed")) if df and r.get("shares_diluted") is not None else None
+        fill_share_count(r, dil, (bf["val"], bf.get("filed")) if bf else None, covers)
+
+
+def apply_split_adjustment(rows: list[dict], splits: list[dict]) -> None:
+    """`shares_diluted_adj` = `shares_diluted_filled` on the newest filing's basis. Absent where the
+    filled count is absent or its filing date falls inside a split's uncertainty window.
+
+    "Newest filing" is the limit worth stating: a split AFTER the last filing this file holds is in
+    no count here and cannot be applied (Monster's and Amphenol's 2026 splits until their next 10-Q).
+    Recomputed from the rows alone, so the patch path can re-run it when a new filing reveals a split.
+    """
+    for r in rows:
+        r.pop("shares_diluted_adj", None)
+        v, filed = r.get("shares_diluted_filled"), r.get("shares_diluted_filled_filed")
+        if v is None:
+            continue
+        k = split_factor(filed, splits)
+        if k is not None:
+            adj = v * k
+            r["shares_diluted_adj"] = int(adj) if float(adj).is_integer() else round(adj, 3)
 
 
 # The annual window `checks.shares` reports gaps across. TEN, for the same reason ANNUAL_YEARS is
@@ -1245,16 +1711,29 @@ def filing_instance_url(cik: int, accession: str) -> str | None:
     return None
 
 
+def _later_quarter(period: str, lq: str) -> bool:
+    try:
+        return _days(lq, period) >= PATCH_MIN_GAP_DAYS
+    except ValueError:
+        return False
+
+
 def patch_targets(manifest: dict, priority: set[int]) -> list[tuple[int, list[dict]]]:
     """Companies whose companyfacts quarterly series has fallen behind a filing the events feed
-    already knows about: stale beyond STALE_DAYS, with a 10-Q or 10-K on file for a period later
-    than the last quarter we hold. Filings come back oldest first, because deriving a quarter from
+    already knows about: a 10-Q or 10-K on file for a quarter later than the last one we hold.
+
+    NO AGE GATE SINCE 23 Sep 2026. It used to require the newest quarter to be over STALE_DAYS
+    old, so a company whose 10-Q landed in the days before a build but after companyfacts was
+    assembled — Adobe's August quarter, filed 22 Sep — waited a whole extra week at best, and
+    indefinitely if companyfacts stayed behind while the quarter was still under 150 days old.
+    Being behind your own filing is the condition; how old the last quarter is was only ever a
+    proxy for it. PATCH_MIN_GAP_DAYS is what keeps a same-quarter date mismatch out. Filings come back oldest first, because deriving a quarter from
     a year-to-date figure needs the earlier quarters of that year to exist. S&P 500 constituents
     are served first, then the most stale, so a capped run spends its budget where it is read."""
     out: list[tuple[int, list[dict]]] = []
     for cik_s, v in manifest.items():
-        age, lq = v.get("quarter_age_days"), v.get("latest_quarter_end")
-        if age is None or age <= STALE_DAYS or not lq:
+        lq = v.get("latest_quarter_end")
+        if not lq:
             continue
         p = EVENTS_DIR / f"{cik_s}.json"
         if not p.exists():
@@ -1264,7 +1743,7 @@ def patch_targets(manifest: dict, priority: set[int]) -> list[tuple[int, list[di
         except Exception:  # noqa: BLE001
             continue
         newer = [e for e in evs if str(e.get("form", "")).startswith(("10-Q", "10-K"))
-                 and e.get("period") and e["period"] > lq and e.get("accession")]
+                 and e.get("period") and e.get("accession") and _later_quarter(e["period"], lq)]
         if not newer:
             continue
         newer.sort(key=lambda e: e["period"])
@@ -1474,7 +1953,8 @@ def main() -> int:
             checks = data_checks(ann, qtr, norm["tags_used"], norm.get("_top_line"))
             rec = {"cik": cik, "sec_name": facts.get("entityName"), "tickers": by_cik.get(cik, []),
                    "annual": ann, "quarterly": qtr, "tags_used": norm["tags_used"],
-                   "annual_coverage": norm["annual_coverage"], "checks": checks}
+                   "annual_coverage": norm["annual_coverage"], "splits": norm["splits"],
+                   "checks": checks}
             path = comp_dir / f"{cik}.json"
             body = json.dumps(rec, separators=(",", ":"), sort_keys=True)
             if not path.exists() or path.read_text() != body:      # unchanged files stay untouched -> small commits
@@ -1488,6 +1968,9 @@ def main() -> int:
                                   "reconciles": checks["reconciles"], "shares": checks["shares"],
                                   "share_scale": checks["share_scale"]}
             recon[checks["reconciles"].split(":")[0]] += 1
+            recon["debt:" + str(ann[-1].get("total_debt_basis"))] += 1
+            if any(sp.get("applied") for sp in norm["splits"]):
+                recon["splits"] += 1
             recon["shares:" + checks["shares"].split(":")[0]] += 1
             recon["share_scale:" + checks["share_scale"].split(":")[0]] += 1
             for k, v in norm["tags_used"].items():
@@ -1526,9 +2009,10 @@ def main() -> int:
     targets = patch_targets(manifest, {c["cik"] for c in (sp500 or {}).get("companies", [])})
     print(f"  {len(targets)} companies are behind their own filings; budget {PATCH_CAP} filings")
     budget = PATCH_CAP
+    patch_t0 = time.time()
     with zipfile.ZipFile(zpath) as z:
         for cik, filings in targets:
-            if budget <= 0:
+            if budget <= 0 or time.time() - patch_t0 > PATCH_SECONDS:
                 break
             path = comp_dir / f"{cik}.json"
             try:
@@ -1567,6 +2051,12 @@ def main() -> int:
             for r in fresh:
                 r["source"] = "filing"                # absent on a row means it came from companyfacts
             rec["quarterly"] = sorted(rec["quarterly"] + fresh, key=lambda r: r["period_end"])[-QUARTERS:]
+            # The new filing may be the first on a new split basis (a 10-Q reprinting its
+            # comparatives after a split is exactly the evidence `detect_splits` reads), so the
+            # splits and every row's basis-adjusted count are redone from the merged facts. Only
+            # the derived `shares_diluted_adj` moves; no as-filed or reported value is touched.
+            rec["splits"] = norm["splits"]
+            apply_split_adjustment(rec["annual"] + rec["quarterly"], rec["splits"])
             # Every counter the checks feed has to move, not just reconciles: patching a company
             # with figures read from its filing can change its shares flag too, and REPORT.md's
             # shares tallies were counting the pre-patch value for all 71 patched companies.
@@ -1638,6 +2128,16 @@ def main() -> int:
                "and `shares` are in the manifest, so a reader need not open 7,411 company files to screen on them.",
                "", "## Items added 8 Sep 2026", "",
                "`current_assets`, `current_liabilities` (current ratio); `operating_leases` (beside `total_debt`; the gate treatment is a rule decision); `receivables`, `inventory`, `total_liabilities` (working-capital quality); `acquisitions`, `goodwill`, `intangibles`, `impairments`; `rd_expense`, `sga_expense`; `pension_funded_status`; `debt_due_1y/2y/3y`; bank items `net_interest_income`, `interest_income`, `deposits`, `loans`, `credit_loss_provision`, `loan_loss_allowance`, `tier1_capital_ratio` (thin — tagged by regulatory entity, which companyfacts drops); insurer items `premiums_earned`, `claims_incurred`, `acquisition_cost_amort`, `loss_reserves`. Segment revenue and per-class share data are dimensioned facts and cannot come from this file; the business briefs carry segments in words. Coverage per item is listed above — an item with low coverage is a tag most filers do not use, not a bug."]
+    report += ["", "## Items added 23 Sep 2026", "",
+               "`short_term_investments`, `long_term_investments`, `cash_and_short_term_investments` (net cash beyond `cash`); "
+               "`lt_debt_current`, `debt_current_total`, `short_term_borrowings`, `commercial_paper`, `finance_lease_liabilities` "
+               "(the pieces `total_debt` is now built from, never counting one twice — `total_debt_basis` "
+               "`components_exceed_tagged` marks a tagged total that was short of its own pieces, kept as `total_debt_tagged`); "
+               "`capitalized_software` (its own field, not in `capex`); per company `splits`, and per row "
+               "`shares_diluted_filled` / `_source` / `_filed` and `shares_diluted_adj` (on the newest filing's basis). "
+               "No existing key changed meaning; every as-filed value is untouched.",
+               f"- rows where the pieces exceeded the tagged total: {recon.get('debt:components_exceed_tagged', 0)} companies (latest annual row)",
+               f"- companies with at least one split found in their own share counts: {recon.get('splits', 0)}"]
     report += ["", "## Stale-name fallback", "",
                f"- companies whose companyfacts quarterly series was behind their own filings: {len(targets)}",
                f"- of those, patched from the filing's own XBRL this run: {len(patched)} (cap {PATCH_CAP} filings)",

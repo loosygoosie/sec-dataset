@@ -37,6 +37,7 @@ import build_sec_dataset as B
 
 COMPANYFACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json"
 SP500_PATH = Path("data/sp500.json")
+TICKERS_PATH = Path("data/tickers.json")
 COMPANIES_DIR = Path("data/companies")
 
 
@@ -81,8 +82,42 @@ def resolved_for(cik: int, field: str | None) -> str | None | bool:
 
 
 def ticker_map() -> dict[str, int]:
-    sp = json.loads(SP500_PATH.read_text())
-    return {c["ticker"]: c["cik"] for c in sp.get("companies", [])}
+    """The S&P 500 list first, then the SEC's whole ticker map, so a verification can reach the
+    small companies it is usually about (Winmark, Red Violet) and not only the index."""
+    out: dict[str, int] = {}
+    if TICKERS_PATH.is_file():
+        out.update({t: v["cik"] for t, v in json.loads(TICKERS_PATH.read_text()).items()
+                    if isinstance(v, dict) and v.get("cik")})
+    if SP500_PATH.is_file():
+        out.update({c["ticker"]: c["cik"] for c in json.loads(SP500_PATH.read_text()).get("companies", [])})
+    return out
+
+
+# What `--show` prints: the valuation fields a verification compares against the filing itself.
+SHOW_FIELDS = (
+    "cash", "short_term_investments", "long_term_investments", "cash_and_short_term_investments",
+    "total_debt", "total_debt_basis", "total_debt_tagged", "lt_debt_noncurrent", "lt_debt_current",
+    "debt_current_total", "short_term_borrowings", "commercial_paper", "finance_lease_liabilities",
+    "capex", "capitalized_software", "shares_diluted", "shares_diluted_filed",
+    "shares_diluted_filled", "shares_diluted_filled_source", "shares_diluted_filled_filed",
+    "shares_diluted_adj",
+)
+
+
+def show_lines(norm: dict, n_quarters: int = 2) -> list[str]:
+    """The newest annual row and the newest quarters, as the build would publish them, plus the
+    splits. Run through the builder's own `normalise_company` — so what this prints is what the
+    next build writes for this company, read from the same source."""
+    out = []
+    rows = [("A", r) for r in norm["annual"][-1:]] + [("Q", r) for r in norm["quarterly"][-n_quarters:]]
+    for kind, r in rows:
+        out.append(f"  {kind} {r.get('period_end')} (filed {r.get('filed')})")
+        for k in SHOW_FIELDS:
+            if r.get(k) is not None:
+                v = r[k]
+                out.append(f"      {k:<32s} {v:,}" if isinstance(v, (int, float)) else f"      {k:<32s} {v}")
+    out.append(f"  splits: {json.dumps(norm.get('splits') or [])}")
+    return out
 
 
 def line(h: dict, mark: str) -> str:
@@ -94,7 +129,7 @@ def line(h: dict, mark: str) -> str:
             f"FY{h['fy_first']}-{h['fy_last']}  latest {h['latest_end']} {val}  [{mark}]")
 
 
-def probe(tickers: list[str], pattern: re.Pattern, field: str | None) -> int:
+def probe(tickers: list[str], pattern: re.Pattern, field: str | None, show: bool = False) -> int:
     """Print one block per company. Returns the number of BUILDER BUGS found, which is the exit
     code: a tag listed, carrying facts, and resolved to nothing is not a reporting matter."""
     ciks, bugs = ticker_map(), 0
@@ -104,7 +139,7 @@ def probe(tickers: list[str], pattern: re.Pattern, field: str | None) -> int:
     for tk in tickers:
         cik = ciks.get(tk)
         if cik is None:
-            print(f"{tk}: not in data/sp500.json — skipped\n")
+            print(f"{tk}: not in data/tickers.json or data/sp500.json — skipped\n")
             continue
         facts = B.get(COMPANYFACTS_URL.format(cik=cik)).json()
         hits = matching_tags(facts, pattern)
@@ -124,6 +159,8 @@ def probe(tickers: list[str], pattern: re.Pattern, field: str | None) -> int:
                 bugs += 1
                 print("      ^^ BUILDER BUG: this tag is listed and carries facts, and the build"
                       " resolved nothing for this field. Stop and report it (CLAUDE.md).")
+        if show:
+            print("\n".join(show_lines(B.normalise_company(facts))))
         print()
     return bugs
 
@@ -133,11 +170,13 @@ def main() -> int:
     ap.add_argument("--pattern", required=True, help="regex matched against us-gaap tag names")
     ap.add_argument("--tickers", required=True, help="comma-separated, e.g. XOM,VZ,MO")
     ap.add_argument("--field", help="a CONCEPTS field, to mark which hits are already listed")
+    ap.add_argument("--show", action="store_true",
+                    help="also print the valuation fields the builder would publish for each company")
     a = ap.parse_args()
     tickers = [t.strip().upper() for t in a.tickers.split(",") if t.strip()]
     if not tickers:
         raise SystemExit("--tickers matched nothing")
-    bugs = probe(tickers, re.compile(a.pattern, re.I), a.field)
+    bugs = probe(tickers, re.compile(a.pattern, re.I), a.field, a.show)
     if bugs:
         print(f"{bugs} builder bug(s) found — see above.")
     return 1 if bugs else 0

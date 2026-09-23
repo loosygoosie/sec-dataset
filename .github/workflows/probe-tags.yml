@@ -22,6 +22,10 @@ on:
         description: "Optional CONCEPTS field (e.g. stock_comp) — marks which hits are already listed"
         required: false
         default: ""
+      show:
+        description: "yes = also print the valuation fields the builder would publish (debt, investments, shares, splits)"
+        required: false
+        default: "no"
 
 permissions:
   contents: read          # it publishes nothing; the answer is the log
@@ -50,15 +54,15 @@ jobs:
       - name: Probe
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
-          # The three inputs go through the environment, never interpolated into the command line:
+          # The inputs go through the environment, never interpolated into the command line:
           # ${{ inputs.x }} pasted into a run: block is executed by the shell, and these are
           # free text typed at dispatch time.
           PATTERN: ${{ inputs.pattern }}
           TICKERS: ${{ inputs.tickers }}
           FIELD: ${{ inputs.field }}
+          SHOW: ${{ inputs.show }}
         run: |
-          if [ -n "$FIELD" ]; then
-            python probe_tags.py --pattern "$PATTERN" --tickers "$TICKERS" --field "$FIELD"
-          else
-            python probe_tags.py --pattern "$PATTERN" --tickers "$TICKERS"
-          fi
+          args=(--pattern "$PATTERN" --tickers "$TICKERS")
+          if [ -n "$FIELD" ]; then args+=(--field "$FIELD"); fi
+          if [ "$SHOW" = "yes" ]; then args+=(--show); fi
+          python probe_tags.py "${args[@]}"

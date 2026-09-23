@@ -182,7 +182,8 @@ from the bulk file.
   $23m "long-term debt" beside $14bn of borrowings); `revenue` keeps the preferred tag unless
   another is at least three times larger (a REIT's contract revenue beside its lease income —
   but a bank's gross revenue, about twice its net figure, does not displace the net figure).
-- Free cash flow is not stored; compute it as `operating_cash_flow − capex`. Net debt is
+- Free cash flow is not stored; compute it as `operating_cash_flow − capex` (and `− capitalized_software`
+  for a software-heavy company — see "Valuation fields" below). Net debt is
   `total_debt − cash` (fall back to `lt_debt_noncurrent + debt_current` when `total_debt`
   is empty). EBITDA is `operating_income + d_and_a`. Where `operating_income` is untagged
   use `pretax_income + interest_expense`, then `net_income + income_tax + interest_expense`.
@@ -234,6 +235,51 @@ from the bulk file.
   — though the build does publish the S&P 500 constituent list separately, as `data/sp500.json`.
 - Filers with no US-GAAP facts (funds, trusts, IFRS filers), nothing readable, or nothing filed in
   three years are skipped. The build refuses to publish if fewer than 3,000 companies come out.
+
+## Valuation fields added 23 Sep 2026
+
+A verification of ~360 companies against their own filings kept finding the same five gaps. Every
+fix is an ADDED key, or a new value of `total_debt_basis`; no existing key changed meaning, and no
+`*_as_filed` value moved. Absent still means unmeasured, never zero.
+
+| field | what it is |
+|---|---|
+| `short_term_investments` | marketable securities / short-term investments, current (`ShortTermInvestments`, then `MarketableSecuritiesCurrent`, then securities by kind) |
+| `long_term_investments` | marketable securities, non-current, ranked ahead of `LongTermInvestments` — which can hold equity-method or strategic stakes; `tags_used` says which resolved |
+| `cash_and_short_term_investments` | the combined line, for a filer that tags only it |
+| `lt_debt_current` | current portion of LONG-TERM debt only |
+| `debt_current_total` | `DebtCurrent`: all current debt, short-term borrowings included |
+| `short_term_borrowings`, `commercial_paper` | short-term debt outside the current portion; commercial paper is usually part of the former |
+| `finance_lease_liabilities` | the total, else current + non-current summed. NOT added into `total_debt` (aggregate tags disagree about including it) |
+| `capitalized_software` | `PaymentsForSoftware`, else developed + acquired summed. NOT in `capex`; subtract both for total reinvestment |
+| `total_debt_tagged` | on a row whose `total_debt_basis` is `components_exceed_tagged`: the tagged total that was replaced |
+| `shares_diluted_filled` (+ `_source`, `_filed`) | a usable diluted count: `shares_diluted` where it is positive and within 50x of the company's cover-page counts, else the weighted basic count, else the cover-page count of the filing that reported the period, else `shares_outstanding`. `_source` says which; `_filed` is that value's filing date, i.e. its split basis |
+| `shares_diluted_adj` | `shares_diluted_filled` on the basis of the NEWEST filing in the file, using `splits`. Absent where a count's filing date falls inside a split's uncertainty window |
+| `splits` (per company) | `[{date, after, ratio, evidence, cover, xbrl, applied}]` — see below |
+
+**`total_debt` is now the whole of the borrowings.** It was always the LARGEST of its candidate tags;
+the sum of the balance-sheet pieces is now one more candidate. The pieces are added without
+counting anything twice: short-term = the larger of `short_term_borrowings` and `commercial_paper`;
+current = the larger of `debt_current_total` and `lt_debt_current` + short-term; plus
+`lt_debt_noncurrent`. Where a tagged total sits more than 2% below that sum, the sum wins and
+`total_debt_basis` reads `components_exceed_tagged` (SLB and Disney read ZERO debt before this,
+Cisco missed $6.7bn of commercial paper). Quarterly rows get the same treatment now, so the newest
+balance sheet carries a total. Where the pieces decide an annual value, `total_debt_as_filed` is
+rebuilt from the pieces' own as-filed values, so the point-in-time figure is on the same basis.
+
+**Net cash** is now `cash + short_term_investments (+ long_term_investments if you accept what it
+holds) − total_debt`, with `finance_lease_liabilities` a separate decision.
+
+**Splits.** A split is found from positive evidence: the SAME period's weighted-average count
+reported twice, the later filing a clean ratio (1.5 … 50, or the reverse) of the earlier. It needs
+two such (tag, period) restatements, or one plus a cover-page jump or the filer's own
+`StockholdersEquityNoteStockSplitConversionRatio1`. `after` is the last filing seen on the old basis
+and `date` the first on the new one — the split lies between. A count filed on or before `after`
+is multiplied by `ratio`; one filed on or after `date` is not; one filed in between gets no
+`shares_diluted_adj`. **A split after the newest filing cannot be seen in any count here**: if the
+filer tagged the ratio it is listed with `applied: false`, otherwise it is simply not in the file
+until the next 10-Q reprints its comparatives. The price-source formula above
+(`× k(filed date)`) remains the rule that needs nothing from this file.
 
 ## `data/cik_overrides.json` — hand-maintained, the build only reads it
 
