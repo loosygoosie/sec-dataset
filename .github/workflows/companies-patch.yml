@@ -1,0 +1,106 @@
+name: Patch company fundamentals daily (new 10-Q / 10-K only)
+
+# WHY THIS EXISTS. sec.yml rebuilds every company file on Sundays only, and a reader that values
+# companies daily could wait up to seven days for a 10-Q or 10-K the events feed already shows. A
+# daily FULL build was rejected: it rewrites ~13,700 files (`quarter_age_days` moves daily) into
+# never-pruned history. This rewrites ONLY companies whose events feed shows a 10-Q/10-K (or /A)
+# newer than their file, through the weekly build's own code (patch_companies.py; NOTES §21). It
+# never deletes a file and never touches a company it did not pick.
+
+on:
+  schedule:
+    # 07:00 UTC Monday-Saturday: after the nightly events feed (03:00, lands ~03:20) that says who
+    # filed. Not Sunday — sec.yml rebuilds everything at 06:00 that day.
+    - cron: "0 7 * * 1-6"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "true = run everything but commit nothing (the default for a manual run)"
+        default: "true"
+        required: false
+      max_companies:
+        description: "Companies to fetch this run (each is one companyfacts request)"
+        default: "300"
+        required: false
+      ciks:
+        description: "Optional comma-separated CIKs to limit the run to"
+        default: ""
+        required: false
+
+permissions:
+  contents: write
+
+# THE SAME GROUP AS sec.yml, on purpose. Both write data/companies/ and data/manifest.json, so they
+# must never run at once: whichever starts second waits for the first to finish and checks out what
+# it pushed. The other data jobs (events, insiders, filings) write other paths, and the commit step
+# below rebases over them if one lands mid-run.
+concurrency:
+  group: sec-dataset
+  cancel-in-progress: false
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependency
+        run: pip install --quiet requests
+
+      - name: Refuse an empty script
+        # A phone upload once produced a 0-byte file that "ran" and did nothing.
+        run: |
+          test -s build_sec_dataset.py || { echo "build_sec_dataset.py is empty"; exit 1; }
+          test -s patch_companies.py || { echo "patch_companies.py is empty"; exit 1; }
+
+      - name: Prove the builder before it touches the data
+        # The same suites sec.yml gates on, because this runs the same normaliser, record builder
+        # and filing fallback, plus the daily run's own: selection, byte-identical untouched files,
+        # and identity with what the weekly build writes.
+        run: |
+          pip install --quiet pytest
+          python -m pytest -q \
+            tests/test_normaliser.py tests/test_as_filed_shares.py tests/test_share_scale.py \
+            tests/test_filing_fallback.py tests/test_cik_overrides.py tests/test_sp500.py \
+            tests/test_sic.py tests/test_valuation_fields.py tests/test_daily_patch.py
+
+      - name: Patch companies that filed
+        env:
+          # The same secret sec.yml sends; it goes to sec.gov only and is masked in the logs.
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          MAX_COMPANIES: ${{ inputs.max_companies || '300' }}
+          ONLY_CIKS: ${{ inputs.ciks || '' }}
+        run: python patch_companies.py
+
+      - name: Show what changed
+        run: |
+          git status --porcelain -- data/ | head -400
+          git diff --stat -- data/ | tail -1
+          # Belt and braces on "never prunes": a deleted file under data/ fails the run.
+          if git status --porcelain -- data/ | grep -q '^ D\|^D '; then
+            echo "a file under data/ was deleted - this job never deletes"; exit 1
+          fi
+
+      - name: Commit results
+        # A scheduled run commits. A manual run commits only when dry_run is set to false.
+        if: github.event_name == 'schedule' || inputs.dry_run == 'false'
+        run: |
+          git config user.name  "sec-dataset-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/companies/ data/manifest.json
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -q -m "SEC companies patch $(date -u +%Y-%m-%d) [skip ci]"
+            git push origin "HEAD:$GITHUB_REF_NAME" || {
+              echo "push rejected - remote moved; rebasing onto it and retrying"
+              git fetch --unshallow origin "$GITHUB_REF_NAME" 2>/dev/null || git fetch origin "$GITHUB_REF_NAME"
+              git rebase "origin/$GITHUB_REF_NAME"
+              git push origin "HEAD:$GITHUB_REF_NAME"
+            }
+          fi

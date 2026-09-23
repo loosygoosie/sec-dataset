@@ -16,6 +16,8 @@ on:
 permissions:
   contents: write         # so the job can commit data/ back to the repo
 
+# Shared with companies-patch.yml (the daily patch-only run): both write data/companies/ and the
+# manifest, so one waits for the other. Do not rename the group in one file only.
 concurrency:
   group: sec-dataset
   cancel-in-progress: false
