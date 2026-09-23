@@ -98,7 +98,7 @@ SHOW_FIELDS = (
     "cash", "short_term_investments", "long_term_investments", "cash_and_short_term_investments",
     "total_debt", "total_debt_basis", "total_debt_tagged", "lt_debt_noncurrent", "lt_debt_current",
     "debt_current_total", "short_term_borrowings", "commercial_paper", "finance_lease_liabilities",
-    "capex", "capitalized_software", "shares_diluted", "shares_diluted_filed",
+    "capex", "capitalized_software", "payments_for_intangibles", "shares_diluted", "shares_diluted_filed",
     "shares_diluted_filled", "shares_diluted_filled_source", "shares_diluted_filled_filed",
     "shares_diluted_adj",
 )

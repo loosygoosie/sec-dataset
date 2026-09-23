@@ -252,6 +252,7 @@ fix is an ADDED key, or a new value of `total_debt_basis`; no existing key chang
 | `short_term_borrowings`, `commercial_paper` | short-term debt outside the current portion; commercial paper is usually part of the former |
 | `finance_lease_liabilities` | the total, else current + non-current summed. NOT added into `total_debt` (aggregate tags disagree about including it) |
 | `capitalized_software` | `PaymentsForSoftware`, else developed + acquired summed. NOT in `capex`; subtract both for total reinvestment |
+| `payments_for_intangibles` | `PaymentsToAcquireIntangibleAssets`. Where ADP's capitalised software actually lives; for others it can be patents or licences. Not in `capex` or `capitalized_software` |
 | `total_debt_tagged` | on a row whose `total_debt_basis` is `components_exceed_tagged`: the tagged total that was replaced |
 | `shares_diluted_filled` (+ `_source`, `_filed`) | a usable diluted count: `shares_diluted` where it is positive and within 50x of the company's cover-page counts, else the weighted basic count, else the cover-page count of the filing that reported the period, else `shares_outstanding`. `_source` says which; `_filed` is that value's filing date, i.e. its split basis |
 | `shares_diluted_adj` | `shares_diluted_filled` on the basis of the NEWEST filing in the file, using `splits`. Absent where a count's filing date falls inside a split's uncertainty window |

@@ -282,6 +282,17 @@ def test_developed_and_acquired_software_are_summed_when_no_total_is_tagged(b):
     assert _annual(b, d)["capitalized_software"] == 468_000_000
 
 
+def test_purchases_of_intangibles_are_their_own_field(b):
+    """ADP's capitalised software is tagged only as additions to intangibles (468.5m, FY2026)."""
+    d = _anchor(**{
+        "PaymentsToAcquirePropertyPlantAndEquipment": usd(fy_fact(196_600_000, FY)),
+        "PaymentsToAcquireIntangibleAssets": usd(fy_fact(468_500_000, FY)),
+    })
+    row = _annual(b, d)
+    assert (row["capex"], row["payments_for_intangibles"]) == (196_600_000, 468_500_000)
+    assert "capitalized_software" not in row
+
+
 def test_a_tagged_software_total_is_not_added_to_its_parts(b):
     d = _anchor(**{
         "PaymentsForSoftware": usd(fy_fact(468_000_000, FY)),
@@ -474,7 +485,7 @@ def test_no_new_field_joins_the_as_filed_contract(b):
     new fields are not measure inputs, so they carry no as-filed twin of their own."""
     new = {"short_term_investments", "long_term_investments", "cash_and_short_term_investments",
            "lt_debt_current", "debt_current_total", "short_term_borrowings", "commercial_paper",
-           "finance_lease_liabilities", "capitalized_software"}
+           "finance_lease_liabilities", "capitalized_software", "payments_for_intangibles"}
     assert new <= set(b.CONCEPTS)
     assert not new & set(b.ASFILED_ITEMS)
 

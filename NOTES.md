@@ -850,3 +850,87 @@ annual row, i.e. taken as filed, and every one of the three files already says
 The test now excuses a negative only when the annual row for the same period carries exactly that
 value AND the file is flagged invalid. FY minus nine months can never equal the annual figure, so a
 return of the original derivation bug still fails it on thousands of rows.
+
+---
+
+## 20. Valuation fields: investments, whole debt, capitalised software, splits, usable share counts  ✅ BUILT 23 Sep 2026 (branch `claude/owner-valuation-fields`, not yet in `data/`)
+
+A verification of ~360 companies against their own SEC filings (the `fmp` repo's `owner/`
+valuation) kept finding the same five gaps in `data/companies/<cik>.json`. Every fix is an ADDED
+key or a new `total_debt_basis` value; no key changed meaning and no `*_as_filed` value moved.
+README "Valuation fields added 23 Sep 2026" is the reader's contract; this is the evidence.
+
+**How it was checked.** `probe_tags.py --show` (new) runs the builder's own `normalise_company` on
+companyfacts fetched through `probe-tags.yml` with the real user agent, and prints what the next
+build will publish. Runs 35911695007 (29 companies) and 35912279845 (13, after the fix below).
+Filing figures cross-checked through the broker connector's XBRL reader (Cisco's FY2026 10-K,
+PepsiCo's June-quarter 10-Q).
+
+**Investments.** `short_term_investments`, `long_term_investments`, `cash_and_short_term_investments`.
+Amazon 2026-06-30: cash 78.2bn + marketable securities 44.8bn. Intuitive Surgical: 2.76bn cash +
+2.46bn + 3.41bn. Monster: 2.19bn + 1.23bn + 0.78bn. Applied Materials: 7.04bn + 2.20bn + 5.27bn.
+Adobe FY2025: 5.43bn + 1.16bn. Southern Copper Q2: 5.67bn + 1.66bn. `long_term_investments` ranks
+marketable securities ahead of `LongTermInvestments`, which can hold strategic stakes.
+
+**Debt.** Pieces published: `lt_debt_current`, `debt_current_total` (DebtCurrent),
+`short_term_borrowings`, `commercial_paper`, `finance_lease_liabilities` (own field; not in the
+total). `derive_total_debt` builds a total from them and treats it as one more candidate for the
+max `total_debt` already was; a tagged total more than 5% short is replaced
+(`components_exceed_tagged`, old value in `total_debt_tagged`). Quarterly rows now get it too.
+
+| | before (published) | after (probe) | filing |
+|---|---|---|---|
+| CSCO FY2026 | 23.002bn | 29.533bn | DebtCurrent 10.161bn (paper 6.661bn) + LTD noncurrent 19.372bn |
+| PEP Q2 2026 | 42.612bn | 53.214bn | ST obligations 10.602bn + LT obligations 42.612bn |
+| PEP FY2025 | 46.351bn | 49.182bn | 6.861bn + 42.321bn |
+| SLB Q2 2026 | 0 | 11.140bn (floor) | its short-term line is not tagged undimensioned |
+| LH FY2025 | 0 | 5.585bn | 0.500bn current + 5.085bn |
+| CAT FY2025 | 0.771bn | 36.210bn (floor) | 5.514bn ST borrowings + 30.696bn; the current LTD is tagged by segment only |
+| RPM FY2026 | 2.126bn | 2.534bn | 0.408bn current portion + 2.126bn |
+| MRSH Q2 2026 | 19.537bn | 20.561bn | DebtCurrent 1.670bn + 18.891bn |
+| ATR FY2025 | 1.139bn | 1.323bn (floor) | see below |
+
+**Two rules came from the first probe and are the part to remember.** (1) Filers tag their WHOLE
+short-term line, current maturities included, as `ShortTermBorrowings` (PepsiCo, Applied
+Materials: 1.299bn = 1.199bn current portion + 0.1bn paper), so `lt_debt_current` + short-term
+double-counted. They are summed now only when the short-term figure is plainly just paper;
+otherwise the larger is taken — a floor where the lines really are separate (AptarGroup, short by
+its 160m current portion). (2) McDonald's classifies its 0.8bn of paper inside long-term debt;
+pieces + paper ran 3.4% over its total, so the tolerance is 5%, not 2%. Also:
+`LongTermDebtAndCapitalLeaseObligations` is the NON-current element (PepsiCo's 42.321bn at FY2025 =
+its 10-K LongTermDebtNoncurrent) and was added last to `lt_debt_noncurrent`.
+
+Measured on the 20 Sep build before writing: of rows carrying pieces, ~5% sat >2% above their
+tagged total (DIS 0 vs 46.0bn, ES 0.39bn vs 29.1bn, PG 5.3bn vs 29.3bn, DE 6.1bn vs 17.1bn).
+**Still not reachable:** Caterpillar's quarterly debt (every piece tagged by segment), SLB's
+short-term line.
+
+**Capitalised software.** `capitalized_software` (Paylocity FY2026 69.3m, Red Violet 10.6m) and
+`payments_for_intangibles` — because ADP's 468.5m is tagged only as additions to intangibles.
+Neither is folded into `capex`. InterDigital's capitalised patent costs are not tagged
+undimensioned after FY2024; Winmark tagged PaymentsForSoftware for the first time in FY2026 (one
+year-to-date fact, so no quarter can be derived yet).
+
+**Splits** — found from the same period's count restated at a clean ratio, narrowed by cover-page
+jumps. Every one the verification named that a filing already shows came back, dated between two
+filings: BKNG 25 (2026-02-18 → 04-28), CLMB 4 (02-27 → 04-30), MLI 2 (04-22 → 07-22), NFLX 10
+(2025-10-22 → 2026-01-23), NOW 5 (2025-10-30 → 2026-01-29), TPL 3 twice (2024-02-21 → 05-08 and
+2025-11-05 → 2026-02-18), plus older ones (AMZN 20 in 2022, ISRG 3 in 2017 and 2021, APH 2 in 2014,
+2021, 2024, MNST 2 in 2012 and 2023, 3 in 2017). BKNG FY2025's 32.639m becomes 815.975m adjusted.
+**Monster's and Amphenol's 2026 splits are in no count yet** — their newest filings predate them —
+and neither tagged the ratio, so nothing lists them. They appear when the next 10-Q reprints its
+comparatives. Until then the broker's share count is the only source, as §9 said.
+
+**Share counts.** McDonald's `shares_diluted` (716.4) is left as filed; `shares_diluted_filled` is
+710,398,642 from the FY2025 10-K cover page, `_source: cover`. Erie still has nothing: every share
+fact is dimensioned by class (§3), including the cover page.
+
+**Freshness.** Rambus's June-quarter 10-Q (filed 28 Jul) is STILL not in companyfacts on 23 Sep —
+the probe's live fetch stops at 2026-03-31 — so the patch path is not a nicety. It missed Rambus on
+20 Sep because the cap (100 filings) bound: 205 behind, 72 patched. The cap is 600 with a 40-minute
+hard stop (the 100-filing pass took under a minute of a 7-minute build), and the 150-day age gate
+is gone, so Adobe's August quarter (filed 22 Sep, previous quarter 114 days old) is a target too.
+The weekly schedule was NOT changed: every build rewrites ~13,700 company files
+(`quarter_age_days` moves daily), so a daily build would add that churn to history seven times a
+week. A mid-week PATCH-ONLY run (events feed + instance documents, touching only behind companies)
+is the next step if a week is still too slow; it was not built here.

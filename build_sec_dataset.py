@@ -213,6 +213,13 @@ CONCEPTS: dict[str, dict] = {
         "PaymentsToDevelopSoftware",
         "PaymentsToAcquireSoftware",
     ]},
+    # PURCHASES OF INTANGIBLES, a separate field for the same reason. ADP's $468m of capitalised
+    # software is not tagged as software at all: its cash-flow line "additions to intangibles" is
+    # `PaymentsToAcquireIntangibleAssets` (468.5m, FY2026), and no software tag resolves. Kept
+    # apart from `capitalized_software` because for other filers the same tag holds patents and
+    # licences — a reader decides whether it is reinvestment. Rarely tagged beside the software
+    # tags; where both appear, check before subtracting both.
+    "payments_for_intangibles": {"kind": "flow", "tags": ["PaymentsToAcquireIntangibleAssets"]},
     "stock_comp": {"kind": "flow", "tags": [
         "ShareBasedCompensation",
         "AllocatedShareBasedCompensationExpense",
@@ -2158,7 +2165,7 @@ def main() -> int:
                "`lt_debt_current`, `debt_current_total`, `short_term_borrowings`, `commercial_paper`, `finance_lease_liabilities` "
                "(the pieces `total_debt` is now built from, never counting one twice — `total_debt_basis` "
                "`components_exceed_tagged` marks a tagged total that was short of its own pieces, kept as `total_debt_tagged`); "
-               "`capitalized_software` (its own field, not in `capex`); per company `splits`, and per row "
+               "`capitalized_software` and `payments_for_intangibles` (their own fields, not in `capex`); per company `splits`, and per row "
                "`shares_diluted_filled` / `_source` / `_filed` and `shares_diluted_adj` (on the newest filing's basis). "
                "No existing key changed meaning; every as-filed value is untouched.",
                f"- rows where the pieces exceeded the tagged total: {recon.get('debt:components_exceed_tagged', 0)} companies (latest annual row)",
