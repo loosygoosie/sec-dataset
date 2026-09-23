@@ -96,8 +96,11 @@ def load_priority() -> set[int]:
 def select_targets(today: date, priority: set[int], only: set[int] | None = None) -> list[dict]:
     """Every company with a file AND an events record showing a filing newer than the file.
 
-    Ordered S&P 500 first, then the oldest newest-quarter first, then CIK — so a capped run spends
-    its budget where the data is read, and the order is deterministic."""
+    Ordered S&P 500 first, then companies with a ticker, then the LEAST behind first (the newest
+    quarter held, latest first), then CIK. That is NOT the weekly build's order (most stale first),
+    on purpose: the first live dry run (23 Sep 2026) spent its 25 minutes on shells whose
+    companyfacts stopped in 2012-2016 and never reached 34 listed companies a quarter behind. Order
+    decides only WHO is reached in a capped run, never what is written for them."""
     comp_dir = B.OUT_DIR / "companies"
     out = []
     for p in sorted(B.EVENTS_DIR.glob("*.json")):
@@ -117,9 +120,11 @@ def select_targets(today: date, priority: set[int], only: set[int] | None = None
         why = why_behind(rec, evs, today)
         if why:
             out.append({"cik": cik, "why": why, "events": evs,
-                        "age": (rec.get("checks") or {}).get("quarter_age_days") or 0,
+                        "lq": (rec.get("checks") or {}).get("latest_quarter_end") or "",
                         "name": rec.get("sec_name"), "tickers": rec.get("tickers") or []})
-    out.sort(key=lambda t: (t["cik"] not in priority, -t["age"], t["cik"]))
+    out.sort(key=lambda t: t["cik"])
+    out.sort(key=lambda t: t["lq"], reverse=True)
+    out.sort(key=lambda t: (t["cik"] not in priority, not t["tickers"]))
     return out
 
 
@@ -204,6 +209,8 @@ def run(today: date | None = None, max_companies: int = MAX_COMPANIES, only: set
         except Exception as ex:  # noqa: BLE001
             summary["failed"].append({"cik": cik, "error": f"{type(ex).__name__}: {ex}"[:200]})
             continue
+        print(f"  [{i + 1}/{len(targets)} {time.time() - t0:5.0f}s] {cik} {','.join(t['tickers']) or '-'}: {how}",
+              flush=True)
         if rec is None:
             summary["held"].append({"cik": cik, "why": how})
             continue

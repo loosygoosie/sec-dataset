@@ -977,6 +977,29 @@ post-merger stub, and DATASEA and Northann hold a derived Q4 from a 10-K yet no 
 would have been refetched every day for nothing, which is why the rule requires the Q4 to be
 filing-sourced.
 
+**The first live run** (dry, run 35914792704, 23 Sep 2026, real `SEC_USER_AGENT`, nothing
+committed): gate green; 175 picked, **141 rewritten** (35 from companyfacts alone — Adobe's August
+quarter among them — and 106 through the filing fallback: VF, Qorvo, Sonoco, Avis, Fannie Mae, Old
+National and others gained their June quarter), 0 held, 0 failed, 0 deletions, 209 filing instances
+read, **34 not reached**: the 25-minute limit bound. 16 filing-index requests got HTTP 503 from
+www.sec.gov (the company was still rebuilt from companyfacts; the regression guard stops a 503 from
+costing a quarter already held). The count of rewrites is inflated once: the files on main came from
+the 20 Sep build, before §20, so every rebuilt file also gains §20's fields.
+
+**What that run changed.** It served the weekly order (most stale first) and spent the budget on
+shells last current in companyfacts in 2012-2016 while listed companies a quarter behind went
+unreached. The daily order is now S&P 500, then companies with a ticker, then the least behind
+first — order decides only who is reached, never what is written. Output is unbuffered with a line
+per company, and a dry run uploads the files it would have written as an artifact
+(`companies-patch-dry-run`) instead of committing them. The workflow cannot be dispatched until it
+is on `main` (GitHub dispatches only default-branch workflows), so that run was triggered by a
+temporary branch-only `push` trigger, which cannot reach the commit step and was removed after.
+
+**Churn to expect.** A company whose companyfacts is persistently behind (co-registrants, LPs)
+gains up to three filings' quarters per run, oldest first. The Sunday build rebuilds it from the zip
+and re-applies at most three, so such a file can step back on Sunday and forward again on Monday —
+bounded, and confined to those filers, but visible in history.
+
 **Not done.** The manifest's top-level `counts`, `coverage_by_item` and `values_by_item`, and
 `REPORT.md`, are left as of the weekly build. A company picked before its companyfacts catches up is
 refetched each day until it does (one request, plus the instance reads); the cap is 300 companies,

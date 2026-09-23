@@ -8,9 +8,6 @@ name: Patch company fundamentals daily (new 10-Q / 10-K only)
 # never deletes a file and never touches a company it did not pick.
 
 on:
-  push:                                     # TEMPORARY: dry-run proof on the branch; removed next commit
-    branches: [claude/daily-companies-patch]
-    paths: [.github/workflows/companies-patch.yml]
   schedule:
     # 07:00 UTC Monday-Saturday: after the nightly events feed (03:00, lands ~03:20) that says who
     # filed. Not Sunday — sec.yml rebuilds everything at 06:00 that day.
@@ -78,6 +75,7 @@ jobs:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
           MAX_COMPANIES: ${{ inputs.max_companies || '300' }}
           ONLY_CIKS: ${{ inputs.ciks || '' }}
+          PYTHONUNBUFFERED: "1"   # one progress line per company, as it happens
         run: python patch_companies.py
 
       - name: Show what changed
@@ -88,6 +86,23 @@ jobs:
           if git status --porcelain -- data/ | grep -q '^ D\|^D '; then
             echo "a file under data/ was deleted - this job never deletes"; exit 1
           fi
+
+      - name: Keep a dry run's files for review
+        # Nothing is committed on a dry run, so the rewritten files are kept here instead: diff
+        # them against main to see exactly what a live run would have written.
+        if: github.event_name != 'schedule' && inputs.dry_run != 'false'
+        run: |
+          mkdir -p dry-run
+          git diff --name-only -- data/ | xargs -r cp --parents -t dry-run
+
+      - name: Upload a dry run's files
+        if: github.event_name != 'schedule' && inputs.dry_run != 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: companies-patch-dry-run
+          path: dry-run/
+          if-no-files-found: ignore
+          retention-days: 7
 
       - name: Commit results
         # A scheduled run commits. A manual run commits only when dry_run is set to false.

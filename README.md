@@ -102,7 +102,8 @@ would be `quarter_age_days` is not rewritten, and a re-run is a no-op. Between S
 weekly build; `checks.latest_quarter_end` is the field to read for freshness. Tickers are carried
 from the file, because only the weekly build fetches the SEC ticker map.
 
-Limits: 300 companies and 600 filing instances per run, 25 minutes, ~8 requests a second. It shares
+Limits: 300 companies and 600 filing instances per run, 25 minutes, ~8 requests a second; S&P 500
+members first, then listed companies, then the least behind. It shares
 `sec.yml`'s concurrency group, so the two never run at once. A manual run is a dry run unless
 `dry_run` is set to `false`; `python patch_companies.py --select-only` lists the picks from the files
 on disk without any request.

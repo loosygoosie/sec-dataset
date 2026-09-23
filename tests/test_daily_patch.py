@@ -110,11 +110,16 @@ def test_selection_needs_both_a_company_file_and_an_events_record(P, b, tmp_path
     assert [t["cik"] for t in P.select_targets(TODAY, set())] == [1]
 
 
-def test_index_members_first_then_the_most_stale(P, b, tmp_path, monkeypatch):
+def test_index_members_then_listed_companies_then_the_least_behind(P, b, tmp_path, monkeypatch):
+    """The first live run spent its budget on shells last current in 2012 and never reached listed
+    companies one quarter behind; the order must put those first."""
     new = ev("10-Q", "2026-06-30", "2026-07-30")
-    old = {**_rec(), "checks": {"latest_quarter_end": "2026-03-31", "quarter_age_days": 300}}
-    _tree(tmp_path, monkeypatch, b, {1: _rec(), 2: old, 3: _rec()}, {1: [new], 2: [new], 3: [new]}, sp500=(3,))
-    assert [t["cik"] for t in P.select_targets(TODAY, P.load_priority())] == [3, 2, 1]
+    shell = _rec(lq="2012-03-31", filed="2012-05-01")
+    listed = {**_rec(), "tickers": ["LST"]}
+    listed_stale = {**_rec(lq="2016-06-30", filed="2016-08-01"), "tickers": ["OLD"]}
+    _tree(tmp_path, monkeypatch, b, {1: shell, 2: listed_stale, 3: _rec(), 4: listed, 5: _rec()},
+          {c: [new] for c in (1, 2, 3, 4, 5)}, sp500=(5,))
+    assert [t["cik"] for t in P.select_targets(TODAY, P.load_priority())] == [5, 4, 2, 3, 1]
 
 
 # --------------------------------------------------------------------------
