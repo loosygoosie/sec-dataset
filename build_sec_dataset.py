@@ -259,6 +259,12 @@ CONCEPTS: dict[str, dict] = {
         "LongTermDebtNoncurrent",
         "LongTermDebtAndCapitalLeaseObligationsNoncurrent",
         "LongTermDebtAndFinanceLeasesNoncurrent",
+        # Added 23 Sep 2026, last. Despite the name this element is the NON-CURRENT line ("Long-term
+        # debt and lease obligation", classified as noncurrent). PepsiCo's 10-Qs tag their
+        # long-term debt obligations with it and nothing else: 42.321bn at FY2025, equal to the
+        # 10-K's own LongTermDebtNoncurrent for that date. Without it the pieces of PepsiCo's
+        # quarterly debt were its short-term obligations alone.
+        "LongTermDebtAndCapitalLeaseObligations",
     ]},
     "debt_current": {"kind": "instant", "tags": [
         "LongTermDebtCurrent",
@@ -1078,10 +1084,14 @@ DEBT_COMPONENTS = ("debt_current", "lt_debt_noncurrent")   # the original pair; 
 DEBT_BUILD_ITEMS = ("lt_debt_noncurrent", "lt_debt_current", "debt_current_total",
                     "short_term_borrowings", "commercial_paper")
 # How far a tagged aggregate may sit below its own pieces before it is treated as a PART of the
-# debt rather than the whole of it. Rounding (Cisco tags `LongTermDebt` 22.9bn at -8 decimals
-# beside 22.872bn of pieces) must not flip a row's basis; a missing line — Cisco's 6.7bn of
-# commercial paper, SLB's zero — is far outside it.
-DEBT_REPAIR_TOL = 0.02
+# debt rather than the whole of it. Inside it the gap is scope, not a missing line: rounding
+# (Cisco tags `LongTermDebt` 22.9bn at -8 decimals beside 22.872bn of pieces), finance leases
+# on one side and not the other, hedge adjustments, or commercial paper a filer classifies as
+# long-term (McDonald's: its 0.8bn of paper sits inside long-term debt, so pieces + paper run
+# 3.4% over its own total). A missing line — Cisco's 6.7bn of paper, PepsiCo's 10.6bn of
+# short-term obligations, Marsh's 1.0bn of short-term borrowings (5.2%), SLB's zero — is outside
+# it. Set at 5% after the first live probe; 2% took McDonald's paper twice.
+DEBT_REPAIR_TOL = 0.05
 
 
 def debt_build(vals: dict) -> tuple[float | None, bool]:
@@ -1095,7 +1105,16 @@ def debt_build(vals: dict) -> tuple[float | None, bool]:
                      commercial paper is usually a part of short-term borrowings, and where it is
                      not, the larger is still a floor.
       current side   the LARGER of `debt_current_total` (`DebtCurrent`, which already includes
-                     short-term borrowings) and `lt_debt_current` + short-term — again never both.
+                     short-term borrowings) and the pieces below — never both.
+      the pieces     `lt_debt_current` + short-term ONLY when the short-term figure is plainly just
+                     commercial paper (no `ShortTermBorrowings`, or one within 5% of the paper).
+                     Otherwise the LARGER of the two. The first live probe showed why: filers tag
+                     their whole short-term debt line — current maturities included — as
+                     `ShortTermBorrowings` (PepsiCo 10.602bn holding its 1.6bn of current
+                     maturities; Applied Materials 1.299bn = 1.199bn current portion + 0.1bn
+                     paper), and adding the current portion again double-counts it. Where the two
+                     really are separate lines (AptarGroup) the larger is a floor, short by the
+                     smaller: an understatement is the safer error for a debt figure.
       non-current    `lt_debt_noncurrent`, which by definition excludes the current portion.
     Finance leases are left out on purpose: they are `finance_lease_liabilities`, and some
     non-current tags already include them.
@@ -1105,8 +1124,13 @@ def debt_build(vals: dict) -> tuple[float | None, bool]:
     cur_opts = []
     if vals.get("debt_current_total") is not None:
         cur_opts.append(vals["debt_current_total"])
-    if vals.get("lt_debt_current") is not None or st is not None:
-        cur_opts.append((vals.get("lt_debt_current") or 0) + (st or 0))
+    ltc = vals.get("lt_debt_current")
+    if ltc is not None and st is not None:
+        stb, cp = vals.get("short_term_borrowings"), vals.get("commercial_paper")
+        only_paper = cp is not None and (stb is None or stb <= cp * 1.05)
+        cur_opts.append(ltc + st if only_paper else max(ltc, st))
+    elif ltc is not None or st is not None:
+        cur_opts.append(ltc if ltc is not None else st)
     current = max(cur_opts) if cur_opts else None
     nonc = vals.get("lt_debt_noncurrent")
     if current is None and nonc is None:
@@ -1154,7 +1178,8 @@ def derive_total_debt(row: dict, af_parts: dict | None = None) -> None:
     consulted when no tag resolved at all. So SLB (a `DebtInstrumentCarryingAmount` of 0 beside
     $11.1bn of long-term debt) and Disney read ZERO debt, Eversource $0.4bn of $29.1bn, P&G $5.3bn
     of $29.3bn, and Cisco $23.0bn where its balance sheet shows $29.5bn. Measured on the 20 Sep
-    build before the change: ~5% of rows with pieces on file sit >2% above their tagged figure. A
+    build before the change: ~5% of rows with pieces on file sit >2% above their tagged figure (the
+    threshold is now DEBT_REPAIR_TOL, 5%). A
     row whose aggregate is at least its pieces is never touched, so Marriott's rule still holds.
 
     `af_parts` (annual rows) carries the pieces' as-filed values. Where the pieces decide the

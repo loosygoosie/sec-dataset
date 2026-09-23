@@ -100,31 +100,72 @@ def test_commercial_paper_inside_debt_current_is_not_added_twice(b):
     assert row["commercial_paper"] == 6_661_000_000
 
 
-def test_commercial_paper_inside_short_term_borrowings_is_not_added_twice(b):
-    """No DebtCurrent line: current = current portion of LTD + short-term borrowings, and commercial
-    paper is a part of those borrowings, so it is the larger of the two that counts."""
+def test_a_short_term_line_that_may_hold_the_current_portion_is_not_added_to_it(b):
+    """Applied Materials tags its whole short-term debt line — 1.199bn current portion + 0.1bn paper
+    — as ShortTermBorrowings, beside LongTermDebtCurrent 1.199bn. Adding them counted 1.2bn twice
+    in the first live probe. Without evidence the short-term line is ONLY paper, the larger wins."""
     d = _anchor(**{
-        "LongTermDebtCurrent": usd(fact(1_000_000_000, FY)),
-        "ShortTermBorrowings": usd(fact(5_000_000_000, FY)),
-        "CommercialPaper": usd(fact(4_000_000_000, FY)),
-        "LongTermDebtNoncurrent": usd(fact(10_000_000_000, FY)),
+        "LongTermDebtCurrent": usd(fact(1_199_000_000, FY)),
+        "ShortTermBorrowings": usd(fact(1_299_000_000, FY)),
+        "LongTermDebtNoncurrent": usd(fact(5_245_000_000, FY)),
     })
     row = _annual(b, d)
-    assert row["total_debt"] == 16_000_000_000
+    assert row["total_debt"] == 1_299_000_000 + 5_245_000_000
     assert row["total_debt_basis"] == "components"
 
 
-def test_short_term_borrowings_are_added_to_long_term_debt(b):
-    """PepsiCo's shape: long-term debt tagged, the short-term obligations beside it."""
+def test_commercial_paper_alone_is_added_to_the_current_portion(b):
+    """Paper is never the current portion of long-term debt, so where the short-term figure is
+    just paper the two are separate and both count."""
     d = _anchor(**{
-        "LongTermDebt": usd(fact(38_000_000_000, FY)),
-        "LongTermDebtNoncurrent": usd(fact(36_400_000_000, FY)),
-        "LongTermDebtCurrent": usd(fact(1_600_000_000, FY)),
-        "ShortTermBorrowings": usd(fact(9_000_000_000, FY)),
+        "LongTermDebtCurrent": usd(fact(1_000_000_000, FY)),
+        "CommercialPaper": usd(fact(4_000_000_000, FY)),
+        "LongTermDebtNoncurrent": usd(fact(10_000_000_000, FY)),
+    })
+    assert _annual(b, d)["total_debt"] == 15_000_000_000
+
+
+def test_short_term_borrowings_that_are_just_the_paper_are_added_once(b):
+    """Marsh / ServiceNow shape: ShortTermBorrowings within a few percent of CommercialPaper."""
+    d = _anchor(**{
+        "LongTermDebtCurrent": usd(fact(646_000_000, FY)),
+        "ShortTermBorrowings": usd(fact(1_024_000_000, FY)),
+        "CommercialPaper": usd(fact(1_000_000_000, FY)),
+        "LongTermDebtNoncurrent": usd(fact(18_891_000_000, FY)),
+    })
+    assert _annual(b, d)["total_debt"] == 646_000_000 + 1_024_000_000 + 18_891_000_000
+
+
+def test_pepsico_short_term_obligations_are_added_to_its_long_term_debt(b):
+    """PepsiCo's 10-Q for the quarter to 13 Jun 2026, as tagged: long-term debt obligations under
+    LongTermDebtAndCapitalLeaseObligations (the NON-current element) 42.612bn, short-term
+    obligations 10.602bn under ShortTermBorrowings, of which paper 6.1bn and current maturities
+    1.6bn. The published total was 42.612bn; the balance sheet says 53.214bn."""
+    q = "2026-06-13"
+    d = doc(us_gaap={
+        "Revenues": usd(q_fact(23_000_000_000, q)),
+        "LongTermDebtAndCapitalLeaseObligations": usd(fact(42_612_000_000, q, form="10-Q", fp="Q2")),
+        "LongTermDebtCurrent": usd(fact(1_600_000_000, q, form="10-Q", fp="Q2")),
+        "ShortTermBorrowings": usd(fact(10_602_000_000, q, form="10-Q", fp="Q2")),
+        "CommercialPaper": usd(fact(6_100_000_000, q, form="10-Q", fp="Q2")),
+    })
+    row = next(r for r in b.normalise_company(d)["quarterly"] if r["period_end"] == q)
+    assert row["lt_debt_noncurrent"] == 42_612_000_000
+    assert row["total_debt"] == 53_214_000_000
+    assert (row["total_debt_basis"], row["total_debt_tagged"]) == ("components_exceed_tagged", 42_612_000_000)
+
+
+def test_paper_a_filer_classifies_as_long_term_is_not_taken_twice(b):
+    """McDonald's classifies its commercial paper inside long-term debt. Pieces + paper run 3.4%
+    over its own tagged total, inside DEBT_REPAIR_TOL, so the tagged total stands."""
+    d = _anchor(**{
+        "LongTermDebt": usd(fact(40_145_000_000, FY)),
+        "LongTermDebtCurrent": usd(fact(725_000_000, FY)),
+        "CommercialPaper": usd(fact(798_000_000, FY)),
+        "LongTermDebtNoncurrent": usd(fact(39_973_000_000, FY)),
     })
     row = _annual(b, d)
-    assert row["total_debt"] == 36_400_000_000 + 1_600_000_000 + 9_000_000_000
-    assert row["total_debt_basis"] == "components_exceed_tagged"
+    assert (row["total_debt"], row["total_debt_basis"]) == (40_145_000_000, "tagged")
 
 
 def test_a_tagged_zero_beside_real_borrowings_is_not_no_debt(b):

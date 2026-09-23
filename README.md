@@ -260,8 +260,12 @@ fix is an ADDED key, or a new value of `total_debt_basis`; no existing key chang
 **`total_debt` is now the whole of the borrowings.** It was always the LARGEST of its candidate tags;
 the sum of the balance-sheet pieces is now one more candidate. The pieces are added without
 counting anything twice: short-term = the larger of `short_term_borrowings` and `commercial_paper`;
-current = the larger of `debt_current_total` and `lt_debt_current` + short-term; plus
-`lt_debt_noncurrent`. Where a tagged total sits more than 2% below that sum, the sum wins and
+current = the larger of `debt_current_total` and the pieces, where the pieces are
+`lt_debt_current` + short-term only when the short-term figure is plainly just commercial paper,
+and otherwise the larger of the two (many filers tag their whole short-term line, current
+maturities included, as `ShortTermBorrowings` — PepsiCo, Applied Materials — so adding the current
+portion again would count it twice; where the lines really are separate the current side is a
+floor); plus `lt_debt_noncurrent`. Where a tagged total sits more than 5% below that sum, the sum wins and
 `total_debt_basis` reads `components_exceed_tagged` (SLB and Disney read ZERO debt before this,
 Cisco missed $6.7bn of commercial paper). Quarterly rows get the same treatment now, so the newest
 balance sheet carries a total. Where the pieces decide an annual value, `total_debt_as_filed` is
