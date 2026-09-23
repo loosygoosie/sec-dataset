@@ -74,6 +74,7 @@ PUBLISH_SILENT_YEARS = 15   # reaches 2011 — the XBRL mandate era, and every f
 ACTIVE_SILENT_YEARS = 3     # unchanged, and now a FLAG rather than a filter: `active` is false for
                             # a filer that has not filed in this long. The old behaviour is exactly
                             # `active is True`, so a reader wanting it has one field to test.
+MIN_COMPANIES = 3000     # the build refuses to write below this many companies: a broken bulk file or parser
 SP500_MIN = 400         # a list shorter than this is a broken fetch, not a smaller index
 CIK_OVERRIDES_PATH = Path("data/cik_overrides.json")   # hand-maintained; the build reads it, never writes it
 FILING_INDEX = "https://www.sec.gov/Archives/edgar/data/{cik}/{acc_nodash}/{acc}-index.html"
@@ -1774,14 +1775,118 @@ def patch_targets(manifest: dict, priority: set[int]) -> list[tuple[int, list[di
             evs = json.loads(p.read_text()).get("events", [])
         except Exception:  # noqa: BLE001
             continue
-        newer = [e for e in evs if str(e.get("form", "")).startswith(("10-Q", "10-K"))
-                 and e.get("period") and e.get("accession") and _later_quarter(e["period"], lq)]
+        newer = newer_filings(evs, lq)
         if not newer:
             continue
-        newer.sort(key=lambda e: e["period"])
         out.append((int(cik_s), newer[:PATCH_PER_COMPANY]))
     out.sort(key=lambda t: (t[0] not in priority, -(manifest[str(t[0])]["quarter_age_days"] or 0)))
     return out
+
+
+def newer_filings(evs: list[dict], lq: str) -> list[dict]:
+    """The 10-Q / 10-K filings (amendments included) in an events record whose period ends at
+    least PATCH_MIN_GAP_DAYS past `lq`, the last quarter held — oldest period first. Shared by the
+    weekly build's `patch_targets` and the daily `patch_companies.py`, so both read a filing as
+    "newer" by exactly the same rule."""
+    newer = [e for e in evs if str(e.get("form", "")).startswith(("10-Q", "10-K"))
+             and e.get("period") and e.get("accession") and _later_quarter(e["period"], lq)]
+    newer.sort(key=lambda e: e["period"])
+    return newer
+
+
+# --------------------------------------------------------------------------
+# One company's record, and its patch from its own filings. Both the weekly build (`main`) and the
+# daily patch-only run (`patch_companies.py`) go through these, which is what makes a company the
+# daily run rewrites come out exactly as the next weekly build would write it.
+# --------------------------------------------------------------------------
+def record_body(rec: dict) -> str:
+    """The exact bytes a company file holds."""
+    return json.dumps(rec, separators=(",", ":"), sort_keys=True)
+
+
+def company_record(facts: dict, norm: dict, default_cik, by_cik: dict[int, list[str]], today: date,
+                   sics: dict[str, str], sic_codes: dict[str, str]) -> tuple[dict, dict] | None:
+    """(company file, manifest entry) for one normalised filer, or None where the build publishes
+    nothing for it: no readable annual row, or silent past PUBLISH_SILENT_YEARS."""
+    ann, qtr = norm["annual"], norm["quarterly"]
+    if not ann or not any(r.get("revenue") is not None or r.get("net_income") is not None for r in ann):
+        return None                                    # nothing an investor can read
+    latest_filed = max([r.get("filed") or "" for r in ann + qtr] or [""])
+    publish, active = universe_window(latest_filed, today)
+    if not publish:
+        return None                                    # older than the XBRL era this can reach
+    cik = int(facts.get("cik") or default_cik)     # the CIK is in the file name; a few records omit the field
+    checks = data_checks(ann, qtr, norm["tags_used"], norm.get("_top_line"))
+    rec = {"cik": cik, "sec_name": facts.get("entityName"), "tickers": by_cik.get(cik, []),
+           "annual": ann, "quarterly": qtr, "tags_used": norm["tags_used"],
+           "annual_coverage": norm["annual_coverage"], "splits": norm["splits"],
+           "checks": checks}
+    entry = {"name": facts.get("entityName"), "tickers": rec["tickers"],
+             "sic": sics.get(str(cik)), "sic_code": sic_codes.get(str(cik)),
+             "latest_filed": latest_filed, "active": active,
+             "fiscal_year_end": ann[-1].get("period_end"), "annual_rows": len(ann), "quarterly_rows": len(qtr),
+             "latest_quarter_end": checks["latest_quarter_end"], "quarter_age_days": checks["quarter_age_days"],
+             "reconciles": checks["reconciles"], "shares": checks["shares"],
+             "share_scale": checks["share_scale"]}
+    return rec, entry
+
+
+def patch_company(cik: int, rec: dict, facts: dict, filings: list[dict], budget: int) -> tuple[bool, int]:
+    """Read `filings` (oldest first) from EDGAR, fold them into `facts` and add to `rec` the
+    quarters companyfacts does not yet hold. Returns (patched, budget left); `rec` is changed only
+    when it returns True. `rec` must be what is on disk (a JSON round trip of `company_record`),
+    because the stored checks are what the top-line flag is carried from."""
+    before = {r["period_end"] for r in rec["quarterly"]}
+    used = 0
+    for e in filings:
+        if budget <= 0:
+            break
+        budget -= 1
+        try:
+            url = filing_instance_url(cik, e["accession"])
+            if not url:
+                continue                      # a filing with no XBRL instance: nothing to read
+            merge_facts(facts, parse_xbrl_instance(get(url, retries=2, timeout=180).text,
+                                                   e["form"], e.get("date") or ""))
+            used += 1
+        except Exception as ex:  # noqa: BLE001
+            print(f"  {cik} {e['accession']}: {type(ex).__name__}: {ex}")
+    if not used:
+        return False, budget
+    try:
+        norm = normalise_company(facts)
+    except Exception as ex:  # noqa: BLE001
+        print(f"  {cik}: re-normalise failed: {type(ex).__name__}")
+        return False, budget
+    # Only genuinely new quarters are taken. The filing also carries prior-year
+    # comparatives, and rewriting settled history from it is not what this is for.
+    fresh = [r for r in norm["quarterly"] if r["period_end"] not in before]
+    if not fresh:
+        return False, budget
+    for r in fresh:
+        r["source"] = "filing"                # absent on a row means it came from companyfacts
+    rec["quarterly"] = sorted(rec["quarterly"] + fresh, key=lambda r: r["period_end"])[-QUARTERS:]
+    # The new filing may be the first on a new split basis (a 10-Q reprinting its
+    # comparatives after a split is exactly the evidence `detect_splits` reads), so the
+    # splits and every row's basis-adjusted count are redone from the merged facts. Only
+    # the derived `shares_diluted_adj` moves; no as-filed or reported value is touched.
+    rec["splits"] = norm["splits"]
+    apply_split_adjustment(rec["annual"] + rec["quarterly"], rec["splits"])
+    # The patch adds QUARTERLY rows only, so it cannot change an annual top line. Carry
+    # the stored flag through rather than recomputing it: `rec` comes from disk and never
+    # holds `_top_line`, so passing it would silently reset every patched company to "ok".
+    prior_tl = (rec["checks"].get("revenue") or "ok")
+    prior_tl = prior_tl.split(":", 1)[1].split(",") if prior_tl.startswith("below-income:") else None
+    rec["checks"] = data_checks(rec["annual"], rec["quarterly"], rec["tags_used"], prior_tl)
+    return True, budget
+
+
+def patched_manifest_fields(rec: dict) -> dict:
+    """What a patch changes in a company's manifest entry."""
+    c = rec["checks"]
+    return {"quarterly_rows": len(rec["quarterly"]), "latest_quarter_end": c["latest_quarter_end"],
+            "quarter_age_days": c["quarter_age_days"], "reconciles": c["reconciles"],
+            "shares": c["shares"], "share_scale": c["share_scale"], "patched_from_filing": True}
 
 
 def load_sics() -> tuple[dict[str, str], dict[str, str]]:
@@ -1974,31 +2079,17 @@ def main() -> int:
             except Exception as e:  # noqa: BLE001
                 print(f"  skipped {n}: {type(e).__name__}: {e}")
                 continue
-            ann, qtr = norm["annual"], norm["quarterly"]
-            if not ann or not any(r.get("revenue") is not None or r.get("net_income") is not None for r in ann):
-                continue                                   # nothing an investor can read
-            latest_filed = max([r.get("filed") or "" for r in ann + qtr] or [""])
-            publish, active = universe_window(latest_filed, today)
-            if not publish:
-                continue                                   # older than the XBRL era this can reach
-            cik = int(facts.get("cik") or n[3:13])     # the CIK is in the file name; a few records omit the field
-            checks = data_checks(ann, qtr, norm["tags_used"], norm.get("_top_line"))
-            rec = {"cik": cik, "sec_name": facts.get("entityName"), "tickers": by_cik.get(cik, []),
-                   "annual": ann, "quarterly": qtr, "tags_used": norm["tags_used"],
-                   "annual_coverage": norm["annual_coverage"], "splits": norm["splits"],
-                   "checks": checks}
+            built = company_record(facts, norm, n[3:13], by_cik, today, sics, sic_codes)
+            if built is None:
+                continue                                   # nothing readable, or older than the XBRL era
+            rec, entry = built
+            cik, checks, ann = rec["cik"], rec["checks"], rec["annual"]
             path = comp_dir / f"{cik}.json"
-            body = json.dumps(rec, separators=(",", ":"), sort_keys=True)
+            body = record_body(rec)
             if not path.exists() or path.read_text() != body:      # unchanged files stay untouched -> small commits
                 path.write_text(body)
             written.add(path.name)
-            manifest[str(cik)] = {"name": facts.get("entityName"), "tickers": rec["tickers"],
-                                  "sic": sics.get(str(cik)), "sic_code": sic_codes.get(str(cik)),
-                                  "latest_filed": latest_filed, "active": active,
-                                  "fiscal_year_end": ann[-1].get("period_end"), "annual_rows": len(ann), "quarterly_rows": len(qtr),
-                                  "latest_quarter_end": checks["latest_quarter_end"], "quarter_age_days": checks["quarter_age_days"],
-                                  "reconciles": checks["reconciles"], "shares": checks["shares"],
-                                  "share_scale": checks["share_scale"]}
+            manifest[str(cik)] = entry
             recon[checks["reconciles"].split(":")[0]] += 1
             recon["debt:" + str(ann[-1].get("total_debt_basis"))] += 1
             if any(sp.get("applied") for sp in norm["splits"]):
@@ -2016,7 +2107,7 @@ def main() -> int:
             n_kept += 1
     n_inactive = sum(1 for v in manifest.values() if not v["active"])
     print(f"  {n_kept} companies kept of {n_seen} filers ({n_inactive} no longer filing)")
-    if n_kept < 3000:
+    if n_kept < MIN_COMPANIES:
         raise SystemExit(f"REFUSING TO WRITE — only {n_kept} companies normalised; the bulk file or the parser is broken")
 
     # remove files for filers that dropped out, and the old single-file outputs
@@ -2053,64 +2144,20 @@ def main() -> int:
                 rec = json.loads(path.read_text())
             except (KeyError, OSError, ValueError):
                 continue
-            before = {r["period_end"] for r in rec["quarterly"]}
-            used = 0
-            for e in filings:
-                if budget <= 0:
-                    break
-                budget -= 1
-                try:
-                    url = filing_instance_url(cik, e["accession"])
-                    if not url:
-                        continue                      # a filing with no XBRL instance: nothing to read
-                    merge_facts(facts, parse_xbrl_instance(get(url, retries=2, timeout=180).text,
-                                                           e["form"], e.get("date") or ""))
-                    used += 1
-                except Exception as ex:  # noqa: BLE001
-                    print(f"  {cik} {e['accession']}: {type(ex).__name__}: {ex}")
-            if not used:
-                continue
-            try:
-                norm = normalise_company(facts)
-            except Exception as ex:  # noqa: BLE001
-                print(f"  {cik}: re-normalise failed: {type(ex).__name__}")
-                continue
-            # Only genuinely new quarters are taken. The filing also carries prior-year
-            # comparatives, and rewriting settled history from it is not what this is for.
-            fresh = [r for r in norm["quarterly"] if r["period_end"] not in before]
-            if not fresh:
-                continue
-            for r in fresh:
-                r["source"] = "filing"                # absent on a row means it came from companyfacts
-            rec["quarterly"] = sorted(rec["quarterly"] + fresh, key=lambda r: r["period_end"])[-QUARTERS:]
-            # The new filing may be the first on a new split basis (a 10-Q reprinting its
-            # comparatives after a split is exactly the evidence `detect_splits` reads), so the
-            # splits and every row's basis-adjusted count are redone from the merged facts. Only
-            # the derived `shares_diluted_adj` moves; no as-filed or reported value is touched.
-            rec["splits"] = norm["splits"]
-            apply_split_adjustment(rec["annual"] + rec["quarterly"], rec["splits"])
             # Every counter the checks feed has to move, not just reconciles: patching a company
             # with figures read from its filing can change its shares flag too, and REPORT.md's
             # shares tallies were counting the pre-patch value for all 71 patched companies.
             was = {k: rec["checks"][k].split(":")[0] for k in ("reconciles", "shares", "share_scale")}
-            # The patch adds QUARTERLY rows only, so it cannot change an annual top line. Carry
-            # the stored flag through rather than recomputing it: `rec` comes from disk and never
-            # holds `_top_line`, so passing it would silently reset every patched company to "ok".
-            prior_tl = (rec["checks"].get("revenue") or "ok")
-            prior_tl = prior_tl.split(":", 1)[1].split(",") if prior_tl.startswith("below-income:") else None
-            rec["checks"] = data_checks(rec["annual"], rec["quarterly"], rec["tags_used"], prior_tl)
-            path.write_text(json.dumps(rec, separators=(",", ":"), sort_keys=True))
+            ok, budget = patch_company(cik, rec, facts, filings, budget)
+            if not ok:
+                continue
+            path.write_text(record_body(rec))
             recon[was["reconciles"]] -= 1
             recon[rec["checks"]["reconciles"].split(":")[0]] += 1
             for k in ("shares", "share_scale"):
                 recon[f"{k}:{was[k]}"] -= 1
                 recon[f"{k}:" + rec["checks"][k].split(":")[0]] += 1
-            manifest[str(cik)].update(quarterly_rows=len(rec["quarterly"]),
-                                      latest_quarter_end=rec["checks"]["latest_quarter_end"],
-                                      quarter_age_days=rec["checks"]["quarter_age_days"],
-                                      reconciles=rec["checks"]["reconciles"], shares=rec["checks"]["shares"],
-                                      share_scale=rec["checks"]["share_scale"],
-                                      patched_from_filing=True)
+            manifest[str(cik)].update(patched_manifest_fields(rec))
             patched.append(cik)
     print(f"  patched {len(patched)} companies from their own filings ({PATCH_CAP - budget} filings fetched)")
 

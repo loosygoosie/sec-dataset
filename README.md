@@ -14,6 +14,8 @@ into `data/sp500.json` as a convenience, and the filing-text build scopes itself
    data be fetched without a token; the content is public filings, reorganised).
 2. Add these files, keeping the paths exactly:
    - `build_sec_dataset.py` and `.github/workflows/sec.yml` — the weekly fundamentals build
+   - `patch_companies.py` and `.github/workflows/companies-patch.yml` — the daily patch-only run
+     that refreshes just the companies that filed a new 10-Q/10-K (see "The daily patch" below)
    - `build_sec_events.py` and `.github/workflows/events.yml` — the nightly 8-K/10-K/10-Q feed
    - `build_sec_filings.py` and `.github/workflows/filings.yml` — the weekly 10-K narrative build
      (Sundays 08:00 UTC, two hours after the fundamentals build, which writes the list it scopes to)
@@ -73,8 +75,38 @@ them carrying material item codes.
 The integer/string mismatch between an events row's `cik` and the manifest's keys is the other
 way this fails quietly: matching them without a cast finds nothing and looks like no coverage.
 
-After that it re-runs itself every Sunday. A company's file only changes when it files something
-new, so the weekly commit is small. You never need to touch it.
+After that it re-runs itself every Sunday, and the daily patch keeps the companies that filed
+current in between. You never need to touch it.
+
+## The daily patch (added 23 Sep 2026)
+
+`patch_companies.py` runs Monday to Saturday at 07:00 UTC (`companies-patch.yml`), after the nightly
+events feed. It rewrites a company file ONLY when that company's `events/<CIK>.json` shows a 10-Q or
+10-K (amendments included) newer than the file:
+
+- `quarter` — a 10-Q/10-K for a period 45+ days past the newest quarter held (the weekly build's own
+  patch rule);
+- `annual` — a 10-K past the newest annual row whose closing quarter the file holds only from the
+  filing (`source: filing`), i.e. the year is waiting for companyfacts;
+- `filed` — a 10-Q/10-K (/A) filed in the last 14 days after the newest filing any row holds (an
+  amendment of a period already held).
+
+For each such company it fetches that company's companyfacts from data.sec.gov and runs the weekly
+build's own code — `normalise_company`, `company_record`, then the filing-instance fallback if
+companyfacts is still behind — so **a file it rewrites is exactly what the Sunday build would write
+for that company that day**, and its manifest entry is replaced the same way. Everything else is
+left alone: other company files stay byte-identical, nothing is ever deleted (a company the weekly
+build would drop is left for the weekly build), no new filer is added, a file whose only change
+would be `quarter_age_days` is not rewritten, and a re-run is a no-op. Between Sundays, then,
+`quarter_age_days` in an untouched file and the manifest's top-level counts are as of the last
+weekly build; `checks.latest_quarter_end` is the field to read for freshness. Tickers are carried
+from the file, because only the weekly build fetches the SEC ticker map.
+
+Limits: 300 companies and 600 filing instances per run, 25 minutes, ~8 requests a second; S&P 500
+members first, then listed companies, then the least behind. It shares
+`sec.yml`'s concurrency group, so the two never run at once. A manual run is a dry run unless
+`dry_run` is set to `false`; `python patch_companies.py --select-only` lists the picks from the files
+on disk without any request.
 
 ## Reading the data from elsewhere
 
@@ -361,7 +393,7 @@ dispatch the workflow with `tickers: DECK,DUK,AEP,FCX,VMC`.
 
 ## Tests
 
-`pytest tests/` — 182 tests, run on every push. They cover the normaliser against synthetic
+`pytest tests/` — run on every push. They cover the normaliser against synthetic
 companyfacts documents (tag switches, the dominant and max picks, year-to-date differencing,
 the fiscal-year labelling, the checks block) and assert properties of the published dataset
 itself, because the share-count defect was invisible to unit tests: nothing had looked at what

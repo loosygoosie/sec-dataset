@@ -933,4 +933,107 @@ is gone, so Adobe's August quarter (filed 22 Sep, previous quarter 114 days old)
 The weekly schedule was NOT changed: every build rewrites ~13,700 company files
 (`quarter_age_days` moves daily), so a daily build would add that churn to history seven times a
 week. A mid-week PATCH-ONLY run (events feed + instance documents, touching only behind companies)
-is the next step if a week is still too slow; it was not built here.
+is the next step if a week is still too slow; it was not built here. *(Built the same day: §21.)*
+
+---
+
+## 21. The daily patch-only run  ✅ BUILT 23 Sep 2026 (branch `claude/daily-companies-patch`)
+
+**Why.** A downstream routine values companies every day from `data/companies/`, and `sec.yml` runs on
+Sundays only, so a 10-Q could wait seven days. §20 records why the full build stays weekly (~13,700
+rewritten files per run). This is the patch-only run §20 named as the next step.
+
+**What.** `patch_companies.py`, scheduled by `companies-patch.yml` Monday-Saturday 07:00 UTC, after
+the events feed (03:00, commits ~03:20). Selection reads each `events/<CIK>.json` against the
+company file; three reasons, each in `why_behind`'s docstring and README "The daily patch":
+`quarter` (the weekly `newer_filings` rule, unchanged), `annual` (a 10-K whose Q4 the file holds only
+from the filing fallback) and `filed` (a 10-Q/10-K /A filed in the last 14 days after anything held).
+A picked company is REBUILT, not spliced: its companyfacts is fetched from data.sec.gov (the payload
+the bulk zip carries for it — `probe_tags.py` relies on the same equivalence) and run through the
+weekly build's own steps. To make that literal, `main()`'s per-company code was lifted into
+`company_record`, `patch_company`, `newer_filings`, `record_body` and `patched_manifest_fields` in
+`build_sec_dataset.py`; `main()` now calls them and its behaviour is unchanged (the 3,000 floor became
+the named constant `MIN_COMPANIES` so a test can run `main()` on four companies).
+
+**What it will not do, and why.** Delete (pruning belongs to the weekly build); add a new filer;
+rewrite a file whose only change is `quarter_age_days` (it moves daily by itself, and rewriting for it
+is exactly the churn being avoided); write a record whose newest annual row or quarter moved
+BACKWARDS or whose annual rows shrank (a short read has no 3,000-company floor to catch it here — the
+weekly build stays the authority). Tickers are carried from the file, not refetched.
+
+**Proof it matches the weekly build.** `tests/test_daily_patch.py` runs the real `main()` twice on a
+four-company zip — last Sunday, and "today" — then runs the daily patch on last Sunday's output and
+asserts the two companies it rewrites are byte-identical to today's weekly output (one where
+companyfacts caught up, one read through the filing fallback), the other files keep their bytes and
+mtimes, the manifest's other entries and top level are untouched, nothing is deleted, and a second
+run writes nothing. The workflow gates on every suite `sec.yml` gates on plus that one, and
+`test_daily_patch.py` fails if the two workflows' concurrency groups diverge.
+
+**Measured before the first run** (`--select-only` against main at 23 Sep, files from the 20 Sep
+build): **175 companies** picked — 169 `quarter`, 9 `annual` (Clorox alone plus 8 alongside a
+quarter), 19 `filed`; 2 in the S&P 500 (Adobe's August quarter, Clorox's FY2026). Most of the rest are co-registrant subsidiaries and LPs whose companyfacts runs persistently behind (see §22). The first version of the `annual` rule (any 10-K past the
+newest annual row) picked 205, and 30 of them were STRUCTURAL: Paramount Skydance's FY2025 is a
+post-merger stub, and DATASEA and Northann hold a derived Q4 from a 10-K yet no annual row. Those
+would have been refetched every day for nothing, which is why the rule requires the Q4 to be
+filing-sourced.
+
+**The first live run** (dry, run 35914792704, 23 Sep 2026, real `SEC_USER_AGENT`, nothing
+committed): gate green; 175 picked, **141 rewritten** (35 from companyfacts alone — Adobe's August
+quarter among them — and 106 through the filing fallback: VF, Qorvo, Sonoco, Avis, Fannie Mae, Old
+National and others gained their June quarter), 0 held, 0 failed, 0 deletions, 209 filing instances
+read, **34 not reached**: the 25-minute limit bound. 16 filing-index requests got HTTP 503 from
+www.sec.gov (the company was still rebuilt from companyfacts; the regression guard stops a 503 from
+costing a quarter already held). The count of rewrites is inflated once: the files on main came from
+the 20 Sep build, before §20, so every rebuilt file also gains §20's fields.
+
+**What that run changed.** It served the weekly order (most stale first) and spent the budget on
+shells last current in companyfacts in 2012-2016 while listed companies a quarter behind went
+unreached. The daily order is now S&P 500, then companies with a ticker, then the least behind
+first — order decides only who is reached, never what is written. Output is unbuffered with a line
+per company, and a dry run uploads the files it would have written as an artifact
+(`companies-patch-dry-run`) instead of committing them. The workflow cannot be dispatched until it
+is on `main` (GitHub dispatches only default-branch workflows), so that run was triggered by a
+temporary branch-only `push` trigger, which cannot reach the commit step and was removed after.
+
+**Churn to expect.** A company whose companyfacts is persistently behind (co-registrants, LPs)
+gains up to three filings' quarters per run, oldest first. The Sunday build rebuilds it from the zip
+and re-applies at most three, so such a file can step back on Sunday and forward again on Monday —
+bounded, and confined to those filers, but visible in history.
+
+**Not done.** The manifest's top-level `counts`, `coverage_by_item` and `values_by_item`, and
+`REPORT.md`, are left as of the weekly build. A company picked before its companyfacts catches up is
+refetched each day until it does (one request, plus the instance reads); the cap is 300 companies,
+600 instances, 25 minutes. The first patched files after §20 merges carry the §20 fields while
+untouched files do not until the next Sunday build — added keys only, so no reader breaks, but a
+reader should not infer anything from a field's absence mid-week. The concurrency group queues ONE
+pending run: if a patch run and a manual `sec.yml` dispatch are both waiting, GitHub cancels the
+older pending one.
+
+---
+
+## 22. The filing fallback gives a co-registrant SUBSIDIARY its parent's figures  ⚠ OPEN (found 23 Sep 2026)
+
+Found while measuring §21's selection; **not fixed**, because it is the weekly build's code and the
+rule is to report a builder bug rather than work round it. §21 reuses the same path, so it
+inherits the defect exactly and adds no new instance of it.
+
+A combined 10-Q (parent and subsidiaries in one filing) tags each subsidiary's figures under
+`dei:LegalEntityAxis`, and `parse_xbrl_instance` drops every dimensioned context — so the only
+undimensioned facts in the instance are the PARENT's. When a subsidiary's companyfacts lags and the
+events feed lists the combined filing under its CIK, `patch_company` writes the parent's revenue,
+net income and balance sheet into the subsidiary's file, marked `source: filing`.
+
+In the 20 Sep build, 16 of the 72 companies holding filing-sourced rows carried another filer's
+exact (net income, total assets) for the same quarter. Ten are this defect — the subsidiary holds
+the parent's figures from the filing: American Airlines, Inc. (from AAL), NSTAR Electric (Eversource),
+Kentucky Utilities (PPL), Nevada Power and PacifiCorp (Berkshire Hathaway Energy), ERP Operating LP
+(EQR), Simon Property Group LP (SPG), Boston Properties LP (BXP), Progress Energy (Duke), Pepco
+Holdings (Exelon). E.g. Kentucky Utilities 2025-09-30: revenue 2,239m, net income 318m, assets
+43,939m, which is PPL's quarter exactly. The other six run the other way and are a SOURCE issue:
+the subsidiary's own companyfacts rows (`source` absent) already hold the parent's figures —
+companyfacts names CIK 1004155 "The Southern Company" — so the S&P 500 parents (SO, EIX, DTE, CNP,
+EVRG, DOW) look right and it is their subsidiaries' files that are wrong.
+
+**Likely fix, not tried:** before merging an instance, compare its undimensioned
+`dei:EntityCentralIndexKey` with the target CIK and skip the filing when they differ. It needs a
+fixture of a real combined filing and a probe run before it changes data.
