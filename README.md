@@ -29,6 +29,7 @@ fundamentals pipeline itself treats every filer alike; which companies matter is
 | `sec.yml` — Build company fundamentals (all filers) | Sunday 06:00 | `data/companies/`, `manifest.json`, `tickers.json`, `REPORT.md` |
 | `companies-patch.yml` — daily patch | Mon–Sat 07:00 | only the company files (and manifest entries) whose 10-Q/10-K is newer than the file |
 | `events.yml` — events feed | daily 03:00 | `data/events/`, `events_recent.json`, `events_report.md` |
+| `pipeline_v2.yml` — Pipeline v2 (parallel week from 24 Sep 2026) | daily 09:30 | ONLY `data/v2/` and the `filings-v2` branch — see "Pipeline v2" below |
 | `tests.yml` — Tests | every push | nothing |
 
 ## One-time setup (about five minutes)
@@ -379,3 +380,61 @@ with a single commit (no history growth). What changed is kept on main: `data/fi
 new filing, changed headline fact such as revenue, debt or shares per class, or company leaving the universe) and
 `data/filings_report.md`. Read one company without cloning the whole branch:
 `git clone --depth 1 --branch filings --filter=blob:none --sparse <repo> lib && cd lib && git sparse-checkout set <cik>`.
+
+EVERYTHING mode (`EVERYTHING=true`, or `company(..., everything=True)`; off in `filings.yml`, on in pipeline v2):
+the library also keeps the two 10-Ks before the latest, ALL exhibits of the latest 10-K, of each kept 10-Q and of
+each kept 8-K (except EX-100/101 XBRL and graphics), staff comment letters and answers (UPLOAD / CORRESP; PDFs via
+`pypdf`), NT 10-K / NT 10-Q and Schedules 13D / 13G of the last 3 years, DEFA14A / DFAN14A / PREC14A and
+S-1 / S-3 / S-4 / S-8 / 424B* of the last 400 days (latest S-1 and S-4 amendment only, latest 30 424Bs), and Forms
+3/4/5 and 144 of the last 400 days as one line per transaction in `<cik>/insider.txt.gz` (each line starts with its
+accession; each filing still has its own manifest entry with `lines`). Exhibits carry `exhibit` (the EX- type) in the
+manifest. `MAX_NEW_DOCS` caps the documents fetched per run so the first runs finish; the rest follow on later runs.
+
+## Pipeline v2 (`pipeline_v2.py`, `pipeline_v2.yml`, 24 Sep 2026) — the parallel week
+
+**Why.** fmp's pool is now every US company worth >= $22.7B (S&P 500 size), each read deeply, buys weighted by
+market value. The every-filer build above kept handing those reads wrong inputs, found again and again by the
+SEC-verified reads: `total_debt` = long-term only (CNP, VST, DUK, AEE, SNPS, ATI, WEC, EXR) or double counted
+(NXPI +$2B); capex missing where the filer uses its own tag (COP 2023-25, NEE) so FCF = operating cash flow;
+revenue from a segment, a gross line or lease income (NTAP $6.24B vs $6.93B, RSG, DTE $61M, bank revenue for MTB,
+LHX FY2025 missing); share counts from companyfacts with ONE share class (HEICO, Carvana) and stale around splits.
+
+**What it does, nightly at 09:30 UTC (one job, `timeout 330 min`):**
+
+1. Two bulk SEC downloads (`submissions.zip`, `companyfacts.zip`), read entry by entry on the runner.
+2. Universe: a 10-Q in the last 400 days, a listed common-stock ticker (no preferred / warrant / unit / right, no OTC),
+   not a partnership (L.P.), not a commodity trust (SIC 6221), revenue on file, market value >= $15B. Market value =
+   Yahoo close x shares from the latest 10-Q/10-K cover, EVERY class added up (`dei:EntityCommonStockSharesOutstanding`
+   by class in the filing's XBRL; co-registrant subsidiaries dropped), times Yahoo splits after the cover date, with
+   `data/v2/share_class_weights.csv` (Berkshire A = 1,500 B) and `data/v2/ads_ratio.csv` (ONC 13, ZLAB 10), both
+   copied from `fmp/owner/data`. Checked against Yahoo's market cap: beyond 3x Yahoo's is used (`mcap_check`
+   says so); a gap over 15% is flagged.
+3. The filing library in EVERYTHING mode for every universe company (`filings-v2` branch, seeded from `filings`).
+4. Fundamentals from companyfacts, point in time: every value keeps the form and the date it was first public (and
+   `first_val` / `first_filed` when restated); annual, quarterly (3-month facts or year-to-date differences) and TTM
+   (four quarters, else last year + YTD - last year's YTD); the tag used per field and period in `src`. Revenue: the
+   ASC 606 line unless a total is > 25% bigger or equals 606 + non-606 revenue (COP); banks = net interest +
+   noninterest income. Capex: nine us-gaap fallbacks, then the company's own tag from its latest 10-K/10-Q XBRL.
+   Total debt = non-current + current portion + short-term borrowings + commercial paper, each once (`DebtCurrent`,
+   when tagged, is the whole current side; `LongTermDebt` includes its current portion); finance leases separate.
+   A quarter companyfacts lacks is filled from the latest 10-Q's XBRL (CNP's Q2).
+5. Outputs, ONLY under `data/v2/`:
+   - `companies/<cik>.json` — `annual`, `quarterly` (rows: `end`, `start`, `revenue`, `net_income`,
+     `operating_cash_flow`, `capex`, `fcf`, `stock_comp`, `shares_diluted`, `cash_and_sti`, `total_debt`,
+     `debt_noncurrent`, `debt_current`, `finance_leases`, `equity`, and `src` per field), `ttm`, `balance`,
+     `tags_used`, `flags`, `latest_filing`, `market` (cover classes, `shares_total`, split factor). No prices in these
+     files, so they change only when a company files.
+   - `universe.csv` — ticker, cik, name, price, shares_total, classes, mcap_own, mcap_yahoo, mcap_used, mcap_check
+     (+ price_date, cover_date, cover_form, split_after_cover, sic).
+   - `changes.jsonl` (appended) — new filings, changed headline facts, companies entering / leaving the universe,
+     market value crossing $22.7B, and the library's new documents (`source: library`).
+   - `report.md`; `compare.md` — for every universe company, where v2 differs from `data/companies` by > 5% (revenue,
+     capex, total debt, shares).
+
+**The parallel week.** v2 never writes `data/companies`, `data/events`, `data/tickers.json` or the `filings` branch
+(a workflow step fails the run if anything outside `data/v2/` changed), and `filings.yml`'s default run is unchanged.
+fmp's autopilot keeps reading the old files. Each day, read `data/v2/compare.md`: every row should be a v2 fix
+(the cases above) or be explained; a v2 bug is fixed before fmp switches. After the week, fmp can move to
+`data/v2/` and `filings-v2`, and `filings.yml` can be retired. Smoke tests: dispatch with `only_tickers` or `limit`
+(nothing is committed). Locally: `ONLY_TICKERS=AAPL,HEI LIBRARY=false SEC_MIN_GAP=0.6 V2_OUT=/tmp/v2 python
+pipeline_v2.py` (uses the per-company APIs; `SEC_MIN_GAP` keeps a shared workstation under 2 requests a second).

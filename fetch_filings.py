@@ -24,6 +24,20 @@ history, so "what changed at this company and when" survives the overwrite.
 Incremental: a document already in the store (same accession) is not fetched again; documents that left the window
 are dropped. FULL=true refetches everything. LIMIT=n restricts to the first n companies (a smoke test).
 SEC: header from SEC_USER_AGENT only; ~8 requests a second via build_sec_events.get.
+
+EVERYTHING (opt-in, owner 24 Sep 2026; pipeline_v2.py turns it on, filings.yml's default run is unchanged): the readers
+read every document a company files, so per company also keep, in the same layout and manifest,
+  - the two 10-Ks before the latest (how the wording and risks moved)
+  - ALL exhibits of the latest 10-K, of each kept 10-Q and of each kept 8-K (EX-10 contracts, EX-21 subsidiaries,
+    EX-4 debt terms, EX-3 bylaws, EX-97 clawback ...), not only EX-99; never EX-100/101 XBRL or graphics
+  - SEC staff comment letters and the company's answers (UPLOAD, CORRESP; PDFs through pypdf when installed),
+    NT 10-K / NT 10-Q and Schedules 13D/13G (5%+ holders, activists) of the last 3 years
+  - Forms 3/4/5 and 144 of the last 400 days, parsed to ONE LINE PER TRANSACTION in a single <cik>/insider.txt.gz
+    (each line starts with its accession; every filing still gets its own manifest entry)
+  - S-1, S-3, S-4, S-8 and 424B* of the last 400 days (the latest S-1 and S-4 amendment only; the latest MAX_424B
+    424Bs, since bank note programmes file thousands), and DEFA14A / DFAN14A / PREC14A of the last 400 days
+MAX_NEW_DOCS=n caps the documents fetched in one run (0 = no cap) so a first run finishes; the rest are fetched on the
+next runs, which skip what is already stored.
 """
 from __future__ import annotations
 
@@ -66,6 +80,22 @@ EIGHT_K_DAYS = 400
 FULL = os.environ.get("FULL", "").strip().lower() in ("1", "true", "yes")
 LIMIT = int(os.environ.get("LIMIT", "0") or 0)
 TODAY = dt.date.today()
+EVERYTHING = os.environ.get("EVERYTHING", "").strip().lower() in ("1", "true", "yes")
+MAX_NEW_DOCS = int(os.environ.get("MAX_NEW_DOCS", "0") or 0)
+_budget = {"fetched": 0, "deferred": 0}
+
+# EVERYTHING mode: the extra forms kept and their windows
+THREE_YEARS = 3 * 365 + 1
+INSIDER_FORMS = {"3", "4", "5", "3/A", "4/A", "5/A", "144", "144/A"}
+THREE_YEAR_FORMS = {"UPLOAD", "CORRESP", "NT 10-K", "NT 10-Q", "NT 10-K/A", "NT 10-Q/A",
+                    "SC 13D", "SC 13D/A", "SC 13G", "SC 13G/A",
+                    "SCHEDULE 13D", "SCHEDULE 13D/A", "SCHEDULE 13G", "SCHEDULE 13G/A"}
+PROXY_FIGHT_FORMS = {"DEFA14A", "DFAN14A", "PREC14A"}
+OFFERING_FORMS = {"S-1", "S-1/A", "S-3", "S-3/A", "S-3ASR", "S-4", "S-4/A", "S-8", "S-8 POS"}
+LATEST_ONLY = ("S-1", "S-4")                  # a registration's amendments restate it: the latest says it all
+MAX_424B = 30
+INSIDER_FILE = "insider.txt.gz"
+GRAPHICS = (".jpg", ".jpeg", ".gif", ".png", ".bmp", ".zip", ".xsd", ".css", ".js")
 
 # headline facts compared run to run (first tag found wins); per share class via dei
 SUMMARY_TAGS = {
@@ -219,8 +249,9 @@ def summary(facts: dict) -> dict:
 
 
 # ---------------------------------------------------------------- what to keep
-def plan(sub: dict) -> list[dict]:
-    """The filings to keep for one company, from its submissions JSON (recent block)."""
+def plan(sub: dict, everything: bool = False) -> list[dict]:
+    """The filings to keep for one company, from its submissions JSON (recent block). everything=True adds the
+    EVERYTHING-mode filings (module docstring) and marks the filings whose exhibits are all kept."""
     r = sub.get("filings", {}).get("recent", {})
     rows = [dict(form=f, date=d, acc=a, doc=p, report=rd) for f, d, a, p, rd in
             zip(r.get("form", []), r.get("filingDate", []), r.get("accessionNumber", []),
@@ -237,7 +268,136 @@ def plan(sub: dict) -> list[dict]:
         keep.append(max(prox, key=lambda x: x["date"]))
     since = str(TODAY - dt.timedelta(days=EIGHT_K_DAYS))
     keep += [x for x in rows if x["form"] in ("8-K", "8-K/A") and x["date"] >= since]
+    if everything:
+        keep = _plan_everything(rows, tenk, keep, since)
     return keep
+
+
+def _plan_everything(rows: list[dict], tenk: list[dict], keep: list[dict], since: str) -> list[dict]:
+    three = str(TODAY - dt.timedelta(days=THREE_YEARS))
+    for x in keep:
+        if x["form"] in ("10-K", "10-KT", "10-Q", "8-K", "8-K/A"):
+            x["all_exhibits"] = True
+    extra = sorted(tenk, key=lambda x: x["date"], reverse=True)[1:3]
+    extra += [x for x in rows if x["form"] in THREE_YEAR_FORMS and x["date"] >= three]
+    extra += [x for x in rows if x["form"] in PROXY_FIGHT_FORMS and x["date"] >= since]
+    extra += [dict(x, insider=True) for x in rows if x["form"] in INSIDER_FORMS and x["date"] >= since]
+    off = [x for x in rows if x["date"] >= since and (x["form"] in OFFERING_FORMS or x["form"].startswith("424B"))]
+    for fam in LATEST_ONLY:
+        members = [x for x in off if x["form"].split("/")[0] == fam]
+        if len(members) > 1:
+            last = max(members, key=lambda x: x["date"])
+            off = [x for x in off if x not in members or x is last]
+    b424 = sorted([x for x in off if x["form"].startswith("424B")], key=lambda x: x["date"], reverse=True)
+    off = [x for x in off if not x["form"].startswith("424B")] + b424[:MAX_424B]
+    have = {x["acc"] for x in keep}
+    for x in extra + off:
+        if x["acc"] not in have:
+            have.add(x["acc"])
+            keep.append(x)
+    return keep
+
+
+# ---------------------------------------------------------------- EVERYTHING-mode readers
+def xml_text(raw: bytes) -> str:
+    """Any XML filing (Schedule 13G since 2025, Form 144) as 'element: value' lines of its leaf elements."""
+    try:
+        root = ET.fromstring(raw)
+    except ET.ParseError:
+        return to_text(raw.decode("utf-8", "ignore"))
+    out = []
+    for el in root.iter():
+        if len(el) == 0 and (el.text or "").strip():
+            out.append(f"{el.tag.rsplit('}', 1)[-1]}: {el.text.strip()}")
+    return "\n".join(out)
+
+
+def pdf_text(raw: bytes) -> str | None:
+    """Text of a PDF (staff letters are UPLOADed as PDFs) when pypdf is installed; None otherwise."""
+    try:
+        import io
+        from pypdf import PdfReader
+        return "\n".join((pg.extract_text() or "") for pg in PdfReader(io.BytesIO(raw)).pages).strip() or None
+    except Exception:                                               # noqa: BLE001
+        return None
+
+
+def ownership_lines(raw: bytes, acc: str, form: str, filed: str) -> list[str]:
+    """A Form 3/4/5 ownership document as one line per transaction or holding; any other XML (Form 144) as one
+    line of its leaf elements. Every line starts with the accession, so the per-company file can be rebuilt."""
+    head = f"{acc} {form} filed {filed}"
+    try:
+        root = ET.fromstring(raw)
+    except ET.ParseError:
+        return [f"{head} | (unreadable XML)"]
+    if root.tag.rsplit("}", 1)[-1] != "ownershipDocument":
+        return [f"{head} | " + "; ".join(x.replace(": ", "=", 1) for x in xml_text(raw).splitlines())[:2000]]
+
+    def v(el, path):
+        x = el.find(path)
+        return (x.text or "").strip() if x is not None and x.text else ""
+    owners = []
+    for o in root.findall("reportingOwner"):
+        rel = o.find("reportingOwnerRelationship")
+        roles = [] if rel is None else [r for r, k in (("Director", "isDirector"), ("Officer", "isOfficer"),
+                                                          ("10% owner", "isTenPercentOwner"), ("Other", "isOther"))
+                                        if v(rel, k) in ("1", "true")]
+        title = v(rel, "officerTitle") if rel is not None else ""
+        owners.append(v(o, "reportingOwnerId/rptOwnerName") + (f" ({', '.join(roles + ([title] if title else []))})"
+                                                                  if roles or title else ""))
+    who = "; ".join(owners) or "?"
+    out = []
+    for table in ("nonDerivativeTable", "derivativeTable"):
+        for t in root.findall(f"{table}/*"):
+            sec = v(t, "securityTitle/value")
+            after = v(t, "postTransactionAmounts/sharesOwnedFollowingTransaction/value")
+            di = v(t, "ownershipNature/directOrIndirectOwnership/value")
+            if t.tag.endswith("Holding"):
+                out.append(f"{head} | {who} | holds {after} {di} | {sec}")
+                continue
+            code = v(t, "transactionCoding/transactionCode")
+            out.append(f"{head} | {who} | {code} {v(t, 'transactionDate/value')} "
+                       f"{v(t, 'transactionAmounts/transactionAcquiredDisposedCode/value')} "
+                       f"{v(t, 'transactionAmounts/transactionShares/value')} @ "
+                       f"{v(t, 'transactionAmounts/transactionPricePerShare/value') or '-'} -> {after} {di} | {sec}")
+    return out or [f"{head} | {who} | (no transactions)"]
+
+
+def raw_doc_name(doc: str) -> str:
+    """submissions' primaryDocument for XML forms points at the SEC's XSL rendering ('xslF345X05/x.xml'); the
+    filing's own XML is the same name without that folder."""
+    return re.sub(r"^xsl[^/]*/", "", doc)
+
+
+def fetch_any(cik: int, acc: str, doc: str) -> str | None:
+    doc = raw_doc_name(doc)
+    r = get(ARCHIVE_DOC.format(cik=cik, acc_nodash=acc.replace("-", ""), doc=doc))
+    if r is None:
+        return None
+    low = doc.lower()
+    if low.endswith(".pdf"):
+        return pdf_text(r.content) or "(PDF without a text layer, or pypdf not installed)"
+    if low.endswith(".xml"):
+        return xml_text(r.content)
+    return to_text(r.text)
+
+
+def with_older_filings(sub: dict, since: str) -> dict:
+    """submissions' `recent` block holds ~1,000 filings; a company busy with Form 4s and 424Bs overflows it inside
+    three years. Merge the older pages (at most two requests) until the window is covered."""
+    r = sub.setdefault("filings", {}).setdefault("recent", {})
+    keys = ("form", "filingDate", "accessionNumber", "primaryDocument", "reportDate")
+    for f in sub["filings"].get("files", [])[:2]:
+        dates = r.get("filingDate") or []
+        if not dates or min(dates) <= since:
+            break
+        page = get("https://data.sec.gov/submissions/" + f["name"])
+        if page is None:
+            break
+        p = page.json()
+        for k in keys:
+            r[k] = list(r.get(k, [])) + list(p.get(k, []))
+    return sub
 
 
 # ---------------------------------------------------------------- universe
@@ -319,17 +479,54 @@ def instance_url(cik: int, acc: str) -> str | None:
     return f"https://www.sec.gov/Archives/edgar/data/{cik}/{a}/{inst[0]}" if inst else None
 
 
+def insider_file(cik, c, keep, old, d, docs, want, changes):
+    """Forms 3/4/5 and 144 as one line per transaction in d/INSIDER_FILE, rebuilt from the previous file's lines for
+    filings already read (by accession) plus the new ones; each filing keeps its own manifest entry."""
+    ins = sorted((f for f in keep if f.get("insider")), key=lambda f: (f["date"], f["acc"]), reverse=True)
+    if not ins:
+        return
+    old_lines: dict = {}
+    if (d / INSIDER_FILE).exists() and not FULL:
+        with gzip.open(d / INSIDER_FILE, "rt", encoding="utf-8") as fh:
+            for line in fh.read().splitlines():
+                old_lines.setdefault(line.split(" ", 1)[0], []).append(line)
+    lines = []
+    for f in ins:
+        got = old_lines.get(f["acc"])
+        if got is None:
+            if MAX_NEW_DOCS and _budget["fetched"] >= MAX_NEW_DOCS:
+                _budget["deferred"] += 1; continue
+            _budget["fetched"] += 1
+            r = get(ARCHIVE_DOC.format(cik=cik, acc_nodash=f["acc"].replace("-", ""), doc=raw_doc_name(f["doc"])))
+            if r is None:
+                continue
+            got = ownership_lines(r.content, f["acc"], f["form"], f["date"])
+            if old:
+                changes.append(dict(date=str(TODAY), cik=cik, ticker=c["ticker"], type="new_filing", form=f["form"],
+                                    filed=f["date"], accession=f["acc"], file=INSIDER_FILE))
+        lines += got
+        docs.append(dict(form=f["form"], filed=f["date"], accession=f["acc"], period=f["report"], doc=f["doc"],
+                         file=INSIDER_FILE, chars=sum(len(x) + 1 for x in got), lines=len(got)))
+    if lines:
+        want.add(INSIDER_FILE)
+        write_gz(d / INSIDER_FILE, "\n".join(lines) + "\n")
+
+
 def write_gz(path: Path, text: str):
     with gzip.open(path, "wt", encoding="utf-8") as f:
         f.write(text)
 
 
-def company(c: dict, changes: list) -> dict | None:
+def company(c: dict, changes: list, everything: bool | None = None) -> dict | None:
+    everything = EVERYTHING if everything is None else everything
     cik = c["cik"]
     sub_r = get(SUBMISSIONS.format(cik=cik))
     if sub_r is None:
         print(f"  {cik} {c['ticker']}: no submissions"); return None
-    keep = plan(sub_r.json())
+    sub = sub_r.json()
+    if everything:
+        sub = with_older_filings(sub, str(TODAY - dt.timedelta(days=THREE_YEARS)))
+    keep = plan(sub, everything)
     d = STORE / str(cik)
     d.mkdir(parents=True, exist_ok=True)
     old = json.loads((d / "manifest.json").read_text()) if (d / "manifest.json").exists() else {}
@@ -340,6 +537,9 @@ def company(c: dict, changes: list) -> dict | None:
         want.add(name)
         if not FULL and name in old_docs and (d / name).exists():
             docs.append(old_docs[name]); return
+        if MAX_NEW_DOCS and _budget["fetched"] >= MAX_NEW_DOCS:
+            _budget["deferred"] += 1; return                    # fetched on a later run
+        _budget["fetched"] += 1
         t = fetch()
         if t is None:
             return
@@ -350,25 +550,32 @@ def company(c: dict, changes: list) -> dict | None:
             changes.append(dict(date=str(TODAY), cik=cik, ticker=c["ticker"], type="new_filing",
                                 form=meta["form"], filed=meta["filed"], accession=meta["accession"], file=name))
 
-    tenk_text = None
     for f in keep:
+        if f.get("insider"):
+            continue                                            # one line per transaction, in INSIDER_FILE below
         acc, meta = f["acc"], dict(form=f["form"], filed=f["date"], accession=f["acc"], period=f["report"])
         name = f"{acc}_{re.sub(r'[^A-Za-z0-9]+', '', f['form'])}.txt.gz"
-        keep_file(name, dict(meta, doc=f["doc"]), lambda f=f: fetch_text(cik, f["acc"], f["doc"]))
-        if f["form"] in ("8-K", "8-K/A"):
+        keep_file(name, dict(meta, doc=f["doc"]),
+                  (lambda f=f: fetch_any(cik, f["acc"], f["doc"])) if everything else
+                  (lambda f=f: fetch_text(cik, f["acc"], f["doc"])))
+        if f["form"] in ("8-K", "8-K/A") or f.get("all_exhibits"):
             ex_cache = old.get("exhibits", {}).get(acc)
             ex = ex_cache if ex_cache is not None and not FULL else exhibits_for(cik, acc)
             for e in ex or []:
-                if not str(e.get("type", "")).startswith("EX-99"):
-                    continue
+                typ = str(e.get("type", ""))
                 href = e.get("url") or e.get("href") or ""
                 doc = href.rsplit("/", 1)[-1]
                 if not doc:
                     continue
+                if not (typ.startswith("EX-99") or (f.get("all_exhibits") and not doc.lower().endswith(GRAPHICS))):
+                    continue
                 en = f"{acc}_{re.sub(r'[^A-Za-z0-9]+', '', e['type'])}_{re.sub(r'[^A-Za-z0-9.]+', '', doc)}.txt.gz"
-                keep_file(en, dict(meta, form=f"{f['form']} {e['type']}", doc=doc),
+                keep_file(en, dict(meta, form=f"{f['form']} {e['type']}", doc=doc,
+                                   **({"exhibit": typ} if everything else {})),
                           lambda href=href: fetch_url_text(href))
             f["_ex"] = ex
+    if everything:
+        insider_file(cik, c, keep, old, d, docs, want, changes)
     # XBRL: all facts of the latest 10-K and the latest 10-Q after it
     fsum = {}
     for form in (("10-K", "10-KT"), ("10-Q",)):
@@ -447,6 +654,8 @@ def main():
     rep = [f"# Filing library {TODAY}", "", f"- companies: {len(index)}", f"- documents: {sum(v['docs'] for v in index.values())}",
            f"- new filings: {sum(1 for c in changes if c['type'] == 'new_filing')}",
            f"- fact changes: {sum(1 for c in changes if c['type'] == 'fact_change')}"]
+    if EVERYTHING or MAX_NEW_DOCS:
+        rep += [f"- documents fetched this run: {_budget['fetched']}", f"- deferred to the next run: {_budget['deferred']}"]
     (DATA / "filings_report.md").write_text("\n".join(rep) + "\n")
     print("\n".join(rep))
 
