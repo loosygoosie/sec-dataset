@@ -92,7 +92,7 @@ def test_an_old_amendment_is_left_to_the_weekly_build(P):
     assert P.why_behind(rec, [ev("10-K/A", "2025-12-31", "2026-03-01")], TODAY) == []
 
 
-def _tree(tmp_path, monkeypatch, b, companies: dict, events: dict, sp500=()):
+def _tree(tmp_path, monkeypatch, b, companies: dict, events: dict):
     monkeypatch.chdir(tmp_path)
     (tmp_path / "data/companies").mkdir(parents=True)
     (tmp_path / "data/events").mkdir(parents=True)
@@ -100,26 +100,25 @@ def _tree(tmp_path, monkeypatch, b, companies: dict, events: dict, sp500=()):
         (tmp_path / f"data/companies/{cik}.json").write_text(json.dumps({**rec, "cik": cik}))
     for cik, evs in events.items():
         (tmp_path / f"data/events/{cik}.json").write_text(json.dumps({"events": evs}))
-    if sp500:
-        (tmp_path / "data/sp500.json").write_text(json.dumps({"companies": [{"cik": c} for c in sp500]}))
 
 
 def test_selection_needs_both_a_company_file_and_an_events_record(P, b, tmp_path, monkeypatch):
     new = ev("10-Q", "2026-06-30", "2026-07-30")
     _tree(tmp_path, monkeypatch, b, {1: _rec(), 2: _rec()}, {1: [new], 3: [new]})
-    assert [t["cik"] for t in P.select_targets(TODAY, set())] == [1]
+    assert [t["cik"] for t in P.select_targets(TODAY)] == [1]
 
 
-def test_index_members_then_listed_companies_then_the_least_behind(P, b, tmp_path, monkeypatch):
+def test_listed_companies_then_the_least_behind(P, b, tmp_path, monkeypatch):
     """The first live run spent its budget on shells last current in 2012 and never reached listed
-    companies one quarter behind; the order must put those first."""
+    companies one quarter behind; the order must put those first. (An S&P 500 tier came before
+    this until 24 Sep 2026; the S&P list was dropped with its last reader.)"""
     new = ev("10-Q", "2026-06-30", "2026-07-30")
     shell = _rec(lq="2012-03-31", filed="2012-05-01")
     listed = {**_rec(), "tickers": ["LST"]}
     listed_stale = {**_rec(lq="2016-06-30", filed="2016-08-01"), "tickers": ["OLD"]}
     _tree(tmp_path, monkeypatch, b, {1: shell, 2: listed_stale, 3: _rec(), 4: listed, 5: _rec()},
-          {c: [new] for c in (1, 2, 3, 4, 5)}, sp500=(5,))
-    assert [t["cik"] for t in P.select_targets(TODAY, P.load_priority())] == [5, 4, 2, 3, 1]
+          {c: [new] for c in (1, 2, 3, 4, 5)})
+    assert [t["cik"] for t in P.select_targets(TODAY)] == [4, 2, 3, 5, 1]
 
 
 # --------------------------------------------------------------------------
@@ -203,7 +202,6 @@ def _weekly(b, monkeypatch, root, facts, events):
             z.writestr(f"CIK{cik:010d}.json", json.dumps(f))
     monkeypatch.setattr(b, "MIN_COMPANIES", 1)
     monkeypatch.setattr(b, "load_ticker_maps", lambda: ({"AAA": {"cik": A, "name": "a"}}, {A: ["AAA"]}))
-    monkeypatch.setattr(b, "sp500_snapshot", lambda *a, **k: (None, "offline test"))
     assert b.main() == 0
     (root / "work/companyfacts.zip").unlink()
 

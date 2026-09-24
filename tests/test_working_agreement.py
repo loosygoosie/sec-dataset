@@ -38,5 +38,6 @@ def test_the_gate_failure_is_recorded_with_the_rule():
 
 
 def test_it_names_the_consumer_of_this_data():
-    """A dataset with no stated consumer invites a 'harmless' field rename."""
-    assert "robinhood-book" in CLAUDE.read_text()
+    """A dataset with no stated consumer invites a 'harmless' field rename. Since 24 Sep 2026 the
+    only consumer is the owner's `fmp` repo (robinhood-book was retired)."""
+    assert "fmp" in CLAUDE.read_text()

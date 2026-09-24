@@ -98,17 +98,11 @@ def test_THE_MAJOR_GROUP_IS_WHY_THE_CODE_EXISTS(b, tmp_path, monkeypatch):
 DATA = pathlib.Path(__file__).resolve().parents[1] / "data"
 
 
-@pytest.mark.skipif(not (DATA / "sp500.json").exists(), reason="no built dataset on disk")
-def test_the_sp500_is_almost_entirely_covered():
-    """The screen runs on the index, so coverage there is what matters — not the 7,411 total."""
-    sp = json.loads((DATA / "sp500.json").read_text())
-    have = sum(1 for c in sp["companies"]
-               if (DATA / "events" / f"{c['cik']}.json").exists()
-               and json.loads((DATA / "events" / f"{c['cik']}.json").read_text()).get("sic"))
-    assert have >= len(sp["companies"]) - 5, f"only {have} of {len(sp['companies'])} carry a sic"
+# An S&P 500 coverage check lived here until 24 Sep 2026; it read data/sp500.json, which was dropped
+# with its last reader (the list remains in git history, NOTES.md 24 Sep 2026).
 
 
-@pytest.mark.skipif(not (DATA / "sp500.json").exists(), reason="no built dataset on disk")
+@pytest.mark.skipif(not (DATA / "tickers.json").exists(), reason="no built dataset on disk")
 def test_sic_separates_the_two_the_brokers_taxonomy_cannot():
     """Deckers and Monster are one category to the broker and two to the screen. If a future change
     ever collapsed them, the growth floor and leverage bound would silently swap for one of them."""

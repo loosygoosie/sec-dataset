@@ -11,7 +11,7 @@ What it does, once per run:
   4. Writes one small file per company, data/companies/<CIK>.json (a file changes only when
      the company files something new, so weekly commits stay small), plus data/manifest.json
      (every CIK with name, tickers, latest filing date), data/tickers.json (the SEC map) and
-     data/REPORT.md. Who is in the S&P 500, and what is held, is decided by the reader.
+     data/REPORT.md. What is held is decided by the reader (the owner's `fmp` repo).
 
 Run by GitHub Actions on a schedule (see .github/workflows/sec.yml).
 Needs only `requests`. The SEC asks for a descriptive User-Agent with a
@@ -19,8 +19,6 @@ contact — set the SEC_USER_AGENT environment variable (see README).
 """
 from __future__ import annotations
 
-import csv
-import io
 import math
 import json
 import os
@@ -38,16 +36,11 @@ import requests
 # --------------------------------------------------------------------------
 # Configuration
 # --------------------------------------------------------------------------
-USER_AGENT = os.environ.get("SEC_USER_AGENT", "sp500-sec-dataset research (set SEC_USER_AGENT)")
+USER_AGENT = os.environ.get("SEC_USER_AGENT", "sec-dataset research (set SEC_USER_AGENT)")
 HEADERS = {"User-Agent": USER_AGENT, "Accept-Encoding": "gzip, deflate"}
 
 COMPANYFACTS_ZIP = "https://www.sec.gov/Archives/edgar/daily-index/xbrl/companyfacts.zip"
 TICKER_MAP_URL = "https://www.sec.gov/files/company_tickers.json"
-SP500_CSV_URL = "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv"
-# The constituent list is the one thing here that is not an SEC file. SEC_USER_AGENT carries a
-# real name and email and is sent to sec.gov and nowhere else, so this request uses its own
-# plain User-Agent rather than the HEADERS above.
-SP500_HEADERS = {"User-Agent": "sec-dataset build (+https://github.com/loosygoosie/sec-dataset)"}
 
 # HOW LONG A FILER STAYS IN THE DATASET AFTER IT STOPS FILING — the survivorship dial, and until
 # 15 Sep 2026 it was an unnamed `3` inline with the comment "drop filers silent for 3+ years".
@@ -63,11 +56,12 @@ SP500_HEADERS = {"User-Agent": "sec-dataset build (+https://github.com/loosygoos
 # data source: FMP prices delisted and failed companies, TWTR and SIVB both confirmed, but a company
 # that failed in 2018 has to EXIST IN THIS FILE before any price source can reach it.
 #
-# PUBLISH AND MARK RATHER THAN DROP, which is this file's own stated pattern — "who is in the S&P
-# 500, and what is held, is decided by the reader". A dead filer cannot be bought: it has no ticker,
+# PUBLISH AND MARK RATHER THAN DROP, which is this file's own stated pattern — what is held is
+# decided by the reader. A dead filer cannot be bought: it has no ticker,
 # so the consumer keys it on its CIK, and it has no price series, so nothing can rank or hold it.
 # Carrying it costs the live system nothing and is the only way the backtest can see the companies
-# that failed.
+# that failed. (`robinhood-book` was RETIRED 24 Sep 2026; the owner's `fmp` repo is now the only
+# reader, and its backtests read the dead filers this keeps — do not lower it.)
 PUBLISH_SILENT_YEARS = 15   # reaches 2011 — the XBRL mandate era, and every formation date the
                             # as-filed record can support. Bounded rather than unlimited so the
                             # repository does not grow without a reason anyone can state.
@@ -75,7 +69,6 @@ ACTIVE_SILENT_YEARS = 3     # unchanged, and now a FLAG rather than a filter: `a
                             # a filer that has not filed in this long. The old behaviour is exactly
                             # `active is True`, so a reader wanting it has one field to test.
 MIN_COMPANIES = 3000     # the build refuses to write below this many companies: a broken bulk file or parser
-SP500_MIN = 400         # a list shorter than this is a broken fetch, not a smaller index
 CIK_OVERRIDES_PATH = Path("data/cik_overrides.json")   # hand-maintained; the build reads it, never writes it
 FILING_INDEX = "https://www.sec.gov/Archives/edgar/data/{cik}/{acc_nodash}/{acc}-index.html"
 EVENTS_DIR = Path("data/events")    # written by build_sec_events.py; read here to spot a filing the bulk file has not caught up with
@@ -110,7 +103,7 @@ XSI_NIL = "{http://www.w3.org/2001/XMLSchema-instance}nil"
 # reading: a ten-year measure formed over twelve years of history can be formed at ONE date, which
 # leaves about two and a half years of forward returns to test it against. That is not a backtest,
 # and `robinhood-book` #48 — the model is unvalidated — is blocked on it. Prices over there already
-# reach back to 2005.
+# reach back to 2005. (`robinhood-book` was retired 24 Sep 2026; `fmp`'s backtests use this depth.)
 #
 # SO THE SOURCE DECIDES THE DEPTH NOW, NOT THIS FILE. XBRL annual reporting began with fiscal periods
 # ending after 15 June 2009 and phased in through 2011, and companyfacts also carries the comparative
@@ -469,9 +462,6 @@ def download(url: str, dest: Path) -> Path:
 
 
 # --------------------------------------------------------------------------
-# Step 1 — S&P 500 membership
-# --------------------------------------------------------------------------
-# --------------------------------------------------------------------------
 def _days(a: str, b: str) -> int:
     return (date.fromisoformat(b) - date.fromisoformat(a)).days
 
@@ -544,7 +534,8 @@ def _filed_key(f: dict) -> int:
 # the restated series and reads as history, which is lookahead wearing a date.
 #
 # So the rule is exact: AS-FILED COVERS WHAT THE MEASURES READ, AND NOTHING ELSE. These sixteen are
-# the inputs to the seven measures in robinhood-book/claude/clean-slate.md —
+# the inputs to the seven measures in robinhood-book/claude/clean-slate.md (that consumer was retired
+# 24 Sep 2026; `fmp` now reads these as-filed values for its point-in-time backtests) —
 #
 #   return on capital employed   operating_income, income_tax, pretax_income, current_assets,
 #   and its consistency          current_liabilities, total_assets
@@ -1476,7 +1467,8 @@ def apply_split_adjustment(rows: list[dict], splits: list[dict]) -> None:
 # at least ten: `robinhood-book/claude/clean-slate.md` makes every measure a ten-year one, and
 # `persistence.share_trend` reads exactly this span. A flag about per-share usability that checked a
 # different number of years than the consumer reads would be answering its own question rather than
-# the reader's, which is the defect this window exists to close.
+# the reader's, which is the defect this window exists to close. (`robinhood-book` was retired
+# 24 Sep 2026; the window is kept as published, since `fmp` reads `checks.shares` as it stands.)
 SHARE_WINDOW = 10
 
 CHECK_ITEMS = ("revenue", "net_income", "operating_cash_flow", "capex")
@@ -1751,7 +1743,7 @@ def _later_quarter(period: str, lq: str) -> bool:
         return False
 
 
-def patch_targets(manifest: dict, priority: set[int]) -> list[tuple[int, list[dict]]]:
+def patch_targets(manifest: dict) -> list[tuple[int, list[dict]]]:
     """Companies whose companyfacts quarterly series has fallen behind a filing the events feed
     already knows about: a 10-Q or 10-K on file for a quarter later than the last one we hold.
 
@@ -1761,8 +1753,10 @@ def patch_targets(manifest: dict, priority: set[int]) -> list[tuple[int, list[di
     indefinitely if companyfacts stayed behind while the quarter was still under 150 days old.
     Being behind your own filing is the condition; how old the last quarter is was only ever a
     proxy for it. PATCH_MIN_GAP_DAYS is what keeps a same-quarter date mismatch out. Filings come back oldest first, because deriving a quarter from
-    a year-to-date figure needs the earlier quarters of that year to exist. S&P 500 constituents
-    are served first, then the most stale, so a capped run spends its budget where it is read."""
+    a year-to-date figure needs the earlier quarters of that year to exist. Companies with a ticker
+    are served first, then the most stale, so a capped run spends its budget where it is read. (The
+    first tier was S&P 500 constituents until 24 Sep 2026, when the S&P list was dropped: `fmp`, the
+    only reader, buys any listed company, so "has a ticker" is the tier that matches what it reads.)"""
     out: list[tuple[int, list[dict]]] = []
     for cik_s, v in manifest.items():
         lq = v.get("latest_quarter_end")
@@ -1779,7 +1773,8 @@ def patch_targets(manifest: dict, priority: set[int]) -> list[tuple[int, list[di
         if not newer:
             continue
         out.append((int(cik_s), newer[:PATCH_PER_COMPANY]))
-    out.sort(key=lambda t: (t[0] not in priority, -(manifest[str(t[0])]["quarter_age_days"] or 0)))
+    out.sort(key=lambda t: (not manifest[str(t[0])].get("tickers"),
+                            -(manifest[str(t[0])]["quarter_age_days"] or 0)))
     return out
 
 
@@ -1945,77 +1940,6 @@ def load_cik_overrides() -> dict[str, dict]:
     return out
 
 
-def _sp500_csv() -> str | None:
-    """The constituents CSV, or None if it cannot be had. Never raises: a build must not
-    fail because a list of index members was unreachable."""
-    last = None
-    for i in range(3):
-        try:
-            r = requests.get(SP500_CSV_URL, headers=SP500_HEADERS, timeout=60)
-            if r.status_code == 200:
-                return r.text
-            last = f"HTTP {r.status_code}"
-        except requests.RequestException as e:
-            last = type(e).__name__
-        time.sleep(2 * (i + 1))
-    print(f"  constituents fetch failed: {last}")
-    return None
-
-
-def sp500_snapshot(by_ticker: dict[str, dict], generated: str,
-                   published: set[int] | None = None) -> tuple[dict | None, str]:
-    """Who is in the index today, each ticker resolved to a CIK through the SEC's own ticker
-    map. Membership is a fact about an index, not a fundamental — every number in the company
-    files still comes from the filer's own filing.
-
-    `published` is the set of CIKs this build actually wrote a company file for. A constituent
-    can resolve to a CIK cleanly and still have no fundamentals behind it — a reorganisation
-    moves a ticker to a new registrant, a spinoff has not filed yet — so those are named in
-    `no_fundamentals` rather than left to fail silently when a reader joins on cik.
-
-    Returns (record, note). The record is None when the list could not be fetched or came back
-    implausibly short; main then leaves the previous data/sp500.json alone and REPORT.md says
-    the snapshot is stale, because a reader acting on a silently empty index is worse off than
-    one acting on last week's."""
-    text = _sp500_csv()
-    if text is None:
-        return None, "the fetch failed"
-
-    def cell(row: dict, *names: str) -> str:
-        for n in names:
-            for k, v in row.items():
-                if k and k.strip().lower() == n:
-                    return (v or "").strip()
-        return ""
-
-    companies, unmatched, seen = [], [], set()
-    for row in csv.DictReader(io.StringIO(text)):
-        raw = cell(row, "symbol", "ticker")
-        if not raw:
-            continue
-        t = raw.upper().replace(".", "-")        # the SEC map's own spelling: BRK.B -> BRK-B
-        if t in seen:
-            continue
-        seen.add(t)
-        hit = by_ticker.get(t)
-        if hit:
-            companies.append({"ticker": t, "cik": hit["cik"],
-                              "name": cell(row, "security", "name", "company") or hit["name"]})
-        else:
-            unmatched.append(t)                  # a fresh addition the SEC map has not caught up with
-
-    total = len(companies) + len(unmatched)
-    if total < SP500_MIN:
-        print(f"  constituents list came back with only {total} tickers; keeping the previous file")
-        return None, f"the list came back with only {total} tickers"
-    no_fundamentals = sorted(c["ticker"] for c in companies
-                             if published is not None and c["cik"] not in published)
-    return {"generated_utc": generated, "date": generated[:10], "source": SP500_CSV_URL,
-            "constituents": total, "matched": len(companies),
-            "companies": sorted(companies, key=lambda c: c["ticker"]),
-            "unmatched": sorted(unmatched), "no_fundamentals": no_fundamentals}, "ok"
-
-
 def load_ticker_maps() -> tuple[dict[str, dict], dict[int, list[str]]]:
     """SEC's own ticker map (regenerated daily from filing cover pages): ticker -> {cik, name}, and cik -> [tickers].
     The exchange-listed variant is merged in when reachable — it carries a few tickers the plain map lacks."""
@@ -2046,7 +1970,7 @@ def load_ticker_maps() -> tuple[dict[str, dict], dict[int, list[str]]]:
 
 def main() -> int:
     """The everything-build: no index filter. Every operating filer in the SEC bulk file is normalised and
-    published as its own file; who is in the S&P 500, and what is held, is decided by the reader."""
+    published as its own file; what is held is decided by the reader."""
     t0 = time.time()
     OUT_DIR.mkdir(exist_ok=True); WORK_DIR.mkdir(exist_ok=True)
     comp_dir = OUT_DIR / "companies"; comp_dir.mkdir(exist_ok=True)
@@ -2120,16 +2044,9 @@ def main() -> int:
 
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
-    print("4. S&P 500 constituents")
-    sp500_path = OUT_DIR / "sp500.json"
-    sp500, sp500_note = sp500_snapshot(by_ticker, generated, {int(k) for k in manifest})
-    if sp500 is not None:
-        sp500_path.write_text(json.dumps(sp500, separators=(",", ":"), sort_keys=True))
-        print(f"  {sp500['matched']}/{sp500['constituents']} tickers resolved to a CIK")
-
-    print("5. stale-name fallback")
+    print("4. stale-name fallback")
     patched: list[int] = []
-    targets = patch_targets(manifest, {c["cik"] for c in (sp500 or {}).get("companies", [])})
+    targets = patch_targets(manifest)
     print(f"  {len(targets)} companies are behind their own filings; budget {PATCH_CAP} filings")
     budget = PATCH_CAP
     patch_t0 = time.time()
@@ -2224,26 +2141,7 @@ def main() -> int:
                "A quarterly row carrying `\"source\": \"filing\"` was derived from the filing's own XBRL instance,",
                "through the same tag map, picking rules and year-to-date differencing as every other row. A row",
                "with no `source` came from the SEC's bulk companyfacts file. Only quarters missing from",
-               "companyfacts are added; the prior-year comparatives a filing also carries are left alone.",
-               "", "## S&P 500 constituents", ""]
-    if sp500 is not None:
-        report += [f"- source: {SP500_CSV_URL}", f"- snapshot date: {sp500['date']}",
-                   f"- constituents: {sp500['constituents']}",
-                   f"- resolved to a CIK via the SEC ticker map: {sp500['matched']}",
-                   f"- unmatched (no CIK in the SEC ticker map): {', '.join(sp500['unmatched']) if sp500['unmatched'] else 'none'}",
-                   f"- resolved but with no company file, so nothing to join to: {', '.join(sp500['no_fundamentals']) if sp500['no_fundamentals'] else 'none'}"]
-    elif sp500_path.exists():
-        report += [f"- **NOT REFRESHED THIS RUN** — {sp500_note}; `data/sp500.json` is unchanged from the previous build.",
-                   "- Membership is therefore as of the last successful fetch. Every fundamental in this build",
-                   "  comes from the filings as usual and is unaffected; only the index list is stale."]
-    else:
-        report += [f"- **NOT WRITTEN** — {sp500_note}, and there is no earlier snapshot to fall back on,",
-                   "  so `data/sp500.json` is absent from this build.",
-                   "- A reader must treat the file as missing, not as an empty index. Every fundamental in this",
-                   "  build comes from the filings as usual and is unaffected."]
-    report += ["", "Membership comes from a public constituents list, not from the SEC — it is a fact about",
-               "an index, not a company fundamental. `cik` is resolved through the SEC's own ticker map, so a",
-               "ticker the map has not caught up with is listed under `unmatched` rather than guessed at."]
+               "companyfacts are added; the prior-year comparatives a filing also carries are left alone."]
 
     (OUT_DIR / "REPORT.md").write_text("\n".join(report) + "\n")
     print(f"done in {time.time()-t0:.0f}s -> {n_kept} files in {comp_dir}/, manifest.json, tickers.json")
