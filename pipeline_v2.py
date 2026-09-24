@@ -60,7 +60,9 @@ LIMIT = int(os.environ.get("LIMIT", "0") or 0)
 LIBRARY = os.environ.get("LIBRARY", "true").strip().lower() not in ("0", "false", "no")
 MIN_GAP = float(os.environ.get("SEC_MIN_GAP", "0") or 0)
 TODAY = dt.date.today()
-BULK = "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/{}.zip"
+# The two bulk files live in DIFFERENT folders (the first v2 run asked for bulkdata/companyfacts.zip: 403).
+BULK = {"submissions": "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip",
+        "companyfacts": "https://www.sec.gov/Archives/edgar/daily-index/xbrl/companyfacts.zip"}
 FORMS = {"10-K", "10-K/A", "10-Q", "10-Q/A", "10-KT", "10-KT/A", "10-QT"}
 PERIODIC = ("10-K", "10-Q", "10-KT", "10-QT")
 COVER = "dei:EntityCommonStockSharesOutstanding"
@@ -685,12 +687,20 @@ def download(name: str) -> Path:
         return dest
     WORK.mkdir(parents=True, exist_ok=True)
     print(f"downloading {name}.zip", flush=True)
-    with requests.get(BULK.format(name), headers=_ev.HEADERS, stream=True, timeout=600) as r:
-        r.raise_for_status()
-        tmp = dest.with_suffix(".part")
-        with open(tmp, "wb") as f:
-            for chunk in r.iter_content(1 << 20):
-                f.write(chunk)
+    for k in range(4):                                             # a refused or cut download is retried
+        try:
+            with requests.get(BULK[name], headers=_ev.HEADERS, stream=True, timeout=600) as r:
+                r.raise_for_status()
+                tmp = dest.with_suffix(".part")
+                with open(tmp, "wb") as f:
+                    for chunk in r.iter_content(1 << 20):
+                        f.write(chunk)
+            break
+        except Exception as e:                                     # noqa: BLE001
+            print(f"  {name}.zip attempt {k + 1}: {type(e).__name__}: {e}", flush=True)
+            if k == 3:
+                raise
+            time.sleep(60 * (k + 1))
     tmp.rename(dest)
     print(f"  {dest.stat().st_size / 1e6:.0f} MB", flush=True)
     return dest
