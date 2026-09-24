@@ -1,10 +1,8 @@
 name: Filing library for fmp (text + full XBRL, overwritten each run)
 
 on:
-  schedule:
-    # Every day 10:30 UTC: after the companies patch (07:00 UTC) and before fmp's weekday routine (16:00 UTC).
-    # The first run fetches everything (~1h); later runs fetch only filings not in the library yet.
-    - cron: "30 10 * * *"
+  # No schedule since 25 Sep 2026: pipeline_v2.yml fetches the (complete) library to the filings-v2 branch every
+  # night; two libraries would double the repo's size. Kept for a manual run.
   workflow_dispatch:
     inputs:
       full:
