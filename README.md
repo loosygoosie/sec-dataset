@@ -360,3 +360,22 @@ the build actually wrote.
 
 - SEC bulk facts: https://www.sec.gov/Archives/edgar/daily-index/xbrl/companyfacts.zip
 - SEC ticker→CIK maps: https://www.sec.gov/files/company_tickers.json and company_tickers_exchange.json
+
+## Filing library (`filings` branch, `fetch_filings.py`, 24 Sep 2026)
+
+Every recent filing of every S&P 500-sized company (market value >= $15B, a cushion under S&P's $22.7B minimum,
+plus any CIK in `data/filings_extra.txt`), kept for fmp's deep reads so they search a local copy instead of
+downloading through the SEC's rate limit:
+
+- `<cik>/<acc>_<form>.txt.gz`: text of the latest 10-K (+ any 10-K/A), every 10-Q since, the latest DEF 14A and
+  every 8-K of the last 400 days with its EX-99 exhibits (earnings releases);
+- `<cik>/<acc>_xbrl.json.gz`: ALL XBRL facts of the latest 10-K and 10-Q, including the dimensioned ones
+  (share classes, segments) that companyfacts drops: `{concept: [[value, unit, start, end, {axis: member}]]}`;
+- `<cik>/manifest.json`: the documents, the 10-K's item offsets (`tenk_sections`), and a headline facts summary;
+- `index.json`: `{cik: {ticker, name, docs, updated, mcap}}`.
+
+`filings.yml` runs daily at 10:30 UTC, fetches only filings not in the library yet, and OVERWRITES the branch
+with a single commit (no history growth). What changed is kept on main: `data/filings_changes.jsonl` (one line per
+new filing, changed headline fact such as revenue, debt or shares per class, or company leaving the universe) and
+`data/filings_report.md`. Read one company without cloning the whole branch:
+`git clone --depth 1 --branch filings --filter=blob:none --sparse <repo> lib && cd lib && git sparse-checkout set <cik>`.
