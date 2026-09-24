@@ -369,3 +369,11 @@ def test_form4_is_one_line_per_transaction():
                                "a", "144", "2026-09-01")
     assert other == ["a 144 filed 2026-09-01 | seller=X; shares=10"]
     assert ff.raw_doc_name("xslF345X05/wk-form4_1.xml") == "wk-form4_1.xml"
+
+
+def test_bulk_files_point_at_their_own_folders():
+    """companyfacts.zip is under daily-index/xbrl/, submissions.zip under daily-index/bulkdata/ (the first run 403'd
+    asking for bulkdata/companyfacts.zip)."""
+    import pipeline_v2 as P
+    assert P.BULK["companyfacts"].endswith("/daily-index/xbrl/companyfacts.zip")
+    assert P.BULK["submissions"].endswith("/daily-index/bulkdata/submissions.zip")
