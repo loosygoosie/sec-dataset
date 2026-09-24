@@ -85,7 +85,7 @@ PATCH_SECONDS = 40 * 60             # and never more than this much wall-clock o
 # 52/53-week filer's quarter ends a few days off the calendar date the events feed may carry
 # (Apple's 2026-06-27 against 2026-06-30) — that is the same quarter, not a missing one.
 PATCH_MIN_GAP_DAYS = 45
-PATCH_PER_COMPANY = 3               # a company missing several quarters needs them filled in order
+PATCH_PER_COMPANY = 3               # filings per company per patch: the NEWEST ones (see patch_window)
 XBRLI = "http://www.xbrl.org/2003/instance"
 XSI_NIL = "{http://www.w3.org/2001/XMLSchema-instance}nil"
 # THIS NUMBER HAS TWO JOBS AND IT WAS ONLY EVER ARGUED FOR ONE OF THEM. As a FLOOR it is derived:
@@ -1646,13 +1646,26 @@ def parse_xbrl_instance(xml_text: str, form: str, filed: str) -> dict:
     Only consolidated facts survive: a context carrying a <segment> is a breakdown by business
     segment or class of stock, and companyfacts drops dimensioned facts too, so keeping them
     would put a segment's revenue where the company's total belongs. Namespaces are matched by
-    URI, not by prefix, because filers choose their own prefixes."""
+    URI, not by prefix, because filers choose their own prefixes.
+
+    `entity_cik` says WHOSE consolidated figures these are (added 24 Sep 2026): the
+    dei:EntityCentralIndexKey tagged in an undimensioned context, or, where a filing carries none,
+    the one CIK every undimensioned context's <identifier> names; None when neither settles it.
+    A subsidiary that files a combined 10-Q/10-K with its parent (Transco and Northwest Pipeline
+    with Williams, Piedmont with Duke) finds the PARENT's CIK here, because the parent's figures sit
+    in the default contexts and each co-registrant's own facts carry a dei:LegalEntityAxis segment,
+    which this parser drops. `patch_company` refuses such a filing rather than store the parent's
+    revenue and share count on the subsidiary."""
     root = ET.fromstring(xml_text)
 
     ctx: dict[str, dict] = {}
+    idents: set[str] = set()
     for c in root.findall(f"{{{XBRLI}}}context"):
         if c.find(f".//{{{XBRLI}}}segment") is not None:
             continue
+        ident = c.find(f"{{{XBRLI}}}entity/{{{XBRLI}}}identifier")
+        if ident is not None and (ident.text or "").strip():
+            idents.add(ident.text.strip())
         per = c.find(f"{{{XBRLI}}}period")
         if per is None:
             continue
@@ -1678,10 +1691,15 @@ def parse_xbrl_instance(xml_text: str, form: str, filed: str) -> dict:
     fp = "FY" if form.startswith("10-K") else "Q"
     out: dict[str, dict] = {"us-gaap": {}, "dei": {}}
     seen: set = set()
+    ecik: set[int] = set()
     for el in root.iter():
         if not el.tag.startswith("{"):
             continue
         uri, tag = el.tag[1:].split("}", 1)
+        if tag == "EntityCentralIndexKey" and "/dei" in uri:
+            if (el.get("contextRef") or "") in ctx and (el.text or "").strip().isdigit():
+                ecik.add(int(el.text.strip()))                  # undimensioned: the filing's own entity
+            continue
         if "us-gaap" in uri:
             ns = "us-gaap"
         elif "/dei" in uri:
@@ -1707,7 +1725,13 @@ def parse_xbrl_instance(xml_text: str, form: str, filed: str) -> dict:
         if "start" in c:
             f["start"] = c["start"]
         out[ns].setdefault(tag, {"units": {}})["units"].setdefault(unit, []).append(f)
-    return {"facts": out}
+    if len(ecik) == 1:
+        entity_cik = ecik.pop()
+    elif not ecik and len(idents) == 1 and next(iter(idents)).isdigit():
+        entity_cik = int(next(iter(idents)))
+    else:
+        entity_cik = None                                       # none tagged, or several: cannot tell
+    return {"facts": out, "entity_cik": entity_cik}
 
 
 def merge_facts(base: dict, extra: dict) -> None:
@@ -1752,7 +1776,8 @@ def patch_targets(manifest: dict) -> list[tuple[int, list[dict]]]:
     assembled — Adobe's August quarter, filed 22 Sep — waited a whole extra week at best, and
     indefinitely if companyfacts stayed behind while the quarter was still under 150 days old.
     Being behind your own filing is the condition; how old the last quarter is was only ever a
-    proxy for it. PATCH_MIN_GAP_DAYS is what keeps a same-quarter date mismatch out. Filings come back oldest first, because deriving a quarter from
+    proxy for it. PATCH_MIN_GAP_DAYS is what keeps a same-quarter date mismatch out. Filings come back oldest first
+    (the newest PATCH_PER_COMPANY of them, `patch_window`), because deriving a quarter from
     a year-to-date figure needs the earlier quarters of that year to exist. Companies with a ticker
     are served first, then the most stale, so a capped run spends its budget where it is read. (The
     first tier was S&P 500 constituents until 24 Sep 2026, when the S&P list was dropped: `fmp`, the
@@ -1772,10 +1797,28 @@ def patch_targets(manifest: dict) -> list[tuple[int, list[dict]]]:
         newer = newer_filings(evs, lq)
         if not newer:
             continue
-        out.append((int(cik_s), newer[:PATCH_PER_COMPANY]))
+        out.append((int(cik_s), patch_window(newer)))
     out.sort(key=lambda t: (not manifest[str(t[0])].get("tickers"),
                             -(manifest[str(t[0])]["quarter_age_days"] or 0)))
     return out
+
+
+def patch_window(newer: list[dict]) -> list[dict]:
+    """Which of a company's newer filings (`newer_filings`, oldest first) one patch reads: the
+    NEWEST PATCH_PER_COMPANY, still oldest first among themselves.
+
+    It took the OLDEST until 24 Sep 2026, and that never catches up: both the weekly build and the
+    daily run rebuild a company from companyfacts before patching, so the quarters a patch added
+    are gone the next time and the same three are read again. A company four or more filings
+    behind (24 files that day, AUMN and EIDP among them) never reached its newest quarter.
+
+    The cost is in YTD differencing. A quarter whose statement is year-to-date only (most cash
+    flow lines) is the YTD figure minus the earlier quarters of that fiscal year, and
+    `quarterly_rows` refuses — leaves the value out, never inflates it — when one of those is
+    missing. So where the window starts mid-year after a skipped filing, those YTD-only values
+    are absent for the rest of that fiscal year; genuine three-month facts (most income-statement
+    lines) and balance-sheet instants are unaffected, and a missing value is not a wrong one."""
+    return newer[-PATCH_PER_COMPANY:] if PATCH_PER_COMPANY > 0 else []
 
 
 def newer_filings(evs: list[dict], lq: str) -> list[dict]:
@@ -1841,8 +1884,17 @@ def patch_company(cik: int, rec: dict, facts: dict, filings: list[dict], budget:
             url = filing_instance_url(cik, e["accession"])
             if not url:
                 continue                      # a filing with no XBRL instance: nothing to read
-            merge_facts(facts, parse_xbrl_instance(get(url, retries=2, timeout=180).text,
-                                                   e["form"], e.get("date") or ""))
+            parsed = parse_xbrl_instance(get(url, retries=2, timeout=180).text, e["form"], e.get("date") or "")
+            # A combined filing whose default entity is another registrant — the parent of a
+            # subsidiary that co-files with it — holds the PARENT's consolidated figures. Before
+            # 24 Sep 2026 they were stored on the subsidiary (Northwest Pipeline and Transco carried
+            # Williams' revenue and 1.225B diluted shares; Piedmont carried Duke's). The
+            # co-registrant's own facts sit behind dei:LegalEntityAxis and are not read here, so
+            # the filing is skipped outright: a quarter missing beats another company's quarter.
+            if parsed.get("entity_cik") not in (None, int(cik)):
+                print(f"  {cik} {e['accession']}: skipped, the instance's entity is CIK {parsed['entity_cik']}")
+                continue
+            merge_facts(facts, parsed)
             used += 1
         except Exception as ex:  # noqa: BLE001
             print(f"  {cik} {e['accession']}: {type(ex).__name__}: {ex}")

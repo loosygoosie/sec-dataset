@@ -36,7 +36,10 @@ import build_sec_dataset as B
 
 COMPANYFACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json"
 MAX_COMPANIES = 1000           # companies per run; each is one companyfacts request (+2 per filing read)
-RUN_SECONDS = 150 * 60         # and never more than this much wall-clock on them
+# and never more than this much wall-clock on them. 120 of the job's 180 minutes (cut from 150,
+# 24 Sep 2026): the limit is checked only BETWEEN companies, and the commit comes after the loop, so
+# one slow company near the end must not run the job into its timeout and lose the whole day's work.
+RUN_SECONDS = 120 * 60
 # Filing instances read per run (the weekly build's PATCH_CAP is 600). Raised 24 Sep 2026 with the two
 # limits above so a heavy earnings night finishes: the job starts 07:00 UTC and readers look ~18:30 UTC.
 PATCH_INSTANCES = 2000
@@ -167,7 +170,7 @@ def rebuild(cik: int, old: dict, evs: list[dict], today: date, sics: dict, sic_c
     rec = json.loads(B.record_body(rec))           # what the weekly build's patch step reads back from disk
     how = "companyfacts"
     lq = rec["checks"]["latest_quarter_end"]
-    filings = B.newer_filings(evs, lq)[:B.PATCH_PER_COMPANY] if lq else []
+    filings = B.patch_window(B.newer_filings(evs, lq)) if lq else []
     if filings and budget > 0:
         ok, budget = B.patch_company(cik, rec, facts, filings, budget)
         if ok:
