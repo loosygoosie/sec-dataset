@@ -35,8 +35,11 @@ from datetime import date, timedelta
 import build_sec_dataset as B
 
 COMPANYFACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json"
-MAX_COMPANIES = 300            # companies per run; each is one companyfacts request (+2 per filing read)
-RUN_SECONDS = 25 * 60          # and never more than this much wall-clock on them
+MAX_COMPANIES = 1000           # companies per run; each is one companyfacts request (+2 per filing read)
+RUN_SECONDS = 150 * 60         # and never more than this much wall-clock on them
+# Filing instances read per run (the weekly build's PATCH_CAP is 600). Raised 24 Sep 2026 with the two
+# limits above so a heavy earnings night finishes: the job starts 07:00 UTC and readers look ~18:30 UTC.
+PATCH_INSTANCES = 2000
 # A 10-Q/10-K filed after everything the file holds but for a period it already holds — in
 # practice an amendment — is looked at for this many days, then left to the weekly build. Without
 # the window a 10-K/A carrying only Part III (no financial statements, and very common) would be
@@ -98,7 +101,7 @@ def select_targets(today: date, priority: set[int], only: set[int] | None = None
 
     Ordered S&P 500 first, then companies with a ticker, then the LEAST behind first (the newest
     quarter held, latest first), then CIK. That is NOT the weekly build's order (most stale first),
-    on purpose: the first live dry run (23 Sep 2026) spent its 25 minutes on shells whose
+    on purpose: the first live dry run (23 Sep 2026) spent its then 25-minute limit on shells whose
     companyfacts stopped in 2012-2016 and never reached 34 listed companies a quarter behind. Order
     decides only WHO is reached in a capped run, never what is written for them."""
     comp_dir = B.OUT_DIR / "companies"
@@ -195,7 +198,7 @@ def run(today: date | None = None, max_companies: int = MAX_COMPANIES, only: set
     manifest_path = B.OUT_DIR / "manifest.json"
     manifest = json.loads(manifest_path.read_text())
     sics, sic_codes = B.load_sics()
-    budget, t0 = B.PATCH_CAP, time.time()
+    budget, t0 = PATCH_INSTANCES, time.time()
     for i, t in enumerate(targets):
         cik = t["cik"]
         if i >= max_companies or time.time() - t0 > RUN_SECONDS:
@@ -230,7 +233,7 @@ def run(today: date | None = None, max_companies: int = MAX_COMPANIES, only: set
                                               _latest(rec["annual"], "period_end")]})
     if summary["changed"]:
         manifest_path.write_text(json.dumps(manifest, separators=(",", ":"), sort_keys=True))
-    summary["filings_fetched"] = B.PATCH_CAP - budget
+    summary["filings_fetched"] = PATCH_INSTANCES - budget
     return summary
 
 

@@ -1002,8 +1002,10 @@ bounded, and confined to those filers, but visible in history.
 
 **Not done.** The manifest's top-level `counts`, `coverage_by_item` and `values_by_item`, and
 `REPORT.md`, are left as of the weekly build. A company picked before its companyfacts catches up is
-refetched each day until it does (one request, plus the instance reads); the cap is 300 companies,
-600 instances, 25 minutes. The first patched files after §20 merges carry the §20 fields while
+refetched each day until it does (one request, plus the instance reads); the cap is 1,000 companies,
+2,000 instances, 150 minutes (raised 24 Sep 2026 from 300 / 600 / 25: the first dry run left 34
+listed companies unreached, and the job has ~11 hours before any reader looks; order is now only a
+fallback). The first patched files after §20 merges carry the §20 fields while
 untouched files do not until the next Sunday build — added keys only, so no reader breaks, but a
 reader should not infer anything from a field's absence mid-week. The concurrency group queues ONE
 pending run: if a patch run and a manual `sec.yml` dispatch are both waiting, GitHub cancels the

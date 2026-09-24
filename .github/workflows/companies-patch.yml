@@ -20,7 +20,7 @@ on:
         required: false
       max_companies:
         description: "Companies to fetch this run (each is one companyfacts request)"
-        default: "300"
+        default: "1000"
         required: false
       ciks:
         description: "Optional comma-separated CIKs to limit the run to"
@@ -41,7 +41,7 @@ concurrency:
 jobs:
   patch:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
 
@@ -73,7 +73,7 @@ jobs:
         env:
           # The same secret sec.yml sends; it goes to sec.gov only and is masked in the logs.
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
-          MAX_COMPANIES: ${{ inputs.max_companies || '300' }}
+          MAX_COMPANIES: ${{ inputs.max_companies || '1000' }}
           ONLY_CIKS: ${{ inputs.ciks || '' }}
           PYTHONUNBUFFERED: "1"   # one progress line per company, as it happens
         run: python patch_companies.py
