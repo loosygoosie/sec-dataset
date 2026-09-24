@@ -510,7 +510,7 @@ def test_a_company_behind_its_own_filing_is_a_target_however_recent_its_last_qua
     ev = {"form": "10-Q", "period": "2026-08-28", "accession": "0000796343-26-000100", "date": "2026-09-22"}
     (tmp_path / "796343.json").write_text(json.dumps({"events": [ev]}))
     man = {"796343": {"quarter_age_days": 114, "latest_quarter_end": "2026-05-29"}}
-    assert b.patch_targets(man, set()) == [(796343, [ev])]
+    assert b.patch_targets(man) == [(796343, [ev])]
 
 
 def test_the_patch_budget_covers_what_the_last_build_left_behind(b):

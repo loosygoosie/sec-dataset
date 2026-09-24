@@ -17,15 +17,14 @@ Outputs (committed to data/):
                              primary document URL. Rewritten only when it changes.
     events_recent.json     — the last RECENT_DAYS days across every filer, newest first, one row per filing:
                              {date, cik, tickers, name, form, items, url}. Small; the monitors read this.
-    events_history/<CIK>.json — the same records with NOTHING aged out: every 8-K / 10-K / 10-Q this
-                             feed has ever seen for the filer, merged by accession, never pruned.
-                             Added 22 Sep 2026: `events/` keeps 400 days, so a backtest over it could
-                             only ever cover about a year. Same keys as `events/<CIK>.json`.
     events_report.md       — counts.
 
-Backfill (workflow_dispatch): HISTORY_SINCE=YYYY-MM-DD pulls each refreshed filer's filings back to that
-date into events_history/ (older submission pages included); BACKFILL_ALL=1 refreshes every filer in
-the manifest, not just the ones in the daily index. `events/` and `events_recent.json` are unaffected.
+Backfill (workflow_dispatch): BACKFILL_ALL=1 refreshes every filer in the manifest, not just the ones
+in the daily index.
+
+The never-pruned `events_history/` copy (added 22 Sep 2026) was removed 24 Sep 2026: its only
+readers were retired research, and the owner's `fmp` repo reads `events/` alone. It remains in git
+history (see NOTES.md, 24 Sep 2026).
 
 Rate limits: the SEC asks for ≤ 10 requests/second and a descriptive User-Agent (SEC_USER_AGENT).
 """
@@ -57,10 +56,7 @@ EXHIBIT_FORMS = {"8-K", "8-K/A"}       # the substance of a 2.02 is in EX-99.1, 
 EXHIBIT_DAYS = RECENT_DAYS             # resolve exhibits for the window the recent feed covers
 EXHIBIT_CAP = 2000                     # index fetches per run; a filing's index never changes, so this is a one-off cost per filing
 OUT_DIR = Path("data"); EV_DIR = OUT_DIR / "events"
-HIST_DIR = OUT_DIR / "events_history"  # never pruned; see the docstring
-HISTORY_SINCE = os.environ.get("HISTORY_SINCE", "").strip() or None
 BACKFILL_ALL = os.environ.get("BACKFILL_ALL", "").strip().lower() in ("1", "true", "yes")
-SUBMISSIONS_PAGE = "https://data.sec.gov/submissions/{name}"
 CIK_OVERRIDES_PATH = OUT_DIR / "cik_overrides.json"   # hand-maintained; shared with build_sec_dataset.py
 
 _last = [0.0]
@@ -206,28 +202,14 @@ def rows_from_block(block: dict, cik: int, since: str) -> list[dict]:
     return rows
 
 
-def company_events(cik: int, since: date, history_since: str | None = None) -> tuple[dict, list[dict], list[dict]]:
-    """From the submissions record: recent filings of FORMS since `since`, with 8-K item codes.
-
-    The third value is the rows for events_history/: the same rows, or — when `history_since`
-    reaches further back — everything since that date, reading the older `files` pages the
-    submissions record points to once its `recent` block runs out."""
+def company_events(cik: int, since: date) -> tuple[dict, list[dict]]:
+    """From the submissions record: recent filings of FORMS since `since`, with 8-K item codes."""
     r = get(SUBMISSIONS.format(cik=cik))
     if r is None:
-        return {}, [], []
+        return {}, []
     j = r.json()
     rec = j.get("filings", {}).get("recent", {})
     rows = rows_from_block(rec, cik, since.isoformat())
-    hist = rows
-    if history_since and history_since < since.isoformat():
-        hist = rows_from_block(rec, cik, history_since)
-        for page in j.get("filings", {}).get("files", []) or []:
-            if (page.get("filingTo") or "9999") < history_since:
-                continue                          # the whole page predates the backfill window
-            pr = get(SUBMISSIONS_PAGE.format(name=page.get("name", "")))
-            if pr is not None:
-                hist += rows_from_block(pr.json(), cik, history_since)
-        hist.sort(key=lambda x: x["date"], reverse=True)
     # `sic` HOLDS THE DESCRIPTION AND `sic_code` HOLDS THE CODE, and the naming is the SEC's own
     # confusion inherited rather than ours to fix: in the submissions record `sic` IS the four-digit
     # code and `sicDescription` is the text. This file has published the text under the key `sic`
@@ -246,60 +228,12 @@ def company_events(cik: int, since: date, history_since: str | None = None) -> t
     meta = {"cik": cik, "name": j.get("name"), "tickers": j.get("tickers", []),
             "sic": j.get("sicDescription"), "sic_code": j.get("sic")}
     rows.sort(key=lambda x: x["date"], reverse=True)
-    return meta, rows, hist
-
-
-def merge_history(existing: list[dict], new: list[dict]) -> list[dict]:
-    """Union by accession, newest first. A newer copy of a filing replaces the old one, except that
-    exhibits already resolved are kept when the new copy has none (a filing's index never changes,
-    and exhibits are only fetched inside the recent window)."""
-    by_acc = {e["accession"]: e for e in existing if e.get("accession")}
-    for e in new:
-        old = by_acc.get(e["accession"])
-        if old is not None and e.get("exhibits") is None and old.get("exhibits") is not None:
-            e = {**e, "exhibits": old["exhibits"]}
-        by_acc[e["accession"]] = e
-    return sorted(by_acc.values(), key=lambda x: (x["date"], x["accession"]), reverse=True)
-
-
-def write_history(cik: int, meta: dict, rows: list[dict]) -> bool:
-    """Merge `rows` into events_history/<cik>.json; True when the file changed."""
-    p = HIST_DIR / f"{cik}.json"
-    existing: list[dict] = []
-    if p.exists():
-        try:
-            existing = json.loads(p.read_text()).get("events", [])
-        except Exception:  # noqa: BLE001
-            existing = []
-    body = json.dumps({**meta, "events": merge_history(existing, rows)}, separators=(",", ":"), sort_keys=True)
-    if p.exists() and p.read_text() == body:
-        return False
-    p.write_text(body)
-    return True
-
-
-def seed_history() -> int:
-    """Copy every events/<cik>.json that has no history file yet, so the ~400 days already
-    collected survive the prune below. One-off per filer; afterwards write_history keeps it."""
-    n = 0
-    for p in EV_DIR.glob("*.json"):
-        h = HIST_DIR / p.name
-        if h.exists():
-            continue
-        try:
-            rec = json.loads(p.read_text())
-        except Exception:  # noqa: BLE001
-            continue
-        rec["events"] = merge_history([], rec.get("events", []))
-        h.write_text(json.dumps(rec, separators=(",", ":"), sort_keys=True))
-        n += 1
-    return n
+    return meta, rows
 
 
 def main() -> int:
     t0 = time.time()
-    OUT_DIR.mkdir(exist_ok=True); EV_DIR.mkdir(exist_ok=True); HIST_DIR.mkdir(exist_ok=True)
-    print(f"0. history: {seed_history()} filers seeded into {HIST_DIR} from {EV_DIR}")
+    OUT_DIR.mkdir(exist_ok=True); EV_DIR.mkdir(exist_ok=True)
     days = index_days(LOOKBACK_DAYS)
     print(f"1. daily indexes for {[d.isoformat() for d in days]}")
     ciks: set[int] = set()
@@ -312,7 +246,7 @@ def main() -> int:
             ciks |= {int(k) for k in json.loads((OUT_DIR / "manifest.json").read_text()).get("companies", {})}
         except Exception as e:  # noqa: BLE001
             print(f"  BACKFILL_ALL: manifest unreadable ({type(e).__name__}); daily-index filers only")
-    print(f"  {len(ciks)} filers to refresh" + (f"; history back to {HISTORY_SINCE}" if HISTORY_SINCE else ""))
+    print(f"  {len(ciks)} filers to refresh")
 
     since = date.today() - timedelta(days=EVENT_DAYS)
     overrides = load_ticker_overrides()
@@ -321,9 +255,9 @@ def main() -> int:
     print("2. submissions records")
     ex_cutoff = (date.today() - timedelta(days=EXHIBIT_DAYS)).isoformat()
     ex_budget, ex_fetched, ex_reused = EXHIBIT_CAP, 0, 0
-    written = changed = hist_changed = 0
+    written = changed = 0
     for i, cik in enumerate(sorted(ciks), 1):
-        meta, rows, hist = company_events(cik, since, HISTORY_SINCE)
+        meta, rows = company_events(cik, since)
         if not meta:
             continue
         if cik in overrides:
@@ -355,13 +289,10 @@ def main() -> int:
         body = json.dumps(rec, separators=(",", ":"), sort_keys=True)
         if not p.exists() or p.read_text() != body:
             p.write_text(body); changed += 1
-        # history gets the rows with whatever exhibits were resolved above
-        with_ex = {e["accession"]: e for e in rows}
-        hist_changed += write_history(cik, meta, [with_ex.get(e["accession"], e) for e in hist])
         written += 1
         if i % 100 == 0:
             print(f"  {i}/{len(ciks)}", flush=True)
-    print(f"  {written} records, {changed} changed; {hist_changed} history files changed")
+    print(f"  {written} records, {changed} changed")
     print(f"  exhibits: {ex_fetched} filings indexed this run, {ex_reused} reused"
           + ("" if ex_budget else f" (hit the {EXHIBIT_CAP} cap; the rest resolve next run)"))
 

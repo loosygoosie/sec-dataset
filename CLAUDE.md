@@ -14,18 +14,11 @@ immediately — no restart — and it needs running at the START OF EVERY SESSIO
 container is ephemeral and nothing else installs it.
 
 **Why the copy.** Claude Code reads project settings from the project root. Run inside this repo
-the root IS the repo and `.claude/settings.json` works as it stands. But a remote session clones
-this repo and `robinhood-book` as SIBLINGS, so the root is their parent and this file sits one
-directory below the level that is ever read. It fired in neither remote session for as long as
-they have existed, nothing reported it, and the only reason no harm came of it is that `pytest`
-was not installed in that particular container.
-
-If `robinhood-book` is also checked out, prefer its installer — it writes a guard carrying the
-evidence from both repos, and is itself tested:
-
-```
-python ../robinhood-book/tools/install_guard.py
-```
+the root IS the repo and `.claude/settings.json` works as it stands. But a remote session can clone
+this repo beside another (today `fmp`) as SIBLINGS, so the root is their parent and this file sits
+one directory below the level that is ever read. Until the copy existed the guard fired in no remote
+session, nothing reported it, and the only reason no harm came of it is that `pytest` was not
+installed in that particular container.
 
 **Proving it worked:** run `pytest --version`. A refusal is the guard working.
 
@@ -34,7 +27,7 @@ python ../robinhood-book/tools/install_guard.py
 **Never report that anything passes on the strength of a command run in this session.** The only
 statement of whether the build works is a green run on GitHub. A sandbox result is a hypothesis.
 
-The stakes here are higher than in the book repo, because **this build overwrites every company
+The stakes are high because a live autopilot in `fmp` acts on these files, and because **this build overwrites every company
 file and PRUNES any it does not rewrite.** `sec.yml` proves the builder before it touches `data/`,
 and on 10 Sep 2026 that gate ran no tests at all for sixteen hours: a line ended
 `tests/test_sp500.py \\` instead of `\`, bash read `\\` as an escaped literal backslash rather than
@@ -84,98 +77,33 @@ the workflow instead, so the real `SEC_USER_AGENT` secret is used.
 
 ## Who reads this data
 
-`loosygoosie/robinhood-book` scores and values the S&P 500 from these files and acts on the result
-through a live brokerage account. A field that silently changes meaning here changes what gets
-bought there. (It SCREENED, until 11 Sep 2026 — the screens were deleted and the word is wrong now:
-nothing is excluded for being a bad business, only for being unmeasurable.)
+**One reader: the owner's `fmp` repo** — its live "ownership autopilot" in `fmp/owner/`, which buys
+and sells real money in a brokerage account without asking on each order. (`robinhood-book`, the
+reader this section used to describe, was RETIRED 24 Sep 2026; the old text is in git history.)
+What it reads, from a sibling checkout `../sec-dataset`:
 
-**WHAT DECIDES OWNABILITY THERE CHANGED AGAIN ON 14 Sep 2026, and this section said the opposite for
-two days.** It read: *two fields here now decide whether a company can be owned at all* —
-`deposits` / `total_assets` and `premiums_earned` / `revenue`, which identified banks and insurers so
-that they and REITs could be held out of a six-dimension score that cannot read them honestly. That
-whole model was DELETED. The thirteen-group taxonomy, the six dimensions, the bar and
-`robinhood-book/claude/group-overrides.json` all went, and **nothing over there decides eligibility
-today** — a company is simply unmeasured when its figures cannot be read, which is the same idea
-without a taxonomy in front of it.
+- `data/companies/<CIK>.json` — `screen.py` (the quality screen), `mathprice.py` (fair price per
+  share: operating cash flow, `capex`, `capitalized_software`, `payments_for_intangibles`,
+  `stock_comp`, net income, cash, investments and `total_debt`, `shares_diluted_adj` / `_filled`, and
+  the `checks` block) and `backtest_fair.py` (point-in-time: the `*_as_filed` values and their `_filed` dates,
+  every annual row and the dead filers). Treat every existing key as read.
+- `data/tickers.json` — `watch.py` and `mathprice.py` map tickers to CIKs through it.
+- `data/events/<CIK>.json` — `screen.py` (8-K item red flags) and `watch.py` (a new 10-Q/10-K or
+  material 8-K since a company was last read triggers a re-read).
+- `data/manifest.json`, `data/events_recent.json` and `data/cik_overrides.json` are read by the
+  builders here and kept.
 
-So the pressure on the identification tags is OFF for now, and the reason to fix them is unchanged
-and better: `sec-dataset` NOTES 16 records that neither `premiums_earned` nor `loss_reserves`
-resolves a tag for Berkshire Hathaway, the largest insurer in the index. **A field that reports
-nothing for the biggest filer in its category is a measurement failure whether or not a consumer is
-currently reading it**, and the replacement design — a READABILITY gate over seven ten-year measures,
-in `robinhood-book/claude/clean-slate.md` — will read exactly these markers when it is built.
+**A field that silently changes meaning here changes what fmp's live autopilot buys.** A share
+count on the wrong split basis moves a fair price, and the autopilot buys at up to 2x fair price; a
+dropped 8-K item code hides a red flag. Adding a field is safe; changing one is not.
 
-What the new consumer reads TODAY, and what this build was changed on 14 Sep 2026 to supply: as
-much annual history as companyfacts holds (`ANNUAL_YEARS`), as-filed values for sixteen items across
-flows and the balance sheet, `restated` per row, and `total_debt` summed from its components. Those
-four are load-bearing now in a way the group markers are not.
+**Do not change the data-shaping constants** — `ANNUAL_YEARS` (as much annual history as
+companyfacts holds), `PUBLISH_SILENT_YEARS` (dead filers are kept, marked `active: false`, so a
+backtest can see the companies that failed), `ACTIVE_SILENT_YEARS`, `SHARE_WINDOW`. `fmp`'s
+backtests depend on the long history and on the dead filers; the reasoning is in the comments
+beside each constant and in NOTES.md.
 
-**`ANNUAL_YEARS` WAS A CEILING AS WELL AS A FLOOR, and only the floor was ever argued for.** It read
-12 — the consumer's ten-year window plus two — and the truncation is `[-ANNUAL_YEARS:]`, so every
-build threw away every year past the twelfth. Nothing said so, because the test bound only the lower
-side. It cost nothing while the consumer wanted to READ a ten-year measure; it blocks
-`robinhood-book` #48 outright once the consumer wants to VALIDATE one, because twelve years of
-history admits exactly ONE formation date and leaves about two and a half years of forward returns.
-Raised to 25 on 14 Sep 2026 so the SOURCE decides the depth, and `tests/test_normaliser.py` now
-fails if the cap ever comes within two years of what the calendar says companyfacts could hold.
-
-**THE BUILD HAS RUN, and this section said it had not for as long as it took to dispatch one.** It
-read: *"every company file still carries twelve rows and every figure derived from one is a
-twelve-year figure."* True when written, false the moment `sec.yml` finished. The rule behind it is
-unchanged and still worth keeping in mind — nothing in a commit reaches `data/` until a build runs —
-but the state it described is gone. Build `024d4f7f9`, 14 Sep 2026: median depth **11**, mode **17**
-(FY2009-FY2025, the XBRL mandate window exactly), deepest 25, `data/companies` 218 MB to 246 MB.
-3,927 of 7,410 filers never came near the old cap at all.
-
-**AND THE CAP STILL BINDS FOR 38 FILERS, which is not what raising it predicted.** That change said
-a real filer "reaches back somewhere around 2007". Rows turn up from **1987** — development-stage
-companies, which before ASC 915 was withdrawn in 2015 reported cumulative-since-inception amounts
-under a context starting at inception, so a 2013 filing carries a "FY1997" period holding four
-fields and no revenue. Every filer at the cap is a shell of that kind, so truncating there discards
-an artefact rather than history. That is luck, not design, and `XBRL_REACHES_BACK_TO` must NOT be
-lowered to 1987 to match the observed minimum — it is what a REAL filer can reach, and its only job
-is to keep the anti-ceiling assertion strict.
-
-**WHAT IT COST THE CONSUMER, because a build that changes nothing over there is the claim to
-distrust.** `robinhood-book` predicted no figure would move — every measure windows to the last ten
-rows — and 731 of its 734 composites moved while membership held exactly. The cause was on its side,
-exposed rather than created here: `persistence.effective_tax_rate` read the whole row list, so three
-measures documented as ten-year were not. At twelve published years it had been ACCIDENTALLY almost
-windowed. Fixed at `4d8d21e` there, with its dataset pin bumped to this build and its coverage
-baseline regenerated in the same commit.
-
-**What that system is FOR is written down** in `robinhood-book/VISION.md` — the intents it was
-designed to serve, in its owner's words, each marked BUILT, PARTIAL or OPEN. Fields published here
-and not yet read there: where a company's money actually goes (`capex`, `buybacks`,
-`dividends_paid`, `acquisitions`, `stock_comp` — intent 5, and the candidate for a seventh
-dimension), and `data/events_recent.json`, the 90-day filing feed, which is proposed as the pre-buy
-event check and has never been read. Worth reading before deciding a field here is unused — it may
-be unused only so far.
-
-**THIS BUILD DECIDED WHO EXISTS, AND IT DECIDED IT KNOWING THE ANSWER.** One line — `cutoff =
-_years_ago(date.today(), 3)`, commented "drop filers silent for 3+ years" — deleted every company
-that stopped filing. Acquired, taken private, bankrupt: gone from the dataset a few years later,
-file and manifest entry both. Nothing here called that a universe decision, because from inside
-this repo it reads as housekeeping.
-
-It is not housekeeping. `robinhood-book` assembles its backtest universe from this file, and
-**19 of 7,410 filers had gone quiet before 2021** — which is not a death rate, it is the shape of a
-list drawn up after the fact. Measured 14 Sep 2026, an equal-weight book off this universe beat
-RSP — an equal-weight basket of large US companies picked without knowing the future — by
-**3.46pp/yr**. Two equal-weight baskets of large US filers over identical months cannot differ by
-three and a half points a year for any reason except that one of them knew who would survive. Every
-spread that repository has quoted against SPY or RSP carries it.
-
-**Fixed 15 Sep 2026 by splitting one decision into two**, which is this file's own stated pattern —
-"who is in the S&P 500, and what is held, is decided by the reader". `universe_window()` returns
-both: `PUBLISH_SILENT_YEARS = 15` reaches the XBRL mandate era and decides whether a filer is
-written at all; `ACTIVE_SILENT_YEARS = 3` is the old number, now a manifest flag rather than a
-filter. **The old behaviour is exactly `active is True`** — a reader who wants live filers only
-tests one field. A dead filer has no ticker, so the consumer keys it on its CIK, and no price
-series, so nothing can rank or hold it; carrying it costs the live system nothing.
-
-Two consequences worth knowing before reading the next build. **Inactive filers carry `sic: null`**
-— SIC comes from the events build, which keeps 400 days and has already pruned them; that is a real
-coverage hole for `robinhood-book` #79. And **`data/` grows**: 246 MB was the count under the
-three-year cutoff. Nothing here has measured what fifteen years costs, because that number does not
-exist until a build runs.
+**Removed 24 Sep 2026, because only the retired reader or finished research used them:** the
+insider Form 4 feed, the S&P 500 10-K text build, the tag-probe tool, the S&P 500 constituent list
+(`data/sp500.json`) and the never-pruned `data/events_history/`. NOTES.md (24 Sep 2026) names the
+last commit that had each. Do not bring one back without a reader in `fmp` that needs it.

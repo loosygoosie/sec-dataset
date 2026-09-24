@@ -1039,3 +1039,48 @@ EVRG, DOW) look right and it is their subsidiaries' files that are wrong.
 **Likely fix, not tried:** before merging an instance, compare its undimensioned
 `dei:EntityCentralIndexKey` with the target CIK and skip the filing when they differ. It needs a
 fixture of a real combined filing and a probe run before it changes data.
+
+## 23. Reconfigured to serve `fmp` only  ✅ DONE 24 Sep 2026 (branch `claude/fmp-only`)
+
+The owner retired `loosygoosie/robinhood-book` and asked (24 Sep 2026) for this repo to be
+reconfigured "to accommodate only this project" — the `fmp` repo, whose live ownership autopilot
+(`fmp/owner/`) reads `data/companies/`, `data/tickers.json` and `data/events/`. Everything that only
+the retired reader or finished research used was removed. **All of it remains in git history: the
+last commit on `main` that had every removed file is `3159687d160601746c3ed2e9d3914f1971b2249c`**
+(`git show 3159687d1:<path>` or `git checkout 3159687d1 -- <path>` brings any of it back).
+
+Removed:
+
+- **Insider Form 4 feed** — `.github/workflows/insiders.yml`, `build_sec_insiders.py`,
+  `tests/test_insiders.py`, `data/insiders/`, `data/insiders_recent.json`, `data/insiders_seen.json`,
+  `data/insiders_report.md`. `fmp` takes insider data straight from the SEC's quarterly data sets
+  (`fmp/insider/fetch.py`); only `fmp/wheel/redflags.py` (research, not the autopilot) looked here,
+  and it skips a missing file.
+- **S&P 500 10-K text build** — `.github/workflows/filings.yml`, `build_sec_filings.py`,
+  `tests/test_filings.py`, `data/filings/`, `data/filings_report.md`. (`tests/test_exhibits.py`
+  stays: it tests the events builder.)
+- **Tag-probe dev tool** — `.github/workflows/probe-tags.yml`, `probe_tags.py`,
+  `tests/test_probe_tags.py`. §22's "needs a probe run" now means restoring it from the commit above.
+- **S&P 500 constituent list** — `_sp500_csv`, `sp500_snapshot`, `SP500_CSV_URL`, `SP500_HEADERS`,
+  `SP500_MIN`, the `data/sp500.json` write and REPORT.md's S&P section in `build_sec_dataset.py`;
+  `data/sp500.json`; `tests/test_sp500.py`; the S&P coverage check in `tests/test_sic.py`. The patch
+  ORDER's first tier is now "has a ticker" instead of "in the S&P 500" — in `patch_targets` (weekly;
+  the rest of its order, most stale first, is unchanged) and `patch_companies.select_targets` (daily;
+  it already put listed companies second, so the S&P tier simply goes). Order only decides who is
+  reached when a cap binds, never what is written. No company record or manifest entry ever carried
+  an S&P-membership key, so no schema changed. `fmp/supply/link.py` (research) read `sp500.json`
+  and would need it restored from history.
+- **`data/events_history/`** (~264 MB, never pruned, added 22 Sep 2026) — the history seeding, merge,
+  write and `HISTORY_SINCE` backfill in `build_sec_events.py`, the `history_since` input in
+  `events.yml`, and `tests/test_events_history.py`. `fmp` reads `events/` only. The `events/` files
+  and `events_recent.json` are built by exactly the code that built them before: `company_events`
+  now returns `(meta, rows)` instead of `(meta, rows, hist)`, and `rows` was never touched by the
+  history path. `BACKFILL_ALL` stays — it refreshes `events/` for every manifest filer.
+
+Also: `sec.yml` renamed "Build company fundamentals (all filers)"; the default USER_AGENT placeholder
+no longer says sp500; CLAUDE.md's "Who reads this data" names `fmp` as the only reader and what it
+reads (the robinhood-book `install_guard.py` instructions are gone; the in-repo guard and the
+copy-up-a-level step stay); `tests/test_working_agreement.py` asserts `fmp` is named. **Unchanged on
+purpose:** `ANNUAL_YEARS`, `PUBLISH_SILENT_YEARS`, `ACTIVE_SILENT_YEARS`, `SHARE_WINDOW` and every
+key in every file `fmp` reads — its backtests use the long history and the dead filers. Comments
+that cite robinhood-book as history were left as they are.

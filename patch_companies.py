@@ -88,19 +88,12 @@ def why_behind(rec: dict, evs: list[dict], today: date) -> list[str]:
     return why
 
 
-def load_priority() -> set[int]:
-    """S&P 500 CIKs, served first when the cap binds — the same ordering as the weekly patch."""
-    try:
-        return {c["cik"] for c in json.loads((B.OUT_DIR / "sp500.json").read_text()).get("companies", [])}
-    except Exception:  # noqa: BLE001
-        return set()
-
-
-def select_targets(today: date, priority: set[int], only: set[int] | None = None) -> list[dict]:
+def select_targets(today: date, only: set[int] | None = None) -> list[dict]:
     """Every company with a file AND an events record showing a filing newer than the file.
 
-    Ordered S&P 500 first, then companies with a ticker, then the LEAST behind first (the newest
-    quarter held, latest first), then CIK. That is NOT the weekly build's order (most stale first),
+    Ordered companies with a ticker first, then the LEAST behind first (the newest quarter held,
+    latest first), then CIK. (An S&P 500 tier came first until 24 Sep 2026, when the S&P list was
+    dropped; `fmp`, the only reader, buys any listed company.) That is NOT the weekly build's order (most stale first),
     on purpose: the first live dry run (23 Sep 2026) spent its then 25-minute limit on shells whose
     companyfacts stopped in 2012-2016 and never reached 34 listed companies a quarter behind. Order
     decides only WHO is reached in a capped run, never what is written for them."""
@@ -127,7 +120,7 @@ def select_targets(today: date, priority: set[int], only: set[int] | None = None
                         "name": rec.get("sec_name"), "tickers": rec.get("tickers") or []})
     out.sort(key=lambda t: t["cik"])
     out.sort(key=lambda t: t["lq"], reverse=True)
-    out.sort(key=lambda t: (t["cik"] not in priority, not t["tickers"]))
+    out.sort(key=lambda t: not t["tickers"])
     return out
 
 
@@ -187,7 +180,7 @@ def run(today: date | None = None, max_companies: int = MAX_COMPANIES, only: set
         select_only: bool = False) -> dict:
     today = today or date.today()
     comp_dir = B.OUT_DIR / "companies"
-    targets = select_targets(today, load_priority(), only)
+    targets = select_targets(today, only)
     summary = {"date": today.isoformat(), "behind": len(targets), "picked": min(len(targets), max_companies),
                "changed": [], "unchanged": [], "held": [], "failed": [], "not_reached": [],
                "targets": [{"cik": t["cik"], "tickers": t["tickers"], "name": t["name"], "why": t["why"]}

@@ -32,8 +32,8 @@ permissions:
 
 # THE SAME GROUP AS sec.yml, on purpose. Both write data/companies/ and data/manifest.json, so they
 # must never run at once: whichever starts second waits for the first to finish and checks out what
-# it pushed. The other data jobs (events, insiders, filings) write other paths, and the commit step
-# below rebases over them if one lands mid-run.
+# it pushed. The other data job (events) writes other paths, and the commit step below rebases
+# over it if one lands mid-run.
 concurrency:
   group: sec-dataset
   cancel-in-progress: false
@@ -66,7 +66,7 @@ jobs:
           pip install --quiet pytest
           python -m pytest -q \
             tests/test_normaliser.py tests/test_as_filed_shares.py tests/test_share_scale.py \
-            tests/test_filing_fallback.py tests/test_cik_overrides.py tests/test_sp500.py \
+            tests/test_filing_fallback.py tests/test_cik_overrides.py \
             tests/test_sic.py tests/test_valuation_fields.py tests/test_daily_patch.py
 
       - name: Patch companies that filed

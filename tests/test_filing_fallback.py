@@ -137,8 +137,9 @@ def test_merging_leaves_the_existing_facts_in_place(b):
 # --------------------------------------------------------------------------
 # Choosing which companies to patch
 # --------------------------------------------------------------------------
-def _manifest(**rows):
-    return {cik: {"quarter_age_days": age, "latest_quarter_end": lq} for cik, (age, lq) in rows.items()}
+def _manifest(listed=(), **rows):
+    return {cik: {"quarter_age_days": age, "latest_quarter_end": lq,
+                  "tickers": ["T" + cik] if cik in listed else []} for cik, (age, lq) in rows.items()}
 
 
 def _events(tmp_path, monkeypatch, b, **per_cik):
@@ -154,7 +155,7 @@ def test_a_stale_company_with_a_newer_filing_is_a_target(b, tmp_path, monkeypatc
     man = _manifest(**{"4904": (161, "2026-03-31")})
     _events(tmp_path, monkeypatch, b, **{"4904": [FILING]})
 
-    assert b.patch_targets(man, set()) == [(4904, [FILING])]
+    assert b.patch_targets(man) == [(4904, [FILING])]
 
 
 def test_a_company_whose_bulk_data_is_current_is_left_alone(b, tmp_path, monkeypatch):
@@ -162,21 +163,21 @@ def test_a_company_whose_bulk_data_is_current_is_left_alone(b, tmp_path, monkeyp
     man = _manifest(**{"320193": (70, "2026-06-27")})
     _events(tmp_path, monkeypatch, b, **{"320193": [FILING]})
 
-    assert b.patch_targets(man, set()) == []
+    assert b.patch_targets(man) == []
 
 
 def test_a_stale_company_with_no_newer_filing_is_left_alone(b, tmp_path, monkeypatch):
     man = _manifest(**{"4904": (161, "2026-06-30")})       # the filing is not newer than what we hold
     _events(tmp_path, monkeypatch, b, **{"4904": [FILING]})
 
-    assert b.patch_targets(man, set()) == []
+    assert b.patch_targets(man) == []
 
 
 def test_a_company_with_no_events_record_is_skipped(b, tmp_path, monkeypatch):
     man = _manifest(**{"4904": (161, "2026-03-31")})
     _events(tmp_path, monkeypatch, b)
 
-    assert b.patch_targets(man, set()) == []
+    assert b.patch_targets(man) == []
 
 
 def test_missing_quarters_are_ordered_oldest_first(b, tmp_path, monkeypatch):
@@ -187,19 +188,20 @@ def test_missing_quarters_are_ordered_oldest_first(b, tmp_path, monkeypatch):
     man = _manifest(**{"721371": (251, "2025-12-31")})
     _events(tmp_path, monkeypatch, b, **{"721371": [q4, q3]})
 
-    assert [f["period"] for f in b.patch_targets(man, set())[0][1]] == ["2026-03-31", "2026-06-30"]
+    assert [f["period"] for f in b.patch_targets(man)[0][1]] == ["2026-03-31", "2026-06-30"]
 
 
-def test_index_constituents_are_served_before_other_stale_filers(b, tmp_path, monkeypatch):
-    """The budget is capped, so it should be spent where the data is actually read."""
+def test_listed_companies_are_served_before_other_stale_filers(b, tmp_path, monkeypatch):
+    """The budget is capped, so it should be spent where the data is actually read: `fmp` can only
+    buy a company with a ticker. (S&P 500 constituents were this tier until 24 Sep 2026.)"""
+    man = _manifest(listed=("4904",), **{"4904": (161, "2026-03-31"), "999": (400, "2025-01-31")})
+    _events(tmp_path, monkeypatch, b, **{"4904": [FILING], "999": [FILING]})
+
+    assert [cik for cik, _ in b.patch_targets(man)] == [4904, 999]
+
+
+def test_within_a_tier_the_most_stale_goes_first(b, tmp_path, monkeypatch):
     man = _manifest(**{"4904": (161, "2026-03-31"), "999": (400, "2025-01-31")})
     _events(tmp_path, monkeypatch, b, **{"4904": [FILING], "999": [FILING]})
 
-    assert [cik for cik, _ in b.patch_targets(man, {4904})] == [4904, 999]
-
-
-def test_without_a_priority_set_the_most_stale_goes_first(b, tmp_path, monkeypatch):
-    man = _manifest(**{"4904": (161, "2026-03-31"), "999": (400, "2025-01-31")})
-    _events(tmp_path, monkeypatch, b, **{"4904": [FILING], "999": [FILING]})
-
-    assert [cik for cik, _ in b.patch_targets(man, set())] == [999, 4904]
+    assert [cik for cik, _ in b.patch_targets(man)] == [999, 4904]
