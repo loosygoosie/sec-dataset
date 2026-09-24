@@ -996,14 +996,14 @@ is on `main` (GitHub dispatches only default-branch workflows), so that run was 
 temporary branch-only `push` trigger, which cannot reach the commit step and was removed after.
 
 **Churn to expect.** A company whose companyfacts is persistently behind (co-registrants, LPs)
-gains up to three filings' quarters per run, oldest first. The Sunday build rebuilds it from the zip
+gains up to three filings' quarters per run (the oldest three until 24 Sep 2026, the newest three since, §24). The Sunday build rebuilds it from the zip
 and re-applies at most three, so such a file can step back on Sunday and forward again on Monday —
 bounded, and confined to those filers, but visible in history.
 
 **Not done.** The manifest's top-level `counts`, `coverage_by_item` and `values_by_item`, and
 `REPORT.md`, are left as of the weekly build. A company picked before its companyfacts catches up is
 refetched each day until it does (one request, plus the instance reads); the cap is 1,000 companies,
-2,000 instances, 150 minutes (raised 24 Sep 2026 from 300 / 600 / 25: the first dry run left 34
+2,000 instances, 120 minutes (raised 24 Sep 2026 from 300 / 600 / 25, the time first to 150 and then cut to 120, §24: the first dry run left 34
 listed companies unreached, and the job has ~11 hours before any reader looks; order is now only a
 fallback). The first patched files after §20 merges carry the §20 fields while
 untouched files do not until the next Sunday build — added keys only, so no reader breaks, but a
@@ -1013,7 +1013,7 @@ older pending one.
 
 ---
 
-## 22. The filing fallback gives a co-registrant SUBSIDIARY its parent's figures  ⚠ OPEN (found 23 Sep 2026)
+## 22. The filing fallback gives a co-registrant SUBSIDIARY its parent's figures  ✅ FALLBACK HALF FIXED 24 Sep 2026 (§24; found 23 Sep 2026)
 
 Found while measuring §21's selection; **not fixed**, because it is the weekly build's code and the
 rule is to report a builder bug rather than work round it. §21 reuses the same path, so it
@@ -1084,3 +1084,63 @@ copy-up-a-level step stay); `tests/test_working_agreement.py` asserts `fmp` is n
 purpose:** `ANNUAL_YEARS`, `PUBLISH_SILENT_YEARS`, `ACTIVE_SILENT_YEARS`, `SHARE_WINDOW` and every
 key in every file `fmp` reads — its backtests use the long history and the dead filers. Comments
 that cite robinhood-book as history were left as they are.
+
+## 24. Filing-fallback fixes: co-registrants, stuck companies, the daily time limit  ✅ BUILT 24 Sep 2026 (branch `claude/fallback-fixes`)
+
+Three verified bugs, fixed together because all three live in the filing fallback.
+
+**1. Co-registrant contamination (§22's fallback half).** `parse_xbrl_instance` now also returns
+`entity_cik`: the `dei:EntityCentralIndexKey` tagged in an undimensioned context, or, where a filing
+carries none, the single CIK every undimensioned context's `<identifier>` names (None when neither
+settles it). `patch_company` skips any filing whose `entity_cik` is set and is not the company's
+own CIK — it prints the skip and does not count the filing as read, so a company whose only newer
+filings are its parent's gets no patch at all. Evidence it fixes: Northwest Pipeline (CIK 110019)
+and Transco (99250) held Williams' quarterly revenue ($3.048B etc.) and 1.225B diluted shares from
+Williams' accessions 0000107263-…; Piedmont (78460) held Duke's; §22's ten more (American Airlines,
+Inc., NSTAR Electric, Kentucky Utilities, Nevada Power, PacifiCorp, ERP Operating LP, Simon Property
+Group LP, Boston Properties LP, Progress Energy, Pepco Holdings) are the same shape. SKIP, not
+select: the co-registrant's own figures are there behind `dei:LegalEntityAxis`, but choosing them
+reliably needs a real combined-filing fixture and a probe run (§19), and a missing quarter is safe
+where another company's quarter is not. **Not fixed:** §22's six SOURCE cases, where companyfacts
+itself carries the parent's figures under the subsidiary's CIK (the Southern Company family etc.) —
+that is the SEC's data, not the fallback. **Untested against a real filing:** the tests use
+synthetic instances; the rule relies on combined filings tagging the parent's
+`EntityCentralIndexKey` in the default context, which is how the SEC's cover-page tagging works, but
+the first build after merge should be checked (the build log prints `skipped, the instance's entity
+is CIK …` for each refused filing, and 110019 / 99250 / 78460 should come out holding companyfacts
+quarters only).
+
+**How the existing contaminated rows go away — the weekly build, not the daily run.** `main()` step
+3 writes every company file from `company_record(...)` on that filer's companyfacts alone — nothing
+is carried over from the file on disk — and removes the file of any filer it did not write. Only
+then does step 4 patch, and it now refuses the parent's filing. So the next `sec.yml` run rewrites
+each contaminated file with companyfacts rows only (plus any genuinely own-CIK filing quarters).
+Two limits on that claim: it covers only filers still in the bulk zip and published (a dropped filer's
+file is deleted outright, which also removes the bad rows), and it needs the build to reach the write
+(the `MIN_COMPANIES` floor aborts before writing anything). **The daily run does NOT clean them**:
+a contaminated file's newest quarter is the parent's, usually newer than companyfacts', so
+`regressed()` holds the rebuild back ("newest quarter would go from … to …") — correctly, since it
+cannot tell contamination from a short read. Until Sunday those files stay as they are. After the
+clean, such a subsidiary stays "behind" by `newer_filings` (the parent's filing is still in its events
+record), so both runs will keep reading the combined instance and skipping it until companyfacts
+catches up — a few wasted requests per company per run, no wrong data.
+
+**2. Stuck companies.** `patch_targets` (weekly) and `patch_companies.rebuild` (daily) took
+`newer_filings(...)[:PATCH_PER_COMPANY]`, the three OLDEST newer filings. Both rebuild from
+companyfacts before every patch, so patched quarters are not carried forward and the same three were
+read every time: a company four or more filings behind (24 files on 24 Sep, AUMN and EIDP among them)
+never reached its newest quarter. Both now call `patch_window`, which takes the NEWEST three, still
+oldest first among themselves. Cost, in `patch_window`'s docstring: a quarter whose figure is only
+year-to-date (most cash-flow lines) is derived by subtracting the earlier quarters of that fiscal
+year, and `quarterly_rows` leaves it out rather than inflating it when one is missing — so when the
+window starts after a skipped filing mid-year, those YTD-only values are absent for the rest of that
+fiscal year. Three-month income-statement facts and balance-sheet instants are unaffected. Existing
+tests kept their meaning (one or two newer filings: the window is all of them, oldest first).
+
+**3. Daily time limit.** `patch_companies.RUN_SECONDS` 150 → 120 minutes against the job's 180-minute
+`timeout-minutes`. The limit is checked only between companies and the commit follows the loop, so a
+slow company near the limit could run the job out and lose the whole day's commit.
+
+Tests: `tests/test_filing_fallback.py` — an instance whose undimensioned `EntityCentralIndexKey` is
+another CIK patches nothing; the same instance under the company's own CIK patches the quarter; a
+company with four newer filings and `PATCH_PER_COMPANY = 3` gets its newest quarter.
