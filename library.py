@@ -406,9 +406,11 @@ def fetch_filing(cik: int, f: dict) -> tuple[dict | None, str | None]:
 
 
 def update_company(c: dict, rows: list[dict], store, entry: dict | None, budget: Budget, changes: list,
-                   fetch=fetch_filing, threads: int = THREADS) -> tuple[dict, list[str] | None]:
+                   fetch=None, threads: int | None = None) -> tuple[dict, list[str] | None]:
     """Brings one company's asset up to EDGAR's window. Returns (index entry, saved accessions or None when the
     asset was not replaced)."""
+    fetch = fetch or fetch_filing                   # looked up at call time (tests replace fetch_filing)
+    threads = threads or THREADS
     cik = c["cik"]
     name = f"{cik}.tar.gz"
     d = WORK / str(cik)

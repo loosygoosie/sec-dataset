@@ -12,6 +12,16 @@ import pytest
 
 import library as L
 
+
+@pytest.fixture(autouse=True)
+def no_network(monkeypatch):
+    """Any real SEC or GitHub request from these tests is a bug in the test: fail at once."""
+    def refuse(*a, **k):
+        raise AssertionError("network access in a library test")
+    monkeypatch.setattr(L, "sec_get", refuse)
+    import requests
+    monkeypatch.setattr(requests, "get", refuse)
+
 FORM4 = b"""<?xml version="1.0"?><ownershipDocument><documentType>4</documentType>
 <reportingOwner><reportingOwnerId><rptOwnerName>Doe Jane</rptOwnerName></reportingOwnerId>
 <reportingOwnerRelationship><isDirector>0</isDirector><isOfficer>1</isOfficer><officerTitle>CFO</officerTitle>
