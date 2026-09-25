@@ -243,9 +243,9 @@ def test_size_signals_and_gate():
     assert sig["public_float"] == 3e9 and sig["assets"] == 4e9
     assert sig["revenue"] == 9e8                              # the 2016 tag is stale, the half year is not annual
     assert V.size_gate(sig, 5, today) == "float"
-    assert V.size_gate(dict(sig, public_float=1e9), 5, today) is None
-    assert V.size_gate(dict(sig, public_float=1e9, assets=6e9), 5, today) == "assets"
-    assert V.size_gate(dict(sig, public_float=1e9, revenue=2e9), 5, today) == "revenue"
+    assert V.size_gate(dict(sig, public_float=0.5e9), 5, today) is None
+    assert V.size_gate(dict(sig, public_float=0.5e9, assets=6e9), 5, today) == "assets"
+    assert V.size_gate(dict(sig, public_float=0.5e9, revenue=2e9), 5, today) == "revenue"
     ipo = {"public_float": None, "float_filed": None, "assets": 1e9, "revenue": 2e8}
     assert V.size_gate(ipo, 1, today) == "no_float" and V.size_gate(ipo, 4, today) is None
     old = dict(sig, float_filed="2024-01-01")                 # a float filed > 18 months ago counts as none

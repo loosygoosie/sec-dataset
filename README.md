@@ -473,7 +473,7 @@ LHX FY2025 missing); share counts from companyfacts with ONE share class (HEICO,
 1. Two bulk SEC downloads (`submissions.zip`, `companyfacts.zip`), read entry by entry on the runner.
 2. Universe: a 10-Q in the last 400 days, a listed common-stock ticker (no preferred / warrant / unit / right, no OTC),
    not a partnership (L.P.), not a commodity trust (SIC 6221), revenue on file, and SEC figures saying the company
-   COULD be S&P-sized (`size_gate`): public float >= $2B (10-K cover, filed in the last 18 months), or total assets
+   COULD be S&P-sized (`size_gate`): public float >= $0.75B (10-K cover, filed in the last 18 months; $2B until 25 Sep 2026, lowered so the small companies fmp still holds keep their files), or total assets
    >= $5B, or annual revenue >= $1B, or a recent IPO with no float yet. **No prices and no Yahoo** (owner, 25 Sep
    2026: "we shouldn't be using yahoo for anything anymore"): fmp multiplies `shares_total` by its Robinhood price
    and draws S&P's $22.7B line itself. Checked on 25 Sep 2026: the gate kept all 420 companies of fmp's pool worth

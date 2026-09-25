@@ -14,8 +14,8 @@ Steps (main()):
     ONLY_TICKERS=AAPL,HEI (a development run) uses the per-company APIs instead, cached in work/v2/api.
  2. Universe: a 10-Q in the last 400 days, a listed common-stock ticker (no preferred / warrant / unit / right
     lines, no OTC), not a partnership (L.P.), not a commodity trust (SIC 6221), revenue on file, and SEC figures
-    that say the company COULD be S&P-sized (size_gate: public float >= $2B, or total assets >= $5B, or annual
-    revenue >= $1B, or no public float reported in the last 18 months, e.g. a recent IPO). NO PRICES here (owner,
+    that say the company COULD be S&P-sized, or is small but may be held by fmp (size_gate: public float >= $0.75B,
+    or total assets >= $5B, or annual revenue >= $1B, or no public float reported in the last 18 months, e.g. a recent IPO). NO PRICES here (owner,
     25 Sep 2026: no Yahoo for anything; Robinhood is where we invest): fmp multiplies shares_total by its Robinhood
     price and draws S&P's $22.7B line itself. The rule missed none of the 420 companies in fmp's pool worth
     >= $15B on 25 Sep 2026 (a float-only line would have missed 8: BE, ARES, UI, RKT, SUNB, FOXA, ECHO, PPL).
@@ -69,7 +69,9 @@ OLD = Path("data/companies")
 CONF = Path("data/v2")                 # the two hand-kept CSVs (copied from fmp/owner/data), whatever V2_OUT is
 STORE = Path(os.environ.get("FILINGS_STORE", "filings-store"))
 # size_gate: SEC figures that say a company COULD be worth S&P's $22.7B (fmp draws the line with Robinhood prices)
-FLOAT_MIN, ASSETS_MIN, REVENUE_MIN = 2e9, 5e9, 1e9
+# FLOAT_MIN 0.75B, not 2B (25 Sep 2026): fmp still HOLDS smaller companies bought before the S&P-size rule (LMAT 1.7B,
+# USLM 1.07B, WINA 0.89B of float) and watch.py needs their 8-K feed; fmp's coverage.py blocks any name without a file.
+FLOAT_MIN, ASSETS_MIN, REVENUE_MIN = 0.75e9, 5e9, 1e9
 FLOAT_DAYS = 550                       # a public float filed longer ago than this counts as none
 STALE_DAYS = 800                       # assets / revenue for a period ending longer ago than this are ignored
 LIBRARY_FLOAT_MIN = 15e9               # library without data/v2/pool.txt: public float >= this
