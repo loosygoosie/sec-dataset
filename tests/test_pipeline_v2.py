@@ -551,3 +551,11 @@ def test_events_feed_carries_the_warning_and_deal_forms():
                                                "reportDate": [""] * n, "primaryDocument": ["d.htm"] * n}}}
     got = {e["form"] for e in P.events_record(sub, 7, dt.date(2026, 9, 25))["events"]}
     assert got == set(forms[:9])                                  # Form 4, 424B2 and FWP stay out
+
+
+def test_a_ttm_total_in_a_10q_is_not_a_fiscal_year():
+    """AMZN's 10-Q cash-flow statement reports trailing-twelve-month totals: v2 made fiscal-year rows end 2026-03-31 and
+    2026-06-30 from them. Only a 10-K reports a fiscal year."""
+    fs = [fy_fact(1_000, "2025-12-31"), fact(1_100, "2026-03-31", start="2025-04-01", form="10-Q", fp="Q1")]
+    ann, q, _ = V.flow_series(fs)
+    assert list(ann) == ["2025-12-31"]
