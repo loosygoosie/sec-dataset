@@ -102,7 +102,7 @@ RFCWC = "RevenueFromContractWithCustomerExcludingAssessedTax"
 RNFC = "RevenueNotFromContractWithCustomer"
 REV_TOTAL = ["Revenues", "RegulatedAndUnregulatedOperatingRevenue"]
 REV_OTHER = ["SalesRevenueNet", "SalesRevenueGoodsNet", "RevenuesNetOfInterestExpense", "RealEstateRevenueNet",
-             "OperatingLeasesIncomeStatementLeaseRevenue", "ElectricUtilityRevenue", "RegulatedOperatingRevenue",
+             "OperatingLeaseLeaseIncome", "OperatingLeasesIncomeStatementLeaseRevenue", "ElectricUtilityRevenue", "RegulatedOperatingRevenue",
              "RevenueFromContractWithCustomerIncludingAssessedTax"]
 BANK_NET = "InterestIncomeExpenseNet+NoninterestIncome"
 BANK_GROSS = "InterestAndDividendIncomeOperating+NoninterestIncome"
@@ -118,7 +118,7 @@ FLOWS = {
               "PaymentsForCapitalImprovements", "PaymentsToAcquireOilAndGasPropertyAndEquipment",
               "PaymentsToAcquireOilAndGasProperty", "PaymentsToExploreAndDevelopOilAndGasProperties",
               "PaymentsToAcquireOtherPropertyPlantAndEquipment", "PaymentsForConstructionInProcess",
-              "PaymentsToDevelopRealEstateAssets"],
+              "PaymentsToDevelopRealEstateAssets", "PaymentsToAcquireEquipmentOnLease"],
     "stock_comp": ["ShareBasedCompensation", "AllocatedShareBasedCompensationExpense"],
     "shares_diluted": ["WeightedAverageNumberOfDilutedSharesOutstanding",
                        "WeightedAverageNumberOfShareOutstandingBasicAndDiluted"],
@@ -128,9 +128,11 @@ AVERAGES = {"shares_diluted"}          # never differenced from year-to-date fig
 # total when a filer tags pieces too (NEE: FPL 8.7B inside 24.6B; DTE: utility 4.3B next to non-utility 0.1B)
 EXT_CAPEX = re.compile(r"CapitalExpenditure|PlantAndEquipmentExpenditure|PaymentsToAcquireProductiveAssets|"
                        r"PaymentsToAcquirePropertyPlantAndEquipment|AdditionsToPropertyPlantAndEquipment|"
-                       r"PaymentsForPropertyPlantAndEquipment", re.I)
+                       r"PaymentsForPropertyPlantAndEquipment|PropertySubjectToOrAvailableForOperatingLease|"
+                       r"EquipmentOnLease|RentalEquipment", re.I)
 EXT_CAPEX_NOT = re.compile(r"Planned|Estimat|Commitment|Incurred|NotYetPaid|Accrued|Future|AFUDC|Remainder|Year|"
-                           r"Proceeds|Budget|Forecast|Guidance|Percent|Ratio|Business", re.I)
+                           r"Proceeds|Budget|Forecast|Guidance|Percent|Ratio|Business|Increase|Decrease|Payable|"
+                           r"Change", re.I)
 INSTANTS = {
     "cash": ["CashAndCashEquivalentsAtCarryingValue", "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
              "Cash"],
@@ -140,11 +142,20 @@ INSTANTS = {
     "equity": ["StockholdersEquity", "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"],
 }
 DEBT_NONCURRENT = ["LongTermDebtNoncurrent", "LongTermDebtAndCapitalLeaseObligations", "LongTermDebt",
-                   "LongTermNotesPayable", "SeniorLongTermNotes", "UnsecuredLongTermDebt", "OtherLongTermDebtNoncurrent"]
-DEBT_CURRENT_LTD = ["LongTermDebtCurrent", "LongTermDebtAndCapitalLeaseObligationsCurrent", "OtherLongTermDebtCurrent"]
+                   "LongTermNotesPayable", "SeniorLongTermNotes", "UnsecuredLongTermDebt", "OtherLongTermDebtNoncurrent",
+                   "LongTermNotesAndLoans"]
+DEBT_CURRENT_LTD = ["LongTermDebtCurrent", "LongTermDebtAndCapitalLeaseObligationsCurrent", "OtherLongTermDebtCurrent",
+                    "NotesPayableCurrent", "SeniorNotesCurrent"]
 DEBT_SHORT = ["ShortTermBorrowings", "CommercialPaper", "OtherShortTermBorrowings"]
 LEASES = ["FinanceLeaseLiability", "FinanceLeaseLiabilityNoncurrent", "FinanceLeaseLiabilityCurrent"]
-DEBT_TAGS = DEBT_NONCURRENT + DEBT_CURRENT_LTD + DEBT_SHORT + ["DebtCurrent"] + LEASES
+# unclassified balance sheets (REITs, insurers, homebuilders) tag one TOTAL instead of current / non-current
+DEBT_COMBINED = ["DebtLongtermAndShorttermCombinedAmount", "DebtAndCapitalLeaseObligations",
+                 "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities"]
+DEBT_NOTES = ["NotesPayable", "SeniorNotes", "UnsecuredDebt", "ConvertibleNotesPayable", "JuniorSubordinatedNotes"]
+DEBT_EXTRA = ["LoansPayable", "SecuredDebt", "LineOfCredit"]          # term loans, mortgages, revolver: added to notes
+DEBT_INSTRUMENTS = "DebtInstrumentCarryingAmount"      # the debt note's instruments added up: a tie-breaker only
+DEBT_TAGS = ([DEBT_INSTRUMENTS] + DEBT_NONCURRENT + DEBT_CURRENT_LTD + DEBT_SHORT + ["DebtCurrent"] + LEASES + DEBT_COMBINED + DEBT_NOTES
+             + DEBT_EXTRA)
 
 
 # ================================================================ small helpers
@@ -161,10 +172,15 @@ def _num(v):
     return int(v) if v.is_integer() else v
 
 
-def _collapse(fs: list[dict]) -> dict:
+def _collapse(fs: list[dict], annual: bool = False) -> dict:
     """Every fact for one period -> one record: the latest-filed value, dated by the FIRST filing that showed that
-    value (when it became public), plus the first-filed value and date when a later filing restated it."""
+    value (when it became public), plus the first-filed value and date when a later filing restated it. A full-year
+    period (annual=True) is restated only by a 10-K / 10-K/A when one reported it: a later 10-Q's value for a whole
+    year is a mis-tagged context, not a restatement (FIX's Q1 2026 10-Q put its quarter, 1.83B, on FY2025's dates,
+    replacing the 10-K's 9.10B)."""
     fs = sorted(fs, key=lambda f: (f["filed"], f.get("accn") or ""))
+    if annual and any(str(f.get("form", "")).startswith("10-K") for f in fs):
+        fs = [f for f in fs if str(f.get("form", "")).startswith("10-K")]
     last = fs[-1]
     same = next(f for f in fs if f["val"] == last["val"])
     r = {"val": _num(last["val"]), "form": same["form"], "filed": same["filed"], "accn": same.get("accn")}
@@ -185,7 +201,7 @@ def flow_series(fs: list[dict], additive: bool = True) -> tuple[dict, dict, dict
     for f in fs:
         if f.get("start") and f.get("end") and f.get("val") is not None:
             per[(f["start"], f["end"])].append(f)
-    P = {k: dict(_collapse(v), start=k[0], end=k[1]) for k, v in per.items()}
+    P = {k: dict(_collapse(v, annual=_days(k[0], k[1]) >= 300), start=k[0], end=k[1]) for k, v in per.items()}
     ann, q = {}, {}
     for (s, e), r in sorted(P.items()):
         n = _days(s, e)
@@ -262,6 +278,8 @@ def choose_revenue(c: dict, bank: bool) -> str | None:
     if bank:
         return next((t for t in REV_BANK if t in c), None) or next((t for t in [RFCWC] + REV_OTHER if t in c), None)
     total = next((t for t in REV_TOTAL if t in c), None)
+    if RENT_PLUS_606 in c and not total:
+        return RENT_PLUS_606
     if RFCWC in c and total:
         adds_up = RNFC in c and abs(c[RFCWC] + c[RNFC] - c[total]) <= 0.02 * abs(c[total] or 1)
         return total if adds_up or c[total] > c[RFCWC] * TOTAL_OVER_606 else RFCWC
@@ -288,6 +306,110 @@ def _pick_per_period(series: dict, chooser) -> tuple[dict, dict, dict]:
     return out
 
 
+STMT_COST = ["CostOfRevenue", "CostOfGoodsAndServicesSold", "CostOfGoodsSold", "CostOfServices",
+             "CostOfGoodsAndServiceExcludingDepreciationDepletionAndAmortization"]
+STMT_TOTAL_COST = ["CostsAndExpenses", "OperatingCostsAndExpenses", "BenefitsLossesAndExpenses", "OperatingExpenses"]
+STMT_PROFIT = ["OperatingIncomeLoss",
+               "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+               "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments"]
+STMT_TOL = 0.001
+LEASE_INCOME = ["OperatingLeaseLeaseIncome", "OperatingLeasesIncomeStatementLeaseRevenue"]
+RENT_PLUS_606 = "RevenueFromContractWithCustomerExcludingAssessedTax+OperatingLeaseLeaseIncome"
+REVENUE_VERIFIED: dict = {}            # filled in main() from data/v2/revenue_verified.csv
+
+
+def statement_revenue(picked: tuple, rs: dict, F: dict, verified: str | None = None) -> tuple[tuple, list]:
+    """The fiscal year's revenue line checked against the company's own income-statement arithmetic: the line that
+    equals gross profit + cost of revenue, or operating (or pre-tax) income + total costs, within 0.1%, is the
+    statement's top line (WMB: 'Revenues' 11.95B, not the 14.9B contract line that nets out derivatives later; CNC
+    194.8B incl. premium tax, not 174.6B; NTAP the 6.925B contract total, not the 6.237B 'Revenues' subset; FIX).
+    With no such tie-out: two total tags that agree win over the contract line (SRE: Revenues = Regulated and
+    unregulated = 13.70B, its reported figure, vs 12.42B), else choose_revenue's pick stands and, when the
+    candidates differ by > 2%, the year is returned as unverified (flagged revenue_unverified_<end>: ARES, BAM)."""
+    ann = dict(picked[0])
+    unverified = []
+    series = {}
+
+    def year(tag, e):
+        if tag not in F:
+            return None
+        if tag not in series:
+            series[tag] = flow_series(F[tag])[0]
+        r = series[tag].get(e)
+        return r["val"] if r else None
+    for e, cur in picked[0].items():
+        c = {t: s[0][e] for t, s in rs.items() if e in s[0]}
+        vals = {t: r["val"] for t, r in c.items()}
+        sums = []
+        gp = year("GrossProfit", e)
+        sums += [gp + v for v in (year(t, e) for t in STMT_COST) if gp is not None and v is not None]
+        for p in (year(t, e) for t in STMT_PROFIT):
+            if p is not None:
+                sums += [p + v for v in (year(t, e) for t in STMT_TOTAL_COST) if v is not None]
+        ok = [t for t, v in vals.items() if any(abs(v - x) <= STMT_TOL * max(abs(v), 1) for x in sums)]
+        if ok:
+            if cur["tag"] not in ok:
+                t = next((t for t in [RFCWC] + REV_TOTAL + REV_OTHER + [RNFC] if t in ok), ok[0])
+                ann[e] = dict(c[t], tag=t, note="income-statement tie-out")
+            continue
+        totals = [t for t in REV_TOTAL if t in vals]
+        if cur["tag"] == RFCWC and len(totals) >= 2 and abs(vals[totals[0]] - vals[totals[1]]) <= STMT_TOL * abs(vals[totals[0]]):
+            ann[e] = dict(c[totals[0]], tag=totals[0], note="two total lines agree")
+            continue
+        t0 = ann[e]["tag"]
+        if t0 in REV_TOTAL and RFCWC in vals and RNFC in vals and \
+                abs(vals[RFCWC] + vals[RNFC] - vals[t0]) <= 0.02 * abs(vals[t0]):
+            continue                                   # contract + non-contract = the total (COP, BRK-B): verified
+        if verified and verified in vals:              # checked by hand against the reported figure
+            if t0 != verified:
+                ann[e] = dict(c[verified], tag=verified, note="hand-verified line (revenue_verified.csv)")
+            continue
+        lo, hi = min(vals.values()), max(vals.values())
+        if len(vals) > 1 and hi > 0 and (hi - lo) / hi > 0.02 and cur["tag"] != RNFC and t0 != RENT_PLUS_606:
+            unverified.append(e)
+    return (ann, picked[1], picked[2]), unverified
+
+
+SEG_ADDITIONS = "SegmentExpenditureAdditionToLongLivedAssets"
+
+
+def segment_capex(picked: tuple, ser: dict, F: dict) -> tuple[tuple, list]:
+    """The fiscal year's capex checked against the segment note's total additions to long-lived assets (ASC 280,
+    tagged since 2024): among the chosen line, every other capex line, and every PAIR of lines, the one within 10% of
+    the segment total wins (AEP: 8.45B construction + 3.45B other = 11.906B = the segment total; URI: 4.149B rental
+    fleet + 0.379B other = 4.528B vs 4.568B). Segment additions are accrual-basis, hence 10%. With no line or pair
+    that close, the pick stands, and one below 60% of the segment total is flagged capex_below_segment_<end>.
+    A chosen pair becomes its own series ('a+b') so the quarters follow it."""
+    if SEG_ADDITIONS not in F:
+        return picked, []
+    seg = flow_series(F[SEG_ADDITIONS], additive=False)[0]
+    ann, flags = dict(picked[0]), []
+    for e, cur in picked[0].items():
+        s = seg.get(e)
+        if not s or not s["val"] or s["val"] <= 0:
+            continue
+        target = s["val"]
+        c = {t: sr[0][e] for t, sr in ser.items() if e in sr[0] and sr[0][e]["val"] and sr[0][e]["val"] > 0}
+        opts = [((t,), r["val"]) for t, r in c.items()]
+        ts = sorted(c)
+        opts += [((a, b), c[a]["val"] + c[b]["val"]) for i, a in enumerate(ts) for b in ts[i + 1:]]
+        near = [(abs(v - target) / target, k, v) for k, v in opts if abs(v - target) <= 0.10 * target]
+        if near:
+            _, k, v = min(near, key=lambda x: (x[0], len(x[1])))
+            if k != (cur["tag"],):
+                if len(k) == 1:
+                    ann[e] = dict(c[k[0]], tag=k[0], note="segment additions tie-out")
+                else:
+                    key = "+".join(k)
+                    if key not in ser:
+                        ser[key] = _sum_series(ser[k[0]], ser[k[1]])
+                    if e in ser[key][0]:
+                        ann[e] = dict(ser[key][0][e], tag=key, note="segment additions tie-out")
+        elif cur["val"] < 0.6 * target:
+            flags.append((f"capex_below_segment_{e}", e))
+    return (ann, picked[1], picked[2]), flags
+
+
 def same_line_as_year(picked: tuple, series: dict) -> tuple:
     """Quarters and year-to-date periods take the revenue (or capex) line chosen for their fiscal year when the filer tagged it
     for that period too. choose_revenue() decides each period alone, and a quarter can lack the tag that made the
@@ -302,10 +424,16 @@ def same_line_as_year(picked: tuple, series: dict) -> tuple:
             if yr is None and ann and ann[-1][0] < e:
                 yr = ann[-1][1]
             t = (yr or {}).get("tag")
-            if t and t != r["tag"] and e in series.get(t, ({}, {}, {}))[k]:
-                cand = series[t][k][e]
-                if cand.get("start") == r.get("start"):
-                    out[k][e] = dict(cand, tag=t)
+            if not t or t == r["tag"]:
+                continue
+            same = [t] + [x for x, sr in series.items() if x != t and yr["end"] in sr[0]      # SRE: 'Revenues' has no
+                          and abs(sr[0][yr["end"]]["val"] - yr["val"]) <= STMT_TOL * abs(yr["val"] or 1)]  # quarters,
+            for x in same:                                                  # its equal total line does
+                cand = series.get(x, ({}, {}, {}))[k].get(e)
+                if cand and cand.get("start") == r.get("start"):
+                    if x != r["tag"]:
+                        out[k][e] = dict(cand, tag=x)
+                    break
     return out
 
 
@@ -329,7 +457,11 @@ def assemble_debt(v: dict) -> dict | None:
     lt, ltc = first(DEBT_CURRENT_LTD)
     used = [nt] if nt else []
     if nt == "LongTermDebt" and ltc is not None:
-        nonc -= ltc
+        # LongTermDebt includes its current portion by definition, but some filers tag it without (DRI: 1.638B +
+        # 0.694B current = 2.33B, and its instruments add up to 2.19B). The debt note's total decides which.
+        ins = v.get(DEBT_INSTRUMENTS)
+        if not (ins and abs(nonc + ltc - ins) < abs(nonc - ins)):
+            nonc -= ltc
         used.append(lt)
     if v.get("DebtCurrent") is not None:
         cur, cur_tags = v["DebtCurrent"], ["DebtCurrent"]
@@ -357,6 +489,28 @@ def assemble_debt(v: dict) -> dict | None:
     return {"total_debt": _num((nonc or 0) + (cur or 0)), "debt_noncurrent": None if nonc is None else _num(nonc),
             "debt_current": None if cur is None else _num(cur), "finance_leases": None if lease is None else _num(lease),
             "tags": used, "both_sides": nonc is not None and cur is not None}
+
+
+def unclassified_debt(v: dict) -> dict | None:
+    """Total debt of a company that does not split it into current and non-current (REITs, insurers, homebuilders,
+    TEVA): a combined-total tag when there is one (VTR, KVUE, PGR, TRV, AFL), else the largest notes tag (the notes
+    tags overlap: TEVA's SeniorNotes 16.65B vs its 12.09B non-current + 4.5B current) plus term loans, mortgages,
+    the revolver and commercial paper / short-term borrowings (O: 25.09B notes + 2.76B term loans + 1.40B paper).
+    Used only when assemble_debt finds one side or nothing."""
+    comb = next((t for t in DEBT_COMBINED if v.get(t)), None)
+    if comb:
+        return {"total_debt": _num(v[comb]), "debt_noncurrent": None, "debt_current": None, "finance_leases": None,
+                "tags": [comb], "both_sides": True}
+    notes = [t for t in DEBT_NOTES if v.get(t)]
+    if not notes:
+        return None
+    base = max(notes, key=lambda t: v[t])
+    parts = [base] + [t for t in DEBT_EXTRA if v.get(t)]
+    st = max(((v[t], t) for t in DEBT_SHORT if v.get(t)), default=None)
+    if st:
+        parts.append(st[1])
+    return {"total_debt": _num(sum(v[t] for t in parts)), "debt_noncurrent": None, "debt_current": None,
+            "finance_leases": None, "tags": parts, "both_sides": True}
 
 
 # ================================================================ companyfacts -> fundamentals
@@ -469,11 +623,19 @@ def invariant_flags(annual: list[dict], quarterly: list[dict]) -> list[str]:
     return out
 
 
-def fundamentals(F: dict) -> dict:
+def load_revenue_verified(path: Path = CONF / "revenue_verified.csv") -> dict:
+    """{ticker: tag} checked by hand against the company's reported revenue when no tie-out exists (evidence column)."""
+    if not path.exists():
+        return {}
+    return {r["ticker"]: r["tag"] for r in csv.DictReader(path.open())}
+
+
+def fundamentals(F: dict, verified_revenue: str | None = None) -> dict:
     """Annual and quarterly rows, TTM and the latest balance sheet from load_facts() (+ merge_instance()) output.
     Each row: {end, start, <field>: value, ..., src: {<field>: {tag, form, filed, accn[, first_val, first_filed,
     derived]}}}. Debt pieces sit in the row next to total_debt, their tags in src.total_debt.tags."""
     flows = {}
+    capex_flags: list = []
     bank = is_bank(F)
     rev_tags = [RFCWC, RNFC] + REV_TOTAL + REV_OTHER + ["InterestIncomeExpenseNet", "InterestAndDividendIncomeOperating",
                                                   "NoninterestIncome"]
@@ -485,12 +647,21 @@ def fundamentals(F: dict) -> dict:
                 rs[name] = _sum_series(rs[a], rs[b])
     for t in ("InterestIncomeExpenseNet", "InterestAndDividendIncomeOperating", "NoninterestIncome"):
         rs.pop(t, None)
-    flows["revenue"] = same_line_as_year(_pick_per_period(rs, lambda c: choose_revenue(c, bank)), rs)
+    lease = next((t for t in LEASE_INCOME if t in rs), None)
+    if lease and RFCWC in rs and not any(t in rs for t in REV_TOTAL):
+        rs[RENT_PLUS_606] = _sum_series(rs[RFCWC], rs[lease])      # a REIT with no total line: rent + other revenue
+    picked = _pick_per_period(rs, lambda c: choose_revenue(c, bank))
+    unverified = []
+    if not bank:
+        picked, unverified = statement_revenue(picked, rs, F, verified_revenue)
+    flows["revenue"] = same_line_as_year(picked, rs)
     for field, tags in FLOWS.items():
         ser = {t: flow_series(F[t], additive=field not in AVERAGES) for t in tags if t in F}
         if field == "capex":
             ser.update({t: flow_series(fs) for t, fs in F.items() if t.startswith("ext:")})
-            flows[field] = same_line_as_year(_pick_per_period(ser, choose_capex), ser)
+            picked, cx_flags = segment_capex(_pick_per_period(ser, choose_capex), ser, F)
+            capex_flags += cx_flags
+            flows[field] = same_line_as_year(picked, ser)
         else:
             flows[field] = _pick_per_period(ser, lambda c, tags=tags: next((t for t in tags if t in c), None))
     inst = {t: instant_series(F[t]) for t in set(DEBT_TAGS) | {t for ts in INSTANTS.values() for t in ts} | {DUE_12M}
@@ -510,6 +681,15 @@ def fundamentals(F: dict) -> dict:
             row["cash_and_sti"] = _num(cs)
         vals = {t: inst[t][e] for t in DEBT_TAGS if e in inst.get(t, {})}
         debt = assemble_debt({t: r["val"] for t, r in vals.items()})
+        comb = vals.get(DEBT_COMBINED[0])
+        if not bank and comb and comb["val"] and debt and debt["both_sides"] and \
+                comb["val"] > debt["total_debt"] * 1.02:        # the company's own stated total (SHW 12.07B: the
+            debt = dict(debt, total_debt=_num(comb["val"]),     # PepsiCo rule dropped its 1.5B current portion)
+                        tags=debt["tags"] + [DEBT_COMBINED[0]])
+        if not bank and (not debt or not debt["both_sides"]):         # banks: debt is a different animal
+            alt = unclassified_debt({t: r["val"] for t, r in vals.items()})
+            if alt and (not debt or alt["total_debt"] > (debt["total_debt"] or 0) * 1.05):
+                debt = alt
         if debt:
             tags = debt.pop("tags")
             both = debt.pop("both_sides")
@@ -564,6 +744,9 @@ def fundamentals(F: dict) -> dict:
     if not bal.get("total_debt") and bal:
         flags.append("no_debt_tagged")
     flags += invariant_flags(annual, quarterly)
+    recent_ends = {r["end"] for r in annual[-INVARIANT_YEARS:]}
+    flags += [f for f, e in capex_flags if e in recent_ends]
+    flags += [f"revenue_unverified_{e}" for e in unverified if e in {r["end"] for r in annual[-INVARIANT_YEARS:]}]
     de = bal.get("debt_end") or bal.get("end")                  # CAT: the current portion of long-term debt is
     due = inst.get(DUE_12M, {}).get(de, {}).get("val")          # tagged only by segment; its maturity table says
     lsrc = (latest.get("src") or {}).get("total_debt") or {}    # $7.1B falls due within 12 months
@@ -1072,7 +1255,7 @@ def company_record(c: dict, src: Sources) -> dict | None:
         x = instance(c["cik"], f["accn"])
         if x and merge_instance(F, x, f["form"], f["filed"], f["accn"]):
             merged.append(f["accn"])
-    fund = fundamentals(F)
+    fund = fundamentals(F, REVENUE_VERIFIED.get(c["ticker"]))
     fund = {("v2_" + k if k in ("annual", "quarterly", "tags_used") else k): v for k, v in fund.items()}
     lf = c["latest"] or {}
     return {**legacy(cf, fund), "cik": c["cik"], "ticker": c["ticker"], "tickers": c["tickers"], "name": c["name"], "sic": c["sic"],
@@ -1191,6 +1374,7 @@ def main() -> int:
         print("set SEC_USER_AGENT"); return 1
     t0 = time.time()
     weights, ads = load_weights(CONF / "share_class_weights.csv"), load_ads(CONF / "ads_ratio.csv")
+    REVENUE_VERIFIED.update(load_revenue_verified())
     report: dict = {}
     src = Sources()
     uni = build_universe(src, weights, ads, report)

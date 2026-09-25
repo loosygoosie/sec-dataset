@@ -513,6 +513,22 @@ LHX FY2025 missing); share counts from companyfacts with ONE share class (HEICO,
    COP, ORCL, CAT, BRK-B, GE, AAPL, JPM; NTAP's 6.925B is its four 10-Q quarters (Robinhood's 6.237B is the
    'Revenues' subset). Turning off the COP fix fails COP and GE. Regenerate only after fixing the evidence:
    `python tests/golden_harness.py`.
+   COMPARE-REPORT REVIEW (25 Sep 2026, the 90 differences on pool companies): fixes from it —
+   REVENUE: the income-statement tie-out (the line that equals gross profit + cost of revenue, or operating /
+   pre-tax income + total costs) picks the top line (WMB 11.95B, CNC 194.8B, CNP 8.64B, NTAP 6.925B); two agreeing
+   total tags beat the contract line (SRE 13.70B); a full year is restated only by a 10-K (FIX: a 10-Q's quarter on
+   FY2025's dates had replaced 9.10B with 1.83B); REIT rent (`OperatingLeaseLeaseIncome`) + other revenue when no
+   total (VMRK 3.09B, CPT 1.59B, was 13M); `data/v2/revenue_verified.csv` holds hand-checked lines with evidence (RSG,
+   NEE); anything else with candidates > 2% apart is flagged `revenue_unverified_<end>` (ARES, BAM, DUK). Banks keep
+   net revenue (net interest + noninterest income), the analysts' figure; the old build used gross interest income.
+   CAPEX: the segment note's additions to long-lived assets pick the line or pair of lines within 10% (AEP 8.45B +
+   3.45B = 11.906B; URI 4.149B rental fleet + 0.379B = 4.528B; CAT 1.988B + 1.227B leased equipment = 3.215B);
+   capex under 60% of it is flagged; change-in-payables lines are never capex (TPL). REITs count development and
+   improvements, not property purchases. DEBT: unclassified balance sheets use their combined total (VTR, KVUE,
+   PGR, TRV, AFL) or notes + term loans + mortgages + paper (O 29.3B, was 1.4B; DHI 7.1B); a stated combined total
+   beats the assembled one when larger (SHW 12.07B); LongTermNotesAndLoans / NotesPayableCurrent count (ORCL
+   125.3B at Aug 2026, TEVA 16.59B); the debt note's instrument total decides whether a filer's LongTermDebt
+   includes the current portion (DRI). Still `no_debt_tagged` (debt only on segment or company tags): ED, F, PCAR.
 5. Outputs, ONLY under `data/v2/`:
    - `companies/<cik>.json` — TWO views of the company (25 Sep 2026, for fmp's switch off the old jobs):
      - the OLD file's shape, same keys and ~90 fields (`sec_name`, `annual`, `quarterly` with `fiscal_year` /
