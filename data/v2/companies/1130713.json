@@ -688,6 +688,7 @@
    "added_by": "v2",
    "capex": 45306000,
    "capex_filed": "2015-08-07",
+   "debt_current": 500000,
    "fiscal_year": 2015,
    "form": "10-K",
    "net_income": 6896000,
@@ -696,12 +697,15 @@
    "operating_cash_flow_filed": "2015-08-07",
    "period_end": "2015-06-30",
    "stock_comp": 3822000,
-   "stock_comp_filed": "2015-08-07"
+   "stock_comp_filed": "2015-08-07",
+   "total_debt": 500000,
+   "total_debt_filed": "2015-08-07"
   },
   {
    "added_by": "v2",
    "capex": 52183000,
    "capex_filed": "2015-11-09",
+   "debt_current": 1123000,
    "fiscal_year": 2015,
    "form": "10-K",
    "net_income": 2662000,
@@ -710,7 +714,9 @@
    "operating_cash_flow_filed": "2015-11-09",
    "period_end": "2015-09-30",
    "stock_comp": 3663000,
-   "stock_comp_filed": "2015-11-09"
+   "stock_comp_filed": "2015-11-09",
+   "total_debt": 1123000,
+   "total_debt_filed": "2015-11-09"
   },
   {
    "acquisitions": 10601000,
@@ -3802,6 +3808,7 @@
    "capex": 45306000,
    "cash": 105471000,
    "cash_and_sti": 105471000,
+   "debt_current": 500000,
    "end": "2015-06-30",
    "equity": 133176000,
    "fcf": 16960000,
@@ -3843,15 +3850,27 @@
      "filed": "2015-08-07",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-08-07",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 500000
+     }
     }
    },
    "start": "2014-07-01",
-   "stock_comp": 3822000
+   "stock_comp": 3822000,
+   "total_debt": 500000
   },
   {
    "capex": 52183000,
    "cash": 81268000,
    "cash_and_sti": 81268000,
+   "debt_current": 1123000,
    "end": "2015-09-30",
    "equity": 149182000,
    "fcf": -7253000,
@@ -3893,10 +3912,21 @@
      "filed": "2015-11-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-11-09",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 1123000
+     }
     }
    },
    "start": "2014-10-01",
-   "stock_comp": 3663000
+   "stock_comp": 3663000,
+   "total_debt": 1123000
   },
   {
    "capex": 59513000,
@@ -5771,6 +5801,20 @@
    "v2": 45306000
   },
   {
+   "field": "total_debt",
+   "old": null,
+   "period": "2015-06-30",
+   "rows": "annual",
+   "v2": 500000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2015-06-30",
+   "rows": "annual",
+   "v2": 500000
+  },
+  {
    "field": "net_income",
    "old": null,
    "period": "2015-06-30",
@@ -5797,6 +5841,20 @@
    "period": "2015-09-30",
    "rows": "annual",
    "v2": 52183000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2015-09-30",
+   "rows": "annual",
+   "v2": 1123000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2015-09-30",
+   "rows": "annual",
+   "v2": 1123000
   },
   {
    "field": "net_income",
@@ -7679,6 +7737,7 @@
    "capex": 12427000,
    "cash": 105471000,
    "cash_and_sti": 105471000,
+   "debt_current": 500000,
    "end": "2015-06-30",
    "equity": 133176000,
    "fcf": -17205000,
@@ -7737,15 +7796,27 @@
      "filed": "2015-08-07",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-08-07",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 500000
+     }
     }
    },
    "start": "2015-04-01",
-   "stock_comp": 960000
+   "stock_comp": 960000,
+   "total_debt": 500000
   },
   {
    "capex": 24342000,
    "cash": 81268000,
    "cash_and_sti": 81268000,
+   "debt_current": 1123000,
    "end": "2015-09-30",
    "equity": 149182000,
    "fcf": -12875000,
@@ -7804,10 +7875,21 @@
      "filed": "2015-11-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-11-09",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 1123000
+     }
     }
    },
    "start": "2015-07-01",
-   "stock_comp": 839000
+   "stock_comp": 839000,
+   "total_debt": 1123000
   },
   {
    "capex": 16132000,

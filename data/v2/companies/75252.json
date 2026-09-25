@@ -1292,8 +1292,8 @@
   },
   {
    "acquisitions": 1684607000,
-   "capex": 158090000,
-   "capex_as_filed": 158090000,
+   "capex": 166582000,
+   "capex_as_filed": 166582000,
    "capex_as_filed_filed": "2023-02-28",
    "capex_filed": "2023-02-28",
    "capitalized_software": 8492000,
@@ -3629,14 +3629,14 @@
    "total_debt": 947540000
   },
   {
-   "capex": 158090000,
+   "capex": 166582000,
    "cash": 69467000,
    "cash_and_sti": 69467000,
    "debt_current": 17906000,
    "debt_noncurrent": 2482968000,
    "end": "2022-12-31",
    "equity": 966742000,
-   "fcf": 166916000,
+   "fcf": 158424000,
    "finance_leases": 14408000,
    "net_income": 22389000,
    "operating_cash_flow": 325006000,
@@ -3647,7 +3647,8 @@
      "accn": "0000075252-23-000010",
      "filed": "2023-02-28",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0000075252-23-000010",
@@ -4050,13 +4051,6 @@
    "period": "2021-12-31",
    "rows": "annual",
    "v2": 40985000
-  },
-  {
-   "field": "capex",
-   "old": 166582000,
-   "period": "2022-12-31",
-   "rows": "annual",
-   "v2": 158090000
   },
   {
    "field": "total_debt",
@@ -8057,13 +8051,13 @@
    "total_debt": 947540000
   },
   {
-   "capex": 9609000,
+   "capex": 10961000,
    "cash": 211298000,
    "cash_and_sti": 211298000,
    "debt_noncurrent": 2635314000,
    "end": "2022-03-31",
    "equity": 947622000,
-   "fcf": 70090000,
+   "fcf": 68738000,
    "finance_leases": 13318000,
    "net_income": 39279000,
    "operating_cash_flow": 79699000,
@@ -8074,7 +8068,7 @@
      "accn": "0000075252-22-000030",
      "filed": "2022-05-04",
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0000075252-22-000030",
@@ -8134,13 +8128,13 @@
    "total_debt": 2635314000
   },
   {
-   "capex": 52627000,
+   "capex": 54738000,
    "cash": 56406000,
    "cash_and_sti": 56406000,
    "debt_noncurrent": 2565613000,
    "end": "2022-06-30",
    "equity": 958659000,
-   "fcf": 37198000,
+   "fcf": 35087000,
    "finance_leases": 13120000,
    "net_income": 28604000,
    "operating_cash_flow": 89825000,
@@ -8149,10 +8143,9 @@
    "src": {
     "capex": {
      "accn": "0000075252-22-000050",
-     "derived": true,
      "filed": "2022-08-03",
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0000075252-22-000050",
@@ -8214,13 +8207,13 @@
    "total_debt": 2565613000
   },
   {
-   "capex": 47039000,
+   "capex": 49449000,
    "cash": 76770000,
    "cash_and_sti": 76770000,
    "debt_noncurrent": 2547059000,
    "end": "2022-09-30",
    "equity": 966837000,
-   "fcf": 21482000,
+   "fcf": 19072000,
    "finance_leases": 15493000,
    "net_income": 12497000,
    "operating_cash_flow": 68521000,
@@ -8229,10 +8222,9 @@
    "src": {
     "capex": {
      "accn": "0000075252-22-000058",
-     "derived": true,
      "filed": "2022-11-02",
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0000075252-22-000058",
@@ -8294,14 +8286,14 @@
    "total_debt": 2547059000
   },
   {
-   "capex": 48815000,
+   "capex": 51434000,
    "cash": 69467000,
    "cash_and_sti": 69467000,
    "debt_current": 17906000,
    "debt_noncurrent": 2482968000,
    "end": "2022-12-31",
    "equity": 966742000,
-   "fcf": 38146000,
+   "fcf": 35527000,
    "finance_leases": 14408000,
    "net_income": -57992000,
    "operating_cash_flow": 86961000,
@@ -8312,7 +8304,7 @@
      "derived": true,
      "filed": "2023-02-28",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0000075252-23-000010",
@@ -9494,6 +9486,7 @@
  ],
  "v2_tags_used": {
   "capex": [
+   "PaymentsToAcquireProductiveAssets",
    "PaymentsToAcquirePropertyPlantAndEquipment"
   ],
   "net_income": [

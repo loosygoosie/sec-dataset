@@ -1077,9 +1077,9 @@
    "retained_earnings": -1733741000,
    "retained_earnings_as_filed": -1733741000,
    "retained_earnings_as_filed_filed": "2025-02-12",
-   "revenue": 498527000,
-   "revenue_as_filed": 498527000,
-   "revenue_as_filed_filed": "2025-02-12",
+   "revenue": 8789000,
+   "revenue_as_filed": 8789000,
+   "revenue_as_filed_filed": "2026-02-11",
    "revenue_filed": "2026-02-11",
    "shares_diluted": 173782523,
    "shares_diluted_adj": 173782523,
@@ -1150,7 +1150,7 @@
    "retained_earnings": -1945428000,
    "retained_earnings_as_filed": -1945428000,
    "retained_earnings_as_filed_filed": "2026-02-11",
-   "revenue": 552834000,
+   "revenue": 66216000,
    "revenue_as_filed": 66216000,
    "revenue_as_filed_filed": "2026-02-11",
    "revenue_filed": "2026-02-11",
@@ -1256,7 +1256,7 @@
   "latest_quarter_end": "2026-06-30",
   "quarter_age_days": 87,
   "reconciled_fy": 2025,
-  "reconciles": "ok",
+  "reconciles": "off:revenue",
   "revenue": "below-income:2011,2012",
   "share_scale": "ok",
   "shares": "ok"
@@ -1264,8 +1264,8 @@
  "cik": 1061630,
  "fiscal_year_end": "1231",
  "flags": [
-  "stale_revenue",
-  "no_debt_tagged"
+  "no_debt_tagged",
+  "quarter_exceeds_year_revenue_2024-12-31"
  ],
  "instances_merged": [
   "0001061630-26-000009",
@@ -1289,7 +1289,7 @@
   "float_filed": "2026-02-11",
   "note": null,
   "public_float": 3200000000.0,
-  "revenue": null,
+  "revenue": 66216000.0,
   "shares_cover": 168543591.0,
   "shares_total": 168543591.0,
   "size_gate": "float"
@@ -1318,8 +1318,7 @@
    "period_end": "2023-09-30",
    "pretax_income": 32128000,
    "retained_earnings": -1040950000,
-   "revenue": 335281000,
-   "revenue_filed": "2024-10-23",
+   "revenue": 519342000,
    "shares_diluted": 172648118,
    "shares_diluted_adj": 172648118,
    "shares_diluted_filled": 172648118,
@@ -1358,8 +1357,7 @@
    "period_end": "2023-12-31",
    "pretax_income": -1017000,
    "retained_earnings": -1150934000,
-   "revenue": 307605000,
-   "revenue_filed": "2025-02-12",
+   "revenue": 505003000,
    "shares_diluted": 172672038,
    "shares_diluted_adj": 172672038,
    "shares_diluted_filled": 172672038,
@@ -1400,8 +1398,7 @@
    "period_end": "2024-03-31",
    "pretax_income": -122168000,
    "retained_earnings": -1382673000,
-   "revenue": 287747000,
-   "revenue_filed": "2025-04-30",
+   "revenue": 486122000,
    "shares_diluted": 174041630,
    "shares_diluted_adj": 174041630,
    "shares_diluted_filled": 174041630,
@@ -1439,8 +1436,7 @@
    "period_end": "2024-06-30",
    "pretax_income": -58985000,
    "retained_earnings": -1551603000,
-   "revenue": 253544000,
-   "revenue_filed": "2025-07-30",
+   "revenue": 126772000,
    "shares_diluted": 173967340,
    "shares_diluted_adj": 173967340,
    "shares_diluted_filled": 173967340,
@@ -1863,14 +1859,13 @@
    "val": 353064000
   },
   "revenue": {
-   "end": "2024-06-30",
-   "filed": "2025-07-30",
-   "method": "four_quarters",
-   "stale": true,
+   "end": "2026-06-30",
+   "filed": "2026-07-30",
+   "method": "year_to_date",
    "tags": [
-    "InterestIncomeExpenseNet+NoninterestIncome"
+    "OperatingLeaseLeaseIncome"
    ],
-   "val": 1184177000
+   "val": 83873000
   },
   "shares_diluted": {
    "end": "2026-06-30",
@@ -2771,6 +2766,7 @@
    "fcf": 367043000,
    "net_income": -204088000,
    "operating_cash_flow": 366453000,
+   "revenue": 8789000,
    "shares_diluted": 173782523,
    "src": {
     "capex": {
@@ -2803,6 +2799,12 @@
      "form": "10-K",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
+    "revenue": {
+     "accn": "0001061630-26-000009",
+     "filed": "2026-02-11",
+     "form": "10-K",
+     "tag": "OperatingLeaseLeaseIncome"
+    },
     "shares_diluted": {
      "accn": "0001061630-25-000024",
      "filed": "2025-02-12",
@@ -2828,6 +2830,7 @@
    "fcf": 288646000,
    "net_income": 109569000,
    "operating_cash_flow": 275873000,
+   "revenue": 66216000,
    "shares_diluted": 170961564,
    "src": {
     "capex": {
@@ -2859,6 +2862,12 @@
      "filed": "2026-02-11",
      "form": "10-K",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001061630-26-000009",
+     "filed": "2026-02-11",
+     "form": "10-K",
+     "tag": "OperatingLeaseLeaseIncome"
     },
     "shares_diluted": {
      "accn": "0001061630-26-000009",
@@ -3005,11 +3014,25 @@
    "v2": 16502466000
   },
   {
+   "field": "revenue",
+   "old": 498527000,
+   "period": "2024-12-31",
+   "rows": "annual",
+   "v2": 8789000
+  },
+  {
    "field": "capex",
    "old": null,
    "period": "2024-12-31",
    "rows": "annual",
    "v2": -590000
+  },
+  {
+   "field": "revenue",
+   "old": 552834000,
+   "period": "2025-12-31",
+   "rows": "annual",
+   "v2": 66216000
   },
   {
    "field": "capex",
@@ -3019,25 +3042,11 @@
    "v2": -12773000
   },
   {
-   "field": "revenue",
-   "old": 519342000,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 335281000
-  },
-  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2023-09-30",
    "rows": "quarterly",
    "v2": 16552658000
-  },
-  {
-   "field": "revenue",
-   "old": 505003000,
-   "period": "2023-12-31",
-   "rows": "quarterly",
-   "v2": 307605000
   },
   {
    "field": "total_debt",
@@ -3054,28 +3063,16 @@
    "v2": 16502466000
   },
   {
-   "field": "revenue",
-   "old": 486122000,
-   "period": "2024-03-31",
-   "rows": "quarterly",
-   "v2": 287747000
-  },
-  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2024-03-31",
    "rows": "quarterly",
    "v2": 16237574000
-  },
-  {
-   "field": "revenue",
-   "old": 126772000,
-   "period": "2024-06-30",
-   "rows": "quarterly",
-   "v2": 253544000
   }
  ],
- "v2_notes": [],
+ "v2_notes": [
+  "v2 quarterly revenue not used: its quarters did not add up to the year"
+ ],
  "v2_quarterly": [
   {
    "end": "2010-03-31",
@@ -6433,6 +6430,7 @@
    "equity": 3681968000,
    "net_income": -357000,
    "operating_cash_flow": 100516000,
+   "revenue": 14334000,
    "shares_diluted": 172004888,
    "src": {
     "cash": {
@@ -6459,6 +6457,12 @@
      "form": "10-Q",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
+    "revenue": {
+     "accn": "0001061630-26-000029",
+     "filed": "2026-04-29",
+     "form": "10-Q",
+     "tag": "OperatingLeaseLeaseIncome"
+    },
     "shares_diluted": {
      "accn": "0001061630-25-000054",
      "filed": "2025-04-30",
@@ -6482,6 +6486,7 @@
    "equity": 3616772000,
    "net_income": 6969000,
    "operating_cash_flow": 57233000,
+   "revenue": 16207000,
    "shares_diluted": 171893905,
    "src": {
     "cash": {
@@ -6508,6 +6513,12 @@
      "filed": "2025-07-30",
      "form": "10-Q",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001061630-26-000069",
+     "filed": "2026-07-30",
+     "form": "10-Q",
+     "tag": "OperatingLeaseLeaseIncome"
     },
     "shares_diluted": {
      "accn": "0001061630-25-000101",
@@ -6627,6 +6638,7 @@
    "equity": 3414960000,
    "net_income": -6297000,
    "operating_cash_flow": 169727000,
+   "revenue": 24174000,
    "shares_diluted": 169078373,
    "src": {
     "cash": {
@@ -6653,6 +6665,12 @@
      "form": "10-Q",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
+    "revenue": {
+     "accn": "0001061630-26-000029",
+     "filed": "2026-04-29",
+     "form": "10-Q",
+     "tag": "OperatingLeaseLeaseIncome"
+    },
     "shares_diluted": {
      "accn": "0001061630-26-000029",
      "filed": "2026-04-29",
@@ -6676,6 +6694,7 @@
    "equity": 3261540000,
    "net_income": -81222000,
    "operating_cash_flow": 65213000,
+   "revenue": 24024000,
    "shares_diluted": 168964515,
    "src": {
     "cash": {
@@ -6702,6 +6721,12 @@
      "filed": "2026-07-30",
      "form": "10-Q",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001061630-26-000069",
+     "filed": "2026-07-30",
+     "form": "10-Q",
+     "tag": "OperatingLeaseLeaseIncome"
     },
     "shares_diluted": {
      "accn": "0001061630-26-000069",
@@ -6733,6 +6758,7 @@
   ],
   "revenue": [
    "InterestIncomeExpenseNet+NoninterestIncome",
+   "OperatingLeaseLeaseIncome",
    "Revenues"
   ],
   "shares_diluted": [

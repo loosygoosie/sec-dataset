@@ -928,7 +928,6 @@
    "income_tax_as_filed_filed": "2017-11-13",
    "income_tax_filed": "2019-11-12",
    "interest_expense": 51500000,
-   "lt_debt_noncurrent": 1044200000,
    "net_income": 1696700000,
    "net_income_as_filed": 1696700000,
    "net_income_as_filed_filed": "2017-11-13",
@@ -971,8 +970,8 @@
    "total_assets": 17534000000,
    "total_assets_as_filed": 17534000000,
    "total_assets_as_filed_filed": "2017-11-13",
-   "total_debt": 1044200000,
-   "total_debt_as_filed": 1044200000,
+   "total_debt": 1100000000,
+   "total_debt_as_filed": 1100000000,
    "total_debt_as_filed_filed": "2017-11-13",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2017-11-13",
@@ -3228,7 +3227,6 @@
    "capex": 74900000,
    "cash": 8749700000,
    "cash_and_sti": 8749700000,
-   "debt_noncurrent": 1044200000,
    "end": "2017-09-30",
    "equity": 12620000000,
    "fcf": 1060500000,
@@ -3287,18 +3285,17 @@
     },
     "total_debt": {
      "filed": "2017-11-13",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "UnsecuredDebt"
      ],
      "values": {
-      "LongTermDebt": 1044200000
+      "UnsecuredDebt": 1100000000
      }
     }
    },
    "start": "2016-10-01",
    "stock_comp": 123400000,
-   "total_debt": 1044200000
+   "total_debt": 1100000000
   },
   {
    "capex": 106500000,
@@ -4017,20 +4014,6 @@
    "period": "2016-09-30",
    "rows": "annual",
    "v2": 1401200000
-  },
-  {
-   "field": "total_debt",
-   "old": 1100000000,
-   "period": "2017-09-30",
-   "rows": "annual",
-   "v2": 1044200000
-  },
-  {
-   "field": "lt_debt_noncurrent",
-   "old": null,
-   "period": "2017-09-30",
-   "rows": "annual",
-   "v2": 1044200000
   },
   {
    "field": "revenue",
@@ -7028,7 +7011,6 @@
    "capex": 25900000,
    "cash": 8749700000,
    "cash_and_sti": 8749700000,
-   "debt_noncurrent": 1044200000,
    "end": "2017-09-30",
    "equity": 12620000000,
    "fcf": 151200000,
@@ -7085,18 +7067,17 @@
     },
     "total_debt": {
      "filed": "2017-11-13",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "UnsecuredDebt"
      ],
      "values": {
-      "LongTermDebt": 1044200000
+      "UnsecuredDebt": 1100000000
      }
     }
    },
    "start": "2017-07-01",
    "stock_comp": 28400000,
-   "total_debt": 1044200000
+   "total_debt": 1100000000
   },
   {
    "capex": 19200000,

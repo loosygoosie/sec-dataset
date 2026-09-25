@@ -3370,7 +3370,6 @@
    "capex": 72959000,
    "cash": 10684000,
    "cash_and_sti": 10684000,
-   "debt_noncurrent": 273894000,
    "end": "2012-09-30",
    "equity": 429840000,
    "fcf": -60328000,
@@ -3436,18 +3435,19 @@
     },
     "total_debt": {
      "filed": "2012-11-08",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "UnsecuredDebt",
+      "SecuredDebt"
      ],
      "values": {
-      "LongTermDebt": 273894000
+      "SecuredDebt": 161894000,
+      "UnsecuredDebt": 150000000
      }
     }
    },
    "start": "2012-07-01",
    "stock_comp": 481000,
-   "total_debt": 273894000
+   "total_debt": 311894000
   },
   {
    "capex": 165869000,
@@ -4888,10 +4888,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001479094-18-000027",
-     "filed": "2018-07-31",
+     "accn": "0001479094-17-000021",
+     "filed": "2017-08-01",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "RealEstateRevenueNet"
     },
     "shares_diluted": {
      "accn": "0001479094-18-000027",
@@ -7709,7 +7709,6 @@
   "revenue": [
    "OperatingLeasesIncomeStatementLeaseRevenue",
    "RealEstateRevenueNet",
-   "RevenueFromContractWithCustomerExcludingAssessedTax",
    "Revenues"
   ],
   "shares_diluted": [

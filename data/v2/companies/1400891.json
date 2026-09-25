@@ -872,8 +872,8 @@
    "total_assets": 7902245000,
    "total_assets_as_filed": 12269515000,
    "total_assets_as_filed_filed": "2019-03-05",
-   "total_debt": 46105000,
-   "total_debt_as_filed": 46105000,
+   "total_debt": 20499464000,
+   "total_debt_as_filed": 20499464000,
    "total_debt_as_filed_filed": "2019-08-14",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2019-08-14",
@@ -1508,7 +1508,11 @@
  },
  "cik": 1400891,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "revenue_unverified_2024-12-31",
+  "revenue_unverified_2023-12-31",
+  "revenue_unverified_2025-12-31"
+ ],
  "instances_merged": [],
  "latest_filing": {
   "accn": "0001628280-26-055252",
@@ -2974,9 +2978,11 @@
      "filed": "2019-08-14",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 20499464000,
       "LongTermDebtCurrent": 46105000,
       "LongTermDebtNoncurrent": 0
      }
@@ -2984,7 +2990,7 @@
    },
    "start": "2018-01-01",
    "stock_comp": 2066000,
-   "total_debt": 46105000
+   "total_debt": 20499464000
   },
   {
    "capex": 85205000,
@@ -3497,13 +3503,6 @@
    "period": "2017-12-31",
    "rows": "annual",
    "v2": 20649181000
-  },
-  {
-   "field": "total_debt",
-   "old": 20499464000,
-   "period": "2018-12-31",
-   "rows": "annual",
-   "v2": 46105000
   },
   {
    "field": "total_debt",
@@ -6241,9 +6240,11 @@
      "filed": "2019-08-14",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 20499464000,
       "LongTermDebtCurrent": 46105000,
       "LongTermDebtNoncurrent": 0
      }
@@ -6251,7 +6252,7 @@
    },
    "start": "2018-10-01",
    "stock_comp": 438000,
-   "total_debt": 46105000
+   "total_debt": 20499464000
   },
   {
    "capex": 22953000,

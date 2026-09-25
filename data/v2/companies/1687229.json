@@ -32,10 +32,10 @@
    "operating_income_as_filed_filed": "2018-03-29",
    "operating_income_filed": "2018-03-29",
    "period_end": "2015-12-31",
-   "revenue": 59535000,
-   "revenue_as_filed": 59535000,
-   "revenue_as_filed_filed": "2019-02-28",
-   "revenue_filed": "2019-02-28",
+   "revenue": 836049000,
+   "revenue_as_filed": 836049000,
+   "revenue_as_filed_filed": "2018-03-29",
+   "revenue_filed": "2018-03-29",
    "stock_comp": 27924000,
    "stock_comp_as_filed": 27924000,
    "stock_comp_as_filed_filed": "2018-03-29",
@@ -837,6 +837,8 @@
  "cik": 1687229,
  "fiscal_year_end": "1231",
  "flags": [
+  "revenue_unverified_2024-12-31",
+  "revenue_unverified_2025-12-31",
   "current_ltd_untagged_1.0B",
   "debt_one_side_only"
  ],
@@ -1503,7 +1505,7 @@
    "fcf": 195443000,
    "net_income": -160208000,
    "operating_cash_flow": 197474000,
-   "revenue": 59535000,
+   "revenue": 836049000,
    "src": {
     "capex": {
      "accn": "0001687229-18-000018",
@@ -1536,10 +1538,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001687229-19-000014",
-     "filed": "2019-02-28",
+     "accn": "0001687229-18-000018",
+     "filed": "2018-03-29",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "note": "income-statement tie-out",
+     "tag": "RealEstateRevenueNet"
     },
     "stock_comp": {
      "accn": "0001687229-18-000018",
@@ -2299,13 +2302,6 @@
  ],
  "v2_fixes": [
   {
-   "field": "revenue",
-   "old": 836049000,
-   "period": "2015-12-31",
-   "rows": "annual",
-   "v2": 59535000
-  },
-  {
    "field": "capex",
    "old": 111260000,
    "period": "2015-12-31",
@@ -2908,10 +2904,22 @@
      "filed": "2017-05-12",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2017-05-12",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 4228525000,
+      "UnsecuredDebt": 1485866000
+     }
     }
    },
    "start": "2017-01-01",
-   "stock_comp": 44244000
+   "stock_comp": 44244000,
+   "total_debt": 5714391000
   },
   {
    "capex": 1224000,
@@ -2975,10 +2983,22 @@
      "filed": "2017-08-10",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2017-08-10",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 4158666000,
+      "UnsecuredDebt": 1486529000
+     }
     }
    },
    "start": "2017-04-01",
-   "stock_comp": 8216000
+   "stock_comp": 8216000,
+   "total_debt": 5645195000
   },
   {
    "capex": 1315000,
@@ -3042,10 +3062,22 @@
      "filed": "2017-11-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2017-11-09",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 4157024000,
+      "UnsecuredDebt": 1487251000
+     }
     }
    },
    "start": "2017-07-01",
-   "stock_comp": 12004000
+   "stock_comp": 12004000,
+   "total_debt": 5644275000
   },
   {
    "capex": 1277000,
@@ -5791,8 +5823,8 @@
    "NetCashProvidedByUsedInOperatingActivities"
   ],
   "revenue": [
+   "OperatingLeaseLeaseIncome",
    "RealEstateRevenueNet",
-   "RevenueFromContractWithCustomerExcludingAssessedTax",
    "Revenues"
   ],
   "shares_diluted": [

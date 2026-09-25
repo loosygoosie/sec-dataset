@@ -982,7 +982,7 @@
    "revenue": 22258000000,
    "revenue_as_filed": 22291000000,
    "revenue_as_filed_filed": "2017-11-01",
-   "revenue_filed": "2019-01-30",
+   "revenue_filed": "2019-11-06",
    "sga_expense": 2658000000,
    "shares_diluted": 1490000000,
    "shares_diluted_adj": 1490000000,
@@ -1001,8 +1001,8 @@
    "total_assets": 65498000000,
    "total_assets_as_filed": 65486000000,
    "total_assets_as_filed_filed": "2017-11-01",
-   "total_debt": 20397000000,
-   "total_debt_as_filed": 20397000000,
+   "total_debt": 20894000000,
+   "total_debt_as_filed": 20894000000,
    "total_debt_as_filed_filed": "2017-11-01",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2017-11-01",
@@ -1086,7 +1086,7 @@
    "revenue": 22611000000,
    "revenue_as_filed": 22732000000,
    "revenue_as_filed_filed": "2018-11-07",
-   "revenue_filed": "2019-01-30",
+   "revenue_filed": "2019-11-06",
    "sga_expense": 2986000000,
    "shares_diluted": 1463000000,
    "shares_diluted_adj": 1463000000,
@@ -3399,11 +3399,11 @@
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0001728949-19-000012",
-     "filed": "2019-01-30",
+     "accn": "0001728949-19-000072",
+     "filed": "2019-11-06",
      "first_filed": "2017-11-01",
      "first_val": 2466000000,
-     "form": "10-Q",
+     "form": "10-K",
      "tag": "NetIncomeLoss"
     },
     "operating_cash_flow": {
@@ -3415,11 +3415,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001728949-19-000012",
-     "filed": "2019-01-30",
+     "accn": "0001728949-19-000072",
+     "filed": "2019-11-06",
      "first_filed": "2017-11-01",
      "first_val": 22291000000,
-     "form": "10-Q",
+     "form": "10-K",
      "tag": "Revenues"
     },
     "shares_diluted": {
@@ -3445,10 +3445,12 @@
      "tags": [
       "LongTermDebt",
       "LongTermDebtCurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 2495000000,
+      "DebtLongtermAndShorttermCombinedAmount": 20894000000,
       "LongTermDebt": 19398000000,
       "LongTermDebtCurrent": 1496000000
      }
@@ -3456,7 +3458,7 @@
    },
    "start": "2016-09-26",
    "stock_comp": 914000000,
-   "total_debt": 20397000000
+   "total_debt": 20894000000
   },
   {
    "capex": 784000000,
@@ -3492,11 +3494,11 @@
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0001728949-19-000012",
-     "filed": "2019-01-30",
+     "accn": "0001728949-19-000072",
+     "filed": "2019-11-06",
      "first_filed": "2018-11-07",
      "first_val": -4864000000,
-     "form": "10-Q",
+     "form": "10-K",
      "tag": "NetIncomeLoss"
     },
     "operating_cash_flow": {
@@ -3508,11 +3510,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001728949-19-000012",
-     "filed": "2019-01-30",
+     "accn": "0001728949-19-000072",
+     "filed": "2019-11-06",
      "first_filed": "2018-11-07",
      "first_val": 22732000000,
-     "form": "10-Q",
+     "form": "10-K",
      "tag": "Revenues"
     },
     "shares_diluted": {
@@ -4208,13 +4210,6 @@
    "period": "2016-09-25",
    "rows": "annual",
    "v2": 1749000000
-  },
-  {
-   "field": "total_debt",
-   "old": 20894000000,
-   "period": "2017-09-24",
-   "rows": "annual",
-   "v2": 20397000000
   },
   {
    "field": "lt_debt_noncurrent",
@@ -7177,10 +7172,12 @@
      "tags": [
       "LongTermDebt",
       "LongTermDebtCurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 2495000000,
+      "DebtLongtermAndShorttermCombinedAmount": 20899000000,
       "LongTermDebt": 19403000000,
       "LongTermDebtCurrent": 1496000000
      }
@@ -7188,7 +7185,7 @@
    },
    "start": "2017-03-27",
    "stock_comp": 227000000,
-   "total_debt": 20402000000
+   "total_debt": 20899000000
   },
   {
    "capex": 262000000,
@@ -7257,10 +7254,12 @@
      "tags": [
       "LongTermDebt",
       "LongTermDebtCurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 2495000000,
+      "DebtLongtermAndShorttermCombinedAmount": 20894000000,
       "LongTermDebt": 19398000000,
       "LongTermDebtCurrent": 1496000000
      }
@@ -7268,7 +7267,7 @@
    },
    "start": "2017-06-26",
    "stock_comp": 202000000,
-   "total_debt": 20397000000
+   "total_debt": 20894000000
   },
   {
    "capex": 226000000,
@@ -7538,10 +7537,12 @@
      "tags": [
       "LongTermDebt",
       "LongTermDebtCurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 7103000000,
+      "DebtLongtermAndShorttermCombinedAmount": 19291000000,
       "LongTermDebt": 15378000000,
       "LongTermDebtCurrent": 3913000000
      }
@@ -7549,7 +7550,7 @@
    },
    "start": "2018-03-26",
    "stock_comp": 189000000,
-   "total_debt": 18568000000
+   "total_debt": 19291000000
   },
   {
    "capex": 159000000,

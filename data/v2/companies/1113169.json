@@ -244,10 +244,10 @@
    "pretax_income_as_filed": 1070000000,
    "pretax_income_as_filed_filed": "2011-02-08",
    "pretax_income_filed": "2013-02-05",
-   "revenue": 2370700000,
-   "revenue_as_filed": 2370700000,
-   "revenue_as_filed_filed": "2011-02-08",
-   "revenue_filed": "2011-02-08",
+   "revenue": 2367200000,
+   "revenue_as_filed": 2367200000,
+   "revenue_as_filed_filed": "2013-02-05",
+   "revenue_filed": "2013-02-05",
    "shares_diluted": 265100000,
    "shares_diluted_adj": 265100000,
    "shares_diluted_as_filed": 265100000,
@@ -2176,7 +2176,7 @@
    "fcf": 614800000,
    "net_income": 672200000,
    "operating_cash_flow": 732800000,
-   "revenue": 2370700000,
+   "revenue": 2367200000,
    "shares_diluted": 265100000,
    "src": {
     "capex": {
@@ -2210,10 +2210,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0000950123-11-010348",
-     "filed": "2011-02-08",
+     "accn": "0001113169-13-000010",
+     "filed": "2013-02-05",
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "RevenuesNetOfInterestExpense"
     },
     "shares_diluted": {
      "accn": "0000950123-11-010348",
@@ -3196,15 +3197,7 @@
    "stock_comp": 216900000
   }
  ],
- "v2_fixes": [
-  {
-   "field": "revenue",
-   "old": 2367200000,
-   "period": "2010-12-31",
-   "rows": "annual",
-   "v2": 2370700000
-  }
- ],
+ "v2_fixes": [],
  "v2_notes": [],
  "v2_quarterly": [
   {

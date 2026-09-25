@@ -108,6 +108,7 @@
    "total_debt_as_filed": 643811000,
    "total_debt_as_filed_filed": "2009-08-10",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2009-08-10",
    "total_equity": 8708995000,
    "total_equity_incl_nci": 9067104000,
    "total_equity_parent": 8708995000,
@@ -179,6 +180,7 @@
    "total_debt_as_filed": 518889000,
    "total_debt_as_filed_filed": "2010-03-01",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2010-03-01",
    "total_equity": 8928407000,
    "total_equity_incl_nci": 9061381000,
    "total_equity_parent": 8928407000,
@@ -258,6 +260,7 @@
    "total_debt_as_filed": 568417000,
    "total_debt_as_filed_filed": "2011-03-01",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2011-03-01",
    "total_equity": 8676598000,
    "total_equity_incl_nci": 8708934000,
    "total_equity_parent": 8676598000,
@@ -330,10 +333,11 @@
    "total_assets": 8932562000,
    "total_assets_as_filed": 8932562000,
    "total_assets_as_filed_filed": "2012-02-27",
-   "total_debt": 398314000,
-   "total_debt_as_filed": 398314000,
-   "total_debt_as_filed_filed": "2012-02-27",
+   "total_debt": 610168000,
+   "total_debt_as_filed": 610168000,
+   "total_debt_as_filed_filed": "2012-05-07",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2012-05-07",
    "total_equity": 8288209000,
    "total_equity_incl_nci": 8310927000,
    "total_equity_parent": 8288209000,
@@ -406,6 +410,7 @@
    "total_debt_as_filed": 335828000,
    "total_debt_as_filed_filed": "2013-02-26",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2013-02-26",
    "total_equity": 8093756000,
    "total_equity_incl_nci": 8122864000,
    "total_equity_parent": 8093756000,
@@ -420,7 +425,6 @@
    "cash_as_filed": 19169000,
    "cash_as_filed_filed": "2014-02-26",
    "d_and_a": 387402000,
-   "debt_current": 700000000,
    "debt_due_1y": 26206000,
    "debt_due_2y": 30842000,
    "debt_due_3y": 15920000,
@@ -478,8 +482,8 @@
    "total_assets": 9876266000,
    "total_assets_as_filed": 9876266000,
    "total_assets_as_filed_filed": "2014-02-26",
-   "total_debt": 700000000,
-   "total_debt_as_filed": 700000000,
+   "total_debt": 788953000,
+   "total_debt_as_filed": 788953000,
    "total_debt_as_filed_filed": "2014-02-26",
    "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2014-02-26",
@@ -564,6 +568,7 @@
    "total_debt_as_filed": 64364000,
    "total_debt_as_filed_filed": "2015-02-25",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2015-02-25",
    "total_equity": 9480796000,
    "total_equity_incl_nci": 9507171000,
    "total_equity_parent": 9480796000,
@@ -631,6 +636,7 @@
    "total_debt_as_filed": 263940000,
    "total_debt_as_filed_filed": "2016-02-29",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2016-02-29",
    "total_equity": 9170641000,
    "total_equity_incl_nci": 9197638000,
    "total_equity_parent": 9170641000,
@@ -2167,9 +2173,19 @@
      "filed": "2010-03-01",
      "form": "10-K",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2009-08-10",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 643811000
+     }
     }
    },
-   "start": "2008-01-01"
+   "start": "2008-01-01",
+   "total_debt": 643811000
   },
   {
    "capex": 62352000,
@@ -2226,9 +2242,19 @@
      "filed": "2010-03-01",
      "form": "10-K",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2010-03-01",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 518889000
+     }
     }
    },
-   "start": "2009-01-01"
+   "start": "2009-01-01",
+   "total_debt": 518889000
   },
   {
    "capex": 77500000,
@@ -2285,9 +2311,19 @@
      "filed": "2011-03-01",
      "form": "10-K",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2011-03-01",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 568417000
+     }
     }
    },
-   "start": "2010-01-01"
+   "start": "2010-01-01",
+   "total_debt": 568417000
   },
   {
    "capex": 69777000,
@@ -2344,9 +2380,21 @@
      "filed": "2012-02-27",
      "form": "10-K",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2012-05-07",
+     "tags": [
+      "NotesPayable",
+      "SecuredDebt"
+     ],
+     "values": {
+      "NotesPayable": 398314000,
+      "SecuredDebt": 211854000
+     }
     }
    },
-   "start": "2011-01-01"
+   "start": "2011-01-01",
+   "total_debt": 610168000
   },
   {
    "capex": 67737000,
@@ -2403,15 +2451,24 @@
      "filed": "2013-02-26",
      "form": "10-K",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2013-02-26",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 335828000
+     }
     }
    },
-   "start": "2012-01-01"
+   "start": "2012-01-01",
+   "total_debt": 335828000
   },
   {
    "capex": 69391000,
    "cash": 19169000,
    "cash_and_sti": 19169000,
-   "debt_current": 700000000,
    "end": "2013-12-31",
    "equity": 8791730000,
    "fcf": 1360948000,
@@ -2468,17 +2525,18 @@
     },
     "total_debt": {
      "filed": "2014-02-26",
-     "note": "one side only (a floor)",
      "tags": [
+      "NotesPayable",
       "ShortTermBorrowings"
      ],
      "values": {
+      "NotesPayable": 88953000,
       "ShortTermBorrowings": 700000000
      }
     }
    },
    "start": "2013-01-01",
-   "total_debt": 700000000
+   "total_debt": 788953000
   },
   {
    "capex": 80962000,
@@ -2547,10 +2605,20 @@
      "filed": "2017-03-01",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-02-25",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 64364000
+     }
     }
    },
    "start": "2014-01-01",
-   "stock_comp": 29541000
+   "stock_comp": 29541000,
+   "total_debt": 64364000
   },
   {
    "capex": 65594000,
@@ -2611,10 +2679,20 @@
      "filed": "2017-03-01",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2016-02-29",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 263940000
+     }
     }
    },
    "start": "2015-01-01",
-   "stock_comp": 32570000
+   "stock_comp": 32570000,
+   "total_debt": 263940000
   },
   {
    "capex": 81435000,
@@ -3406,6 +3484,13 @@
    "v2": 69777000
   },
   {
+   "field": "total_debt",
+   "old": 398314000,
+   "period": "2011-12-31",
+   "rows": "annual",
+   "v2": 610168000
+  },
+  {
    "field": "capex",
    "old": 225515000,
    "period": "2012-12-31",
@@ -3420,11 +3505,11 @@
    "v2": 69391000
   },
   {
-   "field": "debt_current",
-   "old": null,
+   "field": "total_debt",
+   "old": 700000000,
    "period": "2013-12-31",
    "rows": "annual",
-   "v2": 700000000
+   "v2": 788953000
   },
   {
    "field": "capex",
@@ -3995,9 +4080,19 @@
      "filed": "2011-03-01",
      "form": "10-K",
      "tag": "Revenues"
+    },
+    "total_debt": {
+     "filed": "2009-08-10",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 643811000
+     }
     }
    },
-   "start": "2008-10-01"
+   "start": "2008-10-01",
+   "total_debt": 643811000
   },
   {
    "capex": 8499000,
@@ -4106,9 +4201,19 @@
      "filed": "2009-08-10",
      "form": "10-Q/A",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2009-08-10",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 524440000
+     }
     }
    },
-   "start": "2009-04-01"
+   "start": "2009-04-01",
+   "total_debt": 524440000
   },
   {
    "capex": 19874000,
@@ -4167,9 +4272,19 @@
      "filed": "2009-11-09",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2009-11-09",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 521662000
+     }
     }
    },
-   "start": "2009-07-01"
+   "start": "2009-07-01",
+   "total_debt": 521662000
   },
   {
    "capex": 9903000,
@@ -4221,9 +4336,19 @@
      "filed": "2012-02-27",
      "form": "10-K",
      "tag": "Revenues"
+    },
+    "total_debt": {
+     "filed": "2010-03-01",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 518889000
+     }
     }
    },
-   "start": "2009-10-01"
+   "start": "2009-10-01",
+   "total_debt": 518889000
   },
   {
    "capex": 4812000,
@@ -4280,9 +4405,19 @@
      "filed": "2010-05-10",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2010-05-10",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 516132000
+     }
     }
    },
-   "start": "2010-01-01"
+   "start": "2010-01-01",
+   "total_debt": 516132000
   },
   {
    "capex": 32190000,
@@ -4341,9 +4476,19 @@
      "filed": "2010-08-09",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2010-08-09",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 593275000
+     }
     }
    },
-   "start": "2010-04-01"
+   "start": "2010-04-01",
+   "total_debt": 593275000
   },
   {
    "capex": 31626000,
@@ -4402,9 +4547,19 @@
      "filed": "2010-11-08",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2010-11-08",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 589518000
+     }
     }
    },
-   "start": "2010-07-01"
+   "start": "2010-07-01",
+   "total_debt": 589518000
   },
   {
    "capex": 8872000,
@@ -4455,9 +4610,19 @@
      "filed": "2012-02-27",
      "form": "10-K",
      "tag": "Revenues"
+    },
+    "total_debt": {
+     "filed": "2011-03-01",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 568417000
+     }
     }
    },
-   "start": "2010-10-01"
+   "start": "2010-10-01",
+   "total_debt": 568417000
   },
   {
    "capex": 11874000,
@@ -4514,9 +4679,19 @@
      "filed": "2011-05-09",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2011-05-09",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 461882000
+     }
     }
    },
-   "start": "2011-01-01"
+   "start": "2011-01-01",
+   "total_debt": 461882000
   },
   {
    "capex": 32418000,
@@ -4575,9 +4750,19 @@
      "filed": "2011-08-08",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2011-08-08",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 449519000
+     }
     }
    },
-   "start": "2011-04-01"
+   "start": "2011-04-01",
+   "total_debt": 449519000
   },
   {
    "capex": 12734000,
@@ -4636,9 +4821,19 @@
      "filed": "2011-11-07",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2011-11-07",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 418851000
+     }
     }
    },
-   "start": "2011-07-01"
+   "start": "2011-07-01",
+   "total_debt": 418851000
   },
   {
    "capex": 12751000,
@@ -4689,9 +4884,21 @@
      "filed": "2012-02-27",
      "form": "10-K",
      "tag": "Revenues"
+    },
+    "total_debt": {
+     "filed": "2012-05-07",
+     "tags": [
+      "NotesPayable",
+      "SecuredDebt"
+     ],
+     "values": {
+      "NotesPayable": 398314000,
+      "SecuredDebt": 211854000
+     }
     }
    },
-   "start": "2011-10-01"
+   "start": "2011-10-01",
+   "total_debt": 610168000
   },
   {
    "capex": 14278000,
@@ -4748,9 +4955,21 @@
      "filed": "2012-05-07",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2012-05-07",
+     "tags": [
+      "NotesPayable",
+      "SecuredDebt"
+     ],
+     "values": {
+      "NotesPayable": 372979000,
+      "SecuredDebt": 186519000
+     }
     }
    },
-   "start": "2012-01-01"
+   "start": "2012-01-01",
+   "total_debt": 559498000
   },
   {
    "capex": 26020000,
@@ -4809,9 +5028,21 @@
      "filed": "2012-08-06",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2012-08-06",
+     "tags": [
+      "NotesPayable",
+      "SecuredDebt"
+     ],
+     "values": {
+      "NotesPayable": 368728000,
+      "SecuredDebt": 182268000
+     }
     }
    },
-   "start": "2012-04-01"
+   "start": "2012-04-01",
+   "total_debt": 550996000
   },
   {
    "capex": 18344000,
@@ -4870,9 +5101,19 @@
      "filed": "2012-11-09",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2012-11-09",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 347943000
+     }
     }
    },
-   "start": "2012-07-01"
+   "start": "2012-07-01",
+   "total_debt": 347943000
   },
   {
    "capex": 9095000,
@@ -4924,9 +5165,19 @@
      "filed": "2014-02-26",
      "form": "10-K",
      "tag": "Revenues"
+    },
+    "total_debt": {
+     "filed": "2013-02-26",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 335828000
+     }
     }
    },
-   "start": "2012-10-01"
+   "start": "2012-10-01",
+   "total_debt": 335828000
   },
   {
    "capex": 7818000,
@@ -4981,9 +5232,19 @@
      "filed": "2013-05-10",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2013-05-10",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 142419000
+     }
     }
    },
-   "start": "2013-01-01"
+   "start": "2013-01-01",
+   "total_debt": 142419000
   },
   {
    "capex": 24946000,
@@ -5040,9 +5301,19 @@
      "filed": "2013-08-05",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2013-08-05",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 111688000
+     }
     }
    },
-   "start": "2013-04-01"
+   "start": "2013-04-01",
+   "total_debt": 111688000
   },
   {
    "capex": 23119000,
@@ -5099,15 +5370,24 @@
      "filed": "2013-11-06",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2013-11-06",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 100118000
+     }
     }
    },
-   "start": "2013-07-01"
+   "start": "2013-07-01",
+   "total_debt": 100118000
   },
   {
    "capex": 13508000,
    "cash": 19169000,
    "cash_and_sti": 19169000,
-   "debt_current": 700000000,
    "end": "2013-12-31",
    "equity": 8791730000,
    "fcf": 377168000,
@@ -5157,23 +5437,23 @@
     },
     "total_debt": {
      "filed": "2014-02-26",
-     "note": "one side only (a floor)",
      "tags": [
+      "NotesPayable",
       "ShortTermBorrowings"
      ],
      "values": {
+      "NotesPayable": 88953000,
       "ShortTermBorrowings": 700000000
      }
     }
    },
    "start": "2013-10-01",
-   "total_debt": 700000000
+   "total_debt": 788953000
   },
   {
    "capex": 13136000,
    "cash": 101112000,
    "cash_and_sti": 101112000,
-   "debt_current": 372000000,
    "end": "2014-03-31",
    "equity": 8973401000,
    "fcf": 317573000,
@@ -5228,23 +5508,23 @@
     },
     "total_debt": {
      "filed": "2014-05-05",
-     "note": "one side only (a floor)",
      "tags": [
+      "NotesPayable",
       "ShortTermBorrowings"
      ],
      "values": {
+      "NotesPayable": 88150000,
       "ShortTermBorrowings": 372000000
      }
     }
    },
    "start": "2014-01-01",
-   "total_debt": 372000000
+   "total_debt": 460150000
   },
   {
    "capex": 19761000,
    "cash": 387983000,
    "cash_and_sti": 387983000,
-   "debt_current": 322000000,
    "end": "2014-06-30",
    "equity": 9285238000,
    "fcf": 375576000,
@@ -5301,17 +5581,18 @@
     },
     "total_debt": {
      "filed": "2014-08-05",
-     "note": "one side only (a floor)",
      "tags": [
+      "NotesPayable",
       "ShortTermBorrowings"
      ],
      "values": {
+      "NotesPayable": 74987000,
       "ShortTermBorrowings": 322000000
      }
     }
    },
    "start": "2014-04-01",
-   "total_debt": 322000000
+   "total_debt": 396987000
   },
   {
    "capex": 32703000,
@@ -5370,9 +5651,19 @@
      "filed": "2014-11-04",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2014-11-04",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 71632000
+     }
     }
    },
-   "start": "2014-07-01"
+   "start": "2014-07-01",
+   "total_debt": 71632000
   },
   {
    "capex": 15362000,
@@ -5425,9 +5716,19 @@
      "filed": "2016-02-29",
      "form": "10-K",
      "tag": "Revenues"
+    },
+    "total_debt": {
+     "filed": "2015-02-25",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 64364000
+     }
     }
    },
-   "start": "2014-10-01"
+   "start": "2014-10-01",
+   "total_debt": 64364000
   },
   {
    "capex": 9861000,
@@ -5494,10 +5795,20 @@
      "filed": "2016-05-06",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2015-05-06",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 58657000
+     }
     }
    },
    "start": "2015-01-01",
-   "stock_comp": 800000
+   "stock_comp": 800000,
+   "total_debt": 58657000
   },
   {
    "capex": 19896000,
@@ -5562,10 +5873,20 @@
      "filed": "2016-08-05",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2015-08-05",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 47683000
+     }
     }
    },
    "start": "2015-04-01",
-   "stock_comp": 800000
+   "stock_comp": 800000,
+   "total_debt": 47683000
   },
   {
    "capex": 23182000,
@@ -5628,10 +5949,20 @@
      "filed": "2016-11-03",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2015-11-05",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 55725000
+     }
     }
    },
    "start": "2015-07-01",
-   "stock_comp": 900000
+   "stock_comp": 900000,
+   "total_debt": 55725000
   },
   {
    "capex": 12655000,
@@ -5682,9 +6013,19 @@
      "filed": "2016-02-29",
      "form": "10-K",
      "tag": "Revenues"
+    },
+    "total_debt": {
+     "filed": "2016-02-29",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 263940000
+     }
     }
    },
-   "start": "2015-10-01"
+   "start": "2015-10-01",
+   "total_debt": 263940000
   },
   {
    "capex": 11517000,

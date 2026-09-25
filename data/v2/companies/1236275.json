@@ -79,7 +79,6 @@
    "current_assets_as_filed": 1325408,
    "current_assets_as_filed_filed": "2012-03-29",
    "d_and_a": 97011,
-   "debt_current": 46750,
    "eps_diluted": 0.02,
    "filed": "2013-03-29",
    "fiscal_year": 2011,
@@ -138,11 +137,11 @@
    "total_assets": 1521277,
    "total_assets_as_filed": 1521277,
    "total_assets_as_filed_filed": "2012-03-29",
-   "total_debt": 46750,
-   "total_debt_as_filed": 46750,
-   "total_debt_as_filed_filed": "2012-03-29",
+   "total_debt": 97750,
+   "total_debt_as_filed": 97750,
+   "total_debt_as_filed_filed": "2013-03-29",
    "total_debt_basis": "components_partial",
-   "total_debt_filed": "2012-03-29",
+   "total_debt_filed": "2013-03-29",
    "total_equity": -946851,
    "total_equity_incl_nci": -899645,
    "total_equity_parent": -946851,
@@ -2386,7 +2385,6 @@
    "capex": 40653,
    "cash": 233722,
    "cash_and_sti": 233722,
-   "debt_current": 46750,
    "end": "2011-12-31",
    "equity": -946851,
    "fcf": 865253,
@@ -2444,19 +2442,20 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2012-03-29",
-     "note": "one side only (a floor)",
+     "filed": "2013-03-29",
      "tags": [
+      "ConvertibleNotesPayable",
       "OtherShortTermBorrowings"
      ],
      "values": {
+      "ConvertibleNotesPayable": 51000,
       "OtherShortTermBorrowings": 46750
      }
     }
    },
    "start": "2011-01-01",
    "stock_comp": 0,
-   "total_debt": 46750
+   "total_debt": 97750
   },
   {
    "capex": 103819,
@@ -3599,11 +3598,11 @@
  ],
  "v2_fixes": [
   {
-   "field": "debt_current",
-   "old": null,
+   "field": "total_debt",
+   "old": 46750,
    "period": "2011-12-31",
    "rows": "annual",
-   "v2": 46750
+   "v2": 97750
   },
   {
    "field": "total_debt",
@@ -4027,7 +4026,7 @@
    "capex": 10645,
    "cash": 476191,
    "cash_and_sti": 476191,
-   "debt_current": 21250,
+   "debt_current": 521250,
    "end": "2011-06-30",
    "equity": -832546,
    "fcf": -175085,
@@ -4084,21 +4083,23 @@
      "filed": "2011-08-04",
      "note": "one side only (a floor)",
      "tags": [
+      "NotesPayableCurrent",
       "OtherShortTermBorrowings"
      ],
      "values": {
+      "NotesPayableCurrent": 500000,
       "OtherShortTermBorrowings": 21250
      }
     }
    },
    "start": "2011-04-01",
-   "total_debt": 21250
+   "total_debt": 521250
   },
   {
    "capex": 42186,
    "cash": 587424,
    "cash_and_sti": 587424,
-   "debt_current": 34000,
+   "debt_current": 484000,
    "end": "2011-09-30",
    "equity": -836198,
    "fcf": 137349,
@@ -4155,21 +4156,22 @@
      "filed": "2011-11-10",
      "note": "one side only (a floor)",
      "tags": [
+      "NotesPayableCurrent",
       "OtherShortTermBorrowings"
      ],
      "values": {
+      "NotesPayableCurrent": 450000,
       "OtherShortTermBorrowings": 34000
      }
     }
    },
    "start": "2011-07-01",
-   "total_debt": 34000
+   "total_debt": 484000
   },
   {
    "capex": -31095,
    "cash": 233722,
    "cash_and_sti": 233722,
-   "debt_current": 46750,
    "end": "2011-12-31",
    "equity": -946851,
    "fcf": 160841,
@@ -4225,19 +4227,20 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2012-03-29",
-     "note": "one side only (a floor)",
+     "filed": "2013-03-29",
      "tags": [
+      "ConvertibleNotesPayable",
       "OtherShortTermBorrowings"
      ],
      "values": {
+      "ConvertibleNotesPayable": 51000,
       "OtherShortTermBorrowings": 46750
      }
     }
    },
    "start": "2011-10-01",
    "stock_comp": -21000,
-   "total_debt": 46750
+   "total_debt": 97750
   },
   {
    "capex": 48000,

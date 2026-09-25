@@ -52,6 +52,8 @@
    "total_assets": 2182000,
    "total_assets_as_filed": 2182000,
    "total_assets_as_filed_filed": "2017-11-13",
+   "total_debt": 1800000,
+   "total_debt_filed": "2017-11-13",
    "total_equity": 289000,
    "total_equity_parent": 289000,
    "total_liabilities": 1893000
@@ -1474,10 +1476,20 @@
      "filed": "2018-03-12",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2017-11-13",
+     "tags": [
+      "ConvertibleNotesPayable"
+     ],
+     "values": {
+      "ConvertibleNotesPayable": 1800000
+     }
     }
    },
    "start": "2016-01-01",
-   "stock_comp": 33000
+   "stock_comp": 33000,
+   "total_debt": 1800000
   },
   {
    "capex": 210000,
@@ -2092,6 +2104,13 @@
  ],
  "v2_fixes": [
   {
+   "field": "total_debt",
+   "old": null,
+   "period": "2016-12-31",
+   "rows": "annual",
+   "v2": 1800000
+  },
+  {
    "field": "revenue",
    "old": 91140000,
    "period": "2024-12-31",
@@ -2185,10 +2204,20 @@
      "filed": "2018-03-12",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2017-11-13",
+     "tags": [
+      "ConvertibleNotesPayable"
+     ],
+     "values": {
+      "ConvertibleNotesPayable": 1800000
+     }
     }
    },
    "start": "2016-10-01",
-   "stock_comp": 26000
+   "stock_comp": 26000,
+   "total_debt": 1800000
   },
   {
    "capex": 7000,

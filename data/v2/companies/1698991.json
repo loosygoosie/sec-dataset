@@ -140,10 +140,10 @@
    "retained_earnings": -17202000,
    "retained_earnings_as_filed": 4998746,
    "retained_earnings_as_filed_filed": "2019-02-13",
-   "revenue": 0,
-   "revenue_as_filed": 0,
-   "revenue_as_filed_filed": "2019-02-13",
-   "revenue_filed": "2019-02-13",
+   "revenue": 335081000,
+   "revenue_as_filed": 331993000,
+   "revenue_as_filed_filed": "2020-03-16",
+   "revenue_filed": "2021-03-16",
    "shares_diluted": 62182000,
    "shares_diluted_adj": 62182000,
    "shares_diluted_as_filed": 56250000,
@@ -1662,7 +1662,7 @@
    "fcf": 21097000,
    "net_income": 10803000,
    "operating_cash_flow": 44343000,
-   "revenue": 0,
+   "revenue": 335081000,
    "shares_diluted": 62182000,
    "short_term_investments": 0,
    "src": {
@@ -1703,10 +1703,13 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001564590-19-002860",
-     "filed": "2019-02-13",
+     "accn": "0001698991-21-000005",
+     "filed": "2021-03-16",
+     "first_filed": "2020-03-16",
+     "first_val": 331993000,
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
     },
     "shares_diluted": {
      "accn": "0001698991-20-000006",
@@ -2147,6 +2150,7 @@
      "accn": "0001698991-24-000007",
      "filed": "2024-02-28",
      "form": "10-K",
+     "note": "income-statement tie-out",
      "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
     },
     "shares_diluted": {
@@ -2232,6 +2236,7 @@
      "accn": "0001698991-25-000011",
      "filed": "2025-03-03",
      "form": "10-K",
+     "note": "income-statement tie-out",
      "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
     },
     "shares_diluted": {
@@ -2311,6 +2316,7 @@
      "accn": "0001698991-26-000018",
      "filed": "2026-03-03",
      "form": "10-K",
+     "note": "income-statement tie-out",
      "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
     },
     "shares_diluted": {
@@ -2343,13 +2349,6 @@
   }
  ],
  "v2_fixes": [
-  {
-   "field": "revenue",
-   "old": 335081000,
-   "period": "2018-12-31",
-   "rows": "annual",
-   "v2": 0
-  },
   {
    "field": "total_debt",
    "old": 232625000,

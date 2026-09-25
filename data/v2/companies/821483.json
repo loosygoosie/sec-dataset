@@ -151,7 +151,6 @@
    "income_tax_filed": "2012-08-31",
    "interest_expense": 32324000,
    "inventory": 180000,
-   "lt_debt_noncurrent": 0,
    "net_income": -470111000,
    "net_income_as_filed": -470111000,
    "net_income_as_filed_filed": "2012-08-31",
@@ -186,8 +185,8 @@
    "total_assets": 387897000,
    "total_assets_as_filed": 387897000,
    "total_assets_as_filed_filed": "2012-08-31",
-   "total_debt": 0,
-   "total_debt_as_filed": 0,
+   "total_debt": 150000000,
+   "total_debt_as_filed": 150000000,
    "total_debt_as_filed_filed": "2012-08-31",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2012-08-31",
@@ -2307,7 +2306,6 @@
    "capex": 1529000,
    "cash": 12862000,
    "cash_and_sti": 12862000,
-   "debt_noncurrent": 0,
    "end": "2011-12-31",
    "equity": 50225000,
    "fcf": -539000,
@@ -2359,18 +2357,17 @@
     },
     "total_debt": {
      "filed": "2012-08-31",
-     "note": "one side only (a floor)",
      "tags": [
-      "SeniorLongTermNotes"
+      "ConvertibleNotesPayable"
      ],
      "values": {
-      "SeniorLongTermNotes": 0
+      "ConvertibleNotesPayable": 150000000
      }
     }
    },
    "start": "2011-01-01",
    "stock_comp": 8003000,
-   "total_debt": 0
+   "total_debt": 150000000
   },
   {
    "capex": 7768000,
@@ -3420,14 +3417,7 @@
    "old": 115000000,
    "period": "2011-12-31",
    "rows": "annual",
-   "v2": 0
-  },
-  {
-   "field": "lt_debt_noncurrent",
-   "old": null,
-   "period": "2011-12-31",
-   "rows": "annual",
-   "v2": 0
+   "v2": 150000000
   },
   {
    "field": "total_debt",
@@ -3960,7 +3950,6 @@
    "capex": 0,
    "cash": 12862000,
    "cash_and_sti": 12862000,
-   "debt_noncurrent": 0,
    "end": "2011-12-31",
    "equity": 50225000,
    "fcf": -5530000,
@@ -4017,18 +4006,17 @@
     },
     "total_debt": {
      "filed": "2012-08-31",
-     "note": "one side only (a floor)",
      "tags": [
-      "SeniorLongTermNotes"
+      "ConvertibleNotesPayable"
      ],
      "values": {
-      "SeniorLongTermNotes": 0
+      "ConvertibleNotesPayable": 150000000
      }
     }
    },
    "start": "2011-10-01",
    "stock_comp": 1506000,
-   "total_debt": 0
+   "total_debt": 150000000
   },
   {
    "capex": 679000,
@@ -4082,10 +4070,20 @@
      "filed": "2012-08-31",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2012-08-31",
+     "tags": [
+      "ConvertibleNotesPayable"
+     ],
+     "values": {
+      "ConvertibleNotesPayable": 150000000
+     }
     }
    },
    "start": "2012-01-01",
-   "stock_comp": 1017000
+   "stock_comp": 1017000,
+   "total_debt": 150000000
   },
   {
    "capex": -259000,
@@ -4149,10 +4147,20 @@
      "filed": "2012-09-28",
      "form": "10-Q/A",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2012-09-28",
+     "tags": [
+      "ConvertibleNotesPayable"
+     ],
+     "values": {
+      "ConvertibleNotesPayable": 150000000
+     }
     }
    },
    "start": "2012-04-01",
-   "stock_comp": 878000
+   "stock_comp": 878000,
+   "total_debt": 150000000
   },
   {
    "capex": 10000,

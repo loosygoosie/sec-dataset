@@ -75,10 +75,11 @@
    "total_assets": 2738056000,
    "total_assets_as_filed": 107129,
    "total_assets_as_filed_filed": "2013-05-15",
-   "total_debt": 681541000,
-   "total_debt_as_filed": 681541000,
+   "total_debt": 897509000,
+   "total_debt_as_filed": 897509000,
    "total_debt_as_filed_filed": "2013-08-14",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2013-08-14",
    "total_equity": 1204575000,
    "total_equity_incl_nci": 1204575000,
    "total_equity_parent": 1204575000,
@@ -161,10 +162,11 @@
    "total_assets": 3438558000,
    "total_assets_as_filed": 3438558000,
    "total_assets_as_filed_filed": "2014-02-24",
-   "total_debt": 1257730000,
-   "total_debt_as_filed": 1039497000,
-   "total_debt_as_filed_filed": "2014-02-24",
+   "total_debt": 1182838000,
+   "total_debt_as_filed": 1182838000,
+   "total_debt_as_filed_filed": "2015-02-27",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2015-02-27",
    "total_equity": 415817000,
    "total_equity_incl_nci": 1544901000,
    "total_equity_parent": 415817000,
@@ -1894,10 +1896,22 @@
      "filed": "2014-02-24",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2013-08-14",
+     "tags": [
+      "SeniorNotes",
+      "LoansPayable"
+     ],
+     "values": {
+      "LoansPayable": 215968000,
+      "SeniorNotes": 681541000
+     }
     }
    },
    "start": "2012-01-01",
-   "stock_comp": -1975000
+   "stock_comp": -1975000,
+   "total_debt": 897509000
   },
   {
    "capex": 3786000,
@@ -1966,10 +1980,22 @@
      "first_val": -87318000,
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-02-27",
+     "tags": [
+      "SeniorNotes",
+      "LoansPayable"
+     ],
+     "values": {
+      "LoansPayable": 143341000,
+      "SeniorNotes": 1039497000
+     }
     }
    },
    "start": "2013-01-01",
-   "stock_comp": 87318000
+   "stock_comp": 87318000,
+   "total_debt": 1182838000
   },
   {
    "capex": 3723000,
@@ -2892,6 +2918,20 @@
  ],
  "v2_fixes": [
   {
+   "field": "total_debt",
+   "old": 681541000,
+   "period": "2012-12-31",
+   "rows": "annual",
+   "v2": 897509000
+  },
+  {
+   "field": "total_debt",
+   "old": 1257730000,
+   "period": "2013-12-31",
+   "rows": "annual",
+   "v2": 1182838000
+  },
+  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2014-12-31",
@@ -3378,10 +3418,22 @@
      "filed": "2014-02-24",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2013-08-14",
+     "tags": [
+      "SeniorNotes",
+      "LoansPayable"
+     ],
+     "values": {
+      "LoansPayable": 215968000,
+      "SeniorNotes": 681541000
+     }
     }
    },
    "start": "2012-10-01",
-   "stock_comp": -311000
+   "stock_comp": -311000,
+   "total_debt": 897509000
   },
   {
    "capex": 384000,
@@ -3504,10 +3556,22 @@
      "filed": "2013-08-14",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2013-08-14",
+     "tags": [
+      "SeniorNotes",
+      "LoansPayable"
+     ],
+     "values": {
+      "LoansPayable": 313287000,
+      "SeniorNotes": 1039826000
+     }
     }
    },
    "start": "2013-04-01",
-   "stock_comp": -83935000
+   "stock_comp": -83935000,
+   "total_debt": 1353113000
   },
   {
    "capex": 1457000,
@@ -3571,10 +3635,22 @@
      "filed": "2013-11-13",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2013-11-13",
+     "tags": [
+      "SeniorNotes",
+      "LoansPayable"
+     ],
+     "values": {
+      "LoansPayable": 336605000,
+      "SeniorNotes": 1039661000
+     }
     }
    },
    "start": "2013-07-01",
-   "stock_comp": -1682000
+   "stock_comp": -1682000,
+   "total_debt": 1376266000
   },
   {
    "capex": 1579000,
@@ -3636,10 +3712,22 @@
      "filed": "2016-02-25",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-02-27",
+     "tags": [
+      "SeniorNotes",
+      "LoansPayable"
+     ],
+     "values": {
+      "LoansPayable": 143341000,
+      "SeniorNotes": 1039497000
+     }
     }
    },
    "start": "2013-10-01",
-   "stock_comp": 173430000
+   "stock_comp": 173430000,
+   "total_debt": 1182838000
   },
   {
    "capex": -693000,
@@ -3702,10 +3790,22 @@
      "filed": "2014-05-07",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2014-05-07",
+     "tags": [
+      "SeniorNotes",
+      "LoansPayable"
+     ],
+     "values": {
+      "LoansPayable": 270765000,
+      "SeniorNotes": 1389333000
+     }
     }
    },
    "start": "2014-01-01",
-   "stock_comp": 1345000
+   "stock_comp": 1345000,
+   "total_debt": 1660098000
   },
   {
    "capex": 2467000,
@@ -3770,10 +3870,24 @@
      "filed": "2014-08-05",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2014-08-05",
+     "tags": [
+      "SeniorNotes",
+      "LoansPayable",
+      "LineOfCredit"
+     ],
+     "values": {
+      "LineOfCredit": 40000000,
+      "LoansPayable": 282090000,
+      "SeniorNotes": 1389169000
+     }
     }
    },
    "start": "2014-04-01",
-   "stock_comp": 1475000
+   "stock_comp": 1475000,
+   "total_debt": 1711259000
   },
   {
    "capex": 972000,
@@ -3839,10 +3953,24 @@
      "filed": "2015-11-04",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2014-11-05",
+     "tags": [
+      "SeniorNotes",
+      "LoansPayable",
+      "LineOfCredit"
+     ],
+     "values": {
+      "LineOfCredit": 150000000,
+      "LoansPayable": 233507000,
+      "SeniorNotes": 1389004000
+     }
     }
    },
    "start": "2014-07-01",
-   "stock_comp": 1507000
+   "stock_comp": 1507000,
+   "total_debt": 1772511000
   },
   {
    "capex": 977000,
@@ -3976,10 +4104,22 @@
      "filed": "2016-05-04",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-05-07",
+     "tags": [
+      "SeniorNotes",
+      "LoansPayable"
+     ],
+     "values": {
+      "LoansPayable": 128184000,
+      "SeniorNotes": 1388676000
+     }
     }
    },
    "start": "2015-01-01",
-   "stock_comp": 1558000
+   "stock_comp": 1558000,
+   "total_debt": 1516860000
   },
   {
    "capex": 1182000,
@@ -4043,10 +4183,24 @@
      "filed": "2016-05-04",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-08-05",
+     "tags": [
+      "SeniorNotes",
+      "LoansPayable",
+      "LineOfCredit"
+     ],
+     "values": {
+      "LineOfCredit": 105000000,
+      "LoansPayable": 123067000,
+      "SeniorNotes": 1250000000
+     }
     }
    },
    "start": "2015-04-01",
-   "stock_comp": 2038000
+   "stock_comp": 2038000,
+   "total_debt": 1478067000
   },
   {
    "capex": 254000,
@@ -4110,10 +4264,24 @@
      "filed": "2015-11-04",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-11-04",
+     "tags": [
+      "SeniorNotes",
+      "LoansPayable",
+      "LineOfCredit"
+     ],
+     "values": {
+      "LineOfCredit": 230000000,
+      "LoansPayable": 145589000,
+      "SeniorNotes": 1250000000
+     }
     }
    },
    "start": "2015-07-01",
-   "stock_comp": 2127000
+   "stock_comp": 2127000,
+   "total_debt": 1625589000
   },
   {
    "capex": 2545000,

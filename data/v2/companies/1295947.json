@@ -4358,7 +4358,7 @@
    "fcf": 13544000,
    "net_income": 14655000,
    "operating_cash_flow": 14742000,
-   "revenue": 146997000,
+   "revenue": 145920000,
    "shares_diluted": 51106000,
    "src": {
     "capex": {
@@ -4395,7 +4395,7 @@
      "accn": "0001295947-12-000037",
      "filed": "2012-08-09",
      "form": "10-Q",
-     "tag": "SalesRevenueNet"
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0001295947-12-000037",
@@ -4434,7 +4434,7 @@
    "fcf": 41564000,
    "net_income": 19244000,
    "operating_cash_flow": 45632000,
-   "revenue": 161855000,
+   "revenue": 161323000,
    "shares_diluted": 51225000,
    "src": {
     "capex": {
@@ -4473,7 +4473,7 @@
      "accn": "0001295947-12-000045",
      "filed": "2012-11-07",
      "form": "10-Q",
-     "tag": "SalesRevenueNet"
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0001295947-12-000045",
@@ -4513,7 +4513,7 @@
    "fcf": 36846000,
    "net_income": 12257000,
    "operating_cash_flow": 40502000,
-   "revenue": 160232000,
+   "revenue": 159492000,
    "shares_diluted": 51523000,
    "src": {
     "capex": {
@@ -4552,7 +4552,7 @@
      "accn": "0001295947-13-000005",
      "filed": "2013-02-07",
      "form": "10-Q",
-     "tag": "SalesRevenueNet"
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0001295947-13-000005",
@@ -4592,7 +4592,7 @@
    "fcf": 35383000,
    "net_income": 19349000,
    "operating_cash_flow": 36729000,
-   "revenue": 154513000,
+   "revenue": 150180000,
    "shares_diluted": 51913000,
    "src": {
     "capex": {
@@ -4628,10 +4628,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001295947-13-000018",
-     "filed": "2013-05-17",
+     "accn": "0001295947-15-000015",
+     "derived": true,
+     "filed": "2015-05-14",
      "form": "10-K",
-     "tag": "SalesRevenueNet"
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0001295947-13-000018",
@@ -8844,6 +8845,7 @@
   "revenue": [
    "RevenueFromContractWithCustomerExcludingAssessedTax",
    "Revenues",
+   "SalesRevenueGoodsNet",
    "SalesRevenueNet"
   ],
   "shares_diluted": [

@@ -370,8 +370,8 @@
    "retained_earnings": -885774000,
    "retained_earnings_as_filed": -885774000,
    "retained_earnings_as_filed_filed": "2019-02-27",
-   "revenue": 3205500000,
-   "revenue_as_filed": 3205500000,
+   "revenue": 3298177000,
+   "revenue_as_filed": 3298177000,
    "revenue_as_filed_filed": "2019-02-27",
    "revenue_filed": "2019-02-27",
    "shares_diluted": 405731000,
@@ -2194,7 +2194,7 @@
    "fcf": 233877000,
    "net_income": -38453000,
    "operating_cash_flow": 295080000,
-   "revenue": 3205500000,
+   "revenue": 3298177000,
    "shares_diluted": 405731000,
    "short_term_investments": 540991000,
    "src": {
@@ -2232,7 +2232,8 @@
      "accn": "0001512673-19-000003",
      "filed": "2019-02-27",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "note": "income-statement tie-out",
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001512673-19-000003",
@@ -2852,13 +2853,6 @@
   }
  ],
  "v2_fixes": [
-  {
-   "field": "revenue",
-   "old": 3298177000,
-   "period": "2018-12-31",
-   "rows": "annual",
-   "v2": 3205500000
-  },
   {
    "field": "total_debt",
    "old": 4109829000,
@@ -4100,7 +4094,7 @@
    "fcf": 43970000,
    "net_income": -23986000,
    "operating_cash_flow": 52053000,
-   "revenue": 648800000,
+   "revenue": 668603000,
    "shares_diluted": 395948000,
    "short_term_investments": 200048000,
    "src": {
@@ -4135,10 +4129,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001512673-18-000007",
-     "filed": "2018-05-02",
+     "accn": "0001512673-19-000007",
+     "filed": "2019-05-01",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001512673-18-000007",
@@ -4183,7 +4177,7 @@
    "fcf": 3919000,
    "net_income": -5906000,
    "operating_cash_flow": 18979000,
-   "revenue": 792300000,
+   "revenue": 814938000,
    "shares_diluted": 403301000,
    "short_term_investments": 233599000,
    "src": {
@@ -4223,7 +4217,7 @@
      "accn": "0001512673-18-000011",
      "filed": "2018-08-01",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001512673-18-000011",
@@ -4270,7 +4264,7 @@
    "fcf": 33598000,
    "net_income": 19643000,
    "operating_cash_flow": 47628000,
-   "revenue": 857700000,
+   "revenue": 882108000,
    "shares_diluted": 474915000,
    "short_term_investments": 448986000,
    "src": {
@@ -4310,7 +4304,7 @@
      "accn": "0001512673-18-000014",
      "filed": "2018-11-07",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001512673-18-000014",
@@ -4357,7 +4351,7 @@
    "fcf": 152390000,
    "net_income": -28204000,
    "operating_cash_flow": 176420000,
-   "revenue": 906800000,
+   "revenue": 932528000,
    "short_term_investments": 540991000,
    "src": {
     "capex": {
@@ -4398,7 +4392,7 @@
      "derived": true,
      "filed": "2019-02-27",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "short_term_investments": {
      "accn": "0001512673-19-000003",
@@ -6945,7 +6939,6 @@
    "NetCashProvidedByUsedInOperatingActivities"
   ],
   "revenue": [
-   "RevenueFromContractWithCustomerExcludingAssessedTax",
    "Revenues",
    "SalesRevenueNet"
   ],

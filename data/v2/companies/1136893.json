@@ -1451,10 +1451,10 @@
    "buybacks_as_filed": 1938000000,
    "buybacks_as_filed_filed": "2023-02-27",
    "buybacks_filed": "2025-02-13",
-   "capex": 227000000,
-   "capex_as_filed": 268000000,
+   "capex": 1059000000,
+   "capex_as_filed": 1453000000,
    "capex_as_filed_filed": "2023-02-27",
-   "capex_filed": "2025-02-13",
+   "capex_filed": "2024-02-26",
    "capitalized_software": 769000000,
    "cash": 456000000,
    "cash_as_filed": 2188000000,
@@ -1521,7 +1521,7 @@
    "revenue": 9720000000,
    "revenue_as_filed": 14528000000,
    "revenue_as_filed_filed": "2023-02-27",
-   "revenue_filed": "2024-11-04",
+   "revenue_filed": "2025-02-13",
    "sga_expense": 2182000000,
    "shares_diluted": 604000000,
    "shares_diluted_adj": 604000000,
@@ -1556,10 +1556,10 @@
    "buybacks_as_filed": 522000000,
    "buybacks_as_filed_filed": "2024-02-26",
    "buybacks_filed": "2026-02-24",
-   "capex": 115000000,
-   "capex_as_filed": 142000000,
+   "capex": 833000000,
+   "capex_as_filed": 833000000,
    "capex_as_filed_filed": "2024-02-26",
-   "capex_filed": "2025-02-13",
+   "capex_filed": "2024-02-26",
    "capitalized_software": 665000000,
    "cash": 440000000,
    "cash_as_filed": 440000000,
@@ -1628,7 +1628,7 @@
    "revenue": 9831000000,
    "revenue_as_filed": 9821000000,
    "revenue_as_filed_filed": "2024-02-26",
-   "revenue_filed": "2024-11-04",
+   "revenue_filed": "2025-02-13",
    "sga_expense": 2096000000,
    "shares_diluted": 591000000,
    "shares_diluted_adj": 591000000,
@@ -1933,7 +1933,11 @@
  },
  "cik": 1136893,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "quarters_off_year_capex_2023-12-31",
+  "capex_below_segment_2024-12-31",
+  "capex_below_segment_2025-12-31"
+ ],
  "instances_merged": [],
  "latest_filing": {
   "accn": "0001136893-26-000050",
@@ -1963,8 +1967,8 @@
   {
    "acquisitions": 0,
    "buybacks": 1000000,
-   "capex": 22000000,
-   "capex_filed": "2024-11-04",
+   "capex": 215000000,
+   "capex_filed": "2023-11-07",
    "capitalized_software": 191000000,
    "cash": 466000000,
    "current_assets": 12153000000,
@@ -2017,8 +2021,8 @@
   {
    "acquisitions": 202000000,
    "buybacks": 506000000,
-   "capex": 27000000,
-   "capex_filed": "2025-02-13",
+   "capex": 249000000,
+   "capex_filed": "2024-02-26",
    "capitalized_software": 169000000,
    "cash": 440000000,
    "current_assets": 13656000000,
@@ -3845,26 +3849,27 @@
    "total_debt": 18736000000
   },
   {
-   "capex": 227000000,
+   "capex": 1059000000,
    "cash": 456000000,
    "cash_and_sti": 456000000,
    "debt_current": 3755000000,
    "debt_noncurrent": 14206000000,
    "end": "2022-12-31",
    "equity": 27218000000,
-   "fcf": 3712000000,
+   "fcf": 2880000000,
    "net_income": -16752000000,
    "operating_cash_flow": 3939000000,
    "revenue": 9720000000,
    "shares_diluted": 604000000,
    "src": {
     "capex": {
-     "accn": "0001136893-25-000014",
-     "filed": "2025-02-13",
+     "accn": "0001136893-24-000015",
+     "filed": "2024-02-26",
      "first_filed": "2023-02-27",
-     "first_val": 268000000,
+     "first_val": 1453000000,
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0001136893-23-000148",
@@ -3881,11 +3886,11 @@
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0001136893-24-000139",
-     "filed": "2024-11-04",
+     "accn": "0001136893-25-000014",
+     "filed": "2025-02-13",
      "first_filed": "2023-02-27",
      "first_val": -16720000000,
-     "form": "10-Q",
+     "form": "10-K",
      "tag": "NetIncomeLoss"
     },
     "operating_cash_flow": {
@@ -3895,11 +3900,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001136893-24-000139",
-     "filed": "2024-11-04",
+     "accn": "0001136893-25-000014",
+     "filed": "2025-02-13",
      "first_filed": "2023-02-27",
      "first_val": 14528000000,
-     "form": "10-Q",
+     "form": "10-K",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
     },
     "shares_diluted": {
@@ -3933,26 +3938,25 @@
    "total_debt": 17961000000
   },
   {
-   "capex": 115000000,
+   "capex": 833000000,
    "cash": 440000000,
    "cash_and_sti": 440000000,
    "debt_current": 4760000000,
    "debt_noncurrent": 12970000000,
    "end": "2023-12-31",
    "equity": 19050000000,
-   "fcf": 4220000000,
+   "fcf": 3502000000,
    "net_income": -6655000000,
    "operating_cash_flow": 4335000000,
    "revenue": 9831000000,
    "shares_diluted": 591000000,
    "src": {
     "capex": {
-     "accn": "0001136893-25-000014",
-     "filed": "2025-02-13",
-     "first_filed": "2024-02-26",
-     "first_val": 142000000,
+     "accn": "0001136893-24-000015",
+     "filed": "2024-02-26",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0001136893-24-000015",
@@ -3969,11 +3973,11 @@
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0001136893-24-000139",
-     "filed": "2024-11-04",
+     "accn": "0001136893-25-000014",
+     "filed": "2025-02-13",
      "first_filed": "2024-02-26",
      "first_val": -6654000000,
-     "form": "10-Q",
+     "form": "10-K",
      "tag": "NetIncomeLoss"
     },
     "operating_cash_flow": {
@@ -3983,11 +3987,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001136893-24-000139",
-     "filed": "2024-11-04",
+     "accn": "0001136893-25-000014",
+     "filed": "2025-02-13",
      "first_filed": "2024-02-26",
      "first_val": 9821000000,
-     "form": "10-Q",
+     "form": "10-K",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
     },
     "shares_diluted": {
@@ -4312,25 +4316,11 @@
    "v2": 3911000000
   },
   {
-   "field": "capex",
-   "old": 1059000000,
-   "period": "2022-12-31",
-   "rows": "annual",
-   "v2": 227000000
-  },
-  {
    "field": "debt_current",
    "old": 2130000000,
    "period": "2022-12-31",
    "rows": "annual",
    "v2": 3755000000
-  },
-  {
-   "field": "capex",
-   "old": 833000000,
-   "period": "2023-12-31",
-   "rows": "annual",
-   "v2": 115000000
   },
   {
    "field": "debt_current",
@@ -4347,13 +4337,6 @@
    "v2": 2729000000
   },
   {
-   "field": "capex",
-   "old": 215000000,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 22000000
-  },
-  {
    "field": "debt_current",
    "old": 1320000000,
    "period": "2023-09-30",
@@ -4365,7 +4348,7 @@
    "old": 228000000,
    "period": "2023-12-31",
    "rows": "quarterly",
-   "v2": 27000000
+   "v2": 249000000
   },
   {
    "field": "debt_current",
@@ -8481,14 +8464,14 @@
    "total_debt": 18736000000
   },
   {
-   "capex": 108000000,
+   "capex": 412000000,
    "cash": 1547000000,
    "cash_and_sti": 1547000000,
    "debt_current": 2682000000,
    "debt_noncurrent": 14208000000,
    "end": "2022-03-31",
    "equity": 47026000000,
-   "fcf": 788000000,
+   "fcf": 484000000,
    "net_income": 120000000,
    "operating_cash_flow": 896000000,
    "revenue": 2370000000,
@@ -8498,7 +8481,7 @@
      "accn": "0001136893-22-000095",
      "filed": "2022-05-03",
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0001136893-22-000095",
@@ -8561,14 +8544,14 @@
    "total_debt": 16890000000
   },
   {
-   "capex": 65000000,
+   "capex": 340000000,
    "cash": 1688000000,
    "cash_and_sti": 1688000000,
    "debt_current": 3642000000,
    "debt_noncurrent": 11755000000,
    "end": "2022-06-30",
    "equity": 46506000000,
-   "fcf": 959000000,
+   "fcf": 684000000,
    "net_income": 277000000,
    "operating_cash_flow": 1024000000,
    "revenue": 2408000000,
@@ -8576,10 +8559,9 @@
    "src": {
     "capex": {
      "accn": "0001136893-22-000146",
-     "derived": true,
      "filed": "2022-08-04",
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0001136893-22-000146",
@@ -8644,25 +8626,26 @@
    "total_debt": 15397000000
   },
   {
-   "capex": 43000000,
+   "capex": 233000000,
    "cash": 1932000000,
    "cash_and_sti": 1932000000,
    "debt_current": 2985000000,
    "debt_noncurrent": 13509000000,
    "end": "2022-09-30",
    "equity": 45328000000,
-   "fcf": 835000000,
+   "fcf": 645000000,
    "net_income": 249000000,
    "operating_cash_flow": 878000000,
    "revenue": 2415000000,
    "shares_diluted": 607000000,
    "src": {
     "capex": {
-     "accn": "0001136893-22-000180",
-     "derived": true,
-     "filed": "2022-11-04",
+     "accn": "0001136893-23-000148",
+     "filed": "2023-11-07",
+     "first_filed": "2022-11-04",
+     "first_val": 331000000,
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0001136893-22-000180",
@@ -8727,25 +8710,25 @@
    "total_debt": 16494000000
   },
   {
-   "capex": 11000000,
+   "capex": 268000000,
    "cash": 456000000,
    "cash_and_sti": 456000000,
    "debt_current": 3755000000,
    "debt_noncurrent": 14206000000,
    "end": "2022-12-31",
    "equity": 27218000000,
-   "fcf": 1130000000,
+   "fcf": 873000000,
    "net_income": -17365000000,
    "operating_cash_flow": 1141000000,
    "revenue": 2526000000,
    "shares_diluted": 593000000,
    "src": {
     "capex": {
-     "accn": "0001136893-25-000014",
+     "accn": "0001136893-24-000015",
      "derived": true,
-     "filed": "2025-02-13",
+     "filed": "2024-02-26",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0001136893-23-000148",
@@ -8810,14 +8793,14 @@
    "total_debt": 17961000000
   },
   {
-   "capex": 39000000,
+   "capex": 193000000,
    "cash": 1871000000,
    "cash_and_sti": 1871000000,
    "debt_current": 3968000000,
    "debt_noncurrent": 13905000000,
    "end": "2023-03-31",
    "equity": 27097000000,
-   "fcf": 593000000,
+   "fcf": 439000000,
    "net_income": 152000000,
    "operating_cash_flow": 632000000,
    "revenue": 2400000000,
@@ -8827,9 +8810,9 @@
      "accn": "0001136893-24-000063",
      "filed": "2024-05-07",
      "first_filed": "2023-05-02",
-     "first_val": 48000000,
+     "first_val": 279000000,
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0001136893-23-000077",
@@ -8896,14 +8879,14 @@
    "total_debt": 17873000000
   },
   {
-   "capex": 27000000,
+   "capex": 197000000,
    "cash": 1982000000,
    "cash_and_sti": 1982000000,
    "debt_current": 5144000000,
    "debt_noncurrent": 13589000000,
    "end": "2023-06-30",
    "equity": 20266000000,
-   "fcf": 1060000000,
+   "fcf": 890000000,
    "net_income": -6594000000,
    "operating_cash_flow": 1087000000,
    "revenue": 2427000000,
@@ -8911,10 +8894,11 @@
    "src": {
     "capex": {
      "accn": "0001136893-24-000113",
-     "derived": true,
      "filed": "2024-08-06",
+     "first_filed": "2023-08-02",
+     "first_val": 287000000,
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0001136893-23-000127",
@@ -8981,25 +8965,24 @@
    "total_debt": 18733000000
   },
   {
-   "capex": 22000000,
+   "capex": 215000000,
    "cash": 466000000,
    "cash_and_sti": 466000000,
    "debt_current": 4595000000,
    "debt_noncurrent": 12741000000,
    "end": "2023-09-30",
    "equity": 19477000000,
-   "fcf": 1069000000,
+   "fcf": 876000000,
    "net_income": -461000000,
    "operating_cash_flow": 1091000000,
    "revenue": 2492000000,
    "shares_diluted": 592000000,
    "src": {
     "capex": {
-     "accn": "0001136893-24-000139",
-     "derived": true,
-     "filed": "2024-11-04",
+     "accn": "0001136893-23-000148",
+     "filed": "2023-11-07",
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0001136893-23-000148",
@@ -9066,25 +9049,25 @@
    "total_debt": 17336000000
   },
   {
-   "capex": 27000000,
+   "capex": 249000000,
    "cash": 440000000,
    "cash_and_sti": 440000000,
    "debt_current": 4760000000,
    "debt_noncurrent": 12970000000,
    "end": "2023-12-31",
    "equity": 19050000000,
-   "fcf": 1498000000,
+   "fcf": 1276000000,
    "net_income": 248000000,
    "operating_cash_flow": 1525000000,
    "revenue": 2512000000,
    "shares_diluted": 591000000,
    "src": {
     "capex": {
-     "accn": "0001136893-25-000014",
+     "accn": "0001136893-24-000015",
      "derived": true,
-     "filed": "2025-02-13",
+     "filed": "2024-02-26",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0001136893-24-000015",
@@ -9966,6 +9949,7 @@
  ],
  "v2_tags_used": {
   "capex": [
+   "PaymentsToAcquireProductiveAssets",
    "PaymentsToAcquirePropertyPlantAndEquipment"
   ],
   "net_income": [

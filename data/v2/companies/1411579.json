@@ -628,10 +628,10 @@
    "retained_earnings": -706200000,
    "retained_earnings_as_filed": -706200000,
    "retained_earnings_as_filed_filed": "2020-02-28",
-   "revenue": 5500000000,
+   "revenue": 5471000000,
    "revenue_as_filed": 5471000000,
-   "revenue_as_filed_filed": "2020-02-28",
-   "revenue_filed": "2023-02-28",
+   "revenue_as_filed_filed": "2021-03-12",
+   "revenue_filed": "2021-03-12",
    "shares_diluted": 103832000,
    "shares_diluted_adj": 20766400,
    "shares_diluted_as_filed": 103832000,
@@ -2509,7 +2509,7 @@
    "finance_leases": 99900000,
    "net_income": -149100000,
    "operating_cash_flow": 579000000,
-   "revenue": 5500000000,
+   "revenue": 5471000000,
    "shares_diluted": 103832000,
    "src": {
     "capex": {
@@ -2543,12 +2543,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001411579-23-000038",
-     "filed": "2023-02-28",
-     "first_filed": "2020-02-28",
-     "first_val": 5471000000,
+     "accn": "0001411579-21-000006",
+     "filed": "2021-03-12",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "note": "income-statement tie-out",
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001411579-20-000027",
@@ -3096,13 +3095,6 @@
    "period": "2018-12-31",
    "rows": "annual",
    "v2": 4723000000
-  },
-  {
-   "field": "revenue",
-   "old": 5471000000,
-   "period": "2019-12-31",
-   "rows": "annual",
-   "v2": 5500000000
   },
   {
    "field": "total_debt",
@@ -4946,7 +4938,6 @@
    "capex": 133800000,
    "cash": 333300000,
    "cash_and_sti": 333300000,
-   "debt_noncurrent": 4840300000,
    "end": "2018-09-30",
    "equity": 1254500000,
    "fcf": -132100000,
@@ -5007,18 +4998,17 @@
     },
     "total_debt": {
      "filed": "2018-11-08",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 4840300000
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities": 5440000000
      }
     }
    },
    "start": "2018-07-01",
    "stock_comp": 4100000,
-   "total_debt": 4840300000
+   "total_debt": 5440000000
   },
   {
    "capex": 201400000,
@@ -5150,10 +5140,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001411579-19-000037",
-     "filed": "2019-05-09",
+     "accn": "0001411579-20-000058",
+     "filed": "2020-06-09",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001411579-19-000037",
@@ -5230,10 +5220,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001411579-19-000047",
-     "filed": "2019-08-08",
+     "accn": "0001411579-20-000068",
+     "filed": "2020-08-06",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001411579-19-000047",
@@ -5311,10 +5301,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001411579-19-000063",
-     "filed": "2019-11-07",
+     "accn": "0001411579-20-000074",
+     "filed": "2020-11-04",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001411579-19-000063",
@@ -5393,10 +5383,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001411579-20-000027",
-     "filed": "2020-02-28",
+     "accn": "0001411579-21-000006",
+     "derived": true,
+     "filed": "2021-03-12",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001411579-20-000027",

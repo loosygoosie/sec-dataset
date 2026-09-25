@@ -811,8 +811,8 @@
    "total_assets": 2868769000,
    "total_assets_as_filed": 2868769000,
    "total_assets_as_filed_filed": "2018-02-22",
-   "total_debt": 401069000,
-   "total_debt_as_filed": 401069000,
+   "total_debt": 427500000,
+   "total_debt_as_filed": 427500000,
    "total_debt_as_filed_filed": "2018-02-22",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2018-02-22",
@@ -901,11 +901,11 @@
    "total_assets": 3085262000,
    "total_assets_as_filed": 3085262000,
    "total_assets_as_filed_filed": "2019-02-21",
-   "total_debt": 381100000,
-   "total_debt_as_filed": 381100000,
-   "total_debt_as_filed_filed": "2019-02-21",
+   "total_debt": 408800000,
+   "total_debt_as_filed": 408800000,
+   "total_debt_as_filed_filed": "2019-08-08",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2019-02-21",
+   "total_debt_filed": "2019-08-08",
    "total_equity": 1561820000,
    "total_equity_parent": 1561820000,
    "total_liabilities": 1523442000
@@ -991,8 +991,8 @@
    "total_assets": 5289268000,
    "total_assets_as_filed": 5289268000,
    "total_assets_as_filed_filed": "2020-02-20",
-   "total_debt": 366480000,
-   "total_debt_as_filed": 366480000,
+   "total_debt": 397500000,
+   "total_debt_as_filed": 397500000,
    "total_debt_as_filed_filed": "2020-02-20",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2020-02-20",
@@ -2990,7 +2990,6 @@
    "capex": 250401000,
    "cash": 109148000,
    "cash_and_sti": 109148000,
-   "debt_noncurrent": 401069000,
    "end": "2017-12-30",
    "equity": 1418673000,
    "fcf": 381049000,
@@ -3049,28 +3048,25 @@
     },
     "total_debt": {
      "filed": "2018-02-22",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "UnsecuredDebt"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 401069000
+      "UnsecuredDebt": 427500000
      }
     }
    },
    "start": "2017-01-01",
    "stock_comp": 29202000,
-   "total_debt": 401069000
+   "total_debt": 427500000
   },
   {
    "capex": 278530000,
    "cash": 86299000,
    "cash_and_sti": 86299000,
-   "debt_noncurrent": 381100000,
    "end": "2018-12-29",
    "equity": 1561820000,
    "fcf": 415864000,
-   "finance_leases": 32916000,
    "net_income": 532357000,
    "operating_cash_flow": 694394000,
    "revenue": 7911046000,
@@ -3125,29 +3121,26 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2019-02-21",
-     "note": "one side only (a floor)",
+     "filed": "2019-08-08",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "UnsecuredDebt"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 381100000
+      "UnsecuredDebt": 408800000
      }
     }
    },
    "start": "2017-12-31",
    "stock_comp": 28921000,
-   "total_debt": 381100000
+   "total_debt": 408800000
   },
   {
    "capex": 217450000,
    "cash": 84241000,
    "cash_and_sti": 84241000,
-   "debt_noncurrent": 366480000,
    "end": "2019-12-28",
    "equity": 1567123000,
    "fcf": 594266000,
-   "finance_leases": 34425000,
    "net_income": 562354000,
    "operating_cash_flow": 811716000,
    "revenue": 8351931000,
@@ -3203,18 +3196,17 @@
     },
     "total_debt": {
      "filed": "2020-02-20",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "UnsecuredDebt"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 366480000
+      "UnsecuredDebt": 397500000
      }
     }
    },
    "start": "2018-12-30",
    "stock_comp": 31136000,
-   "total_debt": 366480000
+   "total_debt": 397500000
   },
   {
    "capex": 294002000,
@@ -3753,27 +3745,6 @@
    "period": "2016-12-31",
    "rows": "annual",
    "v2": 263850000
-  },
-  {
-   "field": "total_debt",
-   "old": 427500000,
-   "period": "2017-12-30",
-   "rows": "annual",
-   "v2": 401069000
-  },
-  {
-   "field": "total_debt",
-   "old": 408800000,
-   "period": "2018-12-29",
-   "rows": "annual",
-   "v2": 381100000
-  },
-  {
-   "field": "total_debt",
-   "old": 397500000,
-   "period": "2019-12-28",
-   "rows": "annual",
-   "v2": 366480000
   },
   {
    "field": "total_debt",
@@ -6220,7 +6191,6 @@
    "capex": 98361000,
    "cash": 109148000,
    "cash_and_sti": 109148000,
-   "debt_noncurrent": 401069000,
    "end": "2017-12-30",
    "equity": 1418673000,
    "fcf": 192127000,
@@ -6277,18 +6247,17 @@
     },
     "total_debt": {
      "filed": "2018-02-22",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "UnsecuredDebt"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 401069000
+      "UnsecuredDebt": 427500000
      }
     }
    },
    "start": "2017-10-01",
    "stock_comp": 6271000,
-   "total_debt": 401069000
+   "total_debt": 427500000
   },
   {
    "capex": 45144000,
@@ -6371,11 +6340,9 @@
    "capex": 71551000,
    "cash": 69954000,
    "cash_and_sti": 69954000,
-   "debt_noncurrent": 516410000,
    "end": "2018-06-30",
    "equity": 1406042000,
    "fcf": 224326000,
-   "finance_leases": 34353000,
    "net_income": 207289000,
    "operating_cash_flow": 295877000,
    "revenue": 2213249000,
@@ -6435,28 +6402,25 @@
     },
     "total_debt": {
      "filed": "2018-08-09",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "UnsecuredDebt"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 516410000
+      "UnsecuredDebt": 543000000
      }
     }
    },
    "start": "2018-04-01",
    "stock_comp": 7800000,
-   "total_debt": 516410000
+   "total_debt": 543000000
   },
   {
    "capex": 76998000,
    "cash": 71302000,
    "cash_and_sti": 71302000,
-   "debt_noncurrent": 547505000,
    "end": "2018-09-29",
    "equity": 1495297000,
    "fcf": 2407000,
-   "finance_leases": 33437000,
    "net_income": 116784000,
    "operating_cash_flow": 79405000,
    "revenue": 1881625000,
@@ -6516,28 +6480,25 @@
     },
     "total_debt": {
      "filed": "2018-11-08",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "UnsecuredDebt"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 547505000
+      "UnsecuredDebt": 575300000
      }
     }
    },
    "start": "2018-07-01",
    "stock_comp": 6400000,
-   "total_debt": 547505000
+   "total_debt": 575300000
   },
   {
    "capex": 84837000,
    "cash": 86299000,
    "cash_and_sti": 86299000,
-   "debt_noncurrent": 381100000,
    "end": "2018-12-29",
    "equity": 1561820000,
    "fcf": 256138000,
-   "finance_leases": 32916000,
    "net_income": 136851000,
    "operating_cash_flow": 340975000,
    "revenue": 2133271000,
@@ -6590,19 +6551,18 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2019-02-21",
-     "note": "one side only (a floor)",
+     "filed": "2019-08-08",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "UnsecuredDebt"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 381100000
+      "UnsecuredDebt": 408800000
      }
     }
    },
    "start": "2018-09-30",
    "stock_comp": 6134000,
-   "total_debt": 381100000
+   "total_debt": 408800000
   },
   {
    "capex": 28785000,
@@ -6685,11 +6645,9 @@
    "capex": 54755000,
    "cash": 104018000,
    "cash_and_sti": 104018000,
-   "debt_noncurrent": 466290000,
    "end": "2019-06-29",
    "equity": 1544942000,
    "fcf": 307143000,
-   "finance_leases": 31111000,
    "net_income": 219210000,
    "operating_cash_flow": 361898000,
    "revenue": 2353782000,
@@ -6747,28 +6705,25 @@
     },
     "total_debt": {
      "filed": "2019-08-08",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "UnsecuredDebt"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 466290000
+      "UnsecuredDebt": 490000000
      }
     }
    },
    "start": "2019-03-31",
    "stock_comp": 8800000,
-   "total_debt": 466290000
+   "total_debt": 490000000
   },
   {
    "capex": 60802000,
    "cash": 82640000,
    "cash_and_sti": 82640000,
-   "debt_noncurrent": 613885000,
    "end": "2019-09-28",
    "equity": 1491822000,
    "fcf": 4651000,
-   "finance_leases": 33058000,
    "net_income": 122133000,
    "operating_cash_flow": 65453000,
    "revenue": 1984144000,
@@ -6826,28 +6781,25 @@
     },
     "total_debt": {
      "filed": "2019-11-07",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "UnsecuredDebt"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 613885000
+      "UnsecuredDebt": 645000000
      }
     }
    },
    "start": "2019-06-30",
    "stock_comp": 7400000,
-   "total_debt": 613885000
+   "total_debt": 645000000
   },
   {
    "capex": 73108000,
    "cash": 84241000,
    "cash_and_sti": 84241000,
-   "debt_noncurrent": 366480000,
    "end": "2019-12-28",
    "equity": 1567123000,
    "fcf": 324281000,
-   "finance_leases": 34425000,
    "net_income": 144179000,
    "operating_cash_flow": 397389000,
    "revenue": 2191785000,
@@ -6901,18 +6853,17 @@
     },
     "total_debt": {
      "filed": "2020-02-20",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "UnsecuredDebt"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 366480000
+      "UnsecuredDebt": 397500000
      }
     }
    },
    "start": "2019-09-29",
    "stock_comp": 5381000,
-   "total_debt": 366480000
+   "total_debt": 397500000
   },
   {
    "capex": 29648000,
@@ -6995,11 +6946,9 @@
    "capex": 56976000,
    "cash": 1206366000,
    "cash_and_sti": 1206366000,
-   "debt_noncurrent": 536051000,
    "end": "2020-06-27",
    "equity": 1695730000,
    "fcf": 852230000,
-   "finance_leases": 36412000,
    "net_income": 338678000,
    "operating_cash_flow": 909206000,
    "revenue": 3176327000,
@@ -7057,28 +7006,25 @@
     },
     "total_debt": {
      "filed": "2020-08-06",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "UnsecuredDebt"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 536051000
+      "UnsecuredDebt": 917500000
      }
     }
    },
    "start": "2020-03-29",
    "stock_comp": 7500000,
-   "total_debt": 536051000
+   "total_debt": 917500000
   },
   {
    "capex": 74668000,
    "cash": 1111986000,
    "cash_and_sti": 1111986000,
-   "debt_noncurrent": 529264000,
    "end": "2020-09-26",
    "equity": 1875866000,
    "fcf": -62831000,
-   "finance_leases": 37355000,
    "net_income": 190610000,
    "operating_cash_flow": 11837000,
    "revenue": 2606572000,
@@ -7136,18 +7082,17 @@
     },
     "total_debt": {
      "filed": "2020-10-22",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "UnsecuredDebt"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 529264000
+      "UnsecuredDebt": 910000000
      }
     }
    },
    "start": "2020-06-28",
    "stock_comp": 12500000,
-   "total_debt": 529264000
+   "total_debt": 910000000
   },
   {
    "capex": 132710000,

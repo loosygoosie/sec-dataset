@@ -723,8 +723,8 @@
    "retained_earnings": 3829068000,
    "retained_earnings_as_filed": 3829068000,
    "retained_earnings_as_filed_filed": "2020-02-27",
-   "revenue": 6462376000,
-   "revenue_as_filed": 6462376000,
+   "revenue": 446000,
+   "revenue_as_filed": 446000,
    "revenue_as_filed_filed": "2020-02-27",
    "revenue_filed": "2020-02-27",
    "sga_expense": 974850000,
@@ -810,8 +810,8 @@
    "retained_earnings": -295449000,
    "retained_earnings_as_filed": -295449000,
    "retained_earnings_as_filed_filed": "2021-02-26",
-   "revenue": 1279908000,
-   "revenue_as_filed": 1279908000,
+   "revenue": 173000,
+   "revenue_as_filed": 173000,
    "revenue_as_filed_filed": "2021-02-26",
    "revenue_filed": "2021-02-26",
    "sga_expense": 745345000,
@@ -2733,7 +2733,7 @@
    "finance_leases": 15231000,
    "net_income": 930228000,
    "operating_cash_flow": 1822605000,
-   "revenue": 6462376000,
+   "revenue": 446000,
    "shares_diluted": 216475076,
    "src": {
     "capex": {
@@ -2770,7 +2770,7 @@
      "accn": "0001558370-20-001661",
      "filed": "2020-02-27",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
+     "tag": "OperatingLeaseLeaseIncome"
     },
     "shares_diluted": {
      "accn": "0001558370-20-001661",
@@ -2812,7 +2812,7 @@
    "finance_leases": 9791000,
    "net_income": -4012514000,
    "operating_cash_flow": -2556243000,
-   "revenue": 1279908000,
+   "revenue": 173000,
    "shares_diluted": 254728932,
    "src": {
     "capex": {
@@ -2849,7 +2849,7 @@
      "accn": "0001558370-21-001998",
      "filed": "2021-02-26",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
+     "tag": "OperatingLeaseLeaseIncome"
     },
     "shares_diluted": {
      "accn": "0001558370-21-001998",
@@ -3278,7 +3278,22 @@
    "total_debt": 14606176000
   }
  ],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "revenue",
+   "old": 6462376000,
+   "period": "2019-12-31",
+   "rows": "annual",
+   "v2": 446000
+  },
+  {
+   "field": "revenue",
+   "old": 1279908000,
+   "period": "2020-12-31",
+   "rows": "annual",
+   "v2": 173000
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
   {
@@ -5444,7 +5459,7 @@
    "finance_leases": 16789000,
    "net_income": 118157000,
    "operating_cash_flow": 527470000,
-   "revenue": 1403630000,
+   "revenue": 165000,
    "shares_diluted": 218873272,
    "src": {
     "capex": {
@@ -5483,7 +5498,7 @@
      "accn": "0001144204-19-025197",
      "filed": "2019-05-10",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
+     "tag": "OperatingLeaseLeaseIncome"
     },
     "shares_diluted": {
      "accn": "0001144204-19-025197",
@@ -5525,7 +5540,7 @@
    "finance_leases": 16833000,
    "net_income": 240190000,
    "operating_cash_flow": 513751000,
-   "revenue": 1664277000,
+   "revenue": 81000,
    "shares_diluted": 216810766,
    "src": {
     "capex": {
@@ -5564,7 +5579,7 @@
      "accn": "0001558370-19-007736",
      "filed": "2019-08-08",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
+     "tag": "OperatingLeaseLeaseIncome"
     },
     "shares_diluted": {
      "accn": "0001558370-19-007736",
@@ -5606,7 +5621,7 @@
    "finance_leases": 15850000,
    "net_income": 450584000,
    "operating_cash_flow": 405821000,
-   "revenue": 1913851000,
+   "revenue": 65000,
    "shares_diluted": 215499462,
    "src": {
     "capex": {
@@ -5645,7 +5660,7 @@
      "accn": "0001558370-19-010568",
      "filed": "2019-11-08",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
+     "tag": "OperatingLeaseLeaseIncome"
     },
     "shares_diluted": {
      "accn": "0001558370-19-010568",
@@ -5688,7 +5703,7 @@
    "finance_leases": 15231000,
    "net_income": 121297000,
    "operating_cash_flow": 375563000,
-   "revenue": 1480618000,
+   "revenue": 135000,
    "src": {
     "capex": {
      "accn": "0001558370-20-001661",
@@ -5724,9 +5739,10 @@
     },
     "revenue": {
      "accn": "0001558370-20-001661",
+     "derived": true,
      "filed": "2020-02-27",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
+     "tag": "OperatingLeaseLeaseIncome"
     },
     "stock_comp": {
      "accn": "0001558370-20-001661",
@@ -7854,6 +7870,7 @@
    "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
   ],
   "revenue": [
+   "OperatingLeaseLeaseIncome",
    "RevenueFromContractWithCustomerIncludingAssessedTax",
    "Revenues"
   ],

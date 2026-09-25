@@ -1248,10 +1248,10 @@
    "buybacks_as_filed": 2580000,
    "buybacks_as_filed_filed": "2025-03-06",
    "buybacks_filed": "2026-03-05",
-   "capex": 13684000,
-   "capex_as_filed": 13684000,
-   "capex_as_filed_filed": "2025-03-06",
-   "capex_filed": "2025-03-06",
+   "capex": 23193000,
+   "capex_as_filed": 23193000,
+   "capex_as_filed_filed": "2026-03-05",
+   "capex_filed": "2026-03-05",
    "cash": 66479000,
    "cash_as_filed": 66479000,
    "cash_as_filed_filed": "2025-03-06",
@@ -1344,8 +1344,8 @@
    "buybacks_as_filed": 23753000,
    "buybacks_as_filed_filed": "2026-03-05",
    "buybacks_filed": "2026-03-05",
-   "capex": 21015000,
-   "capex_as_filed": 21015000,
+   "capex": 40495000,
+   "capex_as_filed": 40495000,
    "capex_as_filed_filed": "2026-03-05",
    "capex_filed": "2026-03-05",
    "cash": 61753000,
@@ -1511,15 +1511,21 @@
   "latest_quarter_end": "2026-06-30",
   "quarter_age_days": 87,
   "reconciled_fy": 2025,
-  "reconciles": "ok",
+  "reconciles": "off:capex",
   "revenue": "ok",
   "share_scale": "ok",
   "shares": "ok"
  },
  "cik": 703604,
  "fiscal_year_end": "1231",
- "flags": [],
- "instances_merged": [],
+ "flags": [
+  "quarters_off_year_capex_2024-12-31",
+  "quarters_off_year_capex_2025-12-31"
+ ],
+ "instances_merged": [
+  "0000703604-26-000008",
+  "0000703604-26-000041"
+ ],
  "latest_filing": {
   "accn": "0000703604-26-000041",
   "filed": "2026-08-06",
@@ -1548,7 +1554,6 @@
   {
    "acquisitions": 0,
    "capex": 3384000,
-   "capex_filed": "2023-11-02",
    "cash": 80456000,
    "current_assets": 689577000,
    "current_liabilities": 249907000,
@@ -1596,7 +1601,6 @@
   {
    "acquisitions": 7828000,
    "capex": 4157000,
-   "capex_filed": "2024-03-07",
    "cash": 83931000,
    "current_assets": 657330000,
    "current_liabilities": 242015000,
@@ -1645,7 +1649,6 @@
    "acquisitions": 13145000,
    "buybacks": 0,
    "capex": 2454000,
-   "capex_filed": "2024-05-02",
    "cash": 73097000,
    "current_assets": 655057000,
    "current_liabilities": 240490000,
@@ -1697,7 +1700,6 @@
    "acquisitions": 82292000,
    "buybacks": 1683000,
    "capex": 3375000,
-   "capex_filed": "2024-08-01",
    "cash": 46786000,
    "current_assets": 660356000,
    "current_liabilities": 264544000,
@@ -1749,7 +1751,6 @@
    "acquisitions": 98956000,
    "buybacks": 897000,
    "capex": 3262000,
-   "capex_filed": "2024-10-31",
    "cash": 61344000,
    "current_assets": 770712000,
    "current_liabilities": 274107000,
@@ -1801,7 +1802,6 @@
    "acquisitions": 5030000,
    "buybacks": 0,
    "capex": 4593000,
-   "capex_filed": "2025-03-06",
    "cash": 66479000,
    "current_assets": 712174000,
    "current_liabilities": 266261000,
@@ -1853,7 +1853,6 @@
    "acquisitions": 0,
    "buybacks": 11203000,
    "capex": 5646000,
-   "capex_filed": "2025-05-01",
    "cash": 65442000,
    "current_assets": 744802000,
    "current_liabilities": 272238000,
@@ -1905,7 +1904,6 @@
    "acquisitions": 1426000,
    "buybacks": 9053000,
    "capex": 4643000,
-   "capex_filed": "2025-07-31",
    "cash": 47430000,
    "current_assets": 740906000,
    "current_liabilities": 286300000,
@@ -1957,7 +1955,6 @@
    "acquisitions": 750000,
    "buybacks": -4000,
    "capex": 5507000,
-   "capex_filed": "2025-10-30",
    "cash": 69214000,
    "current_assets": 766392000,
    "current_liabilities": 305963000,
@@ -2009,7 +2006,6 @@
    "acquisitions": 0,
    "buybacks": 3501000,
    "capex": 5219000,
-   "capex_filed": "2026-03-05",
    "cash": 61753000,
    "current_assets": 746924000,
    "current_liabilities": 291465000,
@@ -2059,7 +2055,6 @@
   {
    "acquisitions": 16241000,
    "capex": 3364000,
-   "capex_filed": "2026-04-30",
    "cash": 52729000,
    "current_assets": 790908000,
    "current_liabilities": 301094000,
@@ -2109,7 +2104,6 @@
   {
    "acquisitions": 295000,
    "capex": 5539000,
-   "capex_filed": "2026-08-06",
    "cash": 66938000,
    "current_assets": 831801000,
    "current_liabilities": 326853000,
@@ -3344,14 +3338,14 @@
    "total_debt": 568432000
   },
   {
-   "capex": 13684000,
+   "capex": 23193000,
    "cash": 66479000,
    "cash_and_sti": 66479000,
    "debt_current": 40476000,
    "debt_noncurrent": 693903000,
    "end": "2024-12-31",
    "equity": 640543000,
-   "fcf": 42769000,
+   "fcf": 33260000,
    "finance_leases": 1537000,
    "net_income": -7332000,
    "operating_cash_flow": 56453000,
@@ -3360,9 +3354,10 @@
    "src": {
     "capex": {
      "accn": "0000703604-25-000012",
-     "filed": "2025-03-06",
+     "filed": "2026-03-05",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment+ext:PaymentsToAcquireRentalEquipment"
     },
     "cash": {
      "accn": "0000703604-25-000012",
@@ -3425,14 +3420,14 @@
    "total_debt": 734379000
   },
   {
-   "capex": 21015000,
+   "capex": 40495000,
    "cash": 61753000,
    "cash_and_sti": 61753000,
    "debt_current": 35470000,
    "debt_noncurrent": 664196000,
    "end": "2025-12-31",
    "equity": 649347000,
-   "fcf": 62834000,
+   "fcf": 43354000,
    "finance_leases": 1393000,
    "net_income": 8345000,
    "operating_cash_flow": 83849000,
@@ -3443,7 +3438,8 @@
      "accn": "0000703604-26-000008",
      "filed": "2026-03-05",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment+ext:PaymentsToAcquireRentalEquipment"
     },
     "cash": {
      "accn": "0000703604-26-000008",
@@ -3527,11 +3523,25 @@
    "v2": 568432000
   },
   {
+   "field": "capex",
+   "old": 13684000,
+   "period": "2024-12-31",
+   "rows": "annual",
+   "v2": 23193000
+  },
+  {
    "field": "total_debt",
    "old": 739851000,
    "period": "2024-12-31",
    "rows": "annual",
    "v2": 734379000
+  },
+  {
+   "field": "capex",
+   "old": 21015000,
+   "period": "2025-12-31",
+   "rows": "annual",
+   "v2": 40495000
   },
   {
    "field": "total_debt",
@@ -3625,7 +3635,9 @@
    "v2": 729498000
   }
  ],
- "v2_notes": [],
+ "v2_notes": [
+  "v2 quarterly capex not used: its quarters did not add up to the year"
+ ],
  "v2_quarterly": [
   {
    "cash": 8616000,
@@ -8030,7 +8042,8 @@
  ],
  "v2_tags_used": {
   "capex": [
-   "PaymentsToAcquirePropertyPlantAndEquipment"
+   "PaymentsToAcquirePropertyPlantAndEquipment",
+   "PaymentsToAcquirePropertyPlantAndEquipment+ext:PaymentsToAcquireRentalEquipment"
   ],
   "net_income": [
    "NetIncomeLoss"

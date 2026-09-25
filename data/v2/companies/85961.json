@@ -423,7 +423,7 @@
    "capex": 2122628000,
    "capex_as_filed": 2140464000,
    "capex_as_filed_filed": "2014-02-14",
-   "capex_filed": "2015-08-07",
+   "capex_filed": "2016-02-12",
    "cash": 61562000,
    "cash_as_filed": 61562000,
    "cash_as_filed_filed": "2014-02-14",
@@ -1791,7 +1791,11 @@
  },
  "cik": 85961,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "revenue_unverified_2024-12-31",
+  "revenue_unverified_2023-12-31",
+  "revenue_unverified_2025-12-31"
+ ],
  "instances_merged": [],
  "latest_filing": {
   "accn": "0001628280-26-049417",
@@ -2821,9 +2825,9 @@
    "debt_noncurrent": 3452821000,
    "end": "2012-12-31",
    "equity": 1467255000,
-   "fcf": -973060000,
-   "net_income": 209748000,
-   "operating_cash_flow": 1160175000,
+   "fcf": -999111000,
+   "net_income": 209979000,
+   "operating_cash_flow": 1134124000,
    "revenue": 6256967000,
    "shares_diluted": 50740000,
    "src": {
@@ -2848,19 +2852,15 @@
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0000085961-15-000052",
-     "filed": "2015-08-07",
-     "first_filed": "2013-02-14",
-     "first_val": 209979000,
-     "form": "10-Q",
+     "accn": "0000085961-13-000007",
+     "filed": "2013-02-14",
+     "form": "10-K",
      "tag": "NetIncomeLoss"
     },
     "operating_cash_flow": {
-     "accn": "0000085961-15-000052",
-     "filed": "2015-08-07",
-     "first_filed": "2013-02-14",
-     "first_val": 1134124000,
-     "form": "10-Q",
+     "accn": "0000085961-13-000007",
+     "filed": "2013-02-14",
+     "form": "10-K",
      "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
     },
     "revenue": {
@@ -2912,11 +2912,11 @@
    "shares_diluted": 52071000,
    "src": {
     "capex": {
-     "accn": "0000085961-15-000052",
-     "filed": "2015-08-07",
+     "accn": "0000085961-16-000079",
+     "filed": "2016-02-12",
      "first_filed": "2014-02-14",
      "first_val": 2140464000,
-     "form": "10-Q",
+     "form": "10-K",
      "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
@@ -2934,19 +2934,19 @@
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0000085961-15-000052",
-     "filed": "2015-08-07",
+     "accn": "0000085961-16-000079",
+     "filed": "2016-02-12",
      "first_filed": "2014-02-14",
      "first_val": 237792000,
-     "form": "10-Q",
+     "form": "10-K",
      "tag": "NetIncomeLoss"
     },
     "operating_cash_flow": {
-     "accn": "0000085961-15-000052",
-     "filed": "2015-08-07",
+     "accn": "0000085961-16-000079",
+     "filed": "2016-02-12",
      "first_filed": "2014-02-14",
      "first_val": 1223082000,
-     "form": "10-Q",
+     "form": "10-K",
      "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
     },
     "revenue": {
@@ -3018,19 +3018,19 @@
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0000085961-15-000052",
-     "filed": "2015-08-07",
+     "accn": "0000085961-16-000079",
+     "filed": "2016-02-12",
      "first_filed": "2015-02-13",
      "first_val": 218575000,
-     "form": "10-Q",
+     "form": "10-K",
      "tag": "NetIncomeLoss"
     },
     "operating_cash_flow": {
-     "accn": "0000085961-15-000052",
-     "filed": "2015-08-07",
+     "accn": "0000085961-16-000079",
+     "filed": "2016-02-12",
      "first_filed": "2015-02-13",
      "first_val": 1369991000,
-     "form": "10-Q",
+     "form": "10-K",
      "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
     },
     "revenue": {
@@ -5154,9 +5154,9 @@
    "debt_noncurrent": 3452821000,
    "end": "2012-12-31",
    "equity": 1467255000,
-   "fcf": -45763000,
+   "fcf": -71814000,
    "net_income": 53844000,
-   "operating_cash_flow": 392650000,
+   "operating_cash_flow": 366599000,
    "revenue": 1583536000,
    "src": {
     "capex": {
@@ -5187,10 +5187,10 @@
      "tag": "NetIncomeLoss"
     },
     "operating_cash_flow": {
-     "accn": "0000085961-15-000052",
+     "accn": "0000085961-13-000007",
      "derived": true,
-     "filed": "2015-08-07",
-     "form": "10-Q",
+     "filed": "2013-02-14",
+     "form": "10-K",
      "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
     },
     "revenue": {
@@ -5476,10 +5476,10 @@
    "revenue": 1617729000,
    "src": {
     "capex": {
-     "accn": "0000085961-15-000052",
+     "accn": "0000085961-16-000079",
      "derived": true,
-     "filed": "2015-08-07",
-     "form": "10-Q",
+     "filed": "2016-02-12",
+     "form": "10-K",
      "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
@@ -5503,10 +5503,10 @@
      "tag": "NetIncomeLoss"
     },
     "operating_cash_flow": {
-     "accn": "0000085961-15-000052",
+     "accn": "0000085961-16-000079",
      "derived": true,
-     "filed": "2015-08-07",
-     "form": "10-Q",
+     "filed": "2016-02-12",
+     "form": "10-K",
      "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
     },
     "revenue": {
@@ -5827,10 +5827,10 @@
      "tag": "NetIncomeLoss"
     },
     "operating_cash_flow": {
-     "accn": "0000085961-15-000052",
+     "accn": "0000085961-16-000079",
      "derived": true,
-     "filed": "2015-08-07",
-     "form": "10-Q",
+     "filed": "2016-02-12",
+     "form": "10-K",
      "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
     },
     "revenue": {

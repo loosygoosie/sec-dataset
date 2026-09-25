@@ -803,6 +803,22 @@
    "total_liabilities": 6466606000
   },
   {
+   "added_by": "v2",
+   "fiscal_year": 2020,
+   "form": "10-K",
+   "period_end": "2020-06-30",
+   "revenue": 1300000,
+   "revenue_filed": "2019-07-26"
+  },
+  {
+   "added_by": "v2",
+   "fiscal_year": 2020,
+   "form": "10-K",
+   "period_end": "2020-09-30",
+   "revenue": 1300000,
+   "revenue_filed": "2019-10-25"
+  },
+  {
    "acquisitions": -62114000,
    "buybacks": 15347000,
    "buybacks_as_filed": 15347000,
@@ -1330,7 +1346,7 @@
   "reconciles": "ok",
   "revenue": "ok",
   "share_scale": "ok",
-  "shares": "ok"
+  "shares": "annual-gaps:2"
  },
  "cik": 1025835,
  "fiscal_year_end": "1231",
@@ -2653,6 +2669,62 @@
    "stock_comp": 4032000
   },
   {
+   "cash": 348727000,
+   "cash_and_sti": 348727000,
+   "end": "2020-06-30",
+   "equity": 867963000,
+   "revenue": 1300000,
+   "src": {
+    "cash": {
+     "accn": "0001025835-20-000053",
+     "filed": "2020-07-24",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001025835-20-000053",
+     "filed": "2020-07-24",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "revenue": {
+     "accn": "0001025835-19-000076",
+     "filed": "2019-07-26",
+     "form": "10-Q",
+     "tag": "OperatingLeaseLeaseIncome"
+    }
+   },
+   "start": "2019-07-01"
+  },
+  {
+   "cash": 392215000,
+   "cash_and_sti": 392215000,
+   "end": "2020-09-30",
+   "equity": 882267000,
+   "revenue": 1300000,
+   "src": {
+    "cash": {
+     "accn": "0001025835-20-000095",
+     "filed": "2020-10-23",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001025835-20-000095",
+     "filed": "2020-10-23",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "revenue": {
+     "accn": "0001025835-19-000087",
+     "filed": "2019-10-25",
+     "form": "10-Q",
+     "tag": "OperatingLeaseLeaseIncome"
+    }
+   },
+   "start": "2019-10-01"
+  },
+  {
    "capex": 2259000,
    "cash": 537703000,
    "cash_and_sti": 537703000,
@@ -3114,6 +3186,20 @@
    "period": "2019-12-31",
    "rows": "annual",
    "v2": 287893000
+  },
+  {
+   "field": "revenue",
+   "old": null,
+   "period": "2020-06-30",
+   "rows": "annual",
+   "v2": 1300000
+  },
+  {
+   "field": "revenue",
+   "old": null,
+   "period": "2020-09-30",
+   "rows": "annual",
+   "v2": 1300000
   },
   {
    "field": "revenue",
@@ -7437,7 +7523,8 @@
    "NetCashProvidedByUsedInOperatingActivities"
   ],
   "revenue": [
-   "InterestIncomeExpenseNet+NoninterestIncome"
+   "InterestIncomeExpenseNet+NoninterestIncome",
+   "OperatingLeaseLeaseIncome"
   ],
   "shares_diluted": [
    "WeightedAverageNumberOfDilutedSharesOutstanding"

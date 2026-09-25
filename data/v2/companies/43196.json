@@ -1752,7 +1752,8 @@
    "filed": "2024-08-08",
    "form": "10-Q",
    "period_end": "2024-07-02",
-   "revenue": 9000000
+   "revenue": 9000000,
+   "revenue_filed": "2024-08-08"
   },
   {
    "acquisitions": 0,
@@ -3340,6 +3341,7 @@
      "accn": "0001437749-23-004505",
      "filed": "2023-02-24",
      "form": "10-K",
+     "note": "income-statement tie-out",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
     },
     "shares_diluted": {
@@ -3418,6 +3420,7 @@
      "accn": "0001437749-24-005295",
      "filed": "2024-02-23",
      "form": "10-K",
+     "note": "income-statement tie-out",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
     },
     "shares_diluted": {
@@ -3496,6 +3499,7 @@
      "accn": "0001437749-25-005406",
      "filed": "2025-02-27",
      "form": "10-K",
+     "note": "income-statement tie-out",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
     },
     "shares_diluted": {
@@ -3574,6 +3578,7 @@
      "accn": "0001437749-26-005803",
      "filed": "2026-02-26",
      "form": "10-K",
+     "note": "income-statement tie-out",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
     },
     "shares_diluted": {
@@ -8199,6 +8204,19 @@
    "total_debt": 6138000000
   },
   {
+   "end": "2024-07-02",
+   "revenue": 9000000,
+   "src": {
+    "revenue": {
+     "accn": "0001437749-24-025410",
+     "filed": "2024-08-08",
+     "form": "10-Q",
+     "tag": "OperatingLeaseLeaseIncome"
+    }
+   },
+   "start": "2024-04-01"
+  },
+  {
    "capex": 40000000,
    "cash": 69000000,
    "cash_and_sti": 69000000,
@@ -8842,6 +8860,7 @@
    "NetCashProvidedByUsedInOperatingActivities"
   ],
   "revenue": [
+   "OperatingLeaseLeaseIncome",
    "RevenueFromContractWithCustomerExcludingAssessedTax",
    "SalesRevenueNet"
   ],

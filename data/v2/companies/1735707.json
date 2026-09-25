@@ -3458,7 +3458,6 @@
    "capex": 16000000,
    "cash": 312000000,
    "cash_and_sti": 312000000,
-   "debt_noncurrent": 1045000000,
    "end": "2020-09-30",
    "equity": -2196000000,
    "fcf": -57000000,
@@ -3520,18 +3519,19 @@
     },
     "total_debt": {
      "filed": "2020-11-02",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "SeniorNotes",
+      "SecuredDebt"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 1045000000
+      "SecuredDebt": 1415000000,
+      "SeniorNotes": 407000000
      }
     }
    },
    "start": "2020-07-01",
    "stock_comp": 2000000,
-   "total_debt": 1045000000
+   "total_debt": 1822000000
   },
   {
    "capex": 1000000,

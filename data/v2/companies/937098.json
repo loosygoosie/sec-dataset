@@ -915,6 +915,7 @@
    "current_liabilities_as_filed": 1988000000,
    "current_liabilities_as_filed_filed": "2023-02-15",
    "d_and_a": 10000000,
+   "debt_current": 0,
    "dividends_paid": 0,
    "dividends_paid_as_filed": 0,
    "dividends_paid_as_filed_filed": "2025-02-13",
@@ -2869,6 +2870,7 @@
    "capex": 56000000,
    "cash": 354000000,
    "cash_and_sti": 430000000,
+   "debt_current": 0,
    "debt_noncurrent": 496000000,
    "end": "2022-12-31",
    "equity": 775000000,
@@ -2937,12 +2939,13 @@
     },
     "total_debt": {
      "filed": "2023-02-15",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "LongTermDebtNoncurrent",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 496000000
+      "LongTermDebtNoncurrent": 496000000,
+      "NotesPayableCurrent": 0
      }
     }
    },
@@ -3258,6 +3261,13 @@
    "period": "2022-12-31",
    "rows": "annual",
    "v2": 4885000000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2022-12-31",
+   "rows": "annual",
+   "v2": 0
   },
   {
    "field": "revenue",
@@ -4830,6 +4840,7 @@
    "capex": 12000000,
    "cash": 330000000,
    "cash_and_sti": 330000000,
+   "debt_current": 43000000,
    "debt_noncurrent": 370000000,
    "end": "2018-03-31",
    "equity": 262000000,
@@ -4889,23 +4900,25 @@
     },
     "total_debt": {
      "filed": "2018-04-30",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 370000000
+      "LongTermNotesPayable": 370000000,
+      "NotesPayableCurrent": 43000000
      }
     }
    },
    "start": "2018-01-01",
    "stock_comp": 9000000,
-   "total_debt": 370000000
+   "total_debt": 413000000
   },
   {
    "capex": 14000000,
    "cash": 202000000,
    "cash_and_sti": 231000000,
+   "debt_current": 21000000,
    "debt_noncurrent": 402000000,
    "end": "2018-06-30",
    "equity": 309000000,
@@ -4975,23 +4988,25 @@
     },
     "total_debt": {
      "filed": "2018-07-30",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 402000000
+      "LongTermNotesPayable": 402000000,
+      "NotesPayableCurrent": 21000000
      }
     }
    },
    "start": "2018-04-01",
    "stock_comp": 10000000,
-   "total_debt": 402000000
+   "total_debt": 423000000
   },
   {
    "capex": 7000000,
    "cash": 237000000,
    "cash_and_sti": 275000000,
+   "debt_current": 22000000,
    "debt_noncurrent": 396000000,
    "end": "2018-09-30",
    "equity": 350000000,
@@ -5061,18 +5076,19 @@
     },
     "total_debt": {
      "filed": "2018-10-29",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 396000000
+      "LongTermNotesPayable": 396000000,
+      "NotesPayableCurrent": 22000000
      }
     }
    },
    "start": "2018-07-01",
    "stock_comp": 12000000,
-   "total_debt": 396000000
+   "total_debt": 418000000
   },
   {
    "capex": 10000000,
@@ -5576,9 +5592,11 @@
      "filed": "2020-04-28",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 620000000,
       "LongTermDebtCurrent": 22000000,
       "LongTermDebtNoncurrent": 364000000
      }
@@ -5586,7 +5604,7 @@
    },
    "start": "2020-01-01",
    "stock_comp": 9000000,
-   "total_debt": 386000000
+   "total_debt": 620000000
   },
   {
    "capex": 12000000,
@@ -6450,6 +6468,7 @@
    "capex": 17000000,
    "cash": 354000000,
    "cash_and_sti": 430000000,
+   "debt_current": 0,
    "debt_noncurrent": 496000000,
    "end": "2022-12-31",
    "equity": 775000000,
@@ -6514,12 +6533,13 @@
     },
     "total_debt": {
      "filed": "2023-02-15",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "LongTermDebtNoncurrent",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 496000000
+      "LongTermDebtNoncurrent": 496000000,
+      "NotesPayableCurrent": 0
      }
     }
    },

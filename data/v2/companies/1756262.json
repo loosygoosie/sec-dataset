@@ -64,8 +64,8 @@
    "retained_earnings": -335936000,
    "retained_earnings_as_filed": -335936000,
    "retained_earnings_as_filed_filed": "2019-06-12",
-   "revenue": 14657000,
-   "revenue_as_filed": 14657000,
+   "revenue": 13017000,
+   "revenue_as_filed": 13017000,
    "revenue_as_filed_filed": "2020-03-17",
    "revenue_filed": "2020-03-17",
    "sga_expense": 12315000,
@@ -145,8 +145,8 @@
    "retained_earnings": -369483000,
    "retained_earnings_as_filed": -369483000,
    "retained_earnings_as_filed_filed": "2020-03-17",
-   "revenue": 25844000,
-   "revenue_as_filed": 25844000,
+   "revenue": 23604000,
+   "revenue_as_filed": 23604000,
    "revenue_as_filed_filed": "2020-03-17",
    "revenue_filed": "2020-03-17",
    "sga_expense": 23596000,
@@ -228,8 +228,8 @@
    "retained_earnings": -398231000,
    "retained_earnings_as_filed": -398231000,
    "retained_earnings_as_filed_filed": "2021-03-11",
-   "revenue": 28356000,
-   "revenue_as_filed": 28356000,
+   "revenue": 25639000,
+   "revenue_as_filed": 25639000,
    "revenue_as_filed_filed": "2021-03-11",
    "revenue_filed": "2021-03-11",
    "sga_expense": 24188000,
@@ -308,8 +308,8 @@
    "retained_earnings": -442446000,
    "retained_earnings_as_filed": -442446000,
    "retained_earnings_as_filed_filed": "2022-03-01",
-   "revenue": 31385000,
-   "revenue_as_filed": 31385000,
+   "revenue": 30262000,
+   "revenue_as_filed": 30262000,
    "revenue_as_filed_filed": "2022-03-01",
    "revenue_filed": "2022-03-01",
    "sga_expense": 38283000,
@@ -1497,7 +1497,7 @@
    "fcf": -26402000,
    "net_income": -23756000,
    "operating_cash_flow": -25984000,
-   "revenue": 14657000,
+   "revenue": 13017000,
    "shares_diluted": 1358694,
    "src": {
     "capex": {
@@ -1534,7 +1534,8 @@
      "accn": "0001564590-20-011409",
      "filed": "2020-03-17",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "note": "income-statement tie-out",
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001564590-20-011409",
@@ -1573,7 +1574,7 @@
    "fcf": -32451000,
    "net_income": -33547000,
    "operating_cash_flow": -32286000,
-   "revenue": 25844000,
+   "revenue": 23604000,
    "shares_diluted": 14204787,
    "short_term_investments": 60596000,
    "src": {
@@ -1611,7 +1612,8 @@
      "accn": "0001564590-20-011409",
      "filed": "2020-03-17",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "note": "income-statement tie-out",
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001564590-20-011409",
@@ -1656,7 +1658,7 @@
    "fcf": -30720000,
    "net_income": -28748000,
    "operating_cash_flow": -30265000,
-   "revenue": 28356000,
+   "revenue": 25639000,
    "shares_diluted": 24702764,
    "short_term_investments": 101061000,
    "src": {
@@ -1694,7 +1696,8 @@
      "accn": "0001564590-21-012527",
      "filed": "2021-03-11",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "note": "income-statement tie-out",
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001564590-22-008045",
@@ -1725,7 +1728,7 @@
      }
     }
    },
-   "start": "2019-12-29",
+   "start": "2020-01-01",
    "stock_comp": 2414000,
    "total_debt": 34657000
   },
@@ -1739,7 +1742,7 @@
    "fcf": -32383000,
    "net_income": -44215000,
    "operating_cash_flow": -28864000,
-   "revenue": 31385000,
+   "revenue": 30262000,
    "shares_diluted": 27616839,
    "short_term_investments": 66872000,
    "src": {
@@ -1777,7 +1780,8 @@
      "accn": "0001564590-22-008045",
      "filed": "2022-03-01",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "note": "income-statement tie-out",
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001564590-22-008045",
@@ -2121,25 +2125,11 @@
  ],
  "v2_fixes": [
   {
-   "field": "revenue",
-   "old": 13017000,
-   "period": "2018-12-29",
-   "rows": "annual",
-   "v2": 14657000
-  },
-  {
    "field": "total_debt",
    "old": 35000000,
    "period": "2018-12-29",
    "rows": "annual",
    "v2": 33670000
-  },
-  {
-   "field": "revenue",
-   "old": 23604000,
-   "period": "2019-12-28",
-   "rows": "annual",
-   "v2": 25844000
   },
   {
    "field": "total_debt",
@@ -2149,25 +2139,11 @@
    "v2": 34146000
   },
   {
-   "field": "revenue",
-   "old": 25639000,
-   "period": "2020-12-31",
-   "rows": "annual",
-   "v2": 28356000
-  },
-  {
    "field": "total_debt",
    "old": 35000000,
    "period": "2020-12-31",
    "rows": "annual",
    "v2": 34657000
-  },
-  {
-   "field": "revenue",
-   "old": 30262000,
-   "period": "2021-12-31",
-   "rows": "annual",
-   "v2": 31385000
   },
   {
    "field": "total_debt",
@@ -2405,7 +2381,7 @@
    "fcf": -6371000,
    "net_income": -4901000,
    "operating_cash_flow": -6331000,
-   "revenue": 2756000,
+   "revenue": 2519000,
    "shares_diluted": 1358694,
    "src": {
     "capex": {
@@ -2442,7 +2418,7 @@
      "accn": "0001193125-19-171334",
      "filed": "2019-06-12",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001193125-19-171334",
@@ -2469,7 +2445,7 @@
    "fcf": -7469000,
    "net_income": -6115000,
    "operating_cash_flow": -7469000,
-   "revenue": 3264000,
+   "revenue": 2915000,
    "shares_diluted": 1338880,
    "src": {
     "capex": {
@@ -2508,7 +2484,7 @@
      "accn": "0001564590-19-030749",
      "filed": "2019-08-08",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001564590-19-042294",
@@ -2538,7 +2514,7 @@
    "fcf": -6308000,
    "net_income": -5105000,
    "operating_cash_flow": -6064000,
-   "revenue": 4755000,
+   "revenue": 4039000,
    "shares_diluted": 1368260,
    "src": {
     "capex": {
@@ -2577,7 +2553,7 @@
      "accn": "0001564590-19-042294",
      "filed": "2019-11-08",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001564590-19-042294",
@@ -2606,7 +2582,7 @@
    "fcf": -6254000,
    "net_income": -7635000,
    "operating_cash_flow": -6120000,
-   "revenue": 3881000,
+   "revenue": 3544000,
    "src": {
     "capex": {
      "accn": "0001564590-20-011409",
@@ -2642,10 +2618,9 @@
     },
     "revenue": {
      "accn": "0001564590-20-011409",
-     "derived": true,
      "filed": "2020-03-17",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "stock_comp": {
      "accn": "0001564590-20-011409",
@@ -2699,7 +2674,7 @@
    "fcf": -7269000,
    "net_income": -6895000,
    "operating_cash_flow": -7266000,
-   "revenue": 5290000,
+   "revenue": 4676000,
    "shares_diluted": 1418353,
    "src": {
     "capex": {
@@ -2736,7 +2711,7 @@
      "accn": "0001193125-19-171334",
      "filed": "2019-06-12",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001193125-19-171334",
@@ -2775,7 +2750,7 @@
    "fcf": -12307000,
    "net_income": -9195000,
    "operating_cash_flow": -12159000,
-   "revenue": 6215000,
+   "revenue": 5666000,
    "shares_diluted": 13133834,
    "short_term_investments": 48995000,
    "src": {
@@ -2815,7 +2790,7 @@
      "accn": "0001564590-19-030749",
      "filed": "2019-08-08",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001564590-19-030749",
@@ -2861,7 +2836,7 @@
    "fcf": -5630000,
    "net_income": -8280000,
    "operating_cash_flow": -5597000,
-   "revenue": 7876000,
+   "revenue": 7205000,
    "shares_diluted": 21131618,
    "short_term_investments": 67865000,
    "src": {
@@ -2901,7 +2876,7 @@
      "accn": "0001564590-19-042294",
      "filed": "2019-11-08",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001564590-19-042294",
@@ -2947,7 +2922,7 @@
    "fcf": -7245000,
    "net_income": -9177000,
    "operating_cash_flow": -7264000,
-   "revenue": 6463000,
+   "revenue": 6057000,
    "short_term_investments": 60596000,
    "src": {
     "capex": {
@@ -2984,10 +2959,9 @@
     },
     "revenue": {
      "accn": "0001564590-20-011409",
-     "derived": true,
-     "filed": "2020-11-06",
+     "filed": "2020-03-17",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "short_term_investments": {
      "accn": "0001564590-20-011409",
@@ -3113,7 +3087,7 @@
    "fcf": -8659000,
    "net_income": -8497000,
    "operating_cash_flow": -8539000,
-   "revenue": 3923000,
+   "revenue": 3391000,
    "shares_diluted": 23330918,
    "short_term_investments": 88223000,
    "src": {
@@ -3153,7 +3127,7 @@
      "accn": "0001564590-20-038399",
      "filed": "2020-08-07",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001564590-21-042149",
@@ -3201,7 +3175,7 @@
    "fcf": -6468000,
    "net_income": -5088000,
    "operating_cash_flow": -6412000,
-   "revenue": 7973000,
+   "revenue": 7091000,
    "shares_diluted": 27156135,
    "short_term_investments": 111317000,
    "src": {
@@ -3241,7 +3215,7 @@
      "accn": "0001564590-20-051966",
      "filed": "2020-11-06",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001564590-21-055805",
@@ -3288,7 +3262,7 @@
    "fcf": -7140000,
    "net_income": -6311000,
    "operating_cash_flow": -7138000,
-   "revenue": 8217000,
+   "revenue": 7627000,
    "short_term_investments": 101061000,
    "src": {
     "capex": {
@@ -3325,10 +3299,9 @@
     },
     "revenue": {
      "accn": "0001564590-21-012527",
-     "derived": true,
      "filed": "2021-03-11",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "short_term_investments": {
      "accn": "0001564590-21-012527",
@@ -3369,7 +3342,7 @@
    "fcf": -7350000,
    "net_income": -7917000,
    "operating_cash_flow": -7330000,
-   "revenue": 7637000,
+   "revenue": 7053000,
    "shares_diluted": 27368090,
    "short_term_investments": 91386000,
    "src": {
@@ -3407,7 +3380,7 @@
      "accn": "0001564590-21-025261",
      "filed": "2021-05-07",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001564590-21-025261",
@@ -3453,7 +3426,7 @@
    "fcf": -5789000,
    "net_income": -10668000,
    "operating_cash_flow": -5536000,
-   "revenue": 8667000,
+   "revenue": 8171000,
    "shares_diluted": 27620764,
    "short_term_investments": 86935000,
    "src": {
@@ -3493,7 +3466,7 @@
      "accn": "0001564590-21-042149",
      "filed": "2021-08-06",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001564590-21-042149",
@@ -3539,7 +3512,7 @@
    "fcf": -9418000,
    "net_income": -12962000,
    "operating_cash_flow": -9350000,
-   "revenue": 5413000,
+   "revenue": 5370000,
    "shares_diluted": 27701252,
    "short_term_investments": 80360000,
    "src": {
@@ -3579,7 +3552,7 @@
      "accn": "0001564590-21-055805",
      "filed": "2021-11-09",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001564590-21-055805",
@@ -3666,7 +3639,7 @@
      "derived": true,
      "filed": "2022-03-01",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "short_term_investments": {
      "accn": "0001564590-22-008045",

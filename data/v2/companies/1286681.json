@@ -1357,10 +1357,10 @@
    "buybacks_as_filed": 329557000,
    "buybacks_as_filed_filed": "2025-02-24",
    "buybacks_filed": "2026-02-23",
-   "capex": 112885000,
-   "capex_as_filed": 112885000,
-   "capex_as_filed_filed": "2025-02-24",
-   "capex_filed": "2025-02-24",
+   "capex": 53700000,
+   "capex_as_filed": 53700000,
+   "capex_as_filed_filed": "2026-02-23",
+   "capex_filed": "2026-02-23",
    "cash": 186126000,
    "cash_as_filed": 186126000,
    "cash_as_filed_filed": "2025-02-24",
@@ -3508,14 +3508,14 @@
    "total_debt": 4990428000
   },
   {
-   "capex": 112885000,
+   "capex": 53700000,
    "cash": 186126000,
    "cash_and_sti": 186126000,
    "debt_current": 100000,
    "debt_noncurrent": 3825659000,
    "end": "2024-12-29",
    "equity": -3962291000,
-   "fcf": 512012000,
+   "fcf": 571197000,
    "finance_leases": 66058000,
    "net_income": 584170000,
    "operating_cash_flow": 624897000,
@@ -3523,10 +3523,11 @@
    "shares_diluted": 34991484,
    "src": {
     "capex": {
-     "accn": "0000950170-25-025223",
-     "filed": "2025-02-24",
+     "accn": "0001193125-26-062321",
+     "filed": "2026-02-23",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "ext:OtherCapitalExpendituresNotAttributableToReportableSegments"
     },
     "cash": {
      "accn": "0000950170-25-025223",
@@ -3667,6 +3668,13 @@
   }
  ],
  "v2_fixes": [
+  {
+   "field": "capex",
+   "old": 112885000,
+   "period": "2024-12-29",
+   "rows": "annual",
+   "v2": 53700000
+  },
   {
    "field": "total_debt",
    "old": 4975338000,
@@ -7632,7 +7640,8 @@
  "v2_tags_used": {
   "capex": [
    "PaymentsForCapitalImprovements",
-   "PaymentsToAcquirePropertyPlantAndEquipment"
+   "PaymentsToAcquirePropertyPlantAndEquipment",
+   "ext:OtherCapitalExpendituresNotAttributableToReportableSegments"
   ],
   "net_income": [
    "NetIncomeLoss"

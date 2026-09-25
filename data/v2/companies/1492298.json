@@ -55,10 +55,11 @@
    "total_assets": 749650000,
    "total_assets_as_filed": 749650000,
    "total_assets_as_filed_filed": "2012-03-01",
-   "total_debt": 225000000,
-   "total_debt_as_filed": 225000000,
-   "total_debt_as_filed_filed": "2012-03-01",
+   "total_debt": 378942000,
+   "total_debt_as_filed": 378942000,
+   "total_debt_as_filed_filed": "2013-03-14",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2013-03-14",
    "total_equity": 326573000,
    "total_equity_incl_nci": 326573000,
    "total_equity_parent": 326573000,
@@ -1154,6 +1155,9 @@
  "fiscal_year_end": "1231",
  "flags": [
   "no_capex",
+  "revenue_unverified_2024-12-31",
+  "revenue_unverified_2025-12-31",
+  "revenue_unverified_2023-12-31",
   "current_ltd_untagged_0.4B",
   "debt_one_side_only"
  ],
@@ -1850,10 +1854,22 @@
      "filed": "2012-03-01",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2013-03-14",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 153942000,
+      "UnsecuredDebt": 225000000
+     }
     }
    },
    "start": "2011-01-01",
-   "stock_comp": 4600000
+   "stock_comp": 4600000,
+   "total_debt": 378942000
   },
   {
    "cash": 17101000,
@@ -2822,6 +2838,13 @@
  ],
  "v2_fixes": [
   {
+   "field": "total_debt",
+   "old": 225000000,
+   "period": "2011-12-31",
+   "rows": "annual",
+   "v2": 378942000
+  },
+  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2012-12-31",
@@ -3269,10 +3292,22 @@
      "filed": "2012-05-08",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-08-03",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 159935000,
+      "UnsecuredDebt": 225000000
+     }
     }
    },
    "start": "2011-04-01",
-   "stock_comp": 1336000
+   "stock_comp": 1336000,
+   "total_debt": 384935000
   },
   {
    "cash": 56417000,
@@ -3327,10 +3362,22 @@
      "filed": "2011-11-03",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-11-03",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 159180000,
+      "UnsecuredDebt": 225000000
+     }
     }
    },
    "start": "2011-07-01",
-   "stock_comp": 771000
+   "stock_comp": 771000,
+   "total_debt": 384180000
   },
   {
    "cash": 42250000,
@@ -3380,10 +3427,22 @@
      "filed": "2012-03-01",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2013-03-14",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 153942000,
+      "UnsecuredDebt": 225000000
+     }
     }
    },
    "start": "2011-10-01",
-   "stock_comp": 1351000
+   "stock_comp": 1351000,
+   "total_debt": 378942000
   },
   {
    "cash": 2675000,
@@ -3436,10 +3495,22 @@
      "filed": "2012-05-08",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2012-05-08",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 157603000,
+      "UnsecuredDebt": 225000000
+     }
     }
    },
    "start": "2012-01-01",
-   "stock_comp": 2203000
+   "stock_comp": 2203000,
+   "total_debt": 382603000
   },
   {
    "cash": 3110000,

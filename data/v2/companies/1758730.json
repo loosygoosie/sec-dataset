@@ -34,8 +34,8 @@
    "pretax_income_as_filed": 89777000,
    "pretax_income_as_filed_filed": "2020-02-21",
    "pretax_income_filed": "2020-03-04",
-   "revenue": 562968000,
-   "revenue_as_filed": 562968000,
+   "revenue": 504448000,
+   "revenue_as_filed": 504448000,
    "revenue_as_filed_filed": "2020-02-21",
    "revenue_filed": "2020-02-21",
    "shares_diluted": 215568635,
@@ -1273,7 +1273,7 @@
    "fcf": 211119000,
    "net_income": 83648000,
    "operating_cash_flow": 224580000,
-   "revenue": 562968000,
+   "revenue": 504448000,
    "shares_diluted": 215568635,
    "src": {
     "capex": {
@@ -1304,7 +1304,8 @@
      "accn": "0001558370-20-001170",
      "filed": "2020-02-21",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "note": "income-statement tie-out",
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001558370-20-001170",
@@ -1771,15 +1772,7 @@
    "stock_comp": 103537000
   }
  ],
- "v2_fixes": [
-  {
-   "field": "revenue",
-   "old": 504448000,
-   "period": "2017-12-31",
-   "rows": "annual",
-   "v2": 562968000
-  }
- ],
+ "v2_fixes": [],
  "v2_notes": [],
  "v2_quarterly": [
   {
@@ -3877,7 +3870,8 @@
    "NetCashProvidedByUsedInOperatingActivities"
   ],
   "revenue": [
-   "RevenueFromContractWithCustomerExcludingAssessedTax"
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "Revenues"
   ],
   "shares_diluted": [
    "WeightedAverageNumberOfDilutedSharesOutstanding"

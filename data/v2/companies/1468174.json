@@ -1642,7 +1642,11 @@
  },
  "cik": 1468174,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "revenue_unverified_2024-12-31",
+  "revenue_unverified_2025-12-31",
+  "revenue_unverified_2023-12-31"
+ ],
  "instances_merged": [],
  "latest_filing": {
   "accn": "0001468174-26-000025",
@@ -4056,9 +4060,19 @@
      "filed": "2011-05-20",
      "form": "10-Q/A",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2011-05-20",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 250000000
+     }
     }
    },
-   "start": "2010-01-01"
+   "start": "2010-01-01",
+   "total_debt": 250000000
   },
   {
    "capex": 53000000,
@@ -4115,9 +4129,19 @@
      "filed": "2011-08-02",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2011-08-02",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 250000000
+     }
     }
    },
-   "start": "2010-04-01"
+   "start": "2010-04-01",
+   "total_debt": 250000000
   },
   {
    "capex": 60000000,

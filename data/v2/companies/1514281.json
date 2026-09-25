@@ -1501,14 +1501,15 @@
    "val": 80636000
   },
   "revenue": {
-   "end": "2019-03-31",
-   "filed": "2019-05-03",
+   "end": "2019-09-30",
+   "filed": "2019-11-05",
    "method": "four_quarters",
    "stale": true,
    "tags": [
+    "OperatingLeaseLeaseIncome",
     "RealEstateRevenueNet"
    ],
-   "val": 7488000
+   "val": 13165000
   },
   "shares_diluted": {
    "end": "2026-06-30",
@@ -3994,6 +3995,7 @@
    "equity": 730864000,
    "net_income": 18678000,
    "operating_cash_flow": 11832000,
+   "revenue": 3162000,
    "shares_diluted": 32737000,
    "src": {
     "cash": {
@@ -4021,6 +4023,12 @@
      "form": "10-Q",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
+    "revenue": {
+     "accn": "0001514281-19-000075",
+     "filed": "2019-08-06",
+     "form": "10-Q",
+     "tag": "OperatingLeaseLeaseIncome"
+    },
     "shares_diluted": {
      "accn": "0001514281-19-000075",
      "filed": "2019-08-06",
@@ -4046,6 +4054,7 @@
    "equity": 834173000,
    "net_income": 10049000,
    "operating_cash_flow": 11714000,
+   "revenue": 3309000,
    "shares_diluted": 32748000,
    "src": {
     "cash": {
@@ -4072,6 +4081,12 @@
      "filed": "2020-11-06",
      "form": "10-Q",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001514281-19-000116",
+     "filed": "2019-11-05",
+     "form": "10-Q",
+     "tag": "OperatingLeaseLeaseIncome"
     },
     "shares_diluted": {
      "accn": "0001514281-19-000116",
@@ -5437,6 +5452,7 @@
   ],
   "revenue": [
    "InterestIncomeExpenseNet+NoninterestIncome",
+   "OperatingLeaseLeaseIncome",
    "RealEstateRevenueNet"
   ],
   "shares_diluted": [

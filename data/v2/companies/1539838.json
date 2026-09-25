@@ -56,6 +56,7 @@
    "current_liabilities_as_filed": 42418000,
    "current_liabilities_as_filed_filed": "2012-12-14",
    "d_and_a": 15601000,
+   "debt_current": 0,
    "filed": "2014-02-19",
    "fiscal_year": 2011,
    "interest_expense": 2528000,
@@ -663,10 +664,10 @@
    "retained_earnings": 762000000,
    "retained_earnings_as_filed": 761833000,
    "retained_earnings_as_filed_filed": "2019-02-25",
-   "revenue": 2130000000,
-   "revenue_as_filed": 2130000000,
-   "revenue_as_filed_filed": "2021-02-25",
-   "revenue_filed": "2021-02-25",
+   "revenue": 2176000000,
+   "revenue_as_filed": 2176000000,
+   "revenue_as_filed_filed": "2020-02-27",
+   "revenue_filed": "2020-02-27",
    "sga_expense": 65000000,
    "shares_diluted": 104929000,
    "shares_diluted_adj": 104929000,
@@ -2195,6 +2196,7 @@
    "capex": 0,
    "cash": 6959000,
    "cash_and_sti": 6959000,
+   "debt_current": 0,
    "debt_noncurrent": 0,
    "end": "2011-12-31",
    "equity": 129037000,
@@ -2244,12 +2246,13 @@
     },
     "total_debt": {
      "filed": "2012-12-14",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 0
+      "LongTermNotesPayable": 0,
+      "NotesPayableCurrent": 0
      }
     }
    },
@@ -2702,7 +2705,7 @@
    "fcf": 194000000,
    "net_income": 846000000,
    "operating_cash_flow": 1565000000,
-   "revenue": 2130000000,
+   "revenue": 2176000000,
    "shares_diluted": 104929000,
    "src": {
     "capex": {
@@ -2744,10 +2747,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001539838-21-000015",
-     "filed": "2021-02-25",
+     "accn": "0001539838-20-000021",
+     "filed": "2020-02-27",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "note": "income-statement tie-out",
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001539838-19-000008",
@@ -3360,6 +3364,13 @@
    "v2": 0
   },
   {
+   "field": "debt_current",
+   "old": null,
+   "period": "2011-12-31",
+   "rows": "annual",
+   "v2": 0
+  },
+  {
    "field": "capex",
    "old": null,
    "period": "2012-12-31",
@@ -3400,13 +3411,6 @@
    "period": "2017-12-31",
    "rows": "annual",
    "v2": 1961000000
-  },
-  {
-   "field": "revenue",
-   "old": 2176000000,
-   "period": "2018-12-31",
-   "rows": "annual",
-   "v2": 2130000000
   },
   {
    "field": "capex",
@@ -3609,6 +3613,7 @@
    "capex": -34664000,
    "cash": 6959000,
    "cash_and_sti": 6959000,
+   "debt_current": 0,
    "debt_noncurrent": 0,
    "end": "2011-12-31",
    "equity": 129037000,
@@ -3659,12 +3664,13 @@
     },
     "total_debt": {
      "filed": "2012-12-14",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 0
+      "LongTermNotesPayable": 0,
+      "NotesPayableCurrent": 0
      }
     }
    },
@@ -3765,6 +3771,7 @@
    "capex": -50576000,
    "cash": 1442000,
    "cash_and_sti": 1442000,
+   "debt_current": 133000,
    "debt_noncurrent": 230000,
    "end": "2012-09-30",
    "fcf": 61379000,
@@ -3808,18 +3815,19 @@
     },
     "total_debt": {
      "filed": "2012-12-14",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 230000
+      "LongTermNotesPayable": 230000,
+      "NotesPayableCurrent": 133000
      }
     }
    },
    "start": "2012-07-01",
    "stock_comp": 291000,
-   "total_debt": 230000
+   "total_debt": 363000
   },
   {
    "capex": 11707000,
@@ -3892,6 +3900,7 @@
    "capex": 0,
    "cash": 5516000,
    "cash_and_sti": 5516000,
+   "debt_current": 145000,
    "debt_noncurrent": 157000,
    "end": "2013-03-31",
    "equity": 468034000,
@@ -3946,23 +3955,25 @@
     },
     "total_debt": {
      "filed": "2013-05-09",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 157000
+      "LongTermNotesPayable": 157000,
+      "NotesPayableCurrent": 145000
      }
     }
    },
    "start": "2013-01-01",
    "stock_comp": 655000,
-   "total_debt": 157000
+   "total_debt": 302000
   },
   {
    "capex": 6192000,
    "cash": 81898000,
    "cash_and_sti": 81898000,
+   "debt_current": 145000,
    "debt_noncurrent": 121000,
    "end": "2013-06-30",
    "equity": 627609000,
@@ -4020,23 +4031,25 @@
     },
     "total_debt": {
      "filed": "2013-08-08",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 121000
+      "LongTermNotesPayable": 121000,
+      "NotesPayableCurrent": 145000
      }
     }
    },
    "start": "2013-04-01",
    "stock_comp": 281000,
-   "total_debt": 121000
+   "total_debt": 266000
   },
   {
    "capex": 160443000,
    "cash": 53100000,
    "cash_and_sti": 53100000,
+   "debt_current": 145000,
    "debt_noncurrent": 450085000,
    "end": "2013-09-30",
    "equity": 822938000,
@@ -4094,18 +4107,19 @@
     },
     "total_debt": {
      "filed": "2013-11-05",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "LongTermDebtNoncurrent",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 450085000
+      "LongTermDebtNoncurrent": 450085000,
+      "NotesPayableCurrent": 145000
      }
     }
    },
    "start": "2013-07-01",
    "stock_comp": 490000,
-   "total_debt": 450085000
+   "total_debt": 450230000
   },
   {
    "capex": 10708000,
@@ -8015,7 +8029,6 @@
    "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
   ],
   "revenue": [
-   "RevenueFromContractWithCustomerExcludingAssessedTax",
    "RevenueFromContractWithCustomerIncludingAssessedTax",
    "Revenues"
   ],

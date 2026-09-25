@@ -229,11 +229,11 @@
    "total_assets": 1318900000,
    "total_assets_as_filed": 1342400000,
    "total_assets_as_filed_filed": "2011-02-22",
-   "total_debt": 11800000,
-   "total_debt_as_filed": 11800000,
-   "total_debt_as_filed_filed": "2011-02-22",
+   "total_debt": 13100000,
+   "total_debt_as_filed": 13100000,
+   "total_debt_as_filed_filed": "2011-08-02",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2011-02-22",
+   "total_debt_filed": "2011-08-02",
    "total_equity": 888700000,
    "total_equity_parent": 888700000,
    "total_liabilities": 430200000
@@ -2525,7 +2525,6 @@
    "capex": 38900000,
    "cash": 273400000,
    "cash_and_sti": 273400000,
-   "debt_noncurrent": 11800000,
    "end": "2010-12-31",
    "equity": 888700000,
    "fcf": 27400000,
@@ -2591,19 +2590,18 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2011-02-22",
-     "note": "one side only (a floor)",
+     "filed": "2011-08-02",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "NotesPayable"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 11800000
+      "NotesPayable": 13100000
      }
     }
    },
    "start": "2010-01-01",
    "stock_comp": 4700000,
-   "total_debt": 11800000
+   "total_debt": 13100000
   },
   {
    "capex": 32500000,
@@ -3808,13 +3806,6 @@
    "v2": 1079100000
   },
   {
-   "field": "total_debt",
-   "old": 13100000,
-   "period": "2010-12-31",
-   "rows": "annual",
-   "v2": 11800000
-  },
-  {
    "field": "revenue",
    "old": null,
    "period": "2011-12-31",
@@ -4250,7 +4241,6 @@
    "capex": 4000000,
    "cash": 273400000,
    "cash_and_sti": 273400000,
-   "debt_noncurrent": 11800000,
    "end": "2010-12-31",
    "equity": 888700000,
    "fcf": -3000000,
@@ -4308,19 +4298,18 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2011-02-22",
-     "note": "one side only (a floor)",
+     "filed": "2011-08-02",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "NotesPayable"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 11800000
+      "NotesPayable": 13100000
      }
     }
    },
    "start": "2010-10-01",
    "stock_comp": 600000,
-   "total_debt": 11800000
+   "total_debt": 13100000
   },
   {
    "capex": 6200000,
@@ -4406,7 +4395,6 @@
    "capex": 7900000,
    "cash": 59800000,
    "cash_and_sti": 59800000,
-   "debt_noncurrent": 7600000,
    "end": "2011-06-30",
    "equity": 960900000,
    "fcf": 9200000,
@@ -4471,24 +4459,22 @@
     },
     "total_debt": {
      "filed": "2011-08-02",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "NotesPayable"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 7600000
+      "NotesPayable": 12400000
      }
     }
    },
    "start": "2011-04-01",
    "stock_comp": 1400000,
-   "total_debt": 7600000
+   "total_debt": 12400000
   },
   {
    "capex": 8800000,
    "cash": 23600000,
    "cash_and_sti": 23600000,
-   "debt_noncurrent": 3700000,
    "end": "2011-09-30",
    "equity": 962100000,
    "fcf": -20900000,
@@ -4553,18 +4539,17 @@
     },
     "total_debt": {
      "filed": "2011-10-27",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "NotesPayable"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 3700000
+      "NotesPayable": 5000000
      }
     }
    },
    "start": "2011-07-01",
    "stock_comp": 1200000,
-   "total_debt": 3700000
+   "total_debt": 5000000
   },
   {
    "capex": 9600000,
@@ -4642,7 +4627,6 @@
    "capex": 9000000,
    "cash": 77300000,
    "cash_and_sti": 77300000,
-   "debt_noncurrent": 3000000,
    "end": "2012-03-31",
    "equity": 937300000,
    "fcf": 26000000,
@@ -4701,18 +4685,17 @@
     },
     "total_debt": {
      "filed": "2012-04-26",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "NotesPayable"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 3000000
+      "NotesPayable": 4700000
      }
     }
    },
    "start": "2012-01-01",
    "stock_comp": 2500000,
-   "total_debt": 3000000
+   "total_debt": 4700000
   },
   {
    "capex": 7900000,

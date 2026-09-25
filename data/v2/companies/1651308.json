@@ -72,6 +72,7 @@
    "current_liabilities_as_filed": 35172000,
    "current_liabilities_as_filed_filed": "2016-05-12",
    "d_and_a": 1545000,
+   "debt_current": 14598000,
    "filed": "2018-02-28",
    "fiscal_year": 2015,
    "impairments": 0,
@@ -125,6 +126,8 @@
    "total_assets": 116764000,
    "total_assets_as_filed": 116764000,
    "total_assets_as_filed_filed": "2016-05-12",
+   "total_debt": 14598000,
+   "total_debt_filed": "2016-05-12",
    "total_equity": -101765000,
    "total_equity_incl_nci": -101765000,
    "total_equity_parent": -101765000,
@@ -1911,6 +1914,7 @@
    "capex": 5314000,
    "cash": 17869000,
    "cash_and_sti": 100486000,
+   "debt_current": 14598000,
    "end": "2015-12-31",
    "equity": -101765000,
    "fcf": -45157000,
@@ -1973,10 +1977,21 @@
      "filed": "2017-03-22",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2016-05-12",
+     "note": "one side only (a floor)",
+     "tags": [
+      "SeniorNotesCurrent"
+     ],
+     "values": {
+      "SeniorNotesCurrent": 14598000
+     }
     }
    },
    "start": "2015-01-01",
-   "stock_comp": 10211000
+   "stock_comp": 10211000,
+   "total_debt": 14598000
   },
   {
    "capex": 23502000,
@@ -2822,6 +2837,20 @@
  "v2_fixes": [
   {
    "field": "total_debt",
+   "old": null,
+   "period": "2015-12-31",
+   "rows": "annual",
+   "v2": 14598000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2015-12-31",
+   "rows": "annual",
+   "v2": 14598000
+  },
+  {
+   "field": "total_debt",
    "old": 813296000,
    "period": "2025-09-30",
    "rows": "quarterly",
@@ -3025,6 +3054,7 @@
    "capex": 3422000,
    "cash": 17869000,
    "cash_and_sti": 100486000,
+   "debt_current": 14598000,
    "end": "2015-12-31",
    "equity": -101765000,
    "fcf": -20184000,
@@ -3083,10 +3113,21 @@
      "filed": "2017-03-22",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2016-05-12",
+     "note": "one side only (a floor)",
+     "tags": [
+      "SeniorNotesCurrent"
+     ],
+     "values": {
+      "SeniorNotesCurrent": 14598000
+     }
     }
    },
    "start": "2015-10-01",
-   "stock_comp": 2168000
+   "stock_comp": 2168000,
+   "total_debt": 14598000
   },
   {
    "capex": 3303000,

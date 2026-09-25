@@ -302,6 +302,7 @@
    "current_liabilities_as_filed": 1424000000,
    "current_liabilities_as_filed_filed": "2015-01-29",
    "d_and_a": 1243000000,
+   "debt_current": 0,
    "eps_diluted": 1.1,
    "filed": "2017-02-03",
    "fiscal_year": 2014,
@@ -361,6 +362,8 @@
    "total_assets": 39966000000,
    "total_assets_as_filed": 40184000000,
    "total_assets_as_filed_filed": "2015-01-29",
+   "total_debt": 0,
+   "total_debt_filed": "2016-01-28",
    "total_equity": 36096000000,
    "total_equity_parent": 36096000000,
    "total_liabilities": 3870000000
@@ -384,6 +387,7 @@
    "current_liabilities_as_filed": 1925000000,
    "current_liabilities_as_filed_filed": "2016-01-28",
    "d_and_a": 1945000000,
+   "debt_current": 201000000,
    "eps_diluted": 1.29,
    "filed": "2018-02-01",
    "fiscal_year": 2015,
@@ -440,6 +444,8 @@
    "total_assets": 49407000000,
    "total_assets_as_filed": 49407000000,
    "total_assets_as_filed_filed": "2016-01-28",
+   "total_debt": 201000000,
+   "total_debt_filed": "2016-01-28",
    "total_equity": 44218000000,
    "total_equity_parent": 44218000000,
    "total_liabilities": 5189000000
@@ -463,6 +469,7 @@
    "current_liabilities_as_filed": 2875000000,
    "current_liabilities_as_filed_filed": "2017-02-03",
    "d_and_a": 2342000000,
+   "debt_current": 0,
    "eps_diluted": 3.49,
    "filed": "2018-02-01",
    "fiscal_year": 2016,
@@ -516,6 +523,8 @@
    "total_assets": 64961000000,
    "total_assets_as_filed": 64961000000,
    "total_assets_as_filed_filed": "2017-02-03",
+   "total_debt": 0,
+   "total_debt_filed": "2017-02-03",
    "total_equity": 59194000000,
    "total_equity_parent": 59194000000,
    "total_liabilities": 5767000000
@@ -2386,6 +2395,7 @@
    "capex": 1831000000,
    "cash": 4315000000,
    "cash_and_sti": 11199000000,
+   "debt_current": 0,
    "end": "2014-12-31",
    "equity": 36096000000,
    "fcf": 5495000000,
@@ -2450,15 +2460,27 @@
      "filed": "2015-01-29",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2016-01-28",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 0
+     }
     }
    },
    "start": "2014-01-01",
-   "stock_comp": 1786000000
+   "stock_comp": 1786000000,
+   "total_debt": 0
   },
   {
    "capex": 2523000000,
    "cash": 4907000000,
    "cash_and_sti": 18434000000,
+   "debt_current": 201000000,
    "end": "2015-12-31",
    "equity": 44218000000,
    "fcf": 7797000000,
@@ -2523,15 +2545,27 @@
      "filed": "2016-01-28",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2016-01-28",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 201000000
+     }
     }
    },
    "start": "2015-01-01",
-   "stock_comp": 2960000000
+   "stock_comp": 2960000000,
+   "total_debt": 201000000
   },
   {
    "capex": 4491000000,
    "cash": 8903000000,
    "cash_and_sti": 29449000000,
+   "debt_current": 0,
    "end": "2016-12-31",
    "equity": 59194000000,
    "fcf": 11617000000,
@@ -2594,10 +2628,21 @@
      "filed": "2017-02-03",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2017-02-03",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 0
+     }
     }
    },
    "start": "2016-01-01",
-   "stock_comp": 3218000000
+   "stock_comp": 3218000000,
+   "total_debt": 0
   },
   {
    "capex": 6733000000,
@@ -3313,6 +3358,48 @@
   }
  ],
  "v2_fixes": [
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2014-12-31",
+   "rows": "annual",
+   "v2": 0
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2014-12-31",
+   "rows": "annual",
+   "v2": 0
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2015-12-31",
+   "rows": "annual",
+   "v2": 201000000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2015-12-31",
+   "rows": "annual",
+   "v2": 201000000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2016-12-31",
+   "rows": "annual",
+   "v2": 0
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2016-12-31",
+   "rows": "annual",
+   "v2": 0
+  },
   {
    "field": "total_debt",
    "old": 10000000000,
@@ -4432,6 +4519,7 @@
    "capex": 517000000,
    "cash": 4315000000,
    "cash_and_sti": 11199000000,
+   "debt_current": 0,
    "end": "2014-12-31",
    "equity": 36096000000,
    "fcf": 2935000000,
@@ -4492,10 +4580,21 @@
      "filed": "2015-01-29",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2016-01-28",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 0
+     }
     }
    },
    "start": "2014-10-01",
-   "stock_comp": 845000000
+   "stock_comp": 845000000,
+   "total_debt": 0
   },
   {
    "capex": 502000000,
@@ -4720,6 +4819,7 @@
    "capex": 692000000,
    "cash": 4907000000,
    "cash_and_sti": 18434000000,
+   "debt_current": 201000000,
    "end": "2015-12-31",
    "equity": 44218000000,
    "fcf": 3856000000,
@@ -4780,10 +4880,21 @@
      "filed": "2016-01-28",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2016-01-28",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 201000000
+     }
     }
    },
    "start": "2015-10-01",
-   "stock_comp": 746000000
+   "stock_comp": 746000000,
+   "total_debt": 201000000
   },
   {
    "capex": 1132000000,
@@ -5024,6 +5135,7 @@
    "capex": 1269000000,
    "cash": 8903000000,
    "cash_and_sti": 29449000000,
+   "debt_current": 0,
    "end": "2016-12-31",
    "equity": 59194000000,
    "fcf": 3661000000,
@@ -5084,10 +5196,21 @@
      "filed": "2017-11-02",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2017-02-03",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 0
+     }
     }
    },
    "start": "2016-10-01",
-   "stock_comp": 831000000
+   "stock_comp": 831000000,
+   "total_debt": 0
   },
   {
    "capex": 1271000000,

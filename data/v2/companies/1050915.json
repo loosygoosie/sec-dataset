@@ -70,6 +70,7 @@
    "current_liabilities_as_filed": 451798000,
    "current_liabilities_as_filed_filed": "2009-08-10",
    "d_and_a": 77654000,
+   "debt_current": 1155000,
    "eps_diluted": 0.87,
    "filed": "2011-03-01",
    "fiscal_year": 2008,
@@ -127,6 +128,8 @@
    "total_assets": 3558159000,
    "total_assets_as_filed": 3554243000,
    "total_assets_as_filed_filed": "2009-08-10",
+   "total_debt": 1155000,
+   "total_debt_filed": "2009-08-10",
    "total_equity": 2682374000,
    "total_equity_incl_nci": 2682374000,
    "total_equity_parent": 2682374000,
@@ -148,6 +151,7 @@
    "current_liabilities_as_filed": 495688000,
    "current_liabilities_as_filed_filed": "2010-03-01",
    "d_and_a": 86862000,
+   "debt_current": 3426000,
    "eps_diluted": 0.81,
    "filed": "2012-02-29",
    "fiscal_year": 2009,
@@ -200,6 +204,8 @@
    "total_assets": 4116954000,
    "total_assets_as_filed": 4116954000,
    "total_assets_as_filed_filed": "2010-03-01",
+   "total_debt": 3426000,
+   "total_debt_filed": "2010-03-01",
    "total_equity": 3109183000,
    "total_equity_incl_nci": 3110561000,
    "total_equity_parent": 3109183000,
@@ -2725,6 +2731,7 @@
    "capex": 185634000,
    "cash": 437901000,
    "cash_and_sti": 437901000,
+   "debt_current": 1155000,
    "end": "2008-12-31",
    "equity": 2682374000,
    "fcf": 56866000,
@@ -2775,15 +2782,27 @@
      "filed": "2010-03-01",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2009-08-10",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 1155000
+     }
     }
    },
    "start": "2008-01-01",
-   "stock_comp": 16692000
+   "stock_comp": 16692000,
+   "total_debt": 1155000
   },
   {
    "capex": 164980000,
    "cash": 699629000,
    "cash_and_sti": 699629000,
+   "debt_current": 3426000,
    "end": "2009-12-31",
    "equity": 3109183000,
    "fcf": 211918000,
@@ -2832,10 +2851,21 @@
      "filed": "2010-03-01",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2010-03-01",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 3426000
+     }
     }
    },
    "start": "2009-01-01",
-   "stock_comp": 19875000
+   "stock_comp": 19875000,
+   "total_debt": 3426000
   },
   {
    "capex": 144042000,
@@ -4080,6 +4110,34 @@
  "v2_fixes": [
   {
    "field": "total_debt",
+   "old": null,
+   "period": "2008-12-31",
+   "rows": "annual",
+   "v2": 1155000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2008-12-31",
+   "rows": "annual",
+   "v2": 1155000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2009-12-31",
+   "rows": "annual",
+   "v2": 3426000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2009-12-31",
+   "rows": "annual",
+   "v2": 3426000
+  },
+  {
+   "field": "total_debt",
    "old": 56000,
    "period": "2011-12-31",
    "rows": "annual",
@@ -4360,6 +4418,7 @@
    "capex": 20709000,
    "cash": 437901000,
    "cash_and_sti": 437901000,
+   "debt_current": 1155000,
    "end": "2008-12-31",
    "equity": 2682374000,
    "fcf": 171673000,
@@ -4407,10 +4466,21 @@
      "filed": "2010-03-01",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2009-08-10",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 1155000
+     }
     }
    },
    "start": "2008-10-01",
-   "stock_comp": 4290000
+   "stock_comp": 4290000,
+   "total_debt": 1155000
   },
   {
    "capex": 41265000,
@@ -4466,6 +4536,7 @@
    "capex": 43575000,
    "cash": 524356000,
    "cash_and_sti": 524356000,
+   "debt_current": 2000,
    "end": "2009-06-30",
    "equity": 2733125000,
    "fcf": 15853000,
@@ -4514,15 +4585,27 @@
      "filed": "2009-08-10",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2009-08-10",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 2000
+     }
     }
    },
    "start": "2009-04-01",
-   "stock_comp": 4964000
+   "stock_comp": 4964000,
+   "total_debt": 2000
   },
   {
    "capex": 36012000,
    "cash": 584038000,
    "cash_and_sti": 584038000,
+   "debt_current": 37000,
    "end": "2009-09-30",
    "equity": 2822869000,
    "fcf": 71947000,
@@ -4571,15 +4654,27 @@
      "filed": "2009-11-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2009-11-09",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 37000
+     }
     }
    },
    "start": "2009-07-01",
-   "stock_comp": 4969000
+   "stock_comp": 4969000,
+   "total_debt": 37000
   },
   {
    "capex": 44128000,
    "cash": 699629000,
    "cash_and_sti": 699629000,
+   "debt_current": 3426000,
    "end": "2009-12-31",
    "equity": 3109183000,
    "fcf": 54181000,
@@ -4625,15 +4720,27 @@
      "filed": "2010-03-01",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2010-03-01",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 3426000
+     }
     }
    },
    "start": "2009-10-01",
-   "stock_comp": 5240000
+   "stock_comp": 5240000,
+   "total_debt": 3426000
   },
   {
    "capex": 43799000,
    "cash": 659824000,
    "cash_and_sti": 659824000,
+   "debt_current": 364000,
    "end": "2010-03-31",
    "equity": 3136300000,
    "fcf": -40173000,
@@ -4682,15 +4789,27 @@
      "filed": "2010-05-10",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2010-05-10",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 364000
+     }
     }
    },
    "start": "2010-01-01",
-   "stock_comp": 6002000
+   "stock_comp": 6002000,
+   "total_debt": 364000
   },
   {
    "capex": 37361000,
    "cash": 519818000,
    "cash_and_sti": 519818000,
+   "debt_current": 301000,
    "end": "2010-06-30",
    "equity": 3164647000,
    "fcf": -8822000,
@@ -4739,15 +4858,27 @@
      "filed": "2010-08-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2010-08-09",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 301000
+     }
     }
    },
    "start": "2010-04-01",
-   "stock_comp": 5760000
+   "stock_comp": 5760000,
+   "total_debt": 301000
   },
   {
    "capex": 31674000,
    "cash": 441247000,
    "cash_and_sti": 441247000,
+   "debt_current": 262000,
    "end": "2010-09-30",
    "equity": 3235084000,
    "fcf": -86381000,
@@ -4796,10 +4927,21 @@
      "filed": "2010-11-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2010-11-09",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 262000
+     }
     }
    },
    "start": "2010-07-01",
-   "stock_comp": 5703000
+   "stock_comp": 5703000,
+   "total_debt": 262000
   },
   {
    "capex": 29998000,
@@ -4872,6 +5014,7 @@
    "capex": 37488000,
    "cash": 503019000,
    "cash_and_sti": 503019000,
+   "debt_current": 1156000,
    "end": "2011-03-31",
    "equity": 3357125000,
    "fcf": -41676000,
@@ -4920,15 +5063,27 @@
      "filed": "2011-05-06",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-05-06",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 1156000
+     }
     }
    },
    "start": "2011-01-01",
-   "stock_comp": 5541000
+   "stock_comp": 5541000,
+   "total_debt": 1156000
   },
   {
    "capex": 52204000,
    "cash": 380382000,
    "cash_and_sti": 380382000,
+   "debt_current": 1215000,
    "end": "2011-06-30",
    "equity": 3298587000,
    "fcf": 3954000,
@@ -4977,15 +5132,27 @@
      "filed": "2011-08-05",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-08-05",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 1215000
+     }
     }
    },
    "start": "2011-04-01",
-   "stock_comp": 5953000
+   "stock_comp": 5953000,
+   "total_debt": 1215000
   },
   {
    "capex": 43077000,
    "cash": 257838000,
    "cash_and_sti": 257838000,
+   "debt_current": 100000,
    "end": "2011-09-30",
    "equity": 3294697000,
    "fcf": -2292000,
@@ -5034,10 +5201,21 @@
      "filed": "2011-11-08",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-11-08",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 100000
+     }
     }
    },
    "start": "2011-07-01",
-   "stock_comp": 4716000
+   "stock_comp": 4716000,
+   "total_debt": 100000
   },
   {
    "capex": 29516000,
@@ -5112,6 +5290,7 @@
    "capex": 31868000,
    "cash": 177367000,
    "cash_and_sti": 177367000,
+   "debt_current": 56000,
    "end": "2012-03-31",
    "equity": 3461606000,
    "fcf": -92086000,
@@ -5164,10 +5343,21 @@
      "first_val": 6481000,
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2012-05-09",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 56000
+     }
     }
    },
    "start": "2012-01-01",
-   "stock_comp": 5889000
+   "stock_comp": 5889000,
+   "total_debt": 56000
   },
   {
    "capex": 44866000,

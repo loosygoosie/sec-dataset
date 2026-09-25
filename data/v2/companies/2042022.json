@@ -546,6 +546,8 @@
    "shares_outstanding": 38608338,
    "stock_comp": 7317401,
    "total_assets": 796297355,
+   "total_debt": 222308000,
+   "total_debt_filed": "2026-05-14",
    "total_equity": 352581000,
    "total_equity_parent": 352581000,
    "total_liabilities": 443717925
@@ -1013,6 +1015,13 @@
    "period": "2025-12-31",
    "rows": "quarterly",
    "v2": 8095099
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2026-03-31",
+   "rows": "quarterly",
+   "v2": 222308000
   },
   {
    "field": "total_debt",
@@ -1593,10 +1602,20 @@
      "filed": "2026-05-14",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-05-14",
+     "tags": [
+      "ConvertibleNotesPayable"
+     ],
+     "values": {
+      "ConvertibleNotesPayable": 222308000
+     }
     }
    },
    "start": "2026-01-01",
-   "stock_comp": 7317401
+   "stock_comp": 7317401,
+   "total_debt": 222308000
   },
   {
    "capex": 175543583,

@@ -525,10 +525,10 @@
    "retained_earnings": -251962000,
    "retained_earnings_as_filed": -251962000,
    "retained_earnings_as_filed_filed": "2020-03-02",
-   "revenue": 846383000,
-   "revenue_as_filed": 846383000,
-   "revenue_as_filed_filed": "2020-03-02",
-   "revenue_filed": "2020-03-02",
+   "revenue": 687122000,
+   "revenue_as_filed": 687122000,
+   "revenue_as_filed_filed": "2022-02-24",
+   "revenue_filed": "2022-02-24",
    "sga_expense": 236448000,
    "shares_diluted": 82364000,
    "shares_diluted_adj": 82364000,
@@ -1914,9 +1914,9 @@
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0001628908-15-000007",
-     "filed": "2015-08-07",
-     "form": "10-Q",
+     "accn": "0001628908-16-000030",
+     "filed": "2016-02-29",
+     "form": "10-K",
      "tag": "NetIncomeLoss"
     },
     "operating_cash_flow": {
@@ -2276,7 +2276,7 @@
    "fcf": -78179000,
    "net_income": -301971000,
    "operating_cash_flow": -42645000,
-   "revenue": 846383000,
+   "revenue": 687122000,
    "shares_diluted": 82364000,
    "src": {
     "capex": {
@@ -2312,10 +2312,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001628908-20-000032",
-     "filed": "2020-03-02",
+     "accn": "0001628908-22-000027",
+     "filed": "2022-02-24",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "note": "income-statement tie-out",
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001628908-22-000027",
@@ -2798,13 +2799,6 @@
    "period": "2018-12-31",
    "rows": "annual",
    "v2": 221041000
-  },
-  {
-   "field": "revenue",
-   "old": 687122000,
-   "period": "2019-12-31",
-   "rows": "annual",
-   "v2": 846383000
   },
   {
    "field": "debt_current",
@@ -6317,7 +6311,8 @@
    "NetCashProvidedByUsedInOperatingActivities"
   ],
   "revenue": [
-   "RevenueFromContractWithCustomerExcludingAssessedTax"
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "Revenues"
   ],
   "shares_diluted": [
    "WeightedAverageNumberOfDilutedSharesOutstanding",

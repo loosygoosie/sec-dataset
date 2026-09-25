@@ -1433,10 +1433,10 @@
    "buybacks_as_filed": 311500000,
    "buybacks_as_filed_filed": "2023-11-08",
    "buybacks_filed": "2025-11-12",
-   "capex": 160500000,
+   "capex": 161000000,
    "capex_as_filed": 160500000,
-   "capex_as_filed_filed": "2023-11-08",
-   "capex_filed": "2023-11-08",
+   "capex_as_filed_filed": "2024-11-12",
+   "capex_filed": "2025-11-12",
    "cash": 1072000000,
    "cash_as_filed": 1071800000,
    "cash_as_filed_filed": "2023-11-08",
@@ -3972,14 +3972,14 @@
    "total_debt": 3476900000
   },
   {
-   "capex": 160500000,
+   "capex": 161000000,
    "cash": 1072000000,
    "cash_and_sti": 1072600000,
    "debt_current": 94700000,
    "debt_noncurrent": 2862900000,
    "end": "2023-09-30",
    "equity": 3561600000,
-   "fcf": 1213500000,
+   "fcf": 1213000000,
    "finance_leases": 10100000,
    "net_income": 1387000000,
    "operating_cash_flow": 1374000000,
@@ -3988,10 +3988,13 @@
    "short_term_investments": 600000,
    "src": {
     "capex": {
-     "accn": "0001024478-23-000126",
-     "filed": "2023-11-08",
+     "accn": "0001024478-25-000116",
+     "filed": "2025-11-12",
+     "first_filed": "2024-11-12",
+     "first_val": 160500000,
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0001024478-25-000116",
@@ -4343,13 +4346,6 @@
    "period": "2021-09-30",
    "rows": "annual",
    "v2": 509700000
-  },
-  {
-   "field": "capex",
-   "old": 161000000,
-   "period": "2023-09-30",
-   "rows": "annual",
-   "v2": 160500000
   },
   {
    "field": "total_debt",

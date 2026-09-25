@@ -1344,8 +1344,8 @@
    "buybacks_as_filed": 0,
    "buybacks_as_filed_filed": "2022-02-25",
    "buybacks_filed": "2024-02-27",
-   "capex": 1376700000,
-   "capex_as_filed": 1376700000,
+   "capex": 1407800000,
+   "capex_as_filed": 1407800000,
    "capex_as_filed_filed": "2022-02-25",
    "capex_filed": "2022-02-25",
    "cash": 1949900000,
@@ -1441,8 +1441,8 @@
    "buybacks_as_filed": 18800000,
    "buybacks_as_filed_filed": "2023-02-23",
    "buybacks_filed": "2025-02-25",
-   "capex": 1873600000,
-   "capex_as_filed": 1873600000,
+   "capex": 1902500000,
+   "capex_as_filed": 1902500000,
    "capex_as_filed_filed": "2023-02-23",
    "capex_filed": "2023-02-23",
    "cash": 1548900000,
@@ -1745,8 +1745,8 @@
    "buybacks_as_filed": 364600000,
    "buybacks_as_filed_filed": "2026-02-24",
    "buybacks_filed": "2026-02-24",
-   "capex": 1680400000,
-   "capex_as_filed": 1680400000,
+   "capex": 1747700000,
+   "capex_as_filed": 1747700000,
    "capex_as_filed_filed": "2026-02-24",
    "capex_filed": "2026-02-24",
    "cash": 1474800000,
@@ -1915,14 +1915,16 @@
   "latest_quarter_end": "2026-06-30",
   "quarter_age_days": 87,
   "reconciled_fy": 2025,
-  "reconciles": "ok",
+  "reconciles": "off:capex",
   "revenue": "ok",
   "share_scale": "suspect:scale",
   "shares": "ok"
  },
  "cik": 1053507,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "quarters_off_year_capex_2025-12-31"
+ ],
  "instances_merged": [
   "0001053507-26-000035"
  ],
@@ -1954,7 +1956,6 @@
   {
    "acquisitions": 60700000,
    "capex": 390700000,
-   "capex_filed": "2023-10-26",
    "cash": 1985800000,
    "current_assets": 3849900000,
    "current_liabilities": 6868700000,
@@ -2007,7 +2008,6 @@
   {
    "acquisitions": 16100000,
    "capex": 524600000,
-   "capex_filed": "2024-02-27",
    "cash": 1753700000,
    "current_assets": 3710000000,
    "current_liabilities": 7249300000,
@@ -2058,7 +2058,6 @@
   {
    "acquisitions": 44700000,
    "capex": 396700000,
-   "capex_filed": "2024-04-30",
    "cash": 2217000000,
    "current_assets": 4239700000,
    "current_liabilities": 6729800000,
@@ -2111,7 +2110,6 @@
   {
    "acquisitions": 10300000,
    "capex": 325200000,
-   "capex_filed": "2024-07-30",
    "cash": 2158300000,
    "current_assets": 4114100000,
    "current_liabilities": 6888700000,
@@ -2164,7 +2162,6 @@
   {
    "acquisitions": 59900000,
    "capex": 424700000,
-   "capex_filed": "2024-10-29",
    "cash": 2150300000,
    "current_assets": 3399600000,
    "current_liabilities": 7069500000,
@@ -2215,7 +2212,6 @@
   {
    "acquisitions": 8100000,
    "capex": 443400000,
-   "capex_filed": "2025-02-25",
    "cash": 1999600000,
    "current_assets": 3178800000,
    "current_liabilities": 7075600000,
@@ -2267,7 +2263,6 @@
    "acquisitions": 147600000,
    "buybacks": 0,
    "capex": 331100000,
-   "capex_filed": "2025-04-29",
    "cash": 2103700000,
    "current_assets": 3506100000,
    "current_liabilities": 6322000000,
@@ -2319,7 +2314,6 @@
    "acquisitions": 184700000,
    "buybacks": 0,
    "capex": 304600000,
-   "capex_filed": "2025-07-29",
    "cash": 2076000000,
    "current_assets": 3601400000,
    "current_liabilities": 5863600000,
@@ -2370,7 +2364,6 @@
   {
    "acquisitions": 87900000,
    "capex": 465500000,
-   "capex_filed": "2025-10-28",
    "cash": 1950700000,
    "current_assets": 3535400000,
    "current_liabilities": 5993500000,
@@ -2421,7 +2414,6 @@
   {
    "acquisitions": 34000000,
    "capex": 579200000,
-   "capex_filed": "2026-02-24",
    "cash": 1474800000,
    "current_assets": 2741800000,
    "current_liabilities": 6913800000,
@@ -2473,7 +2465,6 @@
    "acquisitions": 19200000,
    "buybacks": 176200000,
    "capex": 449500000,
-   "capex_filed": "2026-04-28",
    "cash": 1608800000,
    "current_assets": 2956400000,
    "current_liabilities": 9719400000,
@@ -2524,7 +2515,6 @@
    "acquisitions": 114000000,
    "buybacks": 26700000,
    "capex": 320900000,
-   "capex_filed": "2026-07-28",
    "cash": 1762500000,
    "current_assets": 3122400000,
    "current_liabilities": 8870500000,
@@ -3890,14 +3880,14 @@
    "total_debt": 29287500000
   },
   {
-   "capex": 1376700000,
+   "capex": 1407800000,
    "cash": 1949900000,
    "cash_and_sti": 1949900000,
    "debt_current": 4568700000,
    "debt_noncurrent": 38685500000,
    "end": "2021-12-31",
    "equity": 5081200000,
-   "fcf": 3443200000,
+   "fcf": 3412100000,
    "finance_leases": 31600000,
    "net_income": 2567700000,
    "operating_cash_flow": 4819900000,
@@ -3908,7 +3898,8 @@
      "accn": "0001053507-22-000017",
      "filed": "2022-02-25",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0001053507-22-000017",
@@ -3969,14 +3960,14 @@
    "total_debt": 43254200000
   },
   {
-   "capex": 1873600000,
+   "capex": 1902500000,
    "cash": 1548900000,
    "cash_and_sti": 1548900000,
    "debt_current": 4514200000,
    "debt_noncurrent": 34156000000,
    "end": "2022-12-31",
    "equity": 5572400000,
-   "fcf": 1822600000,
+   "fcf": 1793700000,
    "finance_leases": 27800000,
    "net_income": 1765800000,
    "operating_cash_flow": 3696200000,
@@ -3987,7 +3978,8 @@
      "accn": "0001053507-23-000023",
      "filed": "2023-02-23",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "cash": {
      "accn": "0001053507-25-000025",
@@ -4214,14 +4206,14 @@
    "total_debt": 36501800000
   },
   {
-   "capex": 1680400000,
+   "capex": 1747700000,
    "cash": 1474800000,
    "cash_and_sti": 1474800000,
    "debt_current": 3387800000,
    "debt_noncurrent": 33832500000,
    "end": "2025-12-31",
    "equity": 3652500000,
-   "fcf": 3783600000,
+   "fcf": 3716300000,
    "finance_leases": 15900000,
    "net_income": 2529500000,
    "operating_cash_flow": 5464000000,
@@ -4232,7 +4224,8 @@
      "accn": "0001053507-26-000035",
      "filed": "2026-02-24",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment+ext:SECSchedule1228RealEstateCompaniesInvestmentInRealEstateStartUpCapitalExpenditures"
     },
     "cash": {
      "accn": "0001053507-26-000035",
@@ -4386,13 +4379,6 @@
    "v2": 29287500000
   },
   {
-   "field": "capex",
-   "old": 1407800000,
-   "period": "2021-12-31",
-   "rows": "annual",
-   "v2": 1376700000
-  },
-  {
    "field": "total_debt",
    "old": 43497500000,
    "period": "2021-12-31",
@@ -4400,21 +4386,23 @@
    "v2": 43254200000
   },
   {
-   "field": "capex",
-   "old": 1902500000,
-   "period": "2022-12-31",
-   "rows": "annual",
-   "v2": 1873600000
-  },
-  {
    "field": "total_debt",
    "old": 38901800000,
    "period": "2022-12-31",
    "rows": "annual",
    "v2": 38670200000
+  },
+  {
+   "field": "capex",
+   "old": 1680400000,
+   "period": "2025-12-31",
+   "rows": "annual",
+   "v2": 1747700000
   }
  ],
- "v2_notes": [],
+ "v2_notes": [
+  "v2 quarterly capex not used: its quarters did not add up to the year"
+ ],
  "v2_quarterly": [
   {
    "cash": 152130000,
@@ -5336,20 +5324,22 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2011-05-05",
+     "filed": "2012-05-03",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 178105000,
+      "DebtLongtermAndShorttermCombinedAmount": 7200000000,
       "LongTermDebtAndCapitalLeaseObligations": 5387728000
      }
     }
    },
    "start": "2011-01-01",
    "stock_comp": 12358000,
-   "total_debt": 5565833000
+   "total_debt": 7200000000
   },
   {
    "capex": 138679000,
@@ -10431,7 +10421,8 @@
  "v2_tags_used": {
   "capex": [
    "PaymentsToAcquireProductiveAssets",
-   "PaymentsToAcquirePropertyPlantAndEquipment"
+   "PaymentsToAcquirePropertyPlantAndEquipment",
+   "PaymentsToAcquirePropertyPlantAndEquipment+ext:SECSchedule1228RealEstateCompaniesInvestmentInRealEstateStartUpCapitalExpenditures"
   ],
   "net_income": [
    "NetIncomeLoss",

@@ -1294,11 +1294,11 @@
    "total_assets": 39658000000,
    "total_assets_as_filed": 39658000000,
    "total_assets_as_filed_filed": "2022-02-28",
-   "total_debt": 11076000000,
-   "total_debt_as_filed": 11076000000,
-   "total_debt_as_filed_filed": "2022-02-28",
+   "total_debt": 11400000000,
+   "total_debt_as_filed": 11400000000,
+   "total_debt_as_filed_filed": "2023-02-27",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2022-02-28",
+   "total_debt_filed": "2023-02-27",
    "total_equity": 21082000000,
    "total_equity_incl_nci": 21117000000,
    "total_equity_parent": 21082000000
@@ -3677,20 +3677,22 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2022-02-28",
+     "filed": "2023-02-27",
      "tags": [
       "LongTermDebtNoncurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 308000000,
+      "DebtLongtermAndShorttermCombinedAmount": 11400000000,
       "LongTermDebtNoncurrent": 10768000000
      }
     }
    },
    "start": "2021-01-01",
    "stock_comp": 54000000,
-   "total_debt": 11076000000
+   "total_debt": 11400000000
   },
   {
    "capex": 504000000,
@@ -4096,13 +4098,6 @@
    "period": "2020-12-31",
    "rows": "annual",
    "v2": 4413000000
-  },
-  {
-   "field": "total_debt",
-   "old": 11400000000,
-   "period": "2021-12-31",
-   "rows": "annual",
-   "v2": 11076000000
   },
   {
    "field": "debt_current",
@@ -6584,10 +6579,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0000051253-18-000009",
-     "filed": "2018-05-07",
+     "accn": "0000051253-17-000007",
+     "filed": "2017-05-08",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0000051253-17-000007",
@@ -6664,10 +6659,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0000051253-18-000017",
-     "filed": "2018-08-07",
+     "accn": "0000051253-17-000012",
+     "filed": "2017-08-08",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0000051253-17-000012",
@@ -6745,10 +6740,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0000051253-18-000020",
-     "filed": "2018-11-05",
+     "accn": "0000051253-17-000015",
+     "filed": "2017-11-07",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0000051253-17-000015",
@@ -6903,7 +6898,7 @@
      "accn": "0000051253-18-000009",
      "filed": "2018-05-07",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0000051253-18-000009",
@@ -8150,20 +8145,22 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2022-02-28",
+     "filed": "2023-02-27",
      "tags": [
       "LongTermDebtNoncurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 308000000,
+      "DebtLongtermAndShorttermCombinedAmount": 11400000000,
       "LongTermDebtNoncurrent": 10768000000
      }
     }
    },
    "start": "2021-10-01",
    "stock_comp": 10000000,
-   "total_debt": 11076000000
+   "total_debt": 11400000000
   },
   {
    "capex": 132000000,
@@ -9619,7 +9616,6 @@
   ],
   "revenue": [
    "RevenueFromContractWithCustomerExcludingAssessedTax",
-   "Revenues",
    "SalesRevenueGoodsNet"
   ],
   "shares_diluted": [

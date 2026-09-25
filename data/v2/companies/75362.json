@@ -774,6 +774,7 @@
    "total_debt_as_filed": 188700000,
    "total_debt_as_filed_filed": "2019-05-02",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2019-05-02",
    "total_equity": 8592900000,
    "total_equity_parent": 8592900000
   },
@@ -1062,8 +1063,8 @@
    "buybacks_as_filed": 3500000,
    "buybacks_as_filed_filed": "2024-02-21",
    "buybacks_filed": "2026-02-18",
-   "capex": 695000000,
-   "capex_as_filed": 695000000,
+   "capex": 1265900000,
+   "capex_as_filed": 1265900000,
    "capex_as_filed_filed": "2024-02-21",
    "capex_filed": "2024-02-21",
    "credit_loss_provision": 31300000,
@@ -1130,8 +1131,8 @@
    "buybacks_as_filed": 4500000,
    "buybacks_as_filed_filed": "2025-02-19",
    "buybacks_filed": "2026-02-18",
-   "capex": 838700000,
-   "capex_as_filed": 838700000,
+   "capex": 1702700000,
+   "capex_as_filed": 1702700000,
    "capex_as_filed_filed": "2025-02-19",
    "capex_filed": "2025-02-19",
    "credit_loss_provision": 75600000,
@@ -1198,8 +1199,8 @@
    "buybacks_as_filed": 36100000,
    "buybacks_as_filed_filed": "2026-02-18",
    "buybacks_filed": "2026-02-18",
-   "capex": 743000000,
-   "capex_as_filed": 743000000,
+   "capex": 1386600000,
+   "capex_as_filed": 1386600000,
    "capex_as_filed_filed": "2026-02-18",
    "capex_filed": "2026-02-18",
    "credit_loss_provision": 124500000,
@@ -1345,7 +1346,9 @@
  "cik": 75362,
  "fiscal_year_end": "1231",
  "flags": [
-  "no_debt_tagged"
+  "no_debt_tagged",
+  "quarters_off_year_capex_2023-12-31",
+  "quarters_off_year_capex_2024-12-31"
  ],
  "instances_merged": [],
  "latest_filing": {
@@ -1439,8 +1442,8 @@
   },
   {
    "buybacks": 4000000,
-   "capex": 191300000,
-   "capex_filed": "2024-05-02",
+   "capex": 324700000,
+   "capex_filed": "2025-05-01",
    "credit_loss_provision": 16100000,
    "d_and_a": 104200000,
    "dividends_paid": 1816500000,
@@ -1571,7 +1574,7 @@
   },
   {
    "buybacks": 4300000,
-   "capex": 165100000,
+   "capex": 325800000,
    "capex_filed": "2025-05-01",
    "credit_loss_provision": 18300000,
    "d_and_a": 99700000,
@@ -1603,7 +1606,7 @@
   },
   {
    "buybacks": 30700000,
-   "capex": 222100000,
+   "capex": 388900000,
    "capex_filed": "2025-07-31",
    "credit_loss_provision": 29200000,
    "d_and_a": 207300000,
@@ -1635,7 +1638,7 @@
   },
   {
    "buybacks": 200000,
-   "capex": 165900000,
+   "capex": 305600000,
    "capex_filed": "2025-10-30",
    "credit_loss_provision": 36500000,
    "d_and_a": 205800000,
@@ -1667,7 +1670,7 @@
   },
   {
    "buybacks": 900000,
-   "capex": 189900000,
+   "capex": 366300000,
    "capex_filed": "2026-02-18",
    "credit_loss_provision": 40500000,
    "d_and_a": -114600000,
@@ -1703,7 +1706,7 @@
   },
   {
    "buybacks": 4800000,
-   "capex": 147200000,
+   "capex": 317900000,
    "capex_filed": "2026-04-29",
    "credit_loss_provision": 44100000,
    "d_and_a": 100500000,
@@ -1735,7 +1738,7 @@
   },
   {
    "buybacks": 0,
-   "capex": 145400000,
+   "capex": 391800000,
    "capex_filed": "2026-07-29",
    "credit_loss_provision": 39400000,
    "d_and_a": 215000000,
@@ -1856,14 +1859,14 @@
    "filed": "2026-07-29",
    "method": "four_quarters",
    "tags": [
-    "PaymentsToAcquirePropertyPlantAndEquipment"
+    "PaymentsToAcquireEquipmentOnLease+PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 648400000
+   "val": 1381600000
   },
   "fcf": {
    "end": "2026-06-30",
    "method": "four_quarters",
-   "val": 3696300000
+   "val": 2963100000
   },
   "net_income": {
    "end": "2026-06-30",
@@ -2665,10 +2668,20 @@
      "filed": "2019-02-21",
      "form": "10-K",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2019-05-02",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 188700000
+     }
     }
    },
    "start": "2018-01-01",
-   "stock_comp": 13200000
+   "stock_comp": 13200000,
+   "total_debt": 188700000
   },
   {
    "capex": 574000000,
@@ -2907,10 +2920,10 @@
    "stock_comp": 17100000
   },
   {
-   "capex": 695000000,
+   "capex": 1265900000,
    "end": "2023-12-31",
    "equity": 15878800000,
-   "fcf": 3495000000,
+   "fcf": 2924100000,
    "net_income": 4600800000,
    "operating_cash_flow": 4190000000,
    "revenue": 35127400000,
@@ -2920,7 +2933,8 @@
      "accn": "0000950170-24-017900",
      "filed": "2024-02-21",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "equity": {
      "accn": "0000950170-24-017900",
@@ -2963,10 +2977,10 @@
    "stock_comp": 21200000
   },
   {
-   "capex": 838700000,
+   "capex": 1702700000,
    "end": "2024-12-31",
    "equity": 17506900000,
-   "fcf": 3802200000,
+   "fcf": 2938200000,
    "net_income": 4162000000,
    "operating_cash_flow": 4640900000,
    "revenue": 33663800000,
@@ -2976,7 +2990,8 @@
      "accn": "0000950170-25-023145",
      "filed": "2025-02-19",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "equity": {
      "accn": "0000950170-25-023145",
@@ -3019,10 +3034,10 @@
    "stock_comp": 22900000
   },
   {
-   "capex": 743000000,
+   "capex": 1386600000,
    "end": "2025-12-31",
    "equity": 19264000000,
-   "fcf": 3672800000,
+   "fcf": 3029200000,
    "net_income": 2375800000,
    "operating_cash_flow": 4415800000,
    "revenue": 28444800000,
@@ -3032,7 +3047,8 @@
      "accn": "0001193125-26-057025",
      "filed": "2026-02-18",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquireEquipmentOnLease+PaymentsToAcquirePropertyPlantAndEquipment"
     },
     "equity": {
      "accn": "0001193125-26-057025",
@@ -3183,17 +3199,10 @@
   },
   {
    "field": "capex",
-   "old": 1265900000,
-   "period": "2023-12-31",
+   "old": 743000000,
+   "period": "2025-12-31",
    "rows": "annual",
-   "v2": 695000000
-  },
-  {
-   "field": "capex",
-   "old": 1702700000,
-   "period": "2024-12-31",
-   "rows": "annual",
-   "v2": 838700000
+   "v2": 1386600000
   },
   {
    "field": "capex",
@@ -3201,13 +3210,6 @@
    "period": "2023-12-31",
    "rows": "quarterly",
    "v2": 197800000
-  },
-  {
-   "field": "capex",
-   "old": 324700000,
-   "period": "2024-03-31",
-   "rows": "quarterly",
-   "v2": 191300000
   },
   {
    "field": "capex",
@@ -3228,14 +3230,42 @@
    "old": 332600000,
    "period": "2025-03-31",
    "rows": "quarterly",
-   "v2": 165100000
+   "v2": 325800000
   },
   {
    "field": "capex",
    "old": 54600000,
    "period": "2025-06-30",
    "rows": "quarterly",
-   "v2": 222100000
+   "v2": 388900000
+  },
+  {
+   "field": "capex",
+   "old": 165900000,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": 305600000
+  },
+  {
+   "field": "capex",
+   "old": 189900000,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": 366300000
+  },
+  {
+   "field": "capex",
+   "old": 147200000,
+   "period": "2026-03-31",
+   "rows": "quarterly",
+   "v2": 317900000
+  },
+  {
+   "field": "capex",
+   "old": 145400000,
+   "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 391800000
   }
  ],
  "v2_notes": [],
@@ -5718,10 +5748,20 @@
      "filed": "2018-05-04",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2018-05-04",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 280500000
+     }
     }
    },
    "start": "2018-01-01",
-   "stock_comp": 7000000
+   "stock_comp": 7000000,
+   "total_debt": 280500000
   },
   {
    "capex": 123200000,
@@ -5786,10 +5826,20 @@
      "filed": "2018-08-03",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2018-08-03",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 230200000
+     }
     }
    },
    "start": "2018-04-01",
-   "stock_comp": 2000000
+   "stock_comp": 2000000,
+   "total_debt": 230200000
   },
   {
    "capex": 112900000,
@@ -5852,10 +5902,20 @@
      "filed": "2018-11-02",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2018-11-02",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 230300000
+     }
     }
    },
    "start": "2018-07-01",
-   "stock_comp": 2100000
+   "stock_comp": 2100000,
+   "total_debt": 230300000
   },
   {
    "capex": 123100000,
@@ -5913,10 +5973,20 @@
      "filed": "2019-02-21",
      "form": "10-K",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2019-05-02",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 188700000
+     }
     }
    },
    "start": "2018-10-01",
-   "stock_comp": 2100000
+   "stock_comp": 2100000,
+   "total_debt": 188700000
   },
   {
    "capex": 102800000,
@@ -5979,10 +6049,20 @@
      "filed": "2019-05-02",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2019-05-02",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 89500000
+     }
     }
    },
    "start": "2019-01-01",
-   "stock_comp": 8700000
+   "stock_comp": 8700000,
+   "total_debt": 89500000
   },
   {
    "capex": 147100000,
@@ -6047,10 +6127,20 @@
      "filed": "2019-08-02",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2019-08-02",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 90600000
+     }
     }
    },
    "start": "2019-04-01",
-   "stock_comp": 2100000
+   "stock_comp": 2100000,
+   "total_debt": 90600000
   },
   {
    "capex": 137300000,
@@ -6105,10 +6195,20 @@
      "filed": "2019-10-30",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2019-10-30",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 90700000
+     }
     }
    },
    "start": "2019-07-01",
-   "stock_comp": 2000000
+   "stock_comp": 2000000,
+   "total_debt": 90700000
   },
   {
    "capex": 186800000,
@@ -7089,20 +7189,20 @@
    "stock_comp": 2800000
   },
   {
-   "capex": 191300000,
+   "capex": 324700000,
    "end": "2024-03-31",
    "equity": 16871900000,
-   "fcf": 1277700000,
+   "fcf": 1144300000,
    "net_income": 1195300000,
    "operating_cash_flow": 1469000000,
    "revenue": 8744300000,
    "shares_diluted": 526300000,
    "src": {
     "capex": {
-     "accn": "0000950170-24-052081",
-     "filed": "2024-05-02",
+     "accn": "0000950170-25-061813",
+     "filed": "2025-05-01",
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireProductiveAssets"
     },
     "equity": {
      "accn": "0000950170-24-052081",
@@ -7315,10 +7415,10 @@
    "stock_comp": 3400000
   },
   {
-   "capex": 165100000,
+   "capex": 325800000,
    "end": "2025-03-31",
    "equity": 18022100000,
-   "fcf": 745200000,
+   "fcf": 584500000,
    "net_income": 505100000,
    "operating_cash_flow": 910300000,
    "revenue": 7441700000,
@@ -7328,7 +7428,7 @@
      "accn": "0000950170-25-061813",
      "filed": "2025-05-01",
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireEquipmentOnLease+PaymentsToAcquirePropertyPlantAndEquipment"
     },
     "equity": {
      "accn": "0000950170-25-061813",
@@ -7371,10 +7471,10 @@
    "stock_comp": 13700000
   },
   {
-   "capex": 222100000,
+   "capex": 388900000,
    "end": "2025-06-30",
    "equity": 18942600000,
-   "fcf": 611300000,
+   "fcf": 444500000,
    "net_income": 723800000,
    "operating_cash_flow": 833400000,
    "revenue": 7510500000,
@@ -7385,7 +7485,7 @@
      "derived": true,
      "filed": "2025-07-31",
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireEquipmentOnLease+PaymentsToAcquirePropertyPlantAndEquipment"
     },
     "equity": {
      "accn": "0000950170-25-100887",
@@ -7429,10 +7529,10 @@
    "stock_comp": 3900000
   },
   {
-   "capex": 165900000,
+   "capex": 305600000,
    "end": "2025-09-30",
    "equity": 19368600000,
-   "fcf": 1361900000,
+   "fcf": 1222200000,
    "net_income": 590000000,
    "operating_cash_flow": 1527800000,
    "revenue": 6671800000,
@@ -7443,7 +7543,7 @@
      "derived": true,
      "filed": "2025-10-30",
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireEquipmentOnLease+PaymentsToAcquirePropertyPlantAndEquipment"
     },
     "equity": {
      "accn": "0001193125-25-258509",
@@ -7487,10 +7587,10 @@
    "stock_comp": 2800000
   },
   {
-   "capex": 189900000,
+   "capex": 366300000,
    "end": "2025-12-31",
    "equity": 19264000000,
-   "fcf": 954400000,
+   "fcf": 778000000,
    "net_income": 556900000,
    "operating_cash_flow": 1144300000,
    "revenue": 6820800000,
@@ -7500,7 +7600,7 @@
      "derived": true,
      "filed": "2026-02-18",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireEquipmentOnLease+PaymentsToAcquirePropertyPlantAndEquipment"
     },
     "equity": {
      "accn": "0001193125-26-057025",
@@ -7541,10 +7641,10 @@
    "stock_comp": 3700000
   },
   {
-   "capex": 147200000,
+   "capex": 317900000,
    "end": "2026-03-31",
    "equity": 19756600000,
-   "fcf": 824600000,
+   "fcf": 653900000,
    "net_income": 605300000,
    "operating_cash_flow": 971800000,
    "revenue": 6776500000,
@@ -7554,7 +7654,7 @@
      "accn": "0001193125-26-191499",
      "filed": "2026-04-29",
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireEquipmentOnLease+PaymentsToAcquirePropertyPlantAndEquipment"
     },
     "equity": {
      "accn": "0001193125-26-191499",
@@ -7597,10 +7697,10 @@
    "stock_comp": 14600000
   },
   {
-   "capex": 145400000,
+   "capex": 391800000,
    "end": "2026-06-30",
    "equity": 20321300000,
-   "fcf": 555400000,
+   "fcf": 309000000,
    "net_income": 752000000,
    "operating_cash_flow": 700800000,
    "revenue": 7546700000,
@@ -7611,7 +7711,7 @@
      "derived": true,
      "filed": "2026-07-29",
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireEquipmentOnLease+PaymentsToAcquirePropertyPlantAndEquipment"
     },
     "equity": {
      "accn": "0001193125-26-323642",
@@ -7657,6 +7757,8 @@
  ],
  "v2_tags_used": {
   "capex": [
+   "PaymentsToAcquireEquipmentOnLease+PaymentsToAcquirePropertyPlantAndEquipment",
+   "PaymentsToAcquireProductiveAssets",
    "PaymentsToAcquirePropertyPlantAndEquipment"
   ],
   "net_income": [

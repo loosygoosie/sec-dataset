@@ -654,9 +654,10 @@
    "total_assets_as_filed": 49416000000,
    "total_assets_as_filed_filed": "2022-03-01",
    "total_debt": 20897000000,
-   "total_debt_as_filed": 23745000000,
-   "total_debt_as_filed_filed": "2022-03-01",
+   "total_debt_as_filed": 20897000000,
+   "total_debt_as_filed_filed": "2022-11-09",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2022-11-09",
    "total_equity": 6808000000,
    "total_equity_incl_nci": 6808000000,
    "total_liabilities": 42563000000
@@ -729,6 +730,7 @@
    "total_debt_as_filed": 22962000000,
    "total_debt_as_filed_filed": "2023-02-28",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2023-02-28",
    "total_equity": 6927000000,
    "total_equity_incl_nci": 6927000000,
    "total_liabilities": 32405000000
@@ -805,6 +807,7 @@
    "total_debt_as_filed": 27326000000,
    "total_debt_as_filed_filed": "2024-02-29",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2024-02-29",
    "total_equity": 8096000000,
    "total_equity_incl_nci": 8096000000,
    "total_liabilities": 38117000000
@@ -877,6 +880,7 @@
    "total_debt_as_filed": 26882000000,
    "total_debt_as_filed_filed": "2025-02-28",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2025-02-28",
    "total_equity": 7713000000,
    "total_equity_incl_nci": 7713000000,
    "total_liabilities": 35165000000
@@ -949,6 +953,7 @@
    "total_debt_as_filed": 26762000000,
    "total_debt_as_filed_filed": "2026-02-26",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-02-26",
    "total_equity": 7772000000,
    "total_equity_incl_nci": 7772000000,
    "total_liabilities": 34922000000
@@ -1023,7 +1028,8 @@
  "balance": {
   "cash_and_sti": 1868000000,
   "end": "2026-06-30",
-  "equity": 7794000000
+  "equity": 7794000000,
+  "total_debt": 25966000000
  },
  "bank": false,
  "checks": {
@@ -1039,7 +1045,9 @@
  "fiscal_year_end": "1231",
  "flags": [
   "no_capex",
-  "no_debt_tagged"
+  "revenue_unverified_2024-12-31",
+  "revenue_unverified_2025-12-31",
+  "revenue_unverified_2023-12-31"
  ],
  "instances_merged": [],
  "latest_filing": {
@@ -1100,6 +1108,7 @@
    "total_assets": 43041000000,
    "total_debt": 24958000000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2023-11-08",
    "total_equity": 8007000000,
    "total_equity_incl_nci": 8007000000,
    "total_liabilities": 34926000000
@@ -1137,6 +1146,7 @@
    "total_assets": 46267000000,
    "total_debt": 27326000000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2024-02-29",
    "total_equity": 8096000000,
    "total_equity_incl_nci": 8096000000,
    "total_liabilities": 38117000000
@@ -1175,6 +1185,7 @@
    "total_assets": 45726000000,
    "total_debt": 27780000000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2024-05-06",
    "total_equity": 7838000000,
    "total_equity_incl_nci": 7838000000,
    "total_liabilities": 37714000000
@@ -1213,6 +1224,7 @@
    "total_assets": 43959000000,
    "total_debt": 26808000000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2024-08-02",
    "total_equity": 7451000000,
    "total_equity_incl_nci": 7451000000,
    "total_liabilities": 36297000000
@@ -1251,6 +1263,7 @@
    "total_assets": 44033000000,
    "total_debt": 27300000000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2024-11-12",
    "total_equity": 7712000000,
    "total_equity_incl_nci": 7712000000,
    "total_liabilities": 36264000000
@@ -1289,6 +1302,7 @@
    "total_assets": 42933000000,
    "total_debt": 26882000000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2025-02-28",
    "total_equity": 7713000000,
    "total_equity_incl_nci": 7713000000,
    "total_liabilities": 35165000000
@@ -1326,6 +1340,7 @@
    "total_assets": 42057000000,
    "total_debt": 26010000000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2025-05-06",
    "total_equity": 7902000000,
    "total_equity_incl_nci": 7902000000,
    "total_liabilities": 34098000000
@@ -1364,6 +1379,7 @@
    "total_assets": 43687000000,
    "total_debt": 27408000000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2025-08-04",
    "total_equity": 7779000000,
    "total_equity_incl_nci": 7779000000,
    "total_liabilities": 35853000000
@@ -1402,6 +1418,7 @@
    "total_assets": 43258000000,
    "total_debt": 27128000000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2025-11-07",
    "total_equity": 7777000000,
    "total_equity_incl_nci": 7777000000,
    "total_liabilities": 35421000000
@@ -1440,6 +1457,7 @@
    "total_assets": 42747000000,
    "total_debt": 26762000000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-02-26",
    "total_equity": 7772000000,
    "total_equity_incl_nci": 7772000000,
    "total_liabilities": 34922000000
@@ -1478,6 +1496,7 @@
    "total_assets": 42038000000,
    "total_debt": 25904000000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-04-30",
    "total_equity": 7812000000,
    "total_equity_incl_nci": 7812000000,
    "total_liabilities": 34170000000
@@ -1516,6 +1535,7 @@
    "total_assets": 42172000000,
    "total_debt": 25966000000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-08-03",
    "total_equity": 7794000000,
    "total_equity_incl_nci": 7794000000,
    "total_liabilities": 34319000000
@@ -1750,10 +1770,20 @@
      "filed": "2023-02-28",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2022-11-09",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 20897000000
+     }
     }
    },
    "start": "2021-01-01",
-   "stock_comp": 90000000
+   "stock_comp": 90000000,
+   "total_debt": 20897000000
   },
   {
    "cash": 4376000000,
@@ -1806,10 +1836,20 @@
      "filed": "2023-02-28",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2023-02-28",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 22962000000
+     }
     }
    },
    "start": "2022-01-01",
-   "stock_comp": 87000000
+   "stock_comp": 87000000,
+   "total_debt": 22962000000
   },
   {
    "cash": 4322000000,
@@ -1866,10 +1906,20 @@
      "filed": "2024-02-29",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2024-02-29",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 27326000000
+     }
     }
    },
    "start": "2023-01-01",
-   "stock_comp": 99000000
+   "stock_comp": 99000000,
+   "total_debt": 27326000000
   },
   {
    "cash": 3191000000,
@@ -1922,10 +1972,20 @@
      "filed": "2025-02-28",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2025-02-28",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 26882000000
+     }
     }
    },
    "start": "2024-01-01",
-   "stock_comp": 71000000
+   "stock_comp": 71000000,
+   "total_debt": 26882000000
   },
   {
    "cash": 2578000000,
@@ -1978,10 +2038,20 @@
      "filed": "2026-02-26",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-02-26",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 26762000000
+     }
     }
    },
    "start": "2025-01-01",
-   "stock_comp": 45000000
+   "stock_comp": 45000000,
+   "total_debt": 26762000000
   }
  ],
  "v2_fixes": [
@@ -2197,9 +2267,19 @@
      "filed": "2023-02-28",
      "form": "10-K",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "total_debt": {
+     "filed": "2022-11-09",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 20897000000
+     }
     }
    },
-   "start": "2021-10-01"
+   "start": "2021-10-01",
+   "total_debt": 20897000000
   },
   {
    "end": "2022-03-31",
@@ -2330,9 +2410,19 @@
      "filed": "2022-11-09",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2022-11-09",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 20922000000
+     }
     }
    },
-   "start": "2022-07-01"
+   "start": "2022-07-01",
+   "total_debt": 20922000000
   },
   {
    "cash": 4376000000,
@@ -2375,9 +2465,19 @@
      "filed": "2023-02-28",
      "form": "10-K",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "total_debt": {
+     "filed": "2023-02-28",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 22962000000
+     }
     }
    },
-   "start": "2022-10-01"
+   "start": "2022-10-01",
+   "total_debt": 22962000000
   },
   {
    "cash": 3213000000,
@@ -2426,9 +2526,19 @@
      "filed": "2023-05-09",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2023-05-09",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 23552000000
+     }
     }
    },
-   "start": "2023-01-01"
+   "start": "2023-01-01",
+   "total_debt": 23552000000
   },
   {
    "cash": 3194000000,
@@ -2478,9 +2588,19 @@
      "filed": "2023-08-02",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2023-08-02",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 24870000000
+     }
     }
    },
-   "start": "2023-04-01"
+   "start": "2023-04-01",
+   "total_debt": 24870000000
   },
   {
    "cash": 2979000000,
@@ -2532,9 +2652,19 @@
      "filed": "2023-11-08",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2023-11-08",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 24958000000
+     }
     }
    },
-   "start": "2023-07-01"
+   "start": "2023-07-01",
+   "total_debt": 24958000000
   },
   {
    "cash": 4322000000,
@@ -2579,9 +2709,19 @@
      "filed": "2024-02-29",
      "form": "10-K",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "total_debt": {
+     "filed": "2024-02-29",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 27326000000
+     }
     }
    },
-   "start": "2023-10-01"
+   "start": "2023-10-01",
+   "total_debt": 27326000000
   },
   {
    "cash": 3236000000,
@@ -2632,9 +2772,19 @@
      "filed": "2024-05-06",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2024-05-06",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 27780000000
+     }
     }
    },
-   "start": "2024-01-01"
+   "start": "2024-01-01",
+   "total_debt": 27780000000
   },
   {
    "cash": 2002000000,
@@ -2686,9 +2836,19 @@
      "filed": "2024-08-02",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2024-08-02",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 26808000000
+     }
     }
    },
-   "start": "2024-04-01"
+   "start": "2024-04-01",
+   "total_debt": 26808000000
   },
   {
    "cash": 1801000000,
@@ -2736,9 +2896,19 @@
      "filed": "2024-11-12",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2024-11-12",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 27300000000
+     }
     }
    },
-   "start": "2024-07-01"
+   "start": "2024-07-01",
+   "total_debt": 27300000000
   },
   {
    "cash": 3191000000,
@@ -2781,9 +2951,19 @@
      "filed": "2025-02-28",
      "form": "10-K",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "total_debt": {
+     "filed": "2025-02-28",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 26882000000
+     }
     }
    },
-   "start": "2024-10-01"
+   "start": "2024-10-01",
+   "total_debt": 26882000000
   },
   {
    "cash": 1695000000,
@@ -2830,9 +3010,19 @@
      "filed": "2025-05-06",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2025-05-06",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 26010000000
+     }
     }
    },
-   "start": "2025-01-01"
+   "start": "2025-01-01",
+   "total_debt": 26010000000
   },
   {
    "cash": 2512000000,
@@ -2880,9 +3070,19 @@
      "filed": "2025-08-04",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2025-08-04",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 27408000000
+     }
     }
    },
-   "start": "2025-04-01"
+   "start": "2025-04-01",
+   "total_debt": 27408000000
   },
   {
    "cash": 2303000000,
@@ -2930,9 +3130,19 @@
      "filed": "2025-11-07",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2025-11-07",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 27128000000
+     }
     }
    },
-   "start": "2025-07-01"
+   "start": "2025-07-01",
+   "total_debt": 27128000000
   },
   {
    "cash": 2578000000,
@@ -2975,9 +3185,19 @@
      "filed": "2026-02-26",
      "form": "10-K",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "total_debt": {
+     "filed": "2026-02-26",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 26762000000
+     }
     }
    },
-   "start": "2025-10-01"
+   "start": "2025-10-01",
+   "total_debt": 26762000000
   },
   {
    "cash": 1604000000,
@@ -3024,9 +3244,19 @@
      "filed": "2026-04-30",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2026-04-30",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 25904000000
+     }
     }
    },
-   "start": "2026-01-01"
+   "start": "2026-01-01",
+   "total_debt": 25904000000
   },
   {
    "cash": 1868000000,
@@ -3074,9 +3304,19 @@
      "filed": "2026-08-03",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2026-08-03",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 25966000000
+     }
     }
    },
-   "start": "2026-04-01"
+   "start": "2026-04-01",
+   "total_debt": 25966000000
   }
  ],
  "v2_tags_used": {

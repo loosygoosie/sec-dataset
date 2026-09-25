@@ -2,6 +2,8 @@
  "annual": [
   {
    "acquisitions": 0,
+   "capex": 280000000,
+   "capex_filed": "2026-03-19",
    "capitalized_software": 25000000,
    "cash": 316000000,
    "cash_as_filed": 316000000,
@@ -61,6 +63,8 @@
   },
   {
    "acquisitions": 6000000,
+   "capex": 293000000,
+   "capex_filed": "2026-03-19",
    "capitalized_software": 38000000,
    "cash": 407000000,
    "cash_as_filed": 407000000,
@@ -146,6 +150,8 @@
   },
   {
    "acquisitions": 48000000,
+   "capex": 300000000,
+   "capex_filed": "2026-03-19",
    "capitalized_software": 39000000,
    "cash": 306000000,
    "cash_as_filed": 306000000,
@@ -320,10 +326,11 @@
  },
  "cik": 1693736,
  "fiscal_year_end": "1231",
- "flags": [
-  "no_capex"
+ "flags": [],
+ "instances_merged": [
+  "0001628280-26-019656",
+  "0001693736-26-000020"
  ],
- "instances_merged": [],
  "latest_filing": {
   "accn": "0001693736-26-000020",
   "filed": "2026-08-13",
@@ -416,6 +423,8 @@
   },
   {
    "acquisitions": 8000000,
+   "capex": 72000000,
+   "capex_filed": "2026-08-13",
    "capitalized_software": 10000000,
    "cash": 361000000,
    "d_and_a": 10000000,
@@ -508,6 +517,8 @@
   },
   {
    "acquisitions": 2000000,
+   "capex": 91000000,
+   "capex_filed": "2026-08-13",
    "capitalized_software": 8000000,
    "cash": 443000000,
    "current_assets": 2210000000,
@@ -620,6 +631,20 @@
   "EQPT"
  ],
  "ttm": {
+  "capex": {
+   "end": "2026-06-30",
+   "filed": "2026-08-13",
+   "method": "year_to_date",
+   "tags": [
+    "ext:RentalEquipmentDepreciation"
+   ],
+   "val": 334000000
+  },
+  "fcf": {
+   "end": "2026-06-30",
+   "method": "year_to_date",
+   "val": -85000000
+  },
   "net_income": {
    "end": "2026-06-30",
    "filed": "2026-08-13",
@@ -668,15 +693,23 @@
  },
  "v2_annual": [
   {
+   "capex": 280000000,
    "cash": 316000000,
    "cash_and_sti": 316000000,
    "end": "2023-12-31",
    "equity": 588000000,
+   "fcf": -1000000,
    "net_income": 17000000,
    "operating_cash_flow": 279000000,
    "revenue": 2557000000,
    "shares_diluted": 75000000,
    "src": {
+    "capex": {
+     "accn": "0001628280-26-019656",
+     "filed": "2026-03-19",
+     "form": "10-K",
+     "tag": "ext:RentalEquipmentDepreciation"
+    },
     "cash": {
      "accn": "0001628280-26-019656",
      "filed": "2026-03-19",
@@ -724,18 +757,26 @@
    "stock_comp": 3000000
   },
   {
+   "capex": 293000000,
    "cash": 407000000,
    "cash_and_sti": 407000000,
    "debt_current": 19000000,
    "debt_noncurrent": 2528000000,
    "end": "2024-12-31",
    "equity": 549000000,
+   "fcf": -11000000,
    "finance_leases": 88000000,
    "net_income": 3000000,
    "operating_cash_flow": 282000000,
    "revenue": 3764000000,
    "shares_diluted": 77000000,
    "src": {
+    "capex": {
+     "accn": "0001628280-26-019656",
+     "filed": "2026-03-19",
+     "form": "10-K",
+     "tag": "ext:RentalEquipmentDepreciation"
+    },
     "cash": {
      "accn": "0001628280-26-019656",
      "filed": "2026-03-19",
@@ -795,18 +836,26 @@
    "total_debt": 2547000000
   },
   {
+   "capex": 300000000,
    "cash": 306000000,
    "cash_and_sti": 306000000,
    "debt_current": 4000000,
    "debt_noncurrent": 3268000000,
    "end": "2025-12-31",
    "equity": 528000000,
+   "fcf": -36000000,
    "finance_leases": 188000000,
    "net_income": 40000000,
    "operating_cash_flow": 264000000,
    "revenue": 4379000000,
    "shares_diluted": 226000000,
    "src": {
+    "capex": {
+     "accn": "0001628280-26-019656",
+     "filed": "2026-03-19",
+     "form": "10-K",
+     "tag": "ext:RentalEquipmentDepreciation"
+    },
     "cash": {
      "accn": "0001628280-26-019656",
      "filed": "2026-03-19",
@@ -868,11 +917,32 @@
  ],
  "v2_fixes": [
   {
+   "field": "capex",
+   "old": null,
+   "period": "2023-12-31",
+   "rows": "annual",
+   "v2": 280000000
+  },
+  {
+   "field": "capex",
+   "old": null,
+   "period": "2024-12-31",
+   "rows": "annual",
+   "v2": 293000000
+  },
+  {
    "field": "total_debt",
    "old": 2626000000,
    "period": "2024-12-31",
    "rows": "annual",
    "v2": 2547000000
+  },
+  {
+   "field": "capex",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "annual",
+   "v2": 300000000
   },
   {
    "field": "total_debt",
@@ -882,11 +952,25 @@
    "v2": 3272000000
   },
   {
+   "field": "capex",
+   "old": null,
+   "period": "2025-06-30",
+   "rows": "quarterly",
+   "v2": 72000000
+  },
+  {
    "field": "total_debt",
    "old": 3139000000,
    "period": "2026-03-31",
    "rows": "quarterly",
    "v2": 3082000000
+  },
+  {
+   "field": "capex",
+   "old": null,
+   "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 91000000
   },
   {
    "field": "total_debt",
@@ -948,14 +1032,22 @@
    "stock_comp": 1000000
   },
   {
+   "capex": 72000000,
    "cash": 361000000,
    "cash_and_sti": 361000000,
    "end": "2025-06-30",
    "equity": 467000000,
+   "fcf": -148000000,
    "net_income": 16000000,
    "operating_cash_flow": -76000000,
    "revenue": 1147000000,
    "src": {
+    "capex": {
+     "accn": "0001693736-26-000020",
+     "filed": "2026-08-13",
+     "form": "10-Q",
+     "tag": "ext:RentalEquipmentDepreciation"
+    },
     "cash": {
      "accn": "0001693736-26-000020",
      "filed": "2026-08-13",
@@ -1063,17 +1155,25 @@
    "total_debt": 3082000000
   },
   {
+   "capex": 91000000,
    "cash": 443000000,
    "cash_and_sti": 443000000,
    "debt_current": 2000000,
    "debt_noncurrent": 3635000000,
    "end": "2026-06-30",
    "equity": 1212000000,
+   "fcf": -33000000,
    "finance_leases": 216000000,
    "net_income": 19000000,
    "operating_cash_flow": 58000000,
    "revenue": 1449000000,
    "src": {
+    "capex": {
+     "accn": "0001693736-26-000020",
+     "filed": "2026-08-13",
+     "form": "10-Q",
+     "tag": "ext:RentalEquipmentDepreciation"
+    },
     "cash": {
      "accn": "0001693736-26-000020",
      "filed": "2026-08-13",
@@ -1130,7 +1230,9 @@
   }
  ],
  "v2_tags_used": {
-  "capex": [],
+  "capex": [
+   "ext:RentalEquipmentDepreciation"
+  ],
   "net_income": [
    "NetIncomeLoss"
   ],

@@ -1349,6 +1349,8 @@
    "total_assets": 15155710000,
    "total_assets_as_filed": 15155710000,
    "total_assets_as_filed_filed": "2026-02-09",
+   "total_debt": 901873000,
+   "total_debt_filed": "2026-02-09",
    "total_equity": 3608975000,
    "total_equity_parent": 3608975000,
    "total_liabilities": 11546735000
@@ -1423,7 +1425,8 @@
  "balance": {
   "cash_and_sti": 10927000,
   "end": "2026-06-30",
-  "equity": 3662987000
+  "equity": 3662987000,
+  "total_debt": 900959000
  },
  "bank": false,
  "checks": {
@@ -1437,9 +1440,7 @@
  },
  "cik": 230557,
  "fiscal_year_end": "1231",
- "flags": [
-  "no_debt_tagged"
- ],
+ "flags": [],
  "instances_merged": [],
  "latest_filing": {
   "accn": "0000230557-26-000020",
@@ -1756,6 +1757,8 @@
    "short_term_investments": 631090000,
    "stock_comp": 12823000,
    "total_assets": 14197563000,
+   "total_debt": 903232000,
+   "total_debt_filed": "2025-04-25",
    "total_equity": 3258540000,
    "total_equity_parent": 3258540000,
    "total_liabilities": 10939023000
@@ -1794,6 +1797,8 @@
    "short_term_investments": 531441000,
    "stock_comp": 4859000,
    "total_assets": 14468433000,
+   "total_debt": 902749000,
+   "total_debt_filed": "2025-07-25",
    "total_equity": 3369379000,
    "total_equity_parent": 3369379000,
    "total_liabilities": 11099054000
@@ -1832,6 +1837,8 @@
    "short_term_investments": 587911000,
    "stock_comp": 2770000,
    "total_assets": 14980411000,
+   "total_debt": 902317000,
+   "total_debt_filed": "2025-10-24",
    "total_equity": 3489962000,
    "total_equity_parent": 3489962000,
    "total_liabilities": 11490449000
@@ -1871,6 +1878,8 @@
    "short_term_investments": 648542000,
    "stock_comp": 2652000,
    "total_assets": 15155710000,
+   "total_debt": 901873000,
+   "total_debt_filed": "2026-02-09",
    "total_equity": 3608975000,
    "total_equity_parent": 3608975000,
    "total_liabilities": 11546735000
@@ -1909,6 +1918,8 @@
    "short_term_investments": 451793000,
    "stock_comp": 13121000,
    "total_assets": 15321934000,
+   "total_debt": 901422000,
+   "total_debt_filed": "2026-04-24",
    "total_equity": 3587379000,
    "total_equity_parent": 3587379000,
    "total_liabilities": 11734555000
@@ -1947,6 +1958,8 @@
    "short_term_investments": 378879000,
    "stock_comp": 5124000,
    "total_assets": 15615949000,
+   "total_debt": 900959000,
+   "total_debt_filed": "2026-07-24",
    "total_equity": 3662987000,
    "total_equity_parent": 3662987000,
    "total_liabilities": 11952962000
@@ -3388,10 +3401,20 @@
      "filed": "2026-02-09",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-02-09",
+     "tags": [
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities"
+     ],
+     "values": {
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities": 901873000
+     }
     }
    },
    "start": "2025-01-01",
-   "stock_comp": 23104000
+   "stock_comp": 23104000,
+   "total_debt": 901873000
   }
  ],
  "v2_fixes": [
@@ -3499,6 +3522,55 @@
    "period": "2019-12-31",
    "rows": "annual",
    "v2": 0
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "annual",
+   "v2": 901873000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2025-03-31",
+   "rows": "quarterly",
+   "v2": 903232000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2025-06-30",
+   "rows": "quarterly",
+   "v2": 902749000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": 902317000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": 901873000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2026-03-31",
+   "rows": "quarterly",
+   "v2": 901422000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 900959000
   }
  ],
  "v2_notes": [],
@@ -6150,10 +6222,20 @@
      "filed": "2019-08-01",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2019-08-01",
+     "tags": [
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities"
+     ],
+     "values": {
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities": 550778000
+     }
     }
    },
    "start": "2019-04-01",
-   "stock_comp": 4977000
+   "stock_comp": 4977000,
+   "total_debt": 550778000
   },
   {
    "capex": 7439000,
@@ -6210,10 +6292,20 @@
      "filed": "2019-10-31",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2019-10-31",
+     "tags": [
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities"
+     ],
+     "values": {
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities": 550669000
+     }
     }
    },
    "start": "2019-07-01",
-   "stock_comp": 4203000
+   "stock_comp": 4203000,
+   "total_debt": 550669000
   },
   {
    "capex": 6562000,
@@ -7885,10 +7977,20 @@
      "filed": "2025-04-25",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2025-04-25",
+     "tags": [
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities"
+     ],
+     "values": {
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities": 903232000
+     }
     }
    },
    "start": "2025-01-01",
-   "stock_comp": 12823000
+   "stock_comp": 12823000,
+   "total_debt": 903232000
   },
   {
    "capex": 7247000,
@@ -7952,10 +8054,20 @@
      "filed": "2025-07-25",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2025-07-25",
+     "tags": [
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities"
+     ],
+     "values": {
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities": 902749000
+     }
     }
    },
    "start": "2025-04-01",
-   "stock_comp": 4859000
+   "stock_comp": 4859000,
+   "total_debt": 902749000
   },
   {
    "capex": 8502000,
@@ -8019,10 +8131,20 @@
      "filed": "2025-10-24",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2025-10-24",
+     "tags": [
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities"
+     ],
+     "values": {
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities": 902317000
+     }
     }
    },
    "start": "2025-07-01",
-   "stock_comp": 2770000
+   "stock_comp": 2770000,
+   "total_debt": 902317000
   },
   {
    "capex": 9980000,
@@ -8081,10 +8203,20 @@
      "filed": "2026-02-09",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-02-09",
+     "tags": [
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities"
+     ],
+     "values": {
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities": 901873000
+     }
     }
    },
    "start": "2025-10-01",
-   "stock_comp": 2652000
+   "stock_comp": 2652000,
+   "total_debt": 901873000
   },
   {
    "capex": 10937000,
@@ -8145,10 +8277,20 @@
      "filed": "2026-04-24",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-04-24",
+     "tags": [
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities"
+     ],
+     "values": {
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities": 901422000
+     }
     }
    },
    "start": "2026-01-01",
-   "stock_comp": 13121000
+   "stock_comp": 13121000,
+   "total_debt": 901422000
   },
   {
    "capex": 14104000,
@@ -8212,10 +8354,20 @@
      "filed": "2026-07-24",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-07-24",
+     "tags": [
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities"
+     ],
+     "values": {
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities": 900959000
+     }
     }
    },
    "start": "2026-04-01",
-   "stock_comp": 5124000
+   "stock_comp": 5124000,
+   "total_debt": 900959000
   }
  ],
  "v2_tags_used": {

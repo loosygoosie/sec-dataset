@@ -444,6 +444,7 @@
    "current_assets": 22448000,
    "current_liabilities": 11277000,
    "d_and_a": 4486000,
+   "debt_current": 985000,
    "deposits": 1650000,
    "eps_diluted": -0.1,
    "filed": "2024-11-13",
@@ -473,7 +474,7 @@
    "shares_outstanding": 45704140,
    "stock_comp": 303000,
    "total_assets": 179082000,
-   "total_debt": 140847000,
+   "total_debt": 141832000,
    "total_debt_basis": "tagged",
    "total_debt_filed": "2023-12-19",
    "total_equity": 23342000,
@@ -1532,11 +1533,25 @@
    "v2": 300585000
   },
   {
+   "field": "total_debt",
+   "old": 140847000,
+   "period": "2023-09-30",
+   "rows": "quarterly",
+   "v2": 141832000
+  },
+  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2023-09-30",
    "rows": "quarterly",
    "v2": 140847000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2023-09-30",
+   "rows": "quarterly",
+   "v2": 985000
   },
   {
    "field": "total_debt",
@@ -1809,6 +1824,7 @@
   {
    "cash": 12744000,
    "cash_and_sti": 12744000,
+   "debt_current": 985000,
    "debt_noncurrent": 140847000,
    "end": "2023-09-30",
    "equity": 23342000,
@@ -1865,18 +1881,19 @@
     },
     "total_debt": {
      "filed": "2023-12-19",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 140847000
+      "LongTermNotesPayable": 140847000,
+      "NotesPayableCurrent": 985000
      }
     }
    },
    "start": "2023-07-01",
    "stock_comp": 303000,
-   "total_debt": 140847000
+   "total_debt": 141832000
   },
   {
    "cash": 30504000,

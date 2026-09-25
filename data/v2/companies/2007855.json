@@ -1,8 +1,8 @@
 {
  "annual": [
   {
-   "capex": 8091000000,
-   "capex_as_filed": 8091000000,
+   "capex": 8199000000,
+   "capex_as_filed": 8199000000,
    "capex_as_filed_filed": "2026-03-02",
    "capex_filed": "2026-03-02",
    "cash": 5872000000,
@@ -59,8 +59,8 @@
    "stock_comp_filed": "2026-03-02"
   },
   {
-   "capex": 13717000000,
-   "capex_as_filed": 13717000000,
+   "capex": 14098000000,
+   "capex_as_filed": 14098000000,
    "capex_as_filed_filed": "2026-03-02",
    "capex_filed": "2026-03-02",
    "cash": 3608000000,
@@ -145,8 +145,8 @@
    "total_liabilities": 35595000000
   },
   {
-   "capex": 13365000000,
-   "capex_as_filed": 13365000000,
+   "capex": 13441000000,
+   "capex_as_filed": 13441000000,
    "capex_as_filed_filed": "2026-03-02",
    "capex_filed": "2026-03-02",
    "cash": 2355000000,
@@ -321,7 +321,9 @@
  },
  "cik": 2007855,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "quarters_off_year_capex_2024-12-31"
+ ],
  "instances_merged": [
   "0002007855-26-000013"
  ],
@@ -909,11 +911,11 @@
  },
  "v2_annual": [
   {
-   "capex": 8091000000,
+   "capex": 8199000000,
    "cash": 5872000000,
    "cash_and_sti": 5872000000,
    "end": "2023-12-31",
-   "fcf": -3541000000,
+   "fcf": -3649000000,
    "net_income": 2681000000,
    "operating_cash_flow": 4550000000,
    "revenue": 7897000000,
@@ -923,7 +925,8 @@
      "accn": "0002007855-26-000013",
      "filed": "2026-03-02",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment+ext:FinancedPaymentsToAcquirePropertyPlantAndEquipment"
     },
     "cash": {
      "accn": "0002007855-25-000018",
@@ -966,14 +969,14 @@
    "stock_comp": 28000000
   },
   {
-   "capex": 13717000000,
+   "capex": 14098000000,
    "cash": 3608000000,
    "cash_and_sti": 3608000000,
    "debt_current": 190000000,
    "debt_noncurrent": 29086000000,
    "end": "2024-12-31",
    "equity": 2897000000,
-   "fcf": -11568000000,
+   "fcf": -11949000000,
    "finance_leases": 258000000,
    "net_income": 1475000000,
    "operating_cash_flow": 2149000000,
@@ -984,7 +987,8 @@
      "accn": "0002007855-26-000013",
      "filed": "2026-03-02",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment+ext:FinancedPaymentsToAcquirePropertyPlantAndEquipment"
     },
     "cash": {
      "accn": "0002007855-25-000018",
@@ -1045,14 +1049,14 @@
    "total_debt": 29276000000
   },
   {
-   "capex": 13365000000,
+   "capex": 13441000000,
    "cash": 2355000000,
    "cash_and_sti": 2355000000,
    "debt_current": 812000000,
    "debt_noncurrent": 33393000000,
    "end": "2025-12-31",
    "equity": 6743000000,
-   "fcf": -6799000000,
+   "fcf": -6875000000,
    "finance_leases": 258000000,
    "net_income": 2260000000,
    "operating_cash_flow": 6566000000,
@@ -1063,7 +1067,8 @@
      "accn": "0002007855-26-000013",
      "filed": "2026-03-02",
      "form": "10-K",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment+ext:FinancedPaymentsToAcquirePropertyPlantAndEquipment"
     },
     "cash": {
      "accn": "0002007855-26-000013",
@@ -1126,11 +1131,32 @@
  ],
  "v2_fixes": [
   {
+   "field": "capex",
+   "old": 8091000000,
+   "period": "2023-12-31",
+   "rows": "annual",
+   "v2": 8199000000
+  },
+  {
+   "field": "capex",
+   "old": 13717000000,
+   "period": "2024-12-31",
+   "rows": "annual",
+   "v2": 14098000000
+  },
+  {
    "field": "total_debt",
    "old": 29551000000,
    "period": "2024-12-31",
    "rows": "annual",
    "v2": 29276000000
+  },
+  {
+   "field": "capex",
+   "old": 13365000000,
+   "period": "2025-12-31",
+   "rows": "annual",
+   "v2": 13441000000
   },
   {
    "field": "total_debt",
@@ -1929,7 +1955,8 @@
  ],
  "v2_tags_used": {
   "capex": [
-   "PaymentsToAcquirePropertyPlantAndEquipment"
+   "PaymentsToAcquirePropertyPlantAndEquipment",
+   "PaymentsToAcquirePropertyPlantAndEquipment+ext:FinancedPaymentsToAcquirePropertyPlantAndEquipment"
   ],
   "net_income": [
    "NetIncomeLossAvailableToCommonStockholdersBasic"

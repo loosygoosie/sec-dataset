@@ -2005,6 +2005,7 @@
    "capex": 10561000,
    "cash": 41274000,
    "cash_and_sti": 41274000,
+   "debt_current": 250000,
    "end": "2021-03-31",
    "equity": 22390,
    "fcf": 10436000,
@@ -2060,9 +2061,20 @@
      "filed": "2022-05-09",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2021-05-13",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 250000
+     }
     }
    },
-   "start": "2021-01-01"
+   "start": "2021-01-01",
+   "total_debt": 250000
   },
   {
    "capex": 8474000,

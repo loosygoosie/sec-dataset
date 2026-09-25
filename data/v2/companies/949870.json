@@ -3779,6 +3779,7 @@
    "capex": 18281000,
    "cash": 41143000,
    "cash_and_sti": 41143000,
+   "debt_current": 62000,
    "debt_noncurrent": 566000,
    "end": "2012-06-30",
    "equity": 210562000,
@@ -3840,23 +3841,25 @@
     },
     "total_debt": {
      "filed": "2012-08-01",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 566000
+      "LongTermNotesPayable": 566000,
+      "NotesPayableCurrent": 62000
      }
     }
    },
    "start": "2012-04-01",
    "stock_comp": 2500000,
-   "total_debt": 566000
+   "total_debt": 628000
   },
   {
    "capex": 17715000,
    "cash": 62836000,
    "cash_and_sti": 62836000,
+   "debt_current": 62000,
    "debt_noncurrent": 566000,
    "end": "2012-09-29",
    "equity": 230419000,
@@ -3918,18 +3921,19 @@
     },
     "total_debt": {
      "filed": "2012-11-01",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 566000
+      "LongTermNotesPayable": 566000,
+      "NotesPayableCurrent": 62000
      }
     }
    },
    "start": "2012-07-01",
    "stock_comp": 1300000,
-   "total_debt": 566000
+   "total_debt": 628000
   },
   {
    "capex": 16496000,

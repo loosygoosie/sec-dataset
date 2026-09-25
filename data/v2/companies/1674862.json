@@ -53,10 +53,10 @@
    "restated": [
     "revenue"
    ],
-   "revenue": 6100000000,
+   "revenue": 6121000000,
    "revenue_as_filed": 6121000000,
    "revenue_as_filed_filed": "2016-11-21",
-   "revenue_filed": "2017-11-20",
+   "revenue_filed": "2016-11-21",
    "sga_expense": 1358000000,
    "shares_diluted": 78000000,
    "shares_diluted_adj": 78000000,
@@ -2073,7 +2073,7 @@
    "fcf": 332000000,
    "net_income": 233000000,
    "operating_cash_flow": 580000000,
-   "revenue": 6100000000,
+   "revenue": 6121000000,
    "shares_diluted": 78000000,
    "src": {
     "capex": {
@@ -2107,12 +2107,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
     },
     "revenue": {
-     "accn": "0001674862-17-000090",
-     "filed": "2017-11-20",
-     "first_filed": "2016-11-21",
-     "first_val": 6121000000,
+     "accn": "0001674862-16-000008",
+     "filed": "2016-11-21",
      "form": "10-K",
-     "tag": "SalesRevenueNet"
+     "note": "income-statement tie-out",
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0001674862-16-000008",
@@ -3034,6 +3033,13 @@
   }
  ],
  "v2_fixes": [
+  {
+   "field": "revenue",
+   "old": 6100000000,
+   "period": "2014-09-30",
+   "rows": "annual",
+   "v2": 6121000000
+  },
   {
    "field": "total_debt",
    "old": 3729000000,
@@ -6605,6 +6611,7 @@
   ],
   "revenue": [
    "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "SalesRevenueGoodsNet",
    "SalesRevenueNet"
   ],
   "shares_diluted": [

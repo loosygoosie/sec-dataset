@@ -6954,6 +6954,7 @@
    "capex": 27745000,
    "cash": 3585000,
    "cash_and_sti": 3585000,
+   "debt_current": 3147000,
    "debt_noncurrent": 97662000,
    "end": "2022-03-31",
    "equity": 121008000,
@@ -7017,18 +7018,19 @@
     },
     "total_debt": {
      "filed": "2022-05-16",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "LongTermDebtNoncurrent",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 97662000
+      "LongTermDebtNoncurrent": 97662000,
+      "NotesPayableCurrent": 3147000
      }
     }
    },
    "start": "2022-01-01",
    "stock_comp": 0,
-   "total_debt": 97662000
+   "total_debt": 100809000
   },
   {
    "capex": 17724000,

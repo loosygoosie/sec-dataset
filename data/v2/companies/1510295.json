@@ -801,10 +801,10 @@
    "retained_earnings": 12864000000,
    "retained_earnings_as_filed": 12864000000,
    "retained_earnings_as_filed_filed": "2018-02-28",
-   "revenue": 218000000,
-   "revenue_as_filed": 218000000,
-   "revenue_as_filed_filed": "2018-02-28",
-   "revenue_filed": "2018-02-28",
+   "revenue": 74733000000,
+   "revenue_as_filed": 74104000000,
+   "revenue_as_filed_filed": "2019-02-28",
+   "revenue_filed": "2020-02-28",
    "sga_expense": 1694000000,
    "shares_diluted": 512000000,
    "shares_diluted_adj": 512000000,
@@ -1727,7 +1727,11 @@
  },
  "cik": 1510295,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "revenue_unverified_2024-12-31",
+  "revenue_unverified_2025-12-31",
+  "revenue_unverified_2023-12-31"
+ ],
  "instances_merged": [
   "0001510295-26-000009",
   "0001510295-26-000061"
@@ -3140,7 +3144,7 @@
    "fcf": 3880000000,
    "net_income": 3432000000,
    "operating_cash_flow": 6612000000,
-   "revenue": 218000000,
+   "revenue": 74733000000,
    "shares_diluted": 512000000,
    "src": {
     "capex": {
@@ -3176,10 +3180,13 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001510295-18-000024",
-     "filed": "2018-02-28",
+     "accn": "0001510295-20-000006",
+     "filed": "2020-02-28",
+     "first_filed": "2019-02-28",
+     "first_val": 74104000000,
      "form": "10-K",
-     "tag": "OperatingLeasesIncomeStatementLeaseRevenue"
+     "note": "income-statement tie-out",
+     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
     },
     "shares_diluted": {
      "accn": "0001510295-18-000024",
@@ -3933,13 +3940,6 @@
    "period": "2016-12-31",
    "rows": "annual",
    "v2": 10572000000
-  },
-  {
-   "field": "revenue",
-   "old": 74733000000,
-   "period": "2017-12-31",
-   "rows": "annual",
-   "v2": 218000000
   },
   {
    "field": "total_debt",
@@ -6051,7 +6051,7 @@
    "fcf": 198000000,
    "net_income": 483000000,
    "operating_cash_flow": 853000000,
-   "revenue": 18180000000,
+   "revenue": 18033000000,
    "shares_diluted": 517000000,
    "src": {
     "capex": {
@@ -6087,10 +6087,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001510295-18-000024",
-     "filed": "2018-02-28",
-     "form": "10-K",
-     "tag": "Revenues"
+     "accn": "0001510295-18-000135",
+     "filed": "2018-08-06",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
     },
     "shares_diluted": {
      "accn": "0001510295-17-000085",
@@ -6124,7 +6124,7 @@
    "fcf": 1243000000,
    "net_income": 903000000,
    "operating_cash_flow": 1906000000,
-   "revenue": 19210000000,
+   "revenue": 19053000000,
    "shares_diluted": 508000000,
    "src": {
     "capex": {
@@ -6160,10 +6160,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001510295-18-000024",
-     "filed": "2018-02-28",
-     "form": "10-K",
-     "tag": "Revenues"
+     "accn": "0001510295-18-000215",
+     "filed": "2018-11-05",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
     },
     "shares_diluted": {
      "accn": "0001510295-17-000098",
@@ -6197,7 +6197,7 @@
    "fcf": 1941000000,
    "net_income": 2016000000,
    "operating_cash_flow": 2745000000,
-   "revenue": 21055000000,
+   "revenue": 21513000000,
    "src": {
     "capex": {
      "accn": "0001510295-18-000024",
@@ -6232,10 +6232,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001510295-18-000024",
-     "filed": "2018-02-28",
+     "accn": "0001510295-20-000006",
+     "derived": true,
+     "filed": "2020-02-28",
      "form": "10-K",
-     "tag": "Revenues"
+     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
     },
     "total_debt": {
      "filed": "2018-02-28",
@@ -8786,6 +8787,7 @@
   "revenue": [
    "OperatingLeasesIncomeStatementLeaseRevenue",
    "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "RevenueFromContractWithCustomerIncludingAssessedTax",
    "Revenues",
    "SalesRevenueNet"
   ],

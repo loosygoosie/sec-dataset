@@ -196,10 +196,10 @@
    "retained_earnings": 124767000,
    "retained_earnings_as_filed": 124767000,
    "retained_earnings_as_filed_filed": "2012-03-02",
-   "revenue": 338343000,
-   "revenue_as_filed": 338343000,
-   "revenue_as_filed_filed": "2014-03-03",
-   "revenue_filed": "2014-03-03",
+   "revenue": 516799000,
+   "revenue_as_filed": 516799000,
+   "revenue_as_filed_filed": "2012-03-02",
+   "revenue_filed": "2012-03-02",
    "sga_expense": 79722000,
    "shares_diluted": 43954000,
    "shares_diluted_adj": 43954000,
@@ -241,6 +241,7 @@
    "current_liabilities_as_filed": 88646000,
    "current_liabilities_as_filed_filed": "2013-03-06",
    "d_and_a": 17786000,
+   "debt_current": 0,
    "eps_diluted": 0.52,
    "filed": "2015-02-26",
    "fiscal_year": 2012,
@@ -282,10 +283,10 @@
    "retained_earnings": 147328000,
    "retained_earnings_as_filed": 145348000,
    "retained_earnings_as_filed_filed": "2013-03-06",
-   "revenue": 322847000,
-   "revenue_as_filed": 322847000,
-   "revenue_as_filed_filed": "2014-03-03",
-   "revenue_filed": "2014-03-03",
+   "revenue": 451931000,
+   "revenue_as_filed": 451931000,
+   "revenue_as_filed_filed": "2013-03-06",
+   "revenue_filed": "2013-03-06",
    "sga_expense": 69127000,
    "shares_diluted": 39447000,
    "shares_diluted_adj": 39447000,
@@ -303,6 +304,8 @@
    "total_assets": 537242000,
    "total_assets_as_filed": 538160000,
    "total_assets_as_filed_filed": "2013-03-06",
+   "total_debt": 0,
+   "total_debt_filed": "2014-03-03",
    "total_equity": 389611000,
    "total_equity_parent": 389611000,
    "total_liabilities": 147631000
@@ -327,6 +330,7 @@
    "current_liabilities_as_filed": 122357000,
    "current_liabilities_as_filed_filed": "2014-03-03",
    "d_and_a": 6988000,
+   "debt_current": 13661000,
    "eps_diluted": 0.79,
    "filed": "2016-02-25",
    "fiscal_year": 2013,
@@ -371,8 +375,8 @@
    "retained_earnings": 179414000,
    "retained_earnings_as_filed": 179414000,
    "retained_earnings_as_filed_filed": "2014-03-03",
-   "revenue": 169362000,
-   "revenue_as_filed": 328330000,
+   "revenue": 299381000,
+   "revenue_as_filed": 547004000,
    "revenue_as_filed_filed": "2014-03-03",
    "revenue_filed": "2016-02-25",
    "sga_expense": 57334000,
@@ -392,6 +396,8 @@
    "total_assets": 652977000,
    "total_assets_as_filed": 652977000,
    "total_assets_as_filed_filed": "2014-03-03",
+   "total_debt": 13661000,
+   "total_debt_filed": "2014-03-03",
    "total_equity": 464462000,
    "total_equity_parent": 464462000,
    "total_liabilities": 188515000
@@ -416,6 +422,7 @@
    "current_liabilities_as_filed": 112570000,
    "current_liabilities_as_filed_filed": "2015-02-26",
    "d_and_a": 10461000,
+   "debt_current": 0,
    "eps_diluted": 1.14,
    "filed": "2017-02-24",
    "fiscal_year": 2014,
@@ -464,8 +471,8 @@
    "retained_earnings": 226396000,
    "retained_earnings_as_filed": 226396000,
    "retained_earnings_as_filed_filed": "2015-02-26",
-   "revenue": 230843000,
-   "revenue_as_filed": 369886000,
+   "revenue": 367333000,
+   "revenue_as_filed": 583098000,
    "revenue_as_filed_filed": "2015-02-26",
    "revenue_filed": "2016-02-25",
    "sga_expense": 58549000,
@@ -485,6 +492,8 @@
    "total_assets": 684568000,
    "total_assets_as_filed": 684569000,
    "total_assets_as_filed_filed": "2015-02-26",
+   "total_debt": 0,
+   "total_debt_filed": "2015-02-26",
    "total_equity": 474965000,
    "total_equity_parent": 474965000,
    "total_liabilities": 209603000
@@ -550,8 +559,8 @@
    "retained_earnings": 67910000,
    "retained_earnings_as_filed": 67910000,
    "retained_earnings_as_filed_filed": "2016-02-25",
-   "revenue": 268257000,
-   "revenue_as_filed": 268257000,
+   "revenue": 414811000,
+   "revenue_as_filed": 414811000,
    "revenue_as_filed_filed": "2016-02-25",
    "revenue_filed": "2016-02-25",
    "sga_expense": 66097000,
@@ -2507,7 +2516,7 @@
    "fcf": 19208000,
    "net_income": 36314000,
    "operating_cash_flow": 38095000,
-   "revenue": 338343000,
+   "revenue": 516799000,
    "shares_diluted": 43954000,
    "src": {
     "capex": {
@@ -2543,10 +2552,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0000927003-14-000012",
-     "filed": "2014-03-03",
+     "accn": "0001445305-12-000575",
+     "filed": "2012-03-02",
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "SalesRevenueNet"
     },
     "shares_diluted": {
      "accn": "0001445305-12-000575",
@@ -2568,12 +2578,13 @@
    "capex": 10233000,
    "cash": 146564000,
    "cash_and_sti": 146564000,
+   "debt_current": 0,
    "end": "2012-12-31",
    "equity": 389611000,
    "fcf": 100544000,
    "net_income": 20581000,
    "operating_cash_flow": 110777000,
-   "revenue": 322847000,
+   "revenue": 451931000,
    "shares_diluted": 39447000,
    "src": {
     "capex": {
@@ -2609,10 +2620,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0000927003-14-000012",
-     "filed": "2014-03-03",
+     "accn": "0000927003-13-000007",
+     "filed": "2013-03-06",
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "SalesRevenueNet"
     },
     "shares_diluted": {
      "accn": "0000927003-13-000007",
@@ -2625,21 +2637,33 @@
      "filed": "2013-03-06",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2014-03-03",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 0
+     }
     }
    },
    "start": "2012-01-01",
-   "stock_comp": 12720000
+   "stock_comp": 12720000,
+   "total_debt": 0
   },
   {
    "capex": 2588000,
    "cash": 127468000,
    "cash_and_sti": 127468000,
+   "debt_current": 13661000,
    "end": "2013-12-31",
    "equity": 464462000,
    "fcf": 32728000,
    "net_income": 32086000,
    "operating_cash_flow": 35316000,
-   "revenue": 169362000,
+   "revenue": 299381000,
    "shares_diluted": 40667000,
    "src": {
     "capex": {
@@ -2680,9 +2704,10 @@
      "accn": "0000927003-16-000094",
      "filed": "2016-02-25",
      "first_filed": "2014-03-03",
-     "first_val": 328330000,
+     "first_val": 547004000,
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "SalesRevenueNet"
     },
     "shares_diluted": {
      "accn": "0000927003-14-000012",
@@ -2697,21 +2722,33 @@
      "first_val": 13742000,
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2014-03-03",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 13661000
+     }
     }
    },
    "start": "2013-01-01",
-   "stock_comp": 9849000
+   "stock_comp": 9849000,
+   "total_debt": 13661000
   },
   {
    "capex": 3449000,
    "cash": 121401000,
    "cash_and_sti": 121401000,
+   "debt_current": 0,
    "end": "2014-12-31",
    "equity": 474965000,
    "fcf": 73713000,
    "net_income": 46982000,
    "operating_cash_flow": 77162000,
-   "revenue": 230843000,
+   "revenue": 367333000,
    "shares_diluted": 41034000,
    "src": {
     "capex": {
@@ -2754,9 +2791,10 @@
      "accn": "0000927003-16-000094",
      "filed": "2016-02-25",
      "first_filed": "2015-02-26",
-     "first_val": 369886000,
+     "first_val": 583098000,
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "SalesRevenueNet"
     },
     "shares_diluted": {
      "accn": "0000927003-15-000012",
@@ -2771,10 +2809,21 @@
      "first_val": 4993000,
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-02-26",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 0
+     }
     }
    },
    "start": "2014-01-01",
-   "stock_comp": 3712000
+   "stock_comp": 3712000,
+   "total_debt": 0
   },
   {
    "capex": 4014000,
@@ -2785,7 +2834,7 @@
    "fcf": 100695000,
    "net_income": -158486000,
    "operating_cash_flow": 104709000,
-   "revenue": 268257000,
+   "revenue": 414811000,
    "shares_diluted": 41077000,
    "src": {
     "capex": {
@@ -2824,7 +2873,8 @@
      "accn": "0000927003-16-000094",
      "filed": "2016-02-25",
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "SalesRevenueNet"
     },
     "shares_diluted": {
      "accn": "0000927003-16-000094",
@@ -3649,6 +3699,83 @@
  "v2_fixes": [
   {
    "field": "revenue",
+   "old": 338343000,
+   "period": "2011-12-31",
+   "rows": "annual",
+   "v2": 516799000
+  },
+  {
+   "field": "revenue",
+   "old": 322847000,
+   "period": "2012-12-31",
+   "rows": "annual",
+   "v2": 451931000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2012-12-31",
+   "rows": "annual",
+   "v2": 0
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2012-12-31",
+   "rows": "annual",
+   "v2": 0
+  },
+  {
+   "field": "revenue",
+   "old": 169362000,
+   "period": "2013-12-31",
+   "rows": "annual",
+   "v2": 299381000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2013-12-31",
+   "rows": "annual",
+   "v2": 13661000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2013-12-31",
+   "rows": "annual",
+   "v2": 13661000
+  },
+  {
+   "field": "revenue",
+   "old": 230843000,
+   "period": "2014-12-31",
+   "rows": "annual",
+   "v2": 367333000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2014-12-31",
+   "rows": "annual",
+   "v2": 0
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2014-12-31",
+   "rows": "annual",
+   "v2": 0
+  },
+  {
+   "field": "revenue",
+   "old": 268257000,
+   "period": "2015-12-31",
+   "rows": "annual",
+   "v2": 414811000
+  },
+  {
+   "field": "revenue",
    "old": 327397000,
    "period": "2016-12-31",
    "rows": "annual",
@@ -4418,6 +4545,7 @@
    "capex": 3557000,
    "cash": 146564000,
    "cash_and_sti": 146564000,
+   "debt_current": 0,
    "end": "2012-12-31",
    "equity": 389611000,
    "fcf": 14970000,
@@ -4471,10 +4599,21 @@
      "filed": "2013-03-06",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2014-03-03",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 0
+     }
     }
    },
    "start": "2012-10-01",
-   "stock_comp": 2648000
+   "stock_comp": 2648000,
+   "total_debt": 0
   },
   {
    "capex": 1417000,
@@ -4680,6 +4819,7 @@
    "capex": -4001000,
    "cash": 127468000,
    "cash_and_sti": 127468000,
+   "debt_current": 13661000,
    "end": "2013-12-31",
    "equity": 464462000,
    "fcf": 43963000,
@@ -4735,15 +4875,27 @@
      "filed": "2016-02-25",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2014-03-03",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 13661000
+     }
     }
    },
    "start": "2013-10-01",
-   "stock_comp": 539000
+   "stock_comp": 539000,
+   "total_debt": 13661000
   },
   {
    "capex": 1581000,
    "cash": 110227000,
    "cash_and_sti": 110227000,
+   "debt_current": 15068000,
    "end": "2014-03-31",
    "equity": 476119000,
    "fcf": 5218000,
@@ -4799,15 +4951,27 @@
      "filed": "2014-05-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2014-05-09",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 15068000
+     }
     }
    },
    "start": "2014-01-01",
-   "stock_comp": 1764000
+   "stock_comp": 1764000,
+   "total_debt": 15068000
   },
   {
    "capex": 1872000,
    "cash": 117549000,
    "cash_and_sti": 117549000,
+   "debt_current": 4647000,
    "end": "2014-06-30",
    "equity": 464962000,
    "fcf": 38402000,
@@ -4868,15 +5032,27 @@
      "filed": "2014-08-07",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2014-08-07",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 4647000
+     }
     }
    },
    "start": "2014-04-01",
-   "stock_comp": 1495000
+   "stock_comp": 1495000,
+   "total_debt": 4647000
   },
   {
    "capex": 1364000,
    "cash": 103041000,
    "cash_and_sti": 103041000,
+   "debt_current": 0,
    "end": "2014-09-30",
    "equity": 466061000,
    "fcf": 8883000,
@@ -4937,15 +5113,27 @@
      "filed": "2014-11-06",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2014-11-06",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 0
+     }
     }
    },
    "start": "2014-07-01",
-   "stock_comp": 1488000
+   "stock_comp": 1488000,
+   "total_debt": 0
   },
   {
    "capex": -1368000,
    "cash": 121401000,
    "cash_and_sti": 121401000,
+   "debt_current": 0,
    "end": "2014-12-31",
    "equity": 474965000,
    "fcf": 21210000,
@@ -5001,10 +5189,21 @@
      "filed": "2016-02-25",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-02-26",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 0
+     }
     }
    },
    "start": "2014-10-01",
-   "stock_comp": -1035000
+   "stock_comp": -1035000,
+   "total_debt": 0
   },
   {
    "capex": 392000,
@@ -8541,7 +8740,6 @@
   ],
   "revenue": [
    "RevenueFromContractWithCustomerExcludingAssessedTax",
-   "Revenues",
    "SalesRevenueNet"
   ],
   "shares_diluted": [

@@ -982,8 +982,10 @@
    "operating_cash_flow": 298600000,
    "operating_cash_flow_filed": "2020-05-12",
    "period_end": "2020-03-31",
-   "revenue": 2068300000,
-   "revenue_filed": "2020-05-12",
+   "revenue": 710100000,
+   "revenue_as_filed": 2068300000,
+   "revenue_as_filed_filed": "2020-05-12",
+   "revenue_filed": "2022-02-09",
    "stock_comp": 26900000,
    "stock_comp_filed": "2020-05-12",
    "total_debt": 1473400000,
@@ -3207,7 +3209,7 @@
    "finance_leases": 27900000,
    "net_income": 180100000,
    "operating_cash_flow": 298600000,
-   "revenue": 2068300000,
+   "revenue": 710100000,
    "shares_diluted": 114265000,
    "src": {
     "capex": {
@@ -3241,10 +3243,13 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001439288-20-000090",
-     "filed": "2020-05-12",
+     "accn": "0001439288-22-000032",
+     "filed": "2022-02-09",
+     "first_filed": "2020-05-12",
+     "first_val": 2068300000,
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
     },
     "shares_diluted": {
      "accn": "0001439288-22-000032",
@@ -3783,7 +3788,7 @@
    "old": null,
    "period": "2020-03-31",
    "rows": "annual",
-   "v2": 2068300000
+   "v2": 710100000
   },
   {
    "field": "capex",

@@ -636,10 +636,10 @@
    "retained_earnings": 198315000,
    "retained_earnings_as_filed": 198315000,
    "retained_earnings_as_filed_filed": "2017-02-24",
-   "revenue": 750266000,
-   "revenue_as_filed": 750266000,
-   "revenue_as_filed_filed": "2017-02-24",
-   "revenue_filed": "2017-02-24",
+   "revenue": 762229000,
+   "revenue_as_filed": 762229000,
+   "revenue_as_filed_filed": "2019-02-20",
+   "revenue_filed": "2019-02-20",
    "shares_diluted": 79732000,
    "shares_diluted_adj": 159464000,
    "shares_diluted_as_filed": 79732000,
@@ -2694,7 +2694,7 @@
    "fcf": 20786000,
    "net_income": 45015000,
    "operating_cash_flow": 39874000,
-   "revenue": 750266000,
+   "revenue": 762229000,
    "shares_diluted": 79732000,
    "src": {
     "capex": {
@@ -2732,10 +2732,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001193125-17-056299",
-     "filed": "2017-02-24",
+     "accn": "0001013857-19-000005",
+     "filed": "2019-02-20",
      "form": "10-K",
-     "tag": "SalesRevenueNet"
+     "note": "income-statement tie-out",
+     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
     },
     "shares_diluted": {
      "accn": "0001193125-17-056299",
@@ -3402,6 +3403,13 @@
   }
  ],
  "v2_fixes": [
+  {
+   "field": "revenue",
+   "old": 750266000,
+   "period": "2016-12-31",
+   "rows": "annual",
+   "v2": 762229000
+  },
   {
    "field": "revenue",
    "old": 840582000,
@@ -5022,10 +5030,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
     },
     "revenue": {
-     "accn": "0001193125-17-056299",
-     "filed": "2017-02-24",
-     "form": "10-K",
-     "tag": "SalesRevenueNet"
+     "accn": "0001193125-16-579976",
+     "filed": "2016-05-05",
+     "form": "10-Q",
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001193125-17-056299",
@@ -5092,10 +5100,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
     },
     "revenue": {
-     "accn": "0001193125-17-056299",
-     "filed": "2017-02-24",
-     "form": "10-K",
-     "tag": "SalesRevenueNet"
+     "accn": "0001193125-16-670087",
+     "filed": "2016-08-03",
+     "form": "10-Q",
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001193125-17-056299",
@@ -5162,10 +5170,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
     },
     "revenue": {
-     "accn": "0001193125-17-056299",
-     "filed": "2017-02-24",
-     "form": "10-K",
-     "tag": "SalesRevenueNet"
+     "accn": "0001193125-16-757054",
+     "filed": "2016-11-02",
+     "form": "10-Q",
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001193125-17-056299",
@@ -5292,12 +5300,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
     },
     "revenue": {
-     "accn": "0001193125-18-159252",
-     "filed": "2018-05-10",
-     "first_filed": "2017-05-10",
-     "first_val": 223247000,
-     "form": "10-Q",
-     "tag": "SalesRevenueNet"
+     "accn": "0001013857-19-000005",
+     "filed": "2019-02-20",
+     "form": "10-K",
+     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
     },
     "shares_diluted": {
      "accn": "0001193125-17-165875",
@@ -5365,7 +5371,7 @@
      "accn": "0001193125-18-242751",
      "filed": "2018-08-08",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
     },
     "shares_diluted": {
      "accn": "0001193125-17-252783",

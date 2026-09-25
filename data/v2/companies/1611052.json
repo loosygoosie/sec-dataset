@@ -41,8 +41,8 @@
    "pretax_income_as_filed_filed": "2022-03-04",
    "pretax_income_filed": "2022-03-04",
    "rd_expense": 87022000,
-   "revenue": 289194000,
-   "revenue_as_filed": 289194000,
+   "revenue": 289395000,
+   "revenue_as_filed": 289395000,
    "revenue_as_filed_filed": "2022-03-04",
    "revenue_filed": "2022-03-04",
    "shares_diluted": 24361173,
@@ -1388,7 +1388,7 @@
    "fcf": -20058000,
    "net_income": -83107000,
    "operating_cash_flow": -7004000,
-   "revenue": 289194000,
+   "revenue": 289395000,
    "shares_diluted": 24361173,
    "src": {
     "capex": {
@@ -1425,7 +1425,7 @@
      "accn": "0001564590-22-008783",
      "filed": "2022-03-04",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax+OperatingLeaseLeaseIncome"
     },
     "shares_diluted": {
      "accn": "0001564590-22-008783",
@@ -1489,6 +1489,7 @@
      "accn": "0001564590-22-008783",
      "filed": "2022-03-04",
      "form": "10-K",
+     "note": "income-statement tie-out",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
     },
     "shares_diluted": {
@@ -1553,6 +1554,7 @@
      "accn": "0001564590-22-008783",
      "filed": "2022-03-04",
      "form": "10-K",
+     "note": "income-statement tie-out",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
     },
     "shares_diluted": {
@@ -1618,6 +1620,7 @@
      "accn": "0001564590-23-002828",
      "filed": "2023-03-01",
      "form": "10-K",
+     "note": "income-statement tie-out",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
     },
     "shares_diluted": {
@@ -1856,7 +1859,15 @@
    "stock_comp": 238425000
   }
  ],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "revenue",
+   "old": 289194000,
+   "period": "2019-12-31",
+   "rows": "annual",
+   "v2": 289395000
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
   {
@@ -3613,7 +3624,8 @@
    "NetCashProvidedByUsedInOperatingActivities"
   ],
   "revenue": [
-   "RevenueFromContractWithCustomerExcludingAssessedTax"
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "RevenueFromContractWithCustomerExcludingAssessedTax+OperatingLeaseLeaseIncome"
   ],
   "shares_diluted": [
    "WeightedAverageNumberOfDilutedSharesOutstanding",

@@ -364,8 +364,8 @@
    "retained_earnings": -363600000,
    "retained_earnings_as_filed": -363600000,
    "retained_earnings_as_filed_filed": "2023-03-01",
-   "revenue": 1993600000,
-   "revenue_as_filed": 1993600000,
+   "revenue": 2011900000,
+   "revenue_as_filed": 2011900000,
    "revenue_as_filed_filed": "2023-03-01",
    "revenue_filed": "2023-03-01",
    "shares_diluted": 3864579,
@@ -1713,6 +1713,7 @@
      "accn": "0001794669-22-000012",
      "filed": "2022-03-01",
      "form": "10-K",
+     "note": "income-statement tie-out",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
     },
     "stock_comp": {
@@ -1747,7 +1748,7 @@
    "fcf": 267400000,
    "net_income": 75100000,
    "operating_cash_flow": 275400000,
-   "revenue": 1993600000,
+   "revenue": 2011900000,
    "shares_diluted": 3864579,
    "src": {
     "capex": {
@@ -1786,7 +1787,7 @@
      "accn": "0001794669-23-000006",
      "filed": "2023-03-01",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax+OperatingLeaseLeaseIncome"
     },
     "shares_diluted": {
      "accn": "0001794669-25-000011",
@@ -2095,6 +2096,13 @@
    "period": "2021-12-31",
    "rows": "annual",
    "v2": 1738500000
+  },
+  {
+   "field": "revenue",
+   "old": 1993600000,
+   "period": "2022-12-31",
+   "rows": "annual",
+   "v2": 2011900000
   },
   {
    "field": "total_debt",
@@ -2958,7 +2966,7 @@
    "fcf": 29800000,
    "net_income": -7500000,
    "operating_cash_flow": 30800000,
-   "revenue": 401900000,
+   "revenue": 406200000,
    "src": {
     "capex": {
      "accn": "0001794669-22-000025",
@@ -2996,7 +3004,7 @@
      "accn": "0001794669-22-000025",
      "filed": "2022-05-06",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax+OperatingLeaseLeaseIncome"
     },
     "stock_comp": {
      "accn": "0001794669-22-000025",
@@ -3029,7 +3037,7 @@
    "fcf": 39200000,
    "net_income": 10300000,
    "operating_cash_flow": 40000000,
-   "revenue": 506700000,
+   "revenue": 511100000,
    "src": {
     "capex": {
      "accn": "0001794669-22-000041",
@@ -3067,7 +3075,7 @@
      "accn": "0001794669-22-000041",
      "filed": "2022-08-05",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax+OperatingLeaseLeaseIncome"
     },
     "stock_comp": {
      "accn": "0001794669-22-000041",
@@ -3101,7 +3109,7 @@
    "fcf": 60100000,
    "net_income": 43100000,
    "operating_cash_flow": 65100000,
-   "revenue": 547300000,
+   "revenue": 551800000,
    "src": {
     "capex": {
      "accn": "0001794669-22-000061",
@@ -3139,7 +3147,7 @@
      "accn": "0001794669-22-000061",
      "filed": "2022-11-08",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax+OperatingLeaseLeaseIncome"
     },
     "stock_comp": {
      "accn": "0001794669-22-000061",
@@ -3173,7 +3181,7 @@
    "fcf": 138300000,
    "net_income": 29200000,
    "operating_cash_flow": 139500000,
-   "revenue": 537700000,
+   "revenue": 542800000,
    "src": {
     "capex": {
      "accn": "0001794669-23-000006",
@@ -3215,7 +3223,7 @@
      "derived": true,
      "filed": "2023-03-01",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax+OperatingLeaseLeaseIncome"
     },
     "stock_comp": {
      "accn": "0001794669-23-000006",
@@ -4286,7 +4294,8 @@
    "NetCashProvidedByUsedInOperatingActivities"
   ],
   "revenue": [
-   "RevenueFromContractWithCustomerExcludingAssessedTax"
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "RevenueFromContractWithCustomerExcludingAssessedTax+OperatingLeaseLeaseIncome"
   ],
   "shares_diluted": [
    "WeightedAverageNumberOfDilutedSharesOutstanding"

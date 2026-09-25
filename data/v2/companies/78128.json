@@ -122,8 +122,8 @@
    "total_assets": 3486339000,
    "total_assets_as_filed": 3486339000,
    "total_assets_as_filed_filed": "2012-02-27",
-   "total_debt": 1217815000,
-   "total_debt_as_filed": 1217815000,
+   "total_debt": 1297349000,
+   "total_debt_as_filed": 1297349000,
    "total_debt_as_filed_filed": "2013-02-28",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2013-02-28",
@@ -2560,7 +2560,6 @@
    "capex": 252498000,
    "cash": 14944000,
    "cash_and_sti": 14944000,
-   "debt_noncurrent": 1217815000,
    "end": "2008-12-31",
    "equity": 1058446000,
    "fcf": -30992000,
@@ -2623,18 +2622,17 @@
     },
     "total_debt": {
      "filed": "2013-02-28",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtAndCapitalLeaseObligations"
+      "DebtAndCapitalLeaseObligations"
      ],
      "values": {
-      "LongTermDebtAndCapitalLeaseObligations": 1217815000
+      "DebtAndCapitalLeaseObligations": 1297349000
      }
     }
    },
    "start": "2008-01-01",
    "stock_comp": 3871000,
-   "total_debt": 1217815000
+   "total_debt": 1297349000
   },
   {
    "capex": 266190000,
@@ -3948,13 +3946,6 @@
   }
  ],
  "v2_fixes": [
-  {
-   "field": "total_debt",
-   "old": 1297349000,
-   "period": "2008-12-31",
-   "rows": "annual",
-   "v2": 1217815000
-  },
   {
    "field": "total_debt",
    "old": 1432361000,

@@ -210,10 +210,10 @@
    "retained_earnings": 408380000,
    "retained_earnings_as_filed": 408380000,
    "retained_earnings_as_filed_filed": "2012-02-29",
-   "revenue": 9188000,
-   "revenue_as_filed": 9188000,
-   "revenue_as_filed_filed": "2014-03-14",
-   "revenue_filed": "2014-03-14",
+   "revenue": 1526730000,
+   "revenue_as_filed": 1526730000,
+   "revenue_as_filed_filed": "2012-02-29",
+   "revenue_filed": "2012-02-29",
    "sga_expense": 131388000,
    "shares_diluted": 20754000,
    "shares_diluted_adj": 20754000,
@@ -303,10 +303,10 @@
    "retained_earnings": 428394000,
    "retained_earnings_as_filed": 428394000,
    "retained_earnings_as_filed_filed": "2013-03-08",
-   "revenue": 6686000,
-   "revenue_as_filed": 6686000,
-   "revenue_as_filed_filed": "2014-03-14",
-   "revenue_filed": "2014-03-14",
+   "revenue": 1273078000,
+   "revenue_as_filed": 1273078000,
+   "revenue_as_filed_filed": "2013-03-08",
+   "revenue_filed": "2013-03-08",
    "sga_expense": 133893000,
    "shares_diluted": 20679000,
    "shares_diluted_adj": 20679000,
@@ -405,8 +405,8 @@
    "retained_earnings": 441518000,
    "retained_earnings_as_filed": 441518000,
    "retained_earnings_as_filed_filed": "2014-03-14",
-   "revenue": 5607000,
-   "revenue_as_filed": 5607000,
+   "revenue": 1166882000,
+   "revenue_as_filed": 1166882000,
    "revenue_as_filed_filed": "2014-03-14",
    "revenue_filed": "2014-03-14",
    "sga_expense": 132476000,
@@ -1027,11 +1027,11 @@
    "total_assets": 898430000,
    "total_assets_as_filed": 852670000,
    "total_assets_as_filed_filed": "2020-02-13",
-   "total_debt": 2128000,
-   "total_debt_as_filed": 2128000,
-   "total_debt_as_filed_filed": "2020-02-13",
+   "total_debt": 2218000,
+   "total_debt_as_filed": 2218000,
+   "total_debt_as_filed_filed": "2020-10-22",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2020-02-13",
+   "total_debt_filed": "2020-10-22",
    "total_equity": 645743000,
    "total_equity_parent": 645743000
   },
@@ -2611,7 +2611,7 @@
    "fcf": 28619000,
    "net_income": 39979000,
    "operating_cash_flow": 56806000,
-   "revenue": 9188000,
+   "revenue": 1526730000,
    "shares_diluted": 20754000,
    "src": {
     "capex": {
@@ -2645,10 +2645,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001104657-14-000062",
-     "filed": "2014-03-14",
+     "accn": "0001193125-12-088881",
+     "filed": "2012-02-29",
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0001193125-12-088881",
@@ -2689,7 +2690,7 @@
    "fcf": 4532000,
    "net_income": 24664000,
    "operating_cash_flow": 38620000,
-   "revenue": 6686000,
+   "revenue": 1273078000,
    "shares_diluted": 20679000,
    "src": {
     "capex": {
@@ -2725,10 +2726,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001104657-14-000062",
-     "filed": "2014-03-14",
+     "accn": "0001104657-13-000047",
+     "filed": "2013-03-08",
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0001104657-13-000047",
@@ -2769,7 +2771,7 @@
    "fcf": 48074000,
    "net_income": 20212000,
    "operating_cash_flow": 75922000,
-   "revenue": 5607000,
+   "revenue": 1166882000,
    "shares_diluted": 20943000,
    "src": {
     "capex": {
@@ -2810,7 +2812,8 @@
      "accn": "0001104657-14-000062",
      "filed": "2014-03-14",
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0001104657-16-000152",
@@ -3321,12 +3324,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2020-02-13",
+     "filed": "2020-10-22",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 2218000,
       "LongTermDebtCurrent": 868000,
       "LongTermDebtNoncurrent": 1260000
      }
@@ -3334,7 +3339,7 @@
    },
    "start": "2019-01-01",
    "stock_comp": 7170000,
-   "total_debt": 2128000
+   "total_debt": 2218000
   },
   {
    "capex": 67274000,
@@ -3834,6 +3839,13 @@
    "v2": 47835000
   },
   {
+   "field": "revenue",
+   "old": 9188000,
+   "period": "2011-12-31",
+   "rows": "annual",
+   "v2": 1526730000
+  },
+  {
    "field": "capex",
    "old": 28747000,
    "period": "2011-12-31",
@@ -3848,6 +3860,13 @@
    "v2": 40944000
   },
   {
+   "field": "revenue",
+   "old": 6686000,
+   "period": "2012-12-31",
+   "rows": "annual",
+   "v2": 1273078000
+  },
+  {
    "field": "capex",
    "old": 44661000,
    "period": "2012-12-31",
@@ -3860,6 +3879,13 @@
    "period": "2012-12-31",
    "rows": "annual",
    "v2": 49432000
+  },
+  {
+   "field": "revenue",
+   "old": 5607000,
+   "period": "2013-12-31",
+   "rows": "annual",
+   "v2": 1166882000
   },
   {
    "field": "capex",
@@ -3958,13 +3984,6 @@
    "period": "2019-12-31",
    "rows": "annual",
    "v2": 24251000
-  },
-  {
-   "field": "total_debt",
-   "old": 2218000,
-   "period": "2019-12-31",
-   "rows": "annual",
-   "v2": 2128000
   },
   {
    "field": "total_debt",
@@ -4733,7 +4752,7 @@
    "fcf": -5705000,
    "net_income": 8114000,
    "operating_cash_flow": 1673000,
-   "revenue": 1483000,
+   "revenue": 290601000,
    "shares_diluted": 20697000,
    "src": {
     "capex": {
@@ -4769,10 +4788,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001104657-13-000136",
-     "filed": "2013-11-01",
+     "accn": "0001193125-12-448536",
+     "filed": "2012-11-02",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0001193125-12-448536",
@@ -4814,7 +4833,7 @@
    "fcf": 37241000,
    "net_income": 2503000,
    "operating_cash_flow": 45994000,
-   "revenue": 1863000,
+   "revenue": 303759000,
    "src": {
     "capex": {
      "accn": "0001104657-13-000047",
@@ -4851,11 +4870,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001104657-14-000062",
-     "derived": true,
-     "filed": "2014-03-14",
+     "accn": "0001104657-13-000047",
+     "filed": "2013-03-08",
      "form": "10-K",
-     "tag": "Revenues"
+     "tag": "SalesRevenueGoodsNet"
     },
     "stock_comp": {
      "accn": "0001104657-13-000047",
@@ -4891,7 +4909,7 @@
    "fcf": -10547000,
    "net_income": 6785000,
    "operating_cash_flow": -4766000,
-   "revenue": 1478000,
+   "revenue": 299169000,
    "shares_diluted": 20824000,
    "src": {
     "capex": {
@@ -4925,10 +4943,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001104657-14-000079",
-     "filed": "2014-05-01",
+     "accn": "0001104657-13-000061",
+     "filed": "2013-04-30",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0001104657-13-000061",
@@ -4969,7 +4987,7 @@
    "fcf": 15644000,
    "net_income": 4155000,
    "operating_cash_flow": 22886000,
-   "revenue": 1665000,
+   "revenue": 306141000,
    "shares_diluted": 20869000,
    "src": {
     "capex": {
@@ -5009,10 +5027,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001104657-14-000133",
-     "filed": "2014-08-01",
+     "accn": "0001104657-13-000116",
+     "filed": "2013-08-06",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0001104657-13-000116",
@@ -5054,7 +5072,7 @@
    "fcf": 13588000,
    "net_income": 4992000,
    "operating_cash_flow": 20395000,
-   "revenue": 1189000,
+   "revenue": 275434000,
    "shares_diluted": 20931000,
    "src": {
     "capex": {
@@ -5097,7 +5115,7 @@
      "accn": "0001104657-13-000136",
      "filed": "2013-11-01",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0001104657-13-000136",
@@ -5139,7 +5157,7 @@
    "fcf": 29389000,
    "net_income": 3775000,
    "operating_cash_flow": 37407000,
-   "revenue": 1275000,
+   "revenue": 286138000,
    "src": {
     "capex": {
      "accn": "0001104657-14-000062",
@@ -5177,10 +5195,9 @@
     },
     "revenue": {
      "accn": "0001104657-14-000062",
-     "derived": true,
      "filed": "2014-03-14",
      "form": "10-K",
-     "tag": "Revenues"
+     "tag": "SalesRevenueGoodsNet"
     },
     "stock_comp": {
      "accn": "0001104657-16-000152",
@@ -5866,7 +5883,7 @@
    "fcf": -22390000,
    "net_income": 5368000,
    "operating_cash_flow": -16676000,
-   "revenue": 15238000,
+   "revenue": 235511000,
    "shares_diluted": 20228000,
    "src": {
     "capex": {
@@ -5905,7 +5922,7 @@
      "accn": "0001104657-16-000176",
      "filed": "2016-04-29",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0001104657-16-000176",
@@ -5946,7 +5963,7 @@
    "fcf": 17925000,
    "net_income": 5549000,
    "operating_cash_flow": 26537000,
-   "revenue": 17546000,
+   "revenue": 249776000,
    "shares_diluted": 20214000,
    "src": {
     "capex": {
@@ -5985,7 +6002,7 @@
      "accn": "0001104657-16-000213",
      "filed": "2016-07-28",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0001104657-16-000213",
@@ -6027,7 +6044,7 @@
    "fcf": 11635000,
    "net_income": 8045000,
    "operating_cash_flow": 17361000,
-   "revenue": 21552000,
+   "revenue": 249619000,
    "shares_diluted": 20192000,
    "src": {
     "capex": {
@@ -6066,7 +6083,7 @@
      "accn": "0001104657-16-000231",
      "filed": "2016-10-27",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0001104657-16-000231",
@@ -7117,12 +7134,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2020-02-13",
+     "filed": "2020-10-22",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 2218000,
       "LongTermDebtCurrent": 868000,
       "LongTermDebtNoncurrent": 1260000
      }
@@ -7130,7 +7149,7 @@
    },
    "start": "2019-09-28",
    "stock_comp": 1940000,
-   "total_debt": 2128000
+   "total_debt": 2218000
   },
   {
    "capex": 14789000,
@@ -9192,7 +9211,6 @@
   ],
   "revenue": [
    "RevenueFromContractWithCustomerExcludingAssessedTax",
-   "Revenues",
    "SalesRevenueGoodsNet"
   ],
   "shares_diluted": [

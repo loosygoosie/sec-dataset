@@ -152,10 +152,11 @@
    "total_assets": 1602180000,
    "total_assets_as_filed": 1602180000,
    "total_assets_as_filed_filed": "2011-12-30",
-   "total_debt": 786585000,
-   "total_debt_as_filed": 13323000,
-   "total_debt_as_filed_filed": "2011-12-30",
+   "total_debt": 799908000,
+   "total_debt_as_filed": 799908000,
+   "total_debt_as_filed_filed": "2012-12-20",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2012-12-20",
    "total_equity": -496694000,
    "total_equity_incl_nci": -496602000,
    "total_equity_parent": -496694000,
@@ -2051,10 +2052,22 @@
      "filed": "2011-12-30",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2012-12-20",
+     "tags": [
+      "SeniorNotes",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 786585000,
+      "SeniorNotes": 13323000
+     }
     }
    },
    "start": "2010-11-01",
-   "stock_comp": 6219000
+   "stock_comp": 6219000,
+   "total_debt": 799908000
   },
   {
    "capex": 5059000,
@@ -3075,6 +3088,13 @@
  ],
  "v2_fixes": [
   {
+   "field": "total_debt",
+   "old": 786585000,
+   "period": "2011-10-31",
+   "rows": "annual",
+   "v2": 799908000
+  },
+  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2012-10-31",
@@ -3693,10 +3713,22 @@
      "filed": "2011-12-30",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2012-12-20",
+     "tags": [
+      "SeniorNotes",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 786585000,
+      "SeniorNotes": 13323000
+     }
     }
    },
    "start": "2011-08-01",
-   "stock_comp": 1109000
+   "stock_comp": 1109000,
+   "total_debt": 799908000
   },
   {
    "capex": 134000,

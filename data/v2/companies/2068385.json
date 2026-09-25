@@ -144,6 +144,8 @@
    "total_assets": 133140150,
    "total_assets_as_filed": 133140150,
    "total_assets_as_filed_filed": "2026-03-31",
+   "total_debt": 129017286,
+   "total_debt_filed": "2026-08-06",
    "total_equity": -10148257,
    "total_equity_incl_nci": -10148257,
    "total_liabilities": 143288407
@@ -218,7 +220,8 @@
  "balance": {
   "cash_and_sti": 1861347822,
   "end": "2026-06-30",
-  "equity": 1127547379
+  "equity": 1127547379,
+  "total_debt": 1006535059
  },
  "bank": false,
  "checks": {
@@ -232,9 +235,7 @@
  },
  "cik": 2068385,
  "fiscal_year_end": "1231",
- "flags": [
-  "no_debt_tagged"
- ],
+ "flags": [],
  "instances_merged": [],
  "latest_filing": {
   "accn": "0001493152-26-036377",
@@ -441,6 +442,8 @@
    "shares_diluted_filled_source": "shares_diluted",
    "stock_comp": 2670588,
    "total_assets": 2321338209,
+   "total_debt": 1006535059,
+   "total_debt_filed": "2026-08-06",
    "total_equity": 1127547379,
    "total_equity_incl_nci": 1127547379,
    "total_liabilities": 1193790830
@@ -706,13 +709,38 @@
      "filed": "2026-03-31",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-08-06",
+     "tags": [
+      "ConvertibleNotesPayable"
+     ],
+     "values": {
+      "ConvertibleNotesPayable": 129017286
+     }
     }
    },
    "start": "2025-01-01",
-   "stock_comp": 1761785
+   "stock_comp": 1761785,
+   "total_debt": 129017286
   }
  ],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "annual",
+   "v2": 129017286
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 1006535059
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
   {
@@ -979,10 +1007,20 @@
      "filed": "2026-08-06",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-08-06",
+     "tags": [
+      "ConvertibleNotesPayable"
+     ],
+     "values": {
+      "ConvertibleNotesPayable": 1006535059
+     }
     }
    },
    "start": "2026-04-01",
-   "stock_comp": 2670588
+   "stock_comp": 2670588,
+   "total_debt": 1006535059
   }
  ],
  "v2_tags_used": {

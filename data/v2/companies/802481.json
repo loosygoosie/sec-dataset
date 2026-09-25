@@ -1475,10 +1475,10 @@
    "total_liabilities": 6397180000
   },
   {
-   "capex": 254900000,
+   "capex": 718500000,
    "capex_as_filed": 718500000,
    "capex_as_filed_filed": "2026-02-12",
-   "capex_filed": "2026-07-30",
+   "capex_filed": "2026-02-12",
    "cash": 640235000,
    "cash_as_filed": 640235000,
    "cash_as_filed_filed": "2026-02-12",
@@ -2139,8 +2139,8 @@
    "total_liabilities": 6396724000
   },
   {
-   "capex": -182400000,
-   "capex_filed": "2026-07-30",
+   "capex": 281200000,
+   "capex_filed": "2026-02-12",
    "cash": 640235000,
    "current_assets": 4237363000,
    "current_liabilities": 2890258000,
@@ -2372,12 +2372,12 @@
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 490400000
+   "val": 954000000
   },
   "fcf": {
    "end": "2026-06-28",
    "method": "four_quarters",
-   "val": 730993000
+   "val": 267393000
   },
   "net_income": {
    "end": "2026-06-28",
@@ -3705,14 +3705,14 @@
    "total_debt": 3206971000
   },
   {
-   "capex": 254900000,
+   "capex": 718500000,
    "cash": 640235000,
    "cash_and_sti": 640235000,
    "debt_current": 924000,
    "debt_noncurrent": 3093113000,
    "end": "2025-12-28",
    "equity": 3680050000,
-   "fcf": 1116750000,
+   "fcf": 653150000,
    "finance_leases": 1389000,
    "net_income": 1082359000,
    "operating_cash_flow": 1371650000,
@@ -3721,11 +3721,9 @@
    "short_term_investments": 0,
    "src": {
     "capex": {
-     "accn": "0000802481-26-000051",
-     "filed": "2026-07-30",
-     "first_filed": "2026-02-12",
-     "first_val": 718500000,
-     "form": "10-Q",
+     "accn": "0000802481-26-000011",
+     "filed": "2026-02-12",
+     "form": "10-K",
      "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
     },
     "cash": {
@@ -3858,13 +3856,6 @@
    "v2": 3206971000
   },
   {
-   "field": "capex",
-   "old": 718500000,
-   "period": "2025-12-28",
-   "rows": "annual",
-   "v2": 254900000
-  },
-  {
    "field": "total_debt",
    "old": 3093113000,
    "period": "2025-12-28",
@@ -3933,13 +3924,6 @@
    "period": "2025-09-28",
    "rows": "quarterly",
    "v2": 3092575000
-  },
-  {
-   "field": "capex",
-   "old": 281200000,
-   "period": "2025-12-28",
-   "rows": "quarterly",
-   "v2": -182400000
   },
   {
    "field": "total_debt",
@@ -6845,11 +6829,9 @@
    "capex": 89668000,
    "cash": 538227000,
    "cash_and_sti": 538227000,
-   "debt_current": 30282000,
    "end": "2019-06-30",
    "equity": 2263353000,
    "fcf": 193327000,
-   "finance_leases": 131000,
    "net_income": 170068000,
    "operating_cash_flow": 282995000,
    "revenue": 2843085000,
@@ -6908,28 +6890,25 @@
     },
     "total_debt": {
      "filed": "2019-08-01",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtCurrent"
+      "DebtAndCapitalLeaseObligations"
      ],
      "values": {
-      "LongTermDebtCurrent": 30282000
+      "DebtAndCapitalLeaseObligations": 2283847000
      }
     }
    },
    "start": "2019-04-01",
    "stock_comp": 3335000,
-   "total_debt": 30282000
+   "total_debt": 2283847000
   },
   {
    "capex": 81116000,
    "cash": 598054000,
    "cash_and_sti": 598054000,
-   "debt_current": 26636000,
    "end": "2019-09-29",
    "equity": 2319862000,
    "fcf": 51024000,
-   "finance_leases": 1501000,
    "net_income": 109765000,
    "operating_cash_flow": 132140000,
    "revenue": 2777970000,
@@ -6988,18 +6967,17 @@
     },
     "total_debt": {
      "filed": "2019-10-31",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtCurrent"
+      "DebtAndCapitalLeaseObligations"
      ],
      "values": {
-      "LongTermDebtCurrent": 26636000
+      "DebtAndCapitalLeaseObligations": 2279871000
      }
     }
    },
    "start": "2019-07-01",
    "stock_comp": 2105000,
-   "total_debt": 26636000
+   "total_debt": 2279871000
   },
   {
    "capex": 89395000,
@@ -8964,14 +8942,14 @@
    "total_debt": 3092575000
   },
   {
-   "capex": -182400000,
+   "capex": 281200000,
    "cash": 640235000,
    "cash_and_sti": 640235000,
    "debt_current": 924000,
    "debt_noncurrent": 3093113000,
    "end": "2025-12-28",
    "equity": 3680050000,
-   "fcf": 473610000,
+   "fcf": 10010000,
    "finance_leases": 1389000,
    "net_income": 87993000,
    "operating_cash_flow": 291210000,
@@ -8979,10 +8957,10 @@
    "short_term_investments": 0,
    "src": {
     "capex": {
-     "accn": "0000802481-26-000051",
+     "accn": "0000802481-26-000011",
      "derived": true,
-     "filed": "2026-07-30",
-     "form": "10-Q",
+     "filed": "2026-02-12",
+     "form": "10-K",
      "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
     },
     "cash": {

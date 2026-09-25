@@ -457,6 +457,10 @@
    "total_liabilities": 21639569000
   },
   {
+   "capex": 88559000,
+   "capex_as_filed": 87976000,
+   "capex_as_filed_filed": "2017-02-28",
+   "capex_filed": "2019-02-27",
    "cash": 448313000,
    "cash_as_filed": 448313000,
    "cash_as_filed_filed": "2017-02-28",
@@ -535,6 +539,10 @@
    "buybacks_as_filed": 0,
    "buybacks_as_filed_filed": "2020-02-28",
    "buybacks_filed": "2020-02-28",
+   "capex": 99553000,
+   "capex_as_filed": 94603000,
+   "capex_as_filed_filed": "2018-03-01",
+   "capex_filed": "2019-02-27",
    "cash": 194582000,
    "cash_as_filed": 194582000,
    "cash_as_filed_filed": "2018-03-01",
@@ -610,6 +618,8 @@
    "buybacks_as_filed": 299972000,
    "buybacks_as_filed_filed": "2020-02-28",
    "buybacks_filed": "2021-02-26",
+   "capex": 190500000,
+   "capex_filed": "2019-02-27",
    "cash": 382073000,
    "cash_as_filed": 382073000,
    "cash_as_filed_filed": "2019-02-27",
@@ -684,6 +694,8 @@
    "buybacks_as_filed": 154030000,
    "buybacks_as_filed_filed": "2020-02-28",
    "buybacks_filed": "2022-02-24",
+   "capex": 63786000,
+   "capex_filed": "2020-02-28",
    "cash": 214673000,
    "cash_as_filed": 214673000,
    "cash_as_filed_filed": "2020-02-28",
@@ -762,6 +774,8 @@
    "buybacks_as_filed": 100972000,
    "buybacks_as_filed_filed": "2021-02-26",
    "buybacks_filed": "2023-02-22",
+   "capex": 19597000,
+   "capex_filed": "2021-02-26",
    "cash": 397716000,
    "cash_as_filed": 397716000,
    "cash_as_filed_filed": "2021-02-26",
@@ -838,6 +852,8 @@
    "buybacks_as_filed": 318499000,
    "buybacks_as_filed_filed": "2022-02-24",
    "buybacks_filed": "2024-02-20",
+   "capex": 44179000,
+   "capex_filed": "2022-02-24",
    "cash": 314857000,
    "cash_as_filed": 314857000,
    "cash_as_filed_filed": "2022-02-24",
@@ -1880,14 +1896,14 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2016-06-30",
-   "filed": "2016-08-05",
+   "end": "2022-06-30",
+   "filed": "2022-08-02",
    "method": "four_quarters",
    "stale": true,
    "tags": [
-    "PaymentsToAcquirePropertyPlantAndEquipment"
+    "PaymentsToAcquireEquipmentOnLease"
    ],
-   "val": 11660000
+   "val": 5304000
   },
   "net_income": {
    "end": "2026-06-30",
@@ -2385,16 +2401,26 @@
    "total_debt": 402545000
   },
   {
+   "capex": 88559000,
    "cash": 448313000,
    "cash_and_sti": 448313000,
    "debt_noncurrent": 402809000,
    "end": "2016-12-31",
    "equity": 2418429000,
+   "fcf": 219951000,
    "net_income": 225741000,
    "operating_cash_flow": 308510000,
    "revenue": 976802000,
    "shares_diluted": 103656170,
    "src": {
+    "capex": {
+     "accn": "0001504008-19-000009",
+     "filed": "2019-02-27",
+     "first_filed": "2017-02-28",
+     "first_val": 87976000,
+     "form": "10-K",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-17-000004",
      "filed": "2017-02-28",
@@ -2455,16 +2481,26 @@
    "total_debt": 402809000
   },
   {
+   "capex": 99553000,
    "cash": 194582000,
    "cash_and_sti": 194582000,
    "debt_noncurrent": 402830000,
    "end": "2017-12-31",
    "equity": 3026062000,
+   "fcf": 219073000,
    "net_income": 614273000,
    "operating_cash_flow": 318626000,
    "revenue": 1108176000,
    "shares_diluted": 105857487,
    "src": {
+    "capex": {
+     "accn": "0001504008-19-000009",
+     "filed": "2019-02-27",
+     "first_filed": "2018-03-01",
+     "first_val": 94603000,
+     "form": "10-K",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-18-000004",
      "filed": "2018-03-01",
@@ -2523,16 +2559,24 @@
    "total_debt": 402830000
   },
   {
+   "capex": 190500000,
    "cash": 382073000,
    "cash_and_sti": 382073000,
    "debt_noncurrent": 402749000,
    "end": "2018-12-31",
    "equity": 2923833000,
+   "fcf": 633752000,
    "net_income": 324866000,
    "operating_cash_flow": 824252000,
    "revenue": 1182115000,
    "shares_diluted": 104077376,
    "src": {
+    "capex": {
+     "accn": "0001504008-19-000009",
+     "filed": "2019-02-27",
+     "form": "10-K",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-19-000009",
      "filed": "2019-02-27",
@@ -2591,17 +2635,25 @@
    "total_debt": 402749000
   },
   {
+   "capex": 63786000,
    "cash": 214673000,
    "cash_and_sti": 214673000,
    "debt_noncurrent": 429338000,
    "end": "2019-12-31",
    "equity": 2980779000,
+   "fcf": 571920000,
    "finance_leases": 34248000,
    "net_income": 313098000,
    "operating_cash_flow": 635706000,
    "revenue": 899989000,
    "shares_diluted": 95656905,
    "src": {
+    "capex": {
+     "accn": "0001504008-20-000008",
+     "filed": "2020-02-28",
+     "form": "10-K",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-20-000008",
      "filed": "2020-02-28",
@@ -2660,17 +2712,25 @@
    "total_debt": 429338000
   },
   {
+   "capex": 19597000,
    "cash": 397716000,
    "cash_and_sti": 397716000,
    "debt_noncurrent": 722495000,
    "end": "2020-12-31",
    "equity": 2983012000,
+   "fcf": 844571000,
    "finance_leases": 32563000,
    "net_income": 197853000,
    "operating_cash_flow": 864168000,
    "revenue": 884979000,
    "shares_diluted": 91730864,
    "src": {
+    "capex": {
+     "accn": "0001504008-21-000007",
+     "filed": "2021-02-26",
+     "form": "10-K",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-21-000007",
      "filed": "2021-02-26",
@@ -2729,17 +2789,25 @@
    "total_debt": 722495000
   },
   {
+   "capex": 44179000,
    "cash": 314857000,
    "cash_and_sti": 314857000,
    "debt_noncurrent": 721416000,
    "end": "2021-12-31",
    "equity": 3037761000,
+   "fcf": 1175996000,
    "finance_leases": 30216000,
    "net_income": 414984000,
    "operating_cash_flow": 1220175000,
    "revenue": 929841000,
    "shares_diluted": 90400322,
    "src": {
+    "capex": {
+     "accn": "0001504008-22-000009",
+     "filed": "2022-02-24",
+     "form": "10-K",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-22-000009",
      "filed": "2022-02-24",
@@ -3150,11 +3218,25 @@
    "v2": 976802000
   },
   {
+   "field": "capex",
+   "old": null,
+   "period": "2016-12-31",
+   "rows": "annual",
+   "v2": 88559000
+  },
+  {
    "field": "revenue",
    "old": 1204461000,
    "period": "2017-12-31",
    "rows": "annual",
    "v2": 1108176000
+  },
+  {
+   "field": "capex",
+   "old": null,
+   "period": "2017-12-31",
+   "rows": "annual",
+   "v2": 99553000
   },
   {
    "field": "revenue",
@@ -3164,11 +3246,25 @@
    "v2": 1182115000
   },
   {
+   "field": "capex",
+   "old": null,
+   "period": "2018-12-31",
+   "rows": "annual",
+   "v2": 190500000
+  },
+  {
    "field": "revenue",
    "old": 1281870000,
    "period": "2019-12-31",
    "rows": "annual",
    "v2": 899989000
+  },
+  {
+   "field": "capex",
+   "old": null,
+   "period": "2019-12-31",
+   "rows": "annual",
+   "v2": 63786000
   },
   {
    "field": "revenue",
@@ -3178,11 +3274,25 @@
    "v2": 884979000
   },
   {
+   "field": "capex",
+   "old": null,
+   "period": "2020-12-31",
+   "rows": "annual",
+   "v2": 19597000
+  },
+  {
    "field": "revenue",
    "old": 959448000,
    "period": "2021-12-31",
    "rows": "annual",
    "v2": 929841000
+  },
+  {
+   "field": "capex",
+   "old": null,
+   "period": "2021-12-31",
+   "rows": "annual",
+   "v2": 44179000
   },
   {
    "field": "revenue",
@@ -4841,13 +4951,13 @@
    "total_debt": 402545000
   },
   {
-   "capex": 2630000,
+   "capex": 2474000,
    "cash": 245811000,
    "cash_and_sti": 245811000,
    "debt_noncurrent": 402737000,
    "end": "2016-03-31",
    "equity": 2264252000,
-   "fcf": 55436000,
+   "fcf": 55592000,
    "net_income": 54874000,
    "operating_cash_flow": 58066000,
    "revenue": 230039000,
@@ -4857,7 +4967,7 @@
      "accn": "0001504008-16-000064",
      "filed": "2016-05-06",
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireEquipmentOnLease"
     },
     "cash": {
      "accn": "0001504008-16-000064",
@@ -4921,13 +5031,13 @@
    "total_debt": 402737000
   },
   {
-   "capex": 1783000,
+   "capex": 6094000,
    "cash": 359674000,
    "cash_and_sti": 359674000,
    "debt_noncurrent": 402762000,
    "end": "2016-06-30",
    "equity": 2331146000,
-   "fcf": 84134000,
+   "fcf": 79823000,
    "net_income": 56725000,
    "operating_cash_flow": 85917000,
    "revenue": 243167000,
@@ -4938,7 +5048,7 @@
      "derived": true,
      "filed": "2016-08-05",
      "form": "10-Q",
-     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+     "tag": "PaymentsToAcquireEquipmentOnLease"
     },
     "cash": {
      "accn": "0001504008-16-000071",
@@ -5000,16 +5110,25 @@
    "total_debt": 402762000
   },
   {
+   "capex": 43831000,
    "cash": 261954000,
    "cash_and_sti": 261954000,
    "debt_noncurrent": 402786000,
    "end": "2016-09-30",
    "equity": 2373090000,
+   "fcf": 39474000,
    "net_income": 50848000,
    "operating_cash_flow": 83305000,
    "revenue": 246810000,
    "shares_diluted": 103561054,
    "src": {
+    "capex": {
+     "accn": "0001504008-16-000077",
+     "derived": true,
+     "filed": "2016-11-07",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-16-000077",
      "filed": "2016-11-07",
@@ -5070,15 +5189,24 @@
    "total_debt": 402786000
   },
   {
+   "capex": 36160000,
    "cash": 448313000,
    "cash_and_sti": 448313000,
    "debt_noncurrent": 402809000,
    "end": "2016-12-31",
    "equity": 2418429000,
+   "fcf": 45062000,
    "net_income": 63294000,
    "operating_cash_flow": 81222000,
    "revenue": 256786000,
    "src": {
+    "capex": {
+     "accn": "0001504008-19-000009",
+     "derived": true,
+     "filed": "2019-02-27",
+     "form": "10-K",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-17-000004",
      "filed": "2017-02-28",
@@ -5133,16 +5261,24 @@
    "total_debt": 402809000
   },
   {
+   "capex": 27337000,
    "cash": 239417000,
    "cash_and_sti": 239417000,
    "debt_noncurrent": 402817000,
    "end": "2017-03-31",
    "equity": 2533014000,
+   "fcf": 8071000,
    "net_income": 62293000,
    "operating_cash_flow": 35408000,
    "revenue": 258737000,
    "shares_diluted": 105377518,
    "src": {
+    "capex": {
+     "accn": "0001504008-17-000011",
+     "filed": "2017-05-09",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-17-000011",
      "filed": "2017-05-09",
@@ -5201,16 +5337,25 @@
    "total_debt": 402817000
   },
   {
+   "capex": 24843000,
    "cash": 228360000,
    "cash_and_sti": 228360000,
    "debt_noncurrent": 402823000,
    "end": "2017-06-30",
    "equity": 2580820000,
+   "fcf": 68686000,
    "net_income": 66407000,
    "operating_cash_flow": 93529000,
    "revenue": 269482000,
    "shares_diluted": 106138077,
    "src": {
+    "capex": {
+     "accn": "0001504008-18-000023",
+     "derived": true,
+     "filed": "2018-08-07",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-17-000018",
      "filed": "2017-08-08",
@@ -5271,16 +5416,25 @@
    "total_debt": 402823000
   },
   {
+   "capex": 24941000,
    "cash": 292601000,
    "cash_and_sti": 292601000,
    "debt_noncurrent": 402828000,
    "end": "2017-09-30",
    "equity": 2623489000,
+   "fcf": 77282000,
    "net_income": 67779000,
    "operating_cash_flow": 102223000,
    "revenue": 294590000,
    "shares_diluted": 106073182,
    "src": {
+    "capex": {
+     "accn": "0001504008-18-000032",
+     "derived": true,
+     "filed": "2018-11-06",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-17-000027",
      "filed": "2017-11-08",
@@ -5341,15 +5495,24 @@
    "total_debt": 402828000
   },
   {
+   "capex": 22432000,
    "cash": 194582000,
    "cash_and_sti": 194582000,
    "debt_noncurrent": 402830000,
    "end": "2017-12-31",
    "equity": 3026062000,
+   "fcf": 65034000,
    "net_income": 417794000,
    "operating_cash_flow": 87466000,
    "revenue": 285367000,
    "src": {
+    "capex": {
+     "accn": "0001504008-19-000009",
+     "derived": true,
+     "filed": "2019-02-27",
+     "form": "10-K",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-18-000004",
      "filed": "2018-03-01",
@@ -5404,16 +5567,24 @@
    "total_debt": 402830000
   },
   {
+   "capex": 14035000,
    "cash": 199750000,
    "cash_and_sti": 199750000,
    "debt_noncurrent": 402816000,
    "end": "2018-03-31",
    "equity": 3032672000,
+   "fcf": 124059000,
    "net_income": 85235000,
    "operating_cash_flow": 138094000,
    "revenue": 275795000,
    "shares_diluted": 105933610,
    "src": {
+    "capex": {
+     "accn": "0001504008-18-000014",
+     "filed": "2018-05-08",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-18-000014",
      "filed": "2018-05-08",
@@ -5472,16 +5643,25 @@
    "total_debt": 402816000
   },
   {
+   "capex": 42097000,
    "cash": 379256000,
    "cash_and_sti": 379256000,
    "debt_noncurrent": 402799000,
    "end": "2018-06-30",
    "equity": 3099433000,
+   "fcf": 49703000,
    "net_income": 89900000,
    "operating_cash_flow": 91800000,
    "revenue": 287236000,
    "shares_diluted": 105471395,
    "src": {
+    "capex": {
+     "accn": "0001504008-18-000023",
+     "derived": true,
+     "filed": "2018-08-07",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-18-000023",
      "filed": "2018-08-07",
@@ -5542,16 +5722,25 @@
    "total_debt": 402799000
   },
   {
+   "capex": 81173000,
    "cash": 279799000,
    "cash_and_sti": 279799000,
    "debt_noncurrent": 402780000,
    "end": "2018-09-30",
    "equity": 3074888000,
+   "fcf": 92855000,
    "net_income": 97328000,
    "operating_cash_flow": 174028000,
    "revenue": 290703000,
    "shares_diluted": 104384219,
    "src": {
+    "capex": {
+     "accn": "0001504008-18-000032",
+     "derived": true,
+     "filed": "2018-11-06",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-18-000032",
      "filed": "2018-11-06",
@@ -5612,15 +5801,24 @@
    "total_debt": 402780000
   },
   {
+   "capex": 53195000,
    "cash": 382073000,
    "cash_and_sti": 382073000,
    "debt_noncurrent": 402749000,
    "end": "2018-12-31",
    "equity": 2923833000,
+   "fcf": 367135000,
    "net_income": 52403000,
    "operating_cash_flow": 420330000,
    "revenue": 328381000,
    "src": {
+    "capex": {
+     "accn": "0001504008-19-000009",
+     "derived": true,
+     "filed": "2019-02-27",
+     "form": "10-K",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-19-000009",
      "filed": "2019-02-27",
@@ -5675,17 +5873,25 @@
    "total_debt": 402749000
   },
   {
+   "capex": 22400000,
    "cash": 241451000,
    "cash_and_sti": 241451000,
    "debt_noncurrent": 402701000,
    "end": "2019-03-31",
    "equity": 2923390000,
+   "fcf": 66119000,
    "finance_leases": 9145000,
    "net_income": 65972000,
    "operating_cash_flow": 88519000,
    "revenue": 227156000,
    "shares_diluted": 97964633,
    "src": {
+    "capex": {
+     "accn": "0001504008-19-000023",
+     "filed": "2019-05-07",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-19-000023",
      "filed": "2019-05-07",
@@ -5744,17 +5950,26 @@
    "total_debt": 402701000
   },
   {
+   "capex": 14722000,
    "cash": 442833000,
    "cash_and_sti": 442833000,
    "debt_noncurrent": 403661000,
    "end": "2019-06-30",
    "equity": 2867910000,
+   "fcf": 134555000,
    "finance_leases": 8926000,
    "net_income": 81451000,
    "operating_cash_flow": 149277000,
    "revenue": 226220000,
    "shares_diluted": 96622579,
    "src": {
+    "capex": {
+     "accn": "0001504008-19-000028",
+     "derived": true,
+     "filed": "2019-08-06",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-19-000028",
      "filed": "2019-08-06",
@@ -5815,17 +6030,26 @@
    "total_debt": 403661000
   },
   {
+   "capex": 1190000,
    "cash": 230228000,
    "cash_and_sti": 230228000,
    "debt_noncurrent": 403832000,
    "end": "2019-09-30",
    "equity": 2909275000,
+   "fcf": 173253000,
    "finance_leases": 8920000,
    "net_income": 76219000,
    "operating_cash_flow": 174443000,
    "revenue": 223546000,
    "shares_diluted": 94262820,
    "src": {
+    "capex": {
+     "accn": "0001504008-19-000037",
+     "derived": true,
+     "filed": "2019-11-08",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-19-000037",
      "filed": "2019-11-08",
@@ -5886,16 +6110,25 @@
    "total_debt": 403832000
   },
   {
+   "capex": 25474000,
    "cash": 214673000,
    "cash_and_sti": 214673000,
    "debt_noncurrent": 429338000,
    "end": "2019-12-31",
    "equity": 2980779000,
+   "fcf": 197993000,
    "finance_leases": 34248000,
    "net_income": 89456000,
    "operating_cash_flow": 223467000,
    "revenue": 223067000,
    "src": {
+    "capex": {
+     "accn": "0001504008-20-000008",
+     "derived": true,
+     "filed": "2020-02-28",
+     "form": "10-K",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-20-000008",
      "filed": "2020-02-28",
@@ -5950,16 +6183,24 @@
    "total_debt": 429338000
   },
   {
+   "capex": 0,
    "cash": 766698000,
    "cash_and_sti": 766698000,
    "debt_noncurrent": 428579000,
    "end": "2020-03-31",
    "equity": 2516129000,
+   "fcf": 63520000,
    "net_income": -30951000,
    "operating_cash_flow": 63520000,
    "revenue": 203874000,
    "shares_diluted": 92843159,
    "src": {
+    "capex": {
+     "accn": "0001504008-20-000019",
+     "filed": "2020-05-08",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-20-000019",
      "filed": "2020-05-08",
@@ -6018,16 +6259,25 @@
    "total_debt": 428579000
   },
   {
+   "capex": 19118000,
    "cash": 402231000,
    "cash_and_sti": 402231000,
    "debt_noncurrent": 722332000,
    "end": "2020-06-30",
    "equity": 2755053000,
+   "fcf": 238201000,
    "net_income": 76508000,
    "operating_cash_flow": 257319000,
    "revenue": 228688000,
    "shares_diluted": 91202856,
    "src": {
+    "capex": {
+     "accn": "0001504008-20-000028",
+     "derived": true,
+     "filed": "2020-08-07",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-20-000028",
      "filed": "2020-08-07",
@@ -6088,16 +6338,25 @@
    "total_debt": 722332000
   },
   {
+   "capex": 479000,
    "cash": 369776000,
    "cash_and_sti": 369776000,
    "debt_noncurrent": 722592000,
    "end": "2020-09-30",
    "equity": 2864824000,
+   "fcf": 313617000,
    "net_income": 66559000,
    "operating_cash_flow": 314096000,
    "revenue": 223771000,
    "shares_diluted": 91392729,
    "src": {
+    "capex": {
+     "accn": "0001504008-20-000034",
+     "derived": true,
+     "filed": "2020-11-05",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-20-000034",
      "filed": "2020-11-05",
@@ -6158,16 +6417,25 @@
    "total_debt": 722592000
   },
   {
+   "capex": 0,
    "cash": 397716000,
    "cash_and_sti": 397716000,
    "debt_noncurrent": 722495000,
    "end": "2020-12-31",
    "equity": 2983012000,
+   "fcf": 229233000,
    "finance_leases": 32563000,
    "net_income": 85737000,
    "operating_cash_flow": 229233000,
    "revenue": 228646000,
    "src": {
+    "capex": {
+     "accn": "0001504008-21-000007",
+     "derived": true,
+     "filed": "2021-02-26",
+     "form": "10-K",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-21-000007",
      "filed": "2021-02-26",
@@ -6222,16 +6490,24 @@
    "total_debt": 722495000
   },
   {
+   "capex": 38875000,
    "cash": 1049796000,
    "cash_and_sti": 1049796000,
    "debt_noncurrent": 721753000,
    "end": "2021-03-31",
    "equity": 3061835000,
+   "fcf": 347524000,
    "net_income": 98814000,
    "operating_cash_flow": 386399000,
    "revenue": 226536000,
    "shares_diluted": 91963713,
    "src": {
+    "capex": {
+     "accn": "0001504008-21-000016",
+     "filed": "2021-05-05",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-21-000016",
      "filed": "2021-05-05",
@@ -6290,16 +6566,25 @@
    "total_debt": 721753000
   },
   {
+   "capex": 0,
    "cash": 895348000,
    "cash_and_sti": 895348000,
    "debt_noncurrent": 721639000,
    "end": "2021-06-30",
    "equity": 3161543000,
+   "fcf": 191400000,
    "net_income": 103974000,
    "operating_cash_flow": 191400000,
    "revenue": 231068000,
    "shares_diluted": 92184962,
    "src": {
+    "capex": {
+     "accn": "0001504008-21-000025",
+     "derived": true,
+     "filed": "2021-08-03",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-21-000025",
      "filed": "2021-08-03",
@@ -6360,16 +6645,25 @@
    "total_debt": 721639000
   },
   {
+   "capex": 5304000,
    "cash": 507022000,
    "cash_and_sti": 507022000,
    "debt_noncurrent": 721527000,
    "end": "2021-09-30",
    "equity": 3096674000,
+   "fcf": 369918000,
    "net_income": 86941000,
    "operating_cash_flow": 375222000,
    "revenue": 220600000,
    "shares_diluted": 91027858,
    "src": {
+    "capex": {
+     "accn": "0001504008-21-000034",
+     "derived": true,
+     "filed": "2021-11-02",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-21-000034",
      "filed": "2021-11-02",
@@ -6430,16 +6724,25 @@
    "total_debt": 721527000
   },
   {
+   "capex": 0,
    "cash": 314857000,
    "cash_and_sti": 314857000,
    "debt_noncurrent": 721416000,
    "end": "2021-12-31",
    "equity": 3037761000,
+   "fcf": 267154000,
    "finance_leases": 30216000,
    "net_income": 125255000,
    "operating_cash_flow": 267154000,
    "revenue": 251637000,
    "src": {
+    "capex": {
+     "accn": "0001504008-22-000009",
+     "derived": true,
+     "filed": "2022-02-24",
+     "form": "10-K",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-22-000009",
      "filed": "2022-02-24",
@@ -6494,16 +6797,24 @@
    "total_debt": 721416000
   },
   {
+   "capex": 0,
    "cash": 697492000,
    "cash_and_sti": 697492000,
    "debt_noncurrent": 721291000,
    "end": "2022-03-31",
    "equity": 2861232000,
+   "fcf": 457290000,
    "net_income": 67150000,
    "operating_cash_flow": 457290000,
    "revenue": 222943000,
    "shares_diluted": 83909770,
    "src": {
+    "capex": {
+     "accn": "0001504008-22-000020",
+     "filed": "2022-05-04",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-22-000020",
      "filed": "2022-05-04",
@@ -6564,16 +6875,25 @@
    "total_debt": 721291000
   },
   {
+   "capex": 0,
    "cash": 513773000,
    "cash_and_sti": 513773000,
    "debt_noncurrent": 721166000,
    "end": "2022-06-30",
    "equity": 2506017000,
+   "fcf": 598140000,
    "net_income": 65764000,
    "operating_cash_flow": 598140000,
    "revenue": 238866000,
    "shares_diluted": 79393545,
    "src": {
+    "capex": {
+     "accn": "0001504008-22-000030",
+     "derived": true,
+     "filed": "2022-08-02",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireEquipmentOnLease"
+    },
     "cash": {
      "accn": "0001504008-22-000030",
      "filed": "2022-08-02",
@@ -7725,6 +8045,7 @@
  ],
  "v2_tags_used": {
   "capex": [
+   "PaymentsToAcquireEquipmentOnLease",
    "PaymentsToAcquirePropertyPlantAndEquipment"
   ],
   "net_income": [

@@ -113,10 +113,11 @@
    "total_assets": 5132617000,
    "total_assets_as_filed": 5132617000,
    "total_assets_as_filed_filed": "2010-08-03",
-   "total_debt": 1989434000,
-   "total_debt_as_filed": 1437155000,
+   "total_debt": 3426589000,
+   "total_debt_as_filed": 3426589000,
    "total_debt_as_filed_filed": "2010-08-03",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2010-08-03",
    "total_equity": 1395441000,
    "total_equity_incl_nci": 1398982000,
    "total_equity_parent": 1395441000,
@@ -179,10 +180,11 @@
    "total_assets": 5529540000,
    "total_assets_as_filed": 5529540000,
    "total_assets_as_filed_filed": "2011-02-23",
-   "total_debt": 1808746000,
-   "total_debt_as_filed": 1603834000,
-   "total_debt_as_filed_filed": "2011-02-23",
+   "total_debt": 3412580000,
+   "total_debt_as_filed": 3412580000,
+   "total_debt_as_filed_filed": "2012-02-27",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2012-02-27",
    "total_equity": 1606343000,
    "total_equity_incl_nci": 1610030000,
    "total_equity_parent": 1606343000,
@@ -545,9 +547,9 @@
     "operating_cash_flow",
     "revenue"
    ],
-   "revenue": 871928000,
+   "revenue": 894638000,
    "revenue_as_filed": 894638000,
-   "revenue_as_filed_filed": "2016-02-23",
+   "revenue_as_filed_filed": "2018-02-20",
    "revenue_filed": "2018-02-20",
    "shares_diluted": 263752000,
    "shares_diluted_adj": 263752000,
@@ -1462,6 +1464,9 @@
  "cik": 74208,
  "fiscal_year_end": "1231",
  "flags": [
+  "revenue_unverified_2024-12-31",
+  "revenue_unverified_2025-12-31",
+  "revenue_unverified_2023-12-31",
   "current_ltd_untagged_0.3B",
   "debt_one_side_only"
  ],
@@ -2278,9 +2283,21 @@
      "filed": "2011-02-23",
      "form": "10-K",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2010-08-03",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 1989434000,
+      "UnsecuredDebt": 1437155000
+     }
     }
    },
-   "start": "2009-01-01"
+   "start": "2009-01-01",
+   "total_debt": 3426589000
   },
   {
    "capex": 4342000,
@@ -2337,9 +2354,21 @@
      "filed": "2011-02-23",
      "form": "10-K",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2012-02-27",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 1808746000,
+      "UnsecuredDebt": 1603834000
+     }
     }
    },
-   "start": "2010-01-01"
+   "start": "2010-01-01",
+   "total_debt": 3412580000
   },
   {
    "capex": 13267000,
@@ -2470,8 +2499,6 @@
     "shares_diluted": {
      "accn": "0000074208-15-000013",
      "filed": "2015-02-24",
-     "first_filed": "2014-04-29",
-     "first_val": 249917000,
      "form": "10-K",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
     },
@@ -2660,7 +2687,7 @@
    "fcf": 454578000,
    "net_income": 340383000,
    "operating_cash_flow": 458627000,
-   "revenue": 871928000,
+   "revenue": 894638000,
    "shares_diluted": 263752000,
    "src": {
     "capex": {
@@ -2698,10 +2725,9 @@
     "revenue": {
      "accn": "0000074208-18-000024",
      "filed": "2018-02-20",
-     "first_filed": "2016-02-23",
-     "first_val": 894638000,
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "RealEstateRevenueNet"
     },
     "shares_diluted": {
      "accn": "0000074208-16-000140",
@@ -3513,11 +3539,25 @@
    "v2": 6269000
   },
   {
+   "field": "total_debt",
+   "old": 1989434000,
+   "period": "2009-12-31",
+   "rows": "annual",
+   "v2": 3426589000
+  },
+  {
    "field": "capex",
    "old": 347582000,
    "period": "2010-12-31",
    "rows": "annual",
    "v2": 4342000
+  },
+  {
+   "field": "total_debt",
+   "old": 1808746000,
+   "period": "2010-12-31",
+   "rows": "annual",
+   "v2": 3412580000
   },
   {
    "field": "capex",
@@ -3581,6 +3621,13 @@
    "period": "2014-12-31",
    "rows": "annual",
    "v2": 3565299000
+  },
+  {
+   "field": "revenue",
+   "old": 871928000,
+   "period": "2015-12-31",
+   "rows": "annual",
+   "v2": 894638000
   },
   {
    "field": "capex",
@@ -4053,9 +4100,21 @@
      "filed": "2012-02-27",
      "form": "10-K",
      "tag": "Revenues"
+    },
+    "total_debt": {
+     "filed": "2010-08-03",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 1989434000,
+      "UnsecuredDebt": 1437155000
+     }
     }
    },
-   "start": "2009-10-01"
+   "start": "2009-10-01",
+   "total_debt": 3426589000
   },
   {
    "capex": 28565000,
@@ -4170,10 +4229,22 @@
      "filed": "2011-08-05",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2010-08-03",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 1957406000,
+      "UnsecuredDebt": 1454252000
+     }
     }
    },
    "start": "2010-04-01",
-   "stock_comp": 3100000
+   "stock_comp": 3100000,
+   "total_debt": 3411658000
   },
   {
    "capex": 687000,
@@ -4238,10 +4309,22 @@
      "filed": "2011-11-03",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2010-11-09",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 2045810000,
+      "UnsecuredDebt": 1433860000
+     }
     }
    },
    "start": "2010-07-01",
-   "stock_comp": 3100000
+   "stock_comp": 3100000,
+   "total_debt": 3479670000
   },
   {
    "capex": 1010000,
@@ -4293,9 +4376,21 @@
      "filed": "2013-02-27",
      "form": "10-K",
      "tag": "Revenues"
+    },
+    "total_debt": {
+     "filed": "2012-02-27",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 1808746000,
+      "UnsecuredDebt": 1603834000
+     }
     }
    },
-   "start": "2010-10-01"
+   "start": "2010-10-01",
+   "total_debt": 3412580000
   },
   {
    "capex": 863000,
@@ -4358,10 +4453,22 @@
      "filed": "2012-05-02",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2011-05-03",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 1716241000,
+      "UnsecuredDebt": 1747236000
+     }
     }
    },
    "start": "2011-01-01",
-   "stock_comp": 2700000
+   "stock_comp": 2700000,
+   "total_debt": 3463477000
   },
   {
    "capex": 1614000,
@@ -4419,10 +4526,24 @@
      "filed": "2011-08-05",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2011-08-05",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt",
+      "LineOfCredit"
+     ],
+     "values": {
+      "LineOfCredit": 1700000,
+      "SecuredDebt": 1992401000,
+      "UnsecuredDebt": 1707185000
+     }
     }
    },
    "start": "2011-04-01",
-   "stock_comp": 2400000
+   "stock_comp": 2400000,
+   "total_debt": 3701286000
   },
   {
    "capex": 9783000,
@@ -4487,10 +4608,24 @@
      "filed": "2011-11-03",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2011-11-03",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt",
+      "LineOfCredit"
+     ],
+     "values": {
+      "LineOfCredit": 2600000,
+      "SecuredDebt": 2004525000,
+      "UnsecuredDebt": 1967661000
+     }
     }
    },
    "start": "2011-07-01",
-   "stock_comp": 2600000
+   "stock_comp": 2600000,
+   "total_debt": 3974786000
   },
   {
    "capex": 1007000,
@@ -4619,10 +4754,24 @@
      "filed": "2012-05-02",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2012-05-02",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt",
+      "LineOfCredit"
+     ],
+     "values": {
+      "LineOfCredit": 5000000,
+      "SecuredDebt": 1813942000,
+      "UnsecuredDebt": 2099462000
+     }
     }
    },
    "start": "2012-01-01",
-   "stock_comp": 2300000
+   "stock_comp": 2300000,
+   "total_debt": 3918404000
   },
   {
    "capex": 629000,
@@ -4687,10 +4836,24 @@
      "filed": "2012-08-01",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2012-08-01",
+     "tags": [
+      "SeniorNotes",
+      "SecuredDebt",
+      "LineOfCredit"
+     ],
+     "values": {
+      "LineOfCredit": 4100000,
+      "SecuredDebt": 1442361000,
+      "SeniorNotes": 1902707000
+     }
     }
    },
    "start": "2012-04-01",
-   "stock_comp": 4700000
+   "stock_comp": 4700000,
+   "total_debt": 3349168000
   },
   {
    "capex": 2063000,
@@ -4757,10 +4920,24 @@
      "first_val": 830000,
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2012-10-31",
+     "tags": [
+      "SeniorNotes",
+      "SecuredDebt",
+      "LineOfCredit"
+     ],
+     "values": {
+      "LineOfCredit": 4100000,
+      "SecuredDebt": 1439762000,
+      "SeniorNotes": 1902953000
+     }
     }
    },
    "start": "2012-07-01",
-   "stock_comp": 800000
+   "stock_comp": 800000,
+   "total_debt": 3346815000
   },
   {
    "capex": 4163000,
@@ -5498,10 +5675,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0000074208-15-000029",
-     "filed": "2015-04-28",
+     "accn": "0000074208-16-000175",
+     "filed": "2016-04-26",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "RealEstateRevenueNet"
     },
     "shares_diluted": {
      "accn": "0000074208-15-000029",
@@ -5576,10 +5753,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0000074208-15-000060",
-     "filed": "2015-07-28",
+     "accn": "0000074208-16-000189",
+     "filed": "2016-07-27",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "RealEstateRevenueNet"
     },
     "shares_diluted": {
      "accn": "0000074208-15-000060",
@@ -5655,10 +5832,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0000074208-15-000105",
-     "filed": "2015-10-27",
+     "accn": "0000074208-16-000212",
+     "filed": "2016-10-26",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "RealEstateRevenueNet"
     },
     "shares_diluted": {
      "accn": "0000074208-15-000105",
@@ -5698,7 +5875,7 @@
    "fcf": 151460000,
    "net_income": 166415000,
    "operating_cash_flow": 152825000,
-   "revenue": 214895000,
+   "revenue": 237605000,
    "shares_diluted": 266108000,
    "src": {
     "capex": {
@@ -5739,7 +5916,7 @@
      "derived": true,
      "filed": "2018-02-20",
      "form": "10-K",
-     "tag": "Revenues"
+     "tag": "RealEstateRevenueNet"
     },
     "shares_diluted": {
      "accn": "0000074208-16-000140",

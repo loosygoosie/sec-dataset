@@ -543,8 +543,8 @@
    "total_assets": 59403600000,
    "total_assets_as_filed": 59403600000,
    "total_assets_as_filed_filed": "2014-02-26",
-   "total_debt": 2612000000,
-   "total_debt_as_filed": 2612000000,
+   "total_debt": 2688500000,
+   "total_debt_as_filed": 2688500000,
    "total_debt_as_filed_filed": "2015-02-25",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2015-02-25",
@@ -2862,17 +2862,19 @@
      "filed": "2015-02-25",
      "tags": [
       "LongTermDebtNoncurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 0,
+      "DebtLongtermAndShorttermCombinedAmount": 2688500000,
       "LongTermDebtNoncurrent": 2612000000
      }
     }
    },
    "start": "2013-01-01",
    "stock_comp": 23600000,
-   "total_debt": 2612000000
+   "total_debt": 2688500000
   },
   {
    "capex": 114500000,
@@ -3838,13 +3840,6 @@
   }
  ],
  "v2_fixes": [
-  {
-   "field": "total_debt",
-   "old": 2688500000,
-   "period": "2013-12-31",
-   "rows": "annual",
-   "v2": 2612000000
-  },
   {
    "field": "total_debt",
    "old": 3326600000,
@@ -5257,16 +5252,18 @@
      "filed": "2015-02-25",
      "tags": [
       "LongTermDebtNoncurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 0,
+      "DebtLongtermAndShorttermCombinedAmount": 2688500000,
       "LongTermDebtNoncurrent": 2612000000
      }
     }
    },
    "start": "2013-10-01",
-   "total_debt": 2612000000
+   "total_debt": 2688500000
   },
   {
    "capex": 28100000,

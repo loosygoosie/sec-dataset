@@ -53,10 +53,10 @@
    "retained_earnings": 5903000000,
    "retained_earnings_as_filed": 5903000000,
    "retained_earnings_as_filed_filed": "2010-07-28",
-   "revenue": 7535000000,
-   "revenue_as_filed": 7535000000,
-   "revenue_as_filed_filed": "2013-03-11",
-   "revenue_filed": "2013-03-11",
+   "revenue": 9416000000,
+   "revenue_as_filed": 9416000000,
+   "revenue_as_filed_filed": "2011-02-25",
+   "revenue_filed": "2011-02-25",
    "sga_expense": 1606000000,
    "shares_diluted": 281800000,
    "shares_diluted_adj": 281800000,
@@ -143,10 +143,10 @@
    "retained_earnings": 5676000000,
    "retained_earnings_as_filed": 5676000000,
    "retained_earnings_as_filed_filed": "2010-07-28",
-   "revenue": 6248000000,
-   "revenue_as_filed": 6248000000,
-   "revenue_as_filed_filed": "2013-03-11",
-   "revenue_filed": "2013-03-11",
+   "revenue": 7609000000,
+   "revenue_as_filed": 7606000000,
+   "revenue_as_filed_filed": "2011-02-25",
+   "revenue_filed": "2012-02-29",
    "sga_expense": 1298000000,
    "shares_diluted": 268000000,
    "shares_diluted_adj": 268000000,
@@ -2477,7 +2477,7 @@
    "fcf": -86000000,
    "net_income": -442000000,
    "operating_cash_flow": 168000000,
-   "revenue": 7535000000,
+   "revenue": 9416000000,
    "shares_diluted": 281800000,
    "src": {
     "capex": {
@@ -2511,10 +2511,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001193125-13-101202",
-     "filed": "2013-03-11",
+     "accn": "0000031235-11-000025",
+     "filed": "2011-02-25",
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "SalesRevenueNet"
     },
     "shares_diluted": {
      "accn": "0001193125-13-101202",
@@ -2548,7 +2549,7 @@
    "fcf": -288000000,
    "net_income": -210000000,
    "operating_cash_flow": -136000000,
-   "revenue": 6248000000,
+   "revenue": 7609000000,
    "shares_diluted": 268000000,
    "src": {
     "capex": {
@@ -2582,10 +2583,13 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001193125-13-101202",
-     "filed": "2013-03-11",
+     "accn": "0000031235-12-000036",
+     "filed": "2012-02-29",
+     "first_filed": "2011-02-25",
+     "first_val": 7606000000,
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "SalesRevenueNet"
     },
     "shares_diluted": {
      "accn": "0001193125-13-101202",
@@ -3810,6 +3814,20 @@
   }
  ],
  "v2_fixes": [
+  {
+   "field": "revenue",
+   "old": 7535000000,
+   "period": "2008-12-31",
+   "rows": "annual",
+   "v2": 9416000000
+  },
+  {
+   "field": "revenue",
+   "old": 6248000000,
+   "period": "2009-12-31",
+   "rows": "annual",
+   "v2": 7609000000
+  },
   {
    "field": "total_debt",
    "old": 2122000000,

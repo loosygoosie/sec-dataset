@@ -1310,10 +1310,10 @@
    "retained_earnings": 1031000000,
    "retained_earnings_as_filed": 1031000000,
    "retained_earnings_as_filed_filed": "2022-02-25",
-   "revenue": 7156000000,
+   "revenue": 3692000000,
    "revenue_as_filed": 7156000000,
-   "revenue_as_filed_filed": "2022-02-25",
-   "revenue_filed": "2022-02-25",
+   "revenue_as_filed_filed": "2023-02-27",
+   "revenue_filed": "2024-03-14",
    "sga_expense": 704000000,
    "shares_diluted": 131200000,
    "shares_diluted_adj": 131200000,
@@ -3686,7 +3686,7 @@
    "finance_leases": 29000000,
    "net_income": 97000000,
    "operating_cash_flow": 1009000000,
-   "revenue": 7156000000,
+   "revenue": 3692000000,
    "shares_diluted": 131200000,
    "src": {
     "capex": {
@@ -3724,10 +3724,13 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0000070866-22-000008",
-     "filed": "2022-02-25",
+     "accn": "0000070866-24-000014",
+     "filed": "2024-03-14",
+     "first_filed": "2023-02-27",
+     "first_val": 7156000000,
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
     },
     "shares_diluted": {
      "accn": "0000070866-24-000014",
@@ -4234,6 +4237,13 @@
    "period": "2020-12-31",
    "rows": "annual",
    "v2": 8000000
+  },
+  {
+   "field": "revenue",
+   "old": 7156000000,
+   "period": "2021-12-31",
+   "rows": "annual",
+   "v2": 3692000000
   },
   {
    "field": "total_debt",

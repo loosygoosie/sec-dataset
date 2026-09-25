@@ -4827,6 +4827,7 @@
    "capex": 20800000,
    "cash": 471900000,
    "cash_and_sti": 816100000,
+   "debt_current": 1400000,
    "debt_noncurrent": 1332700000,
    "end": "2011-03-31",
    "equity": 8333600000,
@@ -4886,18 +4887,19 @@
     },
     "total_debt": {
      "filed": "2011-04-29",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "LongTermDebtNoncurrent",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 1332700000
+      "LongTermDebtNoncurrent": 1332700000,
+      "NotesPayableCurrent": 1400000
      }
     }
    },
    "start": "2011-01-01",
    "stock_comp": 26300000,
-   "total_debt": 1332700000
+   "total_debt": 1334100000
   },
   {
    "capex": 19900000,

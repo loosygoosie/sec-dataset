@@ -463,9 +463,9 @@
    "total_assets_as_filed_filed": "2021-05-28",
    "total_debt": 1650540000,
    "total_debt_as_filed": 1650540000,
-   "total_debt_as_filed_filed": "2021-08-09",
+   "total_debt_as_filed_filed": "2022-02-09",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2021-08-09",
+   "total_debt_filed": "2022-02-09",
    "total_equity": 3880990000,
    "total_equity_incl_nci": 3891468000,
    "total_equity_parent": 3880990000,
@@ -2173,11 +2173,11 @@
      "filed": "2020-08-07",
      "tags": [
       "LongTermDebtNoncurrent",
-      "ShortTermBorrowings"
+      "SeniorNotesCurrent"
      ],
      "values": {
       "LongTermDebtNoncurrent": 1150521000,
-      "ShortTermBorrowings": 0
+      "SeniorNotesCurrent": 0
      }
     }
    },
@@ -2249,14 +2249,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2021-08-09",
+     "filed": "2022-02-09",
      "tags": [
       "LongTermDebtNoncurrent",
-      "ShortTermBorrowings"
+      "SeniorNotesCurrent"
      ],
      "values": {
       "LongTermDebtNoncurrent": 1650540000,
-      "ShortTermBorrowings": 0
+      "SeniorNotesCurrent": 0
      }
     }
    },
@@ -3517,11 +3517,11 @@
      "filed": "2020-08-07",
      "tags": [
       "LongTermDebtNoncurrent",
-      "ShortTermBorrowings"
+      "SeniorNotesCurrent"
      ],
      "values": {
       "LongTermDebtNoncurrent": 1150521000,
-      "ShortTermBorrowings": 0
+      "SeniorNotesCurrent": 0
      }
     }
    },
@@ -3597,11 +3597,11 @@
      "filed": "2020-08-07",
      "tags": [
       "LongTermDebtNoncurrent",
-      "ShortTermBorrowings"
+      "SeniorNotesCurrent"
      ],
      "values": {
       "LongTermDebtNoncurrent": 1022156000,
-      "ShortTermBorrowings": 35000000
+      "SeniorNotesCurrent": 35000000
      }
     }
    },
@@ -3827,14 +3827,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2021-08-09",
+     "filed": "2022-02-09",
      "tags": [
       "LongTermDebtNoncurrent",
-      "ShortTermBorrowings"
+      "SeniorNotesCurrent"
      ],
      "values": {
       "LongTermDebtNoncurrent": 1650540000,
-      "ShortTermBorrowings": 0
+      "SeniorNotesCurrent": 0
      }
     }
    },
@@ -3909,9 +3909,11 @@
      "filed": "2021-08-09",
      "tags": [
       "LongTermDebtNoncurrent",
-      "ShortTermBorrowings"
+      "ShortTermBorrowings",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 3431589000,
       "LongTermDebtNoncurrent": 3256714000,
       "ShortTermBorrowings": 6875000
      }
@@ -3919,7 +3921,7 @@
    },
    "start": "2021-04-01",
    "stock_comp": 26600000,
-   "total_debt": 3263589000
+   "total_debt": 3431589000
   },
   {
    "capex": 76973000,

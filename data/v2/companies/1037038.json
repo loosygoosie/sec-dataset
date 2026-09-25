@@ -1144,8 +1144,8 @@
    "total_assets": 7279900000,
    "total_assets_as_filed": 7279900000,
    "total_assets_as_filed_filed": "2020-05-27",
-   "total_debt": 871400000,
-   "total_debt_as_filed": 871400000,
+   "total_debt": 1171000000,
+   "total_debt_as_filed": 1171000000,
    "total_debt_as_filed_filed": "2020-05-27",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2020-05-27",
@@ -3620,9 +3620,11 @@
      "filed": "2020-05-27",
      "tags": [
       "LongTermDebtNoncurrent",
-      "ShortTermBorrowings"
+      "ShortTermBorrowings",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 1171000000,
       "LongTermDebtNoncurrent": 396400000,
       "ShortTermBorrowings": 475000000
      }
@@ -3630,7 +3632,7 @@
    },
    "start": "2019-03-31",
    "stock_comp": 100600000,
-   "total_debt": 871400000
+   "total_debt": 1171000000
   },
   {
    "capex": 107800000,
@@ -4195,13 +4197,6 @@
    "period": "2018-03-31",
    "rows": "annual",
    "v2": 586100000
-  },
-  {
-   "field": "total_debt",
-   "old": 1171000000,
-   "period": "2020-03-28",
-   "rows": "annual",
-   "v2": 871400000
   },
   {
    "field": "debt_current",
@@ -8016,9 +8011,11 @@
      "filed": "2020-05-27",
      "tags": [
       "LongTermDebtNoncurrent",
-      "ShortTermBorrowings"
+      "ShortTermBorrowings",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 1171000000,
       "LongTermDebtNoncurrent": 396400000,
       "ShortTermBorrowings": 475000000
      }
@@ -8026,7 +8023,7 @@
    },
    "start": "2019-12-29",
    "stock_comp": 27700000,
-   "total_debt": 871400000
+   "total_debt": 1171000000
   },
   {
    "capex": 21300000,

@@ -48,8 +48,8 @@
    "pretax_income_as_filed": 21300000,
    "pretax_income_as_filed_filed": "2018-03-01",
    "pretax_income_filed": "2018-03-01",
-   "revenue": 4270500000,
-   "revenue_as_filed": 4270500000,
+   "revenue": 4782000000,
+   "revenue_as_filed": 4782000000,
    "revenue_as_filed_filed": "2018-03-01",
    "revenue_filed": "2018-03-01",
    "sga_expense": 100600000,
@@ -1911,7 +1911,7 @@
    "fcf": -7700000,
    "net_income": 19400000,
    "operating_cash_flow": 180000000,
-   "revenue": 4270500000,
+   "revenue": 4782000000,
    "shares_diluted": 61320570,
    "src": {
     "capex": {
@@ -1948,7 +1948,8 @@
      "accn": "0001694426-18-000036",
      "filed": "2018-03-01",
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "SalesRevenueNet"
     },
     "shares_diluted": {
      "accn": "0001694426-18-000036",
@@ -2775,6 +2776,13 @@
   }
  ],
  "v2_fixes": [
+  {
+   "field": "revenue",
+   "old": 4270500000,
+   "period": "2015-12-31",
+   "rows": "annual",
+   "v2": 4782000000
+  },
   {
    "field": "total_debt",
    "old": 1483100000,

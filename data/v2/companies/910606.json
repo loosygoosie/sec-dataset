@@ -943,6 +943,9 @@
  "fiscal_year_end": "1231",
  "flags": [
   "stale_shares_diluted",
+  "revenue_unverified_2024-12-31",
+  "revenue_unverified_2025-12-31",
+  "revenue_unverified_2023-12-31",
   "current_ltd_untagged_0.8B",
   "debt_one_side_only"
  ],
@@ -3128,10 +3131,20 @@
      "filed": "2014-05-08",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2014-05-08",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 1855690000
+     }
     }
    },
    "start": "2014-01-01",
-   "stock_comp": 2272000
+   "stock_comp": 2272000,
+   "total_debt": 1855690000
   },
   {
    "end": "2014-06-30",
@@ -3148,10 +3161,20 @@
      "filed": "2014-08-08",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2014-08-08",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 1946063000
+     }
     }
    },
    "start": "2014-04-01",
-   "stock_comp": 2262000
+   "stock_comp": 2262000,
+   "total_debt": 1946063000
   },
   {
    "end": "2014-09-30",
@@ -3168,10 +3191,20 @@
      "filed": "2014-11-04",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2014-11-04",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 1948243000
+     }
     }
    },
    "start": "2014-07-01",
-   "stock_comp": 2350000
+   "stock_comp": 2350000,
+   "total_debt": 1948243000
   },
   {
    "debt_noncurrent": 2021357000,
@@ -3227,10 +3260,20 @@
      "filed": "2015-05-07",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-05-07",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 1889727000
+     }
     }
    },
    "start": "2015-01-01",
-   "stock_comp": 2900000
+   "stock_comp": 2900000,
+   "total_debt": 1889727000
   },
   {
    "end": "2015-06-30",
@@ -3241,9 +3284,19 @@
      "filed": "2016-02-18",
      "form": "10-K",
      "tag": "NetIncomeLossAvailableToCommonStockholdersBasic"
+    },
+    "total_debt": {
+     "filed": "2015-08-06",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 1868700000
+     }
     }
    },
-   "start": "2015-04-01"
+   "start": "2015-04-01",
+   "total_debt": 1868700000
   },
   {
    "end": "2015-09-30",
@@ -3261,9 +3314,19 @@
      "filed": "2016-02-18",
      "form": "10-K",
      "tag": "NetIncomeLossAvailableToCommonStockholdersBasic"
+    },
+    "total_debt": {
+     "filed": "2015-11-05",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 1808652000
+     }
     }
    },
-   "start": "2015-07-01"
+   "start": "2015-07-01",
+   "total_debt": 1808652000
   },
   {
    "debt_noncurrent": 1864285000,
@@ -4903,7 +4966,6 @@
    "capex": 44254000,
    "cash": 154984000,
    "cash_and_sti": 154984000,
-   "debt_noncurrent": 3729404000,
    "end": "2022-09-30",
    "equity": 6115883000,
    "fcf": 156231000,
@@ -4958,18 +5020,19 @@
     },
     "total_debt": {
      "filed": "2022-11-04",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "NotesPayable",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebt": 3729404000
+      "LineOfCredit": 1250000000,
+      "NotesPayable": 3729404000
      }
     }
    },
    "start": "2022-07-01",
    "stock_comp": 4091000,
-   "total_debt": 3729404000
+   "total_debt": 4979404000
   },
   {
    "capex": 51694000,

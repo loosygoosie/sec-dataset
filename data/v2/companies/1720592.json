@@ -15,6 +15,7 @@
    "current_liabilities_as_filed": 156600,
    "current_liabilities_as_filed_filed": "2018-08-10",
    "d_and_a": 7456438,
+   "debt_current": 156600,
    "filed": "2020-05-05",
    "fiscal_year": 2017,
    "goodwill": 119529202,
@@ -54,6 +55,8 @@
    "total_assets": 176330,
    "total_assets_as_filed": 176330,
    "total_assets_as_filed_filed": "2018-08-10",
+   "total_debt": 156600,
+   "total_debt_filed": "2018-08-10",
    "total_equity": 19730,
    "total_equity_incl_nci": 19730,
    "total_equity_parent": 19730,
@@ -1575,6 +1578,7 @@
    "capex": 448601,
    "cash": 25817,
    "cash_and_sti": 25817,
+   "debt_current": 156600,
    "end": "2017-12-31",
    "equity": 19730,
    "fcf": 20694561,
@@ -1623,10 +1627,21 @@
      "filed": "2020-03-16",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2018-08-10",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 156600
+     }
     }
    },
    "start": "2017-01-01",
-   "stock_comp": 622411
+   "stock_comp": 622411,
+   "total_debt": 156600
   },
   {
    "capex": 913498,
@@ -2244,6 +2259,20 @@
  "v2_fixes": [
   {
    "field": "total_debt",
+   "old": null,
+   "period": "2017-12-31",
+   "rows": "annual",
+   "v2": 156600
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2017-12-31",
+   "rows": "annual",
+   "v2": 156600
+  },
+  {
+   "field": "total_debt",
    "old": 95750000,
    "period": "2018-12-31",
    "rows": "annual",
@@ -2388,6 +2417,7 @@
   {
    "cash": 25817,
    "cash_and_sti": 25817,
+   "debt_current": 156600,
    "end": "2017-12-31",
    "equity": 19730,
    "net_income": -225,
@@ -2418,9 +2448,20 @@
      "filed": "2019-03-26",
      "form": "10-K",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "total_debt": {
+     "filed": "2018-08-10",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 156600
+     }
     }
    },
-   "start": "2017-10-01"
+   "start": "2017-10-01",
+   "total_debt": 156600
   },
   {
    "cash": 3763,
@@ -2637,6 +2678,7 @@
    "capex": 102488,
    "cash": 159379,
    "cash_and_sti": 159379,
+   "debt_current": 316866,
    "end": "2019-03-31",
    "equity": 5000001,
    "fcf": -445496,
@@ -2698,15 +2740,27 @@
      "filed": "2020-05-11",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2019-05-15",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 316866
+     }
     }
    },
    "start": "2019-01-01",
-   "stock_comp": 127195
+   "stock_comp": 127195,
+   "total_debt": 316866
   },
   {
    "capex": 80443,
    "cash": 4005,
    "cash_and_sti": 4005,
+   "debt_current": 561866,
    "end": "2019-06-30",
    "equity": 5000001,
    "fcf": 8421877,
@@ -2769,10 +2823,21 @@
      "filed": "2020-08-10",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2019-07-10",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 561866
+     }
     }
    },
    "start": "2019-04-01",
-   "stock_comp": 123588
+   "stock_comp": 123588,
+   "total_debt": 561866
   },
   {
    "capex": 265720,

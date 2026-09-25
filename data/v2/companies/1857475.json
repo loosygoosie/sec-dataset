@@ -437,8 +437,8 @@
    "retained_earnings": 657430000,
    "retained_earnings_as_filed": 657430000,
    "retained_earnings_as_filed_filed": "2025-03-11",
-   "revenue": 8475343000,
-   "revenue_as_filed": 8475343000,
+   "revenue": 8483354000,
+   "revenue_as_filed": 8483354000,
    "revenue_as_filed_filed": "2026-03-02",
    "revenue_filed": "2026-03-02",
    "sga_expense": 474058000,
@@ -537,8 +537,8 @@
    "retained_earnings": 676371000,
    "retained_earnings_as_filed": 676371000,
    "retained_earnings_as_filed_filed": "2026-03-02",
-   "revenue": 9172907000,
-   "revenue_as_filed": 9172907000,
+   "revenue": 9179446000,
+   "revenue_as_filed": 9179446000,
    "revenue_as_filed_filed": "2026-03-02",
    "revenue_filed": "2026-03-02",
    "sga_expense": 495476000,
@@ -1135,6 +1135,7 @@
      "accn": "0001857475-26-000028",
      "filed": "2026-03-02",
      "form": "10-K",
+     "note": "income-statement tie-out",
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
     },
     "shares_diluted": {
@@ -1165,7 +1166,7 @@
    "finance_leases": 74018000,
    "net_income": 125513000,
    "operating_cash_flow": 262721000,
-   "revenue": 8475343000,
+   "revenue": 8483354000,
    "shares_diluted": 95471000,
    "short_term_investments": 6019000,
    "src": {
@@ -1203,7 +1204,7 @@
      "accn": "0001857475-26-000028",
      "filed": "2026-03-02",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax+OperatingLeaseLeaseIncome"
     },
     "shares_diluted": {
      "accn": "0001857475-26-000028",
@@ -1251,7 +1252,7 @@
    "finance_leases": 44915000,
    "net_income": 51319000,
    "operating_cash_flow": 123206000,
-   "revenue": 9172907000,
+   "revenue": 9179446000,
    "shares_diluted": 95902000,
    "short_term_investments": 6418000,
    "src": {
@@ -1289,7 +1290,7 @@
      "accn": "0001857475-26-000028",
      "filed": "2026-03-02",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax+OperatingLeaseLeaseIncome"
     },
     "shares_diluted": {
      "accn": "0001857475-26-000028",
@@ -1328,11 +1329,25 @@
  ],
  "v2_fixes": [
   {
+   "field": "revenue",
+   "old": 8475343000,
+   "period": "2024-12-31",
+   "rows": "annual",
+   "v2": 8483354000
+  },
+  {
    "field": "total_debt",
    "old": 967146000,
    "period": "2024-12-31",
    "rows": "annual",
    "v2": 946172000
+  },
+  {
+   "field": "revenue",
+   "old": 9172907000,
+   "period": "2025-12-31",
+   "rows": "annual",
+   "v2": 9179446000
   },
   {
    "field": "total_debt",
@@ -1699,7 +1714,8 @@
    "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
   ],
   "revenue": [
-   "RevenueFromContractWithCustomerExcludingAssessedTax"
+   "RevenueFromContractWithCustomerExcludingAssessedTax",
+   "RevenueFromContractWithCustomerExcludingAssessedTax+OperatingLeaseLeaseIncome"
   ],
   "shares_diluted": [
    "WeightedAverageNumberOfDilutedSharesOutstanding"

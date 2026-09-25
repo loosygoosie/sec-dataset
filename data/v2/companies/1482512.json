@@ -105,6 +105,7 @@
    "total_debt_as_filed": 342060000,
    "total_debt_as_filed_filed": "2011-08-12",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2011-08-12",
    "total_equity": 495846000,
    "total_equity_incl_nci": 561530000,
    "total_equity_parent": 495846000,
@@ -243,9 +244,9 @@
    "retained_earnings": -30580000,
    "retained_earnings_as_filed": -30580000,
    "retained_earnings_as_filed_filed": "2013-03-14",
-   "revenue": 0,
-   "revenue_as_filed": 0,
-   "revenue_as_filed_filed": "2014-03-03",
+   "revenue": 160461000,
+   "revenue_as_filed": 166156000,
+   "revenue_as_filed_filed": "2013-03-14",
    "revenue_filed": "2014-03-03",
    "shares_diluted": 41640691,
    "shares_diluted_adj": 5948664.194,
@@ -329,8 +330,8 @@
    "retained_earnings": -45113000,
    "retained_earnings_as_filed": -45113000,
    "retained_earnings_as_filed_filed": "2014-03-03",
-   "revenue": 0,
-   "revenue_as_filed": 0,
+   "revenue": 205558000,
+   "revenue_as_filed": 205558000,
    "revenue_as_filed_filed": "2014-03-03",
    "revenue_filed": "2014-03-03",
    "shares_diluted": 55182647,
@@ -415,8 +416,8 @@
    "retained_earnings": -34884000,
    "retained_earnings_as_filed": -34884000,
    "retained_earnings_as_filed_filed": "2015-03-03",
-   "revenue": 0,
-   "revenue_as_filed": 0,
+   "revenue": 253415000,
+   "revenue_as_filed": 253415000,
    "revenue_as_filed_filed": "2015-03-03",
    "revenue_filed": "2015-03-03",
    "shares_diluted": 66509447,
@@ -559,7 +560,6 @@
    "income_tax_filed": "2017-02-21",
    "interest_expense": 76044000,
    "loans": 0,
-   "lt_debt_noncurrent": 2473326000,
    "net_income": 27218000,
    "net_income_as_filed": 27218000,
    "net_income_as_filed_filed": "2017-02-21",
@@ -601,11 +601,11 @@
    "total_assets": 6678998000,
    "total_assets_as_filed": 6678998000,
    "total_assets_as_filed_filed": "2017-02-21",
-   "total_debt": 2473326000,
-   "total_debt_as_filed": 2473326000,
-   "total_debt_as_filed_filed": "2018-02-16",
+   "total_debt": 2688010000,
+   "total_debt_as_filed": 2688010000,
+   "total_debt_as_filed_filed": "2017-02-21",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2018-02-16",
+   "total_debt_filed": "2017-02-21",
    "total_equity": 3103283000,
    "total_equity_incl_nci": 3702750000,
    "total_equity_parent": 3103283000,
@@ -2063,10 +2063,20 @@
      "filed": "2012-03-14",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-08-12",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 342060000
+     }
     }
    },
    "start": "2010-01-01",
-   "stock_comp": 765000
+   "stock_comp": 765000,
+   "total_debt": 342060000
   },
   {
    "capex": 16385000,
@@ -2149,7 +2159,7 @@
    "fcf": 15671000,
    "net_income": -17190000,
    "operating_cash_flow": 42821000,
-   "revenue": 0,
+   "revenue": 160461000,
    "shares_diluted": 41640691,
    "src": {
     "capex": {
@@ -2185,8 +2195,11 @@
     "revenue": {
      "accn": "0001482512-14-000011",
      "filed": "2014-03-03",
+     "first_filed": "2013-03-14",
+     "first_val": 166156000,
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "RealEstateRevenueNet"
     },
     "shares_diluted": {
      "accn": "0001482512-15-000012",
@@ -2225,7 +2238,7 @@
    "fcf": -45606000,
    "net_income": -14833000,
    "operating_cash_flow": 41547000,
-   "revenue": 0,
+   "revenue": 205558000,
    "shares_diluted": 55182647,
    "src": {
     "capex": {
@@ -2262,7 +2275,8 @@
      "accn": "0001482512-14-000011",
      "filed": "2014-03-03",
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "RealEstateRevenueNet"
     },
     "shares_diluted": {
      "accn": "0001482512-15-000012",
@@ -2301,7 +2315,7 @@
    "fcf": -60130000,
    "net_income": 9955000,
    "operating_cash_flow": 63168000,
-   "revenue": 0,
+   "revenue": 253415000,
    "shares_diluted": 66509447,
    "src": {
     "capex": {
@@ -2338,7 +2352,8 @@
      "accn": "0001482512-15-000012",
      "filed": "2015-03-03",
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "RealEstateRevenueNet"
     },
     "shares_diluted": {
      "accn": "0001482512-15-000012",
@@ -2449,7 +2464,6 @@
    "capex": 258718000,
    "cash": 83015000,
    "cash_and_sti": 83015000,
-   "debt_noncurrent": 2473326000,
    "end": "2016-12-31",
    "equity": 3103283000,
    "fcf": -31944000,
@@ -2509,19 +2523,18 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2018-02-16",
-     "note": "one side only (a floor)",
+     "filed": "2017-02-21",
      "tags": [
-      "LongTermDebt"
+      "NotesPayable"
      ],
      "values": {
-      "LongTermDebt": 2473326000
+      "NotesPayable": 2688010000
      }
     }
    },
    "start": "2016-01-01",
    "stock_comp": 14144000,
-   "total_debt": 2473326000
+   "total_debt": 2688010000
   },
   {
    "capex": 302447000,
@@ -3151,13 +3164,6 @@
    "v2": 399871000
   },
   {
-   "field": "revenue",
-   "old": 160461000,
-   "period": "2012-12-31",
-   "rows": "annual",
-   "v2": 0
-  },
-  {
    "field": "capex",
    "old": 392320000,
    "period": "2012-12-31",
@@ -3172,13 +3178,6 @@
    "v2": 582085000
   },
   {
-   "field": "revenue",
-   "old": 205558000,
-   "period": "2013-12-31",
-   "rows": "annual",
-   "v2": 0
-  },
-  {
    "field": "capex",
    "old": 389883000,
    "period": "2013-12-31",
@@ -3191,13 +3190,6 @@
    "period": "2013-12-31",
    "rows": "annual",
    "v2": 888308000
-  },
-  {
-   "field": "revenue",
-   "old": 253415000,
-   "period": "2014-12-31",
-   "rows": "annual",
-   "v2": 0
   },
   {
    "field": "lt_debt_noncurrent",
@@ -3239,14 +3231,7 @@
    "old": 2707839000,
    "period": "2016-12-31",
    "rows": "annual",
-   "v2": 2473326000
-  },
-  {
-   "field": "lt_debt_noncurrent",
-   "old": null,
-   "period": "2016-12-31",
-   "rows": "annual",
-   "v2": 2473326000
+   "v2": 2688010000
   },
   {
    "field": "total_debt",
@@ -3442,10 +3427,20 @@
      "filed": "2012-03-14",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-08-12",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 342060000
+     }
     }
    },
    "start": "2010-10-01",
-   "stock_comp": 390000
+   "stock_comp": 390000,
+   "total_debt": 342060000
   },
   {
    "capex": 3652000,
@@ -3552,10 +3547,20 @@
      "filed": "2012-05-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-08-12",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 275002000
+     }
     }
    },
    "start": "2011-04-01",
-   "stock_comp": 593000
+   "stock_comp": 593000,
+   "total_debt": 275002000
   },
   {
    "capex": 3486000,
@@ -3614,10 +3619,20 @@
      "filed": "2011-11-10",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-11-10",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 298672000
+     }
     }
    },
    "start": "2011-07-01",
-   "stock_comp": 691000
+   "stock_comp": 691000,
+   "total_debt": 298672000
   },
   {
    "capex": 6238000,
@@ -3745,10 +3760,20 @@
      "filed": "2012-05-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2012-05-09",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 361051000
+     }
     }
    },
    "start": "2012-01-01",
-   "stock_comp": 1153000
+   "stock_comp": 1153000,
+   "total_debt": 361051000
   },
   {
    "capex": 6945000,
@@ -3982,7 +4007,7 @@
    "fcf": -4437000,
    "net_income": -2872000,
    "operating_cash_flow": 15105000,
-   "revenue": 0,
+   "revenue": 47403000,
    "src": {
     "capex": {
      "accn": "0001482512-13-000020",
@@ -4015,10 +4040,12 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001482512-14-000019",
-     "filed": "2014-05-12",
-     "form": "10-Q",
-     "tag": "Revenues"
+     "accn": "0001482512-14-000011",
+     "filed": "2014-03-03",
+     "first_filed": "2013-05-09",
+     "first_val": 49380000,
+     "form": "10-K",
+     "tag": "RealEstateRevenueNet"
     },
     "stock_comp": {
      "accn": "0001482512-13-000020",
@@ -4051,7 +4078,7 @@
    "fcf": -3195000,
    "net_income": -6184000,
    "operating_cash_flow": 15886000,
-   "revenue": 0,
+   "revenue": 47390000,
    "src": {
     "capex": {
      "accn": "0001482512-13-000031",
@@ -4086,11 +4113,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001482512-14-000033",
-     "derived": true,
-     "filed": "2014-08-07",
+     "accn": "0001482512-13-000031",
+     "filed": "2013-08-08",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "RealEstateRevenueNet"
     },
     "stock_comp": {
      "accn": "0001482512-13-000031",
@@ -4268,7 +4294,7 @@
    "fcf": -5698000,
    "net_income": 1260000,
    "operating_cash_flow": 19401000,
-   "revenue": 0,
+   "revenue": 55596000,
    "shares_diluted": 63625751,
    "src": {
     "capex": {
@@ -4305,7 +4331,7 @@
      "accn": "0001482512-14-000019",
      "filed": "2014-05-12",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "RealEstateRevenueNet"
     },
     "shares_diluted": {
      "accn": "0001482512-15-000026",
@@ -4344,7 +4370,7 @@
    "fcf": -9917000,
    "net_income": 3365000,
    "operating_cash_flow": 16490000,
-   "revenue": 0,
+   "revenue": 62129000,
    "shares_diluted": 69421621,
    "src": {
     "capex": {
@@ -4381,10 +4407,9 @@
     },
     "revenue": {
      "accn": "0001482512-14-000033",
-     "derived": true,
      "filed": "2014-08-07",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "RealEstateRevenueNet"
     },
     "shares_diluted": {
      "accn": "0001482512-15-000038",
@@ -4424,7 +4449,7 @@
    "fcf": -5193000,
    "net_income": 7620000,
    "operating_cash_flow": 22455000,
-   "revenue": 0,
+   "revenue": 68155000,
    "shares_diluted": 66506179,
    "src": {
     "capex": {
@@ -4461,10 +4486,9 @@
     },
     "revenue": {
      "accn": "0001482512-14-000050",
-     "derived": true,
      "filed": "2014-11-07",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "RealEstateRevenueNet"
     },
     "shares_diluted": {
      "accn": "0001482512-15-000045",
@@ -4504,7 +4528,7 @@
    "fcf": -39322000,
    "net_income": -2290000,
    "operating_cash_flow": 4822000,
-   "revenue": 0,
+   "revenue": 68787000,
    "src": {
     "capex": {
      "accn": "0001482512-15-000012",
@@ -4540,10 +4564,9 @@
     },
     "revenue": {
      "accn": "0001482512-15-000012",
-     "derived": true,
      "filed": "2015-03-03",
      "form": "10-K",
-     "tag": "Revenues"
+     "tag": "RealEstateRevenueNet"
     },
     "stock_comp": {
      "accn": "0001482512-15-000012",
@@ -4932,10 +4955,20 @@
      "filed": "2016-05-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2016-05-09",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 2080005000
+     }
     }
    },
    "start": "2016-01-01",
-   "stock_comp": 3342000
+   "stock_comp": 3342000,
+   "total_debt": 2080005000
   },
   {
    "capex": 49697000,
@@ -5099,7 +5132,6 @@
    "capex": 75432000,
    "cash": 83015000,
    "cash_and_sti": 83015000,
-   "debt_noncurrent": 2473326000,
    "end": "2016-12-31",
    "equity": 3103283000,
    "fcf": -49510000,
@@ -5153,19 +5185,18 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2018-02-16",
-     "note": "one side only (a floor)",
+     "filed": "2017-02-21",
      "tags": [
-      "LongTermDebt"
+      "NotesPayable"
      ],
      "values": {
-      "LongTermDebt": 2473326000
+      "NotesPayable": 2688010000
      }
     }
    },
    "start": "2016-10-01",
    "stock_comp": 4213000,
-   "total_debt": 2473326000
+   "total_debt": 2688010000
   },
   {
    "capex": 76225000,

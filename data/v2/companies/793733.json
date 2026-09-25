@@ -760,10 +760,10 @@
    "retained_earnings": 1516957000,
    "retained_earnings_as_filed": 1516957000,
    "retained_earnings_as_filed_filed": "2018-02-26",
-   "revenue": 3122592000,
-   "revenue_as_filed": 3122592000,
-   "revenue_as_filed_filed": "2020-02-18",
-   "revenue_filed": "2020-02-18",
+   "revenue": 3204268000,
+   "revenue_as_filed": 3204268000,
+   "revenue_as_filed_filed": "2018-02-26",
+   "revenue_filed": "2018-02-26",
    "shares_diluted": 53100000,
    "shares_diluted_adj": 53100000,
    "shares_diluted_as_filed": 53100000,
@@ -2875,7 +2875,7 @@
    "fcf": 656657000,
    "net_income": 428907000,
    "operating_cash_flow": 684124000,
-   "revenue": 3122592000,
+   "revenue": 3204268000,
    "shares_diluted": 53100000,
    "short_term_investments": 503503000,
    "src": {
@@ -2910,10 +2910,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001558370-20-000911",
-     "filed": "2020-02-18",
+     "accn": "0001558370-18-001097",
+     "filed": "2018-02-26",
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "SalesRevenueNet"
     },
     "shares_diluted": {
      "accn": "0001558370-18-001097",
@@ -3168,6 +3169,7 @@
      "accn": "0001558370-21-001367",
      "filed": "2021-02-22",
      "form": "10-K",
+     "note": "income-statement tie-out",
      "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
     },
     "shares_diluted": {
@@ -3253,6 +3255,7 @@
      "accn": "0001558370-22-001335",
      "filed": "2022-02-17",
      "form": "10-K",
+     "note": "income-statement tie-out",
      "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
     },
     "shares_diluted": {
@@ -3651,6 +3654,13 @@
    "period": "2016-12-31",
    "rows": "annual",
    "v2": 2545511000
+  },
+  {
+   "field": "revenue",
+   "old": 3122592000,
+   "period": "2017-12-31",
+   "rows": "annual",
+   "v2": 3204268000
   },
   {
    "field": "capex",

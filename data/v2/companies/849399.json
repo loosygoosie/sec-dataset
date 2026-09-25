@@ -215,6 +215,8 @@
    "total_assets": 11232000000,
    "total_assets_as_filed": 11232000000,
    "total_assets_as_filed_filed": "2010-05-24",
+   "total_debt": 1871000000,
+   "total_debt_filed": "2011-05-20",
    "total_equity": 4548000000,
    "total_equity_incl_nci": 4548000000,
    "total_equity_parent": 4548000000,
@@ -573,10 +575,10 @@
    "retained_earnings": -1148000000,
    "retained_earnings_as_filed": -1148000000,
    "retained_earnings_as_filed_filed": "2014-05-16",
-   "revenue": 6676000000,
+   "revenue": 4183000000,
    "revenue_as_filed": 6676000000,
-   "revenue_as_filed_filed": "2014-05-16",
-   "revenue_filed": "2014-05-16",
+   "revenue_as_filed_filed": "2015-05-22",
+   "revenue_filed": "2016-05-20",
    "shares_diluted": 704000000,
    "shares_diluted_adj": 704000000,
    "shares_diluted_as_filed": 704000000,
@@ -2870,10 +2872,20 @@
      "first_val": -155000000,
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-05-20",
+     "tags": [
+      "ConvertibleNotesPayable"
+     ],
+     "values": {
+      "ConvertibleNotesPayable": 1871000000
+     }
     }
    },
    "start": "2009-04-04",
-   "stock_comp": 155000000
+   "stock_comp": 155000000,
+   "total_debt": 1871000000
   },
   {
    "capex": 268000000,
@@ -3141,7 +3153,7 @@
    "fcf": 1087000000,
    "net_income": 898000000,
    "operating_cash_flow": 1281000000,
-   "revenue": 6676000000,
+   "revenue": 4183000000,
    "shares_diluted": 704000000,
    "short_term_investments": 377000000,
    "src": {
@@ -3180,10 +3192,13 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001193125-14-202922",
-     "filed": "2014-05-16",
+     "accn": "0000849399-16-000022",
+     "filed": "2016-05-20",
+     "first_filed": "2015-05-22",
+     "first_val": 6676000000,
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "SalesRevenueNet"
     },
     "shares_diluted": {
      "accn": "0001193125-14-202922",
@@ -4256,10 +4271,24 @@
  "v2_fixes": [
   {
    "field": "total_debt",
+   "old": null,
+   "period": "2010-04-02",
+   "rows": "annual",
+   "v2": 1871000000
+  },
+  {
+   "field": "total_debt",
    "old": 3100000000,
    "period": "2013-03-29",
    "rows": "annual",
    "v2": 2094000000
+  },
+  {
+   "field": "revenue",
+   "old": 6676000000,
+   "period": "2014-03-28",
+   "rows": "annual",
+   "v2": 4183000000
   },
   {
    "field": "total_debt",
@@ -4947,10 +4976,20 @@
      "filed": "2011-05-20",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-05-20",
+     "tags": [
+      "ConvertibleNotesPayable"
+     ],
+     "values": {
+      "ConvertibleNotesPayable": 1871000000
+     }
     }
    },
    "start": "2010-01-02",
-   "stock_comp": 31000000
+   "stock_comp": 31000000,
+   "total_debt": 1871000000
   },
   {
    "capex": 52000000,
@@ -5094,10 +5133,20 @@
      "filed": "2011-08-03",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-02-02",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1100000000
+     }
     }
    },
    "start": "2010-07-03",
-   "stock_comp": 36000000
+   "stock_comp": 36000000,
+   "total_debt": 1100000000
   },
   {
    "capex": 69000000,
@@ -5979,10 +6028,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001193125-13-312695",
-     "filed": "2013-07-31",
+     "accn": "0001193125-14-303116",
+     "filed": "2014-08-08",
      "form": "10-Q",
-     "tag": "Revenues"
+     "tag": "SalesRevenueNet"
     },
     "shares_diluted": {
      "accn": "0001193125-13-312695",

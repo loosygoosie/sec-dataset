@@ -925,6 +925,7 @@
    "total_debt_as_filed": 75000000,
    "total_debt_as_filed_filed": "2018-03-16",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2018-03-16",
    "total_equity": 1198254000,
    "total_equity_incl_nci": 1198254000,
    "total_equity_parent": 1198254000
@@ -1016,6 +1017,7 @@
    "total_debt_as_filed": 75000000,
    "total_debt_as_filed_filed": "2019-03-01",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2019-03-01",
    "total_equity": 1263655000,
    "total_equity_incl_nci": 1263655000,
    "total_equity_parent": 1263655000
@@ -1104,11 +1106,11 @@
    "total_assets": 1692382000,
    "total_assets_as_filed": 1692382000,
    "total_assets_as_filed_filed": "2020-03-02",
-   "total_debt": 0,
-   "total_debt_as_filed": 0,
-   "total_debt_as_filed_filed": "2020-05-08",
+   "total_debt": 75000000,
+   "total_debt_as_filed": 75000000,
+   "total_debt_as_filed_filed": "2020-03-02",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2020-05-08",
+   "total_debt_filed": "2020-03-02",
    "total_equity": 1377244000,
    "total_equity_incl_nci": 1377244000,
    "total_equity_parent": 1377244000
@@ -3337,10 +3339,20 @@
      "filed": "2018-03-16",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2018-03-16",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 75000000
+     }
     }
    },
    "start": "2017-01-01",
-   "stock_comp": 19352000
+   "stock_comp": 19352000,
+   "total_debt": 75000000
   },
   {
    "capex": 92720000,
@@ -3408,20 +3420,28 @@
      "filed": "2019-03-01",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2019-03-01",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 75000000
+     }
     }
    },
    "start": "2018-01-01",
-   "stock_comp": 24241000
+   "stock_comp": 24241000,
+   "total_debt": 75000000
   },
   {
    "capex": 97312000,
    "cash": 268670000,
    "cash_and_sti": 292637000,
-   "debt_current": 0,
    "end": "2019-12-31",
    "equity": 1377244000,
    "fcf": 4606000,
-   "finance_leases": 0,
    "net_income": 101035000,
    "operating_cash_flow": 101918000,
    "revenue": 1266208000,
@@ -3483,19 +3503,18 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2020-05-08",
-     "note": "one side only (a floor)",
+     "filed": "2020-03-02",
      "tags": [
-      "LongTermDebtCurrent"
+      "SeniorNotes"
      ],
      "values": {
-      "LongTermDebtCurrent": 0
+      "SeniorNotes": 75000000
      }
     }
    },
    "start": "2019-01-01",
    "stock_comp": 21918000,
-   "total_debt": 0
+   "total_debt": 75000000
   },
   {
    "capex": 92005000,
@@ -3993,13 +4012,6 @@
   }
  ],
  "v2_fixes": [
-  {
-   "field": "total_debt",
-   "old": 75000000,
-   "period": "2019-12-31",
-   "rows": "annual",
-   "v2": 0
-  },
   {
    "field": "total_debt",
    "old": 1677625000,
@@ -6766,10 +6778,20 @@
      "filed": "2018-03-16",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2018-03-16",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 75000000
+     }
     }
    },
    "start": "2017-10-01",
-   "stock_comp": 5965000
+   "stock_comp": 5965000,
+   "total_debt": 75000000
   },
   {
    "capex": 26544000,
@@ -7054,10 +7076,20 @@
      "filed": "2019-03-01",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2019-03-01",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 75000000
+     }
     }
    },
    "start": "2018-10-01",
-   "stock_comp": 6249000
+   "stock_comp": 6249000,
+   "total_debt": 75000000
   },
   {
    "capex": 28671000,
@@ -7282,11 +7314,9 @@
    "capex": 24059000,
    "cash": 268670000,
    "cash_and_sti": 292637000,
-   "debt_current": 0,
    "end": "2019-12-31",
    "equity": 1377244000,
    "fcf": 24805000,
-   "finance_leases": 0,
    "net_income": 20641000,
    "operating_cash_flow": 48864000,
    "revenue": 315523000,
@@ -7344,19 +7374,18 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2020-05-08",
-     "note": "one side only (a floor)",
+     "filed": "2020-03-02",
      "tags": [
-      "LongTermDebtCurrent"
+      "SeniorNotes"
      ],
      "values": {
-      "LongTermDebtCurrent": 0
+      "SeniorNotes": 75000000
      }
     }
    },
    "start": "2019-10-01",
    "stock_comp": 5757000,
-   "total_debt": 0
+   "total_debt": 75000000
   },
   {
    "capex": 25463000,

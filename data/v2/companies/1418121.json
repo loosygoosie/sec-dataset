@@ -266,7 +266,6 @@
    "income_tax_as_filed": 1422000,
    "income_tax_as_filed_filed": "2014-03-11",
    "income_tax_filed": "2016-02-25",
-   "lt_debt_noncurrent": 162600000,
    "net_income": 115222000,
    "net_income_as_filed": 115222000,
    "net_income_as_filed_filed": "2014-03-11",
@@ -305,8 +304,8 @@
    "total_assets": 1491281000,
    "total_assets_as_filed": 1491281000,
    "total_assets_as_filed_filed": "2014-03-11",
-   "total_debt": 162600000,
-   "total_debt_as_filed": 162600000,
+   "total_debt": 325102000,
+   "total_debt_as_filed": 325102000,
    "total_debt_as_filed_filed": "2014-05-14",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2014-05-14",
@@ -2176,7 +2175,6 @@
    "capex": 22505000,
    "cash": 18102000,
    "cash_and_sti": 18102000,
-   "debt_noncurrent": 162600000,
    "end": "2013-12-31",
    "equity": 1311811000,
    "fcf": 114941000,
@@ -2231,17 +2229,18 @@
     },
     "total_debt": {
      "filed": "2014-05-14",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "NotesPayable",
+      "SecuredDebt"
      ],
      "values": {
-      "LongTermDebt": 162600000
+      "NotesPayable": 162551000,
+      "SecuredDebt": 162551000
      }
     }
    },
    "start": "2013-01-01",
-   "total_debt": 162600000
+   "total_debt": 325102000
   },
   {
    "capex": 67990000,
@@ -3102,11 +3101,11 @@
    "v2": 166800000
   },
   {
-   "field": "lt_debt_noncurrent",
-   "old": null,
+   "field": "total_debt",
+   "old": 162600000,
    "period": "2013-12-31",
    "rows": "annual",
-   "v2": 162600000
+   "v2": 325102000
   },
   {
    "field": "lt_debt_noncurrent",
@@ -4383,7 +4382,6 @@
    "capex": 11135000,
    "cash": 18102000,
    "cash_and_sti": 18102000,
-   "debt_noncurrent": 162600000,
    "end": "2013-12-31",
    "equity": 1311811000,
    "fcf": 28289000,
@@ -4433,17 +4431,18 @@
     },
     "total_debt": {
      "filed": "2014-05-14",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "NotesPayable",
+      "SecuredDebt"
      ],
      "values": {
-      "LongTermDebt": 162600000
+      "NotesPayable": 162551000,
+      "SecuredDebt": 162551000
      }
     }
    },
    "start": "2013-10-01",
-   "total_debt": 162600000
+   "total_debt": 325102000
   },
   {
    "capex": 11790000,

@@ -1458,11 +1458,9 @@
  },
  "balance": {
   "cash_and_sti": 970035000,
-  "debt_end": "2025-12-31",
-  "debt_noncurrent": 599663000,
   "end": "2026-06-30",
   "equity": 3037231000,
-  "total_debt": 599663000
+  "total_debt": 1408691000
  },
  "bank": false,
  "checks": {
@@ -1476,9 +1474,7 @@
  },
  "cik": 860731,
  "fiscal_year_end": "1231",
- "flags": [
-  "debt_one_side_only"
- ],
+ "flags": [],
  "instances_merged": [],
  "latest_filing": {
   "accn": "0000860731-26-000050",
@@ -2067,8 +2063,9 @@
    "short_term_investments": 74682000,
    "stock_comp": 43662000,
    "total_assets": 5813576000,
-   "total_debt": 1437500000,
+   "total_debt": 1408691000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-07-29",
    "total_equity": 3037231000,
    "total_equity_parent": 3037231000,
    "total_liabilities": 2776345000
@@ -3617,6 +3614,13 @@
    "period": "2025-12-31",
    "rows": "quarterly",
    "v2": 599663000
+  },
+  {
+   "field": "total_debt",
+   "old": 1437500000,
+   "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 1408691000
   }
  ],
  "v2_notes": [],
@@ -8467,10 +8471,20 @@
      "filed": "2026-07-29",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-07-29",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 1408691000
+     }
     }
    },
    "start": "2026-04-01",
-   "stock_comp": 43662000
+   "stock_comp": 43662000,
+   "total_debt": 1408691000
   }
  ],
  "v2_tags_used": {

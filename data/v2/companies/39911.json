@@ -1413,8 +1413,8 @@
    "total_assets": 11386000000,
    "total_assets_as_filed": 11386000000,
    "total_assets_as_filed_filed": "2023-03-14",
-   "total_debt": 1486000000,
-   "total_debt_as_filed": 1486000000,
+   "total_debt": 1836000000,
+   "total_debt_as_filed": 1836000000,
    "total_debt_as_filed_filed": "2023-03-14",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2023-03-14",
@@ -3690,11 +3690,9 @@
    "capex": 685000000,
    "cash": 1215000000,
    "cash_and_sti": 1215000000,
-   "debt_noncurrent": 1486000000,
    "end": "2023-01-28",
    "equity": 2233000000,
    "fcf": -78000000,
-   "finance_leases": 0,
    "net_income": -202000000,
    "operating_cash_flow": 607000000,
    "revenue": 15616000000,
@@ -3750,18 +3748,19 @@
     },
     "total_debt": {
      "filed": "2023-03-14",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "NotesPayable",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 1486000000
+      "LineOfCredit": 350000000,
+      "NotesPayable": 1486000000
      }
     }
    },
    "start": "2022-01-30",
    "stock_comp": 37000000,
-   "total_debt": 1486000000
+   "total_debt": 1836000000
   },
   {
    "capex": 420000000,
@@ -4065,6 +4064,13 @@
    "period": "2021-01-30",
    "rows": "annual",
    "v2": 0
+  },
+  {
+   "field": "total_debt",
+   "old": 1486000000,
+   "period": "2023-01-28",
+   "rows": "annual",
+   "v2": 1836000000
   }
  ],
  "v2_notes": [],
@@ -8494,7 +8500,6 @@
    "capex": 228000000,
    "cash": 845000000,
    "cash_and_sti": 845000000,
-   "debt_noncurrent": 1485000000,
    "end": "2022-04-30",
    "equity": 2454000000,
    "fcf": -590000000,
@@ -8560,24 +8565,24 @@
     },
     "total_debt": {
      "filed": "2022-05-27",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "NotesPayable",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 1485000000
+      "LineOfCredit": 350000000,
+      "NotesPayable": 1485000000
      }
     }
    },
    "start": "2022-01-30",
    "stock_comp": 1000000,
-   "total_debt": 1485000000
+   "total_debt": 1835000000
   },
   {
    "capex": 178000000,
    "cash": 708000000,
    "cash_and_sti": 708000000,
-   "debt_noncurrent": 1485000000,
    "end": "2022-07-30",
    "equity": 2305000000,
    "fcf": -23000000,
@@ -8646,24 +8651,24 @@
     },
     "total_debt": {
      "filed": "2022-08-26",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "NotesPayable",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 1485000000
+      "LineOfCredit": 350000000,
+      "NotesPayable": 1485000000
      }
     }
    },
    "start": "2022-05-01",
    "stock_comp": 5000000,
-   "total_debt": 1485000000
+   "total_debt": 1835000000
   },
   {
    "capex": 171000000,
    "cash": 679000000,
    "cash_and_sti": 679000000,
-   "debt_noncurrent": 1486000000,
    "end": "2022-10-29",
    "equity": 2571000000,
    "fcf": -76000000,
@@ -8732,28 +8737,27 @@
     },
     "total_debt": {
      "filed": "2022-11-22",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "NotesPayable",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 1486000000
+      "LineOfCredit": 350000000,
+      "NotesPayable": 1486000000
      }
     }
    },
    "start": "2022-07-31",
    "stock_comp": 22000000,
-   "total_debt": 1486000000
+   "total_debt": 1836000000
   },
   {
    "capex": 108000000,
    "cash": 1215000000,
    "cash_and_sti": 1215000000,
-   "debt_noncurrent": 1486000000,
    "end": "2023-01-28",
    "equity": 2233000000,
    "fcf": 611000000,
-   "finance_leases": 0,
    "net_income": -273000000,
    "operating_cash_flow": 719000000,
    "revenue": 4243000000,
@@ -8807,24 +8811,24 @@
     },
     "total_debt": {
      "filed": "2023-03-14",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "NotesPayable",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 1486000000
+      "LineOfCredit": 350000000,
+      "NotesPayable": 1486000000
      }
     }
    },
    "start": "2022-10-30",
    "stock_comp": 9000000,
-   "total_debt": 1486000000
+   "total_debt": 1836000000
   },
   {
    "capex": 117000000,
    "cash": 1170000000,
    "cash_and_sti": 1170000000,
-   "debt_noncurrent": 1487000000,
    "end": "2023-04-29",
    "equity": 2185000000,
    "fcf": -102000000,
@@ -8890,24 +8894,24 @@
     },
     "total_debt": {
      "filed": "2023-05-26",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "NotesPayable",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 1487000000
+      "LineOfCredit": 350000000,
+      "NotesPayable": 1487000000
      }
     }
    },
    "start": "2023-01-29",
    "stock_comp": 23000000,
-   "total_debt": 1487000000
+   "total_debt": 1837000000
   },
   {
    "capex": 82000000,
    "cash": 1350000000,
    "cash_and_sti": 1350000000,
-   "debt_noncurrent": 1487000000,
    "end": "2023-07-29",
    "equity": 2263000000,
    "fcf": 431000000,
@@ -8976,18 +8980,19 @@
     },
     "total_debt": {
      "filed": "2023-08-25",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "NotesPayable",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 1487000000
+      "LineOfCredit": 150000000,
+      "NotesPayable": 1487000000
      }
     }
    },
    "start": "2023-04-30",
    "stock_comp": 21000000,
-   "total_debt": 1487000000
+   "total_debt": 1637000000
   },
   {
    "capex": 89000000,

@@ -1296,6 +1296,9 @@
  "cik": 1360604,
  "fiscal_year_end": "1231",
  "flags": [
+  "revenue_unverified_2024-12-31",
+  "revenue_unverified_2025-12-31",
+  "revenue_unverified_2023-12-31",
   "debt_one_side_only"
  ],
  "instances_merged": [],
@@ -4478,10 +4481,20 @@
      "filed": "2013-05-08",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2013-05-08",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 1135693000
+     }
     }
    },
    "start": "2013-01-01",
-   "stock_comp": 4323000
+   "stock_comp": 4323000,
+   "total_debt": 1135693000
   },
   {
    "capex": 2371000,
@@ -4547,10 +4560,20 @@
      "filed": "2013-08-02",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2013-08-02",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 1114204000
+     }
     }
    },
    "start": "2013-04-01",
-   "stock_comp": 340000
+   "stock_comp": 340000,
+   "total_debt": 1114204000
   },
   {
    "capex": 10376000,

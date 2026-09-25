@@ -1755,7 +1755,7 @@
   "debt_noncurrent": 1575242000,
   "end": "2026-06-30",
   "equity": 1616199000,
-  "total_debt": 1575242000
+  "total_debt": 1610000000
  },
  "bank": false,
  "checks": {
@@ -2372,7 +2372,7 @@
    "shares_outstanding": 44322000,
    "stock_comp": 20070000,
    "total_assets": 3978204000,
-   "total_debt": 1573835000,
+   "total_debt": 1610000000,
    "total_debt_basis": "tagged",
    "total_debt_filed": "2026-04-28",
    "total_equity": 1607221000,
@@ -2426,7 +2426,7 @@
    "shares_outstanding": 43774000,
    "stock_comp": 12246000,
    "total_assets": 3993544000,
-   "total_debt": 1575242000,
+   "total_debt": 1610000000,
    "total_debt_basis": "tagged",
    "total_debt_filed": "2026-07-28",
    "total_equity": 1616199000,
@@ -4103,20 +4103,6 @@
    "period": "2025-12-31",
    "rows": "quarterly",
    "v2": 1248327000
-  },
-  {
-   "field": "total_debt",
-   "old": 1610000000,
-   "period": "2026-03-31",
-   "rows": "quarterly",
-   "v2": 1573835000
-  },
-  {
-   "field": "total_debt",
-   "old": 1610000000,
-   "period": "2026-06-30",
-   "rows": "quarterly",
-   "v2": 1575242000
   }
  ],
  "v2_notes": [],
@@ -9388,9 +9374,11 @@
      "filed": "2026-04-28",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 1610000000,
       "LongTermDebtCurrent": 0,
       "LongTermDebtNoncurrent": 1573835000
      }
@@ -9398,7 +9386,7 @@
    },
    "start": "2026-01-01",
    "stock_comp": 20070000,
-   "total_debt": 1573835000
+   "total_debt": 1610000000
   },
   {
    "capex": 6605000,
@@ -9469,9 +9457,11 @@
      "filed": "2026-07-28",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 1610000000,
       "LongTermDebtCurrent": 0,
       "LongTermDebtNoncurrent": 1575242000
      }
@@ -9479,7 +9469,7 @@
    },
    "start": "2026-04-01",
    "stock_comp": 12246000,
-   "total_debt": 1575242000
+   "total_debt": 1610000000
   }
  ],
  "v2_tags_used": {

@@ -157,7 +157,6 @@
    "interest_expense": 27037000,
    "loan_loss_allowance": 0,
    "loans": 92184000,
-   "lt_debt_noncurrent": 239102000,
    "net_income": 41844000,
    "net_income_as_filed": 41844000,
    "net_income_as_filed_filed": "2020-03-02",
@@ -204,8 +203,8 @@
    "total_assets": 1975447000,
    "total_assets_as_filed": 1975447000,
    "total_assets_as_filed_filed": "2020-03-02",
-   "total_debt": 239102000,
-   "total_debt_as_filed": 239102000,
+   "total_debt": 491586000,
+   "total_debt_as_filed": 491586000,
    "total_debt_as_filed_filed": "2020-03-02",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2020-03-02",
@@ -769,6 +768,9 @@
  "fiscal_year_end": "1231",
  "flags": [
   "stale_capex",
+  "revenue_unverified_2024-12-31",
+  "revenue_unverified_2025-12-31",
+  "revenue_unverified_2023-12-31",
   "current_ltd_untagged_0.4B",
   "debt_one_side_only"
  ],
@@ -1572,7 +1574,6 @@
   {
    "cash": 8304000,
    "cash_and_sti": 8304000,
-   "debt_noncurrent": 239102000,
    "end": "2019-12-31",
    "equity": 1194450000,
    "net_income": 41844000,
@@ -1624,18 +1625,19 @@
     },
     "total_debt": {
      "filed": "2020-03-02",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "UnsecuredDebt",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebt": 239102000
+      "LineOfCredit": 46000000,
+      "UnsecuredDebt": 445586000
      }
     }
    },
    "start": "2019-01-01",
    "stock_comp": 6238000,
-   "total_debt": 239102000
+   "total_debt": 491586000
   },
   {
    "cash": 26602000,
@@ -2059,14 +2061,7 @@
    "old": 735102000,
    "period": "2019-12-31",
    "rows": "annual",
-   "v2": 239102000
-  },
-  {
-   "field": "lt_debt_noncurrent",
-   "old": null,
-   "period": "2019-12-31",
-   "rows": "annual",
-   "v2": 239102000
+   "v2": 491586000
   },
   {
    "field": "lt_debt_noncurrent",
@@ -2748,7 +2743,6 @@
   {
    "cash": 23446000,
    "cash_and_sti": 23446000,
-   "debt_noncurrent": 310571000,
    "end": "2019-09-30",
    "equity": 1093362000,
    "net_income": 13245000,
@@ -2802,23 +2796,23 @@
     },
     "total_debt": {
      "filed": "2019-11-07",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "UnsecuredDebt",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebt": 310571000
+      "LineOfCredit": 155000000,
+      "UnsecuredDebt": 199144000
      }
     }
    },
    "start": "2019-07-01",
    "stock_comp": 2743000,
-   "total_debt": 310571000
+   "total_debt": 354144000
   },
   {
    "cash": 8304000,
    "cash_and_sti": 8304000,
-   "debt_noncurrent": 239102000,
    "end": "2019-12-31",
    "equity": 1194450000,
    "net_income": 14521000,
@@ -2866,23 +2860,23 @@
     },
     "total_debt": {
      "filed": "2020-03-02",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "UnsecuredDebt",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebt": 239102000
+      "LineOfCredit": 46000000,
+      "UnsecuredDebt": 445586000
      }
     }
    },
    "start": "2019-10-01",
    "stock_comp": 1022000,
-   "total_debt": 239102000
+   "total_debt": 491586000
   },
   {
    "cash": 192616000,
    "cash_and_sti": 192616000,
-   "debt_noncurrent": 176124000,
    "end": "2020-03-31",
    "equity": 1348390000,
    "net_income": 13959000,
@@ -2934,23 +2928,23 @@
     },
     "total_debt": {
      "filed": "2020-05-11",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "UnsecuredDebt",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebt": 176124000
+      "LineOfCredit": 65000000,
+      "UnsecuredDebt": 625770000
      }
     }
    },
    "start": "2020-01-01",
    "stock_comp": 1508000,
-   "total_debt": 176124000
+   "total_debt": 690770000
   },
   {
    "cash": 100839000,
    "cash_and_sti": 100839000,
-   "debt_noncurrent": 175159000,
    "end": "2020-06-30",
    "equity": 1351085000,
    "net_income": 10381000,
@@ -3004,18 +2998,17 @@
     },
     "total_debt": {
      "filed": "2020-08-06",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "UnsecuredDebt"
      ],
      "values": {
-      "LongTermDebt": 175159000
+      "UnsecuredDebt": 625941000
      }
     }
    },
    "start": "2020-04-01",
    "stock_comp": 1840000,
-   "total_debt": 175159000
+   "total_debt": 625941000
   },
   {
    "cash": 183765000,

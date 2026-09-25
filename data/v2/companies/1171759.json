@@ -971,8 +971,8 @@
    "total_assets": 974739000,
    "total_assets_as_filed": 974739000,
    "total_assets_as_filed_filed": "2021-03-03",
-   "total_debt": 160952000,
-   "total_debt_as_filed": 160952000,
+   "total_debt": 170644000,
+   "total_debt_as_filed": 170644000,
    "total_debt_as_filed_filed": "2021-03-03",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2021-03-03",
@@ -1169,8 +1169,8 @@
    "total_assets": 832145000,
    "total_assets_as_filed": 832145000,
    "total_assets_as_filed_filed": "2023-02-28",
-   "total_debt": 206530000,
-   "total_debt_as_filed": 206530000,
+   "total_debt": 214875000,
+   "total_debt_as_filed": 214875000,
    "total_debt_as_filed_filed": "2023-02-28",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2023-02-28",
@@ -1261,8 +1261,8 @@
    "total_assets": 741934000,
    "total_assets_as_filed": 741934000,
    "total_assets_as_filed_filed": "2024-02-28",
-   "total_debt": 182594000,
-   "total_debt_as_filed": 182594000,
+   "total_debt": 189143000,
+   "total_debt_as_filed": 189143000,
    "total_debt_as_filed_filed": "2024-02-28",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2024-02-28",
@@ -1600,7 +1600,7 @@
    "shares_outstanding": 15482000,
    "stock_comp": 1480000,
    "total_assets": 777314000,
-   "total_debt": 183017000,
+   "total_debt": 190017000,
    "total_debt_basis": "tagged",
    "total_debt_filed": "2023-11-03",
    "total_equity": -8743000,
@@ -1649,7 +1649,7 @@
    "shares_outstanding": 15528000,
    "stock_comp": 1762000,
    "total_assets": 741934000,
-   "total_debt": 182594000,
+   "total_debt": 189143000,
    "total_debt_basis": "tagged",
    "total_debt_filed": "2024-02-28",
    "total_equity": -20442000,
@@ -3069,9 +3069,11 @@
      "filed": "2021-03-03",
      "tags": [
       "LongTermDebt",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 170644000,
       "LongTermDebt": 160952000,
       "LongTermDebtCurrent": 9692000
      }
@@ -3079,7 +3081,7 @@
    },
    "start": "2019-12-30",
    "stock_comp": 4330000,
-   "total_debt": 160952000
+   "total_debt": 170644000
   },
   {
    "capex": 42261000,
@@ -3239,17 +3241,19 @@
      "filed": "2023-02-28",
      "tags": [
       "LongTermDebtNoncurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 3375000,
+      "DebtLongtermAndShorttermCombinedAmount": 214875000,
       "LongTermDebtNoncurrent": 203155000
      }
     }
    },
    "start": "2021-12-27",
    "stock_comp": 6294000,
-   "total_debt": 206530000
+   "total_debt": 214875000
   },
   {
    "capex": 49440000,
@@ -3318,17 +3322,19 @@
      "filed": "2024-02-28",
      "tags": [
       "LongTermDebtNoncurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 0,
+      "DebtLongtermAndShorttermCombinedAmount": 189143000,
       "LongTermDebtNoncurrent": 182594000
      }
     }
    },
    "start": "2022-12-26",
    "stock_comp": 6933000,
-   "total_debt": 182594000
+   "total_debt": 189143000
   },
   {
    "capex": 26034000,
@@ -3508,32 +3514,11 @@
    "v2": 193375000
   },
   {
-   "field": "total_debt",
-   "old": 170644000,
-   "period": "2020-12-27",
-   "rows": "annual",
-   "v2": 160952000
-  },
-  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2020-12-27",
    "rows": "annual",
    "v2": 151260000
-  },
-  {
-   "field": "total_debt",
-   "old": 214875000,
-   "period": "2022-12-25",
-   "rows": "annual",
-   "v2": 206530000
-  },
-  {
-   "field": "total_debt",
-   "old": 189143000,
-   "period": "2023-12-31",
-   "rows": "annual",
-   "v2": 182594000
   },
   {
    "field": "total_debt",
@@ -3548,20 +3533,6 @@
    "period": "2025-12-28",
    "rows": "annual",
    "v2": 164741000
-  },
-  {
-   "field": "total_debt",
-   "old": 190017000,
-   "period": "2023-10-01",
-   "rows": "quarterly",
-   "v2": 183017000
-  },
-  {
-   "field": "total_debt",
-   "old": 189143000,
-   "period": "2023-12-31",
-   "rows": "quarterly",
-   "v2": 182594000
   },
   {
    "field": "total_debt",
@@ -6000,9 +5971,11 @@
      "filed": "2020-11-05",
      "tags": [
       "LongTermDebt",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 216100000,
       "LongTermDebt": 206375000,
       "LongTermDebtCurrent": 9692000
      }
@@ -6010,7 +5983,7 @@
    },
    "start": "2020-07-13",
    "stock_comp": 1311000,
-   "total_debt": 206375000
+   "total_debt": 216100000
   },
   {
    "capex": 7262000,
@@ -6079,9 +6052,11 @@
      "filed": "2021-03-03",
      "tags": [
       "LongTermDebt",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 170644000,
       "LongTermDebt": 160952000,
       "LongTermDebtCurrent": 9692000
      }
@@ -6089,7 +6064,7 @@
    },
    "start": "2020-10-05",
    "stock_comp": 1248000,
-   "total_debt": 160952000
+   "total_debt": 170644000
   },
   {
    "capex": 5454000,
@@ -6161,9 +6136,11 @@
      "filed": "2021-08-18",
      "tags": [
       "LongTermDebt",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 154798000,
       "LongTermDebt": 145106000,
       "LongTermDebtCurrent": 9692000
      }
@@ -6171,7 +6148,7 @@
    },
    "start": "2021-04-19",
    "stock_comp": 1577000,
-   "total_debt": 145106000
+   "total_debt": 154798000
   },
   {
    "capex": 9133000,
@@ -6243,9 +6220,11 @@
      "filed": "2021-11-10",
      "tags": [
       "LongTermDebt",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 157163000,
       "LongTermDebt": 147471000,
       "LongTermDebtCurrent": 9692000
      }
@@ -6253,7 +6232,7 @@
    },
    "start": "2021-07-12",
    "stock_comp": 2044000,
-   "total_debt": 147471000
+   "total_debt": 157163000
   },
   {
    "capex": 22274000,
@@ -6410,17 +6389,19 @@
      "filed": "2022-08-10",
      "tags": [
       "LongTermDebtNoncurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 2000000,
+      "DebtLongtermAndShorttermCombinedAmount": 200375000,
       "LongTermDebtNoncurrent": 189373000
      }
     }
    },
    "start": "2022-04-18",
    "stock_comp": 2529000,
-   "total_debt": 191373000
+   "total_debt": 200375000
   },
   {
    "capex": 11143000,
@@ -6498,17 +6479,19 @@
      "filed": "2022-11-02",
      "tags": [
       "LongTermDebtNoncurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 2000000,
+      "DebtLongtermAndShorttermCombinedAmount": 199875000,
       "LongTermDebtNoncurrent": 189320000
      }
     }
    },
    "start": "2022-07-11",
    "stock_comp": 2658000,
-   "total_debt": 191320000
+   "total_debt": 199875000
   },
   {
    "capex": 11123000,
@@ -6577,17 +6560,19 @@
      "filed": "2023-02-28",
      "tags": [
       "LongTermDebtNoncurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 3375000,
+      "DebtLongtermAndShorttermCombinedAmount": 214875000,
       "LongTermDebtNoncurrent": 203155000
      }
     }
    },
    "start": "2022-10-03",
    "stock_comp": -1935000,
-   "total_debt": 206530000
+   "total_debt": 214875000
   },
   {
    "capex": 9730000,
@@ -6658,17 +6643,19 @@
      "filed": "2023-08-17",
      "tags": [
       "LongTermDebtNoncurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 2875000,
+      "DebtLongtermAndShorttermCombinedAmount": 198375000,
       "LongTermDebtNoncurrent": 188090000
      }
     }
    },
    "start": "2023-04-17",
    "stock_comp": 1519000,
-   "total_debt": 190965000
+   "total_debt": 198375000
   },
   {
    "capex": 11260000,
@@ -6739,17 +6726,19 @@
      "filed": "2023-11-03",
      "tags": [
       "LongTermDebtNoncurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 875000,
+      "DebtLongtermAndShorttermCombinedAmount": 190017000,
       "LongTermDebtNoncurrent": 182142000
      }
     }
    },
    "start": "2023-07-10",
    "stock_comp": 1480000,
-   "total_debt": 183017000
+   "total_debt": 190017000
   },
   {
    "capex": 12366000,
@@ -6816,17 +6805,19 @@
      "filed": "2024-02-28",
      "tags": [
       "LongTermDebtNoncurrent",
-      "DebtCurrent"
+      "DebtCurrent",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtCurrent": 0,
+      "DebtLongtermAndShorttermCombinedAmount": 189143000,
       "LongTermDebtNoncurrent": 182594000
      }
     }
    },
    "start": "2023-10-02",
    "stock_comp": 1762000,
-   "total_debt": 182594000
+   "total_debt": 189143000
   },
   {
    "capex": 5608000,

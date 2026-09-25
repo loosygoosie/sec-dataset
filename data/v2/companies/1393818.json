@@ -260,10 +260,11 @@
    "total_assets": 28931552000,
    "total_assets_as_filed": 28931552000,
    "total_assets_as_filed_filed": "2013-03-01",
-   "total_debt": 600000000,
-   "total_debt_as_filed": 600000000,
+   "total_debt": 13651404000,
+   "total_debt_as_filed": 13651404000,
    "total_debt_as_filed_filed": "2013-03-01",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2013-03-01",
    "total_liabilities": 17716605000
   },
   {
@@ -2208,10 +2209,22 @@
      "filed": "2013-03-01",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2013-03-01",
+     "tags": [
+      "SeniorNotes",
+      "LoansPayable"
+     ],
+     "values": {
+      "LoansPayable": 13051404000,
+      "SeniorNotes": 600000000
+     }
     }
    },
    "start": "2012-01-01",
-   "stock_comp": 949633000
+   "stock_comp": 949633000,
+   "total_debt": 13651404000
   },
   {
    "capex": 25637000,
@@ -3164,6 +3177,13 @@
   }
  ],
  "v2_fixes": [
+  {
+   "field": "total_debt",
+   "old": 600000000,
+   "period": "2012-12-31",
+   "rows": "annual",
+   "v2": 13651404000
+  },
   {
    "field": "total_debt",
    "old": 9476882000,
@@ -4170,10 +4190,22 @@
      "filed": "2013-03-01",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2013-03-01",
+     "tags": [
+      "SeniorNotes",
+      "LoansPayable"
+     ],
+     "values": {
+      "LoansPayable": 13051404000,
+      "SeniorNotes": 600000000
+     }
     }
    },
    "start": "2012-10-01",
-   "stock_comp": 259016000
+   "stock_comp": 259016000,
+   "total_debt": 13651404000
   },
   {
    "capex": 7344000,

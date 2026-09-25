@@ -58,6 +58,7 @@
    "current_liabilities_as_filed": 376296000,
    "current_liabilities_as_filed_filed": "2013-11-06",
    "d_and_a": 102026000,
+   "debt_current": 25000000,
    "eps_diluted": -1.09,
    "filed": "2015-02-25",
    "fiscal_year": 2012,
@@ -107,8 +108,8 @@
    "total_assets": 3618793000,
    "total_assets_as_filed": 3618793000,
    "total_assets_as_filed_filed": "2013-11-06",
-   "total_debt": 1444058000,
-   "total_debt_as_filed": 1444058000,
+   "total_debt": 1469058000,
+   "total_debt_as_filed": 1469058000,
    "total_debt_as_filed_filed": "2013-11-06",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2013-11-06",
@@ -941,8 +942,8 @@
    "buybacks_as_filed": 75355000,
    "buybacks_as_filed_filed": "2024-02-14",
    "buybacks_filed": "2026-02-11",
-   "capex": 151135000,
-   "capex_as_filed": 151135000,
+   "capex": 1131863000,
+   "capex_as_filed": 1131863000,
    "capex_as_filed_filed": "2024-02-14",
    "capex_filed": "2024-02-14",
    "cash": 0,
@@ -1029,8 +1030,8 @@
    "total_liabilities": 6383025000
   },
   {
-   "capex": 90995000,
-   "capex_as_filed": 90995000,
+   "capex": 705850000,
+   "capex_as_filed": 705850000,
    "capex_as_filed_filed": "2025-02-12",
    "capex_filed": "2025-02-12",
    "cash": 0,
@@ -1278,7 +1279,9 @@
  },
  "cik": 1433270,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "capex_below_segment_2025-12-31"
+ ],
  "instances_merged": [],
  "latest_filing": {
   "accn": "0001104659-26-088153",
@@ -1307,7 +1310,7 @@
  "quarterly": [
   {
    "buybacks": 0,
-   "capex": 28674000,
+   "capex": 274950000,
    "capex_filed": "2023-10-25",
    "cash": 0,
    "current_assets": 422419000,
@@ -1351,7 +1354,7 @@
   },
   {
    "buybacks": -1000,
-   "capex": 12014000,
+   "capex": 219817000,
    "capex_filed": "2024-02-14",
    "cash": 0,
    "current_assets": 475692000,
@@ -1394,7 +1397,7 @@
    "total_liabilities": 6383025000
   },
   {
-   "capex": 27044000,
+   "capex": 215949000,
    "capex_filed": "2024-04-24",
    "cash": 0,
    "current_assets": 402712000,
@@ -1437,7 +1440,7 @@
    "total_liabilities": 6276618000
   },
   {
-   "capex": 16527000,
+   "capex": 189850000,
    "capex_filed": "2024-07-31",
    "cash": 0,
    "current_assets": 408990000,
@@ -1479,7 +1482,7 @@
    "total_liabilities": 6223884000
   },
   {
-   "capex": 25462000,
+   "capex": 172537000,
    "capex_filed": "2024-10-30",
    "cash": 0,
    "current_assets": 368646000,
@@ -1521,7 +1524,7 @@
    "total_liabilities": 6042286000
   },
   {
-   "capex": 21962000,
+   "capex": 127514000,
    "capex_filed": "2025-02-12",
    "cash": 0,
    "current_assets": 507546000,
@@ -2013,6 +2016,7 @@
    "capex": 687403000,
    "cash": 18989000,
    "cash_and_sti": 18989000,
+   "debt_current": 25000000,
    "debt_noncurrent": 1444058000,
    "end": "2012-12-31",
    "equity": 1673737000,
@@ -2066,17 +2070,18 @@
     },
     "total_debt": {
      "filed": "2013-11-06",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 1444058000
+      "LongTermNotesPayable": 1444058000,
+      "NotesPayableCurrent": 25000000
      }
     }
    },
    "start": "2012-01-01",
-   "total_debt": 1444058000
+   "total_debt": 1469058000
   },
   {
    "capex": 2671573000,
@@ -2855,13 +2860,13 @@
    "total_debt": 1183476000
   },
   {
-   "capex": 151135000,
+   "capex": 1131863000,
    "cash": 0,
    "cash_and_sti": 0,
    "debt_noncurrent": 1537596000,
    "end": "2023-12-31",
    "equity": 6901516000,
-   "fcf": 843586000,
+   "fcf": -137142000,
    "finance_leases": 3771000,
    "net_income": 198404000,
    "operating_cash_flow": 994721000,
@@ -2872,7 +2877,8 @@
      "accn": "0001558370-24-001162",
      "filed": "2024-02-14",
      "form": "10-K",
-     "tag": "PaymentsToAcquireOilAndGasProperty"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquireOilAndGasProperty+PaymentsToExploreAndDevelopOilAndGasProperties+PaymentsToAcquireOtherPropertyPlantAndEquipment"
     },
     "cash": {
      "accn": "0001558370-24-001162",
@@ -2936,13 +2942,13 @@
    "total_debt": 1537596000
   },
   {
-   "capex": 90995000,
+   "capex": 705850000,
    "cash": 0,
    "cash_and_sti": 0,
    "debt_noncurrent": 1489230000,
    "end": "2024-12-31",
    "equity": 7021650000,
-   "fcf": 758293000,
+   "fcf": 143438000,
    "finance_leases": 2665000,
    "net_income": 57226000,
    "operating_cash_flow": 849288000,
@@ -2953,7 +2959,8 @@
      "accn": "0001558370-25-000864",
      "filed": "2025-02-12",
      "form": "10-K",
-     "tag": "PaymentsToAcquireOilAndGasProperty"
+     "note": "segment additions tie-out",
+     "tag": "PaymentsToAcquireOilAndGasProperty+PaymentsToExploreAndDevelopOilAndGasProperties"
     },
     "cash": {
      "accn": "0001558370-25-000864",
@@ -3106,18 +3113,18 @@
    "v2": 687403000
   },
   {
-   "field": "total_debt",
-   "old": 1469058000,
-   "period": "2012-12-31",
-   "rows": "annual",
-   "v2": 1444058000
-  },
-  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2012-12-31",
    "rows": "annual",
    "v2": 1444058000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2012-12-31",
+   "rows": "annual",
+   "v2": 25000000
   },
   {
    "field": "lt_debt_noncurrent",
@@ -3145,14 +3152,14 @@
    "old": 16382000,
    "period": "2023-12-31",
    "rows": "annual",
-   "v2": 151135000
+   "v2": 1131863000
   },
   {
    "field": "capex",
    "old": 10929000,
    "period": "2024-12-31",
    "rows": "annual",
-   "v2": 90995000
+   "v2": 705850000
   },
   {
    "field": "capex",
@@ -3166,42 +3173,42 @@
    "old": 4015000,
    "period": "2023-09-30",
    "rows": "quarterly",
-   "v2": 28674000
+   "v2": 274950000
   },
   {
    "field": "capex",
    "old": 3309000,
    "period": "2023-12-31",
    "rows": "quarterly",
-   "v2": 12014000
+   "v2": 219817000
   },
   {
    "field": "capex",
    "old": 6500000,
    "period": "2024-03-31",
    "rows": "quarterly",
-   "v2": 27044000
+   "v2": 215949000
   },
   {
    "field": "capex",
    "old": 2535000,
    "period": "2024-06-30",
    "rows": "quarterly",
-   "v2": 16527000
+   "v2": 189850000
   },
   {
    "field": "capex",
    "old": 1093000,
    "period": "2024-09-30",
    "rows": "quarterly",
-   "v2": 25462000
+   "v2": 172537000
   },
   {
    "field": "capex",
    "old": 801000,
    "period": "2024-12-31",
    "rows": "quarterly",
-   "v2": 21962000
+   "v2": 127514000
   },
   {
    "field": "capex",
@@ -3327,6 +3334,7 @@
    "capex": 258829000,
    "cash": 18989000,
    "cash_and_sti": 18989000,
+   "debt_current": 25000000,
    "debt_noncurrent": 1444058000,
    "end": "2012-12-31",
    "equity": 1673737000,
@@ -3375,17 +3383,18 @@
     },
     "total_debt": {
      "filed": "2013-11-06",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 1444058000
+      "LongTermNotesPayable": 1444058000,
+      "NotesPayableCurrent": 25000000
      }
     }
    },
    "start": "2012-10-01",
-   "total_debt": 1444058000
+   "total_debt": 1469058000
   },
   {
    "capex": 549653000,
@@ -3478,6 +3487,7 @@
    "capex": 670879000,
    "cash": 11584000,
    "cash_and_sti": 11584000,
+   "debt_current": 25000000,
    "debt_noncurrent": 2970455000,
    "end": "2013-09-30",
    "equity": 1877827000,
@@ -3532,17 +3542,18 @@
     },
     "total_debt": {
      "filed": "2013-11-06",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 2970455000
+      "LongTermNotesPayable": 2970455000,
+      "NotesPayableCurrent": 25000000
      }
     }
    },
    "start": "2013-07-01",
-   "total_debt": 2970455000
+   "total_debt": 2995455000
   },
   {
    "capex": 818311000,
@@ -6351,13 +6362,13 @@
    "total_debt": 1183476000
   },
   {
-   "capex": 73527000,
+   "capex": 351312000,
    "cash": 0,
    "cash_and_sti": 0,
    "debt_noncurrent": 1312046000,
    "end": "2023-03-31",
    "equity": 6911364000,
-   "fcf": 270375000,
+   "fcf": -7410000,
    "finance_leases": 3109000,
    "net_income": 213431000,
    "operating_cash_flow": 343902000,
@@ -6368,7 +6379,7 @@
      "accn": "0001558370-23-006841",
      "filed": "2023-04-26",
      "form": "10-Q",
-     "tag": "PaymentsToAcquireOilAndGasProperty"
+     "tag": "PaymentsToAcquireOilAndGasProperty+PaymentsToExploreAndDevelopOilAndGasProperties+PaymentsToAcquireOtherPropertyPlantAndEquipment"
     },
     "cash": {
      "accn": "0001558370-23-006841",
@@ -6428,13 +6439,13 @@
    "total_debt": 1312046000
   },
   {
-   "capex": 36920000,
+   "capex": 285784000,
    "cash": 0,
    "cash_and_sti": 0,
    "debt_noncurrent": 1492270000,
    "end": "2023-06-30",
    "equity": 6825894000,
-   "fcf": 118343000,
+   "fcf": -130521000,
    "finance_leases": 3435000,
    "net_income": -83084000,
    "operating_cash_flow": 155263000,
@@ -6446,7 +6457,7 @@
      "derived": true,
      "filed": "2023-07-26",
      "form": "10-Q",
-     "tag": "PaymentsToAcquireOilAndGasProperty"
+     "tag": "PaymentsToAcquireOilAndGasProperty+PaymentsToExploreAndDevelopOilAndGasProperties+PaymentsToAcquireOtherPropertyPlantAndEquipment"
     },
     "cash": {
      "accn": "0001558370-23-012293",
@@ -6507,13 +6518,13 @@
    "total_debt": 1492270000
   },
   {
-   "capex": 28674000,
+   "capex": 274950000,
    "cash": 0,
    "cash_and_sti": 0,
    "debt_noncurrent": 1606895000,
    "end": "2023-09-30",
    "equity": 6862081000,
-   "fcf": 154707000,
+   "fcf": -91569000,
    "finance_leases": 3776000,
    "net_income": 17808000,
    "operating_cash_flow": 183381000,
@@ -6525,7 +6536,7 @@
      "derived": true,
      "filed": "2023-10-25",
      "form": "10-Q",
-     "tag": "PaymentsToAcquireOilAndGasProperty"
+     "tag": "PaymentsToAcquireOilAndGasProperty+PaymentsToExploreAndDevelopOilAndGasProperties+PaymentsToAcquireOtherPropertyPlantAndEquipment"
     },
     "cash": {
      "accn": "0001558370-23-016722",
@@ -6586,13 +6597,13 @@
    "total_debt": 1606895000
   },
   {
-   "capex": 12014000,
+   "capex": 219817000,
    "cash": 0,
    "cash_and_sti": 0,
    "debt_noncurrent": 1537596000,
    "end": "2023-12-31",
    "equity": 6901516000,
-   "fcf": 300161000,
+   "fcf": 92358000,
    "finance_leases": 3771000,
    "net_income": 50249000,
    "operating_cash_flow": 312175000,
@@ -6603,7 +6614,7 @@
      "derived": true,
      "filed": "2024-02-14",
      "form": "10-K",
-     "tag": "PaymentsToAcquireOilAndGasProperty"
+     "tag": "PaymentsToAcquireOilAndGasProperty+PaymentsToExploreAndDevelopOilAndGasProperties+PaymentsToAcquireOtherPropertyPlantAndEquipment"
     },
     "cash": {
      "accn": "0001558370-24-001162",
@@ -6663,13 +6674,13 @@
    "total_debt": 1537596000
   },
   {
-   "capex": 27044000,
+   "capex": 215949000,
    "cash": 0,
    "cash_and_sti": 0,
    "debt_noncurrent": 1510109000,
    "end": "2024-03-31",
    "equity": 7050853000,
-   "fcf": 234566000,
+   "fcf": 45661000,
    "finance_leases": 3512000,
    "net_income": 22730000,
    "operating_cash_flow": 261610000,
@@ -6680,7 +6691,7 @@
      "accn": "0001558370-24-005602",
      "filed": "2024-04-24",
      "form": "10-Q",
-     "tag": "PaymentsToAcquireOilAndGasProperty"
+     "tag": "PaymentsToAcquireOilAndGasProperty+PaymentsToExploreAndDevelopOilAndGasProperties"
     },
     "cash": {
      "accn": "0001558370-24-005602",
@@ -6742,13 +6753,13 @@
    "total_debt": 1510109000
   },
   {
-   "capex": 16527000,
+   "capex": 189850000,
    "cash": 0,
    "cash_and_sti": 0,
    "debt_noncurrent": 1591208000,
    "end": "2024-06-30",
    "equity": 6985010000,
-   "fcf": 126972000,
+   "fcf": -46351000,
    "finance_leases": 3242000,
    "net_income": -79806000,
    "operating_cash_flow": 143499000,
@@ -6760,7 +6771,7 @@
      "derived": true,
      "filed": "2024-07-31",
      "form": "10-Q",
-     "tag": "PaymentsToAcquireOilAndGasProperty"
+     "tag": "PaymentsToAcquireOilAndGasProperty+PaymentsToExploreAndDevelopOilAndGasProperties"
     },
     "cash": {
      "accn": "0001558370-24-010482",
@@ -6823,13 +6834,13 @@
    "total_debt": 1591208000
   },
   {
-   "capex": 25462000,
+   "capex": 172537000,
    "cash": 0,
    "cash_and_sti": 0,
    "debt_noncurrent": 1622316000,
    "end": "2024-09-30",
    "equity": 6979962000,
-   "fcf": 140715000,
+   "fcf": -6360000,
    "finance_leases": 2960000,
    "net_income": -35347000,
    "operating_cash_flow": 166177000,
@@ -6841,7 +6852,7 @@
      "derived": true,
      "filed": "2024-10-30",
      "form": "10-Q",
-     "tag": "PaymentsToAcquireOilAndGasProperty"
+     "tag": "PaymentsToAcquireOilAndGasProperty+PaymentsToExploreAndDevelopOilAndGasProperties"
     },
     "cash": {
      "accn": "0001558370-24-013956",
@@ -6904,13 +6915,13 @@
    "total_debt": 1622316000
   },
   {
-   "capex": 21962000,
+   "capex": 127514000,
    "cash": 0,
    "cash_and_sti": 0,
    "debt_noncurrent": 1489230000,
    "end": "2024-12-31",
    "equity": 7021650000,
-   "fcf": 256040000,
+   "fcf": 150488000,
    "finance_leases": 2665000,
    "net_income": 149649000,
    "operating_cash_flow": 278002000,
@@ -6921,7 +6932,7 @@
      "derived": true,
      "filed": "2025-02-12",
      "form": "10-K",
-     "tag": "PaymentsToAcquireOilAndGasProperty"
+     "tag": "PaymentsToAcquireOilAndGasProperty+PaymentsToExploreAndDevelopOilAndGasProperties"
     },
     "cash": {
      "accn": "0001558370-25-000864",
@@ -7450,6 +7461,8 @@
  "v2_tags_used": {
   "capex": [
    "PaymentsToAcquireOilAndGasProperty",
+   "PaymentsToAcquireOilAndGasProperty+PaymentsToExploreAndDevelopOilAndGasProperties",
+   "PaymentsToAcquireOilAndGasProperty+PaymentsToExploreAndDevelopOilAndGasProperties+PaymentsToAcquireOtherPropertyPlantAndEquipment",
    "PaymentsToAcquirePropertyPlantAndEquipment"
   ],
   "net_income": [

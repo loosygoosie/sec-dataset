@@ -707,10 +707,11 @@
    "total_assets": 5997097000,
    "total_assets_as_filed": 5997097000,
    "total_assets_as_filed_filed": "2017-03-06",
-   "total_debt": 1599291000,
+   "total_debt": 125755000,
    "total_debt_as_filed": 125755000,
    "total_debt_as_filed_filed": "2017-03-06",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2017-03-06",
    "total_equity": 1497189000,
    "total_equity_incl_nci": 1415151000,
    "total_equity_parent": 1497189000,
@@ -3109,10 +3110,20 @@
      "filed": "2017-03-06",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2017-03-06",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 125755000
+     }
     }
    },
    "start": "2016-01-01",
-   "stock_comp": 19742000
+   "stock_comp": 19742000,
+   "total_debt": 125755000
   },
   {
    "capex": 79276000,
@@ -3931,6 +3942,13 @@
    "period": "2015-12-31",
    "rows": "annual",
    "v2": 1069755000
+  },
+  {
+   "field": "total_debt",
+   "old": 1599291000,
+   "period": "2016-12-31",
+   "rows": "annual",
+   "v2": 125755000
   },
   {
    "field": "total_debt",
@@ -5121,10 +5139,22 @@
      "filed": "2013-05-02",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2013-05-02",
+     "tags": [
+      "NotesPayable",
+      "LineOfCredit"
+     ],
+     "values": {
+      "LineOfCredit": 296250000,
+      "NotesPayable": 400000000
+     }
     }
    },
    "start": "2013-01-01",
-   "stock_comp": 2406000
+   "stock_comp": 2406000,
+   "total_debt": 696250000
   },
   {
    "capex": 7457000,
@@ -5187,10 +5217,22 @@
      "filed": "2014-07-30",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2013-08-01",
+     "tags": [
+      "NotesPayable",
+      "LineOfCredit"
+     ],
+     "values": {
+      "LineOfCredit": 292500000,
+      "NotesPayable": 400000000
+     }
     }
    },
    "start": "2013-04-01",
-   "stock_comp": 1982000
+   "stock_comp": 1982000,
+   "total_debt": 692500000
   },
   {
    "capex": 17105000,
@@ -5253,10 +5295,22 @@
      "filed": "2014-10-30",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2013-10-31",
+     "tags": [
+      "NotesPayable",
+      "LineOfCredit"
+     ],
+     "values": {
+      "LineOfCredit": 288750000,
+      "NotesPayable": 400000000
+     }
     }
    },
    "start": "2013-07-01",
-   "stock_comp": 2494000
+   "stock_comp": 2494000,
+   "total_debt": 688750000
   },
   {
    "capex": 9333000,
@@ -5389,10 +5443,22 @@
      "filed": "2014-04-30",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2014-04-30",
+     "tags": [
+      "NotesPayable",
+      "LineOfCredit"
+     ],
+     "values": {
+      "LineOfCredit": 281250000,
+      "NotesPayable": 400000000
+     }
     }
    },
    "start": "2014-01-01",
-   "stock_comp": 2423000
+   "stock_comp": 2423000,
+   "total_debt": 681250000
   },
   {
    "capex": 11222000,
@@ -5455,10 +5521,20 @@
      "filed": "2014-07-30",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2014-07-30",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 30108000
+     }
     }
    },
    "start": "2014-04-01",
-   "stock_comp": 3117000
+   "stock_comp": 3117000,
+   "total_debt": 30108000
   },
   {
    "capex": 16799000,
@@ -5521,10 +5597,20 @@
      "filed": "2014-10-30",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2014-10-30",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 54662000
+     }
     }
    },
    "start": "2014-07-01",
-   "stock_comp": 4549000
+   "stock_comp": 4549000,
+   "total_debt": 54662000
   },
   {
    "capex": 18730000,
@@ -5657,10 +5743,20 @@
      "filed": "2015-05-01",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-05-01",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 51160000
+     }
     }
    },
    "start": "2015-01-01",
-   "stock_comp": 3218000
+   "stock_comp": 3218000,
+   "total_debt": 51160000
   },
   {
    "capex": 15627000,
@@ -5723,10 +5819,20 @@
      "filed": "2015-07-31",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-07-31",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 51446000
+     }
     }
    },
    "start": "2015-04-01",
-   "stock_comp": 3942000
+   "stock_comp": 3942000,
+   "total_debt": 51446000
   },
   {
    "capex": 19416000,
@@ -5791,10 +5897,20 @@
      "filed": "2015-10-30",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-10-30",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 50340000
+     }
     }
    },
    "start": "2015-07-01",
-   "stock_comp": 3067000
+   "stock_comp": 3067000,
+   "total_debt": 50340000
   },
   {
    "capex": 16374000,
@@ -5929,10 +6045,20 @@
      "filed": "2016-04-28",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2016-04-28",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 50561000
+     }
     }
    },
    "start": "2016-01-01",
-   "stock_comp": 4243000
+   "stock_comp": 4243000,
+   "total_debt": 50561000
   },
   {
    "capex": 15248000,
@@ -5995,10 +6121,20 @@
      "filed": "2016-08-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2016-08-09",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 62149000
+     }
     }
    },
    "start": "2016-04-01",
-   "stock_comp": 4870000
+   "stock_comp": 4870000,
+   "total_debt": 62149000
   },
   {
    "capex": 9274000,
@@ -6061,10 +6197,20 @@
      "filed": "2016-11-08",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2016-11-08",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 108127000
+     }
     }
    },
    "start": "2016-07-01",
-   "stock_comp": 5199000
+   "stock_comp": 5199000,
+   "total_debt": 108127000
   },
   {
    "capex": 16783000,
@@ -6121,10 +6267,20 @@
      "filed": "2017-03-06",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2017-03-06",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 125755000
+     }
     }
    },
    "start": "2016-10-01",
-   "stock_comp": 5430000
+   "stock_comp": 5430000,
+   "total_debt": 125755000
   },
   {
    "capex": 21693000,
@@ -6189,10 +6345,20 @@
      "filed": "2017-05-08",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2017-05-08",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 107699000
+     }
     }
    },
    "start": "2017-01-01",
-   "stock_comp": 6457000
+   "stock_comp": 6457000,
+   "total_debt": 107699000
   },
   {
    "capex": 15787000,
@@ -6259,10 +6425,20 @@
      "filed": "2017-08-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2017-08-09",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 149063000
+     }
     }
    },
    "start": "2017-04-01",
-   "stock_comp": 7414000
+   "stock_comp": 7414000,
+   "total_debt": 149063000
   },
   {
    "capex": 18615000,
@@ -6329,10 +6505,20 @@
      "filed": "2017-11-08",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2017-11-08",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 166264000
+     }
     }
    },
    "start": "2017-07-01",
-   "stock_comp": 8483000
+   "stock_comp": 8483000,
+   "total_debt": 166264000
   },
   {
    "capex": 23181000,

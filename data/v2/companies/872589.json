@@ -517,6 +517,7 @@
    "total_debt_as_filed": 7500000,
    "total_debt_as_filed_filed": "2015-02-12",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2015-02-12",
    "total_equity": 2550251000,
    "total_equity_parent": 2550251000,
    "total_liabilities": 1287421000
@@ -2735,11 +2736,11 @@
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0001532176-15-000020",
-     "filed": "2015-05-07",
+     "accn": "0001532176-16-000045",
+     "filed": "2016-02-11",
      "first_filed": "2015-02-12",
      "first_val": 348074000,
-     "form": "10-Q",
+     "form": "10-K",
      "tag": "NetIncomeLoss"
     },
     "operating_cash_flow": {
@@ -2775,10 +2776,20 @@
      "first_val": 307238000,
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-02-12",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 7500000
+     }
     }
    },
    "start": "2014-01-01",
-   "stock_comp": 321750000
+   "stock_comp": 321750000,
+   "total_debt": 7500000
   },
   {
    "capex": 677933000,
@@ -5293,10 +5304,20 @@
      "filed": "2016-02-11",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2015-02-12",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 7500000
+     }
     }
    },
    "start": "2014-10-01",
-   "stock_comp": 113018000
+   "stock_comp": 113018000,
+   "total_debt": 7500000
   },
   {
    "capex": 114162000,

@@ -67,6 +67,7 @@
    "current_liabilities_as_filed": 142101,
    "current_liabilities_as_filed_filed": "2021-02-24",
    "d_and_a": 673000,
+   "debt_current": 57250,
    "dividends_paid": 0,
    "dividends_paid_as_filed": 0,
    "dividends_paid_as_filed_filed": "2022-02-28",
@@ -79,7 +80,7 @@
    "income_tax_as_filed_filed": "2022-02-28",
    "income_tax_filed": "2023-02-27",
    "interest_expense": 23816000,
-   "lt_debt_noncurrent": 356386000,
+   "lt_debt_noncurrent": 356328750,
    "net_income": -77831000,
    "net_income_as_filed": -77831000,
    "net_income_as_filed_filed": "2022-02-28",
@@ -590,6 +591,9 @@
  "cik": 1823945,
  "fiscal_year_end": "1231",
  "flags": [
+  "revenue_unverified_2024-12-31",
+  "revenue_unverified_2025-12-31",
+  "revenue_unverified_2023-12-31",
   "debt_one_side_only"
  ],
  "instances_merged": [],
@@ -1293,7 +1297,8 @@
    "capex": 652000,
    "cash": 11630000,
    "cash_and_sti": 11630000,
-   "debt_noncurrent": 356386000,
+   "debt_current": 57250,
+   "debt_noncurrent": 356328750,
    "end": "2020-12-31",
    "equity": 5000008,
    "fcf": 4582000,
@@ -1347,12 +1352,13 @@
     },
     "total_debt": {
      "filed": "2021-08-12",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "LongTermDebt",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermDebt": 356386000
+      "LongTermDebt": 356386000,
+      "NotesPayableCurrent": 57250
      }
     }
    },
@@ -1747,7 +1753,14 @@
    "old": null,
    "period": "2020-12-31",
    "rows": "annual",
-   "v2": 356386000
+   "v2": 356328750
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2020-12-31",
+   "rows": "annual",
+   "v2": 57250
   },
   {
    "field": "total_debt",
@@ -2036,6 +2049,7 @@
    "capex": 286000,
    "cash": 7276000,
    "cash_and_sti": 7276000,
+   "debt_current": 57250,
    "end": "2020-09-30",
    "equity": 20000,
    "fcf": 6024000,
@@ -2089,16 +2103,28 @@
      "filed": "2021-11-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2020-12-07",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 57250
+     }
     }
    },
    "start": "2020-07-01",
-   "stock_comp": 12300000
+   "stock_comp": 12300000,
+   "total_debt": 57250
   },
   {
    "capex": 324000,
    "cash": 11630000,
    "cash_and_sti": 11630000,
-   "debt_noncurrent": 356386000,
+   "debt_current": 57250,
+   "debt_noncurrent": 356328750,
    "end": "2020-12-31",
    "equity": 5000008,
    "fcf": 22463000,
@@ -2157,12 +2183,13 @@
     },
     "total_debt": {
      "filed": "2021-08-12",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "LongTermDebt",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermDebt": 356386000
+      "LongTermDebt": 356386000,
+      "NotesPayableCurrent": 57250
      }
     }
    },

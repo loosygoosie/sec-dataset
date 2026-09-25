@@ -1015,10 +1015,11 @@
    "total_assets": 7158000000,
    "total_assets_as_filed": 7158000000,
    "total_assets_as_filed_filed": "2019-02-26",
-   "total_debt": 5238000000,
-   "total_debt_as_filed": 5238000000,
+   "total_debt": 4727000000,
+   "total_debt_as_filed": 4727000000,
    "total_debt_as_filed_filed": "2019-02-26",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2019-02-26",
    "total_equity": -574000000,
    "total_equity_incl_nci": -569000000,
    "total_equity_parent": -574000000,
@@ -3416,10 +3417,22 @@
      "filed": "2019-02-26",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2019-02-26",
+     "tags": [
+      "SeniorNotes",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 2357000000,
+      "SeniorNotes": 2370000000
+     }
     }
    },
    "start": "2018-01-01",
-   "stock_comp": 129000000
+   "stock_comp": 129000000,
+   "total_debt": 4727000000
   },
   {
    "capex": 108000000,
@@ -4134,6 +4147,13 @@
    "period": "2017-12-31",
    "rows": "annual",
    "v2": 3908000000
+  },
+  {
+   "field": "total_debt",
+   "old": 5238000000,
+   "period": "2018-12-31",
+   "rows": "annual",
+   "v2": 4727000000
   },
   {
    "field": "lt_debt_noncurrent",
@@ -7367,10 +7387,22 @@
      "filed": "2019-02-26",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2019-02-26",
+     "tags": [
+      "SeniorNotes",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 2357000000,
+      "SeniorNotes": 2370000000
+     }
     }
    },
    "start": "2018-10-01",
-   "stock_comp": 8000000
+   "stock_comp": 8000000,
+   "total_debt": 4727000000
   },
   {
    "capex": 20000000,

@@ -137,10 +137,10 @@
    "retained_earnings": 1715900000,
    "retained_earnings_as_filed": 0,
    "retained_earnings_as_filed_filed": "2013-11-04",
-   "revenue": 800000,
-   "revenue_as_filed": 800000,
-   "revenue_as_filed_filed": "2015-08-13",
-   "revenue_filed": "2015-08-13",
+   "revenue": 3539800000,
+   "revenue_as_filed": 3539800000,
+   "revenue_as_filed_filed": "2014-08-14",
+   "revenue_filed": "2014-08-14",
    "shares_diluted": 94500000,
    "shares_diluted_adj": 94500000,
    "shares_diluted_as_filed": 94500000,
@@ -2307,7 +2307,7 @@
    "fcf": 449700000,
    "net_income": 441900000,
    "operating_cash_flow": 553800000,
-   "revenue": 800000,
+   "revenue": 3539800000,
    "shares_diluted": 94500000,
    "src": {
     "capex": {
@@ -2343,10 +2343,11 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001585364-15-000100",
-     "filed": "2015-08-13",
+     "accn": "0001585364-14-000019",
+     "filed": "2014-08-14",
      "form": "10-K",
-     "tag": "Revenues"
+     "note": "income-statement tie-out",
+     "tag": "SalesRevenueNet"
     },
     "shares_diluted": {
      "accn": "0001585364-14-000019",
@@ -3345,13 +3346,6 @@
   }
  ],
  "v2_fixes": [
-  {
-   "field": "revenue",
-   "old": 3539800000,
-   "period": "2013-06-29",
-   "rows": "annual",
-   "v2": 800000
-  },
   {
    "field": "total_debt",
    "old": 1974100000,
@@ -7908,7 +7902,6 @@
   ],
   "revenue": [
    "RevenueFromContractWithCustomerExcludingAssessedTax",
-   "Revenues",
    "SalesRevenueNet"
   ],
   "shares_diluted": [

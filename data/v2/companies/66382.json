@@ -274,6 +274,7 @@
    "current_liabilities_as_filed": 252000000,
    "current_liabilities_as_filed_filed": "2012-07-31",
    "d_and_a": 37200000,
+   "debt_current": 0,
    "debt_due_1y": 0,
    "debt_due_2y": 0,
    "debt_due_3y": 50000000,
@@ -345,9 +346,9 @@
    "total_assets_as_filed_filed": "2012-07-31",
    "total_debt": 250000000,
    "total_debt_as_filed": 250000000,
-   "total_debt_as_filed_filed": "2012-07-31",
+   "total_debt_as_filed_filed": "2013-01-09",
    "total_debt_basis": "components_partial",
-   "total_debt_filed": "2012-07-31",
+   "total_debt_filed": "2013-01-09",
    "total_equity": 248300000,
    "total_equity_parent": 248300000,
    "total_liabilities": 590800000
@@ -2864,6 +2865,7 @@
    "capex": 28500000,
    "cash": 172200000,
    "cash_and_sti": 181800000,
+   "debt_current": 0,
    "debt_noncurrent": 250000000,
    "end": "2012-06-02",
    "equity": 248300000,
@@ -2929,13 +2931,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2012-07-31",
-     "note": "one side only (a floor)",
+     "filed": "2013-01-09",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "LongTermDebtNoncurrent",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 250000000
+      "LongTermDebtNoncurrent": 250000000,
+      "NotesPayableCurrent": 0
      }
     }
    },
@@ -4125,6 +4128,13 @@
   {
    "field": "debt_current",
    "old": null,
+   "period": "2012-06-02",
+   "rows": "annual",
+   "v2": 0
+  },
+  {
+   "field": "debt_current",
+   "old": null,
    "period": "2017-06-03",
    "rows": "annual",
    "v2": 10200000
@@ -5102,6 +5112,7 @@
    "capex": 9400000,
    "cash": 172200000,
    "cash_and_sti": 181800000,
+   "debt_current": 0,
    "debt_noncurrent": 250000000,
    "end": "2012-06-02",
    "equity": 248300000,
@@ -5163,13 +5174,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2012-07-31",
-     "note": "one side only (a floor)",
+     "filed": "2013-01-09",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "LongTermDebtNoncurrent",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 250000000
+      "LongTermDebtNoncurrent": 250000000,
+      "NotesPayableCurrent": 0
      }
     }
    },
@@ -5264,6 +5276,7 @@
    "capex": 13400000,
    "cash": 185700000,
    "cash_and_sti": 195200000,
+   "debt_current": 2400000,
    "debt_noncurrent": 250000000,
    "end": "2012-12-01",
    "equity": 285600000,
@@ -5331,18 +5344,19 @@
     },
     "total_debt": {
      "filed": "2013-01-09",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "LongTermDebtNoncurrent",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 250000000
+      "LongTermDebtNoncurrent": 250000000,
+      "NotesPayableCurrent": 2400000
      }
     }
    },
    "start": "2012-09-02",
    "stock_comp": 2100000,
-   "total_debt": 250000000
+   "total_debt": 252400000
   },
   {
    "capex": 10300000,

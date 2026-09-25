@@ -1099,8 +1099,8 @@
    "retained_earnings": -1272321000,
    "retained_earnings_as_filed": -1272321000,
    "retained_earnings_as_filed_filed": "2024-02-26",
-   "revenue": 1718829000,
-   "revenue_as_filed": 1718829000,
+   "revenue": 1701608000,
+   "revenue_as_filed": 1701608000,
    "revenue_as_filed_filed": "2024-02-26",
    "revenue_filed": "2024-02-26",
    "shares_diluted": 481070000,
@@ -1371,7 +1371,11 @@
  },
  "cik": 1509991,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "capex_below_segment_2024-12-31",
+  "capex_below_segment_2023-12-31",
+  "capex_below_segment_2025-12-31"
+ ],
  "instances_merged": [
   "0001509991-26-000017",
   "0001509991-26-000049"
@@ -3095,7 +3099,7 @@
    "fcf": 765170000,
    "net_income": 213520000,
    "operating_cash_flow": 765170000,
-   "revenue": 1718829000,
+   "revenue": 1701608000,
    "shares_diluted": 481070000,
    "src": {
     "capex": {
@@ -3132,7 +3136,8 @@
      "accn": "0001509991-24-000029",
      "filed": "2024-02-26",
      "form": "10-K",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "note": "income-statement tie-out",
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001509991-24-000029",
@@ -3446,13 +3451,6 @@
    "period": "2022-12-31",
    "rows": "annual",
    "v2": 2225911000
-  },
-  {
-   "field": "revenue",
-   "old": 1701608000,
-   "period": "2023-12-31",
-   "rows": "annual",
-   "v2": 1718829000
   },
   {
    "field": "capex",
@@ -7474,7 +7472,7 @@
    "fcf": -19832000,
    "net_income": 83309000,
    "operating_cash_flow": 203853000,
-   "revenue": 398742000,
+   "revenue": 394240000,
    "shares_diluted": 479326000,
    "src": {
     "capex": {
@@ -7508,10 +7506,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001509991-24-000040",
-     "filed": "2024-05-07",
+     "accn": "0001509991-23-000043",
+     "filed": "2023-05-09",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001509991-23-000043",
@@ -7552,7 +7550,7 @@
    "fcf": -175072000,
    "net_income": 23345000,
    "operating_cash_flow": 18110000,
-   "revenue": 272342000,
+   "revenue": 273255000,
    "shares_diluted": 479016000,
    "src": {
     "capex": {
@@ -7588,10 +7586,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
-     "accn": "0001509991-24-000072",
-     "filed": "2024-08-05",
+     "accn": "0001509991-23-000071",
+     "filed": "2023-08-07",
      "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+     "tag": "Revenues"
     },
     "shares_diluted": {
      "accn": "0001509991-23-000071",

@@ -2474,6 +2474,7 @@
   {
    "cash": 1115,
    "cash_and_sti": 1115,
+   "debt_current": 50000,
    "end": "2014-12-31",
    "equity": 1114000,
    "net_income": -228,
@@ -2506,13 +2507,25 @@
      "filed": "2016-04-01",
      "form": "10-K",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "total_debt": {
+     "filed": "2015-05-19",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 50000
+     }
     }
    },
-   "start": "2014-10-01"
+   "start": "2014-10-01",
+   "total_debt": 50000
   },
   {
    "cash": 878685,
    "cash_and_sti": 878685,
+   "debt_current": 50000,
    "end": "2015-03-31",
    "equity": 5790382,
    "net_income": -8193,
@@ -2548,9 +2561,20 @@
      "filed": "2015-05-19",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfShareOutstandingBasicAndDiluted"
+    },
+    "total_debt": {
+     "filed": "2015-05-19",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 50000
+     }
     }
    },
-   "start": "2015-01-01"
+   "start": "2015-01-01",
+   "total_debt": 50000
   },
   {
    "cash": 479086,
@@ -2892,6 +2916,7 @@
    "capex": 3382000,
    "cash": 196517,
    "cash_and_sti": 196517,
+   "debt_current": 110047,
    "debt_noncurrent": 522572,
    "end": "2017-03-31",
    "equity": 5000001,
@@ -2947,22 +2972,24 @@
     },
     "total_debt": {
      "filed": "2017-05-15",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 522572
+      "LongTermNotesPayable": 522572,
+      "NotesPayableCurrent": 110047
      }
     }
    },
    "start": "2017-01-01",
-   "total_debt": 522572
+   "total_debt": 632619
   },
   {
    "capex": 2202000,
    "cash": 50539,
    "cash_and_sti": 50539,
+   "debt_current": 110047,
    "debt_noncurrent": 1430457,
    "end": "2017-06-30",
    "equity": 5000001,
@@ -3018,17 +3045,18 @@
     },
     "total_debt": {
      "filed": "2017-08-09",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 1430457
+      "LongTermNotesPayable": 1430457,
+      "NotesPayableCurrent": 110047
      }
     }
    },
    "start": "2017-04-01",
-   "total_debt": 1430457
+   "total_debt": 1540504
   },
   {
    "capex": 5106000,

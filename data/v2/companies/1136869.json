@@ -6238,6 +6238,7 @@
    "capex": 32300000,
    "cash": 967300000,
    "cash_and_sti": 1747100000,
+   "debt_current": 250000000,
    "debt_noncurrent": 1426400000,
    "end": "2014-09-30",
    "equity": 6539500000,
@@ -6309,18 +6310,19 @@
     },
     "total_debt": {
      "filed": "2014-11-05",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtNoncurrent"
+      "LongTermDebtNoncurrent",
+      "SeniorNotesCurrent"
      ],
      "values": {
-      "LongTermDebtNoncurrent": 1426400000
+      "LongTermDebtNoncurrent": 1426400000,
+      "SeniorNotesCurrent": 250000000
      }
     }
    },
    "start": "2014-07-01",
    "stock_comp": 12800000,
-   "total_debt": 1426400000
+   "total_debt": 1676400000
   },
   {
    "capex": 49200000,

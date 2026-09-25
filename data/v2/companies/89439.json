@@ -1771,6 +1771,7 @@
  "cik": 89439,
  "fiscal_year_end": "1226",
  "flags": [
+  "capex_below_segment_2024-12-28",
   "debt_one_side_only"
  ],
  "instances_merged": [],
@@ -6203,10 +6204,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
     },
     "revenue": {
-     "accn": "0000089439-17-000009",
-     "filed": "2017-03-01",
-     "form": "10-K",
-     "tag": "SalesRevenueNet"
+     "accn": "0000089439-16-000044",
+     "filed": "2016-04-27",
+     "form": "10-Q",
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0000089439-16-000044",
@@ -6283,10 +6284,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
     },
     "revenue": {
-     "accn": "0000089439-17-000009",
-     "filed": "2017-03-01",
-     "form": "10-K",
-     "tag": "SalesRevenueNet"
+     "accn": "0000089439-16-000052",
+     "filed": "2016-07-28",
+     "form": "10-Q",
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0000089439-16-000052",
@@ -6364,10 +6365,10 @@
      "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
     },
     "revenue": {
-     "accn": "0000089439-17-000009",
-     "filed": "2017-03-01",
-     "form": "10-K",
-     "tag": "SalesRevenueNet"
+     "accn": "0000089439-16-000060",
+     "filed": "2016-10-27",
+     "form": "10-Q",
+     "tag": "SalesRevenueGoodsNet"
     },
     "shares_diluted": {
      "accn": "0000089439-16-000060",
@@ -6445,9 +6446,10 @@
     },
     "revenue": {
      "accn": "0000089439-17-000009",
+     "derived": true,
      "filed": "2017-03-01",
      "form": "10-K",
-     "tag": "SalesRevenueNet"
+     "tag": "SalesRevenueGoodsNet"
     },
     "stock_comp": {
      "accn": "0000089439-17-000009",
@@ -9577,8 +9579,7 @@
   ],
   "revenue": [
    "RevenueFromContractWithCustomerExcludingAssessedTax",
-   "SalesRevenueGoodsNet",
-   "SalesRevenueNet"
+   "SalesRevenueGoodsNet"
   ],
   "shares_diluted": [
    "WeightedAverageNumberOfDilutedSharesOutstanding"

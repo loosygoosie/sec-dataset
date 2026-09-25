@@ -622,6 +622,8 @@
    "shares_diluted_filled_source": "shares_diluted",
    "stock_comp": 72405000,
    "total_assets": 4267374000,
+   "total_debt": 964209000,
+   "total_debt_filed": "2025-11-06",
    "total_equity": 2876167000,
    "total_equity_parent": 2876167000,
    "total_liabilities": 1391207000
@@ -660,6 +662,8 @@
    "shares_diluted_filled_source": "shares_diluted",
    "stock_comp": 58231000,
    "total_assets": 7027577000,
+   "total_debt": 3685296000,
+   "total_debt_filed": "2026-02-05",
    "total_equity": 2511193000,
    "total_equity_parent": 2511193000,
    "total_liabilities": 4516384000
@@ -699,6 +703,8 @@
    "shares_diluted_filled_source": "shares_diluted",
    "stock_comp": 31487000,
    "total_assets": 7264897000,
+   "total_debt": 3687832000,
+   "total_debt_filed": "2026-05-08",
    "total_equity": 2664528000,
    "total_equity_parent": 2664528000,
    "total_liabilities": 4600369000
@@ -1214,6 +1220,27 @@
   },
   {
    "field": "total_debt",
+   "old": null,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": 964209000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": 3685296000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2026-03-31",
+   "rows": "quarterly",
+   "v2": 3687832000
+  },
+  {
+   "field": "total_debt",
    "old": 7705649000,
    "period": "2026-06-30",
    "rows": "quarterly",
@@ -1563,10 +1590,20 @@
      "filed": "2025-11-06",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2025-11-06",
+     "tags": [
+      "ConvertibleNotesPayable"
+     ],
+     "values": {
+      "ConvertibleNotesPayable": 964209000
+     }
     }
    },
    "start": "2025-07-01",
-   "stock_comp": 72405000
+   "stock_comp": 72405000,
+   "total_debt": 964209000
   },
   {
    "capex": 539694000,
@@ -1630,10 +1667,20 @@
      "filed": "2026-02-05",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-02-05",
+     "tags": [
+      "ConvertibleNotesPayable"
+     ],
+     "values": {
+      "ConvertibleNotesPayable": 3685296000
+     }
     }
    },
    "start": "2025-10-01",
-   "stock_comp": 58231000
+   "stock_comp": 58231000,
+   "total_debt": 3685296000
   },
   {
    "capex": 949156000,
@@ -1697,10 +1744,20 @@
      "filed": "2026-05-08",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-05-08",
+     "tags": [
+      "ConvertibleNotesPayable"
+     ],
+     "values": {
+      "ConvertibleNotesPayable": 3687832000
+     }
     }
    },
    "start": "2026-01-01",
-   "stock_comp": 31487000
+   "stock_comp": 31487000,
+   "total_debt": 3687832000
   },
   {
    "capex": 1328849000,

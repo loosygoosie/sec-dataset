@@ -1419,8 +1419,8 @@
    "total_assets": 539306000000,
    "total_assets_as_filed": 539306000000,
    "total_assets_as_filed_filed": "2024-02-14",
-   "total_debt": 10856000000,
-   "total_debt_as_filed": 10856000000,
+   "total_debt": 22387000000,
+   "total_debt_as_filed": 22387000000,
    "total_debt_as_filed_filed": "2025-02-13",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2025-02-13",
@@ -1791,7 +1791,7 @@
    "short_term_borrowings": 250000000,
    "short_term_investments": 12865000000,
    "total_assets": 539306000000,
-   "total_debt": 10856000000,
+   "total_debt": 22387000000,
    "total_debt_basis": "tagged",
    "total_debt_filed": "2025-02-13",
    "total_equity": 45351000000,
@@ -3670,9 +3670,11 @@
      "filed": "2025-02-13",
      "tags": [
       "LongTermDebt",
-      "ShortTermBorrowings"
+      "ShortTermBorrowings",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 22387000000,
       "LongTermDebt": 10606000000,
       "ShortTermBorrowings": 250000000
      }
@@ -3680,7 +3682,7 @@
    },
    "start": "2023-01-01",
    "stock_comp": 199000000,
-   "total_debt": 10856000000
+   "total_debt": 22387000000
   },
   {
    "cash": 1372000000,
@@ -3933,13 +3935,6 @@
    "v2": 1500000000
   },
   {
-   "field": "total_debt",
-   "old": 22387000000,
-   "period": "2023-12-31",
-   "rows": "annual",
-   "v2": 10856000000
-  },
-  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2023-12-31",
@@ -3973,13 +3968,6 @@
    "period": "2023-09-30",
    "rows": "quarterly",
    "v2": 1000000000
-  },
-  {
-   "field": "total_debt",
-   "old": 22387000000,
-   "period": "2023-12-31",
-   "rows": "quarterly",
-   "v2": 10856000000
   },
   {
    "field": "lt_debt_noncurrent",
@@ -7859,16 +7847,18 @@
      "filed": "2025-02-13",
      "tags": [
       "LongTermDebt",
-      "ShortTermBorrowings"
+      "ShortTermBorrowings",
+      "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 22387000000,
       "LongTermDebt": 10606000000,
       "ShortTermBorrowings": 250000000
      }
     }
    },
    "start": "2023-10-01",
-   "total_debt": 10856000000
+   "total_debt": 22387000000
   },
   {
    "cash": 1437000000,

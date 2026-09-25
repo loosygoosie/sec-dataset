@@ -122,10 +122,11 @@
    "total_assets": 1655033000,
    "total_assets_as_filed": 1655033000,
    "total_assets_as_filed_filed": "2010-08-06",
-   "total_debt": 484695000,
-   "total_debt_as_filed": 484695000,
+   "total_debt": 644049000,
+   "total_debt_as_filed": 644049000,
    "total_debt_as_filed_filed": "2010-08-06",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2010-08-06",
    "total_equity": 865227000,
    "total_equity_parent": 865227000,
    "total_liabilities": 789806000
@@ -677,7 +678,6 @@
    "income_tax_filed": "2020-02-28",
    "interest_expense": 188762000,
    "loan_loss_allowance": 373000,
-   "lt_debt_noncurrent": 4572158000,
    "net_income": 104910000,
    "net_income_as_filed": 100419000,
    "net_income_as_filed_filed": "2018-02-23",
@@ -723,8 +723,8 @@
    "total_assets": 8773305000,
    "total_assets_as_filed": 8773305000,
    "total_assets_as_filed_filed": "2018-02-23",
-   "total_debt": 4572158000,
-   "total_debt_as_filed": 4572158000,
+   "total_debt": 4862158000,
+   "total_debt_as_filed": 4862158000,
    "total_debt_as_filed_filed": "2018-02-23",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2018-02-23",
@@ -1452,6 +1452,7 @@
  "cik": 888491,
  "fiscal_year_end": "1231",
  "flags": [
+  "revenue_unverified_2023-12-31",
   "debt_one_side_only"
  ],
  "instances_merged": [],
@@ -2217,10 +2218,22 @@
      "filed": "2011-02-28",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2010-08-06",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 159354000,
+      "UnsecuredDebt": 484695000
+     }
     }
    },
    "start": "2009-01-01",
-   "stock_comp": 1918000
+   "stock_comp": 1918000,
+   "total_debt": 644049000
   },
   {
    "capex": 36025000,
@@ -2764,7 +2777,6 @@
    "capex": 37766000,
    "cash": 85937000,
    "cash_and_sti": 85937000,
-   "debt_noncurrent": 4572158000,
    "end": "2017-12-31",
    "equity": 3555091000,
    "fcf": 540146000,
@@ -2823,18 +2835,21 @@
     },
     "total_debt": {
      "filed": "2018-02-23",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "UnsecuredDebt",
+      "SecuredDebt",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebt": 4572158000
+      "LineOfCredit": 290000000,
+      "SecuredDebt": 53098000,
+      "UnsecuredDebt": 4519060000
      }
     }
    },
    "start": "2017-01-01",
    "stock_comp": 15212000,
-   "total_debt": 4572158000
+   "total_debt": 4862158000
   },
   {
    "capex": 29824000,
@@ -3461,6 +3476,13 @@
    "v2": 23232000
   },
   {
+   "field": "total_debt",
+   "old": 484695000,
+   "period": "2009-12-31",
+   "rows": "annual",
+   "v2": 644049000
+  },
+  {
    "field": "capex",
    "old": 343180000,
    "period": "2010-12-31",
@@ -3566,11 +3588,11 @@
    "v2": 37766000
   },
   {
-   "field": "lt_debt_noncurrent",
-   "old": null,
+   "field": "total_debt",
+   "old": 4572158000,
    "period": "2017-12-31",
    "rows": "annual",
-   "v2": 4572158000
+   "v2": 4862158000
   },
   {
    "field": "capex",
@@ -3993,10 +4015,22 @@
      "filed": "2011-02-28",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2010-08-06",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 159354000,
+      "UnsecuredDebt": 484695000
+     }
     }
    },
    "start": "2009-10-01",
-   "stock_comp": 479000
+   "stock_comp": 479000,
+   "total_debt": 644049000
   },
   {
    "capex": 9139000,
@@ -4117,10 +4151,22 @@
      "filed": "2011-05-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2010-08-06",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 302821000,
+      "UnsecuredDebt": 703193000
+     }
     }
    },
    "start": "2010-04-01",
-   "stock_comp": 467000
+   "stock_comp": 467000,
+   "total_debt": 1006014000
   },
   {
    "capex": 8655000,
@@ -4184,10 +4230,22 @@
      "filed": "2010-11-08",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2010-11-08",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 302210000,
+      "UnsecuredDebt": 702947000
+     }
     }
    },
    "start": "2010-07-01",
-   "stock_comp": 450000
+   "stock_comp": 450000,
+   "total_debt": 1005157000
   },
   {
    "capex": 10367000,
@@ -4320,10 +4378,22 @@
      "filed": "2011-05-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-05-09",
+     "tags": [
+      "UnsecuredDebt",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 200378000,
+      "UnsecuredDebt": 975573000
+     }
     }
    },
    "start": "2011-01-01",
-   "stock_comp": 1479000
+   "stock_comp": 1479000,
+   "total_debt": 1175951000
   },
   {
    "capex": 3793000,
@@ -6325,7 +6395,6 @@
    "capex": 12473000,
    "cash": 85937000,
    "cash_and_sti": 85937000,
-   "debt_noncurrent": 4572158000,
    "end": "2017-12-31",
    "equity": 3555091000,
    "fcf": 138171000,
@@ -6380,24 +6449,26 @@
     },
     "total_debt": {
      "filed": "2018-02-23",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "UnsecuredDebt",
+      "SecuredDebt",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebt": 4572158000
+      "LineOfCredit": 290000000,
+      "SecuredDebt": 53098000,
+      "UnsecuredDebt": 4519060000
      }
     }
    },
    "start": "2017-10-01",
    "stock_comp": 3862000,
-   "total_debt": 4572158000
+   "total_debt": 4862158000
   },
   {
    "capex": 9596000,
    "cash": 71231000,
    "cash_and_sti": 71231000,
-   "debt_noncurrent": 4643679000,
    "end": "2018-03-31",
    "equity": 3538448000,
    "fcf": 43304000,
@@ -6456,18 +6527,21 @@
     },
     "total_debt": {
      "filed": "2018-05-10",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "UnsecuredDebt",
+      "SecuredDebt",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebt": 4643679000
+      "LineOfCredit": 355000000,
+      "SecuredDebt": 52775000,
+      "UnsecuredDebt": 4590904000
      }
     }
    },
    "start": "2018-01-01",
    "stock_comp": 4056000,
-   "total_debt": 4643679000
+   "total_debt": 4998679000
   },
   {
    "capex": 9587000,
@@ -6552,7 +6626,6 @@
    "capex": 5242000,
    "cash": 9768000,
    "cash_and_sti": 9768000,
-   "debt_noncurrent": 4588240000,
    "end": "2018-09-30",
    "equity": 3462345000,
    "fcf": 126057000,
@@ -6614,18 +6687,19 @@
     },
     "total_debt": {
      "filed": "2018-11-07",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebt"
+      "UnsecuredDebt",
+      "LineOfCredit"
      ],
      "values": {
-      "LongTermDebt": 4588240000
+      "LineOfCredit": 360000000,
+      "UnsecuredDebt": 4588240000
      }
     }
    },
    "start": "2018-07-01",
    "stock_comp": 3962000,
-   "total_debt": 4588240000
+   "total_debt": 4948240000
   },
   {
    "capex": 5399000,

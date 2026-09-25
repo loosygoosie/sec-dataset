@@ -731,6 +731,7 @@
    "total_debt_as_filed": 1030348000,
    "total_debt_as_filed_filed": "2019-02-28",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2019-02-28",
    "total_equity": 3488715000,
    "total_equity_parent": 3488715000,
    "total_liabilities": 2825937000
@@ -805,6 +806,7 @@
    "total_debt_as_filed": 887110000,
    "total_debt_as_filed_filed": "2020-02-28",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2020-02-28",
    "total_equity": 4048723000,
    "total_equity_parent": 4048723000,
    "total_liabilities": 2759590000
@@ -879,6 +881,7 @@
    "total_debt_as_filed": 1405674000,
    "total_debt_as_filed_filed": "2021-02-26",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2021-02-26",
    "total_equity": 4284353000,
    "total_equity_parent": 4284353000,
    "total_liabilities": 3663668000
@@ -957,6 +960,7 @@
    "total_debt_as_filed": 1409473000,
    "total_debt_as_filed_filed": "2022-02-25",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2022-02-25",
    "total_equity": 4258796000,
    "total_equity_parent": 4258796000,
    "total_liabilities": 3580389000
@@ -1035,6 +1039,7 @@
    "total_debt_as_filed": 1413504000,
    "total_debt_as_filed_filed": "2023-02-24",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2023-02-24",
    "total_equity": 3919327000,
    "total_equity_parent": 3919327000,
    "total_liabilities": 3144402000
@@ -1120,6 +1125,7 @@
    "total_debt_as_filed": 1417781000,
    "total_debt_as_filed_filed": "2024-02-23",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2024-02-23",
    "total_equity": 4397805000,
    "total_equity_parent": 4397805000,
    "total_liabilities": 3196128000
@@ -1207,6 +1213,7 @@
    "total_debt_as_filed": 1065337000,
    "total_debt_as_filed_filed": "2025-02-14",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2025-02-14",
    "total_equity": 4623858000,
    "total_equity_parent": 4623858000,
    "total_liabilities": 4065677000
@@ -1442,6 +1449,7 @@
    "total_assets": 7378682000,
    "total_debt": 1416687000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2023-11-03",
    "total_equity": 4152899000,
    "total_equity_parent": 4152899000,
    "total_liabilities": 3225783000
@@ -1482,6 +1490,7 @@
    "total_assets": 7593933000,
    "total_debt": 1417781000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2024-02-23",
    "total_equity": 4397805000,
    "total_equity_parent": 4397805000,
    "total_liabilities": 3196128000
@@ -1523,6 +1532,7 @@
    "total_assets": 7759865000,
    "total_debt": 1512860000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2024-05-03",
    "total_equity": 4439732000,
    "total_equity_parent": 4439732000,
    "total_liabilities": 3320133000
@@ -1564,6 +1574,7 @@
    "total_assets": 8129643000,
    "total_debt": 1513782000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2024-08-02",
    "total_equity": 4482319000,
    "total_equity_parent": 4482319000,
    "total_liabilities": 3647324000
@@ -1604,6 +1615,7 @@
    "total_assets": 8419771000,
    "total_debt": 1064718000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2024-11-07",
    "total_equity": 4698853000,
    "total_equity_parent": 4698853000,
    "total_liabilities": 3720918000
@@ -1644,6 +1656,7 @@
    "total_assets": 8689535000,
    "total_debt": 1065337000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2025-02-14",
    "total_equity": 4623858000,
    "total_equity_parent": 4623858000,
    "total_liabilities": 4065677000
@@ -1688,6 +1701,7 @@
    "total_assets": 8765386000,
    "total_debt": 1065965000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2025-05-02",
    "total_equity": 4586826000,
    "total_equity_parent": 4586826000,
    "total_liabilities": 4178560000
@@ -1730,6 +1744,7 @@
    "total_assets": 9580657000,
    "total_debt": 1066603000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2025-08-01",
    "total_equity": 4492681000,
    "total_equity_parent": 4492681000,
    "total_liabilities": 5087976000
@@ -1769,6 +1784,7 @@
    "total_assets": 8204803000,
    "total_debt": 1067251000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2025-11-06",
    "total_equity": 4652449000,
    "total_equity_parent": 4652449000,
    "total_liabilities": 3552354000
@@ -2718,10 +2734,20 @@
      "filed": "2019-02-28",
      "form": "10-K",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2019-02-28",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1030348000
+     }
     }
    },
    "start": "2018-01-01",
-   "stock_comp": 17649000
+   "stock_comp": 17649000,
+   "total_debt": 1030348000
   },
   {
    "cash": 92729000,
@@ -2774,10 +2800,20 @@
      "filed": "2020-02-28",
      "form": "10-K",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2020-02-28",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 887110000
+     }
     }
    },
    "start": "2019-01-01",
-   "stock_comp": 21414000
+   "stock_comp": 21414000,
+   "total_debt": 887110000
   },
   {
    "cash": 87915000,
@@ -2830,10 +2866,20 @@
      "filed": "2021-02-26",
      "form": "10-K",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2021-02-26",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1405674000
+     }
     }
    },
    "start": "2020-01-01",
-   "stock_comp": 19193000
+   "stock_comp": 19193000,
+   "total_debt": 1405674000
   },
   {
    "capex": 12601000,
@@ -2894,10 +2940,20 @@
      "filed": "2022-02-25",
      "form": "10-K",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2022-02-25",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1409473000
+     }
     }
    },
    "start": "2021-01-01",
-   "stock_comp": 28363000
+   "stock_comp": 28363000,
+   "total_debt": 1409473000
   },
   {
    "capex": 17672000,
@@ -2958,10 +3014,20 @@
      "filed": "2023-02-24",
      "form": "10-K",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2023-02-24",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1413504000
+     }
     }
    },
    "start": "2022-01-01",
-   "stock_comp": 38061000
+   "stock_comp": 38061000,
+   "total_debt": 1413504000
   },
   {
    "capex": 8534000,
@@ -3026,10 +3092,20 @@
      "filed": "2024-02-23",
      "form": "10-K",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2024-02-23",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1417781000
+     }
     }
    },
    "start": "2023-01-01",
-   "stock_comp": 41129000
+   "stock_comp": 41129000,
+   "total_debt": 1417781000
   },
   {
    "capex": 1563000,
@@ -3096,10 +3172,20 @@
      "filed": "2025-02-14",
      "form": "10-K",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2025-02-14",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1065337000
+     }
     }
    },
    "start": "2024-01-01",
-   "stock_comp": 38473000
+   "stock_comp": 38473000,
+   "total_debt": 1065337000
   },
   {
    "capex": 4206000,
@@ -5434,9 +5520,19 @@
      "filed": "2018-05-09",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2018-05-09",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1027875000
+     }
     }
    },
-   "start": "2018-01-01"
+   "start": "2018-01-01",
+   "total_debt": 1027875000
   },
   {
    "capex": 7626000,
@@ -5493,9 +5589,19 @@
      "filed": "2018-08-06",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2018-08-06",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1028687000
+     }
     }
    },
-   "start": "2018-04-01"
+   "start": "2018-04-01",
+   "total_debt": 1028687000
   },
   {
    "capex": 7995000,
@@ -5552,9 +5658,19 @@
      "filed": "2018-11-08",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2018-11-08",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1029511000
+     }
     }
    },
-   "start": "2018-07-01"
+   "start": "2018-07-01",
+   "total_debt": 1029511000
   },
   {
    "cash": 95393000,
@@ -5603,9 +5719,19 @@
      "filed": "2019-02-28",
      "form": "10-K",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2019-02-28",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1030348000
+     }
     }
    },
-   "start": "2018-10-01"
+   "start": "2018-10-01",
+   "total_debt": 1030348000
   },
   {
    "capex": 6659000,
@@ -5660,9 +5786,19 @@
      "filed": "2019-05-08",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2019-05-08",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1031197000
+     }
     }
    },
-   "start": "2019-01-01"
+   "start": "2019-01-01",
+   "total_debt": 1031197000
   },
   {
    "capex": 8548000,
@@ -5719,9 +5855,19 @@
      "filed": "2019-08-06",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2019-08-06",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 982890000
+     }
     }
    },
-   "start": "2019-04-01"
+   "start": "2019-04-01",
+   "total_debt": 982890000
   },
   {
    "capex": 5500000,
@@ -5778,9 +5924,19 @@
      "filed": "2019-11-12",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2019-11-12",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 886643000
+     }
     }
    },
-   "start": "2019-07-01"
+   "start": "2019-07-01",
+   "total_debt": 886643000
   },
   {
    "cash": 92729000,
@@ -5829,9 +5985,19 @@
      "filed": "2020-02-28",
      "form": "10-K",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2020-02-28",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 887110000
+     }
     }
    },
-   "start": "2019-10-01"
+   "start": "2019-10-01",
+   "total_debt": 887110000
   },
   {
    "capex": 4950000,
@@ -5886,9 +6052,19 @@
      "filed": "2020-05-06",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2020-05-06",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 887584000
+     }
     }
    },
-   "start": "2020-01-01"
+   "start": "2020-01-01",
+   "total_debt": 887584000
   },
   {
    "capex": 5644000,
@@ -5945,9 +6121,19 @@
      "filed": "2020-08-10",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2020-08-10",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1403857000
+     }
     }
    },
-   "start": "2020-04-01"
+   "start": "2020-04-01",
+   "total_debt": 1403857000
   },
   {
    "capex": 4129000,
@@ -6004,9 +6190,19 @@
      "filed": "2020-11-09",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2020-11-09",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1404759000
+     }
     }
    },
-   "start": "2020-07-01"
+   "start": "2020-07-01",
+   "total_debt": 1404759000
   },
   {
    "cash": 87915000,
@@ -6055,9 +6251,19 @@
      "filed": "2021-02-26",
      "form": "10-K",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2021-02-26",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1405674000
+     }
     }
    },
-   "start": "2020-10-01"
+   "start": "2020-10-01",
+   "total_debt": 1405674000
   },
   {
    "cash": 102776000,
@@ -6104,9 +6310,19 @@
      "filed": "2021-05-07",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2021-05-07",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1406603000
+     }
     }
    },
-   "start": "2021-01-01"
+   "start": "2021-01-01",
+   "total_debt": 1406603000
   },
   {
    "cash": 134939000,
@@ -6154,9 +6370,19 @@
      "filed": "2021-08-06",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2021-08-06",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1407545000
+     }
     }
    },
-   "start": "2021-04-01"
+   "start": "2021-04-01",
+   "total_debt": 1407545000
   },
   {
    "cash": 154709000,
@@ -6204,9 +6430,19 @@
      "filed": "2021-11-05",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2021-11-05",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1408502000
+     }
     }
    },
-   "start": "2021-07-01"
+   "start": "2021-07-01",
+   "total_debt": 1408502000
   },
   {
    "cash": 151145000,
@@ -6249,9 +6485,19 @@
      "filed": "2022-02-25",
      "form": "10-K",
      "tag": "Revenues"
+    },
+    "total_debt": {
+     "filed": "2022-02-25",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1409473000
+     }
     }
    },
-   "start": "2021-10-01"
+   "start": "2021-10-01",
+   "total_debt": 1409473000
   },
   {
    "cash": 131853000,
@@ -6298,9 +6544,19 @@
      "filed": "2022-05-06",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2022-05-06",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1410458000
+     }
     }
    },
-   "start": "2022-01-01"
+   "start": "2022-01-01",
+   "total_debt": 1410458000
   },
   {
    "cash": 135262000,
@@ -6348,9 +6604,19 @@
      "filed": "2022-08-05",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2022-08-05",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1411458000
+     }
     }
    },
-   "start": "2022-04-01"
+   "start": "2022-04-01",
+   "total_debt": 1411458000
   },
   {
    "cash": 54701000,
@@ -6398,9 +6664,19 @@
      "filed": "2022-11-04",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2022-11-04",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1412473000
+     }
     }
    },
-   "start": "2022-07-01"
+   "start": "2022-07-01",
+   "total_debt": 1412473000
   },
   {
    "cash": 56183000,
@@ -6443,9 +6719,19 @@
      "filed": "2023-02-24",
      "form": "10-K",
      "tag": "Revenues"
+    },
+    "total_debt": {
+     "filed": "2023-02-24",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1413504000
+     }
     }
    },
-   "start": "2022-10-01"
+   "start": "2022-10-01",
+   "total_debt": 1413504000
   },
   {
    "capex": 4786000,
@@ -6502,9 +6788,19 @@
      "filed": "2023-05-05",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2023-05-05",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1414549000
+     }
     }
    },
-   "start": "2023-01-01"
+   "start": "2023-01-01",
+   "total_debt": 1414549000
   },
   {
    "capex": 5327000,
@@ -6563,9 +6859,19 @@
      "filed": "2023-08-04",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2023-08-04",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1415610000
+     }
     }
    },
-   "start": "2023-04-01"
+   "start": "2023-04-01",
+   "total_debt": 1415610000
   },
   {
    "capex": 4282000,
@@ -6624,9 +6930,19 @@
      "filed": "2023-11-03",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2023-11-03",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1416687000
+     }
     }
    },
-   "start": "2023-07-01"
+   "start": "2023-07-01",
+   "total_debt": 1416687000
   },
   {
    "capex": -5861000,
@@ -6678,9 +6994,19 @@
      "filed": "2026-02-20",
      "form": "10-K",
      "tag": "Revenues"
+    },
+    "total_debt": {
+     "filed": "2024-02-23",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1417781000
+     }
     }
    },
-   "start": "2023-10-01"
+   "start": "2023-10-01",
+   "total_debt": 1417781000
   },
   {
    "capex": 1558000,
@@ -6737,9 +7063,19 @@
      "filed": "2024-05-03",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2024-05-03",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1512860000
+     }
     }
    },
-   "start": "2024-01-01"
+   "start": "2024-01-01",
+   "total_debt": 1512860000
   },
   {
    "capex": 1066000,
@@ -6798,9 +7134,19 @@
      "filed": "2024-08-02",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2024-08-02",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1513782000
+     }
     }
    },
-   "start": "2024-04-01"
+   "start": "2024-04-01",
+   "total_debt": 1513782000
   },
   {
    "capex": -1233000,
@@ -6859,9 +7205,19 @@
      "filed": "2024-11-07",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2024-11-07",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1064718000
+     }
     }
    },
-   "start": "2024-07-01"
+   "start": "2024-07-01",
+   "total_debt": 1064718000
   },
   {
    "capex": 172000,
@@ -6920,9 +7276,19 @@
      "filed": "2026-02-20",
      "form": "10-K",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2025-02-14",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1065337000
+     }
     }
    },
-   "start": "2024-10-01"
+   "start": "2024-10-01",
+   "total_debt": 1065337000
   },
   {
    "capex": 1091000,
@@ -6981,9 +7347,19 @@
      "filed": "2025-05-02",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2025-05-02",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1065965000
+     }
     }
    },
-   "start": "2025-01-01"
+   "start": "2025-01-01",
+   "total_debt": 1065965000
   },
   {
    "capex": 1199000,
@@ -7042,9 +7418,19 @@
      "filed": "2025-08-01",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2025-08-01",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1066603000
+     }
     }
    },
-   "start": "2025-04-01"
+   "start": "2025-04-01",
+   "total_debt": 1066603000
   },
   {
    "capex": 1046000,
@@ -7101,9 +7487,19 @@
      "filed": "2025-11-06",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2025-11-06",
+     "tags": [
+      "SeniorNotes"
+     ],
+     "values": {
+      "SeniorNotes": 1067251000
+     }
     }
    },
-   "start": "2025-07-01"
+   "start": "2025-07-01",
+   "total_debt": 1067251000
   },
   {
    "capex": 870000,

@@ -398,7 +398,6 @@
    "cash_as_filed": 123683000,
    "cash_as_filed_filed": "2014-02-28",
    "d_and_a": 5600000,
-   "debt_current": 514711000,
    "eps_diluted": 2.7,
    "filed": "2016-02-25",
    "fiscal_year": 2013,
@@ -452,11 +451,11 @@
    "total_assets": 2318157000,
    "total_assets_as_filed": 2318157000,
    "total_assets_as_filed_filed": "2014-02-28",
-   "total_debt": 514711000,
-   "total_debt_as_filed": 514711000,
-   "total_debt_as_filed_filed": "2014-02-28",
+   "total_debt": 639711000,
+   "total_debt_as_filed": 639711000,
+   "total_debt_as_filed_filed": "2015-02-26",
    "total_debt_basis": "components_exceed_tagged",
-   "total_debt_filed": "2014-02-28",
+   "total_debt_filed": "2015-02-26",
    "total_debt_tagged": 125000000,
    "total_equity": 734676000,
    "total_equity_incl_nci": 882072000,
@@ -473,7 +472,6 @@
    "cash_as_filed": 15867000,
    "cash_as_filed_filed": "2015-02-26",
    "d_and_a": 5300000,
-   "debt_current": 377767000,
    "eps_diluted": 3.87,
    "filed": "2017-02-24",
    "fiscal_year": 2014,
@@ -524,8 +522,8 @@
    "total_assets": 2623917000,
    "total_assets_as_filed": 2623917000,
    "total_assets_as_filed_filed": "2015-02-26",
-   "total_debt": 377767000,
-   "total_debt_as_filed": 377767000,
+   "total_debt": 502767000,
+   "total_debt_as_filed": 502767000,
    "total_debt_as_filed_filed": "2015-02-26",
    "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2015-02-26",
@@ -545,7 +543,6 @@
    "cash_as_filed": 189910000,
    "cash_as_filed_filed": "2016-02-25",
    "d_and_a": 5100000,
-   "debt_current": 446190000,
    "dividends_paid": 0,
    "dividends_paid_as_filed": 0,
    "dividends_paid_as_filed_filed": "2018-02-26",
@@ -600,8 +597,8 @@
    "total_assets": 2138518000,
    "total_assets_as_filed": 2138518000,
    "total_assets_as_filed_filed": "2016-02-25",
-   "total_debt": 446190000,
-   "total_debt_as_filed": 446190000,
+   "total_debt": 621190000,
+   "total_debt_as_filed": 621190000,
    "total_debt_as_filed_filed": "2016-02-25",
    "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2016-02-25",
@@ -621,7 +618,6 @@
    "cash_as_filed": 41359000,
    "cash_as_filed_filed": "2017-02-24",
    "d_and_a": 6400000,
-   "debt_current": 418832000,
    "dividends_paid": 0,
    "dividends_paid_as_filed": 0,
    "dividends_paid_as_filed_filed": "2018-02-26",
@@ -680,8 +676,8 @@
    "total_assets": 2125503000,
    "total_assets_as_filed": 2125503000,
    "total_assets_as_filed_filed": "2017-02-24",
-   "total_debt": 418832000,
-   "total_debt_as_filed": 418832000,
+   "total_debt": 593832000,
+   "total_debt_as_filed": 593832000,
    "total_debt_as_filed_filed": "2017-02-24",
    "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2017-02-24",
@@ -701,7 +697,6 @@
    "cash_as_filed": 33793000,
    "cash_as_filed_filed": "2018-02-26",
    "d_and_a": 7000000,
-   "debt_current": 289937000,
    "dividends_paid": 18947000,
    "dividends_paid_as_filed": 18947000,
    "dividends_paid_as_filed_filed": "2018-02-26",
@@ -762,8 +757,8 @@
    "total_assets": 2024683000,
    "total_assets_as_filed": 2024683000,
    "total_assets_as_filed_filed": "2018-02-26",
-   "total_debt": 289937000,
-   "total_debt_as_filed": 289937000,
+   "total_debt": 414937000,
+   "total_debt_as_filed": 414937000,
    "total_debt_as_filed_filed": "2018-02-26",
    "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2018-02-26",
@@ -1482,6 +1477,8 @@
   "stale_capex",
   "quarters_off_year_revenue_2023-12-31",
   "quarters_off_year_revenue_2025-12-31",
+  "revenue_unverified_2025-12-31",
+  "revenue_unverified_2023-12-31",
   "debt_one_side_only"
  ],
  "instances_merged": [],
@@ -2531,7 +2528,6 @@
    "capex": 5476000,
    "cash": 123683000,
    "cash_and_sti": 123683000,
-   "debt_current": 514711000,
    "end": "2013-12-31",
    "equity": 734676000,
    "fcf": 36687000,
@@ -2591,24 +2587,24 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2014-02-28",
-     "note": "one side only (a floor)",
+     "filed": "2015-02-26",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 125000000,
       "ShortTermBorrowings": 514711000
      }
     }
    },
    "start": "2013-01-01",
    "stock_comp": 21598000,
-   "total_debt": 514711000
+   "total_debt": 639711000
   },
   {
    "cash": 15867000,
    "cash_and_sti": 15867000,
-   "debt_current": 377767000,
    "end": "2014-12-31",
    "equity": 819912000,
    "net_income": 63172000,
@@ -2660,23 +2656,23 @@
     },
     "total_debt": {
      "filed": "2015-02-26",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 125000000,
       "ShortTermBorrowings": 377767000
      }
     }
    },
    "start": "2014-01-01",
    "stock_comp": 28764000,
-   "total_debt": 377767000
+   "total_debt": 502767000
   },
   {
    "cash": 189910000,
    "cash_and_sti": 189910000,
-   "debt_current": 446190000,
    "end": "2015-12-31",
    "equity": 783659000,
    "net_income": 52075000,
@@ -2728,23 +2724,23 @@
     },
     "total_debt": {
      "filed": "2016-02-25",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 175000000,
       "ShortTermBorrowings": 446190000
      }
     }
    },
    "start": "2015-01-01",
    "stock_comp": 48754000,
-   "total_debt": 446190000
+   "total_debt": 621190000
   },
   {
    "cash": 70374000,
    "cash_and_sti": 70374000,
-   "debt_current": 418832000,
    "end": "2016-12-31",
    "equity": 759250000,
    "net_income": -21952000,
@@ -2800,23 +2796,23 @@
     },
     "total_debt": {
      "filed": "2017-02-24",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 175000000,
       "ShortTermBorrowings": 418832000
      }
     }
    },
    "start": "2016-01-01",
    "stock_comp": 55977000,
-   "total_debt": 418832000
+   "total_debt": 593832000
   },
   {
    "cash": 33793000,
    "cash_and_sti": 33793000,
-   "debt_current": 289937000,
    "end": "2017-12-31",
    "equity": 693332000,
    "net_income": -61939000,
@@ -2872,18 +2868,19 @@
     },
     "total_debt": {
      "filed": "2018-02-26",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 125000000,
       "ShortTermBorrowings": 289937000
      }
     }
    },
    "start": "2017-01-01",
    "stock_comp": 39831000,
-   "total_debt": 289937000
+   "total_debt": 414937000
   },
   {
    "cash": 50364000,
@@ -3556,11 +3553,11 @@
    "v2": 550231000
   },
   {
-   "field": "debt_current",
-   "old": null,
+   "field": "total_debt",
+   "old": 514711000,
    "period": "2013-12-31",
    "rows": "annual",
-   "v2": 514711000
+   "v2": 639711000
   },
   {
    "field": "revenue",
@@ -3570,11 +3567,11 @@
    "v2": 673211000
   },
   {
-   "field": "debt_current",
-   "old": null,
+   "field": "total_debt",
+   "old": 377767000,
    "period": "2014-12-31",
    "rows": "annual",
-   "v2": 377767000
+   "v2": 502767000
   },
   {
    "field": "revenue",
@@ -3584,11 +3581,11 @@
    "v2": 696317000
   },
   {
-   "field": "debt_current",
-   "old": null,
+   "field": "total_debt",
+   "old": 446190000,
    "period": "2015-12-31",
    "rows": "annual",
-   "v2": 446190000
+   "v2": 621190000
   },
   {
    "field": "revenue",
@@ -3598,11 +3595,11 @@
    "v2": 769874000
   },
   {
-   "field": "debt_current",
-   "old": null,
+   "field": "total_debt",
+   "old": 418832000,
    "period": "2016-12-31",
    "rows": "annual",
-   "v2": 418832000
+   "v2": 593832000
   },
   {
    "field": "revenue",
@@ -3612,11 +3609,11 @@
    "v2": 843889000
   },
   {
-   "field": "debt_current",
-   "old": null,
+   "field": "total_debt",
+   "old": 289937000,
    "period": "2017-12-31",
    "rows": "annual",
-   "v2": 289937000
+   "v2": 414937000
   },
   {
    "field": "revenue",
@@ -5244,7 +5241,6 @@
    "capex": 2219000,
    "cash": 123683000,
    "cash_and_sti": 123683000,
-   "debt_current": 514711000,
    "end": "2013-12-31",
    "equity": 734676000,
    "fcf": 340171000,
@@ -5305,19 +5301,20 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2014-02-28",
-     "note": "one side only (a floor)",
+     "filed": "2015-02-26",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 125000000,
       "ShortTermBorrowings": 514711000
      }
     }
    },
    "start": "2013-10-01",
    "stock_comp": 10586000,
-   "total_debt": 514711000
+   "total_debt": 639711000
   },
   {
    "capex": 607000,
@@ -5558,7 +5555,6 @@
   {
    "cash": 15867000,
    "cash_and_sti": 15867000,
-   "debt_current": 377767000,
    "end": "2014-12-31",
    "equity": 819912000,
    "net_income": 12543000,
@@ -5612,23 +5608,23 @@
     },
     "total_debt": {
      "filed": "2015-02-26",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 125000000,
       "ShortTermBorrowings": 377767000
      }
     }
    },
    "start": "2014-10-01",
    "stock_comp": 7697000,
-   "total_debt": 377767000
+   "total_debt": 502767000
   },
   {
    "cash": 9382000,
    "cash_and_sti": 9382000,
-   "debt_current": 517522000,
    "end": "2015-03-31",
    "equity": 830951000,
    "net_income": 16972000,
@@ -5680,23 +5676,23 @@
     },
     "total_debt": {
      "filed": "2015-05-01",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 125000000,
       "ShortTermBorrowings": 517522000
      }
     }
    },
    "start": "2015-01-01",
    "stock_comp": 13756000,
-   "total_debt": 517522000
+   "total_debt": 642522000
   },
   {
    "cash": 14097000,
    "cash_and_sti": 14097000,
-   "debt_current": 500413000,
    "end": "2015-06-30",
    "equity": 789635000,
    "net_income": 16999000,
@@ -5750,23 +5746,23 @@
     },
     "total_debt": {
      "filed": "2015-08-05",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 125000000,
       "ShortTermBorrowings": 500413000
      }
     }
    },
    "start": "2015-04-01",
    "stock_comp": 8977000,
-   "total_debt": 500413000
+   "total_debt": 625413000
   },
   {
    "cash": 44048000,
    "cash_and_sti": 44048000,
-   "debt_current": 415747000,
    "end": "2015-09-30",
    "equity": 795385000,
    "net_income": 4831000,
@@ -5820,23 +5816,23 @@
     },
     "total_debt": {
      "filed": "2015-10-30",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 125000000,
       "ShortTermBorrowings": 415747000
      }
     }
    },
    "start": "2015-07-01",
    "stock_comp": 8159000,
-   "total_debt": 415747000
+   "total_debt": 540747000
   },
   {
    "cash": 189910000,
    "cash_and_sti": 189910000,
-   "debt_current": 446190000,
    "end": "2015-12-31",
    "equity": 783659000,
    "net_income": 13273000,
@@ -5890,23 +5886,23 @@
     },
     "total_debt": {
      "filed": "2016-02-25",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 175000000,
       "ShortTermBorrowings": 446190000
      }
     }
    },
    "start": "2015-10-01",
    "stock_comp": 17862000,
-   "total_debt": 446190000
+   "total_debt": 621190000
   },
   {
    "cash": 49140000,
    "cash_and_sti": 49140000,
-   "debt_current": 459043000,
    "end": "2016-03-31",
    "equity": 805180000,
    "net_income": 2437000,
@@ -5958,23 +5954,23 @@
     },
     "total_debt": {
      "filed": "2016-05-04",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 175000000,
       "ShortTermBorrowings": 459043000
      }
     }
    },
    "start": "2016-01-01",
    "stock_comp": 10064000,
-   "total_debt": 459043000
+   "total_debt": 634043000
   },
   {
    "cash": 172244000,
    "cash_and_sti": 172244000,
-   "debt_current": 501846000,
    "end": "2016-06-30",
    "equity": 775011000,
    "net_income": 1938000,
@@ -6028,23 +6024,23 @@
     },
     "total_debt": {
      "filed": "2016-08-05",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 175000000,
       "ShortTermBorrowings": 501846000
      }
     }
    },
    "start": "2016-04-01",
    "stock_comp": 15820000,
-   "total_debt": 501846000
+   "total_debt": 676846000
   },
   {
    "cash": 51371000,
    "cash_and_sti": 51371000,
-   "debt_current": 425785000,
    "end": "2016-09-30",
    "equity": 784480000,
    "net_income": 10658000,
@@ -6098,23 +6094,23 @@
     },
     "total_debt": {
      "filed": "2016-10-28",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 175000000,
       "ShortTermBorrowings": 425785000
      }
     }
    },
    "start": "2016-07-01",
    "stock_comp": 17955000,
-   "total_debt": 425785000
+   "total_debt": 600785000
   },
   {
    "cash": 70374000,
    "cash_and_sti": 70374000,
-   "debt_current": 418832000,
    "end": "2016-12-31",
    "equity": 759250000,
    "net_income": -36985000,
@@ -6170,23 +6166,23 @@
     },
     "total_debt": {
      "filed": "2017-02-24",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 175000000,
       "ShortTermBorrowings": 418832000
      }
     }
    },
    "start": "2016-10-01",
    "stock_comp": 12138000,
-   "total_debt": 418832000
+   "total_debt": 593832000
   },
   {
    "cash": 18879000,
    "cash_and_sti": 18879000,
-   "debt_current": 297146000,
    "end": "2017-03-31",
    "equity": 778165000,
    "net_income": 20275000,
@@ -6240,23 +6236,23 @@
     },
     "total_debt": {
      "filed": "2017-05-09",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 175000000,
       "ShortTermBorrowings": 297146000
      }
     }
    },
    "start": "2017-01-01",
    "stock_comp": 4676000,
-   "total_debt": 297146000
+   "total_debt": 472146000
   },
   {
    "cash": 26170000,
    "cash_and_sti": 26170000,
-   "debt_current": 330423000,
    "end": "2017-06-30",
    "equity": 789575000,
    "net_income": 13573000,
@@ -6310,23 +6306,23 @@
     },
     "total_debt": {
      "filed": "2017-08-04",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 125000000,
       "ShortTermBorrowings": 330423000
      }
     }
    },
    "start": "2017-04-01",
    "stock_comp": 8205000,
-   "total_debt": 330423000
+   "total_debt": 455423000
   },
   {
    "cash": 40916000,
    "cash_and_sti": 40916000,
-   "debt_current": 76797000,
    "end": "2017-09-30",
    "equity": 738266000,
    "net_income": -49713000,
@@ -6380,23 +6376,23 @@
     },
     "total_debt": {
      "filed": "2017-11-08",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 125000000,
       "ShortTermBorrowings": 76797000
      }
     }
    },
    "start": "2017-07-01",
    "stock_comp": 13578000,
-   "total_debt": 76797000
+   "total_debt": 201797000
   },
   {
    "cash": 33793000,
    "cash_and_sti": 33793000,
-   "debt_current": 289937000,
    "end": "2017-12-31",
    "equity": 693332000,
    "net_income": -46074000,
@@ -6450,23 +6446,23 @@
     },
     "total_debt": {
      "filed": "2018-02-26",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 125000000,
       "ShortTermBorrowings": 289937000
      }
     }
    },
    "start": "2017-10-01",
    "stock_comp": 13372000,
-   "total_debt": 289937000
+   "total_debt": 414937000
   },
   {
    "cash": 27642000,
    "cash_and_sti": 27642000,
-   "debt_current": 186254000,
    "end": "2018-03-31",
    "equity": 687992000,
    "net_income": 10603000,
@@ -6520,23 +6516,23 @@
     },
     "total_debt": {
      "filed": "2018-05-04",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 125000000,
       "ShortTermBorrowings": 186254000
      }
     }
    },
    "start": "2018-01-01",
    "stock_comp": 8970000,
-   "total_debt": 186254000
+   "total_debt": 311254000
   },
   {
    "cash": 26025000,
    "cash_and_sti": 26025000,
-   "debt_current": 51706000,
    "end": "2018-06-30",
    "equity": 685524000,
    "net_income": 6226000,
@@ -6592,23 +6588,23 @@
     },
     "total_debt": {
      "filed": "2018-08-08",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 125000000,
       "ShortTermBorrowings": 51706000
      }
     }
    },
    "start": "2018-04-01",
    "stock_comp": 10257000,
-   "total_debt": 51706000
+   "total_debt": 176706000
   },
   {
    "cash": 68774000,
    "cash_and_sti": 68774000,
-   "debt_current": 49957000,
    "end": "2018-09-30",
    "equity": 700211000,
    "net_income": 22023000,
@@ -6664,18 +6660,19 @@
     },
     "total_debt": {
      "filed": "2018-11-05",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 125000000,
       "ShortTermBorrowings": 49957000
      }
     }
    },
    "start": "2018-07-01",
    "stock_comp": 12819000,
-   "total_debt": 49957000
+   "total_debt": 174957000
   },
   {
    "cash": 50364000,
@@ -7036,7 +7033,6 @@
   {
    "cash": 128582000,
    "cash_and_sti": 128582000,
-   "debt_current": 99980000,
    "end": "2020-03-31",
    "equity": 729559000,
    "net_income": -14727000,
@@ -7088,18 +7084,19 @@
     },
     "total_debt": {
      "filed": "2020-05-08",
-     "note": "one side only (a floor)",
      "tags": [
+      "SeniorNotes",
       "ShortTermBorrowings"
      ],
      "values": {
+      "SeniorNotes": 175000000,
       "ShortTermBorrowings": 99980000
      }
     }
    },
    "start": "2020-01-01",
    "stock_comp": 21795000,
-   "total_debt": 99980000
+   "total_debt": 274980000
   },
   {
    "cash": 235887000,

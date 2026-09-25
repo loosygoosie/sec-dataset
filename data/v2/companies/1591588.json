@@ -809,6 +809,7 @@
    "current_liabilities_as_filed": 836735000,
    "current_liabilities_as_filed_filed": "2022-09-02",
    "d_and_a": 27300000,
+   "debt_current": 0,
    "dividends_paid": 22645000,
    "dividends_paid_as_filed": 22645000,
    "dividends_paid_as_filed_filed": "2022-09-02",
@@ -872,9 +873,9 @@
    "total_assets_as_filed_filed": "2022-09-02",
    "total_debt": 94073000,
    "total_debt_as_filed": 94073000,
-   "total_debt_as_filed_filed": "2022-09-02",
+   "total_debt_as_filed_filed": "2023-02-08",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2022-09-02",
+   "total_debt_filed": "2023-02-08",
    "total_equity": 488609000,
    "total_equity_incl_nci": 490471000,
    "total_equity_parent": 488609000,
@@ -900,6 +901,7 @@
    "current_liabilities_as_filed": 924061000,
    "current_liabilities_as_filed_filed": "2023-09-12",
    "d_and_a": 12525000,
+   "debt_current": 95308000,
    "dividends_paid": 37468000,
    "dividends_paid_as_filed": 37468000,
    "dividends_paid_as_filed_filed": "2023-09-12",
@@ -961,8 +963,8 @@
    "total_assets": 1545571000,
    "total_assets_as_filed": 1545571000,
    "total_assets_as_filed_filed": "2023-09-12",
-   "total_debt": 0,
-   "total_debt_as_filed": 0,
+   "total_debt": 95308000,
+   "total_debt_as_filed": 95308000,
    "total_debt_as_filed_filed": "2023-09-12",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2023-09-12",
@@ -991,6 +993,7 @@
    "current_liabilities_as_filed": 883770000,
    "current_liabilities_as_filed_filed": "2024-09-13",
    "d_and_a": 11397000,
+   "debt_current": 8367000,
    "dividends_paid": 41845000,
    "dividends_paid_as_filed": 41845000,
    "dividends_paid_as_filed_filed": "2024-09-13",
@@ -1052,8 +1055,8 @@
    "total_assets": 1827820000,
    "total_assets_as_filed": 1827820000,
    "total_assets_as_filed_filed": "2024-09-13",
-   "total_debt": 3994000,
-   "total_debt_as_filed": 3994000,
+   "total_debt": 12361000,
+   "total_debt_as_filed": 12361000,
    "total_debt_as_filed_filed": "2024-09-13",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2024-09-13",
@@ -1078,6 +1081,7 @@
    "current_liabilities_as_filed": 1114128000,
    "current_liabilities_as_filed_filed": "2025-09-11",
    "d_and_a": 22920000,
+   "debt_current": 3994000,
    "dividends_paid": 18804000,
    "dividends_paid_as_filed": 18804000,
    "dividends_paid_as_filed_filed": "2025-09-11",
@@ -1139,8 +1143,8 @@
    "total_assets": 2215431000,
    "total_assets_as_filed": 2215431000,
    "total_assets_as_filed_filed": "2025-09-11",
-   "total_debt": 3349000,
-   "total_debt_as_filed": 3349000,
+   "total_debt": 7343000,
+   "total_debt_as_filed": 7343000,
    "total_debt_as_filed_filed": "2025-09-11",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2025-09-11",
@@ -1165,6 +1169,7 @@
    "current_liabilities_as_filed": 3146769000,
    "current_liabilities_as_filed_filed": "2026-09-10",
    "d_and_a": 34752000,
+   "debt_current": 4000000,
    "dividends_paid": 22504000,
    "dividends_paid_as_filed": 22504000,
    "dividends_paid_as_filed_filed": "2026-09-10",
@@ -1226,8 +1231,8 @@
    "total_assets": 4136919000,
    "total_assets_as_filed": 4136919000,
    "total_assets_as_filed_filed": "2026-09-10",
-   "total_debt": 206000,
-   "total_debt_as_filed": 206000,
+   "total_debt": 4206000,
+   "total_debt_as_filed": 4206000,
    "total_debt_as_filed_filed": "2026-09-10",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2026-09-10",
@@ -1305,10 +1310,11 @@
  },
  "balance": {
   "cash_and_sti": 577976000,
+  "debt_current": 4000000,
   "debt_noncurrent": 206000,
   "end": "2026-06-30",
   "equity": 875713000,
-  "total_debt": 206000
+  "total_debt": 4206000
  },
  "bank": false,
  "checks": {
@@ -1323,7 +1329,7 @@
  "cik": 1591588,
  "fiscal_year_end": "0630",
  "flags": [
-  "debt_one_side_only"
+  "capex_below_segment_2024-06-30"
  ],
  "instances_merged": [],
  "latest_filing": {
@@ -1359,6 +1365,7 @@
    "current_assets": 1294923000,
    "current_liabilities": 704978000,
    "d_and_a": 2792000,
+   "debt_current": 95179000,
    "dividends_paid": 28034000,
    "eps_diluted": 0.77,
    "filed": "2024-11-08",
@@ -1391,6 +1398,8 @@
    "shares_outstanding": 23335674,
    "stock_comp": 664000,
    "total_assets": 1579237000,
+   "total_debt": 95179000,
+   "total_debt_filed": "2023-11-08",
    "total_equity": 581659000,
    "total_equity_incl_nci": 583085000,
    "total_equity_parent": 581659000,
@@ -1404,6 +1413,7 @@
    "current_assets": 1340281000,
    "current_liabilities": 719660000,
    "d_and_a": 2811000,
+   "debt_current": 3234000,
    "dividends_paid": 4652000,
    "eps_diluted": 0.57,
    "filed": "2025-02-10",
@@ -1436,6 +1446,8 @@
    "shares_outstanding": 22901153,
    "stock_comp": 482000,
    "total_assets": 1623858000,
+   "total_debt": 3234000,
+   "total_debt_filed": "2024-02-08",
    "total_equity": 583759000,
    "total_equity_incl_nci": 585380000,
    "total_equity_parent": 583759000,
@@ -1449,6 +1461,7 @@
    "current_assets": 1349191000,
    "current_liabilities": 764809000,
    "d_and_a": 2949000,
+   "debt_current": 0,
    "dividends_paid": 4579000,
    "eps_diluted": 0.21,
    "filed": "2025-05-12",
@@ -1498,6 +1511,7 @@
    "current_assets": 1442203000,
    "current_liabilities": 883770000,
    "d_and_a": 2845000,
+   "debt_current": 8367000,
    "dividends_paid": 4580000,
    "eps_diluted": 1.2899999999999998,
    "filed": "2026-09-10",
@@ -1531,7 +1545,7 @@
    "shares_outstanding": 22953391,
    "stock_comp": 321000,
    "total_assets": 1827820000,
-   "total_debt": 3994000,
+   "total_debt": 12361000,
    "total_debt_basis": "tagged",
    "total_debt_filed": "2024-09-13",
    "total_equity": 607633000,
@@ -1547,6 +1561,7 @@
    "current_assets": 1645542000,
    "current_liabilities": 989616000,
    "d_and_a": 4709000,
+   "debt_current": 6694000,
    "dividends_paid": 4633000,
    "eps_diluted": 0.37,
    "filed": "2025-11-07",
@@ -1580,7 +1595,7 @@
    "shares_outstanding": 23184059,
    "stock_comp": 320000,
    "total_assets": 2029017000,
-   "total_debt": 3994000,
+   "total_debt": 10688000,
    "total_debt_basis": "tagged",
    "total_debt_filed": "2024-11-08",
    "total_equity": 611060000,
@@ -1595,6 +1610,7 @@
    "current_assets": 1489697000,
    "current_liabilities": 944609000,
    "d_and_a": 4639000,
+   "debt_current": 4020000,
    "dividends_paid": 4642000,
    "eps_diluted": 0.27,
    "filed": "2026-02-06",
@@ -1628,7 +1644,7 @@
    "shares_outstanding": 23019185,
    "stock_comp": 307000,
    "total_assets": 1869302000,
-   "total_debt": 3994000,
+   "total_debt": 8014000,
    "total_debt_basis": "tagged",
    "total_debt_filed": "2025-02-10",
    "total_equity": 612718000,
@@ -1643,6 +1659,7 @@
    "current_assets": 1757875000,
    "current_liabilities": 1129041000,
    "d_and_a": 4996000,
+   "debt_current": 0,
    "dividends_paid": 4608000,
    "eps_diluted": -0.36,
    "filed": "2026-05-11",
@@ -1691,6 +1708,7 @@
    "current_assets": 1743495000,
    "current_liabilities": 1114128000,
    "d_and_a": 8576000,
+   "debt_current": 3994000,
    "dividends_paid": 4921000,
    "eps_diluted": 0.42999999999999994,
    "filed": "2026-09-10",
@@ -1724,7 +1742,7 @@
    "shares_outstanding": 24639386,
    "stock_comp": 618000,
    "total_assets": 2215431000,
-   "total_debt": 3349000,
+   "total_debt": 7343000,
    "total_debt_basis": "tagged",
    "total_debt_filed": "2025-09-11",
    "total_equity": 649516000,
@@ -1739,6 +1757,7 @@
    "current_assets": 2111302000,
    "current_liabilities": 1543082000,
    "d_and_a": 7583000,
+   "debt_current": 4194000,
    "dividends_paid": 4984000,
    "eps_diluted": -0.04,
    "filed": "2025-11-07",
@@ -1772,7 +1791,7 @@
    "shares_outstanding": 24644386,
    "stock_comp": 375000,
    "total_assets": 2579371000,
-   "total_debt": 3339000,
+   "total_debt": 7533000,
    "total_debt_basis": "tagged",
    "total_debt_filed": "2025-11-07",
    "total_equity": 643972000,
@@ -1787,6 +1806,7 @@
    "current_assets": 3341667000,
    "current_liabilities": 2754241000,
    "d_and_a": 7638000,
+   "debt_current": 4000000,
    "dividends_paid": 4942000,
    "eps_diluted": 0.46,
    "filed": "2026-02-06",
@@ -1820,7 +1840,7 @@
    "shares_outstanding": 24896992,
    "stock_comp": 463000,
    "total_assets": 3811885000,
-   "total_debt": 3328000,
+   "total_debt": 7328000,
    "total_debt_basis": "tagged",
    "total_debt_filed": "2026-02-06",
    "total_equity": 653810000,
@@ -1835,6 +1855,7 @@
    "current_assets": 3668334000,
    "current_liabilities": 3119329000,
    "d_and_a": 9416000,
+   "debt_current": 4000000,
    "dividends_paid": 5676000,
    "eps_diluted": 2.09,
    "filed": "2026-05-11",
@@ -1868,7 +1889,7 @@
    "shares_outstanding": 28474034,
    "stock_comp": 505000,
    "total_assets": 4174073000,
-   "total_debt": 3317000,
+   "total_debt": 7317000,
    "total_debt_basis": "tagged",
    "total_debt_filed": "2026-05-11",
    "total_equity": 847316000,
@@ -1883,6 +1904,7 @@
    "current_assets": 3604351000,
    "current_liabilities": 3146769000,
    "d_and_a": 10115000,
+   "debt_current": 4000000,
    "dividends_paid": 6902000,
    "eps_diluted": 0.5100000000000002,
    "filed": "2026-09-10",
@@ -1916,7 +1938,7 @@
    "shares_outstanding": 29121293,
    "stock_comp": 1064000,
    "total_assets": 4136919000,
-   "total_debt": 206000,
+   "total_debt": 4206000,
    "total_debt_basis": "tagged",
    "total_debt_filed": "2026-09-10",
    "total_equity": 875713000,
@@ -2789,6 +2811,7 @@
    "capex": 2879000,
    "cash": 37783000,
    "cash_and_sti": 37783000,
+   "debt_current": 0,
    "debt_noncurrent": 94073000,
    "end": "2022-06-30",
    "equity": 488609000,
@@ -2847,13 +2870,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2022-09-02",
-     "note": "one side only (a floor)",
+     "filed": "2023-02-08",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 94073000
+      "LongTermNotesPayable": 94073000,
+      "NotesPayableCurrent": 0
      }
     }
    },
@@ -2865,6 +2889,7 @@
    "capex": 4783000,
    "cash": 39318000,
    "cash_and_sti": 39318000,
+   "debt_current": 95308000,
    "debt_noncurrent": 0,
    "end": "2023-06-30",
    "equity": 599123000,
@@ -2924,23 +2949,25 @@
     },
     "total_debt": {
      "filed": "2023-09-12",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 0
+      "LongTermNotesPayable": 0,
+      "NotesPayableCurrent": 95308000
      }
     }
    },
    "start": "2022-07-01",
    "stock_comp": 2176000,
-   "total_debt": 0
+   "total_debt": 95308000
   },
   {
    "capex": 7256000,
    "cash": 48636000,
    "cash_and_sti": 48636000,
+   "debt_current": 8367000,
    "debt_noncurrent": 3994000,
    "end": "2024-06-30",
    "equity": 607633000,
@@ -3000,23 +3027,25 @@
     },
     "total_debt": {
      "filed": "2024-09-13",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 3994000
+      "LongTermNotesPayable": 3994000,
+      "NotesPayableCurrent": 8367000
      }
     }
    },
    "start": "2023-07-01",
    "stock_comp": 1923000,
-   "total_debt": 3994000
+   "total_debt": 12361000
   },
   {
    "capex": 10678000,
    "cash": 77741000,
    "cash_and_sti": 77741000,
+   "debt_current": 3994000,
    "debt_noncurrent": 3349000,
    "end": "2025-06-30",
    "equity": 649516000,
@@ -3076,23 +3105,25 @@
     },
     "total_debt": {
      "filed": "2025-09-11",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 3349000
+      "LongTermNotesPayable": 3349000,
+      "NotesPayableCurrent": 3994000
      }
     }
    },
    "start": "2024-07-01",
    "stock_comp": 1594000,
-   "total_debt": 3349000
+   "total_debt": 7343000
   },
   {
    "capex": 12708000,
    "cash": 577976000,
    "cash_and_sti": 577976000,
+   "debt_current": 4000000,
    "debt_noncurrent": 206000,
    "end": "2026-06-30",
    "equity": 875713000,
@@ -3152,18 +3183,19 @@
     },
     "total_debt": {
      "filed": "2026-09-10",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 206000
+      "LongTermNotesPayable": 206000,
+      "NotesPayableCurrent": 4000000
      }
     }
    },
    "start": "2025-07-01",
    "stock_comp": 2407000,
-   "total_debt": 206000
+   "total_debt": 4206000
   }
  ],
  "v2_fixes": [
@@ -3189,11 +3221,39 @@
    "v2": 94073000
   },
   {
+   "field": "debt_current",
+   "old": null,
+   "period": "2022-06-30",
+   "rows": "annual",
+   "v2": 0
+  },
+  {
+   "field": "total_debt",
+   "old": 0,
+   "period": "2023-06-30",
+   "rows": "annual",
+   "v2": 95308000
+  },
+  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2023-06-30",
    "rows": "annual",
    "v2": 0
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2023-06-30",
+   "rows": "annual",
+   "v2": 95308000
+  },
+  {
+   "field": "total_debt",
+   "old": 3994000,
+   "period": "2024-06-30",
+   "rows": "annual",
+   "v2": 12361000
   },
   {
    "field": "lt_debt_noncurrent",
@@ -3203,6 +3263,20 @@
    "v2": 3994000
   },
   {
+   "field": "debt_current",
+   "old": null,
+   "period": "2024-06-30",
+   "rows": "annual",
+   "v2": 8367000
+  },
+  {
+   "field": "total_debt",
+   "old": 3349000,
+   "period": "2025-06-30",
+   "rows": "annual",
+   "v2": 7343000
+  },
+  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2025-06-30",
@@ -3210,11 +3284,60 @@
    "v2": 3349000
   },
   {
+   "field": "debt_current",
+   "old": null,
+   "period": "2025-06-30",
+   "rows": "annual",
+   "v2": 3994000
+  },
+  {
+   "field": "total_debt",
+   "old": 206000,
+   "period": "2026-06-30",
+   "rows": "annual",
+   "v2": 4206000
+  },
+  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2026-06-30",
    "rows": "annual",
    "v2": 206000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-06-30",
+   "rows": "annual",
+   "v2": 4000000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2023-09-30",
+   "rows": "quarterly",
+   "v2": 95179000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2023-09-30",
+   "rows": "quarterly",
+   "v2": 95179000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2023-12-31",
+   "rows": "quarterly",
+   "v2": 3234000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2023-12-31",
+   "rows": "quarterly",
+   "v2": 3234000
   },
   {
    "field": "lt_debt_noncurrent",
@@ -3224,11 +3347,39 @@
    "v2": 3994000
   },
   {
+   "field": "debt_current",
+   "old": null,
+   "period": "2024-03-31",
+   "rows": "quarterly",
+   "v2": 0
+  },
+  {
+   "field": "total_debt",
+   "old": 3994000,
+   "period": "2024-06-30",
+   "rows": "quarterly",
+   "v2": 12361000
+  },
+  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2024-06-30",
    "rows": "quarterly",
    "v2": 3994000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2024-06-30",
+   "rows": "quarterly",
+   "v2": 8367000
+  },
+  {
+   "field": "total_debt",
+   "old": 3994000,
+   "period": "2024-09-30",
+   "rows": "quarterly",
+   "v2": 10688000
   },
   {
    "field": "lt_debt_noncurrent",
@@ -3238,11 +3389,32 @@
    "v2": 3994000
   },
   {
+   "field": "debt_current",
+   "old": null,
+   "period": "2024-09-30",
+   "rows": "quarterly",
+   "v2": 6694000
+  },
+  {
+   "field": "total_debt",
+   "old": 3994000,
+   "period": "2024-12-31",
+   "rows": "quarterly",
+   "v2": 8014000
+  },
+  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2024-12-31",
    "rows": "quarterly",
    "v2": 3994000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2024-12-31",
+   "rows": "quarterly",
+   "v2": 4020000
   },
   {
    "field": "lt_debt_noncurrent",
@@ -3252,11 +3424,39 @@
    "v2": 7351000
   },
   {
+   "field": "debt_current",
+   "old": null,
+   "period": "2025-03-31",
+   "rows": "quarterly",
+   "v2": 0
+  },
+  {
+   "field": "total_debt",
+   "old": 3349000,
+   "period": "2025-06-30",
+   "rows": "quarterly",
+   "v2": 7343000
+  },
+  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2025-06-30",
    "rows": "quarterly",
    "v2": 3349000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2025-06-30",
+   "rows": "quarterly",
+   "v2": 3994000
+  },
+  {
+   "field": "total_debt",
+   "old": 3339000,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": 7533000
   },
   {
    "field": "lt_debt_noncurrent",
@@ -3266,11 +3466,39 @@
    "v2": 3339000
   },
   {
+   "field": "debt_current",
+   "old": null,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": 4194000
+  },
+  {
+   "field": "total_debt",
+   "old": 3328000,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": 7328000
+  },
+  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2025-12-31",
    "rows": "quarterly",
    "v2": 3328000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": 4000000
+  },
+  {
+   "field": "total_debt",
+   "old": 3317000,
+   "period": "2026-03-31",
+   "rows": "quarterly",
+   "v2": 7317000
   },
   {
    "field": "lt_debt_noncurrent",
@@ -3280,11 +3508,32 @@
    "v2": 3317000
   },
   {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-03-31",
+   "rows": "quarterly",
+   "v2": 4000000
+  },
+  {
+   "field": "total_debt",
+   "old": 206000,
+   "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 4206000
+  },
+  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 206000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 4000000
   }
  ],
  "v2_notes": [],
@@ -5964,6 +6213,7 @@
    "capex": 773000,
    "cash": 37783000,
    "cash_and_sti": 37783000,
+   "debt_current": 0,
    "debt_noncurrent": 94073000,
    "end": "2022-06-30",
    "equity": 488609000,
@@ -6020,13 +6270,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2022-09-02",
-     "note": "one side only (a floor)",
+     "filed": "2023-02-08",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 94073000
+      "LongTermNotesPayable": 94073000,
+      "NotesPayableCurrent": 0
      }
     }
    },
@@ -6114,6 +6365,7 @@
    "capex": 1735000,
    "cash": 72499000,
    "cash_and_sti": 72499000,
+   "debt_current": 94528000,
    "debt_noncurrent": 1752000,
    "end": "2022-12-31",
    "equity": 538491000,
@@ -6175,23 +6427,25 @@
     },
     "total_debt": {
      "filed": "2023-02-08",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 1752000
+      "LongTermNotesPayable": 1752000,
+      "NotesPayableCurrent": 94528000
      }
     }
    },
    "start": "2022-10-01",
    "stock_comp": 534000,
-   "total_debt": 1752000
+   "total_debt": 96280000
   },
   {
    "capex": 565000,
    "cash": 78101000,
    "cash_and_sti": 78101000,
+   "debt_current": 94644000,
    "debt_noncurrent": 1752000,
    "end": "2023-03-31",
    "equity": 560971000,
@@ -6253,23 +6507,25 @@
     },
     "total_debt": {
      "filed": "2023-05-10",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 1752000
+      "LongTermNotesPayable": 1752000,
+      "NotesPayableCurrent": 94644000
      }
     }
    },
    "start": "2023-01-01",
    "stock_comp": 538000,
-   "total_debt": 1752000
+   "total_debt": 96396000
   },
   {
    "capex": 1556000,
    "cash": 39318000,
    "cash_and_sti": 39318000,
+   "debt_current": 95308000,
    "debt_noncurrent": 0,
    "end": "2023-06-30",
    "equity": 599123000,
@@ -6327,23 +6583,25 @@
     },
     "total_debt": {
      "filed": "2023-09-12",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 0
+      "LongTermNotesPayable": 0,
+      "NotesPayableCurrent": 95308000
      }
     }
    },
    "start": "2023-04-01",
    "stock_comp": 569000,
-   "total_debt": 0
+   "total_debt": 95308000
   },
   {
    "capex": 1886000,
    "cash": 48245000,
    "cash_and_sti": 48245000,
+   "debt_current": 95179000,
    "end": "2023-09-30",
    "equity": 581659000,
    "fcf": -46148000,
@@ -6399,15 +6657,27 @@
      "filed": "2023-11-08",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2023-11-08",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 95179000
+     }
     }
    },
    "start": "2023-07-01",
-   "stock_comp": 664000
+   "stock_comp": 664000,
+   "total_debt": 95179000
   },
   {
    "capex": 1938000,
    "cash": 28495000,
    "cash_and_sti": 28495000,
+   "debt_current": 3234000,
    "end": "2023-12-31",
    "equity": 583759000,
    "fcf": -59343000,
@@ -6466,15 +6736,27 @@
      "filed": "2024-02-08",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2024-02-08",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 3234000
+     }
     }
    },
    "start": "2023-10-01",
-   "stock_comp": 482000
+   "stock_comp": 482000,
+   "total_debt": 3234000
   },
   {
    "capex": 694000,
    "cash": 35167000,
    "cash_and_sti": 35167000,
+   "debt_current": 0,
    "debt_noncurrent": 3994000,
    "end": "2024-03-31",
    "equity": 583166000,
@@ -6537,12 +6819,13 @@
     },
     "total_debt": {
      "filed": "2024-05-09",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 3994000
+      "LongTermNotesPayable": 3994000,
+      "NotesPayableCurrent": 0
      }
     }
    },
@@ -6554,6 +6837,7 @@
    "capex": 2738000,
    "cash": 48636000,
    "cash_and_sti": 48636000,
+   "debt_current": 8367000,
    "debt_noncurrent": 3994000,
    "end": "2024-06-30",
    "equity": 607633000,
@@ -6611,23 +6895,25 @@
     },
     "total_debt": {
      "filed": "2024-09-13",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 3994000
+      "LongTermNotesPayable": 3994000,
+      "NotesPayableCurrent": 8367000
      }
     }
    },
    "start": "2024-04-01",
    "stock_comp": 321000,
-   "total_debt": 3994000
+   "total_debt": 12361000
   },
   {
    "capex": 607000,
    "cash": 46924000,
    "cash_and_sti": 46924000,
+   "debt_current": 6694000,
    "debt_noncurrent": 3994000,
    "end": "2024-09-30",
    "equity": 611060000,
@@ -6687,23 +6973,25 @@
     },
     "total_debt": {
      "filed": "2024-11-08",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 3994000
+      "LongTermNotesPayable": 3994000,
+      "NotesPayableCurrent": 6694000
      }
     }
    },
    "start": "2024-07-01",
    "stock_comp": 320000,
-   "total_debt": 3994000
+   "total_debt": 10688000
   },
   {
    "capex": 3701000,
    "cash": 37768000,
    "cash_and_sti": 37768000,
+   "debt_current": 4020000,
    "debt_noncurrent": 3994000,
    "end": "2024-12-31",
    "equity": 612718000,
@@ -6766,23 +7054,25 @@
     },
     "total_debt": {
      "filed": "2025-02-10",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 3994000
+      "LongTermNotesPayable": 3994000,
+      "NotesPayableCurrent": 4020000
      }
     }
    },
    "start": "2024-10-01",
    "stock_comp": 307000,
-   "total_debt": 3994000
+   "total_debt": 8014000
   },
   {
    "capex": 2472000,
    "cash": 114345000,
    "cash_and_sti": 114345000,
+   "debt_current": 0,
    "debt_noncurrent": 7351000,
    "end": "2025-03-31",
    "equity": 643552000,
@@ -6845,12 +7135,13 @@
     },
     "total_debt": {
      "filed": "2025-05-12",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 7351000
+      "LongTermNotesPayable": 7351000,
+      "NotesPayableCurrent": 0
      }
     }
    },
@@ -6862,6 +7153,7 @@
    "capex": 3898000,
    "cash": 77741000,
    "cash_and_sti": 77741000,
+   "debt_current": 3994000,
    "debt_noncurrent": 3349000,
    "end": "2025-06-30",
    "equity": 649516000,
@@ -6919,23 +7211,25 @@
     },
     "total_debt": {
      "filed": "2025-09-11",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 3349000
+      "LongTermNotesPayable": 3349000,
+      "NotesPayableCurrent": 3994000
      }
     }
    },
    "start": "2025-04-01",
    "stock_comp": 618000,
-   "total_debt": 3349000
+   "total_debt": 7343000
   },
   {
    "capex": 1974000,
    "cash": 89221000,
    "cash_and_sti": 89221000,
+   "debt_current": 4194000,
    "debt_noncurrent": 3339000,
    "end": "2025-09-30",
    "equity": 643972000,
@@ -6995,23 +7289,25 @@
     },
     "total_debt": {
      "filed": "2025-11-07",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 3339000
+      "LongTermNotesPayable": 3339000,
+      "NotesPayableCurrent": 4194000
      }
     }
    },
    "start": "2025-07-01",
    "stock_comp": 375000,
-   "total_debt": 3339000
+   "total_debt": 7533000
   },
   {
    "capex": 3998000,
    "cash": 152050000,
    "cash_and_sti": 152050000,
+   "debt_current": 4000000,
    "debt_noncurrent": 3328000,
    "end": "2025-12-31",
    "equity": 653810000,
@@ -7074,23 +7370,25 @@
     },
     "total_debt": {
      "filed": "2026-02-06",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 3328000
+      "LongTermNotesPayable": 3328000,
+      "NotesPayableCurrent": 4000000
      }
     }
    },
    "start": "2025-10-01",
    "stock_comp": 463000,
-   "total_debt": 3328000
+   "total_debt": 7328000
   },
   {
    "capex": 3236000,
    "cash": 143607000,
    "cash_and_sti": 143607000,
+   "debt_current": 4000000,
    "debt_noncurrent": 3317000,
    "end": "2026-03-31",
    "equity": 847316000,
@@ -7153,23 +7451,25 @@
     },
     "total_debt": {
      "filed": "2026-05-11",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 3317000
+      "LongTermNotesPayable": 3317000,
+      "NotesPayableCurrent": 4000000
      }
     }
    },
    "start": "2026-01-01",
    "stock_comp": 505000,
-   "total_debt": 3317000
+   "total_debt": 7317000
   },
   {
    "capex": 3500000,
    "cash": 577976000,
    "cash_and_sti": 577976000,
+   "debt_current": 4000000,
    "debt_noncurrent": 206000,
    "end": "2026-06-30",
    "equity": 875713000,
@@ -7227,18 +7527,19 @@
     },
     "total_debt": {
      "filed": "2026-09-10",
-     "note": "one side only (a floor)",
      "tags": [
-      "LongTermNotesPayable"
+      "LongTermNotesPayable",
+      "NotesPayableCurrent"
      ],
      "values": {
-      "LongTermNotesPayable": 206000
+      "LongTermNotesPayable": 206000,
+      "NotesPayableCurrent": 4000000
      }
     }
    },
    "start": "2026-04-01",
    "stock_comp": 1064000,
-   "total_debt": 206000
+   "total_debt": 4206000
   }
  ],
  "v2_tags_used": {
