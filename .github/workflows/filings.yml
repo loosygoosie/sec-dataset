@@ -1,7 +1,7 @@
 name: Filing library for fmp (text + full XBRL, overwritten each run)
 
 on:
-  # No schedule since 25 Sep 2026: pipeline_v2.yml fetches the (complete) library to the filings-v2 branch every
+  # No schedule since 25 Sep 2026: pipeline_v2.yml fetches the (complete) library, as `library` release assets, every
   # night; two libraries would double the repo's size. Kept for a manual run.
   workflow_dispatch:
     inputs:

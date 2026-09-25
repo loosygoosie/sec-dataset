@@ -29,7 +29,7 @@ fundamentals pipeline itself treats every filer alike; which companies matter is
 | `sec.yml` — Build company fundamentals (all filers) | Sunday 06:00 | `data/companies/`, `manifest.json`, `tickers.json`, `REPORT.md` |
 | `companies-patch.yml` — daily patch | Mon–Sat 07:00 | only the company files (and manifest entries) whose 10-Q/10-K is newer than the file |
 | `events.yml` — events feed | daily 03:00 | `data/events/`, `events_recent.json`, `events_report.md` |
-| `pipeline_v2.yml` — Pipeline v2 (parallel week from 24 Sep 2026) | daily 09:30 | ONLY `data/v2/` and the `filings-v2` branch — see "Pipeline v2" below |
+| `pipeline_v2.yml` — Pipeline v2 (parallel week from 24 Sep 2026) | daily 09:30 | ONLY `data/v2/` and the `library` release assets — see "Pipeline v2" and "The complete filing library" below |
 | `tests.yml` — Tests | every push | nothing |
 
 ## One-time setup (about five minutes)
@@ -362,6 +362,67 @@ the build actually wrote.
 - SEC bulk facts: https://www.sec.gov/Archives/edgar/daily-index/xbrl/companyfacts.zip
 - SEC ticker→CIK maps: https://www.sec.gov/files/company_tickers.json and company_tickers_exchange.json
 
+## The complete filing library (release `library`, `library.py`, 25 Sep 2026)
+
+**Where:** https://github.com/loosygoosie/sec-dataset/releases/tag/library — release assets, public, no login.
+**What:** for every pipeline v2 universe company (market value >= $15B), EVERY filing it made in the last 3 years
+(`LIBRARY_YEARS`), every form (10-K/Q, 8-K, DEF 14A, ARS, 425, 11-K, SD, PX14A6G, FWP, 424B*, S-*, 3/4/5, 144,
+13D/G, CORRESP/UPLOAD, ...), and EVERY document in each filing. Owner, 25 Sep 2026: "fetch everything" — the older
+libraries below kept a subset (Cintas: 83 of its 201 filings since Jan 2024).
+
+Assets:
+
+- `<cik>.tar.gz` — one per company; `tar xz` gives `<cik>/`:
+  - `<acc>_<filed>_<form>.txt.gz` — the filing's main document as text; `<acc>_<filed>_<form>_<type>.txt.gz` — each
+    other document (EX-10.1, EX-99.1, the PDF letters, ...). HTML/iXBRL → text (`fetch_filings.to_text`), PDFs
+    uudecoded and read with `pypdf`, Forms 3/4/5 as ONE LINE PER TRANSACTION, other XML as `element: value` lines.
+    A filing with no text at all (graphics only, a paper filing's header) gets one file saying what it held.
+  - `xbrl/<acc>.xml.gz` — the full XBRL instance of every 10-K / 10-Q (and amendments).
+  - `forms/<acc>.xml.gz` — the raw XML of every Form 3/4/5.
+  - `manifest.json` — `edgar_filings` (EDGAR's count in the window), `saved_filings`, `complete`, `failures`
+    (`{acc, form, filed, error}`), `deferred`, `missing` (accessions not held), `forms` (count per form), and
+    `filings`: `{acc, form, filed, report, files: [{file, type, name, chars}], xbrl, raw, note}`, newest first.
+- `index.json` — `totals` and `companies: {cik: {ticker, name, mcap, asset, bytes, edgar_filings, saved_filings,
+  documents, failures, failed, deferred, complete, updated, checked, in_universe, left, error}}`.
+- `accessions.json.gz` — `{cik: [accession, ...]}` saved: how a run finds what is new without downloading assets.
+
+Skipped inside a filing, on purpose: graphics, `R*.htm` rendered pages, `FilingSummary`, Excel / JSON / ZIP files and
+the EX-101 schema and linkbases (the instance is kept whole). The text files keep the old library's
+`<cik>/<acc>_*.txt.gz` naming, so a reader that globbed that (fmp's `owner/citecheck.py`) works on an extracted asset.
+
+Read one company:
+
+```
+mkdir -p ../sec-filings
+curl -sL https://github.com/loosygoosie/sec-dataset/releases/download/library/<cik>.tar.gz | tar xz -C ../sec-filings
+curl -sL https://github.com/loosygoosie/sec-dataset/releases/download/library/index.json   # who is in, how complete
+```
+
+How it is fetched (`library.py`, called by `pipeline_v2.py` step 3):
+
+- ONE request per filing: the complete submission file `Archives/edgar/data/<cik>/<acc_nodash>/<acc>.txt`, which
+  holds every document; split on `<DOCUMENT>`. 6 filings in flight under ONE shared 8 requests/second throttle (SEC
+  fair access is 10/s; `SEC_MIN_GAP` slows it). User agent only from the `SEC_USER_AGENT` secret.
+- EDGAR's list per company comes from `submissions.zip` (already downloaded in step 1, so 0 requests), merged with the
+  older `-submissions-NNN.json` pages whenever the `recent` block does not reach back 3 years; a page that can't be
+  read fails the company rather than undercounting it.
+- Incremental: accessions EDGAR lists minus accessions saved = what is fetched. A company with nothing new is not
+  opened; one that changed is downloaded, updated (filings that left the window are dropped) and its asset replaced.
+  A failure is not saved, so the next run retries it. `LIBRARY_MINUTES` (default 180) / `MAX_NEW_FILINGS` bound a run;
+  the rest is `deferred` and fetched on the next nights (the first fill of ~420 companies takes a few nights: bank
+  note programmes file thousands of 424B2s).
+- Completeness: every company's EDGAR count vs saved, and each failure, is in its manifest and `index.json`; the run
+  report (`data/v2/report.md`, "Filing library") lists every company with a gap.
+- Changes: each new filing of a company already in the library is appended to `data/v2/changes.jsonl`
+  (`type: new_filing`, `source: library`, accession, form, filed, file), which keeps its history on main.
+- A company out of the universe keeps its asset for 30 days (`in_universe: false`, `left`), then it is deleted.
+- Storage: about 4 MB compressed per company (Cintas: 2.4 MB text + 1.5 MB XBRL), ~1.7 GB for ~420, more for the big
+  banks. Release assets, not a git branch: a force-pushed branch of that size bloats the repository and meets
+  GitHub's limits; assets are replaced one by one (`gh release upload --clobber`, the workflow's `GITHUB_TOKEN`).
+
+The `filings-v2` branch (the previous v2 library) is no longer written; it and the `filings` branch below stay as they
+were until the owner retires them.
+
 ## Filing library (`filings` branch, `fetch_filings.py`, 24 Sep 2026)
 
 Every recent filing of every S&P 500-sized company (market value >= $15B, a cushion under S&P's $22.7B minimum,
@@ -409,7 +470,8 @@ LHX FY2025 missing); share counts from companyfacts with ONE share class (HEICO,
    `data/v2/share_class_weights.csv` (Berkshire A = 1,500 B) and `data/v2/ads_ratio.csv` (ONC 13, ZLAB 10), both
    copied from `fmp/owner/data`. Checked against Yahoo's market cap: beyond 3x Yahoo's is used (`mcap_check`
    says so); a gap over 15% is flagged.
-3. The filing library in EVERYTHING mode for every universe company (`filings-v2` branch, seeded from `filings`).
+3. The complete filing library for every universe company (`library` release assets; see "The complete filing
+   library" above). Until 25 Sep 2026 this was `fetch_filings.py`'s EVERYTHING mode on the `filings-v2` branch.
 4. Fundamentals from companyfacts, point in time: every value keeps the form and the date it was first public (and
    `first_val` / `first_filed` when restated); annual, quarterly (3-month facts or year-to-date differences) and TTM
    (four quarters, else last year + YTD - last year's YTD); the tag used per field and period in `src`. Revenue: the
@@ -435,6 +497,6 @@ LHX FY2025 missing); share counts from companyfacts with ONE share class (HEICO,
 (a workflow step fails the run if anything outside `data/v2/` changed), and `filings.yml`'s default run is unchanged.
 fmp's autopilot keeps reading the old files. Each day, read `data/v2/compare.md`: every row should be a v2 fix
 (the cases above) or be explained; a v2 bug is fixed before fmp switches. After the week, fmp can move to
-`data/v2/` and `filings-v2`, and `filings.yml` can be retired. Smoke tests: dispatch with `only_tickers` or `limit`
-(nothing is committed). Locally: `ONLY_TICKERS=AAPL,HEI LIBRARY=false SEC_MIN_GAP=0.6 V2_OUT=/tmp/v2 python
+`data/v2/` and the `library` release, and `filings.yml` can be retired. Smoke tests: dispatch with `only_tickers` or `limit`
+(nothing is committed to main; the library assets of those companies ARE published to the `library` release). Locally: `ONLY_TICKERS=AAPL,HEI LIBRARY=false SEC_MIN_GAP=0.6 V2_OUT=/tmp/v2 python
 pipeline_v2.py` (uses the per-company APIs; `SEC_MIN_GAP` keeps a shared workstation under 2 requests a second).

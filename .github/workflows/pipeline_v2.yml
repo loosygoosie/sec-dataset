@@ -3,9 +3,13 @@ name: Pipeline v2 (fmp pool - universe, fundamentals, filing library)
 # WHY THIS EXISTS (owner, 24 Sep 2026). fmp now reads deeply every US company worth >= $22.7B and buys by market
 # value, and the old jobs (sec.yml's every-filer build + the daily patch + events) kept feeding those reads wrong debt,
 # capex, revenue and share counts. This one job does it all for that pool: 2 bulk SEC downloads, our own market value
-# from every share class on the latest cover, corrected fundamentals, and the filing library (EVERYTHING mode).
+# from every share class on the latest cover, corrected fundamentals, and the filing library.
 #
-# PARALLEL WEEK: it writes ONLY data/v2/ on this branch and the `filings-v2` library branch. data/companies,
+# LIBRARY (owner, 25 Sep 2026: "fetch everything"): library.py keeps EVERY filing of the last 3 years and every document
+# in it, per company, as RELEASE ASSETS on the `library` tag (<cik>.tar.gz + index.json), not in a git branch.
+# Only filings not saved yet are fetched; an asset is replaced only when its company changed.
+#
+# PARALLEL WEEK: it writes ONLY data/v2/ on this branch and the `library` release assets. data/companies,
 # data/events, data/tickers.json and the `filings` branch stay with the old jobs, which fmp's live autopilot reads.
 # data/v2/compare.md says, per company, where v2 and the old build differ by > 5%; the week is judged on it.
 
@@ -28,16 +32,21 @@ on:
         description: "Update the filing library (true/false)"
         default: "true"
         required: false
-      max_new_docs:
-        description: "Library documents fetched this run at most (the rest come on later runs)"
-        default: "20000"
+      library_minutes:
+        description: "Minutes the library may spend fetching (the rest come on later runs)"
+        default: "180"
+        required: false
+      max_new_filings:
+        description: "Library filings fetched this run at most; 0 = no cap"
+        default: "0"
         required: false
 
 permissions:
   contents: write
 
 concurrency:
-  group: pipeline-v2
+  # a smoke test (limit / only_tickers) does not queue behind a nightly run of several hours
+  group: pipeline-v2-${{ ((inputs.limit || '0') != '0' || (inputs.only_tickers || '') != '') && 'smoke' || 'full' }}
   cancel-in-progress: false
 
 jobs:
@@ -58,19 +67,20 @@ jobs:
         run: |
           test -s pipeline_v2.py || { echo "pipeline_v2.py is empty"; exit 1; }
           test -s fetch_filings.py || { echo "fetch_filings.py is empty"; exit 1; }
+          test -s library.py || { echo "library.py is empty"; exit 1; }
 
       - name: Prove the pipeline first
-        run: python -m pytest -q tests/test_pipeline_v2.py tests/test_fetch_filings.py
+        run: python -m pytest -q tests/test_pipeline_v2.py tests/test_fetch_filings.py tests/test_library.py
 
-      - name: Get the current library (filings-v2, else the old filings branch, else empty)
+      - name: Make sure the library release exists
         if: inputs.library != 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          for b in filings-v2 filings; do
-            git clone --quiet --depth 1 --branch "$b" --single-branch \
-              "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" filings-store \
-              && { echo "library from $b"; break; }
-          done
-          mkdir -p filings-store
+          gh release view library --repo "${{ github.repository }}" > /dev/null 2>&1 || \
+            gh release create library --repo "${{ github.repository }}" --target main --latest=false \
+              --title "Filing library (every filing of the last 3 years, per company)" \
+              --notes "One <cik>.tar.gz per company (text of every document, xbrl/, forms/, manifest.json) plus index.json. Replaced nightly by pipeline_v2.yml when a company files. See README.md, Filing library."
 
       - name: Run pipeline v2
         env:
@@ -78,8 +88,10 @@ jobs:
           ONLY_TICKERS: ${{ inputs.only_tickers || '' }}
           LIMIT: ${{ inputs.limit || '0' }}
           LIBRARY: ${{ inputs.library || 'true' }}
-          MAX_NEW_DOCS: ${{ inputs.max_new_docs || '20000' }}
-          FILINGS_STORE: filings-store
+          LIBRARY_MINUTES: ${{ inputs.library_minutes || '180' }}
+          MAX_NEW_FILINGS: ${{ inputs.max_new_filings || '0' }}
+          LIBRARY_TAG: library
+          GH_TOKEN: ${{ github.token }}
           PYTHONUNBUFFERED: "1"
         run: python pipeline_v2.py
 
@@ -88,20 +100,6 @@ jobs:
         run: |
           git status --porcelain -- . ':!data/v2' ':!filings-store' ':!work' | tee /tmp/outside
           test ! -s /tmp/outside || { echo "pipeline v2 wrote outside data/v2"; exit 1; }
-
-      - name: Publish the library (overwrite filings-v2, one commit, no history)
-        if: inputs.library != 'false'
-        run: |
-          cd filings-store
-          test -d .git || git init --quiet
-          git remote remove origin 2>/dev/null || true
-          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
-          git config user.name  "sec-dataset-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git checkout --quiet --orphan snapshot
-          git add -A
-          git commit -q -m "Filing library v2 $(date -u +%Y-%m-%d) [skip ci]"
-          git push -q -f origin snapshot:filings-v2
 
       - name: Commit data/v2 (full runs only)
         if: (inputs.only_tickers || '') == '' && (inputs.limit || '0') == '0'

@@ -19,8 +19,8 @@ jobs:
 
       - name: Install dependencies
         # requests only because the builder imports it at module scope; the tests
-        # themselves touch no network.
-        run: pip install --quiet pytest requests
+        # themselves touch no network. pypdf: library.py reads PDFs (tests/test_library.py).
+        run: pip install --quiet pytest requests pypdf
 
       - name: Refuse an empty script
         run: test -s build_sec_dataset.py || { echo "build_sec_dataset.py is empty"; exit 1; }
