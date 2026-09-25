@@ -208,6 +208,9 @@ def flow_series(fs: list[dict], additive: bool = True) -> tuple[dict, dict, dict
     ann, q = {}, {}
     for (s, e), r in sorted(P.items()):
         n = _days(s, e)
+        if 340 <= n <= 380 and not r["form"].startswith("10-K"):
+            continue                      # a 12-month total in a 10-Q is a trailing-twelve-month disclosure, not a
+                                          # fiscal year (AMZN's 10-Q cash-flow TTM made FY rows end 2026-03 / 2026-06)
         if 340 <= n <= 380 and (e not in ann or abs(n - 365) < abs(_days(ann[e]["start"], e) - 365)):
             ann[e] = r
         elif 80 <= n <= 100:
