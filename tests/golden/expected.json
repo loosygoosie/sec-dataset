@@ -66,6 +66,48 @@
   "total_debt": 36210000000,
   "ttm_revenue": 74729000000
  },
+ "CBRE": {
+  "evidence": "Sep 2026 audit vs its Jun 2026 10-Q: debt 8.093B = warehouse lines 0.711 + other short-term 1.582 + current maturities 0.069 + long-term 5.731 (the old 'larger short-term line' rule dropped the 0.069B).",
+  "flags": [],
+  "fy": {
+   "2024-12-31": {
+    "capex": 307000000,
+    "net_income": 968000000,
+    "revenue": 35767000000
+   },
+   "2025-12-31": {
+    "capex": 366000000,
+    "net_income": 1157000000,
+    "revenue": 40550000000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 289575298.0,
+  "total_debt": 8093000000,
+  "ttm_revenue": 43640000000
+ },
+ "CMI": {
+  "evidence": "Sep 2026 audit vs its Jun 2026 10-Q: debt as printed 7.695B = loans payable 0.459 (ShortTermBankLoansAndNotesPayable, was missed) + commercial paper 0.348 + current maturities 0.151 + long-term debt 6.737 (includes 0.132B finance leases, as printed).",
+  "flags": [],
+  "fy": {
+   "2024-12-31": {
+    "capex": 1208000000,
+    "net_income": 3946000000,
+    "revenue": 34102000000
+   },
+   "2025-12-31": {
+    "capex": 1235000000,
+    "net_income": 2843000000,
+    "revenue": 33670000000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 137664487.0,
+  "total_debt": 7695000000,
+  "ttm_revenue": 34708000000
+ },
  "CNP": {
   "evidence": "Revenue = the income statement's 'Revenues' line by tie-out (8.696B 2023, 8.643B 2024 = CenterPoint's reported figures; the 606 line 8.552B was v2's earlier wrong pick, corrected 25 Sep 2026). Debt includes the current portion; the subsidiary's 1,000 cover shares (LegalEntityAxis) are not counted.",
   "flags": [],
@@ -149,6 +191,27 @@
   "shares_total": 208088069.0,
   "total_debt": 27584000000,
   "ttm_revenue": 16465000000
+ },
+ "EXC": {
+  "evidence": "Sep 2026 audit vs its Jun 2026 10-Q: v2 52.283B = short-term 1.243 + current 0.727 + long-term 50.313; the filing's 52.673B also has 0.390B 'long-term debt to financing trusts' on a line v2 does not read (-0.7%, known).",
+  "flags": [],
+  "fy": {
+   "2024-12-31": {
+    "capex": 7097000000,
+    "net_income": 2460000000,
+    "revenue": 23028000000
+   },
+   "2025-12-31": {
+    "capex": 8529000000,
+    "net_income": 2768000000,
+    "revenue": 24258000000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 1032253967.0,
+  "total_debt": 52283000000,
+  "ttm_revenue": 25326000000
  },
  "GE": {
   "evidence": "Robinhood agrees (45.855B / 38.702B, NI). Q1 2023 capex now uses the year's tag.",

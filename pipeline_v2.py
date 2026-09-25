@@ -148,7 +148,8 @@ DEBT_NONCURRENT = ["LongTermDebtNoncurrent", "LongTermDebtAndCapitalLeaseObligat
                    "LongTermNotesAndLoans"]
 DEBT_CURRENT_LTD = ["LongTermDebtCurrent", "LongTermDebtAndCapitalLeaseObligationsCurrent", "OtherLongTermDebtCurrent",
                     "NotesPayableCurrent", "SeniorNotesCurrent"]
-DEBT_SHORT = ["ShortTermBorrowings", "CommercialPaper", "OtherShortTermBorrowings"]
+DEBT_SHORT = ["ShortTermBorrowings", "CommercialPaper", "OtherShortTermBorrowings", "ShortTermBankLoansAndNotesPayable",
+              "LoansPayableCurrent"]
 LEASES = ["FinanceLeaseLiability", "FinanceLeaseLiabilityNoncurrent", "FinanceLeaseLiabilityCurrent"]
 # unclassified balance sheets (REITs, insurers, homebuilders) tag one TOTAL instead of current / non-current
 DEBT_COMBINED = ["DebtLongtermAndShorttermCombinedAmount", "DebtAndCapitalLeaseObligations",
@@ -469,16 +470,21 @@ def assemble_debt(v: dict) -> dict | None:
         cur, cur_tags = v["DebtCurrent"], ["DebtCurrent"]
     else:
         stb = v.get("ShortTermBorrowings")
-        paper_tags = [t for t in ("CommercialPaper", "OtherShortTermBorrowings") if v.get(t) is not None]
+        paper_tags = [t for t in ("CommercialPaper", "OtherShortTermBorrowings", "ShortTermBankLoansAndNotesPayable",
+                                  "LoansPayableCurrent") if v.get(t) is not None]           # distinct lines: added
         paper = sum(v[t] for t in paper_tags) if paper_tags else None
         st_opts = [(x, t) for x, t in ((stb, ["ShortTermBorrowings"]), (paper, paper_tags)) if x is not None]
         st, st_tags = max(st_opts, key=lambda x: x[0]) if st_opts else (None, [])
         only_paper = stb is None or (paper is not None and stb <= paper * 1.05)
         if ltc is not None and st is not None:
-            if only_paper:
-                cur, cur_tags = ltc + st, [lt] + st_tags
+            # A short-term line of 100-110% of the current portion already holds it (AMAT: 1.299B vs 1.199B; Cintas
+            # 2020: equal): count once. Otherwise they are separate borrowings and add up (the Sep 2026 audit: EXC,
+            # CBRE; and MSFT, SHW, WMT against their stated totals). The old 'take the larger' rule dropped the current
+            # portion whenever a ShortTermBorrowings line existed.
+            if not only_paper and ltc <= st <= 1.10 * ltc:
+                cur, cur_tags = st, st_tags
             else:
-                cur, cur_tags = (ltc, [lt]) if ltc >= st else (st, st_tags)
+                cur, cur_tags = ltc + st, [lt] + st_tags
         else:
             cur, cur_tags = (ltc, [lt]) if ltc is not None else (st, st_tags)
     if nonc is None and cur is None:

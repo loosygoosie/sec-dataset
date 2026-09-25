@@ -49,10 +49,16 @@ def test_noncurrent_tag_is_preferred_over_inclusive_long_term_debt():
     assert d["total_debt"] == 10_000
 
 
-def test_short_term_borrowings_holding_current_maturities_take_the_larger():
-    """PepsiCo-style: a ShortTermBorrowings line that already holds the current maturities is not added to them."""
-    d = V.assemble_debt({"LongTermDebtNoncurrent": 20_000, "LongTermDebtCurrent": 1_600, "ShortTermBorrowings": 10_600})
-    assert d["total_debt"] == 30_600
+def test_short_term_borrowings_holding_current_maturities_count_once():
+    """AMAT 2026: ShortTermBorrowings 1.299B already holds the 1.199B current maturities (100-110% of it): once.
+    A clearly separate short-term line adds (Sep 2026 audit: CBRE 0.069B current + 2.293B short-term; EXC; WMT)."""
+    d = V.assemble_debt({"LongTermDebtNoncurrent": 5_245, "LongTermDebtCurrent": 1_199, "ShortTermBorrowings": 1_299})
+    assert d["total_debt"] == 6_544
+    d = V.assemble_debt({"LongTermDebtNoncurrent": 5_731, "LongTermDebtCurrent": 69, "ShortTermBorrowings": 2_293})
+    assert d["total_debt"] == 8_093
+    d = V.assemble_debt({"LongTermDebtAndCapitalLeaseObligations": 6_737, "LongTermDebtCurrent": 151,     # CMI
+                         "CommercialPaper": 348, "ShortTermBankLoansAndNotesPayable": 459})
+    assert d["total_debt"] == 7_695
 
 
 def test_paper_and_other_short_term_borrowings_add_to_current_portion():

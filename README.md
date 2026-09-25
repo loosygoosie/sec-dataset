@@ -539,6 +539,15 @@ LHX FY2025 missing); share counts from companyfacts with ONE share class (HEICO,
    reports_in_*; `interest_but_no_debt` (> $50M a year of interest, no debt found: F, BRK-B, KKR, PCAR, ALNY — tells a
    missed debt from a company that truly has none, like ISRG); `debt_too_small_for_interest` (interest > 25% of the
    debt found: ED). Banks are skipped (their interest is mostly on deposits).
+   FIRST RANDOM AUDIT (fmp owner/audit.py, Sep 2026: 10 random pool companies, 50 values checked by agents against
+   the filings): revenue 10/10, net income 10/10, capex 10/10, cover shares 10/10 right; total debt 5 wrong + 1
+   unclear of 10, all small (1-6%) and from two causes, now fixed: the old "take the larger of short-term borrowings
+   and current maturities" rule dropped the current portion whenever a short-term line existed (EXC, CBRE, and SHW
+   earlier) — now they add up unless the short-term line is 100-110% of the current portion (it then already holds
+   it: AMAT, Cintas 2020) — and CMI's `ShortTermBankLoansAndNotesPayable` was not read. DEBT DEFINITION: the borrowing
+   lines as printed on the balance sheet (a finance lease inside a printed debt line counts, as CMI and LHX print
+   it; finance-lease lines of their own do not). Left: CVNA -1.2% (a revolver on its own tag), EXC -0.7% (debt to
+   financing trusts). CBRE, CMI, EXC joined the known-answer tests.
 5. Outputs, ONLY under `data/v2/`:
    - `companies/<cik>.json` — TWO views of the company (25 Sep 2026, for fmp's switch off the old jobs):
      - the OLD file's shape, same keys and ~90 fields (`sec_name`, `annual`, `quarterly` with `fiscal_year` /
