@@ -327,8 +327,6 @@
    "shares_diluted_filled_filed": "2015-02-24",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 250139408,
-   "stock_comp": 1900000,
-   "stock_comp_filed": "2014-04-29",
    "total_assets": 6859103000,
    "total_assets_as_filed": 6888509000,
    "total_assets_as_filed_filed": "2013-02-27",
@@ -1464,9 +1462,9 @@
  "cik": 74208,
  "fiscal_year_end": "1231",
  "flags": [
-  "revenue_unverified_2025-12-31",
-  "revenue_unverified_2023-12-31",
   "revenue_unverified_2024-12-31",
+  "revenue_unverified_2023-12-31",
+  "revenue_unverified_2025-12-31",
   "current_ltd_untagged_0.3B",
   "debt_one_side_only"
  ],
@@ -2502,12 +2500,6 @@
      "form": "10-K",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
     },
-    "stock_comp": {
-     "accn": "0000074208-14-000006",
-     "filed": "2014-04-29",
-     "form": "10-Q",
-     "tag": "AllocatedShareBasedCompensationExpense"
-    },
     "total_debt": {
      "filed": "2013-02-27",
      "note": "one side only (a floor)",
@@ -2520,7 +2512,6 @@
     }
    },
    "start": "2012-01-01",
-   "stock_comp": 1900000,
    "total_debt": 3409333000
   },
   {
@@ -3586,13 +3577,6 @@
    "period": "2012-12-31",
    "rows": "annual",
    "v2": 3409333000
-  },
-  {
-   "field": "stock_comp",
-   "old": null,
-   "period": "2012-12-31",
-   "rows": "annual",
-   "v2": 1900000
   },
   {
    "field": "capex",

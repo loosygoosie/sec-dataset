@@ -87,8 +87,8 @@
  "cik": 2067674,
  "fiscal_year_end": "1231",
  "flags": [
-  "no_revenue",
   "no_operating_cash_flow",
+  "no_capex",
   "no_revenue"
  ],
  "instances_merged": [],
@@ -312,15 +312,6 @@
   "SBMT"
  ],
  "ttm": {
-  "capex": {
-   "end": "2025-12-31",
-   "filed": "2026-05-14",
-   "method": "fiscal_year_stale",
-   "tags": [
-    "PaymentsToAcquireOtherPropertyPlantAndEquipment"
-   ],
-   "val": 13000
-  },
   "shares_diluted": {
    "end": "2026-06-30",
    "filed": "2026-08-13",
@@ -647,7 +638,6 @@
  ],
  "v2_tags_used": {
   "capex": [
-   "PaymentsToAcquireOtherPropertyPlantAndEquipment",
    "PaymentsToAcquirePropertyPlantAndEquipment"
   ],
   "net_income": [

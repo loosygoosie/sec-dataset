@@ -35,7 +35,7 @@
    "current_liabilities_as_filed": 150111000,
    "current_liabilities_as_filed_filed": "2020-11-20",
    "d_and_a": 64048000,
-   "debt_current": 43000000,
+   "debt_current": 86000000,
    "dividends_paid": 0,
    "dividends_paid_as_filed": 0,
    "dividends_paid_as_filed_filed": "2021-05-19",
@@ -98,8 +98,8 @@
    "total_assets": 817821000,
    "total_assets_as_filed": 817821000,
    "total_assets_as_filed_filed": "2020-11-20",
-   "total_debt": 43000000,
-   "total_debt_as_filed": 43000000,
+   "total_debt": 86000000,
+   "total_debt_as_filed": 86000000,
    "total_debt_as_filed_filed": "2021-02-02",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2021-02-02",
@@ -1522,7 +1522,7 @@
    "capex": 45615000,
    "cash": 214491000,
    "cash_and_sti": 214491000,
-   "debt_current": 43000000,
+   "debt_current": 86000000,
    "debt_noncurrent": 0,
    "end": "2020-03-27",
    "equity": 633182000,
@@ -1584,17 +1584,19 @@
      "filed": "2021-02-02",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBankLoansAndNotesPayable"
      ],
      "values": {
       "LongTermDebtCurrent": 43000000,
-      "LongTermDebtNoncurrent": 0
+      "LongTermDebtNoncurrent": 0,
+      "ShortTermBankLoansAndNotesPayable": 43000000
      }
     }
    },
    "start": "2019-03-30",
    "stock_comp": 1435000,
-   "total_debt": 43000000
+   "total_debt": 86000000
   },
   {
    "capex": 40673000,
@@ -1662,11 +1664,13 @@
      "filed": "2021-05-19",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBankLoansAndNotesPayable"
      ],
      "values": {
       "LongTermDebtCurrent": 0,
-      "LongTermDebtNoncurrent": 25000000
+      "LongTermDebtNoncurrent": 25000000,
+      "ShortTermBankLoansAndNotesPayable": 0
      }
     }
    },
@@ -2070,6 +2074,20 @@
  "v2_fixes": [
   {
    "field": "total_debt",
+   "old": 43000000,
+   "period": "2020-03-27",
+   "rows": "annual",
+   "v2": 86000000
+  },
+  {
+   "field": "debt_current",
+   "old": 43000000,
+   "period": "2020-03-27",
+   "rows": "annual",
+   "v2": 86000000
+  },
+  {
+   "field": "total_debt",
    "old": 245102000,
    "period": "2024-03-29",
    "rows": "annual",
@@ -2282,7 +2300,7 @@
    "capex": 10618000,
    "cash": 214491000,
    "cash_and_sti": 214491000,
-   "debt_current": 43000000,
+   "debt_current": 86000000,
    "debt_noncurrent": 0,
    "end": "2020-03-27",
    "equity": 633182000,
@@ -2342,17 +2360,19 @@
      "filed": "2021-02-02",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBankLoansAndNotesPayable"
      ],
      "values": {
       "LongTermDebtCurrent": 43000000,
-      "LongTermDebtNoncurrent": 0
+      "LongTermDebtNoncurrent": 0,
+      "ShortTermBankLoansAndNotesPayable": 43000000
      }
     }
    },
    "start": "2019-12-28",
    "stock_comp": 384000,
-   "total_debt": 43000000
+   "total_debt": 86000000
   },
   {
    "capex": 7974000,
@@ -2422,6 +2442,7 @@
    "capex": 10117000,
    "cash": 201998000,
    "cash_and_sti": 201998000,
+   "debt_current": 33000000,
    "end": "2020-09-25",
    "equity": 634464000,
    "fcf": -7143000,
@@ -2480,10 +2501,21 @@
      "filed": "2021-07-30",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2020-11-20",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 33000000
+     }
     }
    },
    "start": "2020-06-27",
-   "stock_comp": 580000
+   "stock_comp": 580000,
+   "total_debt": 33000000
   },
   {
    "capex": 7789000,
@@ -2554,11 +2586,13 @@
      "filed": "2021-02-02",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBankLoansAndNotesPayable"
      ],
      "values": {
       "LongTermDebtCurrent": 0,
-      "LongTermDebtNoncurrent": 25000000
+      "LongTermDebtNoncurrent": 25000000,
+      "ShortTermBankLoansAndNotesPayable": 0
      }
     }
    },
@@ -2630,11 +2664,13 @@
      "filed": "2021-05-19",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBankLoansAndNotesPayable"
      ],
      "values": {
       "LongTermDebtCurrent": 0,
-      "LongTermDebtNoncurrent": 25000000
+      "LongTermDebtNoncurrent": 25000000,
+      "ShortTermBankLoansAndNotesPayable": 0
      }
     }
    },

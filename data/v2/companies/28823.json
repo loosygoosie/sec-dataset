@@ -769,9 +769,9 @@
    "total_assets_as_filed_filed": "2016-02-29",
    "total_debt": 607500000,
    "total_debt_as_filed": 607500000,
-   "total_debt_as_filed_filed": "2016-04-28",
+   "total_debt_as_filed_filed": "2016-11-14",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2016-04-28",
+   "total_debt_filed": "2016-11-14",
    "total_equity": 412400000,
    "total_equity_incl_nci": 428000000,
    "total_equity_parent": 412400000
@@ -792,7 +792,7 @@
    "current_liabilities_as_filed": 1824500000,
    "current_liabilities_as_filed_filed": "2017-02-24",
    "d_and_a": 134800000,
-   "debt_current": 3400000,
+   "debt_current": 66500000,
    "debt_due_1y": 0,
    "debt_due_2y": 37600000,
    "debt_due_3y": 42400000,
@@ -869,8 +869,8 @@
    "total_assets": 5270300000,
    "total_assets_as_filed": 5270300000,
    "total_assets_as_filed_filed": "2017-02-24",
-   "total_debt": 1694800000,
-   "total_debt_as_filed": 1694800000,
+   "total_debt": 1757900000,
+   "total_debt_as_filed": 1757900000,
    "total_debt_as_filed_filed": "2017-02-24",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2017-02-24",
@@ -3075,12 +3075,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2016-04-28",
+     "filed": "2016-11-14",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "OtherLongTermDebtCurrent"
+      "OtherLongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 0,
       "LongTermDebtAndCapitalLeaseObligations": 606200000,
       "OtherLongTermDebtCurrent": 1300000
      }
@@ -3093,7 +3095,7 @@
   {
    "cash": 652700000,
    "cash_and_sti": 652700000,
-   "debt_current": 3400000,
+   "debt_current": 66500000,
    "debt_noncurrent": 1691400000,
    "end": "2016-12-31",
    "equity": 588700000,
@@ -3154,9 +3156,11 @@
      "filed": "2017-02-24",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "OtherLongTermDebtCurrent"
+      "OtherLongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 63100000,
       "LongTermDebtAndCapitalLeaseObligations": 1691400000,
       "OtherLongTermDebtCurrent": 3400000
      }
@@ -3164,7 +3168,7 @@
    },
    "start": "2016-01-01",
    "stock_comp": 22200000,
-   "total_debt": 1694800000
+   "total_debt": 1757900000
   },
   {
    "cash": 535200000,
@@ -3228,9 +3232,11 @@
      "filed": "2018-02-28",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "OtherLongTermDebtCurrent"
+      "OtherLongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 0,
       "LongTermDebtAndCapitalLeaseObligations": 1787100000,
       "OtherLongTermDebtCurrent": 500000
      }
@@ -3894,14 +3900,14 @@
    "old": 1798300000,
    "period": "2016-12-31",
    "rows": "annual",
-   "v2": 1694800000
+   "v2": 1757900000
   },
   {
    "field": "debt_current",
    "old": null,
    "period": "2016-12-31",
    "rows": "annual",
-   "v2": 3400000
+   "v2": 66500000
   },
   {
    "field": "total_debt",
@@ -6247,12 +6253,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2016-04-28",
+     "filed": "2016-11-14",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "OtherLongTermDebtCurrent"
+      "OtherLongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 0,
       "LongTermDebtAndCapitalLeaseObligations": 606200000,
       "OtherLongTermDebtCurrent": 1300000
      }
@@ -6424,7 +6432,7 @@
    "capex": 12600000,
    "cash": 748200000,
    "cash_and_sti": 748200000,
-   "debt_current": 12600000,
+   "debt_current": 85600000,
    "debt_noncurrent": 1722500000,
    "end": "2016-09-30",
    "equity": 736200000,
@@ -6488,9 +6496,11 @@
      "filed": "2016-11-14",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "OtherLongTermDebtCurrent"
+      "OtherLongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 73000000,
       "LongTermDebtAndCapitalLeaseObligations": 1722500000,
       "OtherLongTermDebtCurrent": 12600000
      }
@@ -6498,12 +6508,12 @@
    },
    "start": "2016-07-01",
    "stock_comp": 4100000,
-   "total_debt": 1735100000
+   "total_debt": 1808100000
   },
   {
    "cash": 652700000,
    "cash_and_sti": 652700000,
-   "debt_current": 3400000,
+   "debt_current": 66500000,
    "debt_noncurrent": 1691400000,
    "end": "2016-12-31",
    "equity": 588700000,
@@ -6562,9 +6572,11 @@
      "filed": "2017-02-24",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "OtherLongTermDebtCurrent"
+      "OtherLongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 63100000,
       "LongTermDebtAndCapitalLeaseObligations": 1691400000,
       "OtherLongTermDebtCurrent": 3400000
      }
@@ -6572,7 +6584,7 @@
    },
    "start": "2016-10-01",
    "stock_comp": 8000000,
-   "total_debt": 1694800000
+   "total_debt": 1757900000
   },
   {
    "capex": 12100000,
@@ -6644,9 +6656,11 @@
      "filed": "2017-05-04",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "OtherLongTermDebtCurrent"
+      "OtherLongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 0,
       "LongTermDebtAndCapitalLeaseObligations": 1689700000,
       "OtherLongTermDebtCurrent": 2400000
      }
@@ -6728,9 +6742,11 @@
      "filed": "2017-07-26",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "OtherLongTermDebtCurrent"
+      "OtherLongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 0,
       "LongTermDebtAndCapitalLeaseObligations": 1787500000,
       "OtherLongTermDebtCurrent": 3300000
      }
@@ -6812,9 +6828,11 @@
      "filed": "2017-10-31",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "OtherLongTermDebtCurrent"
+      "OtherLongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 0,
       "LongTermDebtAndCapitalLeaseObligations": 1834500000,
       "OtherLongTermDebtCurrent": 800000
      }
@@ -6888,9 +6906,11 @@
      "filed": "2018-02-28",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "OtherLongTermDebtCurrent"
+      "OtherLongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 0,
       "LongTermDebtAndCapitalLeaseObligations": 1787100000,
       "OtherLongTermDebtCurrent": 500000
      }

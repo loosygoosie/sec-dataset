@@ -1466,9 +1466,9 @@
    "total_assets_as_filed_filed": "2026-02-18",
    "total_debt": 535600000,
    "total_debt_as_filed": 535600000,
-   "total_debt_as_filed_filed": "2026-02-18",
+   "total_debt_as_filed_filed": "2026-08-04",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2026-02-18",
+   "total_debt_filed": "2026-08-04",
    "total_equity": 1240700000,
    "total_equity_parent": 1240700000
   }
@@ -2048,7 +2048,7 @@
    "total_assets": 4724300000,
    "total_debt": 535600000,
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2026-02-18",
+   "total_debt_filed": "2026-08-04",
    "total_equity": 1240700000,
    "total_equity_parent": 1240700000
   },
@@ -3571,14 +3571,16 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2026-02-18",
+     "filed": "2026-08-04",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 5500000,
-      "LongTermDebtNoncurrent": 530100000
+      "LongTermDebtNoncurrent": 530100000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -8412,14 +8414,16 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2026-02-18",
+     "filed": "2026-08-04",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 5500000,
-      "LongTermDebtNoncurrent": 530100000
+      "LongTermDebtNoncurrent": 530100000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -8574,11 +8578,13 @@
      "filed": "2026-08-04",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 5500000,
-      "LongTermDebtNoncurrent": 529200000
+      "LongTermDebtNoncurrent": 529200000,
+      "ShortTermBorrowings": 0
      }
     }
    },

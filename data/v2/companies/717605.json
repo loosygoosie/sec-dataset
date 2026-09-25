@@ -682,7 +682,7 @@
    "current_liabilities_as_filed": 271900000,
    "current_liabilities_as_filed_filed": "2017-02-09",
    "d_and_a": 93300000,
-   "debt_current": 4300000,
+   "debt_current": 8100000,
    "dividends_paid": 39800000,
    "dividends_paid_as_filed": 39800000,
    "dividends_paid_as_filed_filed": "2017-02-09",
@@ -744,8 +744,8 @@
    "total_assets": 2400600000,
    "total_assets_as_filed": 2400600000,
    "total_assets_as_filed_filed": "2017-02-09",
-   "total_debt": 688700000,
-   "total_debt_as_filed": 688700000,
+   "total_debt": 692500000,
+   "total_debt_as_filed": 692500000,
    "total_debt_as_filed_filed": "2017-02-09",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2017-02-09",
@@ -773,7 +773,7 @@
    "current_liabilities_as_filed": 262100000,
    "current_liabilities_as_filed_filed": "2018-02-07",
    "d_and_a": 104500000,
-   "debt_current": 4300000,
+   "debt_current": 8600000,
    "dividends_paid": 42600000,
    "dividends_paid_as_filed": 42600000,
    "dividends_paid_as_filed_filed": "2018-02-07",
@@ -835,8 +835,8 @@
    "total_assets": 2780900000,
    "total_assets_as_filed": 2780900000,
    "total_assets_as_filed_filed": "2018-02-07",
-   "total_debt": 809900000,
-   "total_debt_as_filed": 809900000,
+   "total_debt": 814200000,
+   "total_debt_as_filed": 814200000,
    "total_debt_as_filed_filed": "2018-02-07",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2018-02-07",
@@ -863,7 +863,7 @@
    "current_liabilities_as_filed": 326700000,
    "current_liabilities_as_filed_filed": "2019-02-06",
    "d_and_a": 123100000,
-   "debt_current": 9400000,
+   "debt_current": 18500000,
    "dividends_paid": 48400000,
    "dividends_paid_as_filed": 48400000,
    "dividends_paid_as_filed_filed": "2019-02-06",
@@ -926,8 +926,8 @@
    "total_assets": 2824100000,
    "total_assets_as_filed": 2824100000,
    "total_assets_as_filed_filed": "2019-02-06",
-   "total_debt": 956800000,
-   "total_debt_as_filed": 956800000,
+   "total_debt": 965900000,
+   "total_debt_as_filed": 965900000,
    "total_debt_as_filed_filed": "2019-02-06",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2019-02-06",
@@ -954,7 +954,7 @@
    "current_liabilities_as_filed": 322600000,
    "current_liabilities_as_filed_filed": "2020-02-18",
    "d_and_a": 141700000,
-   "debt_current": 9500000,
+   "debt_current": 18400000,
    "dividends_paid": 4200000,
    "dividends_paid_as_filed": 54200000,
    "dividends_paid_as_filed_filed": "2020-02-18",
@@ -1021,8 +1021,8 @@
    "total_assets": 3128600000,
    "total_assets_as_filed": 3128600000,
    "total_assets_as_filed_filed": "2020-02-18",
-   "total_debt": 1060100000,
-   "total_debt_as_filed": 1060100000,
+   "total_debt": 1069000000,
+   "total_debt_as_filed": 1069000000,
    "total_debt_as_filed_filed": "2020-02-18",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2020-02-18",
@@ -1671,8 +1671,6 @@
  "cik": 717605,
  "fiscal_year_end": "1231",
  "flags": [
-  "capex_below_segment_2025-12-31",
-  "capex_below_segment_2024-12-31",
   "debt_one_side_only"
  ],
  "instances_merged": [],
@@ -3018,7 +3016,7 @@
    "capex": 327900000,
    "cash": 35200000,
    "cash_and_sti": 35200000,
-   "debt_current": 4300000,
+   "debt_current": 8100000,
    "debt_noncurrent": 684400000,
    "end": "2016-12-31",
    "equity": 1244900000,
@@ -3080,9 +3078,11 @@
      "filed": "2017-02-09",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 3800000,
       "LongTermDebtCurrent": 4300000,
       "LongTermDebtNoncurrent": 684400000
      }
@@ -3090,13 +3090,13 @@
    },
    "start": "2016-01-01",
    "stock_comp": 16100000,
-   "total_debt": 688700000
+   "total_debt": 692500000
   },
   {
    "capex": 278100000,
    "cash": 60100000,
    "cash_and_sti": 60100000,
-   "debt_current": 4300000,
+   "debt_current": 8600000,
    "debt_noncurrent": 805600000,
    "end": "2017-12-31",
    "equity": 1495100000,
@@ -3158,9 +3158,11 @@
      "filed": "2018-02-07",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 4300000,
       "LongTermDebtCurrent": 4300000,
       "LongTermDebtNoncurrent": 805600000
      }
@@ -3168,13 +3170,13 @@
    },
    "start": "2017-01-01",
    "stock_comp": 17600000,
-   "total_debt": 809900000
+   "total_debt": 814200000
   },
   {
    "capex": 184100000,
    "cash": 32700000,
    "cash_and_sti": 32700000,
-   "debt_current": 9400000,
+   "debt_current": 18500000,
    "debt_noncurrent": 947400000,
    "end": "2018-12-31",
    "equity": 1322000000,
@@ -3237,9 +3239,11 @@
      "filed": "2019-02-06",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 9100000,
       "LongTermDebtCurrent": 9400000,
       "LongTermDebtNoncurrent": 947400000
      }
@@ -3247,13 +3251,13 @@
    },
    "start": "2018-01-01",
    "stock_comp": 16200000,
-   "total_debt": 956800000
+   "total_debt": 965900000
   },
   {
    "capex": 204100000,
    "cash": 64400000,
    "cash_and_sti": 64400000,
-   "debt_current": 9500000,
+   "debt_current": 18400000,
    "debt_noncurrent": 1050600000,
    "end": "2019-12-31",
    "equity": 1446100000,
@@ -3316,9 +3320,11 @@
      "filed": "2020-02-18",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 8900000,
       "LongTermDebtCurrent": 9500000,
       "LongTermDebtNoncurrent": 1050600000
      }
@@ -3326,7 +3332,7 @@
    },
    "start": "2019-01-01",
    "stock_comp": 18300000,
-   "total_debt": 1060100000
+   "total_debt": 1069000000
   },
   {
    "capex": 50600000,
@@ -3859,6 +3865,62 @@
    "period": "2015-12-31",
    "rows": "annual",
    "v2": 1861200000
+  },
+  {
+   "field": "total_debt",
+   "old": 688700000,
+   "period": "2016-12-31",
+   "rows": "annual",
+   "v2": 692500000
+  },
+  {
+   "field": "debt_current",
+   "old": 4300000,
+   "period": "2016-12-31",
+   "rows": "annual",
+   "v2": 8100000
+  },
+  {
+   "field": "total_debt",
+   "old": 809900000,
+   "period": "2017-12-31",
+   "rows": "annual",
+   "v2": 814200000
+  },
+  {
+   "field": "debt_current",
+   "old": 4300000,
+   "period": "2017-12-31",
+   "rows": "annual",
+   "v2": 8600000
+  },
+  {
+   "field": "total_debt",
+   "old": 956800000,
+   "period": "2018-12-31",
+   "rows": "annual",
+   "v2": 965900000
+  },
+  {
+   "field": "debt_current",
+   "old": 9400000,
+   "period": "2018-12-31",
+   "rows": "annual",
+   "v2": 18500000
+  },
+  {
+   "field": "total_debt",
+   "old": 1060100000,
+   "period": "2019-12-31",
+   "rows": "annual",
+   "v2": 1069000000
+  },
+  {
+   "field": "debt_current",
+   "old": 9500000,
+   "period": "2019-12-31",
+   "rows": "annual",
+   "v2": 18400000
   }
  ],
  "v2_notes": [],
@@ -6041,7 +6103,7 @@
    "capex": 75800000,
    "cash": 45700000,
    "cash_and_sti": 45700000,
-   "debt_current": 4700000,
+   "debt_current": 8600000,
    "debt_noncurrent": 670200000,
    "end": "2016-09-30",
    "equity": 1259400000,
@@ -6105,9 +6167,11 @@
      "filed": "2016-10-19",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 3900000,
       "LongTermDebtCurrent": 4700000,
       "LongTermDebtNoncurrent": 670200000
      }
@@ -6115,13 +6179,13 @@
    },
    "start": "2016-07-01",
    "stock_comp": 800000,
-   "total_debt": 674900000
+   "total_debt": 678800000
   },
   {
    "capex": 96100000,
    "cash": 35200000,
    "cash_and_sti": 35200000,
-   "debt_current": 4300000,
+   "debt_current": 8100000,
    "debt_noncurrent": 684400000,
    "end": "2016-12-31",
    "equity": 1244900000,
@@ -6179,9 +6243,11 @@
      "filed": "2017-02-09",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 3800000,
       "LongTermDebtCurrent": 4300000,
       "LongTermDebtNoncurrent": 684400000
      }
@@ -6189,13 +6255,13 @@
    },
    "start": "2016-10-01",
    "stock_comp": 2500000,
-   "total_debt": 688700000
+   "total_debt": 692500000
   },
   {
    "capex": 85500000,
    "cash": 82100000,
    "cash_and_sti": 82100000,
-   "debt_current": 4200000,
+   "debt_current": 8000000,
    "debt_noncurrent": 837000000,
    "end": "2017-03-31",
    "equity": 1262700000,
@@ -6257,9 +6323,11 @@
      "filed": "2017-04-19",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 3800000,
       "LongTermDebtCurrent": 4200000,
       "LongTermDebtNoncurrent": 837000000
      }
@@ -6267,13 +6335,13 @@
    },
    "start": "2017-01-01",
    "stock_comp": 10900000,
-   "total_debt": 841200000
+   "total_debt": 845000000
   },
   {
    "capex": 83700000,
    "cash": 45500000,
    "cash_and_sti": 45500000,
-   "debt_current": 4300000,
+   "debt_current": 8400000,
    "debt_noncurrent": 817300000,
    "end": "2017-06-30",
    "equity": 1330300000,
@@ -6337,9 +6405,11 @@
      "filed": "2017-07-24",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 4100000,
       "LongTermDebtCurrent": 4300000,
       "LongTermDebtNoncurrent": 817300000
      }
@@ -6347,13 +6417,13 @@
    },
    "start": "2017-04-01",
    "stock_comp": 2400000,
-   "total_debt": 821600000
+   "total_debt": 825700000
   },
   {
    "capex": 52100000,
    "cash": 119100000,
    "cash_and_sti": 119100000,
-   "debt_current": 4200000,
+   "debt_current": 8400000,
    "debt_noncurrent": 829600000,
    "end": "2017-09-30",
    "equity": 1426700000,
@@ -6417,9 +6487,11 @@
      "filed": "2017-10-18",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 4200000,
       "LongTermDebtCurrent": 4200000,
       "LongTermDebtNoncurrent": 829600000
      }
@@ -6427,13 +6499,13 @@
    },
    "start": "2017-07-01",
    "stock_comp": 2200000,
-   "total_debt": 833800000
+   "total_debt": 838000000
   },
   {
    "capex": 56800000,
    "cash": 60100000,
    "cash_and_sti": 60100000,
-   "debt_current": 4300000,
+   "debt_current": 8600000,
    "debt_noncurrent": 805600000,
    "end": "2017-12-31",
    "equity": 1495100000,
@@ -6491,9 +6563,11 @@
      "filed": "2018-02-07",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 4300000,
       "LongTermDebtCurrent": 4300000,
       "LongTermDebtNoncurrent": 805600000
      }
@@ -6501,13 +6575,13 @@
    },
    "start": "2017-10-01",
    "stock_comp": 2100000,
-   "total_debt": 809900000
+   "total_debt": 814200000
   },
   {
    "capex": 59500000,
    "cash": 49800000,
    "cash_and_sti": 49800000,
-   "debt_current": 4400000,
+   "debt_current": 8800000,
    "debt_noncurrent": 835600000,
    "end": "2018-03-31",
    "equity": 1562500000,
@@ -6569,9 +6643,11 @@
      "filed": "2018-04-23",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 4400000,
       "LongTermDebtCurrent": 4400000,
       "LongTermDebtNoncurrent": 835600000
      }
@@ -6579,13 +6655,13 @@
    },
    "start": "2018-01-01",
    "stock_comp": 9900000,
-   "total_debt": 840000000
+   "total_debt": 844400000
   },
   {
    "capex": 42400000,
    "cash": 39100000,
    "cash_and_sti": 39100000,
-   "debt_current": 9300000,
+   "debt_current": 18600000,
    "debt_noncurrent": 930100000,
    "end": "2018-06-30",
    "equity": 1399800000,
@@ -6649,9 +6725,11 @@
      "filed": "2018-07-23",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 9300000,
       "LongTermDebtCurrent": 9300000,
       "LongTermDebtNoncurrent": 930100000
      }
@@ -6659,13 +6737,13 @@
    },
    "start": "2018-04-01",
    "stock_comp": 2100000,
-   "total_debt": 939400000
+   "total_debt": 948700000
   },
   {
    "capex": 48300000,
    "cash": 47200000,
    "cash_and_sti": 47200000,
-   "debt_current": 9300000,
+   "debt_current": 18600000,
    "debt_noncurrent": 980700000,
    "end": "2018-09-30",
    "equity": 1367300000,
@@ -6729,9 +6807,11 @@
      "filed": "2018-10-22",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 9300000,
       "LongTermDebtCurrent": 9300000,
       "LongTermDebtNoncurrent": 980700000
      }
@@ -6739,13 +6819,13 @@
    },
    "start": "2018-07-01",
    "stock_comp": 2000000,
-   "total_debt": 990000000
+   "total_debt": 999300000
   },
   {
    "capex": 33900000,
    "cash": 32700000,
    "cash_and_sti": 32700000,
-   "debt_current": 9400000,
+   "debt_current": 18500000,
    "debt_noncurrent": 947400000,
    "end": "2018-12-31",
    "equity": 1322000000,
@@ -6804,9 +6884,11 @@
      "filed": "2019-02-06",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 9100000,
       "LongTermDebtCurrent": 9400000,
       "LongTermDebtNoncurrent": 947400000
      }
@@ -6814,13 +6896,13 @@
    },
    "start": "2018-10-01",
    "stock_comp": 2200000,
-   "total_debt": 956800000
+   "total_debt": 965900000
   },
   {
    "capex": 61100000,
    "cash": 43700000,
    "cash_and_sti": 43700000,
-   "debt_current": 9700000,
+   "debt_current": 18700000,
    "debt_noncurrent": 1160000000,
    "end": "2019-03-31",
    "equity": 1372400000,
@@ -6883,9 +6965,11 @@
      "filed": "2019-04-23",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 9000000,
       "LongTermDebtCurrent": 9700000,
       "LongTermDebtNoncurrent": 1160000000
      }
@@ -6893,13 +6977,13 @@
    },
    "start": "2019-01-01",
    "stock_comp": 11100000,
-   "total_debt": 1169700000
+   "total_debt": 1178700000
   },
   {
    "capex": 38200000,
    "cash": 55400000,
    "cash_and_sti": 55400000,
-   "debt_current": 9700000,
+   "debt_current": 18700000,
    "debt_noncurrent": 1115800000,
    "end": "2019-06-30",
    "equity": 1442400000,
@@ -6964,9 +7048,11 @@
      "filed": "2019-07-22",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 9000000,
       "LongTermDebtCurrent": 9700000,
       "LongTermDebtNoncurrent": 1115800000
      }
@@ -6974,13 +7060,13 @@
    },
    "start": "2019-04-01",
    "stock_comp": 2400000,
-   "total_debt": 1125500000
+   "total_debt": 1134500000
   },
   {
    "capex": 63400000,
    "cash": 47000000,
    "cash_and_sti": 47000000,
-   "debt_current": 9300000,
+   "debt_current": 18000000,
    "debt_noncurrent": 1115200000,
    "end": "2019-09-30",
    "equity": 1417800000,
@@ -7045,9 +7131,11 @@
      "filed": "2019-10-21",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 8700000,
       "LongTermDebtCurrent": 9300000,
       "LongTermDebtNoncurrent": 1115200000
      }
@@ -7055,13 +7143,13 @@
    },
    "start": "2019-07-01",
    "stock_comp": 2400000,
-   "total_debt": 1124500000
+   "total_debt": 1133200000
   },
   {
    "capex": 41400000,
    "cash": 64400000,
    "cash_and_sti": 64400000,
-   "debt_current": 9500000,
+   "debt_current": 18400000,
    "debt_noncurrent": 1050600000,
    "end": "2019-12-31",
    "equity": 1446100000,
@@ -7120,9 +7208,11 @@
      "filed": "2020-02-18",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 8900000,
       "LongTermDebtCurrent": 9500000,
       "LongTermDebtNoncurrent": 1050600000
      }
@@ -7130,7 +7220,7 @@
    },
    "start": "2019-10-01",
    "stock_comp": 2400000,
-   "total_debt": 1060100000
+   "total_debt": 1069000000
   },
   {
    "capex": 27200000,

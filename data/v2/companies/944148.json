@@ -1285,7 +1285,7 @@
    "current_liabilities_as_filed": 705802000,
    "current_liabilities_as_filed_filed": "2025-02-28",
    "d_and_a": 48060000,
-   "debt_current": 66177000,
+   "debt_current": 136177000,
    "eps_diluted": 0.78,
    "filed": "2026-08-04",
    "fiscal_year": 2024,
@@ -1342,8 +1342,8 @@
    "total_assets": 4470883000,
    "total_assets_as_filed": 4470883000,
    "total_assets_as_filed_filed": "2025-02-28",
-   "total_debt": 1399932000,
-   "total_debt_as_filed": 1399932000,
+   "total_debt": 1469932000,
+   "total_debt_as_filed": 1469932000,
    "total_debt_as_filed_filed": "2025-02-28",
    "total_debt_basis": "components",
    "total_debt_filed": "2025-02-28",
@@ -1769,7 +1769,7 @@
    "current_assets": 835726000,
    "current_liabilities": 705802000,
    "d_and_a": 19467000,
-   "debt_current": 66177000,
+   "debt_current": 136177000,
    "eps_diluted": -1.84,
    "filed": "2026-08-04",
    "form": "10-K/A (derived from YTD)",
@@ -1799,7 +1799,7 @@
    "shares_outstanding": 50198000,
    "stock_comp": 6405000,
    "total_assets": 4470883000,
-   "total_debt": 1399932000,
+   "total_debt": 1469932000,
    "total_debt_basis": "components",
    "total_debt_filed": "2025-02-28",
    "total_equity": 1779983000,
@@ -3292,9 +3292,11 @@
      "filed": "2025-02-28",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 0,
       "LongTermDebtCurrent": 0,
       "LongTermDebtNoncurrent": 310826000
      }
@@ -3308,7 +3310,7 @@
    "capex": 12914000,
    "cash": 13826000,
    "cash_and_sti": 13826000,
-   "debt_current": 66177000,
+   "debt_current": 136177000,
    "debt_noncurrent": 1333755000,
    "end": "2024-12-31",
    "equity": 1779983000,
@@ -3370,9 +3372,11 @@
      "filed": "2025-02-28",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 70000000,
       "LongTermDebtCurrent": 66177000,
       "LongTermDebtNoncurrent": 1333755000
      }
@@ -3380,7 +3384,7 @@
    },
    "start": "2024-01-01",
    "stock_comp": 13836000,
-   "total_debt": 1399932000
+   "total_debt": 1469932000
   },
   {
    "capex": 16959000,
@@ -3538,6 +3542,34 @@
    "period": "2017-12-31",
    "rows": "annual",
    "v2": 1861000
+  },
+  {
+   "field": "total_debt",
+   "old": 1399932000,
+   "period": "2024-12-31",
+   "rows": "annual",
+   "v2": 1469932000
+  },
+  {
+   "field": "debt_current",
+   "old": 66177000,
+   "period": "2024-12-31",
+   "rows": "annual",
+   "v2": 136177000
+  },
+  {
+   "field": "total_debt",
+   "old": 1399932000,
+   "period": "2024-12-31",
+   "rows": "quarterly",
+   "v2": 1469932000
+  },
+  {
+   "field": "debt_current",
+   "old": 66177000,
+   "period": "2024-12-31",
+   "rows": "quarterly",
+   "v2": 136177000
   }
  ],
  "v2_notes": [],
@@ -7720,9 +7752,11 @@
      "filed": "2025-02-28",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 0,
       "LongTermDebtCurrent": 0,
       "LongTermDebtNoncurrent": 310826000
      }
@@ -7970,7 +8004,7 @@
    "capex": 3264000,
    "cash": 13826000,
    "cash_and_sti": 13826000,
-   "debt_current": 66177000,
+   "debt_current": 136177000,
    "debt_noncurrent": 1333755000,
    "end": "2024-12-31",
    "equity": 1779983000,
@@ -8030,9 +8064,11 @@
      "filed": "2025-02-28",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 70000000,
       "LongTermDebtCurrent": 66177000,
       "LongTermDebtNoncurrent": 1333755000
      }
@@ -8040,7 +8076,7 @@
    },
    "start": "2024-10-01",
    "stock_comp": 6405000,
-   "total_debt": 1399932000
+   "total_debt": 1469932000
   },
   {
    "capex": 5177000,

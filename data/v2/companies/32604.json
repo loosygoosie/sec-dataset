@@ -1490,18 +1490,6 @@
    "total_equity_parent": 10364000000
   },
   {
-   "added_by": "v2",
-   "debt_current": 1792000000,
-   "fiscal_year": 2022,
-   "form": "10-K",
-   "lt_debt_noncurrent": 8159000000,
-   "period_end": "2022-12-31",
-   "revenue": 1660000000,
-   "revenue_filed": "2023-08-02",
-   "total_debt": 9951000000,
-   "total_debt_filed": "2023-02-08"
-  },
-  {
    "acquisitions": 705000000,
    "buybacks": 2000000000,
    "buybacks_as_filed": 2000000000,
@@ -1868,7 +1856,7 @@
   "reconciles": "ok",
   "revenue": "ok",
   "share_scale": "ok",
-  "shares": "annual-gaps:1"
+  "shares": "ok"
  },
  "cik": 32604,
  "fiscal_year_end": "0930",
@@ -3870,48 +3858,6 @@
    "total_debt": 10374000000
   },
   {
-   "cash": 2271000000,
-   "cash_and_sti": 2271000000,
-   "debt_current": 1792000000,
-   "debt_noncurrent": 8159000000,
-   "end": "2022-12-31",
-   "equity": 10727000000,
-   "revenue": 1660000000,
-   "src": {
-    "cash": {
-     "accn": "0000032604-23-000010",
-     "filed": "2023-02-08",
-     "form": "10-Q",
-     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
-    },
-    "equity": {
-     "accn": "0000032604-23-000010",
-     "filed": "2023-02-08",
-     "form": "10-Q",
-     "tag": "StockholdersEquity"
-    },
-    "revenue": {
-     "accn": "0000032604-23-000037",
-     "filed": "2023-08-02",
-     "form": "10-Q",
-     "tag": "Revenues"
-    },
-    "total_debt": {
-     "filed": "2023-02-08",
-     "tags": [
-      "LongTermDebtNoncurrent",
-      "DebtCurrent"
-     ],
-     "values": {
-      "DebtCurrent": 1792000000,
-      "LongTermDebtNoncurrent": 8159000000
-     }
-    }
-   },
-   "start": "2022-01-01",
-   "total_debt": 9951000000
-  },
-  {
    "capex": 363000000,
    "cash": 8051000000,
    "cash_and_sti": 8051000000,
@@ -4251,34 +4197,6 @@
    "period": "2022-09-30",
    "rows": "annual",
    "v2": 2115000000
-  },
-  {
-   "field": "revenue",
-   "old": null,
-   "period": "2022-12-31",
-   "rows": "annual",
-   "v2": 1660000000
-  },
-  {
-   "field": "total_debt",
-   "old": null,
-   "period": "2022-12-31",
-   "rows": "annual",
-   "v2": 9951000000
-  },
-  {
-   "field": "lt_debt_noncurrent",
-   "old": null,
-   "period": "2022-12-31",
-   "rows": "annual",
-   "v2": 8159000000
-  },
-  {
-   "field": "debt_current",
-   "old": null,
-   "period": "2022-12-31",
-   "rows": "annual",
-   "v2": 1792000000
   },
   {
    "field": "total_debt",

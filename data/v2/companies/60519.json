@@ -134,9 +134,9 @@
    "total_assets_as_filed_filed": "2011-05-12",
    "total_debt": 714700000,
    "total_debt_as_filed": 714700000,
-   "total_debt_as_filed_filed": "2011-05-12",
+   "total_debt_as_filed_filed": "2011-08-16",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2011-05-12",
+   "total_debt_filed": "2011-08-16",
    "total_equity": 1217800000,
    "total_equity_parent": 1217800000
   },
@@ -2543,14 +2543,16 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2011-05-12",
+     "filed": "2011-08-16",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 200000,
-      "LongTermDebtNoncurrent": 714500000
+      "LongTermDebtNoncurrent": 714500000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -4106,14 +4108,16 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2011-05-12",
+     "filed": "2011-08-16",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 200000,
-      "LongTermDebtNoncurrent": 714500000
+      "LongTermDebtNoncurrent": 714500000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -4203,7 +4207,7 @@
    "capex": 5600000,
    "cash": 334000000,
    "cash_and_sti": 334000000,
-   "debt_current": 4500000,
+   "debt_current": 7400000,
    "debt_noncurrent": 716800000,
    "end": "2011-06-30",
    "equity": 1171100000,
@@ -4265,9 +4269,11 @@
      "filed": "2011-08-16",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 2900000,
       "LongTermDebtNoncurrent": 716800000,
       "ShortTermBorrowings": 4500000
      }
@@ -4275,7 +4281,7 @@
    },
    "start": "2011-04-01",
    "stock_comp": 1300000,
-   "total_debt": 721300000
+   "total_debt": 724200000
   },
   {
    "capex": 5400000,

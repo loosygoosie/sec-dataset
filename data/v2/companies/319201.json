@@ -1071,9 +1071,9 @@
    "total_assets_as_filed_filed": "2020-08-10",
    "total_debt": 3469670000,
    "total_debt_as_filed": 3469670000,
-   "total_debt_as_filed_filed": "2020-08-10",
+   "total_debt_as_filed_filed": "2021-02-04",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2020-08-10",
+   "total_debt_filed": "2021-02-04",
    "total_equity": 2665424000,
    "total_equity_incl_nci": 2681010000,
    "total_equity_parent": 2665424000,
@@ -3442,14 +3442,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2020-08-10",
+     "filed": "2021-02-04",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 0,
-      "LongTermDebtNoncurrent": 3469670000
+      "LongTermDebtNoncurrent": 3469670000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -3679,11 +3679,13 @@
      "filed": "2024-08-05",
      "tags": [
       "LongTermDebt",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebt": 5890736000,
-      "LongTermDebtCurrent": 0
+      "LongTermDebtCurrent": 0,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -7851,14 +7853,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2020-08-10",
+     "filed": "2021-02-04",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 0,
-      "LongTermDebtNoncurrent": 3469670000
+      "LongTermDebtNoncurrent": 3469670000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -8813,11 +8815,13 @@
      "filed": "2024-08-05",
      "tags": [
       "LongTermDebt",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebt": 5890736000,
-      "LongTermDebtCurrent": 0
+      "LongTermDebtCurrent": 0,
+      "ShortTermBorrowings": 0
      }
     }
    },

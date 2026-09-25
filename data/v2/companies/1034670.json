@@ -241,7 +241,7 @@
    "current_liabilities_as_filed": 2085900000,
    "current_liabilities_as_filed_filed": "2012-02-23",
    "d_and_a": 268300000,
-   "debt_current": 302800000,
+   "debt_current": 542800000,
    "dividends_paid": 154300000,
    "dividends_paid_as_filed": 154300000,
    "dividends_paid_as_filed_filed": "2012-02-23",
@@ -303,8 +303,8 @@
    "total_assets": 6117300000,
    "total_assets_as_filed": 6117300000,
    "total_assets_as_filed_filed": "2012-02-23",
-   "total_debt": 666300000,
-   "total_debt_as_filed": 666300000,
+   "total_debt": 906300000,
+   "total_debt_as_filed": 906300000,
    "total_debt_as_filed_filed": "2012-02-23",
    "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2012-02-23",
@@ -329,7 +329,7 @@
    "current_liabilities_as_filed": 1849800000,
    "current_liabilities_as_filed_filed": "2013-02-22",
    "d_and_a": 273200000,
-   "debt_current": 69800000,
+   "debt_current": 78800000,
    "dividends_paid": 177600000,
    "dividends_paid_as_filed": 177600000,
    "dividends_paid_as_filed_filed": "2013-02-22",
@@ -391,8 +391,8 @@
    "total_assets": 6570300000,
    "total_assets_as_filed": 6570300000,
    "total_assets_as_filed_filed": "2013-02-22",
-   "total_debt": 632700000,
-   "total_debt_as_filed": 632700000,
+   "total_debt": 641700000,
+   "total_debt_as_filed": 641700000,
    "total_debt_as_filed_filed": "2013-02-22",
    "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2013-02-22",
@@ -421,7 +421,7 @@
    "current_liabilities_as_filed": 2428500000,
    "current_liabilities_as_filed_filed": "2014-02-21",
    "d_and_a": 286000000,
-   "debt_current": 339400000,
+   "debt_current": 613400000,
    "dividends_paid": 191000000,
    "dividends_paid_as_filed": 191000000,
    "dividends_paid_as_filed_filed": "2014-02-21",
@@ -484,8 +484,8 @@
    "total_assets": 6983000000,
    "total_assets_as_filed": 6983000000,
    "total_assets_as_filed_filed": "2014-02-21",
-   "total_debt": 618500000,
-   "total_debt_as_filed": 618500000,
+   "total_debt": 892500000,
+   "total_debt_as_filed": 892500000,
    "total_debt_as_filed_filed": "2014-02-21",
    "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2014-02-21",
@@ -514,7 +514,7 @@
    "current_liabilities_as_filed": 2138600000,
    "current_liabilities_as_filed_filed": "2015-02-19",
    "d_and_a": 305400000,
-   "debt_current": 79600000,
+   "debt_current": 101600000,
    "dividends_paid": 194900000,
    "dividends_paid_as_filed": 194900000,
    "dividends_paid_as_filed_filed": "2015-02-19",
@@ -577,8 +577,8 @@
    "total_assets": 7442900000,
    "total_assets_as_filed": 7442900000,
    "total_assets_as_filed_filed": "2015-02-19",
-   "total_debt": 1600800000,
-   "total_debt_as_filed": 1600800000,
+   "total_debt": 1622800000,
+   "total_debt_as_filed": 1622800000,
    "total_debt_as_filed_filed": "2015-02-19",
    "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2015-02-19",
@@ -2614,7 +2614,7 @@
    "capex": 367300000,
    "cash": 739200000,
    "cash_and_sti": 739200000,
-   "debt_current": 302800000,
+   "debt_current": 542800000,
    "debt_noncurrent": 363500000,
    "end": "2011-12-31",
    "equity": 3333400000,
@@ -2676,9 +2676,11 @@
      "filed": "2012-02-23",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 240000000,
       "LongTermDebtNoncurrent": 363500000,
       "ShortTermBorrowings": 302800000
      }
@@ -2686,13 +2688,13 @@
    },
    "start": "2011-01-01",
    "stock_comp": 7400000,
-   "total_debt": 666300000
+   "total_debt": 906300000
   },
   {
    "capex": 365400000,
    "cash": 977700000,
    "cash_and_sti": 977700000,
-   "debt_current": 69800000,
+   "debt_current": 78800000,
    "debt_noncurrent": 562900000,
    "end": "2012-12-31",
    "equity": 3758600000,
@@ -2754,9 +2756,11 @@
      "filed": "2013-02-22",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 9000000,
       "LongTermDebtNoncurrent": 562900000,
       "ShortTermBorrowings": 69800000
      }
@@ -2764,13 +2768,13 @@
    },
    "start": "2012-01-01",
    "stock_comp": 7700000,
-   "total_debt": 632700000
+   "total_debt": 641700000
   },
   {
    "capex": 385600000,
    "cash": 1118300000,
    "cash_and_sti": 1118300000,
-   "debt_current": 339400000,
+   "debt_current": 613400000,
    "debt_noncurrent": 279100000,
    "end": "2013-12-31",
    "equity": 3981300000,
@@ -2832,9 +2836,11 @@
      "filed": "2014-02-21",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 274000000,
       "LongTermDebtNoncurrent": 279100000,
       "ShortTermBorrowings": 339400000
      }
@@ -2842,13 +2848,13 @@
    },
    "start": "2013-01-01",
    "stock_comp": 8300000,
-   "total_debt": 618500000
+   "total_debt": 892500000
   },
   {
    "capex": 456000000,
    "cash": 1529000000,
    "cash_and_sti": 1529000000,
-   "debt_current": 79600000,
+   "debt_current": 101600000,
    "debt_noncurrent": 1521200000,
    "end": "2014-12-31",
    "equity": 3427100000,
@@ -2910,9 +2916,11 @@
      "filed": "2015-02-19",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 22000000,
       "LongTermDebtNoncurrent": 1521200000,
       "ShortTermBorrowings": 79600000
      }
@@ -2920,7 +2928,7 @@
    },
    "start": "2014-01-01",
    "stock_comp": 8100000,
-   "total_debt": 1600800000
+   "total_debt": 1622800000
   },
   {
    "capex": 465800000,
@@ -3789,11 +3797,18 @@
    "v2": 8232400000
   },
   {
+   "field": "total_debt",
+   "old": 666300000,
+   "period": "2011-12-31",
+   "rows": "annual",
+   "v2": 906300000
+  },
+  {
    "field": "debt_current",
    "old": 240000000,
    "period": "2011-12-31",
    "rows": "annual",
-   "v2": 302800000
+   "v2": 542800000
   },
   {
    "field": "revenue",
@@ -3803,11 +3818,18 @@
    "v2": 8266700000
   },
   {
+   "field": "total_debt",
+   "old": 632700000,
+   "period": "2012-12-31",
+   "rows": "annual",
+   "v2": 641700000
+  },
+  {
    "field": "debt_current",
    "old": 9000000,
    "period": "2012-12-31",
    "rows": "annual",
-   "v2": 69800000
+   "v2": 78800000
   },
   {
    "field": "revenue",
@@ -3817,11 +3839,18 @@
    "v2": 8803400000
   },
   {
+   "field": "total_debt",
+   "old": 618500000,
+   "period": "2013-12-31",
+   "rows": "annual",
+   "v2": 892500000
+  },
+  {
    "field": "debt_current",
    "old": 274000000,
    "period": "2013-12-31",
    "rows": "annual",
-   "v2": 339400000
+   "v2": 613400000
   },
   {
    "field": "revenue",
@@ -3831,11 +3860,18 @@
    "v2": 9240500000
   },
   {
+   "field": "total_debt",
+   "old": 1600800000,
+   "period": "2014-12-31",
+   "rows": "annual",
+   "v2": 1622800000
+  },
+  {
    "field": "debt_current",
    "old": 22000000,
    "period": "2014-12-31",
    "rows": "annual",
-   "v2": 79600000
+   "v2": 101600000
   },
   {
    "field": "revenue",
@@ -4674,7 +4710,7 @@
    "capex": 104300000,
    "cash": 739200000,
    "cash_and_sti": 739200000,
-   "debt_current": 302800000,
+   "debt_current": 542800000,
    "debt_noncurrent": 363500000,
    "end": "2011-12-31",
    "equity": 3333400000,
@@ -4725,16 +4761,18 @@
      "filed": "2012-02-23",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 240000000,
       "LongTermDebtNoncurrent": 363500000,
       "ShortTermBorrowings": 302800000
      }
     }
    },
    "start": "2011-10-01",
-   "total_debt": 666300000
+   "total_debt": 906300000
   },
   {
    "capex": 79500000,
@@ -4957,7 +4995,7 @@
    "capex": 101200000,
    "cash": 977700000,
    "cash_and_sti": 977700000,
-   "debt_current": 69800000,
+   "debt_current": 78800000,
    "debt_noncurrent": 562900000,
    "end": "2012-12-31",
    "equity": 3758600000,
@@ -5008,16 +5046,18 @@
      "filed": "2013-02-22",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 9000000,
       "LongTermDebtNoncurrent": 562900000,
       "ShortTermBorrowings": 69800000
      }
     }
    },
    "start": "2012-10-01",
-   "total_debt": 632700000
+   "total_debt": 641700000
   },
   {
    "capex": 88000000,
@@ -5240,7 +5280,7 @@
    "capex": 114400000,
    "cash": 1118300000,
    "cash_and_sti": 1118300000,
-   "debt_current": 339400000,
+   "debt_current": 613400000,
    "debt_noncurrent": 279100000,
    "end": "2013-12-31",
    "equity": 3981300000,
@@ -5291,16 +5331,18 @@
      "filed": "2014-02-21",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 274000000,
       "LongTermDebtNoncurrent": 279100000,
       "ShortTermBorrowings": 339400000
      }
     }
    },
    "start": "2013-10-01",
-   "total_debt": 618500000
+   "total_debt": 892500000
   },
   {
    "capex": 93300000,
@@ -5521,7 +5563,7 @@
    "capex": 129200000,
    "cash": 1529000000,
    "cash_and_sti": 1529000000,
-   "debt_current": 79600000,
+   "debt_current": 101600000,
    "debt_noncurrent": 1521200000,
    "end": "2014-12-31",
    "equity": 3427100000,
@@ -5572,16 +5614,18 @@
      "filed": "2015-02-19",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 22000000,
       "LongTermDebtNoncurrent": 1521200000,
       "ShortTermBorrowings": 79600000
      }
     }
    },
    "start": "2014-10-01",
-   "total_debt": 1600800000
+   "total_debt": 1622800000
   },
   {
    "capex": 134800000,

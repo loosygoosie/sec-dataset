@@ -904,14 +904,6 @@
    "total_liabilities": 60194000
   },
   {
-   "added_by": "v2",
-   "fiscal_year": 2020,
-   "form": "10-K",
-   "net_income": 27511000,
-   "net_income_filed": "2023-11-06",
-   "period_end": "2021-12-30"
-  },
-  {
    "capex": 13645000,
    "capex_as_filed": 13645000,
    "capex_as_filed_filed": "2022-02-23",
@@ -1384,7 +1376,7 @@
   "reconciles": "ok",
   "revenue": "ok",
   "share_scale": "suspect:scale",
-  "shares": "annual-gaps:1"
+  "shares": "ok"
  },
  "cik": 718937,
  "fiscal_year_end": "0102",
@@ -2808,19 +2800,6 @@
    "stock_comp": 12146000
   },
   {
-   "end": "2021-12-30",
-   "net_income": 27511000,
-   "src": {
-    "net_income": {
-     "accn": "0000950170-23-058994",
-     "filed": "2023-11-06",
-     "form": "10-Q",
-     "tag": "NetIncomeLoss"
-    }
-   },
-   "start": "2020-12-31"
-  },
-  {
    "capex": 13645000,
    "cash": 199706000,
    "cash_and_sti": 199706000,
@@ -2922,9 +2901,11 @@
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0000950170-23-058994",
-     "filed": "2023-11-06",
-     "form": "10-Q",
+     "accn": "0000950170-24-020572",
+     "filed": "2024-02-27",
+     "first_filed": "2023-02-23",
+     "first_val": 38755000,
+     "form": "10-K",
      "tag": "NetIncomeLoss"
     },
     "operating_cash_flow": {
@@ -3177,15 +3158,7 @@
    "stock_comp": 30588000
   }
  ],
- "v2_fixes": [
-  {
-   "field": "net_income",
-   "old": null,
-   "period": "2021-12-30",
-   "rows": "annual",
-   "v2": 27511000
-  }
- ],
+ "v2_fixes": [],
  "v2_notes": [],
  "v2_quarterly": [
   {

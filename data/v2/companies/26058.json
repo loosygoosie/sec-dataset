@@ -66,6 +66,7 @@
    "current_liabilities_as_filed": 120100000,
    "current_liabilities_as_filed_filed": "2011-07-26",
    "d_and_a": 17565000,
+   "debt_current": 0,
    "dividends_paid": 4089000,
    "dividends_paid_as_filed": 4089000,
    "dividends_paid_as_filed_filed": "2012-02-24",
@@ -126,6 +127,7 @@
    "total_debt_as_filed": 0,
    "total_debt_as_filed_filed": "2011-07-26",
    "total_debt_basis": "components_partial",
+   "total_debt_filed": "2011-07-26",
    "total_equity": 274250000,
    "total_equity_incl_nci": 274250000,
    "total_equity_parent": 274250000
@@ -2214,6 +2216,7 @@
    "capex": 13271000,
    "cash": 73315000,
    "cash_and_sti": 73315000,
+   "debt_current": 0,
    "end": "2010-12-31",
    "equity": 274250000,
    "fcf": 6053000,
@@ -2269,10 +2272,21 @@
      "filed": "2012-02-24",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-07-26",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 0
+     }
     }
    },
    "start": "2010-01-01",
-   "stock_comp": 4035000
+   "stock_comp": 4035000,
+   "total_debt": 0
   },
   {
    "capex": 15574000,
@@ -2342,11 +2356,13 @@
      "filed": "2013-02-25",
      "tags": [
       "LongTermDebt",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBankLoansAndNotesPayable"
      ],
      "values": {
       "LongTermDebt": 74400000,
-      "LongTermDebtCurrent": 0
+      "LongTermDebtCurrent": 0,
+      "ShortTermBankLoansAndNotesPayable": 0
      }
     }
    },
@@ -3216,6 +3232,13 @@
    "v2": 552641000
   },
   {
+   "field": "debt_current",
+   "old": null,
+   "period": "2010-12-31",
+   "rows": "annual",
+   "v2": 0
+  },
+  {
    "field": "revenue",
    "old": null,
    "period": "2011-12-31",
@@ -3380,6 +3403,7 @@
    "capex": 2766000,
    "cash": 73315000,
    "cash_and_sti": 73315000,
+   "debt_current": 0,
    "end": "2010-12-31",
    "equity": 274250000,
    "fcf": 8463000,
@@ -3433,10 +3457,21 @@
      "filed": "2012-02-24",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-07-26",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 0
+     }
     }
    },
    "start": "2010-10-04",
-   "stock_comp": 1124000
+   "stock_comp": 1124000,
+   "total_debt": 0
   },
   {
    "end": "2011-03-31",
@@ -3539,6 +3574,7 @@
    "capex": 3358000,
    "cash": 75056000,
    "cash_and_sti": 75056000,
+   "debt_current": 246000,
    "end": "2011-07-03",
    "equity": 285743000,
    "fcf": 7988000,
@@ -3597,10 +3633,21 @@
      "filed": "2012-07-24",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-07-26",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 246000
+     }
     }
    },
    "start": "2011-04-04",
-   "stock_comp": 1181000
+   "stock_comp": 1181000,
+   "total_debt": 246000
   },
   {
    "end": "2011-09-30",
@@ -3626,6 +3673,7 @@
    "capex": 3690000,
    "cash": 89172000,
    "cash_and_sti": 89172000,
+   "debt_current": 0,
    "end": "2011-10-02",
    "equity": 291054000,
    "fcf": 846000,
@@ -3684,10 +3732,21 @@
      "filed": "2012-10-24",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-10-26",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 0
+     }
     }
    },
    "start": "2011-07-04",
-   "stock_comp": 1002000
+   "stock_comp": 1002000,
+   "total_debt": 0
   },
   {
    "capex": 5358000,
@@ -3751,11 +3810,13 @@
      "filed": "2013-02-25",
      "tags": [
       "LongTermDebt",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBankLoansAndNotesPayable"
      ],
      "values": {
       "LongTermDebt": 74400000,
-      "LongTermDebtCurrent": 0
+      "LongTermDebtCurrent": 0,
+      "ShortTermBankLoansAndNotesPayable": 0
      }
     }
    },

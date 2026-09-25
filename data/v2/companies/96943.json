@@ -2870,11 +2870,11 @@
      "filed": "2012-02-24",
      "tags": [
       "LongTermDebtNoncurrent",
-      "NotesPayableCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtNoncurrent": 954809000,
-      "NotesPayableCurrent": 4986000
+      "ShortTermBorrowings": 4986000
      }
     }
    },
@@ -2950,11 +2950,11 @@
      "filed": "2013-02-22",
      "tags": [
       "LongTermDebtNoncurrent",
-      "NotesPayableCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtNoncurrent": 965280000,
-      "NotesPayableCurrent": 4700000
+      "ShortTermBorrowings": 4700000
      }
     }
    },
@@ -5009,11 +5009,11 @@
      "filed": "2012-02-24",
      "tags": [
       "LongTermDebtNoncurrent",
-      "NotesPayableCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtNoncurrent": 954809000,
-      "NotesPayableCurrent": 4986000
+      "ShortTermBorrowings": 4986000
      }
     }
    },
@@ -5367,11 +5367,11 @@
      "filed": "2013-02-22",
      "tags": [
       "LongTermDebtNoncurrent",
-      "NotesPayableCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtNoncurrent": 965280000,
-      "NotesPayableCurrent": 4700000
+      "ShortTermBorrowings": 4700000
      }
     }
    },
@@ -5717,7 +5717,7 @@
    "capex": 12109000,
    "cash": 421649000,
    "cash_and_sti": 421649000,
-   "debt_current": 359261000,
+   "debt_current": 4700000,
    "debt_noncurrent": 930000000,
    "end": "2014-03-30",
    "equity": 1942486000,
@@ -5781,9 +5781,11 @@
      "filed": "2014-04-30",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": -354561000,
       "LongTermDebtNoncurrent": 930000000,
       "ShortTermBorrowings": 359261000
      }
@@ -5791,7 +5793,7 @@
    },
    "start": "2014-01-01",
    "stock_comp": 3074000,
-   "total_debt": 1289261000
+   "total_debt": 934700000
   },
   {
    "capex": 18741000,

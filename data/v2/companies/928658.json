@@ -1285,18 +1285,6 @@
    "total_liabilities": 551018000
   },
   {
-   "added_by": "v2",
-   "debt_current": 70738000,
-   "fiscal_year": 2024,
-   "form": "10-K",
-   "lt_debt_noncurrent": 197346000,
-   "period_end": "2024-06-30",
-   "revenue": 566260000,
-   "revenue_filed": "2025-08-07",
-   "total_debt": 268084000,
-   "total_debt_filed": "2024-08-02"
-  },
-  {
    "acquisitions": 4556000,
    "buybacks": 0,
    "buybacks_as_filed": 0,
@@ -1388,18 +1376,6 @@
    "total_equity": 438340000,
    "total_equity_parent": 438340000,
    "total_liabilities": 559228000
-  },
-  {
-   "added_by": "v2",
-   "debt_current": 51159000,
-   "fiscal_year": 2025,
-   "form": "10-K",
-   "lt_debt_noncurrent": 214101000,
-   "period_end": "2025-06-30",
-   "revenue": 572209000,
-   "revenue_filed": "2025-08-07",
-   "total_debt": 265260000,
-   "total_debt_filed": "2025-08-07"
   },
   {
    "acquisitions": 27053000,
@@ -1578,13 +1554,11 @@
   "reconciles": "ok",
   "revenue": "ok",
   "share_scale": "ok",
-  "shares": "annual-gaps:3"
+  "shares": "annual-gaps:1"
  },
  "cik": 928658,
  "fiscal_year_end": "1231",
- "flags": [
-  "quarters_off_year_revenue_2025-06-30"
- ],
+ "flags": [],
  "instances_merged": [],
  "latest_filing": {
   "accn": "0001437749-26-026547",
@@ -3484,49 +3458,6 @@
    "total_debt": 244545000
   },
   {
-   "cash": 1280000,
-   "cash_and_sti": 1280000,
-   "debt_current": 70738000,
-   "debt_noncurrent": 197346000,
-   "end": "2024-06-30",
-   "equity": 419373000,
-   "finance_leases": 6527000,
-   "revenue": 566260000,
-   "src": {
-    "cash": {
-     "accn": "0001437749-24-024422",
-     "filed": "2024-08-02",
-     "form": "10-Q",
-     "tag": "CashAndCashEquivalentsAtCarryingValue"
-    },
-    "equity": {
-     "accn": "0001437749-24-024422",
-     "filed": "2024-08-02",
-     "form": "10-Q",
-     "tag": "StockholdersEquity"
-    },
-    "revenue": {
-     "accn": "0001437749-25-025408",
-     "filed": "2025-08-07",
-     "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
-    },
-    "total_debt": {
-     "filed": "2024-08-02",
-     "tags": [
-      "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
-     ],
-     "values": {
-      "LongTermDebtCurrent": 70738000,
-      "LongTermDebtNoncurrent": 197346000
-     }
-    }
-   },
-   "start": "2023-07-01",
-   "total_debt": 268084000
-  },
-  {
    "capex": 152962000,
    "cash": 35619000,
    "cash_and_sti": 35619000,
@@ -3604,49 +3535,6 @@
    "start": "2024-01-01",
    "stock_comp": 3691000,
    "total_debt": 251295000
-  },
-  {
-   "cash": 143000,
-   "cash_and_sti": 143000,
-   "debt_current": 51159000,
-   "debt_noncurrent": 214101000,
-   "end": "2025-06-30",
-   "equity": 416874000,
-   "finance_leases": 3578000,
-   "revenue": 572209000,
-   "src": {
-    "cash": {
-     "accn": "0001437749-25-025408",
-     "filed": "2025-08-07",
-     "form": "10-Q",
-     "tag": "CashAndCashEquivalentsAtCarryingValue"
-    },
-    "equity": {
-     "accn": "0001437749-25-025408",
-     "filed": "2025-08-07",
-     "form": "10-Q",
-     "tag": "StockholdersEquity"
-    },
-    "revenue": {
-     "accn": "0001437749-25-025408",
-     "filed": "2025-08-07",
-     "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
-    },
-    "total_debt": {
-     "filed": "2025-08-07",
-     "tags": [
-      "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
-     ],
-     "values": {
-      "LongTermDebtCurrent": 51159000,
-      "LongTermDebtNoncurrent": 214101000
-     }
-    }
-   },
-   "start": "2024-07-01",
-   "total_debt": 265260000
   },
   {
    "capex": 147570000,
@@ -3791,62 +3679,6 @@
    "period": "2023-12-31",
    "rows": "annual",
    "v2": 244545000
-  },
-  {
-   "field": "revenue",
-   "old": null,
-   "period": "2024-06-30",
-   "rows": "annual",
-   "v2": 566260000
-  },
-  {
-   "field": "total_debt",
-   "old": null,
-   "period": "2024-06-30",
-   "rows": "annual",
-   "v2": 268084000
-  },
-  {
-   "field": "lt_debt_noncurrent",
-   "old": null,
-   "period": "2024-06-30",
-   "rows": "annual",
-   "v2": 197346000
-  },
-  {
-   "field": "debt_current",
-   "old": null,
-   "period": "2024-06-30",
-   "rows": "annual",
-   "v2": 70738000
-  },
-  {
-   "field": "revenue",
-   "old": null,
-   "period": "2025-06-30",
-   "rows": "annual",
-   "v2": 572209000
-  },
-  {
-   "field": "total_debt",
-   "old": null,
-   "period": "2025-06-30",
-   "rows": "annual",
-   "v2": 265260000
-  },
-  {
-   "field": "lt_debt_noncurrent",
-   "old": null,
-   "period": "2025-06-30",
-   "rows": "annual",
-   "v2": 214101000
-  },
-  {
-   "field": "debt_current",
-   "old": null,
-   "period": "2025-06-30",
-   "rows": "annual",
-   "v2": 51159000
   },
   {
    "field": "total_debt",

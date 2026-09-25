@@ -1,14 +1,5 @@
 {
- "annual": [
-  {
-   "added_by": "v2",
-   "fiscal_year": 2025,
-   "form": "10-K",
-   "net_income": -55482,
-   "net_income_filed": "2026-05-15",
-   "period_end": "2025-12-31"
-  }
- ],
+ "annual": [],
  "annual_coverage": {
   "acquisition_cost_amort": 0,
   "acquisitions": 0,
@@ -93,7 +84,6 @@
  "cik": 2087446,
  "fiscal_year_end": "1231",
  "flags": [
-  "no_revenue",
   "no_operating_cash_flow",
   "no_capex",
   "no_debt_tagged",
@@ -266,48 +256,9 @@
   "PAACU",
   "PAACW"
  ],
- "ttm": {
-  "net_income": {
-   "end": "2025-12-31",
-   "filed": "2026-05-15",
-   "method": "fiscal_year_stale",
-   "tags": [
-    "NetIncomeLoss"
-   ],
-   "val": -55482
-  }
- },
- "v2_annual": [
-  {
-   "end": "2025-12-31",
-   "equity": -30482,
-   "net_income": -55482,
-   "src": {
-    "equity": {
-     "accn": "0001213900-26-034861",
-     "filed": "2026-03-26",
-     "form": "10-K",
-     "tag": "StockholdersEquity"
-    },
-    "net_income": {
-     "accn": "0001213900-26-056948",
-     "filed": "2026-05-15",
-     "form": "10-Q",
-     "tag": "NetIncomeLoss"
-    }
-   },
-   "start": "2025-01-01"
-  }
- ],
- "v2_fixes": [
-  {
-   "field": "net_income",
-   "old": null,
-   "period": "2025-12-31",
-   "rows": "annual",
-   "v2": -55482
-  }
- ],
+ "ttm": {},
+ "v2_annual": [],
+ "v2_fixes": [],
  "v2_notes": [],
  "v2_quarterly": [
   {

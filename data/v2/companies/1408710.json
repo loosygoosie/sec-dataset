@@ -589,7 +589,7 @@
    "current_liabilities_as_filed": 311272000,
    "current_liabilities_as_filed_filed": "2017-08-23",
    "d_and_a": 23793000,
-   "debt_current": 48402000,
+   "debt_current": 49405000,
    "debt_due_1y": 13600000,
    "debt_due_2y": 22800000,
    "eps_diluted": 2.57,
@@ -650,8 +650,8 @@
    "total_assets": 1033075000,
    "total_assets_as_filed": 1033075000,
    "total_assets_as_filed_filed": "2017-08-23",
-   "total_debt": 48402000,
-   "total_debt_as_filed": 48402000,
+   "total_debt": 49405000,
+   "total_debt_as_filed": 49405000,
    "total_debt_as_filed_filed": "2017-08-23",
    "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2017-08-23",
@@ -2750,7 +2750,7 @@
    "capex": 68262000,
    "cash": 133825000,
    "cash_and_sti": 285275000,
-   "debt_current": 48402000,
+   "debt_current": 49405000,
    "end": "2017-06-30",
    "equity": 681574000,
    "fcf": 2672000,
@@ -2818,16 +2818,18 @@
      "filed": "2017-08-23",
      "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 48402000
+      "LongTermDebtCurrent": 48402000,
+      "ShortTermBorrowings": 1003000
      }
     }
    },
    "start": "2016-06-25",
    "stock_comp": 26507000,
-   "total_debt": 48402000
+   "total_debt": 49405000
   },
   {
    "capex": 33825000,
@@ -3584,6 +3586,20 @@
    "period": "2013-06-28",
    "rows": "annual",
    "v2": 28911000
+  },
+  {
+   "field": "total_debt",
+   "old": 48402000,
+   "period": "2017-06-30",
+   "rows": "annual",
+   "v2": 49405000
+  },
+  {
+   "field": "debt_current",
+   "old": 48402000,
+   "period": "2017-06-30",
+   "rows": "annual",
+   "v2": 49405000
   }
  ],
  "v2_notes": [],
@@ -5394,7 +5410,7 @@
    "capex": 27090000,
    "cash": 105860000,
    "cash_and_sti": 253562000,
-   "debt_current": 37516000,
+   "debt_current": 38698000,
    "end": "2016-09-30",
    "equity": 585033000,
    "fcf": -28092000,
@@ -5462,22 +5478,24 @@
      "filed": "2016-11-09",
      "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 37516000
+      "LongTermDebtCurrent": 37516000,
+      "ShortTermBorrowings": 1182000
      }
     }
    },
    "start": "2016-06-25",
    "stock_comp": 5611000,
-   "total_debt": 37516000
+   "total_debt": 38698000
   },
   {
    "capex": 17322000,
    "cash": 85619000,
    "cash_and_sti": 256127000,
-   "debt_current": 38287000,
+   "debt_current": 41664000,
    "end": "2016-12-30",
    "equity": 619665000,
    "fcf": 3432000,
@@ -5547,22 +5565,24 @@
      "filed": "2017-02-07",
      "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 38287000
+      "LongTermDebtCurrent": 38287000,
+      "ShortTermBorrowings": 3377000
      }
     }
    },
    "start": "2016-10-01",
    "stock_comp": 8597000,
-   "total_debt": 38287000
+   "total_debt": 41664000
   },
   {
    "capex": 12812000,
    "cash": 136634000,
    "cash_and_sti": 289242000,
-   "debt_current": 48658000,
+   "debt_current": 49915000,
    "end": "2017-03-31",
    "equity": 649103000,
    "fcf": 27824000,
@@ -5632,22 +5652,24 @@
      "filed": "2017-05-09",
      "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 48658000
+      "LongTermDebtCurrent": 48658000,
+      "ShortTermBorrowings": 1257000
      }
     }
    },
    "start": "2016-12-31",
    "stock_comp": 7728000,
-   "total_debt": 48658000
+   "total_debt": 49915000
   },
   {
    "capex": 11038000,
    "cash": 133825000,
    "cash_and_sti": 285275000,
-   "debt_current": 48402000,
+   "debt_current": 49405000,
    "end": "2017-06-30",
    "equity": 681574000,
    "fcf": -492000,
@@ -5718,16 +5740,18 @@
      "filed": "2017-08-23",
      "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 48402000
+      "LongTermDebtCurrent": 48402000,
+      "ShortTermBorrowings": 1003000
      }
     }
    },
    "start": "2017-04-01",
    "stock_comp": 4571000,
-   "total_debt": 48402000
+   "total_debt": 49405000
   },
   {
    "capex": 11203000,

@@ -647,8 +647,6 @@
    "retained_earnings": -245151636,
    "retained_earnings_as_filed": -245151636,
    "retained_earnings_as_filed_filed": "2018-10-15",
-   "revenue": 0,
-   "revenue_filed": "2019-03-12",
    "shares_diluted": 157123025,
    "shares_diluted_adj": 157123025,
    "shares_diluted_as_filed": 157123025,
@@ -1322,9 +1320,9 @@
  "fiscal_year_end": "0731",
  "flags": [
   "no_debt_tagged",
-  "capex_below_segment_2025-07-31",
   "capex_below_segment_2024-07-31",
-  "capex_below_segment_2023-07-31"
+  "capex_below_segment_2023-07-31",
+  "capex_below_segment_2025-07-31"
  ],
  "instances_merged": [
   "0001437749-26-019889"
@@ -2529,7 +2527,6 @@
    "fcf": -12523593,
    "net_income": -17826634,
    "operating_cash_flow": -12511289,
-   "revenue": 0,
    "shares_diluted": 157123025,
    "short_term_investments": 0,
    "src": {
@@ -2564,12 +2561,6 @@
      "first_val": -12511328,
      "form": "10-K",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
-    },
-    "revenue": {
-     "accn": "0001437749-19-004590",
-     "filed": "2019-03-12",
-     "form": "10-Q",
-     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
     },
     "shares_diluted": {
      "accn": "0001279569-18-002013",
@@ -3218,13 +3209,6 @@
    "period": "2017-07-31",
    "rows": "annual",
    "v2": 19254835
-  },
-  {
-   "field": "revenue",
-   "old": null,
-   "period": "2018-07-31",
-   "rows": "annual",
-   "v2": 0
   },
   {
    "field": "total_debt",

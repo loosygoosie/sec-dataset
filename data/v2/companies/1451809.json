@@ -12,7 +12,7 @@
    "current_liabilities_as_filed": 58680000,
    "current_liabilities_as_filed_filed": "2020-03-02",
    "d_and_a": 7413000,
-   "debt_current": 46000000,
+   "debt_current": 89000000,
    "filed": "2020-03-02",
    "fiscal_year": 2018,
    "gross_profit": 36205000,
@@ -70,8 +70,8 @@
    "total_assets": 72689000,
    "total_assets_as_filed": 72689000,
    "total_assets_as_filed_filed": "2020-03-02",
-   "total_debt": 46000000,
-   "total_debt_as_filed": 46000000,
+   "total_debt": 89000000,
+   "total_debt_as_filed": 89000000,
    "total_debt_as_filed_filed": "2020-03-02",
    "total_debt_basis": "components_partial",
    "total_debt_filed": "2020-03-02",
@@ -1380,7 +1380,7 @@
  "v2_annual": [
   {
    "capex": 2314000,
-   "debt_current": 46000000,
+   "debt_current": 89000000,
    "end": "2018-12-31",
    "equity": 11015000,
    "fcf": -3360000,
@@ -1435,16 +1435,18 @@
      "filed": "2020-03-02",
      "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 46000000
+      "LongTermDebtCurrent": 46000000,
+      "ShortTermBorrowings": 43000000
      }
     }
    },
    "start": "2018-01-01",
    "stock_comp": 831000,
-   "total_debt": 46000000
+   "total_debt": 89000000
   },
   {
    "capex": 1426000,
@@ -1503,10 +1505,10 @@
      "filed": "2020-03-02",
      "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 41000000
+      "ShortTermBorrowings": 41000000
      }
     }
    },
@@ -1901,6 +1903,20 @@
  ],
  "v2_fixes": [
   {
+   "field": "total_debt",
+   "old": 46000000,
+   "period": "2018-12-31",
+   "rows": "annual",
+   "v2": 89000000
+  },
+  {
+   "field": "debt_current",
+   "old": 46000000,
+   "period": "2018-12-31",
+   "rows": "annual",
+   "v2": 89000000
+  },
+  {
    "field": "revenue",
    "old": 42402000,
    "period": "2023-12-31",
@@ -1971,7 +1987,7 @@
    "start": "2018-07-01"
   },
   {
-   "debt_current": 46000000,
+   "debt_current": 89000000,
    "end": "2018-12-31",
    "equity": 11015000,
    "net_income": 1650000,
@@ -1999,15 +2015,17 @@
      "filed": "2020-03-02",
      "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 46000000
+      "LongTermDebtCurrent": 46000000,
+      "ShortTermBorrowings": 43000000
      }
     }
    },
    "start": "2018-10-01",
-   "total_debt": 46000000
+   "total_debt": 89000000
   },
   {
    "capex": 161000,
@@ -2206,10 +2224,10 @@
      "filed": "2020-03-02",
      "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 41000000
+      "ShortTermBorrowings": 41000000
      }
     }
    },
@@ -2273,10 +2291,10 @@
      "filed": "2020-05-07",
      "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 50000000
+      "ShortTermBorrowings": 50000000
      }
     }
    },
@@ -2344,10 +2362,10 @@
      "filed": "2020-08-06",
      "note": "one side only (a floor)",
      "tags": [
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 35000000
+      "ShortTermBorrowings": 35000000
      }
     }
    },

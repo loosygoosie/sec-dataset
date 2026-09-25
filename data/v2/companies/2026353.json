@@ -352,6 +352,7 @@
    "current_assets": 365493,
    "current_liabilities": 964061,
    "d_and_a": 524,
+   "debt_current": 20516,
    "eps_diluted": -0.04,
    "filed": "2026-05-15",
    "form": "10-Q",
@@ -373,6 +374,8 @@
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 10031273,
    "total_assets": 367761,
+   "total_debt": 20516,
+   "total_debt_filed": "2025-05-16",
    "total_equity": -596300,
    "total_equity_parent": -596300,
    "total_liabilities": 964061
@@ -803,6 +806,20 @@
    "v2": -385329
   },
   {
+   "field": "total_debt",
+   "old": null,
+   "period": "2025-03-31",
+   "rows": "quarterly",
+   "v2": 20516
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2025-03-31",
+   "rows": "quarterly",
+   "v2": 20516
+  },
+  {
    "field": "capex",
    "old": null,
    "period": "2025-09-30",
@@ -1031,6 +1048,7 @@
   {
    "cash": 179233,
    "cash_and_sti": 179233,
+   "debt_current": 20516,
    "end": "2025-03-31",
    "equity": -596300,
    "net_income": -390181,
@@ -1074,9 +1092,20 @@
      "filed": "2025-05-16",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2025-05-16",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 20516
+     }
     }
    },
-   "start": "2025-01-01"
+   "start": "2025-01-01",
+   "total_debt": 20516
   },
   {
    "cash": 187416,

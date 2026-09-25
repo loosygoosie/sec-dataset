@@ -1,16 +1,6 @@
 {
  "annual": [
   {
-   "added_by": "v2",
-   "fiscal_year": 2012,
-   "form": "10-K",
-   "net_income": -229701,
-   "net_income_filed": "2012-10-18",
-   "operating_cash_flow": -271805,
-   "operating_cash_flow_filed": "2012-10-18",
-   "period_end": "2012-08-31"
-  },
-  {
    "capex": 25938000,
    "capex_as_filed": 25938000,
    "capex_as_filed_filed": "2014-04-17",
@@ -2161,41 +2151,6 @@
  },
  "v2_annual": [
   {
-   "cash": 163811,
-   "cash_and_sti": 163811,
-   "end": "2012-08-31",
-   "equity": 5560882,
-   "net_income": -229701,
-   "operating_cash_flow": -271805,
-   "src": {
-    "cash": {
-     "accn": "0001144204-12-056778",
-     "filed": "2012-10-18",
-     "form": "10-Q/A",
-     "tag": "CashAndCashEquivalentsAtCarryingValue"
-    },
-    "equity": {
-     "accn": "0001144204-12-056778",
-     "filed": "2012-10-18",
-     "form": "10-Q/A",
-     "tag": "StockholdersEquity"
-    },
-    "net_income": {
-     "accn": "0001144204-12-056778",
-     "filed": "2012-10-18",
-     "form": "10-Q/A",
-     "tag": "NetIncomeLoss"
-    },
-    "operating_cash_flow": {
-     "accn": "0001144204-12-056778",
-     "filed": "2012-10-18",
-     "form": "10-Q/A",
-     "tag": "NetCashProvidedByUsedInOperatingActivities"
-    }
-   },
-   "start": "2011-09-21"
-  },
-  {
    "capex": 25938000,
    "cash": 2135000,
    "cash_and_sti": 4810000,
@@ -3386,20 +3341,6 @@
   }
  ],
  "v2_fixes": [
-  {
-   "field": "net_income",
-   "old": null,
-   "period": "2012-08-31",
-   "rows": "annual",
-   "v2": -229701
-  },
-  {
-   "field": "operating_cash_flow",
-   "old": null,
-   "period": "2012-08-31",
-   "rows": "annual",
-   "v2": -271805
-  },
   {
    "field": "net_income",
    "old": null,

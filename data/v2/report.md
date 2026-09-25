@@ -2,92 +2,403 @@
 
 ## ALARMS
 
-- SPCX: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- ENB: no_revenue, reports_in_CAD, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- CP: no_revenue, reports_in_CAD, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- HONA: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- ARCC: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- MBGL: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- CLBK: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- NLY: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- CBRS: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- FRBT: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- MAIR: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- GMRS: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- OBDC: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- ARXS: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- OKLO: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- BXSL: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- OTF: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- OCTV: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- APA: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
 - ACHR: short_history (a big company: fix or add to data/v2/predecessors.csv)
-- BTGO: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- CSQR: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- FSK: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- INIO: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- VGNT: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- MAIN: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- MC: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- GBDC: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
 - MRP: short_history (a big company: fix or add to data/v2/predecessors.csv)
-- PCVX: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- NUVL: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- HTGC: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- QS: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- VKTX: short_history (a big company: fix or add to data/v2/predecessors.csv)
-- BANR: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- TSLX: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
 - PCT: short_history (a big company: fix or add to data/v2/predecessors.csv)
-- APGE: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- TMC: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- MSDL: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- DX: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- ARR: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- IRON: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- MLTX: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- VERA: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- FETH: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- IMVT: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- GSBD: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- OCSL: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- EWTX: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- NEXT: short_history (a big company: fix or add to data/v2/predecessors.csv)
-- SOC: short_history (a big company: fix or add to data/v2/predecessors.csv)
-- CIM: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- TWOD: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- PFLT: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- NG: short_history (a big company: fix or add to data/v2/predecessors.csv)
-- BHVN: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- NMFC: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- DYN: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- CGBD: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- TRIN: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- PSEC: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- ORC: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- PPTA: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- ORIC: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- ELVN: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- GPCR: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- BBDC: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- SLRC: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- AVBP: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- ADAM: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- VEL: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- NREF: no_revenue, no_revenue, short_history (a big company: fix or add to data/v2/predecessors.csv)
-- debt_too_small_for_interest: 28 companies (interest is over 25% of the debt v2 found): GE, TMUS, APD, ED, BAX, ALLY, SF, CRBG, KNX, QVCG, CDE, AN, ORA, FRHC, AVA, CACC, SNEX, VAL, NAVN, CALY, CIM, PFLT, PMT, QURE, GOLD, TRLV, KODK, RDNW
-- interest_but_no_debt: 31 companies pay interest but v2 found no debt: BRK-B, KKR, PCAR, ALNY, F, TXT, CG, NLY, TEM, CUBE, AES, AHR, COLD, CNK, HIW, ALH, UE, BANR, PCT, DX, PLUG, ARWR, ARI, HPP, COLL, KW, OPY, KREF, OPEN, ARES, TTEC
+- big companies with no revenue (64; funds / pre-revenue are expected, anything you recognise as an operating company is a drop): ADAM, APA, APGE, ARCC, ARR, ARXS, AVBP, BANR, BBDC, BHVN, BTGO, BXSL, CBRS, CGBD, CIM, CLBK, CSQR, DX, DYN, ELVN, EWTX, FETH, FRBT, FSK, GBDC, GMRS, GPCR, GSBD, HONA, HTGC, IMVT, INIO, IRON, MAIN, MAIR, MBGL, MC, MLTX, MSDL, NLY, NMFC, NREF, NUVL, OBDC, OCSL, OCTV, OKLO, ORC, ORIC, OTF, PCVX, PFLT, PPTA, PSEC, QS, SLRC, SPCX, TMC, TRIN, TSLX, TWOD, VEL, VERA, VGNT
+- big companies reporting in another currency (not read): CP (CAD), ENB (CAD)
+- debt_too_small_for_interest: 28 companies (interest is over 25% of the debt v2 found): GE, TMUS, ED, BAX, ALLY, SF, CRBG, KNX, QVCG, CDE, AN, ORA, FRHC, AVA, CACC, SNEX, VAL, NAVN, CALY, CIM, PFLT, COLL, PMT, QURE, GOLD, TRLV, KODK, RDNW
+- interest_but_no_debt: 30 companies pay interest but v2 found no debt: BRK-B, KKR, PCAR, ALNY, F, TXT, CG, NLY, TEM, CUBE, AES, AHR, COLD, CNK, HIW, ALH, UE, BANR, PCT, DX, PLUG, ARWR, ARI, HPP, KW, OPY, KREF, OPEN, ARES, TTEC
 
-- run: 10 min
+- run: 250 min
 - universe: 2489 companies that could be S&P-sized (no prices: fmp draws the $22.7B line with Robinhood's); by size gate: assets 121, float 1860, no_float 334, revenue 174
-- cover instances: 452 fetched of 4782 needed (the rest from the cache); 5 dropped from the cache
+- cover instances: 18 fetched of 4782 needed (the rest from the cache); 0 dropped from the cache
 - dropped before the universe: commodity_trust 92, no_listed_common_ticker 784, no_recent_10q 165, partnership 40, too_small_sec_figures 1938
-- TTM coverage: revenue 2129/2489, net_income 2236/2489, operating_cash_flow 2216/2489, capex 2063/2489, stock_comp 2128/2489, shares_diluted 2302/2489; total_debt 1897/2489
-- changes this run: entered_universe 552, fact_change 36, new_filing 5
+- TTM coverage: revenue 2129/2489, net_income 2235/2489, operating_cash_flow 2216/2489, capex 2062/2489, stock_comp 2126/2489, shares_diluted 2302/2489; total_debt 1903/2489
+- changes this run: fact_change 127, new_filing 95
 
 ## Filing library
 
-- skipped this run
+- release assets: https://github.com/loosygoosie/sec-dataset/releases/tag/library (one <cik>.tar.gz per company + index.json)
+- window: filings since 2023-09-25 (3 years), every form, every document
+- this run: 548 companies checked, 119 assets replaced, 64 unchanged; 30746 filings fetched (95 logged as new), 122406 deferred to the next run; 241 min
+- library: 548 companies, 177 complete; EDGAR lists 204498 filings, saved 81951 (120449 documents, 1.00 GB); failures 141
+
+### Companies with gaps (EDGAR count != saved)
+
+| ticker | cik | EDGAR | saved | failures | deferred | error |
+|---|---|---|---|---|---|---|
+| EOG | 821189 | 377 | 363 | 14 | 0 |  |
+| STX | 1137789 | 546 | 508 | 38 | 0 |  |
+| FDX | 1048911 | 259 | 232 | 27 | 0 |  |
+| ADSK | 769397 | 252 | 241 | 11 | 0 |  |
+| BNY | 1390777 | 502 | 461 | 41 | 0 |  |
+| MRVL | 1835632 | 414 | 188 | 10 | 216 |  |
+| NEM | 1164727 | 344 | 0 | 0 | 344 |  |
+| CMG | 1058090 | 293 | 0 | 0 | 293 |  |
+| ORLY | 898173 | 364 | 0 | 0 | 364 |  |
+| HCA | 860730 | 271 | 0 | 0 | 271 |  |
+| AXON | 1069183 | 393 | 0 | 0 | 393 |  |
+| FCX | 831259 | 196 | 0 | 0 | 196 |  |
+| CRH | 849395 | 171 | 0 | 0 | 171 |  |
+| HLT | 1585689 | 255 | 0 | 0 | 255 |  |
+| EMR | 32604 | 229 | 0 | 0 | 229 |  |
+| MAR | 1048286 | 338 | 0 | 0 | 338 |  |
+| MSI | 68505 | 330 | 0 | 0 | 330 |  |
+| CSX | 277948 | 210 | 0 | 0 | 210 |  |
+| ROP | 882835 | 190 | 0 | 0 | 190 |  |
+| TRV | 86312 | 466 | 0 | 0 | 466 |  |
+| SNPS | 883241 | 308 | 0 | 0 | 308 |  |
+| DLR | 1297996 | 227 | 0 | 0 | 227 |  |
+| CARR | 1783180 | 225 | 0 | 0 | 225 |  |
+| APO | 1858681 | 415 | 0 | 0 | 415 |  |
+| AZO | 866787 | 337 | 0 | 0 | 337 |  |
+| NSC | 702165 | 590 | 0 | 0 | 590 |  |
+| KMI | 1506307 | 243 | 0 | 0 | 243 |  |
+| FTNT | 1262039 | 379 | 0 | 0 | 379 |  |
+| MNST | 865752 | 240 | 0 | 0 | 240 |  |
+| ABNB | 1559720 | 868 | 0 | 0 | 868 |  |
+| AEP | 4904 | 404 | 0 | 0 | 404 |  |
+| AFL | 4977 | 363 | 0 | 0 | 363 |  |
+| PWR | 1050915 | 228 | 0 | 0 | 228 |  |
+| TFC | 92230 | 443 | 0 | 0 | 443 |  |
+| REGN | 872589 | 327 | 0 | 0 | 327 |  |
+| NXPI | 1413447 | 254 | 0 | 0 | 254 |  |
+| LNG | 3570 | 182 | 0 | 0 | 182 |  |
+| MET | 1099219 | 498 | 0 | 0 | 498 |  |
+| ALL | 899051 | 370 | 0 | 0 | 370 |  |
+| O | 726728 | 263 | 0 | 0 | 263 |  |
+| JCI | 833444 | 391 | 0 | 0 | 391 |  |
+| SPG | 1063761 | 345 | 0 | 0 | 345 |  |
+| CPRT | 900075 | 147 | 0 | 0 | 147 |  |
+| OKE | 1039684 | 456 | 0 | 0 | 456 |  |
+| MPC | 1510295 | 265 | 0 | 0 | 265 |  |
+| CTVA | 1755672 | 246 | 0 | 0 | 246 |  |
+| FLUT | 1635327 | 374 | 0 | 0 | 374 |  |
+| AMP | 820027 | 541 | 0 | 0 | 541 |  |
+| WDAY | 1327811 | 520 | 0 | 0 | 520 |  |
+| SRE | 1032208 | 423 | 0 | 0 | 423 |  |
+| PCAR | 75362 | 601 | 0 | 0 | 601 |  |
+| EA | 712515 | 465 | 0 | 0 | 465 |  |
+| VRT | 1674101 | 379 | 0 | 0 | 379 |  |
+| D | 715957 | 299 | 0 | 0 | 299 |  |
+| PSX | 1534701 | 382 | 0 | 0 | 382 |  |
+| CAH | 721371 | 233 | 0 | 0 | 233 |  |
+| WCN | 1318220 | 286 | 0 | 0 | 286 |  |
+| FAST | 815556 | 256 | 0 | 0 | 256 |  |
+| AIG | 5272 | 463 | 0 | 0 | 463 |  |
+| WDC | 106040 | 503 | 0 | 0 | 503 |  |
+| TTWO | 946581 | 339 | 0 | 0 | 339 |  |
+| GM | 1467858 | 272 | 0 | 0 | 272 |  |
+| KR | 56873 | 372 | 0 | 0 | 372 |  |
+| LHX | 202058 | 322 | 0 | 0 | 322 |  |
+| EW | 1099800 | 387 | 0 | 0 | 387 |  |
+| SLB | 87347 | 391 | 0 | 0 | 391 |  |
+| TGT | 27419 | 232 | 0 | 0 | 232 |  |
+| CMI | 26172 | 377 | 0 | 0 | 377 |  |
+| GLW | 24741 | 611 | 0 | 0 | 611 |  |
+| KDP | 1418135 | 304 | 0 | 0 | 304 |  |
+| CCI | 1051470 | 313 | 0 | 0 | 313 |  |
+| PSA | 1393311 | 307 | 0 | 0 | 307 |  |
+| EXC | 1109357 | 214 | 0 | 0 | 214 |  |
+| CVNA | 1690820 | 926 | 0 | 0 | 926 |  |
+| ROST | 745732 | 221 | 0 | 0 | 221 |  |
+| MSCI | 1408198 | 215 | 0 | 0 | 215 |  |
+| DDOG | 1561550 | 873 | 0 | 0 | 873 |  |
+| IDXX | 874716 | 224 | 0 | 0 | 224 |  |
+| FERG | 2011641 | 220 | 0 | 0 | 220 |  |
+| KMB | 55785 | 298 | 0 | 0 | 298 |  |
+| URI | 1067701 | 235 | 0 | 0 | 235 |  |
+| ALNY | 1178670 | 262 | 0 | 0 | 262 |  |
+| VEEV | 1393052 | 365 | 0 | 0 | 365 |  |
+| VRSK | 1442145 | 323 | 0 | 0 | 323 |  |
+| FIS | 1136893 | 204 | 0 | 0 | 204 |  |
+| F | 37996 | 373 | 0 | 0 | 373 |  |
+| TEL | 1385157 | 271 | 0 | 0 | 271 |  |
+| PEG | 788784 | 276 | 0 | 0 | 276 |  |
+| AME | 1037868 | 237 | 0 | 0 | 237 |  |
+| VLO | 1035002 | 180 | 0 | 0 | 180 |  |
+| CBRE | 1138118 | 288 | 0 | 0 | 288 |  |
+| OXY | 797468 | 197 | 0 | 0 | 197 |  |
+| GWW | 277135 | 309 | 0 | 0 | 309 |  |
+| YUM | 1041061 | 360 | 0 | 0 | 360 |  |
+| NDAQ | 1120193 | 318 | 0 | 0 | 318 |  |
+| SNDK | 2023554 | 209 | 0 | 0 | 209 |  |
+| XEL | 72903 | 281 | 0 | 0 | 281 |  |
+| KVUE | 1944048 | 357 | 0 | 0 | 357 |  |
+| CRWV | 1769628 | 1084 | 0 | 0 | 1084 |  |
+| XYZ | 1512673 | 637 | 0 | 0 | 637 |  |
+| DELL | 1571996 | 1023 | 0 | 0 | 1023 |  |
+| DHI | 882184 | 322 | 0 | 0 | 322 |  |
+| OTIS | 1781335 | 230 | 0 | 0 | 230 |  |
+| CTSH | 1058290 | 620 | 0 | 0 | 620 |  |
+| COR | 1140859 | 423 | 0 | 0 | 423 |  |
+| PRU | 1137774 | 489 | 0 | 0 | 489 |  |
+| BKR | 1701605 | 289 | 0 | 0 | 289 |  |
+| CRCL | 1876042 | 364 | 0 | 0 | 364 |  |
+| PCG | 1004980 | 248 | 0 | 0 | 248 |  |
+| ETR | 65984 | 530 | 0 | 0 | 530 |  |
+| CHTR | 1091667 | 359 | 0 | 0 | 359 |  |
+| TRGP | 1389170 | 298 | 0 | 0 | 298 |  |
+| ED | 1047862 | 261 | 0 | 0 | 261 |  |
+| FICO | 814547 | 263 | 0 | 0 | 263 |  |
+| HIG | 874766 | 295 | 0 | 0 | 295 |  |
+| PAYX | 723531 | 285 | 0 | 0 | 285 |  |
+| NET | 1477333 | 620 | 0 | 0 | 620 |  |
+| SYY | 96021 | 372 | 0 | 0 | 372 |  |
+| RMD | 943819 | 351 | 0 | 0 | 351 |  |
+| EQT | 33213 | 359 | 0 | 0 | 359 |  |
+| COHR | 820318 | 358 | 0 | 0 | 358 |  |
+| VMC | 1396009 | 299 | 0 | 0 | 299 |  |
+| VICI | 1705696 | 188 | 0 | 0 | 188 |  |
+| GRMN | 1121788 | 346 | 0 | 0 | 346 |  |
+| DXCM | 1093557 | 330 | 0 | 0 | 330 |  |
+| EBAY | 1065088 | 532 | 0 | 0 | 532 |  |
+| MCHP | 827054 | 358 | 0 | 0 | 358 |  |
+| GEHC | 1932393 | 268 | 0 | 0 | 268 |  |
+| CSGP | 1057352 | 236 | 0 | 0 | 236 |  |
+| CPNG | 1834584 | 237 | 0 | 0 | 237 |  |
+| WEC | 783325 | 332 | 0 | 0 | 332 |  |
+| ACGL | 947484 | 225 | 0 | 0 | 225 |  |
+| IR | 1699150 | 293 | 0 | 0 | 293 |  |
+| EFX | 33185 | 291 | 0 | 0 | 291 |  |
+| DAL | 27904 | 327 | 0 | 0 | 327 |  |
+| FWONA | 1560385 | 395 | 0 | 0 | 395 |  |
+| TTD | 1671933 | 292 | 0 | 0 | 292 |  |
+| BRO | 79282 | 198 | 0 | 0 | 198 |  |
+| NUE | 73309 | 295 | 0 | 0 | 295 |  |
+| WAB | 943452 | 397 | 0 | 0 | 397 |  |
+| XYL | 1524472 | 210 | 0 | 0 | 210 |  |
+| EXR | 1289490 | 226 | 0 | 0 | 226 |  |
+| ODFL | 878927 | 249 | 0 | 0 | 249 |  |
+| STT | 93751 | 1764 | 0 | 0 | 1764 |  |
+| IT | 749251 | 644 | 0 | 0 | 644 |  |
+| CRDO | 1807794 | 617 | 0 | 0 | 617 |  |
+| WTW | 1140536 | 544 | 0 | 0 | 544 |  |
+| LPLA | 1397911 | 323 | 0 | 0 | 323 |  |
+| IRM | 1020569 | 432 | 0 | 0 | 432 |  |
+| MTB | 36270 | 412 | 0 | 0 | 412 |  |
+| HUM | 49071 | 248 | 0 | 0 | 248 |  |
+| ROK | 1024478 | 514 | 0 | 0 | 514 |  |
+| MLM | 916076 | 235 | 0 | 0 | 235 |  |
+| VTR | 740260 | 462 | 0 | 0 | 462 |  |
+| HEI | 46619 | 173 | 0 | 0 | 173 |  |
+| HUBS | 1404655 | 422 | 0 | 0 | 422 |  |
+| RJF | 720005 | 372 | 0 | 0 | 372 |  |
+| WBD | 1437107 | 484 | 0 | 0 | 484 |  |
+| TEAM | 1650372 | 1666 | 0 | 0 | 1666 |  |
+| AMRZ | 2035989 | 127 | 0 | 0 | 127 |  |
+| DTE | 936340 | 293 | 0 | 0 | 293 |  |
+| CNC | 1071739 | 282 | 0 | 0 | 282 |  |
+| NRG | 1013871 | 407 | 0 | 0 | 407 |  |
+| A | 1090872 | 311 | 0 | 0 | 311 |  |
+| TPR | 1116132 | 228 | 0 | 0 | 228 |  |
+| IQV | 1478242 | 212 | 0 | 0 | 212 |  |
+| EL | 1001250 | 439 | 0 | 0 | 439 |  |
+| AEE | 1002910 | 289 | 0 | 0 | 289 |  |
+| BR | 1383312 | 437 | 0 | 0 | 437 |  |
+| FANG | 1539838 | 367 | 0 | 0 | 367 |  |
+| GIS | 40704 | 357 | 0 | 0 | 357 |  |
+| VLTO | 1967680 | 250 | 0 | 0 | 250 |  |
+| PPG | 79879 | 791 | 0 | 0 | 791 |  |
+| UAL | 100517 | 273 | 0 | 0 | 273 |  |
+| VMRK | 906107 | 314 | 0 | 0 | 314 |  |
+| TYL | 860731 | 331 | 0 | 0 | 331 |  |
+| ADM | 7084 | 449 | 0 | 0 | 449 |  |
+| CCL | 815097 | 190 | 0 | 0 | 190 |  |
+| SBAC | 1034054 | 222 | 0 | 0 | 222 |  |
+| PPL | 922224 | 349 | 0 | 0 | 349 |  |
+| DOV | 29905 | 169 | 0 | 0 | 169 |  |
+| STZ | 16918 | 292 | 0 | 0 | 292 |  |
+| GDDY | 1609711 | 358 | 0 | 0 | 358 |  |
+| MKL | 1096343 | 257 | 0 | 0 | 257 |  |
+| SYF | 1601712 | 633 | 0 | 0 | 633 |  |
+| MPWR | 1280452 | 482 | 0 | 0 | 482 |  |
+| HSY | 47111 | 533 | 0 | 0 | 533 |  |
+| IP | 51434 | 272 | 0 | 0 | 272 |  |
+| LEN | 920760 | 265 | 0 | 0 | 265 |  |
+| ATO | 731802 | 214 | 0 | 0 | 214 |  |
+| CBOE | 1374310 | 237 | 0 | 0 | 237 |  |
+| STE | 1757898 | 247 | 0 | 0 | 247 |  |
+| MTD | 1037646 | 165 | 0 | 0 | 165 |  |
+| HPQ | 47217 | 256 | 0 | 0 | 256 |  |
+| HBAN | 49196 | 772 | 0 | 0 | 772 |  |
+| NTRS | 73124 | 466 | 0 | 0 | 466 |  |
+| LYV | 1335258 | 240 | 0 | 0 | 240 |  |
+| FITB | 35527 | 378 | 0 | 0 | 378 |  |
+| CNP | 1130310 | 214 | 0 | 0 | 214 |  |
+| TDY | 1094285 | 222 | 0 | 0 | 222 |  |
+| AWK | 1410636 | 256 | 0 | 0 | 256 |  |
+| IBKR | 1381197 | 214 | 0 | 0 | 214 |  |
+| ES | 72741 | 225 | 0 | 0 | 225 |  |
+| CDW | 1402057 | 380 | 0 | 0 | 380 |  |
+| FE | 1031296 | 236 | 0 | 0 | 236 |  |
+| BAM | 1937926 | 83 | 0 | 0 | 83 |  |
+| ON | 1097864 | 215 | 0 | 0 | 215 |  |
+| TOST | 1650164 | 646 | 0 | 0 | 646 |  |
+| CHD | 313927 | 769 | 0 | 0 | 769 |  |
+| CINF | 20286 | 334 | 0 | 0 | 334 |  |
+| CPAY | 1175454 | 252 | 0 | 0 | 252 |  |
+| WSM | 719955 | 333 | 0 | 0 | 333 |  |
+| SW | 2005951 | 363 | 0 | 0 | 363 |  |
+| PODD | 1145197 | 279 | 0 | 0 | 279 |  |
+| TSCO | 916365 | 292 | 0 | 0 | 292 |  |
+| KHC | 1637459 | 200 | 0 | 0 | 200 |  |
+| WRB | 11544 | 257 | 0 | 0 | 257 |  |
+| DLTR | 935703 | 259 | 0 | 0 | 259 |  |
+| NTRA | 1604821 | 748 | 0 | 0 | 748 |  |
+| LH | 920148 | 396 | 0 | 0 | 396 |  |
+| HUBB | 48898 | 266 | 0 | 0 | 266 |  |
+| QSR | 1618756 | 426 | 0 | 0 | 426 |  |
+| RDDT | 1713445 | 427 | 0 | 0 | 427 |  |
+| HPE | 1645590 | 444 | 0 | 0 | 444 |  |
+| DG | 29534 | 231 | 0 | 0 | 231 |  |
+| FLEX | 866374 | 439 | 0 | 0 | 439 |  |
+| INSM | 1104506 | 526 | 0 | 0 | 526 |  |
+| LDOS | 1336920 | 402 | 0 | 0 | 402 |  |
+| WAT | 1000697 | 211 | 0 | 0 | 211 |  |
+| TROW | 1113169 | 334 | 0 | 0 | 334 |  |
+| AFRM | 1820953 | 386 | 0 | 0 | 386 |  |
+| PHM | 822416 | 160 | 0 | 0 | 160 |  |
+| CMS | 811156 | 231 | 0 | 0 | 231 |  |
+| RF | 1281761 | 263 | 0 | 0 | 263 |  |
+| NVR | 906163 | 179 | 0 | 0 | 179 |  |
+| DVN | 1090012 | 213 | 0 | 0 | 213 |  |
+| INVH | 1687229 | 170 | 0 | 0 | 170 |  |
+| DRI | 940944 | 379 | 0 | 0 | 379 |  |
+| DGX | 1022079 | 357 | 0 | 0 | 357 |  |
+| SOFI | 1818874 | 435 | 0 | 0 | 435 |  |
+| TPL | 1811074 | 891 | 0 | 0 | 891 |  |
+| Q | 2058873 | 117 | 0 | 0 | 117 |  |
+| EXPE | 1324424 | 299 | 0 | 0 | 299 |  |
+| CLX | 21076 | 264 | 0 | 0 | 264 |  |
+| EIX | 827052 | 258 | 0 | 0 | 258 |  |
+| ZM | 1585521 | 394 | 0 | 0 | 394 |  |
+| USFD | 1665918 | 255 | 0 | 0 | 255 |  |
+| EXE | 895126 | 216 | 0 | 0 | 216 |  |
+| RBA | 1046102 | 484 | 0 | 0 | 484 |  |
+| KEY | 91576 | 351 | 0 | 0 | 351 |  |
+| MKC | 63754 | 491 | 0 | 0 | 491 |  |
+| GPN | 1123360 | 213 | 0 | 0 | 213 |  |
+| AMCR | 1748790 | 288 | 0 | 0 | 288 |  |
+| CFG | 759944 | 350 | 0 | 0 | 350 |  |
+| CASY | 726958 | 191 | 0 | 0 | 191 |  |
+| MDB | 1441816 | 465 | 0 | 0 | 465 |  |
+| DKNG | 1883685 | 544 | 0 | 0 | 544 |  |
+| NI | 1111711 | 233 | 0 | 0 | 233 |  |
+| IFF | 51253 | 246 | 0 | 0 | 246 |  |
+| TRMB | 864749 | 354 | 0 | 0 | 354 |  |
+| DOW | 1751788 | 228 | 0 | 0 | 228 |  |
+| TWLO | 1447669 | 411 | 0 | 0 | 411 |  |
+| PINS | 1506293 | 496 | 0 | 0 | 496 |  |
+| FIX | 1035983 | 285 | 0 | 0 | 285 |  |
+| PTC | 857005 | 255 | 0 | 0 | 255 |  |
+| WY | 106535 | 248 | 0 | 0 | 248 |  |
+| ZS | 1713683 | 344 | 0 | 0 | 344 |  |
+| BIIB | 875045 | 229 | 0 | 0 | 229 |  |
+| AVAV | 1368622 | 258 | 0 | 0 | 258 |  |
+| LII | 1069202 | 262 | 0 | 0 | 262 |  |
+| FTV | 1659166 | 352 | 0 | 0 | 352 |  |
+| TEVA | 818686 | 336 | 0 | 0 | 336 |  |
+| ESS | 920522 | 173 | 0 | 0 | 173 |  |
+| ZBH | 1136869 | 357 | 0 | 0 | 357 |  |
+| CLS | 1030894 | 243 | 0 | 0 | 243 |  |
+| PFG | 1126328 | 523 | 0 | 0 | 523 |  |
+| FSLR | 1274494 | 522 | 0 | 0 | 522 |  |
+| LULU | 1397187 | 268 | 0 | 0 | 268 |  |
+| FDS | 1013237 | 295 | 0 | 0 | 295 |  |
+| SSNC | 1402436 | 176 | 0 | 0 | 176 |  |
+| TSN | 100493 | 234 | 0 | 0 | 234 |  |
+| FCNCA | 798941 | 203 | 0 | 0 | 203 |  |
+| EME | 105634 | 245 | 0 | 0 | 245 |  |
+| BURL | 1579298 | 247 | 0 | 0 | 247 |  |
+| NTAP | 1002047 | 388 | 0 | 0 | 388 |  |
+| FN | 1408710 | 195 | 0 | 0 | 195 |  |
+| TRU | 1552033 | 374 | 0 | 0 | 374 |  |
+| KEYS | 1601046 | 317 | 0 | 0 | 317 |  |
+| P | 1474432 | 367 | 0 | 0 | 367 |  |
+| GPC | 40987 | 277 | 0 | 0 | 277 |  |
+| EQH | 1333986 | 444 | 0 | 0 | 444 |  |
+| TW | 1758730 | 267 | 0 | 0 | 267 |  |
+| LUV | 92380 | 279 | 0 | 0 | 279 |  |
+| ULTA | 1403568 | 157 | 0 | 0 | 157 |  |
+| RPRX | 1802768 | 276 | 0 | 0 | 276 |  |
+| PKG | 75677 | 222 | 0 | 0 | 222 |  |
+| PNR | 77360 | 209 | 0 | 0 | 209 |  |
+| YUMC | 1673358 | 361 | 0 | 0 | 361 |  |
+| LITE | 1633978 | 396 | 0 | 0 | 396 |  |
+| RS | 861884 | 157 | 0 | 0 | 157 |  |
+| CW | 26324 | 291 | 0 | 0 | 291 |  |
+| VRSN | 1014473 | 405 | 0 | 0 | 405 |  |
+| OKTA | 1660134 | 379 | 0 | 0 | 379 |  |
+| COO | 711404 | 191 | 0 | 0 | 191 |  |
+| BAX | 10456 | 216 | 0 | 0 | 216 |  |
+| MOH | 1179929 | 274 | 0 | 0 | 274 |  |
+| SNA | 91440 | 257 | 0 | 0 | 257 |  |
+| LOGI | 1032975 | 168 | 0 | 0 | 168 |  |
+| ROL | 84839 | 246 | 0 | 0 | 246 |  |
+| CSL | 790051 | 315 | 0 | 0 | 315 |  |
+| SFM | 1575515 | 454 | 0 | 0 | 454 |  |
+| SUI | 912593 | 267 | 0 | 0 | 267 |  |
+| WST | 105770 | 163 | 0 | 0 | 163 |  |
+| CRS | 17843 | 250 | 0 | 0 | 250 |  |
+| EVRG | 1711269 | 193 | 0 | 0 | 193 |  |
+| WSO | 105016 | 134 | 0 | 0 | 134 |  |
+| GEN | 849399 | 182 | 0 | 0 | 182 |  |
+| LNT | 352541 | 184 | 0 | 0 | 184 |  |
+| ZBRA | 877212 | 280 | 0 | 0 | 280 |  |
+| ARCC | 1287750 | 109 | 0 | 0 | 109 |  |
+| EXPD | 746515 | 266 | 0 | 0 | 266 |  |
+| L | 60086 | 360 | 0 | 0 | 360 |  |
+| FFIV | 1048695 | 447 | 0 | 0 | 447 |  |
+| DPZ | 1286681 | 319 | 0 | 0 | 319 |  |
+| BALL | 9389 | 281 | 0 | 0 | 281 |  |
+| HAL | 45012 | 361 | 0 | 0 | 361 |  |
+| SMCI | 1375365 | 401 | 0 | 0 | 401 |  |
+| DOCU | 1261333 | 468 | 0 | 0 | 468 |  |
+| UAA | 1336917 | 289 | 0 | 0 | 289 |  |
+| ZG | 1617640 | 576 | 0 | 0 | 576 |  |
+| RKLB | 1819994 | 336 | 0 | 0 | 336 |  |
+| LYB | 1489393 | 296 | 0 | 0 | 296 |  |
+| CF | 1324404 | 288 | 0 | 0 | 288 |  |
+| APTV | 1521332 | 231 | 0 | 0 | 231 |  |
+| DECK | 910521 | 310 | 0 | 0 | 310 |  |
+| ONC | 1651308 | 412 | 0 | 0 | 412 |  |
+| DT | 1773383 | 355 | 0 | 0 | 355 |  |
+| BJ | 1531152 | 246 | 0 | 0 | 246 |  |
+| J | 52988 | 250 | 0 | 0 | 250 |  |
+| JBL | 898293 | 436 | 0 | 0 | 436 |  |
+| XPO | 1166003 | 201 | 0 | 0 | 201 |  |
+| TXT | 217346 | 163 | 0 | 0 | 163 |  |
+| EG | 1095073 | 224 | 0 | 0 | 224 |  |
+| RIVN | 1874178 | 321 | 0 | 0 | 321 |  |
+| GGG | 42888 | 294 | 0 | 0 | 294 |  |
+| KIM | 879101 | 166 | 0 | 0 | 166 |  |
+| SN | 1957132 | 118 | 0 | 0 | 118 |  |
+| UNM | 5513 | 219 | 0 | 0 | 219 |  |
+| FNF | 1331875 | 234 | 0 | 0 | 234 |  |
+| OMC | 29989 | 289 | 0 | 0 | 289 |  |
+| EWBC | 1069157 | 223 | 0 | 0 | 223 |  |
+| SGI | 1206264 | 223 | 0 | 0 | 223 |  |
+| QXO | 1236275 | 320 | 0 | 0 | 320 |  |
+| TKO | 1973266 | 339 | 0 | 0 | 339 |  |
+| AVY | 8818 | 222 | 0 | 0 | 222 |  |
+| WPC | 1025378 | 189 | 0 | 0 | 189 |  |
+| CG | 1527166 | 321 | 0 | 0 | 321 |  |
+| RPM | 110621 | 188 | 0 | 0 | 188 |  |
+| MAS | 62996 | 189 | 0 | 0 | 189 |  |
+| DUOL | 1562088 | 445 | 0 | 0 | 445 |  |
+| TLN | 1622536 | 163 | 0 | 0 | 163 |  |
+| RBRK | 1943896 | 376 | 0 | 0 | 376 |  |
+| IEX | 832101 | 134 | 0 | 0 | 134 |  |
+| BWXT | 1486957 | 283 | 0 | 0 | 283 |  |
+| ALAB | 1736297 | 377 | 0 | 0 | 377 |  |
+| RGA | 898174 | 234 | 0 | 0 | 234 |  |
+| SOLV | 1964738 | 199 | 0 | 0 | 199 |  |
+| JKHY | 779152 | 196 | 0 | 0 | 196 |  |
+| LVS | 1300514 | 197 | 0 | 0 | 197 |  |
+| STLD | 1022671 | 402 | 0 | 0 | 402 |  |
+| MDLN | 2046386 | 101 | 0 | 0 | 101 |  |
 
 ## Without usable revenue (files written, flagged; nothing is dropped)
 
@@ -458,7 +769,7 @@
 - ONTO: no_debt_tagged
 - ENVA: debt_one_side_only
 - RENX: quarter_exceeds_year_capex_2024-12-31
-- CLSK: stale_revenue, debt_one_side_only
+- CLSK: stale_revenue
 - META: current_ltd_untagged_2.8B, debt_one_side_only
 - TRMK: no_debt_tagged, quarters_off_year_revenue_2023-12-31
 - HIVE: debt_one_side_only
@@ -475,16 +786,16 @@
 - IBM: current_ltd_untagged_6.7B
 - GE: debt_too_small_for_interest
 - WFC: no_capex
-- CRD-A: stale_shares_diluted, capex_below_segment_2023-12-31, capex_below_segment_2024-12-31, capex_below_segment_2025-12-31
+- CRD-A: stale_shares_diluted, capex_below_segment_2023-12-31, capex_below_segment_2025-12-31, capex_below_segment_2024-12-31
 - MCFT: no_debt_tagged
 - MS: no_capex, debt_one_side_only
 - GS: debt_one_side_only
 - MCD: debt_one_side_only
 - ISRG: no_debt_tagged
-- SPCX: no_revenue, no_operating_cash_flow, no_capex, no_revenue, short_history
+- SPCX: no_operating_cash_flow, no_capex, no_revenue
 - VZ: stale_capex, stale_stock_comp
 - CAT: current_ltd_untagged_7.1B
-- DIS: revenue_unverified_2025-09-27, revenue_unverified_2023-09-30, revenue_unverified_2024-09-28
+- DIS: revenue_unverified_2023-09-30, revenue_unverified_2025-09-27, revenue_unverified_2024-09-28
 - KLAC: debt_one_side_only
 - BLK: debt_one_side_only
 - C: stale_stock_comp
@@ -505,7 +816,7 @@
 - WELL: revenue_unverified_2025-12-31, current_ltd_untagged_3.0B, debt_one_side_only
 - SO: stale_stock_comp
 - CME: debt_one_side_only
-- ENB: no_revenue, no_operating_cash_flow, no_capex, reports_in_CAD, short_history
+- ENB: no_operating_cash_flow, no_capex, reports_in_CAD
 - PLD: current_ltd_untagged_2.0B, debt_one_side_only
 - MCK: quarters_off_year_capex_2024-03-31, quarters_off_year_capex_2025-03-31, capex_below_segment_2026-03-31
 - DUK: revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
@@ -515,18 +826,17 @@
 - CDNS: debt_one_side_only
 - EQIX: quarters_off_year_revenue_2023-12-31
 - RSG: stale_stock_comp
-- AON: capex_below_segment_2023-12-31, capex_below_segment_2024-12-31, capex_below_segment_2025-12-31
+- AON: capex_below_segment_2023-12-31, capex_below_segment_2025-12-31, capex_below_segment_2024-12-31
 - COIN: stale_capex
 - SNOW: no_debt_tagged
-- CL: debt_one_side_only
 - PNC: no_capex, stale_stock_comp, debt_one_side_only
-- CP: no_revenue, no_operating_cash_flow, no_capex, reports_in_CAD, short_history
+- CP: no_operating_cash_flow, no_capex, reports_in_CAD
 - HOOD: stale_capex, no_debt_tagged
 - USB: no_capex, debt_one_side_only
 - ZTS: current_ltd_untagged_0.8B
-- APD: stale_operating_cash_flow, debt_one_side_only, debt_too_small_for_interest
+- APD: stale_operating_cash_flow, debt_one_side_only
 - BDX: quarters_off_year_revenue_2025-09-30, v2 quarterly revenue not used: its quarters did not add up to the year
-- VST: revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- VST: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31
 - NEM: debt_one_side_only
 - CMG: no_debt_tagged, debt_one_side_only
 - ORLY: debt_one_side_only
@@ -547,7 +857,7 @@
 - JCI: quarters_off_year_operating_cash_flow_2024-09-30
 - SPG: debt_one_side_only
 - CPRT: no_debt_tagged
-- MPC: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- MPC: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - AMP: no_debt_tagged
 - PCAR: no_debt_tagged, quarters_off_year_capex_2023-12-31, quarters_off_year_capex_2024-12-31, interest_but_no_debt
 - EA: debt_one_side_only
@@ -564,7 +874,7 @@
 - FERG: stale_revenue, stale_net_income, stale_operating_cash_flow, stale_capex, stale_stock_comp, stale_fcf
 - ALNY: no_debt_tagged, interest_but_no_debt
 - VEEV: stale_capex, no_debt_tagged
-- FIS: quarters_off_year_capex_2023-12-31, capex_below_segment_2024-12-31, capex_below_segment_2025-12-31
+- FIS: quarters_off_year_capex_2023-12-31, capex_below_segment_2025-12-31, capex_below_segment_2024-12-31
 - F: no_debt_tagged, interest_but_no_debt
 - AME: capex_below_segment_2023-12-31
 - VLO: stale_capex
@@ -574,7 +884,7 @@
 - BKR: stale_shares_diluted
 - CRCL: no_debt_tagged, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
 - ETR: stale_stock_comp
-- TRGP: quarters_off_year_revenue_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
+- TRGP: quarters_off_year_revenue_2024-12-31, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, debt_one_side_only
 - ED: debt_one_side_only, debt_too_small_for_interest
 - HIG: debt_one_side_only
 - PAYX: debt_one_side_only
@@ -586,7 +896,7 @@
 - ACGL: debt_one_side_only
 - FWONA: stale_shares_diluted, quarters_off_year_operating_cash_flow_2024-12-31, capex_below_segment_2023-12-31
 - TTD: no_debt_tagged
-- EXR: quarters_off_year_capex_2025-12-31, revenue_unverified_2025-12-31, revenue_unverified_2024-12-31, v2 quarterly capex not used: its quarters did not add up to the year
+- EXR: quarters_off_year_capex_2025-12-31, revenue_unverified_2024-12-31, revenue_unverified_2025-12-31, v2 quarterly capex not used: its quarters did not add up to the year
 - STT: stale_stock_comp, debt_one_side_only
 - CRDO: no_debt_tagged
 - LPLA: debt_one_side_only
@@ -600,7 +910,7 @@
 - DTE: stale_stock_comp
 - FANG: stale_stock_comp
 - GIS: revenue_unverified_2024-05-26
-- PPL: revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, revenue_unverified_2025-12-31
+- PPL: revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, revenue_unverified_2024-12-31
 - DOV: quarters_off_year_revenue_2023-12-31, quarters_off_year_operating_cash_flow_2024-12-31
 - MKL: quarters_off_year_revenue_2024-12-31, debt_one_side_only
 - SYF: no_capex, debt_one_side_only
@@ -630,14 +940,13 @@
 - RF: no_capex
 - NVR: no_debt_tagged
 - DVN: revenue_unverified_2025-12-31
-- INVH: revenue_unverified_2025-12-31, revenue_unverified_2024-12-31, current_ltd_untagged_1.0B, debt_one_side_only
+- INVH: revenue_unverified_2024-12-31, revenue_unverified_2025-12-31, current_ltd_untagged_1.0B, debt_one_side_only
 - SOFI: no_debt_tagged
 - TPL: stale_capex, no_debt_tagged
 - ZM: no_debt_tagged
 - EXE: debt_one_side_only
-- HONA: no_revenue, no_operating_cash_flow, no_capex, no_revenue, short_history
+- HONA: no_operating_cash_flow, no_capex, no_revenue
 - GPN: quarters_off_year_revenue_2024-12-31
-- AMCR: current_ltd_untagged_1.7B
 - CFG: stale_capex
 - MDB: no_debt_tagged
 - DKNG: current_ltd_untagged_0.0B, debt_one_side_only
@@ -648,7 +957,7 @@
 - WY: debt_one_side_only
 - ZS: no_debt_tagged
 - AVAV: debt_one_side_only
-- ESS: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, current_ltd_untagged_0.4B, debt_one_side_only
+- ESS: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, current_ltd_untagged_0.4B, debt_one_side_only
 - LULU: no_debt_tagged, debt_one_side_only
 - TSN: stale_stock_comp
 - EME: stale_stock_comp, no_debt_tagged
@@ -665,15 +974,15 @@
 - OKTA: no_debt_tagged
 - BAX: debt_one_side_only, debt_too_small_for_interest
 - MOH: debt_one_side_only
-- SNA: revenue_unverified_2024-12-28, revenue_unverified_2023-12-30, revenue_unverified_2026-01-03
+- SNA: revenue_unverified_2024-12-28, revenue_unverified_2026-01-03, revenue_unverified_2023-12-30
 - LOGI: no_debt_tagged
 - SFM: no_debt_tagged
 - SUI: quarters_off_year_revenue_2023-12-31, quarters_off_year_revenue_2025-12-31, v2 quarterly revenue not used: its quarters did not add up to the year
 - CRS: debt_one_side_only
 - WSO: debt_one_side_only
 - NWSA: quarters_off_year_revenue_2024-06-30, quarters_off_year_operating_cash_flow_2025-06-30
-- ARCC: no_revenue, no_capex, debt_one_side_only, no_revenue, short_history
-- EXPD: no_debt_tagged
+- ARCC: no_capex, debt_one_side_only, no_revenue
+- EXPD: debt_one_side_only
 - FFIV: no_debt_tagged
 - HAL: stale_stock_comp
 - SMCI: current_ltd_untagged_2.0B
@@ -694,31 +1003,31 @@
 - FNF: debt_one_side_only
 - EWBC: stale_capex, debt_one_side_only
 - QXO: debt_one_side_only
-- WPC: stale_capex, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, current_ltd_untagged_0.6B, debt_one_side_only
-- CG: no_debt_tagged, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, interest_but_no_debt
+- WPC: stale_capex, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, current_ltd_untagged_0.6B, debt_one_side_only
+- CG: no_debt_tagged, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, interest_but_no_debt
 - DUOL: no_debt_tagged
-- TLN: capex_below_segment_2025-12-31, capex_below_segment_2024-12-31, revenue_unverified_2025-12-31, revenue_unverified_2024-12-31, revenue_unverified_2022-12-31
+- TLN: capex_below_segment_2024-12-31, capex_below_segment_2025-12-31, revenue_unverified_2022-12-31, revenue_unverified_2024-12-31, revenue_unverified_2025-12-31
 - RBRK: no_debt_tagged, debt_one_side_only
 - BWXT: debt_one_side_only
 - ALAB: no_debt_tagged
 - RGA: stale_capex, debt_one_side_only
-- SOLV: revenue_unverified_2025-12-31, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31
+- SOLV: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
 - JKHY: debt_one_side_only
-- MBGL: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue, short_history
-- REG: stale_shares_diluted, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, current_ltd_untagged_0.8B, debt_one_side_only
+- MBGL: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- REG: stale_shares_diluted, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, current_ltd_untagged_0.8B, debt_one_side_only
 - TER: no_debt_tagged, debt_one_side_only
 - GLPI: quarter_exceeds_year_capex_2024-12-31, current_ltd_untagged_0.0B, debt_one_side_only, v2 quarterly capex not used: its quarters did not add up to the year
 - IOT: no_debt_tagged
 - TXRH: debt_one_side_only
-- OWL: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
-- ARE: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
-- THC: revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- OWL: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
+- ARE: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
+- THC: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31
 - LBRDK: stale_revenue, stale_capex, quarters_off_year_operating_cash_flow_2025-12-31
-- CLBK: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue, short_history
-- NLY: no_revenue, no_capex, stale_stock_comp, no_debt_tagged, no_revenue, interest_but_no_debt, short_history
+- CLBK: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- NLY: no_capex, stale_stock_comp, no_debt_tagged, no_revenue, interest_but_no_debt
 - JLL: stale_capex
-- ALLY: no_capex, stale_stock_comp, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_too_small_for_interest
-- DD: quarters_off_year_operating_cash_flow_2023-12-31, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- ALLY: no_capex, stale_stock_comp, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_too_small_for_interest
+- DD: quarters_off_year_operating_cash_flow_2023-12-31, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - CPT: quarter_exceeds_year_capex_2023-12-31, quarters_off_year_capex_2023-12-31, quarter_exceeds_year_capex_2024-12-31, quarters_off_year_capex_2024-12-31, quarter_exceeds_year_capex_2025-12-31, quarters_off_year_capex_2025-12-31, current_ltd_untagged_1.2B, v2 quarterly capex not used: its quarters did not add up to the year
 - RL: stale_capex
 - MAA: current_ltd_untagged_1.6B
@@ -730,8 +1039,8 @@
 - AMH: debt_one_side_only
 - ASTS: quarters_off_year_revenue_2024-12-31, revenue_unverified_2024-12-31
 - NVT: quarters_off_year_revenue_2023-12-31
-- CBRS: no_revenue, no_operating_cash_flow, no_capex, no_revenue, short_history
-- CNH: no_capex, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- CBRS: no_operating_cash_flow, no_capex, no_revenue
+- CNH: no_capex, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - IONQ: no_debt_tagged
 - CHRW: debt_one_side_only
 - RNR: no_capex, debt_one_side_only
@@ -742,15 +1051,15 @@
 - AKAM: no_debt_tagged
 - ALGN: no_debt_tagged
 - TEM: no_debt_tagged, interest_but_no_debt
-- DTM: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
-- SF: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only, debt_too_small_for_interest
+- DTM: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
+- SF: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only, debt_too_small_for_interest
 - NXT: no_debt_tagged
 - OHI: revenue_unverified_2023-12-31, debt_one_side_only
 - FHN: debt_one_side_only
-- BXP: revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, revenue_unverified_2025-12-31
+- BXP: revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, revenue_unverified_2024-12-31
 - SJM: stale_shares_diluted
 - PR: debt_one_side_only
-- HST: capex_below_segment_2025-12-31, capex_below_segment_2023-12-31, capex_below_segment_2024-12-31
+- HST: capex_below_segment_2024-12-31, capex_below_segment_2023-12-31, capex_below_segment_2025-12-31
 - NTNX: no_debt_tagged
 - WTRG: stale_capex
 - HIMS: no_debt_tagged
@@ -762,13 +1071,13 @@
 - WING: debt_one_side_only
 - ROKU: no_debt_tagged
 - PEN: no_debt_tagged
-- CUBE: no_debt_tagged, quarters_off_year_capex_2024-12-31, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, interest_but_no_debt
-- RRC: stale_stock_comp, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, revenue_unverified_2025-12-31, debt_one_side_only
+- CUBE: no_debt_tagged, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, interest_but_no_debt
+- RRC: stale_stock_comp, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, revenue_unverified_2024-12-31, debt_one_side_only
 - EPAM: debt_one_side_only
 - NBIX: no_debt_tagged
 - AIT: debt_one_side_only
 - HII: debt_one_side_only
-- DOC: quarters_off_year_capex_2023-12-31, quarters_off_year_capex_2024-12-31, quarters_off_year_capex_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, revenue_unverified_2025-12-31, current_ltd_untagged_1.4B, debt_one_side_only, v2 quarterly capex not used: its quarters did not add up to the year
+- DOC: quarters_off_year_capex_2023-12-31, quarters_off_year_capex_2024-12-31, quarters_off_year_capex_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, revenue_unverified_2024-12-31, current_ltd_untagged_1.4B, debt_one_side_only, v2 quarterly capex not used: its quarters did not add up to the year
 - EXEL: no_debt_tagged
 - ESTC: debt_one_side_only
 - BRBR: debt_one_side_only
@@ -784,7 +1093,7 @@
 - GME: debt_one_side_only
 - AFG: no_capex, debt_one_side_only
 - ARX: no_capex, debt_one_side_only
-- OGE: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- OGE: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - AYI: debt_one_side_only
 - PRI: stale_capex
 - ORI: no_capex
@@ -795,24 +1104,24 @@
 - AGNC: no_capex, stale_revenue, no_debt_tagged
 - ALV: stale_stock_comp
 - RYAN: quarters_off_year_capex_2023-12-31
-- FRBT: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue, short_history
+- FRBT: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - PNFP: no_debt_tagged
-- REXR: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, current_ltd_untagged_1.0B, debt_one_side_only
+- REXR: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, current_ltd_untagged_1.0B, debt_one_side_only
 - WAL: no_capex
-- MAIR: no_revenue, no_operating_cash_flow, no_capex, no_revenue, short_history
+- MAIR: no_operating_cash_flow, no_capex, no_revenue
 - CHYM: no_debt_tagged
 - ONB: no_debt_tagged
 - APPF: no_debt_tagged
 - WTFC: no_debt_tagged
 - PCOR: no_debt_tagged
-- FRT: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, v2 quarterly capex not used: its quarters did not add up to the year
+- FRT: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, v2 quarterly capex not used: its quarters did not add up to the year
 - CFR: no_debt_tagged
 - FLR: debt_one_side_only
 - CVLT: no_debt_tagged
-- JEF: quarter_exceeds_year_capex_2023-11-30, revenue_unverified_2025-11-30, revenue_unverified_2023-11-30, revenue_unverified_2024-11-30
+- JEF: quarter_exceeds_year_capex_2023-11-30, revenue_unverified_2024-11-30, revenue_unverified_2025-11-30, revenue_unverified_2023-11-30
 - AXS: no_capex
 - LOAR: no_capex
-- NNN: no_capex, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- NNN: no_capex, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - BRX: current_ltd_untagged_0.4B, debt_one_side_only
 - QRVO: debt_one_side_only
 - CBSH: no_debt_tagged
@@ -823,9 +1132,9 @@
 - ZION: debt_one_side_only
 - BPOP: debt_one_side_only
 - AES: no_debt_tagged, interest_but_no_debt
-- GMRS: no_revenue, no_operating_cash_flow, no_capex, no_revenue, short_history
+- GMRS: no_operating_cash_flow, no_capex, no_revenue
 - GWRE: current_ltd_untagged_0.0B, debt_one_side_only
-- OBDC: no_revenue, no_capex, current_ltd_untagged_1.8B, debt_one_side_only, no_revenue, short_history
+- OBDC: no_capex, current_ltd_untagged_1.8B, debt_one_side_only, no_revenue
 - BBIO: current_ltd_untagged_0.6B, debt_one_side_only
 - MKTX: debt_one_side_only
 - FIVE: no_debt_tagged
@@ -835,37 +1144,37 @@
 - KNX: stale_capex, debt_too_small_for_interest
 - UGI: stale_stock_comp
 - CHE: debt_one_side_only
-- ARXS: no_revenue, no_operating_cash_flow, no_capex, no_revenue, short_history
+- ARXS: no_operating_cash_flow, no_capex, no_revenue
 - MEDP: no_debt_tagged
-- OKLO: no_revenue, debt_one_side_only, no_revenue, short_history
-- BXSL: no_revenue, no_capex, debt_one_side_only, no_revenue, short_history
-- OTF: no_revenue, no_capex, debt_one_side_only, no_revenue, short_history
+- OKLO: debt_one_side_only, no_revenue
+- BXSL: no_capex, debt_one_side_only, no_revenue
+- OTF: no_capex, debt_one_side_only, no_revenue
 - APLD: quarters_off_year_revenue_2024-05-31, quarters_off_year_revenue_2025-05-31, capex_below_segment_2024-05-31
 - CART: no_debt_tagged
-- VNO: revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, revenue_unverified_2025-12-31
+- VNO: revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, revenue_unverified_2024-12-31
 - SLM: no_capex
 - VOYA: stale_capex
 - STAG: debt_one_side_only
 - OMF: no_capex, current_ltd_untagged_0.8B, debt_one_side_only
 - RVMD: no_debt_tagged
 - WTS: debt_one_side_only
-- OCTV: no_revenue, no_operating_cash_flow, no_capex, no_revenue, short_history
+- OCTV: no_operating_cash_flow, no_capex, no_revenue
 - LNC: no_capex
 - GMED: no_debt_tagged, debt_one_side_only
 - PCTY: debt_one_side_only
-- APA: no_revenue, capex_below_segment_2024-12-31, no_revenue, short_history
+- APA: capex_below_segment_2024-12-31, no_revenue
 - KTOS: no_debt_tagged, debt_one_side_only
 - ACHR: short_history
 - COKE: stale_stock_comp, stale_shares_diluted
 - PB: no_debt_tagged
-- STWD: capex_below_segment_2025-12-31, capex_below_segment_2023-12-31, capex_below_segment_2024-12-31, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- STWD: capex_below_segment_2025-12-31, capex_below_segment_2023-12-31, capex_below_segment_2024-12-31, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - AM: debt_one_side_only
 - GTLB: no_debt_tagged
 - FR: no_capex, current_ltd_untagged_0.0B
 - KEX: debt_one_side_only
-- R: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- R: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - LYFT: no_capex
-- EPRT: stale_capex, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, current_ltd_untagged_0.4B, debt_one_side_only
+- EPRT: stale_capex, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, current_ltd_untagged_0.4B, debt_one_side_only
 - IDA: stale_stock_comp
 - GPK: stale_capex
 - GH: debt_one_side_only
@@ -874,14 +1183,14 @@
 - FBIN: debt_one_side_only
 - CORT: no_debt_tagged
 - KBR: stale_stock_comp
-- CTRE: stale_capex, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
-- BTGO: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue, short_history
+- CTRE: stale_capex, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
+- BTGO: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
 - TTAN: no_debt_tagged
-- CSQR: no_revenue, no_operating_cash_flow, no_capex, current_ltd_untagged_1.0B, debt_one_side_only, no_revenue, short_history
+- CSQR: no_operating_cash_flow, no_capex, current_ltd_untagged_1.0B, debt_one_side_only, no_revenue
 - RGEN: debt_one_side_only
 - ZWS: stale_capex
 - RITM: no_capex, revenue_unverified_2024-12-31, current_ltd_untagged_5.0B, debt_one_side_only
-- AHR: no_debt_tagged, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, interest_but_no_debt, v2 quarterly capex not used: its quarters did not add up to the year
+- AHR: no_debt_tagged, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, interest_but_no_debt, v2 quarterly capex not used: its quarters did not add up to the year
 - TMHC: debt_one_side_only
 - ENSG: stale_capex
 - GKOS: no_debt_tagged
@@ -890,35 +1199,35 @@
 - QTWO: no_debt_tagged
 - MGM: debt_one_side_only
 - TREX: no_debt_tagged
-- FSK: no_revenue, no_capex, debt_one_side_only, no_revenue, short_history
-- INIO: no_revenue, no_operating_cash_flow, no_capex, no_revenue, short_history
+- FSK: no_capex, debt_one_side_only, no_revenue
+- INIO: no_operating_cash_flow, no_capex, no_revenue
 - AUR: no_debt_tagged
-- ALK: capex_below_segment_2025-12-31, capex_below_segment_2024-12-31
+- ALK: capex_below_segment_2024-12-31, capex_below_segment_2025-12-31
 - IVZ: debt_one_side_only
 - MARA: revenue_unverified_2025-12-31
 - TRNO: current_ltd_untagged_0.1B
 - JOBY: debt_one_side_only
-- H: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- H: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - CDE: debt_one_side_only, debt_too_small_for_interest
 - AN: debt_one_side_only, debt_too_small_for_interest
 - MDGL: quarter_exceeds_year_capex_2025-12-31, current_ltd_untagged_0.0B, debt_one_side_only
 - VRNS: no_debt_tagged
 - STUB: debt_one_side_only
 - CHRD: debt_one_side_only
-- HR: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
+- HR: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
 - MTDR: debt_one_side_only
 - RLI: stale_stock_comp, debt_one_side_only
 - HLNE: debt_one_side_only
 - AMG: debt_one_side_only
-- GATX: stale_capex, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- GATX: stale_capex, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - MMSI: debt_one_side_only
-- VGNT: no_revenue, no_operating_cash_flow, no_capex, no_revenue, short_history
+- VGNT: no_operating_cash_flow, no_capex, no_revenue
 - SWX: quarters_off_year_revenue_2024-12-31
 - SMR: no_debt_tagged
 - CGNX: no_debt_tagged
 - HOMB: debt_one_side_only
 - FCFS: debt_one_side_only
-- UDR: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, current_ltd_untagged_0.3B, debt_one_side_only
+- UDR: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, current_ltd_untagged_0.3B, debt_one_side_only
 - RMBS: no_debt_tagged
 - SPSC: no_debt_tagged
 - LOPE: no_debt_tagged
@@ -927,17 +1236,17 @@
 - BCPC: stale_capex, debt_one_side_only
 - STEP: debt_one_side_only
 - S: no_debt_tagged
-- ADC: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, current_ltd_untagged_0.1B
+- ADC: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, current_ltd_untagged_0.1B
 - ORA: debt_one_side_only, debt_too_small_for_interest
 - GBCI: no_debt_tagged
-- MAIN: no_revenue, no_capex, debt_one_side_only, no_revenue, short_history
+- MAIN: no_capex, debt_one_side_only, no_revenue
 - UHAL: stale_shares_diluted, current_ltd_untagged_0.9B, debt_one_side_only
 - CUZ: debt_one_side_only
 - CRUS: no_debt_tagged
 - VLY: debt_one_side_only
 - PEGA: no_debt_tagged
 - SLAB: no_debt_tagged
-- SAIC: revenue_unverified_2024-02-02, revenue_unverified_2025-01-31
+- SAIC: revenue_unverified_2025-01-31, revenue_unverified_2024-02-02
 - VNOM: no_capex, debt_one_side_only
 - UBSI: debt_one_side_only
 - AAON: stale_capex, no_debt_tagged, debt_one_side_only
@@ -954,16 +1263,16 @@
 - BILL: debt_one_side_only
 - KVYO: no_debt_tagged
 - LSTR: no_debt_tagged, debt_one_side_only
-- PIPR: stale_capex, quarters_off_year_revenue_2023-12-31, quarters_off_year_revenue_2025-12-31, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, debt_one_side_only, v2 quarterly revenue not used: its quarters did not add up to the year
+- PIPR: stale_capex, quarters_off_year_revenue_2023-12-31, quarters_off_year_revenue_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only, v2 quarterly revenue not used: its quarters did not add up to the year
 - SITM: no_debt_tagged
 - MMED: no_debt_tagged
-- JAN: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- JAN: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - MTH: stale_revenue
 - JXN: no_capex, current_ltd_untagged_0.6B, debt_one_side_only
 - ABG: capex_below_segment_2024-12-31, v2 quarterly capex not used: its quarters did not add up to the year
-- ADIG: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- ADIG: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
 - KNF: capex_below_segment_2024-12-31
-- MC: no_revenue, no_debt_tagged, no_revenue, short_history
+- MC: no_debt_tagged, no_revenue
 - NEU: stale_stock_comp, debt_one_side_only
 - ULS: debt_one_side_only
 - MRCY: no_debt_tagged
@@ -971,19 +1280,19 @@
 - BOX: debt_one_side_only
 - OSCR: debt_one_side_only
 - LAZ: debt_one_side_only
-- HXL: capex_below_segment_2025-12-31, capex_below_segment_2024-12-31, debt_one_side_only
+- HXL: debt_one_side_only
 - WTM: no_capex, debt_one_side_only
-- EPR: quarters_off_year_capex_2023-12-31, quarters_off_year_capex_2024-12-31, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
+- EPR: quarters_off_year_capex_2023-12-31, quarters_off_year_capex_2024-12-31, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
 - SR: stale_stock_comp
 - VEEE: debt_one_side_only
 - FROG: no_debt_tagged
-- SBRA: no_capex, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, current_ltd_untagged_0.4B, debt_one_side_only
-- PECO: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
+- SBRA: no_capex, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, current_ltd_untagged_0.4B, debt_one_side_only
+- PECO: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
 - AUB: no_capex
 - BYD: debt_one_side_only
 - ST: debt_one_side_only
 - ACA: quarters_off_year_revenue_2025-12-31, v2 quarterly revenue not used: its quarters did not add up to the year
-- HRI: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- HRI: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - ADT: stale_shares_diluted
 - AROC: debt_one_side_only
 - CORZ: debt_one_side_only
@@ -993,13 +1302,13 @@
 - ANF: no_debt_tagged
 - IBOC: no_debt_tagged
 - KMPR: debt_one_side_only
-- MAC: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
+- MAC: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
 - CRSP: debt_one_side_only
 - COLD: no_debt_tagged, interest_but_no_debt
 - TENB: no_debt_tagged
 - MGY: debt_one_side_only
 - ESE: quarters_off_year_revenue_2024-09-30
-- KRC: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- KRC: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - RHI: stale_stock_comp, no_debt_tagged
 - PLMR: debt_one_side_only
 - CSW: stale_stock_comp
@@ -1009,33 +1318,33 @@
 - SFBS: stale_capex, no_debt_tagged
 - HL: quarters_off_year_revenue_2025-12-31, debt_one_side_only, v2 quarterly revenue not used: its quarters did not add up to the year
 - BOOT: no_debt_tagged
-- GBDC: no_revenue, no_capex, debt_one_side_only, no_revenue, short_history
-- SLG: stale_capex, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, current_ltd_untagged_1.4B
+- GBDC: no_capex, debt_one_side_only, no_revenue
+- SLG: stale_capex, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, current_ltd_untagged_1.4B
 - PJT: no_debt_tagged
 - BE: stale_stock_comp
 - VSAT: stale_capex
 - CALM: no_debt_tagged
 - RGTI: no_debt_tagged
-- CRC: revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
+- CRC: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, debt_one_side_only
 - INSP: no_debt_tagged
 - ZLAB: debt_one_side_only
 - MRP: no_capex, short_history
-- BGC: stale_stock_comp, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- BGC: stale_stock_comp, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - QLYS: no_debt_tagged
-- PCVX: no_revenue, no_debt_tagged, no_revenue, short_history
+- PCVX: no_debt_tagged, no_revenue
 - CLF: debt_one_side_only
 - BRC: debt_one_side_only
 - BWIN: debt_one_side_only
 - COLB: stale_capex, no_debt_tagged
 - KTB: quarters_off_year_revenue_2026-01-03, v2 quarterly revenue not used: its quarters did not add up to the year
-- HGV: quarters_off_year_revenue_2023-12-31, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
-- NUVL: no_revenue, no_capex, no_debt_tagged, no_revenue, short_history
+- HGV: quarters_off_year_revenue_2023-12-31, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
+- NUVL: no_capex, no_debt_tagged, no_revenue
 - CNO: no_capex
 - GLXY: quarters_off_year_revenue_2024-12-31
 - SOUN: no_debt_tagged
 - TCBI: debt_one_side_only
 - HWKN: debt_one_side_only
-- FRVO: no_revenue, no_operating_cash_flow, no_capex, no_revenue
+- FRVO: no_operating_cash_flow, no_capex, no_revenue
 - KBH: no_debt_tagged
 - KRYS: no_debt_tagged
 - WK: no_debt_tagged
@@ -1047,24 +1356,24 @@
 - LSCC: no_debt_tagged
 - AX: debt_one_side_only
 - RYN: quarters_off_year_capex_2023-12-31, quarters_off_year_capex_2025-12-31
-- FCBM: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- FCBM: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
 - PLXS: no_debt_tagged
 - NE: debt_one_side_only
 - CNK: stale_operating_cash_flow, stale_capex, no_debt_tagged, interest_but_no_debt
 - RARE: no_debt_tagged
 - SKT: no_operating_cash_flow, no_capex, debt_one_side_only
 - AZZ: debt_one_side_only
-- M: revenue_unverified_2025-02-01, revenue_unverified_2026-01-31, revenue_unverified_2024-02-03
+- M: revenue_unverified_2024-02-03, revenue_unverified_2025-02-01, revenue_unverified_2026-01-31
 - TNL: current_ltd_untagged_0.7B, debt_one_side_only
 - HIW: no_debt_tagged, interest_but_no_debt
 - FHI: quarter_exceeds_year_capex_2024-12-31, debt_one_side_only
-- HASI: stale_capex, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- HASI: stale_capex, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31
 - FRPT: no_debt_tagged
-- HTGC: no_revenue, debt_one_side_only, no_revenue, short_history
+- HTGC: debt_one_side_only, no_revenue
 - AVPT: no_debt_tagged
 - BL: no_debt_tagged
 - FBP: debt_one_side_only
-- QNT: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- QNT: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - FRHC: debt_too_small_for_interest
 - AIR: debt_one_side_only
 - FULT: no_capex, debt_one_side_only
@@ -1092,22 +1401,22 @@
 - CATY: debt_one_side_only
 - EXPO: no_debt_tagged
 - TDS: quarter_exceeds_year_revenue_2023-12-31, quarters_off_year_revenue_2024-12-31
-- QS: no_revenue, no_debt_tagged, no_revenue, short_history
+- QS: no_debt_tagged, no_revenue
 - BHF: no_capex, debt_one_side_only
 - BNL: current_ltd_untagged_0.4B, debt_one_side_only
 - DLB: no_debt_tagged
 - WHD: stale_shares_diluted, no_debt_tagged, debt_one_side_only
 - CBU: no_debt_tagged, quarters_off_year_revenue_2023-12-31
-- VKTX: no_capex, no_debt_tagged, short_history
-- UEC: no_debt_tagged, capex_below_segment_2025-07-31, capex_below_segment_2024-07-31, capex_below_segment_2023-07-31
+- VKTX: no_capex, no_debt_tagged
+- UEC: no_debt_tagged, capex_below_segment_2024-07-31, capex_below_segment_2023-07-31, capex_below_segment_2025-07-31
 - CVCO: current_ltd_untagged_0.0B
 - ALH: no_debt_tagged, interest_but_no_debt
 - WSBC: debt_one_side_only
 - KFY: debt_one_side_only
-- AWR: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
+- AWR: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
 - CAKE: debt_one_side_only
 - MHO: no_debt_tagged
-- NHI: quarters_off_year_capex_2023-12-31, quarters_off_year_capex_2024-12-31, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, v2 quarterly capex not used: its quarters did not add up to the year
+- NHI: quarters_off_year_capex_2023-12-31, quarters_off_year_capex_2024-12-31, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, v2 quarterly capex not used: its quarters did not add up to the year
 - PTGX: no_debt_tagged
 - EBC: no_debt_tagged
 - PFSI: debt_one_side_only
@@ -1121,10 +1430,10 @@
 - CWEN: stale_stock_comp
 - PAR: quarters_off_year_revenue_2023-12-31
 - AVBC: no_debt_tagged
-- FCPT: stale_capex, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, current_ltd_untagged_0.2B, debt_one_side_only
+- FCPT: stale_capex, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, current_ltd_untagged_0.2B, debt_one_side_only
 - PPLI: quarters_off_year_revenue_2025-12-31, v2 quarterly revenue not used: its quarters did not add up to the year
 - NMIH: no_debt_tagged
-- PBAM: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- PBAM: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
 - BFH: stale_capex, debt_one_side_only
 - NOG: debt_one_side_only
 - BRZE: no_debt_tagged
@@ -1137,7 +1446,7 @@
 - BANF: debt_one_side_only
 - PRK: debt_one_side_only
 - FIBK: no_capex, current_ltd_untagged_0.0B
-- CDP: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, current_ltd_untagged_0.1B, debt_one_side_only
+- CDP: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, current_ltd_untagged_0.1B, debt_one_side_only
 - SRRK: debt_one_side_only
 - MPT: current_ltd_untagged_1.6B, debt_one_side_only, v2 quarterly capex not used: its quarters did not add up to the year
 - YOU: no_debt_tagged
@@ -1148,7 +1457,7 @@
 - QUBT: no_debt_tagged
 - TBBK: debt_one_side_only
 - CPRX: no_debt_tagged
-- VAL: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only, debt_too_small_for_interest
+- VAL: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only, debt_too_small_for_interest
 - BOKF: current_ltd_untagged_4.2B, debt_one_side_only
 - TGTX: debt_one_side_only
 - VC: stale_capex
@@ -1163,9 +1472,9 @@
 - XENE: no_debt_tagged
 - SBCF: no_capex, debt_one_side_only
 - ALKT: no_debt_tagged
-- IPAR: capex_below_segment_2025-12-31, capex_below_segment_2023-12-31, capex_below_segment_2024-12-31
-- LXP: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
-- MUR: capex_below_segment_2023-12-31, capex_below_segment_2024-12-31, capex_below_segment_2025-12-31
+- IPAR: capex_below_segment_2024-12-31, capex_below_segment_2023-12-31, capex_below_segment_2025-12-31
+- LXP: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
+- MUR: capex_below_segment_2023-12-31, capex_below_segment_2025-12-31, capex_below_segment_2024-12-31
 - FIG: no_debt_tagged
 - SFNC: quarter_exceeds_year_revenue_2025-12-31, current_ltd_untagged_0.0B, debt_one_side_only
 - UI: no_debt_tagged, debt_one_side_only
@@ -1179,7 +1488,7 @@
 - MQ: no_debt_tagged
 - KYMR: no_debt_tagged
 - WAFD: no_debt_tagged
-- XE: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
+- XE: no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
 - SYBT: debt_one_side_only
 - CRVL: no_debt_tagged
 - CRK: debt_one_side_only
@@ -1189,13 +1498,13 @@
 - CURB: debt_one_side_only
 - AMBA: no_debt_tagged
 - HHH: current_ltd_untagged_0.7B, debt_one_side_only
-- BANR: no_revenue, no_debt_tagged, no_revenue, interest_but_no_debt, short_history
-- VAC: capex_below_segment_2025-12-31, capex_below_segment_2023-12-31, capex_below_segment_2024-12-31, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, current_ltd_untagged_0.6B
+- BANR: no_debt_tagged, no_revenue, interest_but_no_debt
+- VAC: capex_below_segment_2024-12-31, capex_below_segment_2023-12-31, capex_below_segment_2025-12-31, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, current_ltd_untagged_0.6B
 - ACLS: no_debt_tagged
 - WRBY: no_debt_tagged
-- TSLX: no_revenue, no_capex, debt_one_side_only, no_revenue, short_history
+- TSLX: no_capex, debt_one_side_only, no_revenue
 - PFS: quarter_exceeds_year_capex_2024-12-31, debt_one_side_only
-- MWH: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- MWH: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - NBTB: debt_one_side_only
 - RKT: quarters_off_year_revenue_2025-12-31
 - CALX: no_debt_tagged
@@ -1206,10 +1515,10 @@
 - SPNT: no_capex, debt_one_side_only
 - CNS: no_debt_tagged
 - IVT: current_ltd_untagged_0.0B, debt_one_side_only
-- MSGE: no_capex, revenue_unverified_2024-06-30, revenue_unverified_2025-06-30
-- YSS: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- YSWY: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- LFTO: no_revenue, no_operating_cash_flow, no_capex, no_revenue
+- MSGE: no_capex, revenue_unverified_2025-06-30, revenue_unverified_2024-06-30
+- YSS: no_operating_cash_flow, no_capex, no_revenue
+- YSWY: no_operating_cash_flow, no_capex, no_revenue
+- LFTO: no_operating_cash_flow, no_capex, no_revenue
 - ADUS: debt_one_side_only
 - OSW: debt_one_side_only
 - DV: no_debt_tagged
@@ -1229,42 +1538,43 @@
 - NNI: stale_revenue, quarter_exceeds_year_capex_2024-12-31, debt_one_side_only
 - KNTK: quarters_off_year_capex_2023-12-31
 - JJSF: debt_one_side_only
-- BXDC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- BOBS: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BXDC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BOBS: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - OFG: no_debt_tagged
 - AGIO: no_debt_tagged
 - TRIP: quarters_off_year_revenue_2025-12-31
 - AAP: debt_one_side_only
 - BANC: stale_stock_comp, quarter_exceeds_year_revenue_2023-12-31, debt_one_side_only
 - PGNY: no_debt_tagged
-- DBRG: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
+- DBRG: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
 - GRAL: no_debt_tagged
 - KGS: current_ltd_untagged_0.0B, debt_one_side_only
 - PCT: no_debt_tagged, interest_but_no_debt, short_history
-- DPC: no_revenue, no_operating_cash_flow, no_capex, no_revenue
+- DPC: no_operating_cash_flow, no_capex, no_revenue
 - BCRX: debt_one_side_only
 - PRM: debt_one_side_only
 - PLUS: no_debt_tagged, quarters_off_year_capex_2024-03-31, quarters_off_year_capex_2025-03-31
 - MBLY: no_debt_tagged
 - LEVI: debt_one_side_only
 - UFPT: stale_capex
-- PS: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- LMRI: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- HTO: no_capex, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
-- JOE: capex_below_segment_2025-12-31, capex_below_segment_2023-12-31, capex_below_segment_2024-12-31, current_ltd_untagged_0.1B, debt_one_side_only
+- PS: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- LMRI: no_operating_cash_flow, no_capex, no_revenue
+- HTO: no_capex, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
+- JOE: capex_below_segment_2024-12-31, capex_below_segment_2023-12-31, capex_below_segment_2025-12-31, current_ltd_untagged_0.1B, debt_one_side_only
 - IPGP: no_debt_tagged
-- NMRK: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
+- NMRK: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
 - RUN: stale_capex, debt_one_side_only
 - IDYA: no_debt_tagged
 - NTCT: no_debt_tagged
-- EROK: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- CIFR: current_ltd_untagged_0.2B
+- EROK: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - FBNC: debt_one_side_only
 - MCY: debt_one_side_only
 - WLTH: no_capex, debt_one_side_only
 - VISN: no_debt_tagged, quarters_off_year_revenue_2023-12-31, quarter_exceeds_year_revenue_2024-12-31, quarter_exceeds_year_revenue_2025-12-31, quarters_off_year_revenue_2025-12-31
 - PRDO: no_debt_tagged
-- FRMI: no_revenue, no_revenue
-- APGE: no_revenue, no_debt_tagged, no_revenue, short_history
+- FRMI: no_revenue
+- APGE: no_debt_tagged, no_revenue
 - KLIC: no_debt_tagged
 - WOR: debt_one_side_only
 - PRVA: stale_capex, no_debt_tagged
@@ -1272,11 +1582,11 @@
 - CARG: no_debt_tagged, debt_one_side_only
 - GBX: debt_one_side_only
 - ARCB: capex_below_segment_2025-12-31
-- NVRI: no_revenue, no_operating_cash_flow, no_capex, no_revenue
+- NVRI: no_operating_cash_flow, no_capex, no_revenue
 - CUBI: debt_one_side_only
 - NTSK: no_debt_tagged
 - NN: debt_one_side_only
-- TMC: no_revenue, no_debt_tagged, no_revenue, short_history
+- TMC: no_debt_tagged, no_revenue
 - CHCO: debt_one_side_only
 - ROCK: quarters_off_year_revenue_2024-12-31
 - LMAT: no_debt_tagged
@@ -1289,7 +1599,7 @@
 - SRPT: debt_one_side_only
 - AEO: debt_one_side_only
 - NWBI: stale_shares_diluted, no_debt_tagged, quarter_exceeds_year_capex_2024-12-31
-- MSDL: no_revenue, no_capex, debt_one_side_only, no_revenue, short_history
+- MSDL: no_capex, debt_one_side_only, no_revenue
 - WERN: current_ltd_untagged_0.8B, debt_one_side_only
 - OCUL: debt_one_side_only
 - GEF: stale_revenue, stale_net_income, stale_operating_cash_flow, stale_capex, stale_stock_comp, stale_fcf
@@ -1300,7 +1610,7 @@
 - SHO: debt_one_side_only
 - DNOW: debt_one_side_only
 - ROOT: current_ltd_untagged_0.0B, debt_one_side_only
-- CWT: no_capex, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- CWT: no_capex, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - ATRC: debt_one_side_only
 - SLDE: debt_one_side_only
 - NGVT: quarters_off_year_revenue_2024-12-31
@@ -1315,52 +1625,50 @@
 - BKE: stale_stock_comp, no_debt_tagged
 - LKFN: no_debt_tagged
 - GEMI: no_debt_tagged
-- AADX: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- DX: no_revenue, no_capex, no_debt_tagged, no_revenue, interest_but_no_debt, short_history
+- AADX: no_operating_cash_flow, no_capex, no_revenue
+- DX: no_capex, no_debt_tagged, no_revenue, interest_but_no_debt
 - SAIL: no_debt_tagged, debt_one_side_only
 - HNGE: no_debt_tagged
 - IMCR: debt_one_side_only
 - KN: no_operating_cash_flow, quarters_off_year_revenue_2023-12-31, debt_one_side_only
 - XMTR: stale_shares_diluted, no_debt_tagged
 - IIPR: stale_capex, current_ltd_untagged_0.0B
-- ARR: no_revenue, no_capex, no_debt_tagged, no_revenue, short_history
+- ARR: no_capex, no_debt_tagged, no_revenue
 - RPD: no_debt_tagged
 - PLUG: no_debt_tagged, interest_but_no_debt
 - ARLO: no_debt_tagged
-- EPC: debt_one_side_only
 - STBA: debt_one_side_only
-- GTY: revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
+- GTY: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, debt_one_side_only
 - YELP: no_debt_tagged
 - NSSC: no_debt_tagged
 - NBHC: stale_capex, debt_one_side_only
 - GABC: debt_one_side_only
-- MFP: no_revenue, no_operating_cash_flow, no_capex, no_revenue
+- MFP: no_operating_cash_flow, no_capex, no_revenue
 - POWL: no_debt_tagged
-- UMH: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- UMH: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - TCBK: no_debt_tagged
 - ARWR: no_debt_tagged, interest_but_no_debt
-- IRON: no_revenue, debt_one_side_only, no_revenue, short_history
+- IRON: debt_one_side_only, no_revenue
 - SG: no_debt_tagged
 - PD: current_ltd_untagged_0.0B, debt_one_side_only
 - VITL: debt_one_side_only
 - NAVN: debt_one_side_only, debt_too_small_for_interest
-- NTST: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
+- NTST: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
 - CERT: quarters_off_year_revenue_2025-12-31
-- APC: no_revenue, no_operating_cash_flow, no_capex, no_revenue
+- APC: no_operating_cash_flow, no_capex, no_revenue
 - ADPT: no_debt_tagged
 - ATEN: no_debt_tagged
 - RSI: no_debt_tagged
-- ACMR: current_ltd_untagged_0.1B
-- HMH: no_revenue, no_operating_cash_flow, no_capex, no_revenue
+- HMH: no_operating_cash_flow, no_capex, no_revenue
 - ESRT: current_ltd_untagged_0.2B
 - PAY: no_debt_tagged
 - FLYW: no_debt_tagged
 - NAMS: no_debt_tagged
-- MLTX: no_revenue, debt_one_side_only, no_revenue, short_history
+- MLTX: debt_one_side_only, no_revenue
 - LZB: no_debt_tagged
 - EFC: stale_shares_diluted, no_debt_tagged, quarter_exceeds_year_capex_2023-12-31
 - FA: debt_one_side_only
-- AIAI: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- AIAI: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - HOPE: debt_one_side_only
 - TPB: debt_one_side_only
 - OUST: no_debt_tagged
@@ -1370,51 +1678,49 @@
 - OMCL: no_debt_tagged
 - CRGY: quarter_exceeds_year_capex_2025-12-31, debt_one_side_only
 - ASAN: debt_one_side_only
-- ARI: no_debt_tagged, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, interest_but_no_debt
+- ARI: no_debt_tagged, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, interest_but_no_debt
 - TNDM: debt_one_side_only
 - LZ: no_debt_tagged
 - EVH: stale_capex, debt_one_side_only
 - TXG: no_debt_tagged
-- VERA: no_revenue, debt_one_side_only, no_revenue, short_history
+- VERA: debt_one_side_only, no_revenue
 - LUNR: debt_one_side_only
 - IOSP: no_debt_tagged
 - INVA: debt_one_side_only
 - CCB: no_debt_tagged
 - CRTO: debt_one_side_only
-- FETH: no_revenue, no_capex, no_debt_tagged, no_revenue, short_history
-- IMVT: no_revenue, no_debt_tagged, no_revenue, short_history
+- FETH: no_capex, no_debt_tagged, no_revenue
+- IMVT: no_debt_tagged, no_revenue
 - HTH: stale_stock_comp, debt_one_side_only
 - TFIN: stale_capex, no_debt_tagged
 - CTS: stale_stock_comp, no_debt_tagged
 - ROG: no_debt_tagged
-- GSBD: no_revenue, no_capex, debt_one_side_only, no_revenue, short_history
-- OCSL: no_revenue, no_capex, debt_one_side_only, no_revenue, short_history
+- GSBD: no_capex, debt_one_side_only, no_revenue
+- OCSL: no_capex, debt_one_side_only, no_revenue
 - CMPR: current_ltd_untagged_0.0B
 - AMPL: no_debt_tagged
-- KLRA: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- KLRA: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - CSWC: stale_revenue, debt_one_side_only
 - LADR: no_debt_tagged
 - HAPN: no_debt_tagged, debt_one_side_only
 - VECO: debt_one_side_only
 - BELFA: no_debt_tagged, debt_one_side_only
 - IMAX: no_debt_tagged, capex_below_segment_2023-12-31
-- AIV: quarters_off_year_revenue_2024-12-31, quarters_off_year_revenue_2025-12-31, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only, v2 quarterly revenue not used: its quarters did not add up to the year
+- AIV: quarters_off_year_revenue_2024-12-31, quarters_off_year_revenue_2025-12-31, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only, v2 quarterly revenue not used: its quarters did not add up to the year
 - CRAI: no_debt_tagged
-- EWTX: no_revenue, no_debt_tagged, no_revenue, short_history
+- EWTX: no_debt_tagged, no_revenue
 - COUR: no_debt_tagged
 - PEB: current_ltd_untagged_0.0B, debt_one_side_only
 - AI: no_debt_tagged
-- NEXT: debt_one_side_only, short_history
+- NEXT: debt_one_side_only
 - PWP: no_debt_tagged
-- SOC: short_history
 - XHR: current_ltd_untagged_0.1B, debt_one_side_only
 - SRCE: debt_one_side_only
 - WABC: stale_stock_comp, debt_one_side_only
 - NVTS: no_debt_tagged
-- LIME: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- PBLS: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- KMT: debt_one_side_only
-- RAMP: no_debt_tagged, capex_below_segment_2025-03-31, capex_below_segment_2024-03-31
+- LIME: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- PBLS: no_operating_cash_flow, no_capex, no_revenue
+- RAMP: no_debt_tagged, capex_below_segment_2024-03-31, capex_below_segment_2025-03-31
 - FIVN: no_debt_tagged
 - SAFT: debt_one_side_only
 - VRTS: debt_one_side_only
@@ -1427,13 +1733,13 @@
 - BFC: no_debt_tagged
 - CALY: quarter_exceeds_year_capex_2023-12-31, quarter_exceeds_year_capex_2024-12-31, quarter_exceeds_year_capex_2025-12-31, capex_below_segment_2023-12-31, debt_too_small_for_interest
 - KNSA: no_debt_tagged
-- CIM: no_revenue, no_capex, debt_one_side_only, no_revenue, debt_too_small_for_interest, short_history
+- CIM: no_capex, debt_one_side_only, no_revenue, debt_too_small_for_interest
 - TALO: debt_one_side_only
 - CNOB: no_debt_tagged
 - JANX: no_debt_tagged
 - DNLI: no_debt_tagged
-- JBGS: no_capex, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
-- TWOD: no_revenue, no_capex, current_ltd_untagged_0.5B, debt_one_side_only, no_revenue, short_history
+- JBGS: no_capex, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
+- TWOD: no_capex, current_ltd_untagged_0.5B, debt_one_side_only, no_revenue
 - SPT: debt_one_side_only
 - CXM: no_debt_tagged
 - HG: no_capex, debt_one_side_only
@@ -1446,15 +1752,15 @@
 - ATRO: debt_one_side_only
 - DCOM: stale_capex, no_debt_tagged
 - SABR: quarters_off_year_revenue_2024-12-31, quarters_off_year_operating_cash_flow_2025-12-31
-- PFLT: no_revenue, no_capex, no_revenue, debt_too_small_for_interest, short_history
-- ITG: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- NG: stale_capex, stale_shares_diluted, debt_one_side_only, short_history
+- PFLT: no_capex, no_revenue, debt_too_small_for_interest
+- ITG: no_operating_cash_flow, no_capex, no_revenue
+- NG: stale_capex, stale_shares_diluted, debt_one_side_only
 - USLM: no_debt_tagged, debt_one_side_only
 - DBD: debt_one_side_only
 - OBK: no_debt_tagged
 - LOB: no_debt_tagged
 - OMDA: no_debt_tagged, debt_one_side_only
-- BHVN: no_revenue, debt_one_side_only, no_revenue, short_history
+- BHVN: debt_one_side_only, no_revenue
 - AAT: revenue_unverified_2025-12-31
 - SEDG: no_debt_tagged
 - AHCO: quarters_off_year_revenue_2025-12-31, v2 quarterly revenue not used: its quarters did not add up to the year
@@ -1464,7 +1770,7 @@
 - SFIX: no_debt_tagged
 - NVAX: debt_one_side_only
 - DGII: debt_one_side_only
-- REF: no_revenue, no_operating_cash_flow, no_capex, no_revenue
+- REF: no_operating_cash_flow, no_capex, no_revenue
 - CSR: quarters_off_year_capex_2023-12-31, current_ltd_untagged_0.0B, debt_one_side_only
 - HROW: debt_one_side_only
 - BJRI: debt_one_side_only
@@ -1479,53 +1785,52 @@
 - ACT: no_capex, debt_one_side_only
 - SYM: no_debt_tagged
 - CNA: debt_one_side_only
-- LCLN: no_revenue, no_operating_cash_flow, no_capex, current_ltd_untagged_0.0B, debt_one_side_only, no_revenue
+- LCLN: no_operating_cash_flow, no_capex, current_ltd_untagged_0.0B, debt_one_side_only, no_revenue
 - NVCR: debt_one_side_only
-- NMFC: no_revenue, no_capex, debt_one_side_only, no_revenue, short_history
+- NMFC: no_capex, debt_one_side_only, no_revenue
 - MBIN: no_debt_tagged
-- EROC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
+- EROC: no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
 - OCFC: debt_one_side_only
 - ESTA: debt_one_side_only
 - MFA: stale_revenue, stale_capex, no_debt_tagged
 - SEI: stale_shares_diluted
 - LASR: no_debt_tagged
-- AVEX: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- DYN: no_revenue, stale_shares_diluted, debt_one_side_only, no_revenue, short_history
-- CGBD: no_revenue, no_capex, debt_one_side_only, no_revenue, short_history
-- DEA: no_capex, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
+- AVEX: no_operating_cash_flow, no_capex, no_revenue
+- DYN: stale_shares_diluted, debt_one_side_only, no_revenue
+- CGBD: no_capex, debt_one_side_only, no_revenue
+- DEA: no_capex, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
 - VRDN: stale_shares_diluted, debt_one_side_only
 - AAMI: no_capex, debt_one_side_only
 - ECVT: debt_one_side_only
-- COLL: no_debt_tagged, interest_but_no_debt
+- COLL: debt_one_side_only, debt_too_small_for_interest
 - IART: current_ltd_untagged_0.1B, debt_one_side_only
-- ARDX: debt_one_side_only
-- IOND: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- TRIN: no_revenue, no_capex, debt_one_side_only, no_revenue, short_history
+- IOND: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- TRIN: no_capex, debt_one_side_only, no_revenue
 - AMRC: stale_revenue, stale_net_income, stale_operating_cash_flow, stale_capex, stale_stock_comp, stale_fcf
 - APOG: debt_one_side_only
 - CRMD: debt_one_side_only
-- HAWK: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
+- HAWK: no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
 - NHC: no_debt_tagged
 - TLRY: stale_capex, debt_one_side_only
 - PRLB: no_debt_tagged
-- PDM: stale_capex, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, debt_one_side_only
+- PDM: stale_capex, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, debt_one_side_only
 - FMBH: current_ltd_untagged_0.0B, debt_one_side_only
 - HCSG: no_debt_tagged
-- RDW: capex_below_segment_2025-12-31, capex_below_segment_2024-12-31
-- PSEC: no_revenue, no_capex, current_ltd_untagged_0.4B, debt_one_side_only, no_revenue, short_history
+- RDW: capex_below_segment_2024-12-31, capex_below_segment_2025-12-31
+- PSEC: no_capex, current_ltd_untagged_0.4B, debt_one_side_only, no_revenue
 - WINA: revenue_unverified_2024-12-28, revenue_unverified_2023-12-30, revenue_unverified_2025-12-27, debt_one_side_only
 - IDT: no_debt_tagged
 - STAA: no_debt_tagged
 - ZD: quarters_off_year_revenue_2025-12-31, v2 quarterly revenue not used: its quarters did not add up to the year
 - PRAX: no_debt_tagged
-- ORC: no_revenue, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue, short_history
-- TMP: no_debt_tagged
+- ORC: no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- TMP: no_debt_tagged, debt_one_side_only
 - BY: no_debt_tagged, debt_one_side_only
 - NTLA: no_debt_tagged
-- PPTA: no_revenue, no_debt_tagged, no_revenue, short_history
-- ORIC: no_revenue, no_debt_tagged, no_revenue, short_history
+- PPTA: no_debt_tagged, no_revenue
+- ORIC: no_debt_tagged, no_revenue
 - GERN: stale_revenue, stale_capex, current_ltd_untagged_0.0B, debt_one_side_only
-- FBRT: no_capex, quarters_off_year_revenue_2024-12-31, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- FBRT: no_capex, quarters_off_year_revenue_2024-12-31, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - HOS: quarters_off_year_revenue_2025-12-31, v2 quarterly revenue not used: its quarters did not add up to the year
 - UVSP: debt_one_side_only
 - WVE: no_debt_tagged
@@ -1533,10 +1838,10 @@
 - LQDA: no_debt_tagged
 - BLFS: no_debt_tagged, quarters_off_year_revenue_2023-12-31, quarters_off_year_revenue_2025-12-31
 - SBSI: debt_one_side_only
-- ELVN: no_revenue, no_debt_tagged, no_revenue, short_history
-- GPCR: no_revenue, no_debt_tagged, no_revenue, short_history
-- BBDC: no_revenue, no_capex, no_revenue, short_history
-- MANE: no_revenue, no_debt_tagged, no_revenue
+- ELVN: no_debt_tagged, no_revenue
+- GPCR: no_debt_tagged, no_revenue
+- BBDC: no_capex, no_revenue
+- MANE: no_debt_tagged, no_revenue
 - AMSF: no_debt_tagged
 - SONO: stale_capex, no_debt_tagged
 - MRTN: no_capex, no_debt_tagged
@@ -1546,7 +1851,7 @@
 - NTGR: no_debt_tagged
 - NRIX: no_debt_tagged
 - RVLV: no_debt_tagged
-- SLRC: no_revenue, no_capex, debt_one_side_only, no_revenue, short_history
+- SLRC: no_capex, debt_one_side_only, no_revenue
 - FIZZ: no_debt_tagged
 - SAFE: stale_capex, revenue_unverified_2023-12-31, current_ltd_untagged_0.0B, debt_one_side_only
 - SIBN: debt_one_side_only
@@ -1555,10 +1860,10 @@
 - HFWA: stale_stock_comp, debt_one_side_only
 - PMT: no_capex, debt_too_small_for_interest
 - AGNT: stale_stock_comp, no_debt_tagged
-- KOS: capex_below_segment_2025-12-31, capex_below_segment_2023-12-31, capex_below_segment_2024-12-31
+- KOS: capex_below_segment_2024-12-31, capex_below_segment_2023-12-31, capex_below_segment_2025-12-31
 - ABCL: no_debt_tagged
 - AMN: debt_one_side_only
-- EIKN: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- EIKN: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - IBTA: no_debt_tagged, debt_one_side_only
 - QNST: debt_one_side_only
 - BHRB: debt_one_side_only
@@ -1567,17 +1872,18 @@
 - KW: no_debt_tagged, capex_below_segment_2025-12-31, interest_but_no_debt
 - RWT: no_capex, stale_revenue, no_debt_tagged
 - QURE: debt_one_side_only, debt_too_small_for_interest
-- AVBP: no_revenue, no_capex, no_debt_tagged, no_revenue, short_history
+- PAHC: debt_one_side_only
+- AVBP: no_capex, no_debt_tagged, no_revenue
 - OSBC: debt_one_side_only
 - PCRX: debt_one_side_only
 - NX: stale_revenue
-- BRUN: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BRUN: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - CPF: debt_one_side_only
 - CNXN: no_debt_tagged
 - BLMN: debt_one_side_only
 - MBWM: no_capex, no_debt_tagged
 - BLLN: debt_one_side_only
-- KARD: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- KARD: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - SXC: debt_one_side_only
 - CFFN: no_debt_tagged, quarter_exceeds_year_revenue_2023-09-30
 - VIA: no_debt_tagged
@@ -1586,8 +1892,8 @@
 - SCHL: current_ltd_untagged_0.0B
 - ADTN: no_debt_tagged
 - SEB: debt_one_side_only
-- AD: quarter_exceeds_year_revenue_2023-12-31, quarter_exceeds_year_revenue_2024-12-31, quarters_off_year_revenue_2024-12-31, quarter_exceeds_year_capex_2023-12-31, quarter_exceeds_year_capex_2024-12-31, capex_below_segment_2023-12-31, capex_below_segment_2024-12-31
-- RMIX: no_revenue, no_operating_cash_flow, no_capex, no_revenue
+- AD: quarter_exceeds_year_revenue_2023-12-31, quarter_exceeds_year_revenue_2024-12-31, quarters_off_year_revenue_2024-12-31, quarter_exceeds_year_capex_2023-12-31, quarter_exceeds_year_capex_2024-12-31, capex_below_segment_2024-12-31, capex_below_segment_2023-12-31
+- RMIX: no_operating_cash_flow, no_capex, no_revenue
 - BFST: no_debt_tagged, quarter_exceeds_year_capex_2025-12-31
 - MCB: stale_capex, no_debt_tagged
 - RC: no_capex, quarter_exceeds_year_revenue_2024-12-31, current_ltd_untagged_0.1B, debt_one_side_only
@@ -1612,40 +1918,40 @@
 - RBCAA: no_debt_tagged
 - MTUS: no_debt_tagged
 - BXC: debt_one_side_only
-- XRX: stale_shares_diluted, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- XRX: stale_shares_diluted, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - TRST: debt_one_side_only
-- PXED: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- PXED: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
 - TBLA: debt_one_side_only
 - MPB: debt_one_side_only
 - NBBK: no_debt_tagged
 - TRLV: debt_too_small_for_interest
 - FWRD: quarters_off_year_operating_cash_flow_2023-12-31, quarters_off_year_capex_2023-12-31, debt_one_side_only
 - ORRF: no_debt_tagged
-- ADAM: no_revenue, debt_one_side_only, no_revenue, short_history
+- ADAM: debt_one_side_only, no_revenue
 - GDOT: debt_one_side_only
 - THFF: current_ltd_untagged_0.3B, debt_one_side_only
 - TIPT: no_debt_tagged, quarter_exceeds_year_revenue_2023-12-31, quarter_exceeds_year_revenue_2024-12-31, quarter_exceeds_year_revenue_2025-12-31, quarters_off_year_revenue_2025-12-31, quarter_exceeds_year_capex_2023-12-31, quarter_exceeds_year_capex_2024-12-31, v2 quarterly revenue not used: its quarters did not add up to the year
 - SMBC: no_debt_tagged
-- GENB: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- AKTS: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- GENB: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- AKTS: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - PTRN: no_debt_tagged
 - AMAL: no_debt_tagged, quarter_exceeds_year_capex_2025-12-31
 - WASH: no_debt_tagged
 - SMBK: debt_one_side_only
-- WHK: no_revenue, no_operating_cash_flow, no_capex, no_revenue
+- WHK: no_operating_cash_flow, no_capex, no_revenue
 - IVR: no_capex, stale_revenue, stale_stock_comp, no_debt_tagged
-- DMII: no_revenue, no_capex, debt_one_side_only, no_revenue
+- DMII: no_capex, debt_one_side_only, no_revenue
 - GCT: no_debt_tagged
 - GSBC: debt_one_side_only
-- ODTX: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- ODTX: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - SHBI: debt_one_side_only
 - HYNE: no_debt_tagged
 - HAFC: no_debt_tagged
 - KREF: no_debt_tagged, interest_but_no_debt
 - DFH: debt_one_side_only
 - FSBC: no_debt_tagged
-- BCSS: no_revenue, no_capex, no_debt_tagged, no_revenue
-- COAG: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BCSS: no_capex, no_debt_tagged, no_revenue
+- COAG: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - MSBI: debt_one_side_only
 - PGC: stale_stock_comp, debt_one_side_only
 - JACK: stale_operating_cash_flow
@@ -1654,25 +1960,24 @@
 - HOV: debt_one_side_only
 - KRNY: no_debt_tagged
 - SPFI: no_debt_tagged
-- SPTX: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- SPTX: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - NFBK: no_debt_tagged
 - AMBQ: no_capex, no_debt_tagged
-- AVLN: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- AVLN: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
 - BKV: quarters_off_year_revenue_2024-12-31, quarters_off_year_revenue_2025-12-31, v2 quarterly revenue not used: its quarters did not add up to the year
 - CAL: no_debt_tagged
-- SUJA: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- CXII: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- CCO: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
+- SUJA: no_operating_cash_flow, no_capex, no_revenue
+- CXII: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- CCO: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
 - TCBX: stale_capex, no_debt_tagged
 - GRDN: no_debt_tagged, debt_one_side_only
 - CNDT: quarters_off_year_revenue_2025-12-31, v2 quarterly revenue not used: its quarters did not add up to the year
-- GCGR: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- GCGR: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - FOR: revenue_unverified_2025-09-30, revenue_unverified_2023-09-30, revenue_unverified_2024-09-30, debt_one_side_only
-- CVLG: quarters_off_year_revenue_2025-06-30
 - FSUN: no_debt_tagged
 - CCRN: no_debt_tagged
-- SVC: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
-- ALMR: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- SVC: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
+- ALMR: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - NBR: debt_one_side_only
 - STGW: debt_one_side_only
 - TITN: stale_capex
@@ -1680,322 +1985,322 @@
 - ARKO: quarter_exceeds_year_revenue_2023-12-31, quarters_off_year_revenue_2023-12-31, revenue_unverified_2023-12-31
 - NPB: no_debt_tagged
 - OXM: debt_one_side_only
-- MPLT: no_revenue, no_debt_tagged, no_revenue
+- MPLT: no_debt_tagged, no_revenue
 - GIC: no_debt_tagged
-- MLAA: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- MLAA: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - KODK: debt_too_small_for_interest
 - KELYA: debt_one_side_only
-- LBRX: no_revenue, no_debt_tagged, no_revenue
-- GHXIU: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- BRR: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- KRSP: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- LBRX: no_debt_tagged, no_revenue
+- GHXIU: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BRR: no_operating_cash_flow, no_capex, no_revenue
+- KRSP: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - SHOE: no_debt_tagged
-- IACO: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- AEXA: no_revenue, no_capex, no_debt_tagged, no_revenue
+- IACO: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- AEXA: no_capex, no_debt_tagged, no_revenue
 - CLBK: debt_one_side_only
-- APXT: no_revenue, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
-- CRAN: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- NWAX: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- MESH: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- KBON: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- KRAQ: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- IEAG: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- APXT: no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- CRAN: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- NWAX: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- MESH: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- KBON: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- KRAQ: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- IEAG: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - BWB: no_debt_tagged
 - HTFL: no_debt_tagged
 - OPEN: no_debt_tagged, interest_but_no_debt
 - CWBC: debt_one_side_only
-- SSMR: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- SSMR: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
 - GBFH: no_debt_tagged, debt_one_side_only
-- ARES: stale_capex, no_debt_tagged, revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31, interest_but_no_debt
+- ARES: stale_capex, no_debt_tagged, revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31, interest_but_no_debt
 - ARDT: no_capex
 - CMP: debt_one_side_only
-- GUAC: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- GUAC: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
 - HBT: stale_capex, no_debt_tagged
 - ACCO: stale_capex
 - HGTY: stale_shares_diluted, debt_one_side_only
 - FLNC: no_debt_tagged
-- MEVO: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- MZYX: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- ALOV: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- CLBR: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- MEVO: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- MZYX: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- ALOV: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- CLBR: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - EVMN: no_debt_tagged
 - ILPT: debt_one_side_only
-- BBCQ: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- ZKP: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- OIM: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- FVAV: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- DBCA: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- HACQ: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BBCQ: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- ZKP: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- OIM: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- FVAV: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- DBCA: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- HACQ: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - ATLCP: stale_capex, no_debt_tagged
-- KEYY: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- BCARU: no_revenue, no_operating_cash_flow, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
-- ACAA: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- ELMT: no_revenue, no_operating_cash_flow, no_capex, current_ltd_untagged_0.0B, debt_one_side_only, no_revenue
-- ARCI: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- RNA: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- ONIT: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
-- CGCFU: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- CCII: no_revenue, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
-- HCMA: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- BDCI: no_revenue, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- KEYY: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BCARU: no_operating_cash_flow, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- ACAA: no_operating_cash_flow, no_capex, no_revenue
+- ELMT: no_operating_cash_flow, no_capex, current_ltd_untagged_0.0B, debt_one_side_only, no_revenue
+- ARCI: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- RNA: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- ONIT: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
+- CGCFU: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- CCII: no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- HCMA: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BDCI: no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
 - GIW: no_capex, no_debt_tagged
-- ARTC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- SORN: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- TLNC: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- GIX: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- ARTC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- SORN: no_operating_cash_flow, no_capex, no_revenue
+- TLNC: no_operating_cash_flow, no_capex, no_revenue
+- GIX: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - DSGR: quarters_off_year_capex_2024-12-31, quarters_off_year_capex_2025-12-31, v2 quarterly capex not used: its quarters did not add up to the year
-- IPFX: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
-- CAII: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- DSAC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- IACQ: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- AACI: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
-- RREV: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- CAES: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- EVOX: no_revenue, no_operating_cash_flow, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- IPFX: no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
+- CAII: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- DSAC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- IACQ: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- AACI: no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
+- RREV: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- CAES: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- EVOX: no_operating_cash_flow, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
 - RYAM: stale_capex
-- SGP: no_revenue, no_debt_tagged, no_revenue
-- XRPN: no_revenue, no_capex, no_debt_tagged, no_revenue
-- KOYN: no_revenue, no_capex, no_debt_tagged, no_revenue
-- RNGT: no_revenue, no_capex, no_debt_tagged, no_revenue
-- VHCP: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- VACI: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- SAC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- GPAC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- ADAC: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- ITHA: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- QLEP: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- LEGO: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- SAAQ: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- KCAC-UN: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
-- MTAL: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- IPXG: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- CAQ: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- AACO: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- SVIV: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- TMTS: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- IRHO: no_revenue, no_capex, no_debt_tagged, no_revenue
-- KPET: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- ILLU: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- GSRV: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- USDE: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- FGII: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- FTRA: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- YICC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- WLCOU: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- XCBE: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- ISNR: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- BIXI: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- MTNE: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- SIND: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- SVAQ: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- ACGC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- SHOT: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- QMLS: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- SGP: no_debt_tagged, no_revenue
+- XRPN: no_capex, no_debt_tagged, no_revenue
+- KOYN: no_capex, no_debt_tagged, no_revenue
+- RNGT: no_capex, no_debt_tagged, no_revenue
+- VHCP: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- VACI: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- SAC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- GPAC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- ADAC: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- ITHA: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- QLEP: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- LEGO: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- SAAQ: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- KCAC-UN: no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
+- MTAL: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- IPXG: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- CAQ: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- AACO: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- SVIV: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- TMTS: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- IRHO: no_capex, no_debt_tagged, no_revenue
+- KPET: no_operating_cash_flow, no_capex, no_revenue
+- ILLU: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- GSRV: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- USDE: no_operating_cash_flow, no_capex, no_revenue
+- FGII: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- FTRA: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- YICC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- WLCOU: no_operating_cash_flow, no_capex, no_revenue
+- XCBE: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- ISNR: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BIXI: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- MTNE: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- SIND: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- SVAQ: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- ACGC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- SHOT: no_operating_cash_flow, no_capex, no_revenue
+- QMLS: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
 - INBK: debt_one_side_only
 - MITT: no_capex, stale_revenue, no_debt_tagged
-- HCAC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- TRGS: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- XSLL: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- PAII: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- DNMX: no_revenue, no_operating_cash_flow, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- HCAC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- TRGS: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- XSLL: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- PAII: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- DNMX: no_operating_cash_flow, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
 - BNED: debt_one_side_only
-- MUZE: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- VEL: no_revenue, no_debt_tagged, no_revenue, short_history
-- NHIV: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- IPVV: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- OFRM: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- QADR: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- MUZE: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- VEL: no_debt_tagged, no_revenue
+- NHIV: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- IPVV: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- OFRM: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- QADR: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - TBI: debt_one_side_only
 - KSS: debt_one_side_only
-- APMD: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- MOBI: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- APMD: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- MOBI: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
 - DOUG: no_debt_tagged, debt_one_side_only
 - STRZ: quarter_exceeds_year_revenue_2024-03-31, quarters_off_year_revenue_2025-03-31, quarters_off_year_operating_cash_flow_2025-03-31, quarters_off_year_capex_2025-03-31
-- PARK: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- OHAC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- PARK: no_operating_cash_flow, no_capex, no_revenue
+- OHAC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - ONEW: stale_shares_diluted
-- TRAX: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- TRAX: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - SSP: stale_stock_comp
-- GTERA: no_revenue, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
-- MKLY: no_revenue, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
-- PTAC: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- DYOR: no_revenue, no_capex, no_debt_tagged, no_revenue
-- TDWD: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- IGAC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- BLRK: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- BIII: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- LTGR: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- SUMA: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- SSAC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- AACP: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- TVIV: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- SWRD: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- ATLQ: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- IRAB: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- PALO: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- DGAC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- IDAC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- GTERA: no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- MKLY: no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- PTAC: no_operating_cash_flow, no_capex, no_revenue
+- DYOR: no_capex, no_debt_tagged, no_revenue
+- TDWD: no_operating_cash_flow, no_capex, no_revenue
+- IGAC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BLRK: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BIII: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- LTGR: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- SUMA: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- SSAC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- AACP: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- TVIV: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- SWRD: no_operating_cash_flow, no_capex, no_revenue
+- ATLQ: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- IRAB: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- PALO: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- DGAC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- IDAC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - WBTN: no_debt_tagged
 - LESL: debt_one_side_only
-- BEBE: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- ETSS: no_revenue, no_operating_cash_flow, no_capex, no_revenue
+- BEBE: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- ETSS: no_operating_cash_flow, no_capex, no_revenue
 - SI: debt_one_side_only
 - LE: no_debt_tagged
-- HAVA: no_revenue, no_capex, stale_shares_diluted, debt_one_side_only, no_revenue
-- LFAC: no_revenue, no_operating_cash_flow, no_capex, stale_shares_diluted, no_debt_tagged, debt_one_side_only, no_revenue
-- WLII: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- STDN: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- APMC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- IHRT: revenue_unverified_2025-12-31, revenue_unverified_2023-12-31, revenue_unverified_2024-12-31
-- AESP: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- HAVA: no_capex, stale_shares_diluted, debt_one_side_only, no_revenue
+- LFAC: no_operating_cash_flow, no_capex, stale_shares_diluted, no_debt_tagged, debt_one_side_only, no_revenue
+- WLII: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- STDN: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- APMC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- IHRT: revenue_unverified_2024-12-31, revenue_unverified_2023-12-31, revenue_unverified_2025-12-31
+- AESP: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
 - FOA: stale_capex, stale_stock_comp, quarter_exceeds_year_revenue_2023-12-31
-- AIIA: no_revenue, no_capex, no_debt_tagged, no_revenue
-- BID: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- KTWO: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- AIIA: no_capex, no_debt_tagged, no_revenue
+- BID: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- KTWO: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - KRO: debt_one_side_only
 - RHLD: quarters_off_year_operating_cash_flow_2024-12-31
-- PAAC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- BWIV: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- CHEC: no_revenue, no_capex, no_debt_tagged, no_revenue
+- PAAC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BWIV: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- CHEC: no_capex, no_debt_tagged, no_revenue
 - ADV: quarter_exceeds_year_capex_2024-12-31, quarter_exceeds_year_capex_2025-12-31
-- ATTO: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- CTAA: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- BRVE: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- BLSM: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- ARCL: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- PONO: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- INAC: no_revenue, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
-- NMP: no_revenue, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
-- SPEG: no_revenue, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
-- EMIS: no_revenue, no_operating_cash_flow, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
-- WPAC: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- LAFA: no_revenue, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
-- LKSP: no_revenue, no_capex, no_debt_tagged, no_revenue
+- ATTO: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- CTAA: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BRVE: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BLSM: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- ARCL: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- PONO: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- INAC: no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- NMP: no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- SPEG: no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- EMIS: no_operating_cash_flow, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- WPAC: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- LAFA: no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- LKSP: no_capex, no_debt_tagged, no_revenue
 - CARL: debt_one_side_only
-- WENC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
-- QRED: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- GLED: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- CEPS: no_revenue, no_capex, no_debt_tagged, no_revenue
-- ALPX: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- NREF: no_revenue, no_capex, no_revenue, short_history
-- TRAD: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- FMAC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- AVAT: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- PLUN: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
-- OTAI: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- WENC: no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
+- QRED: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- GLED: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- CEPS: no_capex, no_debt_tagged, no_revenue
+- ALPX: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- NREF: no_capex, no_revenue
+- TRAD: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- FMAC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- AVAT: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- PLUN: no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
+- OTAI: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - LDI: debt_one_side_only
-- UAC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- APUR: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- SBMT: no_revenue, no_operating_cash_flow, no_revenue
-- SCPQ: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- REA: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- RFAM: no_revenue, no_operating_cash_flow, no_capex, no_revenue
+- UAC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- APUR: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- SBMT: no_operating_cash_flow, no_capex, no_revenue
+- SCPQ: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- REA: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- RFAM: no_operating_cash_flow, no_capex, no_revenue
 - NP: no_capex, no_debt_tagged
-- FTHA: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- VECA: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- BHAV: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- XFLH: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
-- MYX: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- NKLR: no_revenue, no_capex, no_debt_tagged, no_revenue
+- FTHA: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- VECA: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BHAV: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- XFLH: no_operating_cash_flow, no_capex, no_debt_tagged, debt_one_side_only, no_revenue
+- MYX: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- NKLR: no_capex, no_debt_tagged, no_revenue
 - TTEC: no_debt_tagged, interest_but_no_debt
 - BKKT: stale_capex, no_debt_tagged
-- FXAC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- FWAC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- FXAC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- FWAC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - RRGB: debt_one_side_only
-- BRKH: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- CHPG: no_revenue, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
-- AMAN: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- RACC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- ORIQ: no_revenue, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
-- MMTX: no_revenue, no_operating_cash_flow, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
-- GFUZ: no_revenue, no_operating_cash_flow, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
-- GLND: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- LTGO: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- JATT: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- ALIS: no_revenue, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
-- PECE: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- MCAH: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- NBRG: no_revenue, no_capex, no_debt_tagged, no_revenue
-- APAC: no_revenue, no_capex, no_debt_tagged, no_revenue
-- BPAC: no_revenue, no_capex, stale_shares_diluted, debt_one_side_only, no_revenue
-- WSTN: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- SCTX: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- OBX: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- BSEM: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- DMRC: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- ENHA: no_revenue, no_capex, no_debt_tagged, no_revenue
-- NUCL: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BRKH: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- CHPG: no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- AMAN: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- RACC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- ORIQ: no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- MMTX: no_operating_cash_flow, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- GFUZ: no_operating_cash_flow, no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- GLND: no_operating_cash_flow, no_capex, no_revenue
+- LTGO: no_operating_cash_flow, no_capex, no_revenue
+- JATT: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- ALIS: no_capex, stale_shares_diluted, no_debt_tagged, no_revenue
+- PECE: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- MCAH: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- NBRG: no_capex, no_debt_tagged, no_revenue
+- APAC: no_capex, debt_one_side_only, no_revenue
+- BPAC: no_capex, stale_shares_diluted, debt_one_side_only, no_revenue
+- WSTN: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- SCTX: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- OBX: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- BSEM: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- DMRC: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- ENHA: no_capex, no_debt_tagged, no_revenue
+- NUCL: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - RDNW: debt_too_small_for_interest
 - PLCE: debt_one_side_only
 - AHT: debt_one_side_only
-- SWMR: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- SWMR: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - TYGO: debt_one_side_only
 - RJET: quarters_off_year_revenue_2024-12-31, quarters_off_year_revenue_2025-12-31, quarters_off_year_operating_cash_flow_2024-12-31, quarters_off_year_operating_cash_flow_2025-12-31, quarters_off_year_capex_2024-12-31, v2 quarterly revenue not used: its quarters did not add up to the year
-- SEV: no_revenue, no_debt_tagged, no_revenue
-- AMSS: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- SEV: no_debt_tagged, no_revenue
+- AMSS: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
 - VATE: quarters_off_year_capex_2025-12-31, v2 quarterly capex not used: its quarters did not add up to the year
-- AENT: no_debt_tagged, revenue_unverified_2026-06-30, revenue_unverified_2024-06-30, revenue_unverified_2025-06-30
-- NUTR: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- ADBT: no_revenue, no_operating_cash_flow, no_capex, no_revenue
+- AENT: no_debt_tagged, revenue_unverified_2026-06-30, revenue_unverified_2025-06-30, revenue_unverified_2024-06-30
+- NUTR: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- ADBT: no_operating_cash_flow, no_capex, no_revenue
 - BUDA: debt_one_side_only
 - ROC: no_capex, no_debt_tagged
 - NOMA: no_capex, no_debt_tagged
 - CV: no_debt_tagged
-- VIDA: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- VIDA: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - DIT: debt_one_side_only
-- FBDT: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- TTRX: no_revenue, no_capex, current_ltd_untagged_0.0B, debt_one_side_only, no_revenue
+- FBDT: no_operating_cash_flow, no_capex, no_revenue
+- TTRX: no_capex, current_ltd_untagged_0.0B, debt_one_side_only, no_revenue
 - VTIX: no_capex
-- PLYX: no_revenue, no_capex, no_debt_tagged, no_revenue
-- EXYN: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- AAC-UN: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- PLYX: no_capex, no_debt_tagged, no_revenue
+- EXYN: no_operating_cash_flow, no_capex, no_revenue
+- AAC-UN: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
 - ELWT: no_capex
 - VHUB: debt_one_side_only
-- CNXU: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- CNXU: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - AIDX: no_capex, no_debt_tagged
-- CURX: no_revenue, no_capex, no_debt_tagged, no_revenue
-- LABT: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- CURX: no_capex, no_debt_tagged, no_revenue
+- LABT: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
 - ATHR: quarters_off_year_operating_cash_flow_2025-09-30, debt_one_side_only
 - BMNR: no_debt_tagged, quarter_exceeds_year_capex_2024-08-31
 - PTCT: quarter_exceeds_year_capex_2024-12-31
-- CYAB: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- VOGX: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- GYGY: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- THEO: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- EWAV: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- CAST: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- SAMO-UN: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- JONEU: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- MRCO: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- RACD: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- BCCQ: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- BREZ: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- OSPRU: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- NCO: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- MIACU: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- AMACU: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- VII: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- BRTMU: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- FJDIU: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- FDMM: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- TCGX: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- MTAKU: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- CATLU: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- CCCT: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- TBCVU: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- SAGU: no_revenue, no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
-- PNAQ-UN: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
-- SECZ: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- JMKE: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- FTW: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- JBS: no_revenue, no_operating_cash_flow, no_capex, no_revenue
-- XPRO: no_revenue, no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- CYAB: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- VOGX: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- GYGY: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- THEO: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- EWAV: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- CAST: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- SAMO-UN: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- JONEU: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- MRCO: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- RACD: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- BCCQ: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- BREZ: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- OSPRU: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- NCO: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- MIACU: no_operating_cash_flow, no_capex, no_revenue
+- AMACU: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- VII: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- BRTMU: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- FJDIU: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- FDMM: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- TCGX: no_operating_cash_flow, no_capex, no_revenue
+- MTAKU: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- CATLU: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- CCCT: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- TBCVU: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- SAGU: no_operating_cash_flow, no_capex, no_debt_tagged, no_revenue
+- PNAQ-UN: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
+- SECZ: no_operating_cash_flow, no_capex, no_revenue
+- JMKE: no_operating_cash_flow, no_capex, no_revenue
+- FTW: no_operating_cash_flow, no_capex, no_revenue
+- JBS: no_operating_cash_flow, no_capex, no_revenue
+- XPRO: no_operating_cash_flow, no_capex, debt_one_side_only, no_revenue
 
 ## Largest 25 by public float
 
 | ticker | public float | revenue TTM | capex TTM | total debt | shares |
 |---|---|---|---|---|---|
-| CBT | 4,429,047.30B | 3.63B | 0.22B | 1.09B | 51.6M |
+| CBT | 4,429,047.30B | 3.63B | 0.22B | 1.27B | 51.6M |
 | OLED | 6,792.43B | 0.61B | 42.2M | 1.1M | 46.0M |
 | ONTO | 4,817.28B | 1.12B | 13.8M | - | 49.1M |
 | TTMI | 4,165.94B | 3.38B | 0.34B | 0.97B | 0.11B |
@@ -2006,8 +2311,8 @@
 | AAPL | 3,253.43B | 466.82B | 10.04B | 84.34B | 14.59B |
 | MGRC | 2,853.95B | 0.93B | 42.2M | 0.59B | 24.4M |
 | ENVA | 2,669.87B | 3.45B | 46.4M | 5.01B | 24.9M |
-| RENX | 2,290.41B | 15.0M | 3.6M | 23.1M | 2.6M |
-| AMZN | 2,118.06B | 775.68B | 173.03B | 132.22B | 10.79B |
+| RENX | 2,290.41B | 15.0M | 3.6M | 39.2M | 2.6M |
+| AMZN | 2,118.06B | 775.68B | 173.03B | 132.55B | 10.79B |
 | CLSK | 1,967.00B | 0.77B | 91.3M | 1.78B | 0.26B |
 | GOOGL | 1,900.00B | 445.87B | 132.40B | 100.16B | 12.23B |
 | META | 1,600.00B | 228.25B | 89.33B | 83.66B | 2.55B |

@@ -311,12 +311,12 @@
  },
  "balance": {
   "cash_and_sti": 729000000,
-  "debt_current": 1034000000,
+  "debt_current": 1769000000,
   "debt_noncurrent": 4235000000,
   "end": "2026-06-30",
   "equity": 12866000000,
   "finance_leases": 458000000,
-  "total_debt": 5269000000
+  "total_debt": 6004000000
  },
  "bank": false,
  "checks": {
@@ -668,7 +668,7 @@
    "current_assets": 4284000000,
    "current_liabilities": 3054000000,
    "d_and_a": 198000000,
-   "debt_current": 777000000,
+   "debt_current": 1110000000,
    "eps_diluted": -0.19,
    "filed": "2026-08-10",
    "finance_lease_liabilities": 429000000,
@@ -704,7 +704,7 @@
    "short_term_borrowings": 777000000,
    "stock_comp": 9000000,
    "total_assets": 24269000000,
-   "total_debt": 5713000000,
+   "total_debt": 6046000000,
    "total_debt_basis": "components",
    "total_debt_filed": "2026-05-07",
    "total_equity": 13094000000,
@@ -720,7 +720,7 @@
    "current_assets": 4584000000,
    "current_liabilities": 4154000000,
    "d_and_a": 217000000,
-   "debt_current": 1034000000,
+   "debt_current": 1769000000,
    "eps_diluted": 0.86,
    "filed": "2026-08-10",
    "finance_lease_liabilities": 458000000,
@@ -755,7 +755,7 @@
    "short_term_borrowings": 735000000,
    "stock_comp": 11000000,
    "total_assets": 24603000000,
-   "total_debt": 5269000000,
+   "total_debt": 6004000000,
    "total_debt_basis": "components",
    "total_debt_filed": "2026-08-10",
    "total_equity": 12866000000,
@@ -1110,11 +1110,13 @@
      "filed": "2026-05-07",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 333000000,
-      "LongTermDebtNoncurrent": 4936000000
+      "LongTermDebtNoncurrent": 4936000000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -1230,11 +1232,32 @@
    "v2": 5269000000
   },
   {
+   "field": "total_debt",
+   "old": 5713000000,
+   "period": "2026-03-31",
+   "rows": "quarterly",
+   "v2": 6046000000
+  },
+  {
    "field": "debt_current",
    "old": 333000000,
    "period": "2026-03-31",
    "rows": "quarterly",
-   "v2": 777000000
+   "v2": 1110000000
+  },
+  {
+   "field": "total_debt",
+   "old": 5269000000,
+   "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 6004000000
+  },
+  {
+   "field": "debt_current",
+   "old": 1034000000,
+   "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 1769000000
   }
  ],
  "v2_notes": [],
@@ -1728,11 +1751,13 @@
      "filed": "2026-05-07",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 333000000,
-      "LongTermDebtNoncurrent": 4936000000
+      "LongTermDebtNoncurrent": 4936000000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -1744,7 +1769,7 @@
    "capex": 275000000,
    "cash": 1099000000,
    "cash_and_sti": 1099000000,
-   "debt_current": 777000000,
+   "debt_current": 1110000000,
    "debt_noncurrent": 4936000000,
    "end": "2026-03-31",
    "equity": 13094000000,
@@ -1815,9 +1840,11 @@
      "filed": "2026-05-07",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 333000000,
       "LongTermDebtNoncurrent": 4936000000,
       "ShortTermBorrowings": 777000000
      }
@@ -1825,13 +1852,13 @@
    },
    "start": "2026-01-01",
    "stock_comp": 9000000,
-   "total_debt": 5713000000
+   "total_debt": 6046000000
   },
   {
    "capex": 245000000,
    "cash": 729000000,
    "cash_and_sti": 729000000,
-   "debt_current": 1034000000,
+   "debt_current": 1769000000,
    "debt_noncurrent": 4235000000,
    "end": "2026-06-30",
    "equity": 12866000000,
@@ -1897,17 +1924,19 @@
      "filed": "2026-08-10",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 1034000000,
-      "LongTermDebtNoncurrent": 4235000000
+      "LongTermDebtNoncurrent": 4235000000,
+      "ShortTermBorrowings": 735000000
      }
     }
    },
    "start": "2026-04-01",
    "stock_comp": 11000000,
-   "total_debt": 5269000000
+   "total_debt": 6004000000
   }
  ],
  "v2_tags_used": {

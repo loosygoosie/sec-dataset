@@ -68,10 +68,10 @@
  },
  "balance": {
   "cash_and_sti": 1570517,
-  "debt_current": 1650000,
+  "debt_current": 2816998,
   "end": "2026-06-30",
   "equity": -1279486,
-  "total_debt": 1650000
+  "total_debt": 2816998
  },
  "bank": false,
  "checks": {
@@ -86,7 +86,6 @@
  "cik": 1851491,
  "fiscal_year_end": "1231",
  "flags": [
-  "no_revenue",
   "no_operating_cash_flow",
   "no_capex",
   "debt_one_side_only",
@@ -175,7 +174,7 @@
    "current_assets": 16418321,
    "current_liabilities": 25566205,
    "d_and_a": 137220,
-   "debt_current": 1650000,
+   "debt_current": 2400000,
    "eps_diluted": -0.87,
    "filed": "2026-06-29",
    "form": "10-Q",
@@ -205,7 +204,7 @@
    "shares_outstanding": 3600420,
    "stock_comp": 220932,
    "total_assets": 25581550,
-   "total_debt": 1650000,
+   "total_debt": 2400000,
    "total_debt_filed": "2026-06-29",
    "total_equity": -5276431,
    "total_equity_incl_nci": -2928603,
@@ -217,7 +216,7 @@
    "current_assets": 17774228,
    "current_liabilities": 25356627,
    "d_and_a": 132387,
-   "debt_current": 1650000,
+   "debt_current": 2816998,
    "eps_diluted": -0.69,
    "filed": "2026-08-14",
    "form": "10-Q",
@@ -245,7 +244,7 @@
    "shares_outstanding": 11605081,
    "stock_comp": 226613,
    "total_assets": 28239982,
-   "total_debt": 1650000,
+   "total_debt": 2816998,
    "total_debt_filed": "2026-08-14",
    "total_equity": -1279486,
    "total_equity_incl_nci": 993404,
@@ -345,28 +344,28 @@
    "old": null,
    "period": "2026-03-31",
    "rows": "quarterly",
-   "v2": 1650000
+   "v2": 2400000
   },
   {
    "field": "debt_current",
    "old": null,
    "period": "2026-03-31",
    "rows": "quarterly",
-   "v2": 1650000
+   "v2": 2400000
   },
   {
    "field": "total_debt",
    "old": null,
    "period": "2026-06-30",
    "rows": "quarterly",
-   "v2": 1650000
+   "v2": 2816998
   },
   {
    "field": "debt_current",
    "old": null,
    "period": "2026-06-30",
    "rows": "quarterly",
-   "v2": 1650000
+   "v2": 2816998
   }
  ],
  "v2_notes": [],
@@ -472,7 +471,7 @@
   {
    "cash": 991806,
    "cash_and_sti": 991806,
-   "debt_current": 1650000,
+   "debt_current": 2400000,
    "end": "2026-03-31",
    "equity": -5276431,
    "net_income": -3035704,
@@ -526,21 +525,23 @@
      "filed": "2026-06-29",
      "note": "one side only (a floor)",
      "tags": [
-      "NotesPayableCurrent"
+      "NotesPayableCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 750000,
       "NotesPayableCurrent": 1650000
      }
     }
    },
    "start": "2026-01-01",
    "stock_comp": 220932,
-   "total_debt": 1650000
+   "total_debt": 2400000
   },
   {
    "cash": 1570517,
    "cash_and_sti": 1570517,
-   "debt_current": 1650000,
+   "debt_current": 2816998,
    "end": "2026-06-30",
    "equity": -1279486,
    "net_income": -7474277,
@@ -596,16 +597,18 @@
      "filed": "2026-08-14",
      "note": "one side only (a floor)",
      "tags": [
-      "NotesPayableCurrent"
+      "NotesPayableCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 1166998,
       "NotesPayableCurrent": 1650000
      }
     }
    },
    "start": "2026-04-01",
    "stock_comp": 226613,
-   "total_debt": 1650000
+   "total_debt": 2816998
   }
  ],
  "v2_tags_used": {

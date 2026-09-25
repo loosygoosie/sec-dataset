@@ -1199,9 +1199,9 @@
  "cik": 1476204,
  "fiscal_year_end": "1231",
  "flags": [
-  "revenue_unverified_2025-12-31",
-  "revenue_unverified_2023-12-31",
   "revenue_unverified_2024-12-31",
+  "revenue_unverified_2023-12-31",
+  "revenue_unverified_2025-12-31",
   "debt_one_side_only"
  ],
  "instances_merged": [],
@@ -4289,7 +4289,7 @@
    "capex": 4444000,
    "cash": 19828000,
    "cash_and_sti": 19828000,
-   "debt_current": 6400000,
+   "debt_current": 8200000,
    "debt_noncurrent": 512275000,
    "end": "2014-09-30",
    "equity": 1392190000,
@@ -4347,16 +4347,18 @@
      "filed": "2014-11-05",
      "tags": [
       "LongTermDebt",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "LoansPayableCurrent"
      ],
      "values": {
+      "LoansPayableCurrent": 1800000,
       "LongTermDebt": 518675000,
       "LongTermDebtCurrent": 6400000
      }
     }
    },
    "start": "2014-07-01",
-   "total_debt": 518675000
+   "total_debt": 520475000
   },
   {
    "capex": 6811000,

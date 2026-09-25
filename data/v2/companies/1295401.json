@@ -6249,6 +6249,7 @@
    "capex": 390000,
    "cash": 312273000,
    "cash_and_sti": 312273000,
+   "debt_current": 45000000,
    "end": "2019-06-30",
    "equity": 458132000,
    "fcf": -348214000,
@@ -6307,10 +6308,21 @@
      "filed": "2019-08-06",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2019-08-06",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 45000000
+     }
     }
    },
    "start": "2019-04-01",
-   "stock_comp": 1595000
+   "stock_comp": 1595000,
+   "total_debt": 45000000
   },
   {
    "capex": 1226000,

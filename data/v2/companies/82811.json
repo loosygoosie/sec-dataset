@@ -79,7 +79,7 @@
    "current_liabilities_as_filed": 309066000,
    "current_liabilities_as_filed_filed": "2010-09-03",
    "d_and_a": 69144000,
-   "debt_current": 8385000,
+   "debt_current": 15385000,
    "dividends_paid": 21607000,
    "dividends_paid_as_filed": 21607000,
    "dividends_paid_as_filed_filed": "2011-03-02",
@@ -142,11 +142,11 @@
    "total_assets": 2112237000,
    "total_assets_as_filed": 2112237000,
    "total_assets_as_filed_filed": "2010-09-03",
-   "total_debt": 476450000,
-   "total_debt_as_filed": 476450000,
-   "total_debt_as_filed_filed": "2010-09-03",
+   "total_debt": 483450000,
+   "total_debt_as_filed": 483450000,
+   "total_debt_as_filed_filed": "2012-02-29",
    "total_debt_basis": "components",
-   "total_debt_filed": "2010-09-03",
+   "total_debt_filed": "2012-02-29",
    "total_equity": 1167824000,
    "total_equity_incl_nci": 1180100000,
    "total_equity_parent": 1167824000
@@ -2664,7 +2664,7 @@
    "capex": 33604000,
    "cash": 262400000,
    "cash_and_sti": 262400000,
-   "debt_current": 8385000,
+   "debt_current": 15385000,
    "debt_noncurrent": 468065000,
    "end": "2010-01-02",
    "equity": 1167824000,
@@ -2725,20 +2725,22 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2010-09-03",
+     "filed": "2012-02-29",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 8385000,
-      "LongTermDebtNoncurrent": 468065000
+      "LongTermDebtNoncurrent": 468065000,
+      "ShortTermBorrowings": 7000000
      }
     }
    },
    "start": "2008-12-28",
    "stock_comp": 4752000,
-   "total_debt": 476450000
+   "total_debt": 483450000
   },
   {
    "capex": 57600000,
@@ -4102,6 +4104,20 @@
    "v2": 1826277000
   },
   {
+   "field": "total_debt",
+   "old": 476450000,
+   "period": "2010-01-02",
+   "rows": "annual",
+   "v2": 483450000
+  },
+  {
+   "field": "debt_current",
+   "old": 8385000,
+   "period": "2010-01-02",
+   "rows": "annual",
+   "v2": 15385000
+  },
+  {
    "field": "revenue",
    "old": null,
    "period": "2010-12-31",
@@ -4399,7 +4415,7 @@
    "capex": 7720000,
    "cash": 262400000,
    "cash_and_sti": 262400000,
-   "debt_current": 8385000,
+   "debt_current": 15385000,
    "debt_noncurrent": 468065000,
    "end": "2010-01-02",
    "equity": 1167824000,
@@ -4458,20 +4474,22 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2010-09-03",
+     "filed": "2012-02-29",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 8385000,
-      "LongTermDebtNoncurrent": 468065000
+      "LongTermDebtNoncurrent": 468065000,
+      "ShortTermBorrowings": 7000000
      }
     }
    },
    "start": "2009-09-27",
    "stock_comp": 1494000,
-   "total_debt": 476450000
+   "total_debt": 483450000
   },
   {
    "capex": 11241000,

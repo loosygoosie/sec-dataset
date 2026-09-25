@@ -1,18 +1,6 @@
 {
  "annual": [
   {
-   "added_by": "v2",
-   "fiscal_year": 2015,
-   "form": "10-K",
-   "net_income": -325880,
-   "net_income_filed": "2015-05-08",
-   "operating_cash_flow": -274351,
-   "operating_cash_flow_filed": "2015-05-08",
-   "period_end": "2015-03-31",
-   "revenue": 0,
-   "revenue_filed": "2015-05-08"
-  },
-  {
    "current_assets": 139322,
    "current_assets_as_filed": 139322,
    "current_assets_as_filed_filed": "2016-03-21",
@@ -1659,55 +1647,6 @@
  },
  "v2_annual": [
   {
-   "cash": 309233,
-   "cash_and_sti": 309233,
-   "end": "2015-03-31",
-   "equity": 5147446,
-   "net_income": -325880,
-   "operating_cash_flow": -274351,
-   "revenue": 0,
-   "shares_diluted": 1648451,
-   "src": {
-    "cash": {
-     "accn": "0001144204-15-028842",
-     "filed": "2015-05-08",
-     "form": "10-Q",
-     "tag": "Cash"
-    },
-    "equity": {
-     "accn": "0001144204-15-028842",
-     "filed": "2015-05-08",
-     "form": "10-Q",
-     "tag": "StockholdersEquity"
-    },
-    "net_income": {
-     "accn": "0001144204-15-028842",
-     "filed": "2015-05-08",
-     "form": "10-Q",
-     "tag": "NetIncomeLoss"
-    },
-    "operating_cash_flow": {
-     "accn": "0001144204-15-028842",
-     "filed": "2015-05-08",
-     "form": "10-Q",
-     "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
-    },
-    "revenue": {
-     "accn": "0001144204-15-028842",
-     "filed": "2015-05-08",
-     "form": "10-Q",
-     "tag": "SalesRevenueNet"
-    },
-    "shares_diluted": {
-     "accn": "0001144204-15-028842",
-     "filed": "2015-05-08",
-     "form": "10-Q",
-     "tag": "WeightedAverageNumberOfShareOutstandingBasicAndDiluted"
-    }
-   },
-   "start": "2014-04-15"
-  },
-  {
    "cash": 119826,
    "cash_and_sti": 119826,
    "end": "2015-12-31",
@@ -2467,27 +2406,6 @@
   }
  ],
  "v2_fixes": [
-  {
-   "field": "revenue",
-   "old": null,
-   "period": "2015-03-31",
-   "rows": "annual",
-   "v2": 0
-  },
-  {
-   "field": "net_income",
-   "old": null,
-   "period": "2015-03-31",
-   "rows": "annual",
-   "v2": -325880
-  },
-  {
-   "field": "operating_cash_flow",
-   "old": null,
-   "period": "2015-03-31",
-   "rows": "annual",
-   "v2": -274351
-  },
   {
    "field": "total_debt",
    "old": 27123000,

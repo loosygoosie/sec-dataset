@@ -1451,7 +1451,7 @@
    "current_liabilities_as_filed": 24492000000,
    "current_liabilities_as_filed_filed": "2026-02-18",
    "d_and_a": 2200000000,
-   "debt_current": 3641000000,
+   "debt_current": 4555000000,
    "debt_due_1y": 3641000000,
    "debt_due_2y": 4455000000,
    "debt_due_3y": 7324000000,
@@ -1514,11 +1514,11 @@
    "total_assets": 61774000000,
    "total_assets_as_filed": 61774000000,
    "total_assets_as_filed_filed": "2026-02-18",
-   "total_debt": 28895000000,
-   "total_debt_as_filed": 28895000000,
-   "total_debt_as_filed_filed": "2026-02-18",
+   "total_debt": 29809000000,
+   "total_debt_as_filed": 29809000000,
+   "total_debt_as_filed_filed": "2026-04-23",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2026-02-18",
+   "total_debt_filed": "2026-04-23",
    "total_equity": -3727000000,
    "total_equity_parent": -3727000000
   }
@@ -2029,7 +2029,7 @@
    "current_assets": 12205000000,
    "current_liabilities": 24492000000,
    "d_and_a": 782000000,
-   "debt_current": 3641000000,
+   "debt_current": 4555000000,
    "debt_due_1y": 3641000000,
    "debt_due_2y": 4455000000,
    "debt_due_3y": 7324000000,
@@ -2063,9 +2063,9 @@
    "short_term_borrowings": 914000000,
    "short_term_investments": 4882000000,
    "total_assets": 61774000000,
-   "total_debt": 28895000000,
+   "total_debt": 29809000000,
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2026-02-18",
+   "total_debt_filed": "2026-04-23",
    "total_equity": -3727000000,
    "total_equity_parent": -3727000000
   },
@@ -2076,7 +2076,7 @@
    "current_assets": 13984000000,
    "current_liabilities": 28406000000,
    "d_and_a": 475000000,
-   "debt_current": 4083000000,
+   "debt_current": 4443000000,
    "eps_diluted": -0.58,
    "filed": "2026-04-23",
    "form": "10-Q",
@@ -2106,7 +2106,7 @@
    "short_term_borrowings": 360000000,
    "short_term_investments": 6391000000,
    "total_assets": 63738000000,
-   "total_debt": 27605000000,
+   "total_debt": 27965000000,
    "total_debt_basis": "tagged",
    "total_debt_filed": "2026-04-23",
    "total_equity": -4077000000,
@@ -3715,7 +3715,7 @@
    "capex": 3779000000,
    "cash": 1056000000,
    "cash_and_sti": 5938000000,
-   "debt_current": 3641000000,
+   "debt_current": 4555000000,
    "debt_noncurrent": 25254000000,
    "end": "2025-12-31",
    "equity": -3727000000,
@@ -3782,20 +3782,22 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2026-02-18",
+     "filed": "2026-04-23",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBankLoansAndNotesPayable"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 25254000000,
-      "LongTermDebtCurrent": 3641000000
+      "LongTermDebtCurrent": 3641000000,
+      "ShortTermBankLoansAndNotesPayable": 914000000
      }
     }
    },
    "start": "2025-01-01",
    "stock_comp": 57000000,
-   "total_debt": 28895000000
+   "total_debt": 29809000000
   }
  ],
  "v2_fixes": [
@@ -3909,7 +3911,14 @@
    "old": 28594000000,
    "period": "2025-12-31",
    "rows": "annual",
-   "v2": 28895000000
+   "v2": 29809000000
+  },
+  {
+   "field": "debt_current",
+   "old": 3641000000,
+   "period": "2025-12-31",
+   "rows": "annual",
+   "v2": 4555000000
   },
   {
    "field": "total_debt",
@@ -3979,14 +3988,28 @@
    "old": 28594000000,
    "period": "2025-12-31",
    "rows": "quarterly",
-   "v2": 28895000000
+   "v2": 29809000000
+  },
+  {
+   "field": "debt_current",
+   "old": 3641000000,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": 4555000000
   },
   {
    "field": "total_debt",
    "old": 27305000000,
    "period": "2026-03-31",
    "rows": "quarterly",
-   "v2": 27605000000
+   "v2": 27965000000
+  },
+  {
+   "field": "debt_current",
+   "old": 4083000000,
+   "period": "2026-03-31",
+   "rows": "quarterly",
+   "v2": 4443000000
   },
   {
    "field": "total_debt",
@@ -9043,7 +9066,7 @@
    "capex": 1630000000,
    "cash": 1056000000,
    "cash_and_sti": 5938000000,
-   "debt_current": 3641000000,
+   "debt_current": 4555000000,
    "debt_noncurrent": 25254000000,
    "end": "2025-12-31",
    "equity": -3727000000,
@@ -9101,25 +9124,27 @@
      "tag": "AvailableForSaleSecuritiesDebtSecuritiesCurrent"
     },
     "total_debt": {
-     "filed": "2026-02-18",
+     "filed": "2026-04-23",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBankLoansAndNotesPayable"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 25254000000,
-      "LongTermDebtCurrent": 3641000000
+      "LongTermDebtCurrent": 3641000000,
+      "ShortTermBankLoansAndNotesPayable": 914000000
      }
     }
    },
    "start": "2025-10-01",
-   "total_debt": 28895000000
+   "total_debt": 29809000000
   },
   {
    "capex": 811000000,
    "cash": 1002000000,
    "cash_and_sti": 7393000000,
-   "debt_current": 4083000000,
+   "debt_current": 4443000000,
    "debt_noncurrent": 23522000000,
    "end": "2026-03-31",
    "equity": -4077000000,
@@ -9182,16 +9207,18 @@
      "filed": "2026-04-23",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBankLoansAndNotesPayable"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 23522000000,
-      "LongTermDebtCurrent": 4083000000
+      "LongTermDebtCurrent": 4083000000,
+      "ShortTermBankLoansAndNotesPayable": 360000000
      }
     }
    },
    "start": "2026-01-01",
-   "total_debt": 27605000000
+   "total_debt": 27965000000
   },
   {
    "capex": 822000000,
@@ -9262,11 +9289,13 @@
      "filed": "2026-07-23",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBankLoansAndNotesPayable"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 25833000000,
-      "LongTermDebtCurrent": 2979000000
+      "LongTermDebtCurrent": 2979000000,
+      "ShortTermBankLoansAndNotesPayable": 0
      }
     }
    },

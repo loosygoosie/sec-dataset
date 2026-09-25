@@ -144,8 +144,8 @@
    "total_assets": 19565155000,
    "total_assets_as_filed": 294176149,
    "total_assets_as_filed_filed": "2021-05-17",
-   "total_debt": 3310316000,
-   "total_debt_as_filed": 3310316000,
+   "total_debt": 3310566000,
+   "total_debt_as_filed": 3310566000,
    "total_debt_as_filed_filed": "2021-08-16",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2021-08-16",
@@ -1213,16 +1213,18 @@
      "filed": "2021-08-16",
      "tags": [
       "NotesPayable",
-      "LineOfCredit"
+      "LineOfCredit",
+      "LoansPayableCurrent"
      ],
      "values": {
       "LineOfCredit": 2973743000,
+      "LoansPayableCurrent": 250000,
       "NotesPayable": 336573000
      }
     }
    },
    "start": "2020-01-01",
-   "total_debt": 3310316000
+   "total_debt": 3310566000
   },
   {
    "capex": 11236000,
@@ -1491,7 +1493,7 @@
    "old": 2973743000,
    "period": "2020-12-31",
    "rows": "annual",
-   "v2": 3310316000
+   "v2": 3310566000
   },
   {
    "field": "total_debt",
@@ -1769,6 +1771,7 @@
   {
    "cash": 399789000,
    "cash_and_sti": 399789000,
+   "debt_current": 250000,
    "end": "2020-06-30",
    "equity": -22214866,
    "net_income": 148335000,
@@ -1809,14 +1812,26 @@
      "filed": "2021-08-16",
      "form": "10-Q",
      "tag": "Revenues"
+    },
+    "total_debt": {
+     "filed": "2021-05-28",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 250000
+     }
     }
    },
-   "start": "2020-04-01"
+   "start": "2020-04-01",
+   "total_debt": 250000
   },
   {
    "capex": 1482000,
    "cash": 513755000,
    "cash_and_sti": 513755000,
+   "debt_current": 250000,
    "end": "2020-09-30",
    "equity": -24292605,
    "fcf": -261054000,
@@ -1865,9 +1880,20 @@
      "filed": "2021-11-12",
      "form": "10-Q",
      "tag": "Revenues"
+    },
+    "total_debt": {
+     "filed": "2021-05-28",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 250000
+     }
     }
    },
-   "start": "2020-07-01"
+   "start": "2020-07-01",
+   "total_debt": 250000
   },
   {
    "capex": 3416000,
@@ -1924,21 +1950,24 @@
      "filed": "2021-08-16",
      "tags": [
       "NotesPayable",
-      "LineOfCredit"
+      "LineOfCredit",
+      "LoansPayableCurrent"
      ],
      "values": {
       "LineOfCredit": 2973743000,
+      "LoansPayableCurrent": 250000,
       "NotesPayable": 336573000
      }
     }
    },
    "start": "2020-10-01",
-   "total_debt": 3310316000
+   "total_debt": 3310566000
   },
   {
    "capex": 4178000,
    "cash": 653047000,
    "cash_and_sti": 653047000,
+   "debt_current": 250000,
    "end": "2021-03-31",
    "equity": -38748246,
    "fcf": 113865000,
@@ -1994,9 +2023,20 @@
      "filed": "2022-05-10",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2021-05-17",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 250000
+     }
     }
    },
-   "start": "2021-01-01"
+   "start": "2021-01-01",
+   "total_debt": 250000
   },
   {
    "capex": 4915000,

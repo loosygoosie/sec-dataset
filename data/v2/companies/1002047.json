@@ -640,9 +640,9 @@
    "total_assets_as_filed_filed": "2015-06-12",
    "total_debt": 1497000000,
    "total_debt_as_filed": 1497000000,
-   "total_debt_as_filed_filed": "2015-09-08",
+   "total_debt_as_filed_filed": "2016-06-22",
    "total_debt_basis": "components_exceed_tagged",
-   "total_debt_filed": "2015-09-08",
+   "total_debt_filed": "2016-06-22",
    "total_debt_tagged": 16000000,
    "total_equity": 3414000000,
    "total_equity_parent": 3414000000,
@@ -736,9 +736,9 @@
    "total_assets_as_filed_filed": "2016-06-22",
    "total_debt": 2339000000,
    "total_debt_as_filed": 2339000000,
-   "total_debt_as_filed_filed": "2016-06-22",
+   "total_debt_as_filed_filed": "2017-02-28",
    "total_debt_basis": "components_exceed_tagged",
-   "total_debt_filed": "2016-06-22",
+   "total_debt_filed": "2017-02-28",
    "total_debt_tagged": 1490000000,
    "total_equity": 2881000000,
    "total_equity_parent": 2881000000,
@@ -3154,14 +3154,16 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2015-09-08",
+     "filed": "2016-06-22",
      "tags": [
       "LongTermDebtNoncurrent",
-      "OtherLongTermDebtCurrent"
+      "OtherLongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtNoncurrent": 1487000000,
-      "OtherLongTermDebtCurrent": 10000000
+      "OtherLongTermDebtCurrent": 10000000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -3239,12 +3241,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2016-06-22",
+     "filed": "2017-02-28",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 0,
       "LongTermDebtNoncurrent": 1490000000,
       "ShortTermBorrowings": 849000000
      }
@@ -6264,14 +6268,16 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2015-09-08",
+     "filed": "2016-06-22",
      "tags": [
       "LongTermDebtNoncurrent",
-      "OtherLongTermDebtCurrent"
+      "OtherLongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtNoncurrent": 1487000000,
-      "OtherLongTermDebtCurrent": 10000000
+      "OtherLongTermDebtCurrent": 10000000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -6608,12 +6614,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2016-06-22",
+     "filed": "2017-02-28",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 0,
       "LongTermDebtNoncurrent": 1490000000,
       "ShortTermBorrowings": 849000000
      }

@@ -10,6 +10,7 @@
    "current_liabilities": 45683,
    "current_liabilities_as_filed": 45683,
    "current_liabilities_as_filed_filed": "2026-03-18",
+   "debt_current": 22,
    "filed": "2026-03-18",
    "fiscal_year": 2025,
    "net_income": 302325,
@@ -33,6 +34,8 @@
    "total_assets": 58639061,
    "total_assets_as_filed": 58639061,
    "total_assets_as_filed_filed": "2026-03-18",
+   "total_debt": 22,
+   "total_debt_filed": "2026-08-14",
    "total_equity": 544979,
    "total_equity_incl_nci": 544979,
    "total_equity_parent": 544979,
@@ -107,8 +110,10 @@
  },
  "balance": {
   "cash_and_sti": 211791,
+  "debt_current": 22,
   "end": "2026-06-30",
-  "equity": 253806
+  "equity": 253806,
+  "total_debt": 22
  },
  "bank": false,
  "checks": {
@@ -123,9 +128,8 @@
  "cik": 2043630,
  "fiscal_year_end": "1231",
  "flags": [
-  "no_revenue",
   "no_capex",
-  "no_debt_tagged",
+  "debt_one_side_only",
   "no_revenue"
  ],
  "instances_merged": [],
@@ -234,6 +238,7 @@
    "cash": 1928,
    "current_assets": 557922,
    "current_liabilities": 45683,
+   "debt_current": 22,
    "filed": "2026-03-18",
    "form": "10-K (derived from YTD)",
    "net_income": 360701,
@@ -243,6 +248,8 @@
    "period_end": "2025-12-31",
    "retained_earnings": 0,
    "total_assets": 58639061,
+   "total_debt": 22,
+   "total_debt_filed": "2026-08-14",
    "total_equity": 544979,
    "total_equity_incl_nci": 544979,
    "total_equity_parent": 544979,
@@ -268,6 +275,7 @@
   {
    "current_assets": 319258,
    "current_liabilities": 65452,
+   "debt_current": 22,
    "filed": "2026-08-14",
    "form": "10-Q",
    "net_income": 352348,
@@ -276,6 +284,8 @@
    "period_end": "2026-06-30",
    "retained_earnings": 0,
    "total_assets": 59396402,
+   "total_debt": 22,
+   "total_debt_filed": "2026-08-14",
    "total_equity": 253806,
    "total_equity_parent": 253806,
    "total_liabilities": 65452
@@ -381,6 +391,7 @@
   {
    "cash": 1928,
    "cash_and_sti": 1928,
+   "debt_current": 22,
    "end": "2025-12-31",
    "equity": 544979,
    "net_income": 302325,
@@ -411,12 +422,66 @@
      "filed": "2026-03-18",
      "form": "10-K",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "total_debt": {
+     "filed": "2026-08-14",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 22
+     }
     }
    },
-   "start": "2025-01-01"
+   "start": "2025-01-01",
+   "total_debt": 22
   }
  ],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "annual",
+   "v2": 22
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "annual",
+   "v2": 22
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": 22
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": 22
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 22
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 22
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
   {
@@ -589,6 +654,7 @@
   {
    "cash": 1928,
    "cash_and_sti": 1928,
+   "debt_current": 22,
    "end": "2025-12-31",
    "equity": 544979,
    "net_income": 360701,
@@ -621,9 +687,20 @@
      "filed": "2026-03-18",
      "form": "10-K",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "total_debt": {
+     "filed": "2026-08-14",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 22
+     }
     }
    },
-   "start": "2025-10-01"
+   "start": "2025-10-01",
+   "total_debt": 22
   },
   {
    "cash": 329698,
@@ -667,6 +744,7 @@
   {
    "cash": 211791,
    "cash_and_sti": 211791,
+   "debt_current": 22,
    "end": "2026-06-30",
    "equity": 253806,
    "net_income": 352348,
@@ -696,9 +774,20 @@
      "filed": "2026-08-14",
      "form": "10-Q",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "total_debt": {
+     "filed": "2026-08-14",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 22
+     }
     }
    },
-   "start": "2026-04-01"
+   "start": "2026-04-01",
+   "total_debt": 22
   }
  ],
  "v2_tags_used": {

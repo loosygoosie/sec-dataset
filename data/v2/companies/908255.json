@@ -173,7 +173,7 @@
    "current_liabilities_as_filed": 1046200000,
    "current_liabilities_as_filed_filed": "2010-02-11",
    "d_and_a": 260900000,
-   "debt_current": 64000000,
+   "debt_current": 69100000,
    "dividends_paid": 13800000,
    "dividends_paid_as_filed": 13800000,
    "dividends_paid_as_filed_filed": "2010-02-11",
@@ -241,8 +241,8 @@
    "total_assets": 4811400000,
    "total_assets_as_filed": 4811400000,
    "total_assets_as_filed_filed": "2010-02-11",
-   "total_debt": 837200000,
-   "total_debt_as_filed": 837200000,
+   "total_debt": 842300000,
+   "total_debt_as_filed": 842300000,
    "total_debt_as_filed_filed": "2011-02-10",
    "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2011-02-10",
@@ -271,7 +271,7 @@
    "current_liabilities_as_filed": 1392300000,
    "current_liabilities_as_filed_filed": "2011-02-10",
    "d_and_a": 252900000,
-   "debt_current": 122400000,
+   "debt_current": 128500000,
    "debt_due_1y": 128500000,
    "debt_due_2y": 384100000,
    "debt_due_3y": 5000000,
@@ -338,8 +338,8 @@
    "total_assets": 5555000000,
    "total_assets_as_filed": 5555000000,
    "total_assets_as_filed_filed": "2011-02-10",
-   "total_debt": 1174300000,
-   "total_debt_as_filed": 1174300000,
+   "total_debt": 1180400000,
+   "total_debt_as_filed": 1180400000,
    "total_debt_as_filed_filed": "2011-02-10",
    "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2011-02-10",
@@ -1196,7 +1196,7 @@
    "current_liabilities_as_filed": 2329000000,
    "current_liabilities_as_filed_filed": "2020-02-13",
    "d_and_a": 439000000,
-   "debt_current": 252000000,
+   "debt_current": 286000000,
    "debt_due_1y": 286000000,
    "debt_due_2y": 3000000,
    "debt_due_3y": 562000000,
@@ -1270,11 +1270,11 @@
    "total_assets": 9702000000,
    "total_assets_as_filed": 9702000000,
    "total_assets_as_filed_filed": "2020-02-13",
-   "total_debt": 1926000000,
-   "total_debt_as_filed": 1926000000,
-   "total_debt_as_filed_filed": "2020-02-13",
+   "total_debt": 1960000000,
+   "total_debt_as_filed": 1960000000,
+   "total_debt_as_filed_filed": "2020-08-05",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2020-02-13",
+   "total_debt_filed": "2020-08-05",
    "total_equity": 4706000000,
    "total_equity_incl_nci": -727000000,
    "total_equity_parent": 4706000000
@@ -2950,7 +2950,7 @@
    "capex": 172000000,
    "cash": 357400000,
    "cash_and_sti": 357400000,
-   "debt_current": 64000000,
+   "debt_current": 69100000,
    "debt_noncurrent": 773200000,
    "end": "2009-12-31",
    "equity": 2185300000,
@@ -3012,9 +3012,11 @@
      "filed": "2011-02-10",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 5100000,
       "LongTermDebtNoncurrent": 773200000,
       "ShortTermBorrowings": 64000000
      }
@@ -3022,13 +3024,13 @@
    },
    "start": "2009-01-01",
    "stock_comp": 22000000,
-   "total_debt": 837200000
+   "total_debt": 842300000
   },
   {
    "capex": 276600000,
    "cash": 449900000,
    "cash_and_sti": 449900000,
-   "debt_current": 122400000,
+   "debt_current": 128500000,
    "debt_noncurrent": 1051900000,
    "end": "2010-12-31",
    "equity": 2258600000,
@@ -3090,9 +3092,11 @@
      "filed": "2011-02-10",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 6100000,
       "LongTermDebtNoncurrent": 1051900000,
       "ShortTermBorrowings": 122400000
      }
@@ -3100,7 +3104,7 @@
    },
    "start": "2010-01-01",
    "stock_comp": 22800000,
-   "total_debt": 1174300000
+   "total_debt": 1180400000
   },
   {
    "capex": 393700000,
@@ -3762,7 +3766,7 @@
    "capex": 481000000,
    "cash": 832000000,
    "cash_and_sti": 832000000,
-   "debt_current": 252000000,
+   "debt_current": 286000000,
    "debt_noncurrent": 1674000000,
    "end": "2019-12-31",
    "equity": 4706000000,
@@ -3822,20 +3826,22 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2020-02-13",
+     "filed": "2020-08-05",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 252000000,
-      "LongTermDebtNoncurrent": 1674000000
+      "LongTermDebtNoncurrent": 1674000000,
+      "ShortTermBorrowings": 34000000
      }
     }
    },
    "start": "2019-01-01",
    "stock_comp": 42000000,
-   "total_debt": 1926000000
+   "total_debt": 1960000000
   },
   {
    "capex": 441000000,
@@ -4347,11 +4353,18 @@
    "v2": 3961800000
   },
   {
+   "field": "total_debt",
+   "old": 837200000,
+   "period": "2009-12-31",
+   "rows": "annual",
+   "v2": 842300000
+  },
+  {
    "field": "debt_current",
    "old": 5100000,
    "period": "2009-12-31",
    "rows": "annual",
-   "v2": 64000000
+   "v2": 69100000
   },
   {
    "field": "revenue",
@@ -4361,11 +4374,32 @@
    "v2": 5652800000
   },
   {
+   "field": "total_debt",
+   "old": 1174300000,
+   "period": "2010-12-31",
+   "rows": "annual",
+   "v2": 1180400000
+  },
+  {
    "field": "debt_current",
    "old": 6100000,
    "period": "2010-12-31",
    "rows": "annual",
-   "v2": 122400000
+   "v2": 128500000
+  },
+  {
+   "field": "total_debt",
+   "old": 1926000000,
+   "period": "2019-12-31",
+   "rows": "annual",
+   "v2": 1960000000
+  },
+  {
+   "field": "debt_current",
+   "old": 252000000,
+   "period": "2019-12-31",
+   "rows": "annual",
+   "v2": 286000000
   },
   {
    "field": "total_debt",
@@ -4816,7 +4850,7 @@
    "capex": 44800000,
    "cash": 357400000,
    "cash_and_sti": 357400000,
-   "debt_current": 64000000,
+   "debt_current": 69100000,
    "debt_noncurrent": 773200000,
    "end": "2009-12-31",
    "equity": 2185300000,
@@ -4869,16 +4903,18 @@
      "filed": "2011-02-10",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 5100000,
       "LongTermDebtNoncurrent": 773200000,
       "ShortTermBorrowings": 64000000
      }
     }
    },
    "start": "2009-10-01",
-   "total_debt": 837200000
+   "total_debt": 842300000
   },
   {
    "capex": 55300000,
@@ -5124,7 +5160,7 @@
    "capex": 88800000,
    "cash": 449900000,
    "cash_and_sti": 449900000,
-   "debt_current": 122400000,
+   "debt_current": 128500000,
    "debt_noncurrent": 1051900000,
    "end": "2010-12-31",
    "equity": 2258600000,
@@ -5182,9 +5218,11 @@
      "filed": "2011-02-10",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 6100000,
       "LongTermDebtNoncurrent": 1051900000,
       "ShortTermBorrowings": 122400000
      }
@@ -5192,7 +5230,7 @@
    },
    "start": "2010-10-01",
    "stock_comp": 7200000,
-   "total_debt": 1174300000
+   "total_debt": 1180400000
   },
   {
    "capex": 70200000,
@@ -7997,7 +8035,7 @@
    "capex": 135000000,
    "cash": 832000000,
    "cash_and_sti": 832000000,
-   "debt_current": 252000000,
+   "debt_current": 286000000,
    "debt_noncurrent": 1674000000,
    "end": "2019-12-31",
    "equity": 4706000000,
@@ -8054,20 +8092,22 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2020-02-13",
+     "filed": "2020-08-05",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 252000000,
-      "LongTermDebtNoncurrent": 1674000000
+      "LongTermDebtNoncurrent": 1674000000,
+      "ShortTermBorrowings": 34000000
      }
     }
    },
    "start": "2019-10-01",
    "stock_comp": 12000000,
-   "total_debt": 1926000000
+   "total_debt": 1960000000
   },
   {
    "capex": 117000000,
@@ -8151,7 +8191,7 @@
    "capex": 54000000,
    "cash": 2003000000,
    "cash_and_sti": 2003000000,
-   "debt_current": 252000000,
+   "debt_current": 297000000,
    "debt_noncurrent": 2762000000,
    "end": "2020-06-30",
    "equity": 4611000000,
@@ -8216,23 +8256,25 @@
      "filed": "2020-08-05",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 252000000,
-      "LongTermDebtNoncurrent": 2762000000
+      "LongTermDebtNoncurrent": 2762000000,
+      "ShortTermBorrowings": 45000000
      }
     }
    },
    "start": "2020-04-01",
    "stock_comp": 6000000,
-   "total_debt": 3014000000
+   "total_debt": 3059000000
   },
   {
    "capex": 91000000,
    "cash": 2121000000,
    "cash_and_sti": 2121000000,
-   "debt_current": 47000000,
+   "debt_current": 49000000,
    "debt_noncurrent": 2787000000,
    "end": "2020-09-30",
    "equity": 4757000000,
@@ -8297,9 +8339,11 @@
      "filed": "2020-10-29",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 2000000,
       "LongTermDebtNoncurrent": 2787000000,
       "ShortTermBorrowings": 47000000
      }
@@ -8307,7 +8351,7 @@
    },
    "start": "2020-07-01",
    "stock_comp": 13000000,
-   "total_debt": 2834000000
+   "total_debt": 2836000000
   },
   {
    "capex": 179000000,

@@ -221,20 +221,6 @@
    "total_liabilities": 16023000
   },
   {
-   "added_by": "v2",
-   "debt_current": 209000,
-   "fiscal_year": 2013,
-   "form": "10-K",
-   "lt_debt_noncurrent": 287000,
-   "net_income": 27530000,
-   "net_income_filed": "2013-05-08",
-   "period_end": "2013-03-31",
-   "revenue": 133334000,
-   "revenue_filed": "2013-05-08",
-   "total_debt": 496000,
-   "total_debt_filed": "2013-05-08"
-  },
-  {
    "capex": 18753000,
    "capex_as_filed": 18753000,
    "capex_as_filed_filed": "2014-02-28",
@@ -2331,62 +2317,6 @@
    "total_debt": 629000
   },
   {
-   "cash": 27929000,
-   "cash_and_sti": 63624000,
-   "debt_current": 209000,
-   "debt_noncurrent": 287000,
-   "end": "2013-03-31",
-   "equity": 170629000,
-   "net_income": 27530000,
-   "revenue": 133334000,
-   "short_term_investments": 35695000,
-   "src": {
-    "cash": {
-     "accn": "0001193125-13-206525",
-     "filed": "2013-05-08",
-     "form": "10-Q",
-     "tag": "CashAndCashEquivalentsAtCarryingValue"
-    },
-    "equity": {
-     "accn": "0001193125-13-206525",
-     "filed": "2013-05-08",
-     "form": "10-Q",
-     "tag": "StockholdersEquity"
-    },
-    "net_income": {
-     "accn": "0001193125-13-206525",
-     "filed": "2013-05-08",
-     "form": "10-Q",
-     "tag": "NetIncomeLoss"
-    },
-    "revenue": {
-     "accn": "0001193125-13-206525",
-     "filed": "2013-05-08",
-     "form": "10-Q",
-     "tag": "SalesRevenueNet"
-    },
-    "short_term_investments": {
-     "accn": "0001193125-13-206525",
-     "filed": "2013-05-08",
-     "form": "10-Q",
-     "tag": "MarketableSecuritiesCurrent"
-    },
-    "total_debt": {
-     "filed": "2013-05-08",
-     "tags": [
-      "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtAndCapitalLeaseObligationsCurrent"
-     ],
-     "values": {
-      "LongTermDebtAndCapitalLeaseObligations": 287000,
-      "LongTermDebtAndCapitalLeaseObligationsCurrent": 209000
-     }
-    }
-   },
-   "start": "2012-04-01",
-   "total_debt": 496000
-  },
-  {
    "capex": 18753000,
    "cash": 43039000,
    "cash_and_sti": 79378000,
@@ -3351,41 +3281,6 @@
   }
  ],
  "v2_fixes": [
-  {
-   "field": "revenue",
-   "old": null,
-   "period": "2013-03-31",
-   "rows": "annual",
-   "v2": 133334000
-  },
-  {
-   "field": "total_debt",
-   "old": null,
-   "period": "2013-03-31",
-   "rows": "annual",
-   "v2": 496000
-  },
-  {
-   "field": "lt_debt_noncurrent",
-   "old": null,
-   "period": "2013-03-31",
-   "rows": "annual",
-   "v2": 287000
-  },
-  {
-   "field": "debt_current",
-   "old": null,
-   "period": "2013-03-31",
-   "rows": "annual",
-   "v2": 209000
-  },
-  {
-   "field": "net_income",
-   "old": null,
-   "period": "2013-03-31",
-   "rows": "annual",
-   "v2": 27530000
-  },
   {
    "field": "debt_current",
    "old": null,

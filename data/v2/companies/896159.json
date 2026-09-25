@@ -236,9 +236,9 @@
    "total_assets_as_filed_filed": "2011-02-25",
    "total_debt": 3358000000,
    "total_debt_as_filed": 3358000000,
-   "total_debt_as_filed_filed": "2011-02-25",
+   "total_debt_as_filed_filed": "2012-02-24",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2011-02-25",
+   "total_debt_filed": "2012-02-24",
    "total_equity": 22835000000,
    "total_equity_incl_nci": 22835000000,
    "total_liabilities": 60381000000
@@ -2430,14 +2430,16 @@
      "tag": "AllocatedShareBasedCompensationExpense"
     },
     "total_debt": {
-     "filed": "2011-02-25",
+     "filed": "2012-02-24",
      "tags": [
       "LongTermDebt",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebt": 3358000000,
-      "LongTermDebtCurrent": 1300000000
+      "LongTermDebtCurrent": 1300000000,
+      "ShortTermBorrowings": 1300000000
      }
     }
    },
@@ -4595,14 +4597,16 @@
      "tag": "Revenues"
     },
     "total_debt": {
-     "filed": "2011-02-25",
+     "filed": "2012-02-24",
      "tags": [
       "LongTermDebt",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebt": 3358000000,
-      "LongTermDebtCurrent": 1300000000
+      "LongTermDebtCurrent": 1300000000,
+      "ShortTermBorrowings": 1300000000
      }
     }
    },

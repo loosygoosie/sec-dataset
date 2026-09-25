@@ -138,9 +138,9 @@
    "total_assets_as_filed_filed": "2009-08-28",
    "total_debt": 758435000,
    "total_debt_as_filed": 758435000,
-   "total_debt_as_filed_filed": "2009-08-28",
+   "total_debt_as_filed_filed": "2009-12-01",
    "total_debt_basis": "components",
-   "total_debt_filed": "2009-08-28",
+   "total_debt_filed": "2009-12-01",
    "total_equity": 2134557000,
    "total_equity_incl_nci": 2134557000
   },
@@ -2631,14 +2631,16 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2009-08-28",
+     "filed": "2009-12-01",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 392852000,
-      "LongTermDebtNoncurrent": 365583000
+      "LongTermDebtNoncurrent": 365583000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -4280,9 +4282,11 @@
      "filed": "2009-12-01",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 0,
       "LongTermDebtNoncurrent": 748607000,
       "ShortTermBorrowings": 105930000
      }
@@ -4360,14 +4364,16 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2009-08-28",
+     "filed": "2009-12-01",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 392852000,
-      "LongTermDebtNoncurrent": 365583000
+      "LongTermDebtNoncurrent": 365583000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -4624,11 +4630,13 @@
      "filed": "2009-12-01",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 200358000,
-      "LongTermDebtNoncurrent": 774306000
+      "LongTermDebtNoncurrent": 774306000,
+      "ShortTermBorrowings": 0
      }
     }
    },

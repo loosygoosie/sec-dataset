@@ -48,7 +48,7 @@
    "current_liabilities_as_filed": 3602000000,
    "current_liabilities_as_filed_filed": "2011-08-11",
    "d_and_a": 1743000000,
-   "debt_current": 1008000000,
+   "debt_current": 1035000000,
    "filed": "2012-11-16",
    "fiscal_year": 2010,
    "interest_expense": 1294000000,
@@ -79,8 +79,8 @@
    "total_assets": 42753000000,
    "total_assets_as_filed": 42753000000,
    "total_assets_as_filed_filed": "2011-08-11",
-   "total_debt": 23397000000,
-   "total_debt_as_filed": 23397000000,
+   "total_debt": 23424000000,
+   "total_debt_as_filed": 23424000000,
    "total_debt_as_filed_filed": "2011-08-11",
    "total_debt_basis": "components",
    "total_debt_filed": "2011-08-11",
@@ -1690,7 +1690,7 @@
    "capex": 2015000000,
    "cash": 328000000,
    "cash_and_sti": 328000000,
-   "debt_current": 1008000000,
+   "debt_current": 1035000000,
    "debt_noncurrent": 22389000000,
    "end": "2010-09-30",
    "fcf": -114000000,
@@ -1732,16 +1732,18 @@
      "filed": "2011-08-11",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 1008000000,
-      "LongTermDebtNoncurrent": 22389000000
+      "LongTermDebtNoncurrent": 22389000000,
+      "ShortTermBorrowings": 27000000
      }
     }
    },
    "start": "2009-10-01",
-   "total_debt": 23397000000
+   "total_debt": 23424000000
   },
   {
    "capex": 2417000000,
@@ -2642,6 +2644,20 @@
  "v2_fixes": [
   {
    "field": "total_debt",
+   "old": 23397000000,
+   "period": "2010-09-30",
+   "rows": "annual",
+   "v2": 23424000000
+  },
+  {
+   "field": "debt_current",
+   "old": 1008000000,
+   "period": "2010-09-30",
+   "rows": "annual",
+   "v2": 1035000000
+  },
+  {
+   "field": "total_debt",
    "old": 24431000000,
    "period": "2011-09-30",
    "rows": "annual",
@@ -2948,7 +2964,7 @@
    "capex": 524000000,
    "cash": 328000000,
    "cash_and_sti": 328000000,
-   "debt_current": 1008000000,
+   "debt_current": 1035000000,
    "debt_noncurrent": 22389000000,
    "end": "2010-09-30",
    "fcf": 167000000,
@@ -2994,16 +3010,18 @@
      "filed": "2011-08-11",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 1008000000,
-      "LongTermDebtNoncurrent": 22389000000
+      "LongTermDebtNoncurrent": 22389000000,
+      "ShortTermBorrowings": 27000000
      }
     }
    },
    "start": "2010-07-01",
-   "total_debt": 23397000000
+   "total_debt": 23424000000
   },
   {
    "capex": 621000000,
@@ -3141,11 +3159,13 @@
      "filed": "2011-08-11",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 1523000000,
-      "LongTermDebtNoncurrent": 22438000000
+      "LongTermDebtNoncurrent": 22438000000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -3219,7 +3239,7 @@
    "capex": 661000000,
    "cash": 213000000,
    "cash_and_sti": 213000000,
-   "debt_current": 1558000000,
+   "debt_current": 2343000000,
    "debt_noncurrent": 22369000000,
    "end": "2011-12-31",
    "fcf": -404000000,
@@ -3261,16 +3281,18 @@
      "filed": "2012-02-03",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 1558000000,
-      "LongTermDebtNoncurrent": 22369000000
+      "LongTermDebtNoncurrent": 22369000000,
+      "ShortTermBorrowings": 785000000
      }
     }
    },
    "start": "2011-10-01",
-   "total_debt": 23927000000
+   "total_debt": 24712000000
   },
   {
    "capex": 482000000,
@@ -3320,11 +3342,13 @@
      "filed": "2012-05-04",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 3166000000,
-      "LongTermDebtNoncurrent": 21741000000
+      "LongTermDebtNoncurrent": 21741000000,
+      "ShortTermBorrowings": 0
      }
     }
    },

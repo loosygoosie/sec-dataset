@@ -874,9 +874,9 @@
    "total_assets_as_filed_filed": "2022-02-24",
    "total_debt": 93832000,
    "total_debt_as_filed": 93832000,
-   "total_debt_as_filed_filed": "2022-02-24",
+   "total_debt_as_filed_filed": "2022-07-28",
    "total_debt_basis": "components",
-   "total_debt_filed": "2022-02-24",
+   "total_debt_filed": "2022-07-28",
    "total_equity": 1342478000,
    "total_equity_parent": 1342478000,
    "total_liabilities": 899579000
@@ -2457,14 +2457,16 @@
      "tag": "AvailableForSaleSecuritiesDebtSecuritiesCurrent"
     },
     "total_debt": {
-     "filed": "2022-02-24",
+     "filed": "2022-07-28",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 2098000,
-      "LongTermDebtNoncurrent": 91734000
+      "LongTermDebtNoncurrent": 91734000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -5447,14 +5449,16 @@
      "tag": "AvailableForSaleSecuritiesDebtSecuritiesCurrent"
     },
     "total_debt": {
-     "filed": "2022-02-24",
+     "filed": "2022-07-28",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 2098000,
-      "LongTermDebtNoncurrent": 91734000
+      "LongTermDebtNoncurrent": 91734000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -5594,9 +5598,11 @@
      "filed": "2022-07-28",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 0,
       "LongTermDebtNoncurrent": 0,
       "ShortTermBorrowings": 40000000
      }

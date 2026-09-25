@@ -88,11 +88,9 @@
  "cik": 2078008,
  "fiscal_year_end": "1231",
  "flags": [
-  "no_revenue",
   "no_operating_cash_flow",
   "no_capex",
-  "no_revenue",
-  "short_history"
+  "no_revenue"
  ],
  "instances_merged": [],
  "latest_filing": {
@@ -521,11 +519,11 @@
      "filed": "2026-05-05",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 67000000,
-      "LongTermDebtNoncurrent": 2074000000
+      "LongTermDebtNoncurrent": 2074000000,
+      "ShortTermBorrowings": 67000000
      }
     }
    },
@@ -603,11 +601,11 @@
      "filed": "2026-08-04",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 153000000,
-      "LongTermDebtNoncurrent": 2071000000
+      "LongTermDebtNoncurrent": 2071000000,
+      "ShortTermBorrowings": 153000000
      }
     }
    },

@@ -433,18 +433,6 @@
    "total_liabilities": 721890000
   },
   {
-   "added_by": "v2",
-   "debt_current": 14570000,
-   "fiscal_year": 2014,
-   "form": "10-K",
-   "lt_debt_noncurrent": 353910000,
-   "period_end": "2014-06-30",
-   "revenue": 10000000,
-   "revenue_filed": "2015-10-29",
-   "total_debt": 368480000,
-   "total_debt_filed": "2014-07-31"
-  },
-  {
    "acquisitions": 382880000,
    "capex": 23000000,
    "capex_as_filed": 34450000,
@@ -2843,48 +2831,6 @@
    "total_debt": 305740000
   },
   {
-   "cash": 38380000,
-   "cash_and_sti": 38380000,
-   "debt_current": 14570000,
-   "debt_noncurrent": 353910000,
-   "end": "2014-06-30",
-   "equity": 586260000,
-   "revenue": 10000000,
-   "src": {
-    "cash": {
-     "accn": "0000842633-14-000124",
-     "filed": "2014-07-31",
-     "form": "10-Q",
-     "tag": "CashAndCashEquivalentsAtCarryingValue"
-    },
-    "equity": {
-     "accn": "0000842633-14-000124",
-     "filed": "2014-07-31",
-     "form": "10-Q",
-     "tag": "StockholdersEquity"
-    },
-    "revenue": {
-     "accn": "0000842633-15-000141",
-     "filed": "2015-10-29",
-     "form": "10-Q",
-     "tag": "SalesRevenueNet"
-    },
-    "total_debt": {
-     "filed": "2014-07-31",
-     "tags": [
-      "LongTermDebtAndCapitalLeaseObligations",
-      "DebtCurrent"
-     ],
-     "values": {
-      "DebtCurrent": 14570000,
-      "LongTermDebtAndCapitalLeaseObligations": 353910000
-     }
-    }
-   },
-   "start": "2013-07-01",
-   "total_debt": 368480000
-  },
-  {
    "capex": 23000000,
    "cash": 24420000,
    "cash_and_sti": 24420000,
@@ -3842,34 +3788,6 @@
    "period": "2011-12-31",
    "rows": "annual",
    "v2": 469900000
-  },
-  {
-   "field": "revenue",
-   "old": null,
-   "period": "2014-06-30",
-   "rows": "annual",
-   "v2": 10000000
-  },
-  {
-   "field": "total_debt",
-   "old": null,
-   "period": "2014-06-30",
-   "rows": "annual",
-   "v2": 368480000
-  },
-  {
-   "field": "lt_debt_noncurrent",
-   "old": null,
-   "period": "2014-06-30",
-   "rows": "annual",
-   "v2": 353910000
-  },
-  {
-   "field": "debt_current",
-   "old": null,
-   "period": "2014-06-30",
-   "rows": "annual",
-   "v2": 14570000
   },
   {
    "field": "total_debt",
@@ -5246,8 +5164,9 @@
     },
     "revenue": {
      "accn": "0000842633-15-000106",
-     "derived": true,
-     "filed": "2016-02-26",
+     "filed": "2015-08-04",
+     "first_filed": "2014-07-31",
+     "first_val": 403980000,
      "form": "10-Q",
      "tag": "SalesRevenueNet"
     },

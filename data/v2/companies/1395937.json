@@ -375,6 +375,7 @@
    "current_liabilities_as_filed": 18872000,
    "current_liabilities_as_filed_filed": "2021-03-12",
    "d_and_a": 90000,
+   "debt_current": 2285000,
    "debt_due_1y": 2285000,
    "debt_due_2y": 9727000,
    "debt_due_3y": 7988000,
@@ -427,10 +428,11 @@
    "total_assets": 300613000,
    "total_assets_as_filed": 300613000,
    "total_assets_as_filed_filed": "2021-03-12",
-   "total_debt": 20000000,
-   "total_debt_as_filed": 20000000,
+   "total_debt": 2285000,
+   "total_debt_as_filed": 2285000,
    "total_debt_as_filed_filed": "2021-03-12",
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2021-03-12",
    "total_equity": 252188000,
    "total_equity_parent": 252188000,
    "total_liabilities": 48425000
@@ -1930,6 +1932,7 @@
    "capex": 0,
    "cash": 115243000,
    "cash_and_sti": 293065000,
+   "debt_current": 2285000,
    "end": "2020-12-31",
    "equity": 252188000,
    "fcf": -71260000,
@@ -1992,10 +1995,21 @@
      "filed": "2021-03-12",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2021-03-12",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 2285000
+     }
     }
    },
    "start": "2020-01-01",
-   "stock_comp": 9057000
+   "stock_comp": 9057000,
+   "total_debt": 2285000
   },
   {
    "capex": 129000,
@@ -2394,6 +2408,20 @@
   }
  ],
  "v2_fixes": [
+  {
+   "field": "total_debt",
+   "old": 20000000,
+   "period": "2020-12-31",
+   "rows": "annual",
+   "v2": 2285000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2020-12-31",
+   "rows": "annual",
+   "v2": 2285000
+  },
   {
    "field": "lt_debt_noncurrent",
    "old": null,
@@ -4082,6 +4110,7 @@
   {
    "cash": 115243000,
    "cash_and_sti": 293065000,
+   "debt_current": 2285000,
    "end": "2020-12-31",
    "equity": 252188000,
    "net_income": -20423000,
@@ -4139,14 +4168,26 @@
      "filed": "2021-03-12",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2021-03-12",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 2285000
+     }
     }
    },
    "start": "2020-10-01",
-   "stock_comp": 2035000
+   "stock_comp": 2035000,
+   "total_debt": 2285000
   },
   {
    "cash": 64386000,
    "cash_and_sti": 271335000,
+   "debt_current": 4632000,
    "end": "2021-03-31",
    "equity": 228205000,
    "net_income": -27723000,
@@ -4202,14 +4243,26 @@
      "filed": "2021-05-11",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2021-05-11",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 4632000
+     }
     }
    },
    "start": "2021-01-01",
-   "stock_comp": 2767000
+   "stock_comp": 2767000,
+   "total_debt": 4632000
   },
   {
    "cash": 68041000,
    "cash_and_sti": 253132000,
+   "debt_current": 7030000,
    "end": "2021-06-30",
    "equity": 214563000,
    "net_income": -22910000,
@@ -4267,14 +4320,26 @@
      "filed": "2021-08-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2021-08-09",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 7030000
+     }
     }
    },
    "start": "2021-04-01",
-   "stock_comp": 3240000
+   "stock_comp": 3240000,
+   "total_debt": 7030000
   },
   {
    "cash": 71433000,
    "cash_and_sti": 229714000,
+   "debt_current": 9489000,
    "end": "2021-09-30",
    "equity": 199004000,
    "net_income": -20639000,
@@ -4332,10 +4397,21 @@
      "filed": "2021-11-15",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2021-11-15",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 9489000
+     }
     }
    },
    "start": "2021-07-01",
-   "stock_comp": 3381000
+   "stock_comp": 3381000,
+   "total_debt": 9489000
   },
   {
    "cash": 221965000,
@@ -4400,6 +4476,7 @@
   {
    "cash": 188773000,
    "cash_and_sti": 397930000,
+   "debt_current": 3568000,
    "end": "2022-03-31",
    "equity": 374549000,
    "net_income": -37169000,
@@ -4448,14 +4525,26 @@
      "filed": "2022-05-09",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2022-05-09",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 3568000
+     }
     }
    },
    "start": "2022-01-01",
-   "stock_comp": 3478000
+   "stock_comp": 3478000,
+   "total_debt": 3568000
   },
   {
    "cash": 120239000,
    "cash_and_sti": 366791000,
+   "debt_current": 7212000,
    "end": "2022-06-30",
    "equity": 361940000,
    "net_income": -37572000,
@@ -4506,10 +4595,21 @@
      "filed": "2022-08-08",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2022-08-08",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 7212000
+     }
     }
    },
    "start": "2022-04-01",
-   "stock_comp": 3938000
+   "stock_comp": 3938000,
+   "total_debt": 7212000
   },
   {
    "cash": 71377000,

@@ -986,9 +986,9 @@
    "total_assets_as_filed_filed": "2021-02-18",
    "total_debt": 764000000,
    "total_debt_as_filed": 764000000,
-   "total_debt_as_filed_filed": "2021-02-18",
+   "total_debt_as_filed_filed": "2022-02-28",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2021-02-18",
+   "total_debt_filed": "2022-02-28",
    "total_equity": 5520800000,
    "total_equity_incl_nci": 5610000000,
    "total_equity_parent": 5520800000,
@@ -1010,7 +1010,7 @@
    "current_liabilities_as_filed": 6486500000,
    "current_liabilities_as_filed_filed": "2022-02-28",
    "d_and_a": 217500000,
-   "debt_current": 422600000,
+   "debt_current": 697300000,
    "dividends_paid": 0,
    "dividends_paid_as_filed": 0,
    "dividends_paid_as_filed_filed": "2022-02-28",
@@ -1072,8 +1072,8 @@
    "total_assets": 15505000000,
    "total_assets_as_filed": 15505000000,
    "total_assets_as_filed_filed": "2022-02-28",
-   "total_debt": 956400000,
-   "total_debt_as_filed": 956400000,
+   "total_debt": 1092900000,
+   "total_debt_as_filed": 1092900000,
    "total_debt_as_filed_filed": "2022-05-09",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2022-05-09",
@@ -1488,7 +1488,7 @@
  },
  "balance": {
   "cash_and_sti": 458200000,
-  "debt_current": 703300000,
+  "debt_current": 903200000,
   "debt_noncurrent": 596400000,
   "end": "2026-06-30",
   "equity": 7461700000,
@@ -2043,7 +2043,7 @@
    "current_assets": 7825900000,
    "current_liabilities": 6951500000,
    "d_and_a": 57200000,
-   "debt_current": 703300000,
+   "debt_current": 903200000,
    "eps_diluted": 4.59,
    "filed": "2026-07-30",
    "form": "10-Q",
@@ -3239,12 +3239,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2021-02-18",
+     "filed": "2022-02-28",
      "tags": [
       "SeniorLongTermNotes",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 0,
       "SeniorLongTermNotes": 702000000,
       "ShortTermBorrowings": 62000000
      }
@@ -3257,7 +3259,7 @@
   {
    "cash": 593700000,
    "cash_and_sti": 593700000,
-   "debt_current": 422600000,
+   "debt_current": 697300000,
    "debt_noncurrent": 395600000,
    "end": "2021-12-31",
    "equity": 6184900000,
@@ -3312,11 +3314,11 @@
      "filed": "2022-05-09",
      "tags": [
       "SeniorLongTermNotes",
-      "ShortTermBorrowings",
-      "DebtLongtermAndShorttermCombinedAmount"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
-      "DebtLongtermAndShorttermCombinedAmount": 956400000,
+      "LongTermDebtCurrent": 274700000,
       "SeniorLongTermNotes": 395600000,
       "ShortTermBorrowings": 422600000
      }
@@ -3324,7 +3326,7 @@
    },
    "start": "2021-01-01",
    "stock_comp": 17800000,
-   "total_debt": 956400000
+   "total_debt": 1092900000
   },
   {
    "cash": 519300000,
@@ -3384,11 +3386,13 @@
      "filed": "2023-05-04",
      "tags": [
       "SeniorLongTermNotes",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings",
       "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtLongtermAndShorttermCombinedAmount": 1750800000,
+      "LongTermDebtCurrent": 0,
       "SeniorLongTermNotes": 372800000,
       "ShortTermBorrowings": 164200000
      }
@@ -3925,6 +3929,13 @@
    "v2": 62000000
   },
   {
+   "field": "total_debt",
+   "old": 956400000,
+   "period": "2021-12-31",
+   "rows": "annual",
+   "v2": 1092900000
+  },
+  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2021-12-31",
@@ -3936,7 +3947,7 @@
    "old": 274700000,
    "period": "2021-12-31",
    "rows": "annual",
-   "v2": 422600000
+   "v2": 697300000
   },
   {
    "field": "lt_debt_noncurrent",
@@ -4174,7 +4185,7 @@
    "old": 199900000,
    "period": "2026-06-30",
    "rows": "quarterly",
-   "v2": 703300000
+   "v2": 903200000
   }
  ],
  "v2_notes": [],
@@ -7384,12 +7395,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2021-02-18",
+     "filed": "2022-02-28",
      "tags": [
       "SeniorLongTermNotes",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 0,
       "SeniorLongTermNotes": 702000000,
       "ShortTermBorrowings": 62000000
      }
@@ -7620,7 +7633,7 @@
   {
    "cash": 593700000,
    "cash_and_sti": 593700000,
-   "debt_current": 422600000,
+   "debt_current": 697300000,
    "debt_noncurrent": 395600000,
    "end": "2021-12-31",
    "equity": 6184900000,
@@ -7672,11 +7685,11 @@
      "filed": "2022-05-09",
      "tags": [
       "SeniorLongTermNotes",
-      "ShortTermBorrowings",
-      "DebtLongtermAndShorttermCombinedAmount"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
-      "DebtLongtermAndShorttermCombinedAmount": 956400000,
+      "LongTermDebtCurrent": 274700000,
       "SeniorLongTermNotes": 395600000,
       "ShortTermBorrowings": 422600000
      }
@@ -7684,12 +7697,12 @@
    },
    "start": "2021-10-01",
    "stock_comp": 2600000,
-   "total_debt": 956400000
+   "total_debt": 1092900000
   },
   {
    "cash": 575800000,
    "cash_and_sti": 575800000,
-   "debt_current": 392900000,
+   "debt_current": 667600000,
    "debt_noncurrent": 387800000,
    "end": "2022-03-31",
    "equity": 6173200000,
@@ -7744,11 +7757,13 @@
      "filed": "2022-05-09",
      "tags": [
       "SeniorLongTermNotes",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings",
       "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtLongtermAndShorttermCombinedAmount": 1894400000,
+      "LongTermDebtCurrent": 274700000,
       "SeniorLongTermNotes": 387800000,
       "ShortTermBorrowings": 392900000
      }
@@ -7761,7 +7776,7 @@
   {
    "cash": 568000000,
    "cash_and_sti": 568000000,
-   "debt_current": 403100000,
+   "debt_current": 677900000,
    "debt_noncurrent": 364400000,
    "end": "2022-06-30",
    "equity": 5912900000,
@@ -7817,11 +7832,13 @@
      "filed": "2022-08-03",
      "tags": [
       "SeniorLongTermNotes",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings",
       "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtLongtermAndShorttermCombinedAmount": 2131800000,
+      "LongTermDebtCurrent": 274800000,
       "SeniorLongTermNotes": 364400000,
       "ShortTermBorrowings": 403100000
      }
@@ -7890,11 +7907,13 @@
      "filed": "2022-11-02",
      "tags": [
       "SeniorLongTermNotes",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings",
       "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtLongtermAndShorttermCombinedAmount": 2173600000,
+      "LongTermDebtCurrent": 0,
       "SeniorLongTermNotes": 341500000,
       "ShortTermBorrowings": 244200000
      }
@@ -7959,11 +7978,13 @@
      "filed": "2023-05-04",
      "tags": [
       "SeniorLongTermNotes",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings",
       "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtLongtermAndShorttermCombinedAmount": 1750800000,
+      "LongTermDebtCurrent": 0,
       "SeniorLongTermNotes": 372800000,
       "ShortTermBorrowings": 164200000
      }
@@ -8902,7 +8923,7 @@
   {
    "cash": 458200000,
    "cash_and_sti": 458200000,
-   "debt_current": 703300000,
+   "debt_current": 903200000,
    "debt_noncurrent": 596400000,
    "end": "2026-06-30",
    "equity": 7461700000,
@@ -8958,11 +8979,13 @@
      "filed": "2026-07-30",
      "tags": [
       "SeniorLongTermNotes",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings",
       "DebtLongtermAndShorttermCombinedAmount"
      ],
      "values": {
       "DebtLongtermAndShorttermCombinedAmount": 1637700000,
+      "LongTermDebtCurrent": 199900000,
       "SeniorLongTermNotes": 596400000,
       "ShortTermBorrowings": 703300000
      }

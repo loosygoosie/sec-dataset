@@ -251,9 +251,9 @@
    "total_assets_as_filed_filed": "2011-02-28",
    "total_debt": 399720000,
    "total_debt_as_filed": 399720000,
-   "total_debt_as_filed_filed": "2011-08-08",
+   "total_debt_as_filed_filed": "2011-02-28",
    "total_debt_basis": "components",
-   "total_debt_filed": "2011-08-08",
+   "total_debt_filed": "2011-02-28",
    "total_equity": 984944000,
    "total_equity_incl_nci": 822056000,
    "total_equity_parent": 984944000,
@@ -354,9 +354,9 @@
    "total_assets_as_filed_filed": "2012-02-27",
    "total_debt": 400026000,
    "total_debt_as_filed": 400026000,
-   "total_debt_as_filed_filed": "2012-05-04",
+   "total_debt_as_filed_filed": "2012-02-27",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2012-05-04",
+   "total_debt_filed": "2012-02-27",
    "total_equity": 813553000,
    "total_equity_incl_nci": 822056000,
    "total_equity_parent": 813553000,
@@ -454,9 +454,9 @@
    "total_assets_as_filed_filed": "2013-02-26",
    "total_debt": 400215000,
    "total_debt_as_filed": 400215000,
-   "total_debt_as_filed_filed": "2013-05-06",
+   "total_debt_as_filed_filed": "2013-02-26",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2013-05-06",
+   "total_debt_filed": "2013-02-26",
    "total_equity": 918383000,
    "total_equity_incl_nci": 927400000,
    "total_equity_parent": 918383000,
@@ -1072,9 +1072,9 @@
    "total_assets_as_filed_filed": "2019-02-26",
    "total_debt": 949200000,
    "total_debt_as_filed": 949200000,
-   "total_debt_as_filed_filed": "2020-02-25",
+   "total_debt_as_filed_filed": "2019-02-26",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2020-02-25",
+   "total_debt_filed": "2019-02-26",
    "total_equity": 1524200000,
    "total_equity_incl_nci": 1527100000,
    "total_equity_parent": 1524200000,
@@ -2783,14 +2783,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2011-08-08",
+     "filed": "2011-02-28",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 984000,
-      "LongTermDebtNoncurrent": 398736000
+      "LongTermDebtNoncurrent": 398736000,
+      "ShortTermBorrowings": 984000
      }
     }
    },
@@ -2863,14 +2863,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2012-05-04",
+     "filed": "2012-02-27",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 1112000,
-      "LongTermDebtNoncurrent": 398914000
+      "LongTermDebtNoncurrent": 398914000,
+      "ShortTermBorrowings": 1112000
      }
     }
    },
@@ -2943,14 +2943,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2013-05-06",
+     "filed": "2013-02-26",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 1123000,
-      "LongTermDebtNoncurrent": 399092000
+      "LongTermDebtNoncurrent": 399092000,
+      "ShortTermBorrowings": 1123000
      }
     }
    },
@@ -3441,14 +3441,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2020-02-25",
+     "filed": "2019-02-26",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 6900000,
-      "LongTermDebtNoncurrent": 942300000
+      "LongTermDebtNoncurrent": 942300000,
+      "ShortTermBorrowings": 6900000
      }
     }
    },
@@ -4876,14 +4876,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2011-08-08",
+     "filed": "2011-02-28",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 984000,
-      "LongTermDebtNoncurrent": 398736000
+      "LongTermDebtNoncurrent": 398736000,
+      "ShortTermBorrowings": 984000
      }
     }
    },
@@ -5042,11 +5042,11 @@
      "filed": "2011-08-08",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 464000,
-      "LongTermDebtNoncurrent": 398825000
+      "LongTermDebtNoncurrent": 398825000,
+      "ShortTermBorrowings": 464000
      }
     }
    },
@@ -5125,11 +5125,11 @@
      "filed": "2011-11-07",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 752000,
-      "LongTermDebtNoncurrent": 398869000
+      "LongTermDebtNoncurrent": 398869000,
+      "ShortTermBorrowings": 752000
      }
     }
    },
@@ -5198,14 +5198,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2012-05-04",
+     "filed": "2012-02-27",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 1112000,
-      "LongTermDebtNoncurrent": 398914000
+      "LongTermDebtNoncurrent": 398914000,
+      "ShortTermBorrowings": 1112000
      }
     }
    },
@@ -5281,11 +5281,11 @@
      "filed": "2012-05-04",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 794000,
-      "LongTermDebtNoncurrent": 398958000
+      "LongTermDebtNoncurrent": 398958000,
+      "ShortTermBorrowings": 794000
      }
     }
    },
@@ -5362,11 +5362,11 @@
      "filed": "2012-08-03",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 1102000,
-      "LongTermDebtNoncurrent": 399003000
+      "LongTermDebtNoncurrent": 399003000,
+      "ShortTermBorrowings": 1102000
      }
     }
    },
@@ -5443,11 +5443,11 @@
      "filed": "2012-11-05",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 1114000,
-      "LongTermDebtNoncurrent": 399048000
+      "LongTermDebtNoncurrent": 399048000,
+      "ShortTermBorrowings": 1114000
      }
     }
    },
@@ -5516,14 +5516,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2013-05-06",
+     "filed": "2013-02-26",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 1123000,
-      "LongTermDebtNoncurrent": 399092000
+      "LongTermDebtNoncurrent": 399092000,
+      "ShortTermBorrowings": 1123000
      }
     }
    },
@@ -5597,11 +5597,11 @@
      "filed": "2013-05-06",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 1127000,
-      "LongTermDebtNoncurrent": 399137000
+      "LongTermDebtNoncurrent": 399137000,
+      "ShortTermBorrowings": 1127000
      }
     }
    },
@@ -5680,11 +5680,11 @@
      "filed": "2013-08-02",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 14422000,
-      "LongTermDebtNoncurrent": 399181000
+      "LongTermDebtNoncurrent": 399181000,
+      "ShortTermBorrowings": 14422000
      }
     }
    },
@@ -5761,11 +5761,11 @@
      "filed": "2013-11-05",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 124672000,
-      "LongTermDebtNoncurrent": 199220000
+      "LongTermDebtNoncurrent": 199220000,
+      "ShortTermBorrowings": 124672000
      }
     }
    },
@@ -7438,14 +7438,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2020-02-25",
+     "filed": "2019-02-26",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 6900000,
-      "LongTermDebtNoncurrent": 942300000
+      "LongTermDebtNoncurrent": 942300000,
+      "ShortTermBorrowings": 6900000
      }
     }
    },

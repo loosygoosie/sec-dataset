@@ -969,7 +969,7 @@
    "current_liabilities_as_filed": 285322000,
    "current_liabilities_as_filed_filed": "2020-02-12",
    "d_and_a": 91543000,
-   "debt_current": 33105000,
+   "debt_current": 46447000,
    "debt_due_1y": 33102000,
    "debt_due_2y": 43620000,
    "debt_due_3y": 4903000,
@@ -1034,11 +1034,11 @@
    "total_assets": 1639384000,
    "total_assets_as_filed": 1639384000,
    "total_assets_as_filed_filed": "2020-02-12",
-   "total_debt": 98641000,
-   "total_debt_as_filed": 98641000,
-   "total_debt_as_filed_filed": "2020-02-12",
+   "total_debt": 111983000,
+   "total_debt_as_filed": 111983000,
+   "total_debt_as_filed_filed": "2020-08-06",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2020-02-12",
+   "total_debt_filed": "2020-08-06",
    "total_equity": 1106424000,
    "total_equity_incl_nci": 1152783000,
    "total_equity_parent": 1106424000,
@@ -3383,7 +3383,7 @@
    "capex": 98505000,
    "cash": 258390000,
    "cash_and_sti": 263215000,
-   "debt_current": 33105000,
+   "debt_current": 46447000,
    "debt_noncurrent": 65536000,
    "end": "2019-12-31",
    "equity": 1106424000,
@@ -3450,20 +3450,22 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2020-02-12",
+     "filed": "2020-08-06",
      "tags": [
       "LongTermDebt",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebt": 98641000,
-      "LongTermDebtCurrent": 33105000
+      "LongTermDebtCurrent": 33105000,
+      "ShortTermBorrowings": 13342000
      }
     }
    },
    "start": "2019-01-01",
    "stock_comp": 20535000,
-   "total_debt": 98641000
+   "total_debt": 111983000
   },
   {
    "capex": 75813000,
@@ -4082,11 +4084,25 @@
    "v2": 187578000
   },
   {
+   "field": "total_debt",
+   "old": 98641000,
+   "period": "2019-12-31",
+   "rows": "annual",
+   "v2": 111983000
+  },
+  {
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2019-12-31",
    "rows": "annual",
    "v2": 65536000
+  },
+  {
+   "field": "debt_current",
+   "old": 33105000,
+   "period": "2019-12-31",
+   "rows": "annual",
+   "v2": 46447000
   },
   {
    "field": "lt_debt_noncurrent",
@@ -5756,6 +5772,7 @@
    "capex": 23539000,
    "cash": 222113000,
    "cash_and_sti": 248835000,
+   "debt_current": 973000,
    "end": "2015-03-31",
    "equity": 780265000,
    "fcf": 15029000,
@@ -5818,15 +5835,27 @@
      "filed": "2015-05-11",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2015-05-11",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 973000
+     }
     }
    },
    "start": "2015-01-01",
-   "stock_comp": 3680000
+   "stock_comp": 3680000,
+   "total_debt": 973000
   },
   {
    "capex": 23338000,
    "cash": 194592000,
    "cash_and_sti": 220436000,
+   "debt_current": 979000,
    "end": "2015-06-30",
    "equity": 811599000,
    "fcf": -8955000,
@@ -5891,15 +5920,27 @@
      "filed": "2015-08-07",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2015-08-07",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 979000
+     }
     }
    },
    "start": "2015-04-01",
-   "stock_comp": 3875000
+   "stock_comp": 3875000,
+   "total_debt": 979000
   },
   {
    "capex": 48117000,
    "cash": 188755000,
    "cash_and_sti": 213341000,
+   "debt_current": 261000,
    "end": "2015-09-30",
    "equity": 809718000,
    "fcf": -2615000,
@@ -5964,10 +6005,21 @@
      "filed": "2015-11-06",
      "form": "10-Q",
      "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2015-11-06",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 261000
+     }
     }
    },
    "start": "2015-07-01",
-   "stock_comp": 4099000
+   "stock_comp": 4099000,
+   "total_debt": 261000
   },
   {
    "capex": 38250000,
@@ -7314,7 +7366,7 @@
    "capex": 22377000,
    "cash": 258390000,
    "cash_and_sti": 263215000,
-   "debt_current": 33105000,
+   "debt_current": 46447000,
    "debt_noncurrent": 65536000,
    "end": "2019-12-31",
    "equity": 1106424000,
@@ -7377,20 +7429,22 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2020-02-12",
+     "filed": "2020-08-06",
      "tags": [
       "LongTermDebt",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebt": 98641000,
-      "LongTermDebtCurrent": 33105000
+      "LongTermDebtCurrent": 33105000,
+      "ShortTermBorrowings": 13342000
      }
     }
    },
    "start": "2019-10-01",
    "stock_comp": 5171000,
-   "total_debt": 98641000
+   "total_debt": 111983000
   },
   {
    "capex": 14208000,
@@ -7480,7 +7534,7 @@
    "capex": 16520000,
    "cash": 503206000,
    "cash_and_sti": 506858000,
-   "debt_current": 63668000,
+   "debt_current": 76720000,
    "debt_noncurrent": 284906000,
    "end": "2020-06-30",
    "equity": 1143385000,
@@ -7565,13 +7619,13 @@
    },
    "start": "2020-04-01",
    "stock_comp": 7701000,
-   "total_debt": 348574000
+   "total_debt": 361626000
   },
   {
    "capex": 17769000,
    "cash": 587643000,
    "cash_and_sti": 590657000,
-   "debt_current": 70746000,
+   "debt_current": 85724000,
    "debt_noncurrent": 333205000,
    "end": "2020-09-30",
    "equity": 1198573000,
@@ -7656,7 +7710,7 @@
    },
    "start": "2020-07-01",
    "stock_comp": 6290000,
-   "total_debt": 403951000
+   "total_debt": 418929000
   },
   {
    "capex": 27316000,

@@ -68,7 +68,7 @@
    "current_liabilities_as_filed": 214600000,
    "current_liabilities_as_filed_filed": "2011-08-05",
    "d_and_a": 11400000,
-   "debt_current": 76200000,
+   "debt_current": 78000000,
    "dividends_paid": 13300000,
    "dividends_paid_as_filed": 13300000,
    "dividends_paid_as_filed_filed": "2012-03-14",
@@ -139,8 +139,8 @@
    "total_assets": 764500000,
    "total_assets_as_filed": 764500000,
    "total_assets_as_filed_filed": "2011-08-05",
-   "total_debt": 260600000,
-   "total_debt_as_filed": 260600000,
+   "total_debt": 262400000,
+   "total_debt_as_filed": 262400000,
    "total_debt_as_filed_filed": "2011-08-05",
    "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2011-08-05",
@@ -164,7 +164,7 @@
    "current_liabilities_as_filed": 147500000,
    "current_liabilities_as_filed_filed": "2012-03-14",
    "d_and_a": 13000000,
-   "debt_current": 9000000,
+   "debt_current": 9100000,
    "dividends_paid": 3700000,
    "dividends_paid_as_filed": 3700000,
    "dividends_paid_as_filed_filed": "2012-03-14",
@@ -237,11 +237,11 @@
    "total_assets": 706700000,
    "total_assets_as_filed": 706700000,
    "total_assets_as_filed_filed": "2012-03-14",
-   "total_debt": 222100000,
-   "total_debt_as_filed": 222100000,
-   "total_debt_as_filed_filed": "2012-03-14",
+   "total_debt": 222200000,
+   "total_debt_as_filed": 222200000,
+   "total_debt_as_filed_filed": "2012-08-03",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2012-03-14",
+   "total_debt_filed": "2012-08-03",
    "total_equity": 174700000,
    "total_equity_parent": 174700000,
    "total_liabilities": 532000000
@@ -265,7 +265,7 @@
    "current_liabilities_as_filed": 149600000,
    "current_liabilities_as_filed_filed": "2013-03-15",
    "d_and_a": 13200000,
-   "debt_current": 4200000,
+   "debt_current": 4500000,
    "dividends_paid": 0,
    "dividends_paid_as_filed": 0,
    "dividends_paid_as_filed_filed": "2014-03-05",
@@ -329,8 +329,8 @@
    "total_assets": 613200000,
    "total_assets_as_filed": 613200000,
    "total_assets_as_filed_filed": "2013-03-15",
-   "total_debt": 157000000,
-   "total_debt_as_filed": 157000000,
+   "total_debt": 157300000,
+   "total_debt_as_filed": 157300000,
    "total_debt_as_filed_filed": "2013-03-15",
    "total_debt_basis": "tagged",
    "total_debt_filed": "2013-03-15",
@@ -530,9 +530,9 @@
    "total_assets_as_filed_filed": "2015-03-02",
    "total_debt": 49800000,
    "total_debt_as_filed": 49800000,
-   "total_debt_as_filed_filed": "2015-03-02",
+   "total_debt_as_filed_filed": "2015-04-30",
    "total_debt_basis": "components_exceed_tagged",
-   "total_debt_filed": "2015-03-02",
+   "total_debt_filed": "2015-04-30",
    "total_debt_tagged": 44000000,
    "total_equity": 371600000,
    "total_equity_parent": 371600000,
@@ -2517,7 +2517,7 @@
    "capex": 11300000,
    "cash": 62100000,
    "cash_and_sti": 62100000,
-   "debt_current": 76200000,
+   "debt_current": 78000000,
    "debt_noncurrent": 184400000,
    "end": "2010-12-31",
    "equity": 220900000,
@@ -2587,23 +2587,25 @@
      "filed": "2011-08-05",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtAndCapitalLeaseObligationsCurrent"
+      "LongTermDebtAndCapitalLeaseObligationsCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 184400000,
-      "LongTermDebtAndCapitalLeaseObligationsCurrent": 76200000
+      "LongTermDebtAndCapitalLeaseObligationsCurrent": 76200000,
+      "ShortTermBorrowings": 1800000
      }
     }
    },
    "start": "2010-01-01",
    "stock_comp": 2100000,
-   "total_debt": 260600000
+   "total_debt": 262400000
   },
   {
    "capex": 13500000,
    "cash": 9500000,
    "cash_and_sti": 9500000,
-   "debt_current": 9000000,
+   "debt_current": 9100000,
    "debt_noncurrent": 213100000,
    "end": "2011-12-31",
    "equity": 174700000,
@@ -2668,26 +2670,28 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2012-03-14",
+     "filed": "2012-08-03",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
+      "LongTermDebtAndCapitalLeaseObligationsCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 213100000,
+      "LongTermDebtAndCapitalLeaseObligationsCurrent": 100000,
       "ShortTermBorrowings": 9000000
      }
     }
    },
    "start": "2011-01-01",
    "stock_comp": 1800000,
-   "total_debt": 222100000
+   "total_debt": 222200000
   },
   {
    "capex": 13000000,
    "cash": 29700000,
    "cash_and_sti": 29700000,
-   "debt_current": 4200000,
+   "debt_current": 4500000,
    "debt_noncurrent": 152800000,
    "end": "2012-12-31",
    "equity": 146900000,
@@ -2749,17 +2753,19 @@
      "filed": "2013-03-15",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 152800000,
-      "LongTermDebtCurrent": 4200000
+      "LongTermDebtCurrent": 4200000,
+      "ShortTermBorrowings": 300000
      }
     }
    },
    "start": "2012-01-01",
    "stock_comp": 2600000,
-   "total_debt": 157000000
+   "total_debt": 157300000
   },
   {
    "capex": 11600000,
@@ -2833,11 +2839,13 @@
      "filed": "2014-03-05",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 84700000,
-      "LongTermDebtCurrent": 7000000
+      "LongTermDebtCurrent": 7000000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -2914,14 +2922,16 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2015-03-02",
+     "filed": "2015-04-30",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 44000000,
-      "LongTermDebtCurrent": 5800000
+      "LongTermDebtCurrent": 5800000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -3798,24 +3808,45 @@
  "v2_fixes": [
   {
    "field": "total_debt",
+   "old": 260600000,
+   "period": "2010-12-31",
+   "rows": "annual",
+   "v2": 262400000
+  },
+  {
+   "field": "debt_current",
+   "old": 76200000,
+   "period": "2010-12-31",
+   "rows": "annual",
+   "v2": 78000000
+  },
+  {
+   "field": "total_debt",
    "old": 214100000,
    "period": "2011-12-31",
    "rows": "annual",
-   "v2": 222100000
+   "v2": 222200000
   },
   {
    "field": "debt_current",
    "old": 100000,
    "period": "2011-12-31",
    "rows": "annual",
-   "v2": 9000000
+   "v2": 9100000
   },
   {
    "field": "total_debt",
    "old": 157500000,
    "period": "2012-12-31",
    "rows": "annual",
-   "v2": 157000000
+   "v2": 157300000
+  },
+  {
+   "field": "debt_current",
+   "old": 4200000,
+   "period": "2012-12-31",
+   "rows": "annual",
+   "v2": 4500000
   },
   {
    "field": "total_debt",
@@ -4052,7 +4083,7 @@
    "capex": 900000,
    "cash": 62100000,
    "cash_and_sti": 62100000,
-   "debt_current": 76200000,
+   "debt_current": 78000000,
    "debt_noncurrent": 184400000,
    "end": "2010-12-31",
    "equity": 220900000,
@@ -4112,17 +4143,19 @@
      "filed": "2011-08-05",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtAndCapitalLeaseObligationsCurrent"
+      "LongTermDebtAndCapitalLeaseObligationsCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 184400000,
-      "LongTermDebtAndCapitalLeaseObligationsCurrent": 76200000
+      "LongTermDebtAndCapitalLeaseObligationsCurrent": 76200000,
+      "ShortTermBorrowings": 1800000
      }
     }
    },
    "start": "2010-10-01",
    "stock_comp": -800000,
-   "total_debt": 260600000
+   "total_debt": 262400000
   },
   {
    "capex": 4300000,
@@ -4196,7 +4229,7 @@
    "capex": 2300000,
    "cash": 14300000,
    "cash_and_sti": 14300000,
-   "debt_current": 190300000,
+   "debt_current": 199800000,
    "debt_noncurrent": 34100000,
    "end": "2011-06-30",
    "equity": 234300000,
@@ -4265,23 +4298,25 @@
      "filed": "2011-08-05",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtAndCapitalLeaseObligationsCurrent"
+      "LongTermDebtAndCapitalLeaseObligationsCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 34100000,
-      "LongTermDebtAndCapitalLeaseObligationsCurrent": 190300000
+      "LongTermDebtAndCapitalLeaseObligationsCurrent": 190300000,
+      "ShortTermBorrowings": 9500000
      }
     }
    },
    "start": "2011-04-01",
    "stock_comp": 500000,
-   "total_debt": 224400000
+   "total_debt": 233900000
   },
   {
    "capex": 4000000,
    "cash": 13200000,
    "cash_and_sti": 13200000,
-   "debt_current": 186200000,
+   "debt_current": 194200000,
    "debt_noncurrent": 33700000,
    "end": "2011-09-30",
    "equity": 227000000,
@@ -4350,23 +4385,25 @@
      "filed": "2011-11-01",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtAndCapitalLeaseObligationsCurrent"
+      "LongTermDebtAndCapitalLeaseObligationsCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 33700000,
-      "LongTermDebtAndCapitalLeaseObligationsCurrent": 186200000
+      "LongTermDebtAndCapitalLeaseObligationsCurrent": 186200000,
+      "ShortTermBorrowings": 8000000
      }
     }
    },
    "start": "2011-07-01",
    "stock_comp": 300000,
-   "total_debt": 219900000
+   "total_debt": 227900000
   },
   {
    "capex": 2900000,
    "cash": 9500000,
    "cash_and_sti": 9500000,
-   "debt_current": 9000000,
+   "debt_current": 9100000,
    "debt_noncurrent": 213100000,
    "end": "2011-12-31",
    "equity": 174700000,
@@ -4421,26 +4458,28 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2012-03-14",
+     "filed": "2012-08-03",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
+      "LongTermDebtAndCapitalLeaseObligationsCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 213100000,
+      "LongTermDebtAndCapitalLeaseObligationsCurrent": 100000,
       "ShortTermBorrowings": 9000000
      }
     }
    },
    "start": "2011-10-01",
    "stock_comp": 200000,
-   "total_debt": 222100000
+   "total_debt": 222200000
   },
   {
    "capex": 3400000,
    "cash": 13400000,
    "cash_and_sti": 13400000,
-   "debt_current": 5600000,
+   "debt_current": 8400000,
    "debt_noncurrent": 227200000,
    "end": "2012-03-31",
    "equity": 180600000,
@@ -4510,23 +4549,25 @@
      "filed": "2012-05-04",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtAndCapitalLeaseObligationsCurrent"
+      "LongTermDebtAndCapitalLeaseObligationsCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 227200000,
-      "LongTermDebtAndCapitalLeaseObligationsCurrent": 5600000
+      "LongTermDebtAndCapitalLeaseObligationsCurrent": 5600000,
+      "ShortTermBorrowings": 2800000
      }
     }
    },
    "start": "2012-01-01",
    "stock_comp": 700000,
-   "total_debt": 232800000
+   "total_debt": 235600000
   },
   {
    "capex": 2100000,
    "cash": 10300000,
    "cash_and_sti": 10300000,
-   "debt_current": 3900000,
+   "debt_current": -6900000,
    "debt_noncurrent": 221900000,
    "end": "2012-06-30",
    "equity": 168700000,
@@ -4591,23 +4632,25 @@
      "filed": "2012-08-03",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 221900000,
+      "LongTermDebtCurrent": -10800000,
       "ShortTermBorrowings": 3900000
      }
     }
    },
    "start": "2012-04-01",
    "stock_comp": 700000,
-   "total_debt": 225800000
+   "total_debt": 215000000
   },
   {
    "capex": 3700000,
    "cash": 9100000,
    "cash_and_sti": 9100000,
-   "debt_current": 5700000,
+   "debt_current": 7700000,
    "debt_noncurrent": 151800000,
    "end": "2012-09-30",
    "equity": 158500000,
@@ -4672,23 +4715,25 @@
      "filed": "2012-11-09",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 151800000,
-      "LongTermDebtCurrent": 5700000
+      "LongTermDebtCurrent": 5700000,
+      "ShortTermBorrowings": 2000000
      }
     }
    },
    "start": "2012-07-01",
    "stock_comp": 700000,
-   "total_debt": 157500000
+   "total_debt": 159500000
   },
   {
    "capex": 3800000,
    "cash": 29700000,
    "cash_and_sti": 29700000,
-   "debt_current": 4200000,
+   "debt_current": 4500000,
    "debt_noncurrent": 152800000,
    "end": "2012-12-31",
    "equity": 146900000,
@@ -4747,17 +4792,19 @@
      "filed": "2013-03-15",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 152800000,
-      "LongTermDebtCurrent": 4200000
+      "LongTermDebtCurrent": 4200000,
+      "ShortTermBorrowings": 300000
      }
     }
    },
    "start": "2012-10-01",
    "stock_comp": 500000,
-   "total_debt": 157000000
+   "total_debt": 157300000
   },
   {
    "capex": 4400000,
@@ -5064,11 +5111,13 @@
      "filed": "2014-03-05",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 84700000,
-      "LongTermDebtCurrent": 7000000
+      "LongTermDebtCurrent": 7000000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -5080,7 +5129,7 @@
    "capex": 4200000,
    "cash": 16000000,
    "cash_and_sti": 16000000,
-   "debt_current": 7000000,
+   "debt_current": 13100000,
    "debt_noncurrent": 74600000,
    "end": "2014-03-31",
    "equity": 360600000,
@@ -5142,23 +5191,25 @@
      "filed": "2014-05-01",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 74600000,
-      "LongTermDebtCurrent": 7000000
+      "LongTermDebtCurrent": 7000000,
+      "ShortTermBorrowings": 6100000
      }
     }
    },
    "start": "2014-01-01",
    "stock_comp": 900000,
-   "total_debt": 81600000
+   "total_debt": 87700000
   },
   {
    "capex": 5200000,
    "cash": 24200000,
    "cash_and_sti": 24200000,
-   "debt_current": 7500000,
+   "debt_current": 12500000,
    "debt_noncurrent": 62600000,
    "end": "2014-06-30",
    "equity": 375500000,
@@ -5223,17 +5274,19 @@
      "filed": "2014-07-29",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 62600000,
-      "LongTermDebtCurrent": 7500000
+      "LongTermDebtCurrent": 7500000,
+      "ShortTermBorrowings": 5000000
      }
     }
    },
    "start": "2014-04-01",
    "stock_comp": 1900000,
-   "total_debt": 70100000
+   "total_debt": 75100000
   },
   {
    "capex": 3900000,
@@ -5378,14 +5431,16 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2015-03-02",
+     "filed": "2015-04-30",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 44000000,
-      "LongTermDebtCurrent": 5800000
+      "LongTermDebtCurrent": 5800000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -5397,7 +5452,7 @@
    "capex": 2700000,
    "cash": 19300000,
    "cash_and_sti": 19300000,
-   "debt_current": 5800000,
+   "debt_current": 8600000,
    "debt_noncurrent": 43900000,
    "end": "2015-03-31",
    "equity": 367700000,
@@ -5465,17 +5520,19 @@
      "filed": "2015-04-30",
      "tags": [
       "LongTermDebtAndCapitalLeaseObligations",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtAndCapitalLeaseObligations": 43900000,
-      "LongTermDebtCurrent": 5800000
+      "LongTermDebtCurrent": 5800000,
+      "ShortTermBorrowings": 2800000
      }
     }
    },
    "start": "2015-01-01",
    "stock_comp": 1100000,
-   "total_debt": 49700000
+   "total_debt": 52500000
   },
   {
    "capex": 2900000,

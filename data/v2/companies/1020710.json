@@ -595,9 +595,9 @@
    "total_assets_as_filed_filed": "2016-02-29",
    "total_debt": 349509000,
    "total_debt_as_filed": 349509000,
-   "total_debt_as_filed_filed": "2016-02-29",
+   "total_debt_as_filed_filed": "2016-05-13",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2016-02-29",
+   "total_debt_filed": "2016-05-13",
    "total_equity": 197058000,
    "total_equity_incl_nci": 198870000,
    "total_equity_parent": 197058000
@@ -3000,14 +3000,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2016-02-29",
+     "filed": "2016-05-13",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 50829000,
-      "LongTermDebtNoncurrent": 298680000
+      "LongTermDebtNoncurrent": 298680000,
+      "ShortTermBorrowings": 50829000
      }
     }
    },
@@ -5560,14 +5560,14 @@
      "tag": "SalesRevenueNet"
     },
     "total_debt": {
-     "filed": "2016-02-29",
+     "filed": "2016-05-13",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 50829000,
-      "LongTermDebtNoncurrent": 298680000
+      "LongTermDebtNoncurrent": 298680000,
+      "ShortTermBorrowings": 50829000
      }
     }
    },
@@ -5578,7 +5578,7 @@
    "capex": 1690000,
    "cash": 622000,
    "cash_and_sti": 622000,
-   "debt_current": 364842000,
+   "debt_current": 728363000,
    "debt_noncurrent": 0,
    "end": "2016-03-31",
    "equity": 192410000,
@@ -5638,16 +5638,18 @@
      "filed": "2016-05-13",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 364842000,
-      "LongTermDebtNoncurrent": 0
+      "LongTermDebtNoncurrent": 0,
+      "ShortTermBorrowings": 363521000
      }
     }
    },
    "start": "2016-01-01",
-   "total_debt": 364842000
+   "total_debt": 728363000
   },
   {
    "capex": 1240000,
@@ -5713,11 +5715,11 @@
      "filed": "2016-08-15",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 112091000,
-      "LongTermDebtNoncurrent": 235041000
+      "LongTermDebtNoncurrent": 235041000,
+      "ShortTermBorrowings": 112091000
      }
     }
    },
@@ -5788,11 +5790,11 @@
      "filed": "2016-11-14",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtCurrent": 115222000,
-      "LongTermDebtNoncurrent": 203043000
+      "LongTermDebtNoncurrent": 203043000,
+      "ShortTermBorrowings": 115222000
      }
     }
    },

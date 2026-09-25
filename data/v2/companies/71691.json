@@ -924,9 +924,9 @@
    "total_assets_as_filed_filed": "2018-02-27",
    "total_debt": 243000000,
    "total_debt_as_filed": 243000000,
-   "total_debt_as_filed_filed": "2018-11-02",
+   "total_debt_as_filed_filed": "2019-02-26",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2018-11-02",
+   "total_debt_filed": "2019-02-26",
    "total_equity": 897279000,
    "total_equity_incl_nci": 897363000,
    "total_equity_parent": 897279000
@@ -951,7 +951,7 @@
    "current_liabilities_as_filed": 673304000,
    "current_liabilities_as_filed_filed": "2019-02-26",
    "d_and_a": 59011000,
-   "debt_current": 253630000,
+   "debt_current": 0,
    "debt_due_1y": 250000000,
    "debt_due_2y": 0,
    "debt_due_3y": 0,
@@ -1018,8 +1018,8 @@
    "total_assets": 2197123000,
    "total_assets_as_filed": 2197123000,
    "total_assets_as_filed_filed": "2019-02-26",
-   "total_debt": 500630000,
-   "total_debt_as_filed": 500630000,
+   "total_debt": 247000000,
+   "total_debt_as_filed": 247000000,
    "total_debt_as_filed_filed": "2019-02-26",
    "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2019-02-26",
@@ -3186,14 +3186,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2018-11-02",
+     "filed": "2019-02-26",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtAndCapitalLeaseObligationsCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtAndCapitalLeaseObligationsCurrent": 0,
-      "LongTermDebtNoncurrent": 243000000
+      "LongTermDebtNoncurrent": 243000000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -3205,7 +3205,7 @@
    "capex": 77487000,
    "cash": 241504000,
    "cash_and_sti": 612805000,
-   "debt_current": 253630000,
+   "debt_current": 0,
    "debt_noncurrent": 247000000,
    "end": "2018-12-30",
    "equity": 1040781000,
@@ -3274,9 +3274,11 @@
      "filed": "2019-02-26",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtAndCapitalLeaseObligationsCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtAndCapitalLeaseObligationsCurrent": -253630000,
       "LongTermDebtNoncurrent": 247000000,
       "ShortTermBorrowings": 253630000
      }
@@ -3284,7 +3286,7 @@
    },
    "start": "2018-01-01",
    "stock_comp": 12959000,
-   "total_debt": 500630000
+   "total_debt": 247000000
   },
   {
    "capex": 45441000,
@@ -3847,11 +3849,18 @@
    "v2": 243000000
   },
   {
+   "field": "total_debt",
+   "old": 500630000,
+   "period": "2018-12-30",
+   "rows": "annual",
+   "v2": 247000000
+  },
+  {
    "field": "debt_current",
    "old": -253630000,
    "period": "2018-12-30",
    "rows": "annual",
-   "v2": 253630000
+   "v2": 0
   },
   {
    "field": "debt_current",
@@ -6811,14 +6820,14 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2018-11-02",
+     "filed": "2019-02-26",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtAndCapitalLeaseObligationsCurrent"
+      "ShortTermBorrowings"
      ],
      "values": {
-      "LongTermDebtAndCapitalLeaseObligationsCurrent": 0,
-      "LongTermDebtNoncurrent": 243000000
+      "LongTermDebtNoncurrent": 243000000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -7087,7 +7096,7 @@
    "capex": 15504000,
    "cash": 241504000,
    "cash_and_sti": 612805000,
-   "debt_current": 253630000,
+   "debt_current": 0,
    "debt_noncurrent": 247000000,
    "end": "2018-12-30",
    "equity": 1040781000,
@@ -7159,9 +7168,11 @@
      "filed": "2019-02-26",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtAndCapitalLeaseObligationsCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtAndCapitalLeaseObligationsCurrent": -253630000,
       "LongTermDebtNoncurrent": 247000000,
       "ShortTermBorrowings": 253630000
      }
@@ -7169,7 +7180,7 @@
    },
    "start": "2018-10-01",
    "stock_comp": 2990000,
-   "total_debt": 500630000
+   "total_debt": 247000000
   },
   {
    "capex": 10473000,

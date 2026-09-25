@@ -1,14 +1,5 @@
 {
- "annual": [
-  {
-   "added_by": "v2",
-   "fiscal_year": 2026,
-   "form": "10-K",
-   "net_income": -20818,
-   "net_income_filed": "2026-08-12",
-   "period_end": "2026-06-30"
-  }
- ],
+ "annual": [],
  "annual_coverage": {
   "acquisition_cost_amort": 0,
   "acquisitions": 0,
@@ -84,16 +75,15 @@
  "checks": {
   "latest_quarter_end": "2026-06-30",
   "quarter_age_days": 87,
-  "reconciled_fy": 2026,
-  "reconciles": "ok",
+  "reconciled_fy": null,
+  "reconciles": "n/a",
   "revenue": "ok",
   "share_scale": "ok",
-  "shares": "annual-gaps:1"
+  "shares": "ok"
  },
  "cik": 2077954,
  "fiscal_year_end": "1231",
  "flags": [
-  "no_revenue",
   "no_operating_cash_flow",
   "no_capex",
   "stale_shares_diluted",
@@ -280,11 +270,11 @@
   "net_income": {
    "end": "2026-06-30",
    "filed": "2026-08-12",
-   "method": "fiscal_year",
+   "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -20818
+   "val": -205377
   },
   "shares_diluted": {
    "end": "2025-09-30",
@@ -297,45 +287,8 @@
    "val": 7000000
   }
  },
- "v2_annual": [
-  {
-   "cash": 842432,
-   "cash_and_sti": 842432,
-   "end": "2026-06-30",
-   "equity": -8886548,
-   "net_income": -20818,
-   "src": {
-    "cash": {
-     "accn": "0001213900-26-088424",
-     "filed": "2026-08-12",
-     "form": "10-Q",
-     "tag": "CashAndCashEquivalentsAtCarryingValue"
-    },
-    "equity": {
-     "accn": "0001213900-26-088424",
-     "filed": "2026-08-12",
-     "form": "10-Q",
-     "tag": "StockholdersEquity"
-    },
-    "net_income": {
-     "accn": "0001213900-26-088424",
-     "filed": "2026-08-12",
-     "form": "10-Q",
-     "tag": "NetIncomeLoss"
-    }
-   },
-   "start": "2025-06-26"
-  }
- ],
- "v2_fixes": [
-  {
-   "field": "net_income",
-   "old": null,
-   "period": "2026-06-30",
-   "rows": "annual",
-   "v2": -20818
-  }
- ],
+ "v2_annual": [],
+ "v2_fixes": [],
  "v2_notes": [],
  "v2_quarterly": [
   {

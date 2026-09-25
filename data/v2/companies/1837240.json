@@ -207,14 +207,6 @@
    "total_liabilities": 562323000
   },
   {
-   "added_by": "v2",
-   "fiscal_year": 2023,
-   "form": "10-K",
-   "net_income": -13697000,
-   "net_income_filed": "2023-08-02",
-   "period_end": "2023-06-24"
-  },
-  {
    "acquisitions": 0,
    "capex": 15688000,
    "capex_as_filed": 15688000,
@@ -535,7 +527,7 @@
   "reconciles": "ok",
   "revenue": "ok",
   "share_scale": "ok",
-  "shares": "annual-gaps:4"
+  "shares": "annual-gaps:3"
  },
  "cik": 1837240,
  "fiscal_year_end": "0926",
@@ -1427,34 +1419,6 @@
    "stock_comp": 26858000
   },
   {
-   "cash": 255490000,
-   "cash_and_sti": 255490000,
-   "end": "2023-06-24",
-   "equity": 2476000,
-   "net_income": -13697000,
-   "src": {
-    "cash": {
-     "accn": "0001837240-23-000140",
-     "filed": "2023-08-02",
-     "form": "10-Q",
-     "tag": "CashAndCashEquivalentsAtCarryingValue"
-    },
-    "equity": {
-     "accn": "0001837240-23-000140",
-     "filed": "2023-08-02",
-     "form": "10-Q",
-     "tag": "StockholdersEquity"
-    },
-    "net_income": {
-     "accn": "0001837240-23-000140",
-     "filed": "2023-08-02",
-     "form": "10-Q",
-     "tag": "ProfitLoss"
-    }
-   },
-   "start": "2022-06-26"
-  },
-  {
    "capex": 15688000,
    "cash": 258770000,
    "cash_and_sti": 258770000,
@@ -1663,13 +1627,6 @@
    "period": "2021-12-31",
    "rows": "annual",
    "v2": -3382804
-  },
-  {
-   "field": "net_income",
-   "old": null,
-   "period": "2023-06-24",
-   "rows": "annual",
-   "v2": -13697000
   },
   {
    "field": "capex",
@@ -3193,8 +3150,7 @@
    "ext:PaymentsToAcquirePropertyPlantAndEquipmentAndDevelopSoftware"
   ],
   "net_income": [
-   "NetIncomeLoss",
-   "ProfitLoss"
+   "NetIncomeLoss"
   ],
   "operating_cash_flow": [
    "NetCashProvidedByUsedInOperatingActivities"

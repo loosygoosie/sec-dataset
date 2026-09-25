@@ -68,8 +68,11 @@
  },
  "balance": {
   "cash_and_sti": 1330000,
+  "debt_current": 350000,
+  "debt_end": "2026-03-31",
   "end": "2026-06-30",
-  "equity": -5589000
+  "equity": -5589000,
+  "total_debt": 350000
  },
  "bank": false,
  "checks": {
@@ -84,10 +87,9 @@
  "cik": 2099767,
  "fiscal_year_end": "1231",
  "flags": [
-  "no_revenue",
   "no_operating_cash_flow",
   "no_capex",
-  "no_debt_tagged",
+  "debt_one_side_only",
   "no_revenue"
  ],
  "instances_merged": [],
@@ -119,6 +121,7 @@
  "quarterly": [
   {
    "current_liabilities": 341000,
+   "debt_current": 350000,
    "filed": "2026-07-21",
    "form": "10-Q/A",
    "income_tax": 0,
@@ -130,6 +133,7 @@
    "total_assets": 281000,
    "total_debt": 350000,
    "total_debt_basis": "components_partial",
+   "total_debt_filed": "2026-05-29",
    "total_equity": -60000,
    "total_equity_parent": -60000
   },
@@ -230,10 +234,19 @@
  ],
  "ttm": {},
  "v2_annual": [],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-03-31",
+   "rows": "quarterly",
+   "v2": 350000
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
   {
+   "debt_current": 350000,
    "end": "2026-03-31",
    "equity": -60000,
    "net_income": -38000,
@@ -249,9 +262,20 @@
      "filed": "2026-05-29",
      "form": "10-Q",
      "tag": "NetIncomeLoss"
+    },
+    "total_debt": {
+     "filed": "2026-05-29",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 350000
+     }
     }
    },
-   "start": "2026-01-01"
+   "start": "2026-01-01",
+   "total_debt": 350000
   },
   {
    "cash": 1330000,

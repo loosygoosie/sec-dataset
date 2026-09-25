@@ -68,8 +68,10 @@
  },
  "balance": {
   "cash_and_sti": 5104182,
+  "debt_current": 116040,
   "end": "2025-09-30",
-  "equity": 12506084
+  "equity": 12506084,
+  "total_debt": 116040
  },
  "bank": false,
  "checks": {
@@ -84,10 +86,9 @@
  "cik": 2006468,
  "fiscal_year_end": null,
  "flags": [
-  "no_revenue",
   "no_operating_cash_flow",
   "no_capex",
-  "no_debt_tagged",
+  "debt_one_side_only",
   "no_revenue"
  ],
  "instances_merged": [],
@@ -227,6 +228,7 @@
    "current_assets": 26833664,
    "current_liabilities": 16237034,
    "d_and_a": 9502,
+   "debt_current": 116040,
    "eps_diluted": -0.17,
    "filed": "2025-11-14",
    "form": "10-Q",
@@ -254,6 +256,8 @@
    "shares_outstanding": 19379168,
    "stock_comp": 0,
    "total_assets": 27013988,
+   "total_debt": 116040,
+   "total_debt_filed": "2025-11-14",
    "total_equity": 12506084,
    "total_equity_incl_nci": 10626539,
    "total_equity_parent": 12506084,
@@ -360,6 +364,20 @@
    "period": "2025-09-30",
    "rows": "quarterly",
    "v2": -4669
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": 116040
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": 116040
   },
   {
    "field": "operating_cash_flow",
@@ -570,6 +588,7 @@
    "capex": -4669,
    "cash": 5104182,
    "cash_and_sti": 5104182,
+   "debt_current": 116040,
    "end": "2025-09-30",
    "equity": 12506084,
    "fcf": -16962159,
@@ -627,10 +646,21 @@
      "filed": "2025-11-14",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2025-11-14",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 116040
+     }
     }
    },
    "start": "2025-07-01",
-   "stock_comp": 0
+   "stock_comp": 0,
+   "total_debt": 116040
   }
  ],
  "v2_tags_used": {

@@ -240,9 +240,9 @@
    "total_assets_as_filed_filed": "2022-02-25",
    "total_debt": 3046000000,
    "total_debt_as_filed": 3046000000,
-   "total_debt_as_filed_filed": "2022-02-25",
+   "total_debt_as_filed_filed": "2023-02-16",
    "total_debt_basis": "tagged",
-   "total_debt_filed": "2022-02-25",
+   "total_debt_filed": "2023-02-16",
    "total_equity": 3872000000,
    "total_equity_incl_nci": 4021000000,
    "total_equity_parent": 3872000000,
@@ -705,9 +705,9 @@
  "cik": 1842022,
  "fiscal_year_end": "1231",
  "flags": [
-  "revenue_unverified_2025-12-31",
-  "revenue_unverified_2023-12-31",
   "revenue_unverified_2024-12-31",
+  "revenue_unverified_2023-12-31",
+  "revenue_unverified_2025-12-31",
   "debt_one_side_only"
  ],
  "instances_merged": [],
@@ -1635,14 +1635,16 @@
      "tag": "ShareBasedCompensation"
     },
     "total_debt": {
-     "filed": "2022-02-25",
+     "filed": "2023-02-16",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 10000000,
-      "LongTermDebtNoncurrent": 3036000000
+      "LongTermDebtNoncurrent": 3036000000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -1716,9 +1718,11 @@
      "filed": "2023-02-16",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 0,
       "LongTermDebtNoncurrent": 3059000000,
       "ShortTermBorrowings": 330000000
      }
@@ -2633,14 +2637,16 @@
      "tag": "AllocatedShareBasedCompensationExpense"
     },
     "total_debt": {
-     "filed": "2022-02-25",
+     "filed": "2023-02-16",
      "tags": [
       "LongTermDebtNoncurrent",
-      "LongTermDebtCurrent"
+      "LongTermDebtCurrent",
+      "ShortTermBorrowings"
      ],
      "values": {
       "LongTermDebtCurrent": 10000000,
-      "LongTermDebtNoncurrent": 3036000000
+      "LongTermDebtNoncurrent": 3036000000,
+      "ShortTermBorrowings": 0
      }
     }
    },
@@ -2952,9 +2958,11 @@
      "filed": "2023-02-16",
      "tags": [
       "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent",
       "ShortTermBorrowings"
      ],
      "values": {
+      "LongTermDebtCurrent": 0,
       "LongTermDebtNoncurrent": 3059000000,
       "ShortTermBorrowings": 330000000
      }

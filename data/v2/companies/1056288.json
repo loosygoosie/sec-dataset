@@ -73,6 +73,7 @@
    "current_liabilities_as_filed": 196998000,
    "current_liabilities_as_filed_filed": "2010-07-28",
    "d_and_a": 23751000,
+   "debt_current": 21000000,
    "dividends_paid": 98499000,
    "dividends_paid_as_filed": 98499000,
    "dividends_paid_as_filed_filed": "2011-02-22",
@@ -135,6 +136,7 @@
    "total_debt_as_filed": 21000000,
    "total_debt_as_filed_filed": "2010-07-28",
    "total_debt_basis": "components_partial",
+   "total_debt_filed": "2010-07-28",
    "total_equity": 528207000,
    "total_equity_incl_nci": 528815000,
    "total_equity_parent": 528207000,
@@ -160,6 +162,7 @@
    "current_liabilities_as_filed": 214352000,
    "current_liabilities_as_filed_filed": "2011-02-22",
    "d_and_a": 21075000,
+   "debt_current": 42500000,
    "dividends_paid": 228651000,
    "dividends_paid_as_filed": 228651000,
    "dividends_paid_as_filed_filed": "2011-02-22",
@@ -222,6 +225,7 @@
    "total_debt_as_filed": 42500000,
    "total_debt_as_filed_filed": "2011-02-22",
    "total_debt_basis": "components_partial",
+   "total_debt_filed": "2011-02-22",
    "total_equity": 491799000,
    "total_equity_incl_nci": 492172000,
    "total_equity_parent": 491799000,
@@ -2323,6 +2327,7 @@
    "capex": 26210000,
    "cash": 90452000,
    "cash_and_sti": 121990000,
+   "debt_current": 21000000,
    "end": "2009-12-31",
    "equity": 528207000,
    "fcf": 248379000,
@@ -2385,15 +2390,27 @@
      "filed": "2011-02-22",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2010-07-28",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 21000000
+     }
     }
    },
    "start": "2009-01-01",
-   "stock_comp": 18775000
+   "stock_comp": 18775000,
+   "total_debt": 21000000
   },
   {
    "capex": 7870000,
    "cash": 198756000,
    "cash_and_sti": 333641000,
+   "debt_current": 42500000,
    "end": "2010-12-31",
    "equity": 491799000,
    "fcf": 208077000,
@@ -2456,10 +2473,21 @@
      "filed": "2011-02-22",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-02-22",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 42500000
+     }
     }
    },
    "start": "2010-01-01",
-   "stock_comp": 19124000
+   "stock_comp": 19124000,
+   "total_debt": 42500000
   },
   {
    "capex": 8247000,
@@ -3492,6 +3520,20 @@
  ],
  "v2_fixes": [
   {
+   "field": "debt_current",
+   "old": null,
+   "period": "2009-12-31",
+   "rows": "annual",
+   "v2": 21000000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2010-12-31",
+   "rows": "annual",
+   "v2": 42500000
+  },
+  {
    "field": "total_debt",
    "old": 223400000,
    "period": "2021-12-31",
@@ -3719,6 +3761,7 @@
    "capex": 16246000,
    "cash": 90452000,
    "cash_and_sti": 121990000,
+   "debt_current": 21000000,
    "end": "2009-12-31",
    "equity": 528207000,
    "fcf": 57611000,
@@ -3779,10 +3822,21 @@
      "filed": "2011-02-22",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2010-07-28",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 21000000
+     }
     }
    },
    "start": "2009-10-01",
-   "stock_comp": 4538000
+   "stock_comp": 4538000,
+   "total_debt": 21000000
   },
   {
    "capex": 1129000,
@@ -3845,6 +3899,7 @@
    "capex": 2437000,
    "cash": 205942000,
    "cash_and_sti": 283120000,
+   "debt_current": 42500000,
    "end": "2010-06-30",
    "equity": 433435000,
    "fcf": 63876000,
@@ -3903,15 +3958,27 @@
      "filed": "2011-05-02",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2010-07-28",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 42500000
+     }
     }
    },
    "start": "2010-04-01",
-   "stock_comp": 4997000
+   "stock_comp": 4997000,
+   "total_debt": 42500000
   },
   {
    "capex": 1560000,
    "cash": 222684000,
    "cash_and_sti": 315910000,
+   "debt_current": 42500000,
    "end": "2010-09-30",
    "equity": 453260000,
    "fcf": 69699000,
@@ -3970,15 +4037,27 @@
      "filed": "2010-11-01",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2010-11-01",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 42500000
+     }
     }
    },
    "start": "2010-07-01",
-   "stock_comp": 4081000
+   "stock_comp": 4081000,
+   "total_debt": 42500000
   },
   {
    "capex": 2744000,
    "cash": 198756000,
    "cash_and_sti": 333641000,
+   "debt_current": 42500000,
    "end": "2010-12-31",
    "equity": 491799000,
    "fcf": 42212000,
@@ -4037,10 +4116,21 @@
      "filed": "2011-02-22",
      "form": "10-K",
      "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2011-02-22",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBankLoansAndNotesPayable"
+     ],
+     "values": {
+      "ShortTermBankLoansAndNotesPayable": 42500000
+     }
     }
    },
    "start": "2010-10-01",
-   "stock_comp": 4421000
+   "stock_comp": 4421000,
+   "total_debt": 42500000
   },
   {
    "capex": 1857000,

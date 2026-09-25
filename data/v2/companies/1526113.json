@@ -1,20 +1,6 @@
 {
  "annual": [
   {
-   "added_by": "v2",
-   "fiscal_year": 2012,
-   "form": "10-K",
-   "net_income": -80000,
-   "net_income_filed": "2012-08-10",
-   "operating_cash_flow": -61000,
-   "operating_cash_flow_filed": "2012-08-10",
-   "period_end": "2012-06-30",
-   "revenue": 0,
-   "revenue_filed": "2012-08-10",
-   "stock_comp": 3000,
-   "stock_comp_filed": "2012-08-10"
-  },
-  {
    "capex": 0,
    "capex_as_filed": 0,
    "capex_as_filed_filed": "2015-04-03",
@@ -1887,55 +1873,6 @@
  },
  "v2_annual": [
   {
-   "cash": 0,
-   "cash_and_sti": 0,
-   "end": "2012-06-30",
-   "equity": 1417000,
-   "net_income": -80000,
-   "operating_cash_flow": -61000,
-   "revenue": 0,
-   "src": {
-    "cash": {
-     "accn": "0001499875-12-000010",
-     "filed": "2012-08-10",
-     "form": "10-Q",
-     "tag": "Cash"
-    },
-    "equity": {
-     "accn": "0001499875-12-000010",
-     "filed": "2012-08-10",
-     "form": "10-Q",
-     "tag": "StockholdersEquity"
-    },
-    "net_income": {
-     "accn": "0001499875-12-000010",
-     "filed": "2012-08-10",
-     "form": "10-Q",
-     "tag": "NetIncomeLoss"
-    },
-    "operating_cash_flow": {
-     "accn": "0001499875-12-000010",
-     "filed": "2012-08-10",
-     "form": "10-Q",
-     "tag": "NetCashProvidedByUsedInOperatingActivities"
-    },
-    "revenue": {
-     "accn": "0001499875-12-000010",
-     "filed": "2012-08-10",
-     "form": "10-Q",
-     "tag": "Revenues"
-    },
-    "stock_comp": {
-     "accn": "0001499875-12-000010",
-     "filed": "2012-08-10",
-     "form": "10-Q",
-     "tag": "ShareBasedCompensation"
-    }
-   },
-   "start": "2011-07-13",
-   "stock_comp": 3000
-  },
-  {
    "capex": 0,
    "cash": 262000,
    "cash_and_sti": 262000,
@@ -2992,34 +2929,6 @@
  ],
  "v2_fixes": [
   {
-   "field": "revenue",
-   "old": null,
-   "period": "2012-06-30",
-   "rows": "annual",
-   "v2": 0
-  },
-  {
-   "field": "net_income",
-   "old": null,
-   "period": "2012-06-30",
-   "rows": "annual",
-   "v2": -80000
-  },
-  {
-   "field": "operating_cash_flow",
-   "old": null,
-   "period": "2012-06-30",
-   "rows": "annual",
-   "v2": -61000
-  },
-  {
-   "field": "stock_comp",
-   "old": null,
-   "period": "2012-06-30",
-   "rows": "annual",
-   "v2": 3000
-  },
-  {
    "field": "capex",
    "old": 1357000,
    "period": "2012-12-31",
@@ -3403,9 +3312,8 @@
      "tag": "WeightedAverageNumberOfShareOutstandingBasicAndDiluted"
     },
     "stock_comp": {
-     "accn": "0001499875-12-000010",
-     "derived": true,
-     "filed": "2013-05-10",
+     "accn": "0001526113-13-000011",
+     "filed": "2013-08-13",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
     }
