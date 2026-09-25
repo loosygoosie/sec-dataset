@@ -495,6 +495,16 @@ LHX FY2025 missing); share counts from companyfacts with ONE share class (HEICO,
    Total debt = non-current + current portion + short-term borrowings + commercial paper, each once (`DebtCurrent`,
    when tagged, is the whole current side; `LongTermDebt` includes its current portion); finance leases separate.
    A quarter companyfacts lacks is filled from the latest 10-Q's XBRL (CNP's Q2).
+   Consistency rules (25 Sep 2026): a quarter takes the revenue or capex line chosen for its fiscal year when the
+   filer tagged it for that quarter too (COP tags non-contract revenue only yearly, so its quarters had fallen back
+   to the smaller ASC 606 line: 51.8B over four quarters against 58.9B for the year; GE's Q1 2023 capex used another
+   tag); a year reported on a quarter's context is never kept as that quarter (LHX FY2024's 21.3B sat on its Sep-Jan
+   quarter); the balance's total debt comes from the latest date that has it, with `debt_end` (ORCL's Aug 2026 10-Q
+   tags only the current notes). LOUD CHECKS on every company's last 3 fiscal years, in `flags` and report.md:
+   `quarter_exceeds_year_<field>_<end>` (revenue, capex) and `quarters_off_year_<field>_<end>` (revenue, operating
+   cash flow, capex; four quarters vs the year, 2%). On 40 large companies they leave one real flag (MKL 2024: the
+   year was restated, two quarters were not). Known gap, flagged not guessed: CAT tags its debt only by segment
+   (machinery vs financial products), which companyfacts drops, so `no_debt_tagged`.
 5. Outputs, ONLY under `data/v2/`:
    - `companies/<cik>.json` — TWO views of the company (25 Sep 2026, for fmp's switch off the old jobs):
      - the OLD file's shape, same keys and ~90 fields (`sec_name`, `annual`, `quarterly` with `fiscal_year` /

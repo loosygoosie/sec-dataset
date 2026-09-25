@@ -202,6 +202,17 @@ def flow_series(fs: list[dict], additive: bool = True) -> tuple[dict, dict, dict
             if nine and r["val"] > nine[0]["val"] * 1.1:
                 ann[e] = dict(r, start=nine[0]["start"], note="year reported on a quarter context")
                 q[e] = dict(r, val=_num(r["val"] - nine[0]["val"]), derived=True)
+    for e, r in list(q.items()):          # the same mislabel when the year IS on file (LHX FY2024: the 10-K's 21.3B
+        a = ann.get(e)                    # sat on the Sep-Jan quarter context next to the real year): not a quarter
+        if r.get("derived") or not a or not (a["val"] > 0 and r["val"] >= 0.9 * a["val"]):
+            continue
+        nine = [p for (s2, e2), p in P.items() if 250 <= _days(s2, e2) <= 290 and abs(_days(s2, a["start"])) <= 7
+                and 0 < _days(e2, r["start"]) <= 7]
+        if nine:
+            q[e] = dict(r, val=_num(a["val"] - nine[0]["val"]), start=r["start"], derived=True,
+                        note="year reported on a quarter context")
+        else:
+            del q[e]
     for (s, e), r in P.items():
         if e in q or _days(s, e) <= 100:
             continue
@@ -274,6 +285,27 @@ def _pick_per_period(series: dict, chooser) -> tuple[dict, dict, dict]:
             t = chooser({t: r["val"] for t, r in cands.items()})
             if t:
                 out[k][e] = dict(cands[t], tag=t)
+    return out
+
+
+def same_line_as_year(picked: tuple, series: dict) -> tuple:
+    """Quarters and year-to-date periods take the revenue (or capex) line chosen for their fiscal year when the filer tagged it
+    for that period too. choose_revenue() decides each period alone, and a quarter can lack the tag that made the
+    year's choice (COP tags RevenueNotFromContractWithCustomer only annually, so its quarters fell back to the ASC 606
+    line: 51.8B over four quarters against 58.9B for the year, and the quarters no longer added up). A quarter after
+    the latest fiscal year follows that year's line."""
+    ann = sorted(picked[0].items())                              # [(end, row)]
+    out = (picked[0], dict(picked[1]), dict(picked[2]))
+    for k in (1, 2):
+        for e, r in picked[k].items():
+            yr = next((a for ae, a in ann if a.get("start") and a["start"] <= e <= ae), None)
+            if yr is None and ann and ann[-1][0] < e:
+                yr = ann[-1][1]
+            t = (yr or {}).get("tag")
+            if t and t != r["tag"] and e in series.get(t, ({}, {}, {}))[k]:
+                cand = series[t][k][e]
+                if cand.get("start") == r.get("start"):
+                    out[k][e] = dict(cand, tag=t)
     return out
 
 
@@ -411,6 +443,31 @@ def _src(r: dict) -> dict:
     return s
 
 
+INVARIANT_YEARS = 3
+DEBT_STALE_DAYS = 200                  # balance total_debt from an earlier date at most this much older
+
+
+def invariant_flags(annual: list[dict], quarterly: list[dict]) -> list[str]:
+    """Loud checks on the finished rows, so a wrong number is flagged instead of passed on: a quarter bigger than
+    its whole fiscal year (a mislabelled context), and four quarters of a fiscal year that do not add up to it
+    (within 2%) for revenue, operating cash flow and capex. The last INVARIANT_YEARS fiscal years only (what the
+    screen reads; older gaps are mostly restatements, which point-in-time values keep on purpose); the quarter-vs-year
+    size check skips operating cash flow, whose quarters can swing past the year (JPM, BA)."""
+    out = []
+    recent = sorted(a["end"] for a in annual)[-INVARIANT_YEARS:]
+    for f in ("revenue", "operating_cash_flow", "capex"):
+        for a in annual:
+            if a.get(f) is None or not a.get("start") or a["end"] not in recent:
+                continue
+            qs = [r for r in quarterly if r.get(f) is not None and a["start"] <= r["end"] <= a["end"]
+                  and r.get("start", "") >= a["start"]]
+            if f != "operating_cash_flow" and any(abs(r[f]) > abs(a[f]) * 1.02 and abs(a[f]) > 0 for r in qs):
+                out.append(f"quarter_exceeds_year_{f}_{a['end']}")
+            if len(qs) == 4 and abs(sum(r[f] for r in qs) - a[f]) > 0.02 * max(abs(a[f]), 1):
+                out.append(f"quarters_off_year_{f}_{a['end']}")
+    return out
+
+
 def fundamentals(F: dict) -> dict:
     """Annual and quarterly rows, TTM and the latest balance sheet from load_facts() (+ merge_instance()) output.
     Each row: {end, start, <field>: value, ..., src: {<field>: {tag, form, filed, accn[, first_val, first_filed,
@@ -427,12 +484,12 @@ def fundamentals(F: dict) -> dict:
                 rs[name] = _sum_series(rs[a], rs[b])
     for t in ("InterestIncomeExpenseNet", "InterestAndDividendIncomeOperating", "NoninterestIncome"):
         rs.pop(t, None)
-    flows["revenue"] = _pick_per_period(rs, lambda c: choose_revenue(c, bank))
+    flows["revenue"] = same_line_as_year(_pick_per_period(rs, lambda c: choose_revenue(c, bank)), rs)
     for field, tags in FLOWS.items():
         ser = {t: flow_series(F[t], additive=field not in AVERAGES) for t in tags if t in F}
         if field == "capex":
             ser.update({t: flow_series(fs) for t, fs in F.items() if t.startswith("ext:")})
-            flows[field] = _pick_per_period(ser, choose_capex)
+            flows[field] = same_line_as_year(_pick_per_period(ser, choose_capex), ser)
         else:
             flows[field] = _pick_per_period(ser, lambda c, tags=tags: next((t for t in tags if t in c), None))
     inst = {t: instant_series(F[t]) for t in set(DEBT_TAGS) | {t for ts in INSTANTS.values() for t in ts} if t in F}
@@ -486,6 +543,15 @@ def fundamentals(F: dict) -> dict:
     latest = max(bal_rows, key=lambda r: r["end"]) if bal_rows else {}
     bal = {k: latest[k] for k in ("end", "cash_and_sti", "total_debt", "debt_noncurrent", "debt_current",
                                   "finance_leases", "equity") if k in latest}
+    # debt from the latest date that has it (ORCL's Aug 2026 10-Q tags only the current notes: its May 10-K's
+    # $129.5B is the latest total), dated, and only within DEBT_STALE_DAYS of the balance date
+    debt_rows = [r for r in annual + quarterly if r.get("total_debt") is not None]
+    if latest and latest.get("total_debt") is None and debt_rows:
+        d = max(debt_rows, key=lambda r: r["end"])
+        if _days(d["end"], latest["end"]) <= DEBT_STALE_DAYS:
+            bal.update({k: d[k] for k in ("total_debt", "debt_noncurrent", "debt_current", "finance_leases") if k in d})
+            bal["debt_end"] = d["end"]
+            latest = dict(latest, src=dict(latest.get("src", {}), total_debt=d.get("src", {}).get("total_debt", {})))
     tags = {f: sorted({r["tag"] for k in (0, 1, 2) for r in ser[k].values()}) for f, ser in flows.items()}
     flags = [f"no_{f}" for f in ("revenue", "operating_cash_flow", "capex") if f not in ttm]
     newest = max([r["end"] for r in annual + quarterly] or [""])
@@ -495,6 +561,7 @@ def fundamentals(F: dict) -> dict:
             flags.append(f"stale_{f}")
     if not bal.get("total_debt") and bal:
         flags.append("no_debt_tagged")
+    flags += invariant_flags(annual, quarterly)
     if latest and latest.get("src", {}).get("total_debt", {}).get("note"):
         flags.append("debt_one_side_only")
     return {"bank": bank, "annual": annual, "quarterly": quarterly, "ttm": ttm, "balance": bal,

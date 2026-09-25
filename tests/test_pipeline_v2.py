@@ -455,3 +455,51 @@ def test_legacy_record_keeps_the_old_shape():
     row = next(r for r in out["annual"] if r["period_end"] == "2025-12-31")
     assert row["fiscal_year"] == 2025 and row["revenue"] == 125 and row["net_income"] == 12
     assert out["v2_fixes"] == [{"period": "2025-12-31", "field": "revenue", "old": 120, "v2": 125, "rows": "annual"}]
+
+
+def test_quarters_follow_the_years_revenue_line():
+    q = lambda s, e, v: {"val": v, "start": s, "end": e, "form": "10-Q", "filed": "2026-01-01", "accn": "a"}
+    y = lambda v: {"val": v, "start": "2025-01-01", "end": "2025-12-31", "form": "10-K", "filed": "2026-02-01",
+                   "accn": "k"}
+    F = {V.RFCWC: [y(518), q("2025-01-01", "2025-03-31", 120), q("2026-01-01", "2026-03-31", 130)],
+         V.RNFC: [y(71)],                                   # tagged for the year only (COP)
+         "Revenues": [y(589), q("2025-01-01", "2025-03-31", 140), q("2026-01-01", "2026-03-31", 150)],
+         "NetIncomeLoss": [y(50), q("2025-01-01", "2025-03-31", 10), q("2026-01-01", "2026-03-31", 12)]}
+    out = V.fundamentals(F)
+    assert out["v2_annual" if "v2_annual" in out else "annual"][-1]["revenue"] == 589
+    qs = {r["end"]: r["revenue"] for r in out["quarterly"]}
+    assert qs == {"2025-03-31": 140, "2026-03-31": 150}     # the year's line, also after the latest year
+
+
+def test_year_on_a_quarter_context_when_the_year_is_on_file():
+    f = lambda s, e, v, form="10-K": {"val": v, "start": s, "end": e, "form": form, "filed": "2026-02-12", "accn": "k"}
+    fs = [f("2023-12-30", "2025-01-03", 21325), f("2024-09-28", "2025-01-03", 21325),     # LHX FY2024
+          f("2023-12-30", "2024-09-27", 15700, "10-Q")]
+    ann, q, _ = V.flow_series(fs)
+    assert ann["2025-01-03"]["val"] == 21325 and q["2025-01-03"]["val"] == 5625 and q["2025-01-03"]["derived"]
+    ann, q, _ = V.flow_series(fs[:2])                         # no nine months to subtract: dropped, not kept
+    assert "2025-01-03" not in q
+
+
+def test_invariant_flags():
+    annual = [{"start": "2025-01-01", "end": "2025-12-31", "revenue": 100}]
+    quarterly = [{"start": s, "end": e, "revenue": v} for s, e, v in
+                 (("2025-01-01", "2025-03-31", 25), ("2025-04-01", "2025-06-30", 25), ("2025-07-01", "2025-09-30", 25),
+                  ("2025-10-01", "2025-12-31", 25))]
+    assert V.invariant_flags(annual, quarterly) == []
+    quarterly[3]["revenue"] = 40
+    assert V.invariant_flags(annual, quarterly) == ["quarters_off_year_revenue_2025-12-31"]
+    quarterly[3]["revenue"] = 120
+    assert set(V.invariant_flags(annual, quarterly)) == {"quarter_exceeds_year_revenue_2025-12-31",
+                                                         "quarters_off_year_revenue_2025-12-31"}
+
+
+def test_balance_debt_from_the_latest_date_that_has_it():
+    i = lambda e, v: {"val": v, "end": e, "form": "10-Q", "filed": "2026-09-10", "accn": "q"}
+    d = lambda s, e, v: dict(i(e, v), start=s)
+    F = {"LongTermNotesPayable": [i("2026-05-31", 122)], "DebtCurrent": [i("2026-05-31", 7)],
+         "StockholdersEquity": [i("2026-05-31", 60), i("2026-08-31", 66)],
+         "Revenues": [d("2026-03-01", "2026-05-31", 10), d("2026-06-01", "2026-08-31", 11)],
+         "NetIncomeLoss": [d("2026-03-01", "2026-05-31", 1), d("2026-06-01", "2026-08-31", 1)]}
+    bal = V.fundamentals(F)["balance"]
+    assert bal["end"] == "2026-08-31" and bal["total_debt"] == 129 and bal["debt_end"] == "2026-05-31"
