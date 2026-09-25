@@ -534,6 +534,11 @@ LHX FY2025 missing); share counts from companyfacts with ONE share class (HEICO,
    company that moved to a new SEC registrant inherits its predecessor's facts via `data/v2/predecessors.csv` (XOM:
    ExxonMobil Holdings Corp 2115436 <- Exxon Mobil Corp 34088, Jul 2026 reorganization); a big company (float /
    assets gate) with < 2 years of revenue is flagged `short_history` so the next one is caught.
+   ALARMS (top of report.md, 25 Sep 2026): a company with a public float >= $15B leaving the universe
+   (`ALARM_big_company_left` in changes.jsonl); a big company flagged no_revenue / short_history / build_error /
+   reports_in_*; `interest_but_no_debt` (> $50M a year of interest, no debt found: F, BRK-B, KKR, PCAR, ALNY — tells a
+   missed debt from a company that truly has none, like ISRG); `debt_too_small_for_interest` (interest > 25% of the
+   debt found: ED). Banks are skipped (their interest is mostly on deposits).
 5. Outputs, ONLY under `data/v2/`:
    - `companies/<cik>.json` — TWO views of the company (25 Sep 2026, for fmp's switch off the old jobs):
      - the OLD file's shape, same keys and ~90 fields (`sec_name`, `annual`, `quarterly` with `fiscal_year` /

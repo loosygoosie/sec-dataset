@@ -520,3 +520,15 @@ def test_currency_note():
     assert V.currency_note(cad) == "reports_in_CAD"
     assert V.currency_note({"facts": {"us-gaap": {"Revenues": {"units": {"USD": [], "CAD": []}}}}}) is None
     assert V.currency_note({}) is None
+
+
+def test_big_company_leaving_is_an_alarm():
+    prev = {"1": {"ticker": "XOM", "public_float": "400e9"}, "2": {"ticker": "TINY", "public_float": "3e9"}}
+    got = V.universe_changes(prev, {})
+    assert {(c["ticker"], c["type"]) for c in got} == {("XOM", "left_universe"), ("XOM", "ALARM_big_company_left"),
+                                                        ("TINY", "left_universe")}
+    lines = V.alarms([({"ticker": "NEWCO", "gate": "float"}, {"flags": ["short_history"]}),
+                      ({"ticker": "F", "gate": "float"}, {"flags": ["no_debt_tagged", "interest_but_no_debt"]}),
+                      ({"ticker": "SMALL", "gate": "no_float"}, {"flags": ["no_revenue"]})], got)
+    assert any("XOM" in x for x in lines) and any("NEWCO" in x for x in lines) and any("F" in x for x in lines)
+    assert not any("SMALL" in x for x in lines)
