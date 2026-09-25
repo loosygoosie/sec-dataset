@@ -21,6 +21,7 @@ def build(ticker: str) -> dict:
     c["gate"] = V.size_gate(c["size"], c["tenks"])
     c["cf_shares"] = V.cf_shares(g["cf"])
     weights, ads = V.load_weights(V.CONF / "share_class_weights.csv"), V.load_ads(V.CONF / "ads_ratio.csv")
+    V.REVENUE_VERIFIED.update(V.load_revenue_verified())
     inst = g["instances"]
     cov = c["latest"]
     x = inst.get(cov["accn"]) if cov else None

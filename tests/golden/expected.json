@@ -44,18 +44,18 @@
   "ttm_revenue": 384687000000
  },
  "CAT": {
-  "evidence": "Robinhood agrees on revenue (NI within 2M). Debt 36.2B is LOW: the 7.1B current portion of long-term debt is tagged only by segment -> flag current_ltd_untagged_7.1B.",
+  "evidence": "Robinhood agrees on revenue (NI within 2M). Debt 36.2B is LOW: the 7.1B current portion of long-term debt is tagged only by segment -> flag current_ltd_untagged_7.1B. Capex = PP&E 1.988B + equipment leased to others 1.227B = 3.215B (2024), exactly its segment additions to long-lived assets; both lines are on its cash-flow statement (25 Sep 2026).",
   "flags": [
    "current_ltd_untagged_7.1B"
   ],
   "fy": {
    "2024-12-31": {
-    "capex": 1988000000,
+    "capex": 3215000000,
     "net_income": 10792000000,
     "revenue": 64809000000
    },
    "2025-12-31": {
-    "capex": 2821000000,
+    "capex": 4286000000,
     "net_income": 8884000000,
     "revenue": 67589000000
    }
@@ -67,25 +67,25 @@
   "ttm_revenue": 74729000000
  },
  "CNP": {
-  "evidence": "Debt includes the current portion; the subsidiary's 1,000 cover shares (LegalEntityAxis) are not counted.",
+  "evidence": "Revenue = the income statement's 'Revenues' line by tie-out (8.696B 2023, 8.643B 2024 = CenterPoint's reported figures; the 606 line 8.552B was v2's earlier wrong pick, corrected 25 Sep 2026). Debt includes the current portion; the subsidiary's 1,000 cover shares (LegalEntityAxis) are not counted.",
   "flags": [],
   "fy": {
    "2024-12-31": {
     "capex": 4513000000,
     "net_income": 1019000000,
-    "revenue": 8552000000
+    "revenue": 8643000000
    },
    "2025-12-31": {
     "capex": 4870000000,
     "net_income": 1052000000,
-    "revenue": 9337000000
+    "revenue": 9357000000
    }
   },
   "gate": "float",
   "reconciles": "ok",
   "shares_total": 658720288.0,
   "total_debt": 24522000000,
-  "ttm_revenue": 9562000000
+  "ttm_revenue": 9620000000
  },
  "COP": {
   "evidence": "Robinhood agrees (58.944B / 54.745B revenue, NI). Quarters follow the year's total line (was 51.8B over 4 quarters).",
@@ -283,7 +283,7 @@
   "ttm_revenue": 7391000000
  },
  "ORCL": {
-  "evidence": "Robinhood agrees (67.357B / 57.399B, NI). Debt 129.5B from the May 10-K (debt_end): the Aug 10-Q tags only current notes.",
+  "evidence": "Robinhood agrees (67.357B / 57.399B, NI). Debt 125.3B at Aug 2026 = 117.7B long-term notes (LongTermNotesAndLoans) + 7.6B current notes (NotesPayableCurrent), both tagged in the Aug 10-Q; May 10-K: 122.3B + 7.2B = 129.5B (25 Sep 2026).",
   "flags": [],
   "fy": {
    "2025-05-31": {
@@ -300,7 +300,7 @@
   "gate": "float",
   "reconciles": "ok",
   "shares_total": 3023736000.0,
-  "total_debt": 129541000000,
+  "total_debt": 125337000000,
   "ttm_revenue": 71777000000
  },
  "RSG": {
