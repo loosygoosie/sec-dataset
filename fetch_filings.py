@@ -1,4 +1,7 @@
-"""Filing library for fmp's deep reads (owner, 24 Sep 2026): every recent filing of every S&P 500-sized company, as
+"""SUPERSEDED for pipeline v2 by library.py (25 Sep 2026): EVERY filing of the last 3 years, every document, as release
+assets. This module stays for filings.yml (manual) and for its text / XBRL / ownership readers, which library.py uses.
+
+Filing library for fmp's deep reads (owner, 24 Sep 2026): every recent filing of every S&P 500-sized company, as
 searchable text plus the full XBRL facts, kept on the `filings` branch and overwritten on every run.
 
 Why: the reads and their SEC checks spent most of their time fetching the same filings through one shared SEC rate

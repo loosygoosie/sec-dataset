@@ -1,5 +1,5 @@
 """Pipeline v2 (owner, 24 Sep 2026): one nightly job for fmp's S&P 500-sized pool, run IN PARALLEL with the old jobs
-for a week. It writes ONLY under data/v2/ (and the `filings-v2` library branch) and never touches data/companies,
+for a week. It writes ONLY under data/v2/ (and the `library` release assets) and never touches data/companies,
 data/events or data/tickers.json, which fmp's live autopilot still reads.
 
 Why: fmp now reads deeply every US company worth >= $22.7B and buys by market value. The old weekly build (every SEC
@@ -18,7 +18,9 @@ Steps (main()):
     COVER, every class added up (dei:EntityCommonStockSharesOutstanding by class in the filing's XBRL), times the
     Yahoo splits after the cover date, class weights (data/v2/share_class_weights.csv: Berkshire A = 1,500 B) and
     ADS ratios (data/v2/ads_ratio.csv). Checked against Yahoo's market cap: beyond 3x Yahoo's is used and flagged.
- 3. Filing library: fetch_filings.company(everything=True) for every universe company (store: FILINGS_STORE).
+ 3. Filing library (library.py, 25 Sep 2026): EVERY filing of the last 3 years and every document in it, for every
+    universe company, as release assets on the `library` tag (one <cik>.tar.gz each), checked against EDGAR's count.
+    The per-company filing lists come from submissions.zip (step 1), so finding the new filings costs no requests.
  4. Fundamentals from companyfacts, point in time (each value keeps the form and the date it was first public, and
     the first-filed value when later restated), annual + quarterly + TTM, with the tag used per field. The latest
     10-K and 10-Q XBRL instances (from the library) fill a quarter companyfacts lacks (CNP's Q2) and supply the
@@ -27,7 +29,8 @@ Steps (main()):
     data/companies file: debt, capex, revenue and shares that differ by > 5%; the parallel week is judged on it).
 
 Env: SEC_USER_AGENT (required), ONLY_TICKERS, LIMIT (largest n companies), UNIVERSE_MIN, LIBRARY=false (skip step 3),
-FILINGS_STORE, MAX_NEW_DOCS (library fetch cap per run), SEC_MIN_GAP (seconds between SEC requests; 0.5 when sharing
+LIBRARY_MINUTES / MAX_NEW_FILINGS / LIBRARY_YEARS / LIBRARY_TAG (library.py), GH_TOKEN (to publish the library;
+without it the assets stay in work/library/assets), SEC_MIN_GAP (seconds between SEC requests; 0.5 when sharing
 the limit from a workstation), V2_OUT (default data/v2), V2_WORK (default work/v2).
 """
 from __future__ import annotations
@@ -46,6 +49,7 @@ from pathlib import Path
 
 import build_sec_events as _ev
 import fetch_filings as ff
+import library as lib
 
 OUT = Path(os.environ.get("V2_OUT", "data/v2"))
 WORK = Path(os.environ.get("V2_WORK", "work/v2"))
@@ -744,6 +748,24 @@ class Sources:
                 continue
             yield json.loads(raw)
 
+    def submission(self, cik: int) -> dict | None:
+        """One company's submissions JSON (library step): from the bulk zip, else the API."""
+        if self.only is None:
+            try:
+                return json.loads(self.sub_zip.read(f"CIK{cik:010d}.json"))
+            except KeyError:
+                pass
+        return self._api(_ev.SUBMISSIONS.format(cik=cik), f"sub_{cik}.json")
+
+    def submission_page(self, name: str) -> dict | None:
+        """An older submissions page (CIK##########-submissions-001.json): from the bulk zip, else the API."""
+        if self.only is None:
+            try:
+                return json.loads(self.sub_zip.read(name))
+            except KeyError:
+                pass
+        return self._api("https://data.sec.gov/submissions/" + name, name)
+
     def facts(self, cik: int) -> dict | None:
         if self.only is not None:
             return self._api(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json", f"cf_{cik}.json")
@@ -885,34 +907,13 @@ def build_universe(src: Sources, weights: dict, ads: dict, report: dict) -> list
     return uni
 
 
-def run_library(uni: list[dict], changes: list):
-    ff.STORE = STORE
-    STORE.mkdir(exist_ok=True)
-    index = json.loads((STORE / "index.json").read_text()) if (STORE / "index.json").exists() else {}
-    lib_changes = []
-    for i, c in enumerate(uni, 1):
-        try:
-            m = ff.company(dict(cik=c["cik"], ticker=c["ticker"], name=c["name"]), lib_changes, everything=True)
-        except Exception as e:                                      # noqa: BLE001
-            print(f"  library {c['ticker']}: {type(e).__name__}: {e}"); m = None
-        if m:
-            index[str(c["cik"])] = dict(ticker=c["ticker"], name=c["name"], docs=len(m["docs"]), updated=m["updated"],
-                                        mcap=c["mcap_used"])
-        if i % 25 == 0:
-            print(f"  library {i}/{len(uni)} (fetched {ff._budget['fetched']}, deferred {ff._budget['deferred']})",
-                  flush=True)
-    if not LIMIT and not ONLY:                                      # companies that left the universe
-        keep = {str(c["cik"]) for c in uni}
-        for p in STORE.iterdir():
-            if p.is_dir() and p.name.isdigit() and p.name not in keep:
-                for f in p.iterdir():
-                    f.unlink()
-                p.rmdir()
-                index.pop(p.name, None)
-    (STORE / "index.json").write_text(json.dumps(index, indent=1))
-    (STORE / "README.md").write_text("Filing library v2 (pipeline_v2.py on main, EVERYTHING mode). Overwritten on "
-                                     "every run; what changed is in main's data/v2/changes.jsonl.\n")
+def run_library(uni: list[dict], changes: list, src: Sources) -> dict:
+    """library.run for the universe; its new-filing entries join data/v2/changes.jsonl with source=library."""
+    lib_changes: list = []
+    stats = lib.run([dict(cik=c["cik"], ticker=c["ticker"], name=c["name"], mcap=c["mcap_used"]) for c in uni],
+                    lib_changes, src.submission, src.submission_page, full=not LIMIT and not ONLY)
     changes += [dict(ch, source="library") for ch in lib_changes]
+    return stats
 
 
 def company_record(c: dict, src: Sources) -> dict | None:
@@ -967,8 +968,9 @@ def main() -> int:
     uni = build_universe(src, weights, ads, report)
     print(f"universe: {len(uni)} companies >= ${UNIVERSE_MIN / 1e9:.1f}B ({time.time() - t0:.0f}s)", flush=True)
     changes: list = []
+    report["library"] = None
     if LIBRARY:
-        run_library(uni, changes)
+        report["library"] = run_library(uni, changes, src)
         print(f"library done ({time.time() - t0:.0f}s)", flush=True)
     (OUT / "companies").mkdir(parents=True, exist_ok=True)
     recs, excluded, compare = [], [], []
@@ -1059,9 +1061,8 @@ def write_report(report: dict, recs: list, excluded: list, changes: list, secs: 
          "- dropped before the universe: " + ", ".join(f"{k} {v}" for k, v in sorted(report.get("dropped", {}).items())),
          f"- TTM coverage: " + ", ".join(f"{k} {v}/{n}" for k, v in cov.items()) + f"; total_debt {debt}/{n}",
          "- changes this run: " + (", ".join(f"{k} {v}" for k, v in sorted(ctypes.items())) or "none"),
-         f"- library: fetched {ff._budget['fetched']}, deferred to the next run {ff._budget['deferred']}"
-         + ("" if LIBRARY else " (skipped)"), "",
-         "## Excluded after the fundamentals", ""]
+         ""]
+    L += lib.report_lines(report.get("library")) + ["", "## Excluded after the fundamentals", ""]
     L += [f"- {c['ticker']} {c['name']}: {why}" for c, why in excluded] or ["- none"]
     L += ["", "## Market value checks (not ok)", "", "| ticker | own | yahoo | used | check |", "|---|---|---|---|---|"]
     L += [f"| {c['ticker']} | {_fmt(c['mcap_own'])} | {_fmt(c['mcap_yahoo'])} | {_fmt(c['mcap_used'])} | {ck} |"
