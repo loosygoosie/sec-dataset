@@ -922,6 +922,31 @@ def company_changes(prev: dict | None, new: dict) -> list[dict]:
     return out
 
 
+BIG_FLOAT = 15e9                       # public float above which leaving the universe is an ALARM (XOM-type drops)
+INTEREST_NO_DEBT = 50e6                # annual interest expense above which "no debt found" means debt was missed
+
+
+def alarms(recs: list, changes: list) -> list[str]:
+    """The report's ALARMS section, at the top: things that must not happen silently. A big company leaving the
+    universe; a big company (float / assets gate) whose file is flagged no_revenue, short_history or build_error; and
+    'interest_but_no_debt' (the company pays interest, v2 found no debt: F, BRK-B, KKR)."""
+    out = [f"- BIG COMPANY LEFT THE UNIVERSE: {ch['ticker']} (cik {ch['cik']}, float {ch['public_float'] / 1e9:,.1f}B)"
+           for ch in changes if ch.get("type") == "ALARM_big_company_left"]
+    for c, r in recs:
+        bad = [f for f in r.get("flags", []) if f.startswith(("no_revenue", "short_history", "build_error", "reports_in_"))]
+        if bad and c.get("gate") in ("float", "assets"):
+            out.append(f"- {c['ticker']}: {', '.join(bad)} (a big company: fix or add to data/v2/predecessors.csv)")
+    for flag, what in (("debt_too_small_for_interest", "interest is over 25% of the debt v2 found"),):
+        hit = [c["ticker"] for c, r in recs if flag in r.get("flags", [])]
+        if hit:
+            out.append(f"- {flag}: {len(hit)} companies ({what}): {', '.join(hit)}")
+    n = sum(1 for _, r in recs if "interest_but_no_debt" in r.get("flags", []))
+    if n:
+        out.append(f"- interest_but_no_debt: {n} companies pay interest but v2 found no debt: "
+                   + ", ".join(c["ticker"] for c, r in recs if "interest_but_no_debt" in r.get("flags", [])))
+    return out or ["- none"]
+
+
 def universe_changes(prev: dict, new: dict) -> list[dict]:
     """prev/new: {cik: universe row}. Entering and leaving (S&P's $22.7B line is fmp's, on Robinhood prices)."""
     out = []
@@ -931,7 +956,10 @@ def universe_changes(prev: dict, new: dict) -> list[dict]:
         if p is None:
             out.append(dict(row, type="entered_universe", gate=n.get("gate")))
         elif n is None:
-            out.append(dict(row, type="left_universe"))
+            fl = float(p.get("public_float") or 0)
+            out.append(dict(row, type="left_universe", public_float=fl or None))
+            if fl >= BIG_FLOAT:                 # a company this big does not shrink out of the universe: an alarm
+                out.append(dict(row, type="ALARM_big_company_left", public_float=fl))
     return out
 
 
@@ -1452,6 +1480,14 @@ def main() -> int:
             why = currency_note(src.facts(c["cik"])) or "no_revenue"
             rec["flags"] = rec["flags"] + [why]
             excluded.append((c, f"{why} (file written, flagged)"))
+        ie = next((a.get("interest_expense") for a in reversed(rec.get("annual", [])) if a.get("interest_expense")), None)
+        if rec.get("bank"):                     # a bank's interest expense is mostly on deposits, not debt
+            ie = None
+        if rec.get("balance", {}).get("total_debt") is None and ie and ie > INTEREST_NO_DEBT:
+            rec["flags"] = rec["flags"] + ["interest_but_no_debt"]      # F, BRK-B, KKR: debt exists, v2 missed it
+        td = rec.get("balance", {}).get("total_debt")
+        if td and ie and ie > INTEREST_NO_DEBT and ie > 0.25 * td:     # ED: 0.97B found, ~1.2B of interest a year
+            rec["flags"] = rec["flags"] + ["debt_too_small_for_interest"]
         big = (c.get("gate") in ("float", "assets")) and sum(1 for r in rec.get("v2_annual", []) if r.get("revenue")) < 2
         if big and int(c["cik"]) not in PREDECESSORS:
             rec["flags"] = rec["flags"] + ["short_history"]            # a big company with < 2 years: a new
@@ -1526,7 +1562,7 @@ def write_report(report: dict, recs: list, excluded: list, changes: list, secs: 
     ctypes = defaultdict(int)
     for ch in changes:
         ctypes[ch["type"]] += 1
-    L = [f"# Pipeline v2 {TODAY}", "", f"- run: {secs / 60:.0f} min" + (f"; ONLY_TICKERS={','.join(ONLY)}" if ONLY else "")
+    L = [f"# Pipeline v2 {TODAY}", "", "## ALARMS", ""] + alarms(recs, changes) + ["", f"- run: {secs / 60:.0f} min" + (f"; ONLY_TICKERS={','.join(ONLY)}" if ONLY else "")
          + (f"; LIMIT={LIMIT}" if LIMIT else ""),
          f"- universe: {n} companies that could be S&P-sized (no prices: fmp draws the $22.7B line with Robinhood's); "
          "by size gate: " + ", ".join(f"{k} {v}" for k, v in sorted(report.get("gates", {}).items())),
