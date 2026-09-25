@@ -529,6 +529,11 @@ LHX FY2025 missing); share counts from companyfacts with ONE share class (HEICO,
    beats the assembled one when larger (SHW 12.07B); LongTermNotesAndLoans / NotesPayableCurrent count (ORCL
    125.3B at Aug 2026, TEVA 16.59B); the debt note's instrument total decides whether a filer's LongTermDebt
    includes the current portion (DRI). Still `no_debt_tagged` (debt only on segment or company tags): ED, F, PCAR.
+   NOTHING IS DROPPED (25 Sep 2026: XOM had vanished): a universe company that can't be built or has no revenue
+   still gets its file, flagged (`no_revenue`, `reports_in_CAD`, `build_error_<type>`), and report.md lists them. A
+   company that moved to a new SEC registrant inherits its predecessor's facts via `data/v2/predecessors.csv` (XOM:
+   ExxonMobil Holdings Corp 2115436 <- Exxon Mobil Corp 34088, Jul 2026 reorganization); a big company (float /
+   assets gate) with < 2 years of revenue is flagged `short_history` so the next one is caught.
 5. Outputs, ONLY under `data/v2/`:
    - `companies/<cik>.json` — TWO views of the company (25 Sep 2026, for fmp's switch off the old jobs):
      - the OLD file's shape, same keys and ~90 fields (`sec_name`, `annual`, `quarterly` with `fiscal_year` /

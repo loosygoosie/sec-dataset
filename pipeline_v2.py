@@ -1005,7 +1005,8 @@ class Sources:
     def __init__(self):
         self.only = None
         if ONLY:
-            tick = json.loads(Path("data/tickers.json").read_text())
+            tp = OUT / "tickers.json" if (OUT / "tickers.json").exists() else CONF / "tickers.json"
+            tick = json.loads((tp if tp.exists() else Path("data/tickers.json")).read_text())   # the SEC's current map
             self.only = [int(tick[t]["cik"]) for t in ONLY if t in tick]
         else:
             self.sub_zip = zipfile.ZipFile(download("submissions"))
@@ -1056,12 +1057,55 @@ class Sources:
         return self._api("https://data.sec.gov/submissions/" + name, name)
 
     def facts(self, cik: int) -> dict | None:
+        """companyfacts, merged with a predecessor filer's (data/v2/predecessors.csv) when the company moved to a
+        new SEC registrant: XOM's holding company (2115436, since Jul 2026) has none of Exxon Mobil Corp's (34088)
+        history, so on its own it looked like a shell and was dropped."""
+        cf = self._facts(cik)
+        pred = PREDECESSORS.get(int(cik))
+        if pred:
+            old = self._facts(pred)
+            if old:
+                cf = merge_facts_docs(old, cf)
+        return cf
+
+    def _facts(self, cik: int) -> dict | None:
         if self.only is not None:
             return self._api(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json", f"cf_{cik}.json")
         try:
             return json.loads(self.cf_zip.read(f"CIK{cik:010d}.json"))
         except KeyError:
             return None
+
+
+PREDECESSORS: dict = {}                # {cik: predecessor cik}, from data/v2/predecessors.csv in main()
+
+
+def load_predecessors(path: Path = CONF / "predecessors.csv") -> dict:
+    if not path.exists():
+        return {}
+    return {int(r["cik"]): int(r["predecessor_cik"]) for r in csv.DictReader(path.open())}
+
+
+def merge_facts_docs(old: dict, new: dict | None) -> dict:
+    """Two companyfacts documents as one: every fact of both (the predecessor's first); _collapse sorts out periods
+    both reported (the later filing wins, as for any restatement)."""
+    out = {"cik": (new or old).get("cik"), "entityName": (new or old).get("entityName"), "facts": {}}
+    for doc in (old, new or {}):
+        for ns, tags in (doc.get("facts") or {}).items():
+            for tag, v in tags.items():
+                dst = out["facts"].setdefault(ns, {}).setdefault(tag, {"units": {}})
+                for u, fs in v.get("units", {}).items():
+                    dst["units"].setdefault(u, []).extend(fs)
+    return out
+
+
+def currency_note(cf: dict | None) -> str | None:
+    """'reports_in_CAD' (etc.) when the revenue lines are tagged only in a non-USD currency (ENB, CP): v2 reads USD."""
+    g = ((cf or {}).get("facts") or {}).get("us-gaap") or {}
+    units = {u for t in [RFCWC] + REV_TOTAL + REV_OTHER if t in g for u in g[t].get("units", {})}
+    if units and "USD" not in units:
+        return f"reports_in_{sorted(units)[0]}"
+    return None
 
 
 def _cached(cik: int, accn: str) -> Path | None:
@@ -1375,6 +1419,7 @@ def main() -> int:
     t0 = time.time()
     weights, ads = load_weights(CONF / "share_class_weights.csv"), load_ads(CONF / "ads_ratio.csv")
     REVENUE_VERIFIED.update(load_revenue_verified())
+    PREDECESSORS.update(load_predecessors())
     report: dict = {}
     src = Sources()
     uni = build_universe(src, weights, ads, report)
@@ -1390,14 +1435,27 @@ def main() -> int:
     (OUT / "companies").mkdir(parents=True, exist_ok=True)
     recs, excluded, compare = [], [], []
     for i, c in enumerate(uni, 1):
+        # NOTHING IS DROPPED (owner, 25 Sep 2026: "how do we know nothing else is silently dropped"): a company that
+        # can't be built or has no revenue still gets its file, flagged, so fmp sees it and says so.
         try:
             rec = company_record(c, src)
         except Exception as e:                                      # noqa: BLE001
-            print(f"  {c['ticker']}: {type(e).__name__}: {e}"); excluded.append((c, f"error {type(e).__name__}"))
-            continue
+            print(f"  {c['ticker']}: {type(e).__name__}: {e}")
+            rec = {"cik": c["cik"], "ticker": c["ticker"], "tickers": c["tickers"], "name": c["name"],
+                   "sic": c["sic"], "annual": [], "quarterly": [], "v2_annual": [], "v2_quarterly": [], "ttm": {},
+                   "balance": {}, "checks": {}, "flags": [f"build_error_{type(e).__name__}"],
+                   "market": {"shares_total": c.get("shares_total"), "classes": c.get("classes"),
+                              "cover_date": c.get("cover_date"), "size_gate": c.get("gate")}}
+            excluded.append((c, f"error {type(e).__name__} (file written, flagged)"))
         rec["market"]["ads_ratio"] = ads.get(c["ticker"])
-        if "revenue" not in rec["ttm"]:
-            excluded.append((c, "no revenue (fund / trust / shell)")); continue
+        if "revenue" not in rec["ttm"] and not any(f.startswith("build_error") for f in rec["flags"]):
+            why = currency_note(src.facts(c["cik"])) or "no_revenue"
+            rec["flags"] = rec["flags"] + [why]
+            excluded.append((c, f"{why} (file written, flagged)"))
+        big = (c.get("gate") in ("float", "assets")) and sum(1 for r in rec.get("v2_annual", []) if r.get("revenue")) < 2
+        if big and int(c["cik"]) not in PREDECESSORS:
+            rec["flags"] = rec["flags"] + ["short_history"]            # a big company with < 2 years: a new
+                                                                        # registrant (XOM)? add it to predecessors.csv
         path = OUT / "companies" / f"{c['cik']}.json"
         prev = json.loads(path.read_text()) if path.exists() else None
         changes += company_changes(prev, rec)
@@ -1478,7 +1536,7 @@ def write_report(report: dict, recs: list, excluded: list, changes: list, secs: 
          f"- TTM coverage: " + ", ".join(f"{k} {v}/{n}" for k, v in cov.items()) + f"; total_debt {debt}/{n}",
          "- changes this run: " + (", ".join(f"{k} {v}" for k, v in sorted(ctypes.items())) or "none"),
          ""]
-    L += lib.report_lines(report.get("library")) + ["", "## Excluded after the fundamentals", ""]
+    L += lib.report_lines(report.get("library")) + ["", "## Without usable revenue (files written, flagged; nothing is dropped)", ""]
     L += [f"- {c['ticker']} {c['name']}: {why}" for c, why in excluded] or ["- none"]
     L += ["", "## Data flags", ""]
     L += [f"- {c['ticker']}: {', '.join(r['flags'] + r.get('v2_notes', []))}" for c, r in recs

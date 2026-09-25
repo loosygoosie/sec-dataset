@@ -503,3 +503,20 @@ def test_balance_debt_from_the_latest_date_that_has_it():
          "NetIncomeLoss": [d("2026-03-01", "2026-05-31", 1), d("2026-06-01", "2026-08-31", 1)]}
     bal = V.fundamentals(F)["balance"]
     assert bal["end"] == "2026-08-31" and bal["total_debt"] == 129 and bal["debt_end"] == "2026-05-31"
+
+
+def test_predecessor_facts_are_merged():
+    old = {"cik": 34088, "entityName": "Exxon Mobil Corp", "facts": {"us-gaap": {"Revenues": {"units": {"USD": [
+        {"val": 344, "start": "2024-01-01", "end": "2024-12-31", "form": "10-K", "filed": "2025-02-01"}]}}}}}
+    new = {"cik": 2115436, "entityName": "ExxonMobil Holdings Corp", "facts": {"us-gaap": {"Revenues": {"units": {
+        "USD": [{"val": 80, "start": "2026-04-01", "end": "2026-06-30", "form": "10-Q", "filed": "2026-08-03"}]}}}}}
+    m = V.merge_facts_docs(old, new)
+    assert m["entityName"] == "ExxonMobil Holdings Corp" and len(m["facts"]["us-gaap"]["Revenues"]["units"]["USD"]) == 2
+    assert V.merge_facts_docs(old, None)["facts"]["us-gaap"]["Revenues"]["units"]["USD"][0]["val"] == 344
+
+
+def test_currency_note():
+    cad = {"facts": {"us-gaap": {"Revenues": {"units": {"CAD": [{"val": 1}]}}}}}
+    assert V.currency_note(cad) == "reports_in_CAD"
+    assert V.currency_note({"facts": {"us-gaap": {"Revenues": {"units": {"USD": [], "CAD": []}}}}}) is None
+    assert V.currency_note({}) is None
