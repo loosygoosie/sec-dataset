@@ -74,7 +74,7 @@ STORE = Path(os.environ.get("FILINGS_STORE", "filings-store"))
 FLOAT_MIN, ASSETS_MIN, REVENUE_MIN = 0.75e9, 5e9, 1e9
 FLOAT_DAYS = 550                       # a public float filed longer ago than this counts as none
 STALE_DAYS = 800                       # assets / revenue for a period ending longer ago than this are ignored
-LIBRARY_FLOAT_MIN = 15e9               # library without data/v2/pool.txt: public float >= this
+LIBRARY_FLOAT_MIN = 13e9               # library: public float >= this (every S&P 500-size company; no fmp list here: public repo)
 THREADS = 6                            # cover instances in flight at once, under build_sec_events' shared 8/s
 ONLY = [t.strip().upper() for t in os.environ.get("ONLY_TICKERS", "").split(",") if t.strip()]
 LIMIT = int(os.environ.get("LIMIT", "0") or 0)
