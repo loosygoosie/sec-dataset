@@ -30,7 +30,10 @@ fundamentals pipeline itself treats every filer alike; which companies matter is
 | `companies-patch.yml` — daily patch | Mon–Sat 07:00 | only the company files (and manifest entries) whose 10-Q/10-K is newer than the file |
 | `events.yml` — events feed | daily 03:00 | `data/events/`, `events_recent.json`, `events_report.md` |
 | `pipeline_v2.yml` — Pipeline v2 (parallel week from 24 Sep 2026) | daily 09:30 | ONLY `data/v2/` (the `library` release assets only when dispatched with library=true: on demand since 25 Sep 2026) — see "Pipeline v2" and "The complete filing library" below |
-| `tests.yml` — Tests | every push | nothing |
+| `tests.yml` — Tests | every push (a newer push to the same branch cancels the older run) | nothing |
+
+`filings.yml` (the `filings` branch library) was retired on 25 Sep 2026: the `library` release replaced it and nothing
+read the branch. The branch itself stays until the owner deletes it; `fetch_filings.py` stays (library.py uses it).
 
 ## One-time setup (about five minutes)
 
@@ -179,7 +182,11 @@ looks right.
   the annual figure within 3% on revenue, net income, operating cash flow and capex.
   `ok`, `off:<items>`, or `n/a`. Treat an `off` company as unmeasured on quarterly metrics.
 - `quarter_age_days` — how old the newest quarter is. Over 150 means the structured feed is
-  behind the filing (a 10-K may lawfully take 90 days; beyond that the feed is late).
+  behind the filing (a 10-K may lawfully take 90 days; beyond that the feed is late). In a company
+  file it is as of the last time something ELSE in that file changed: since 25 Sep 2026 no job
+  (weekly build, daily patch, pipeline v2) rewrites a file for this field alone, because it moves
+  every day and rewrote every file into history. The manifest's copy is current as of the weekly
+  build; for freshness compute from `latest_quarter_end`.
 - `shares` — `ok`, `basic-only`, `outstanding-only`, `none`, or **`invalid:<items>`** when a
   share count of zero or less appears anywhere in the file. Read off the values, not off which
   tag resolved: a company whose diluted tag matched but whose rows are all empty reads `none`,

@@ -6,6 +6,11 @@ on:
   push:
   pull_request:
 
+# A newer push to the same branch makes the older run moot: stop it rather than finish it.
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   pytest:
     runs-on: ubuntu-latest

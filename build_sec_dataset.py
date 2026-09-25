@@ -1842,6 +1842,18 @@ def record_body(rec: dict) -> str:
     return json.dumps(rec, separators=(",", ":"), sort_keys=True)
 
 
+def only_age_moved(old: dict, new: dict) -> bool:
+    """True when two company records differ in `checks.quarter_age_days` alone. That field moves by
+    itself every day, so rewriting a file for it alone put ~14,600 changed files into never-pruned
+    history every week (25 Sep 2026). Such a file stays untouched; the manifest has the current age."""
+    def strip(r):
+        r = json.loads(json.dumps(r))
+        if isinstance(r.get("checks"), dict):
+            r["checks"].pop("quarter_age_days", None)
+        return r
+    return strip(old) == strip(new)
+
+
 def company_record(facts: dict, norm: dict, default_cik, by_cik: dict[int, list[str]], today: date,
                    sics: dict[str, str], sic_codes: dict[str, str]) -> tuple[dict, dict] | None:
     """(company file, manifest entry) for one normalised filer, or None where the build publishes
@@ -2062,7 +2074,9 @@ def main() -> int:
             cik, checks, ann = rec["cik"], rec["checks"], rec["annual"]
             path = comp_dir / f"{cik}.json"
             body = record_body(rec)
-            if not path.exists() or path.read_text() != body:      # unchanged files stay untouched -> small commits
+            old = path.read_text() if path.exists() else None
+            # unchanged files stay untouched -> small commits; so do files whose only change is the day count
+            if old != body and (old is None or not only_age_moved(json.loads(old), rec)):
                 path.write_text(body)
             written.add(path.name)
             manifest[str(cik)] = entry

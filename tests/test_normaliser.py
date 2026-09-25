@@ -256,6 +256,18 @@ def test_quarter_age_days_is_measured_from_the_latest_quarter_end(b):
     assert checks["quarter_age_days"] == 40
 
 
+def test_a_file_whose_only_change_is_the_day_count_is_not_rewritten(b):
+    old = {"cik": 1, "checks": {"latest_quarter_end": "2026-06-30", "quarter_age_days": 80}, "annual": [{"x": 1}]}
+    aged = {"cik": 1, "checks": {"latest_quarter_end": "2026-06-30", "quarter_age_days": 87}, "annual": [{"x": 1}]}
+    news = {"cik": 1, "checks": {"latest_quarter_end": "2026-09-30", "quarter_age_days": 1}, "annual": [{"x": 1}]}
+    fact = {"cik": 1, "checks": {"latest_quarter_end": "2026-06-30", "quarter_age_days": 87}, "annual": [{"x": 2}]}
+
+    assert b.only_age_moved(old, aged)
+    assert not b.only_age_moved(old, news)
+    assert not b.only_age_moved(old, fact)
+    assert old["checks"]["quarter_age_days"] == 80          # the comparison never edits the records
+
+
 def test_no_quarters_at_all_leaves_the_age_unknown(b):
     checks = b.data_checks([], [], tags_used={})
 

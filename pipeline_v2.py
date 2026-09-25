@@ -1527,7 +1527,8 @@ def main() -> int:
         path = OUT / "companies" / f"{c['cik']}.json"
         prev = json.loads(path.read_text()) if path.exists() else None
         changes += company_changes(prev, rec)
-        path.write_text(json.dumps(rec, indent=1, sort_keys=True) + "\n")
+        if prev is None or not _old.only_age_moved(prev, rec):      # quarter_age_days alone moves daily: no rewrite
+            path.write_text(json.dumps(rec, indent=1, sort_keys=True) + "\n")
         old = OLD / f"{c['cik']}.json"
         if old.exists():
             compare += [dict(d, ticker=c["ticker"]) for d in compare_company(json.loads(old.read_text()), rec)]

@@ -18,13 +18,14 @@ name: Pipeline v2 (fmp pool - universe, fundamentals, filing library)
 # Only filings not saved yet are fetched; an asset is replaced only when its company changed.
 #
 # PARALLEL WEEK: it writes ONLY data/v2/ on this branch and the `library` release assets. data/companies,
-# data/events, data/tickers.json and the `filings` branch stay with the old jobs, which fmp's live autopilot reads.
+# data/events and data/tickers.json stay with the old jobs, which fmp's live autopilot reads. (filings.yml and its
+# `filings` branch were retired on 25 Sep 2026: nothing read them once the `library` release existed.)
 # data/v2/compare.md says, per company, where v2 and the old build differ by > 5%; the week is judged on it.
 
 on:
   schedule:
-    # 09:30 UTC daily: after the events feed (03:00) and the companies patch (07:00), before filings.yml (10:30)
-    # and fmp's weekday routine (16:00). The SEC's bulk files are rebuilt nightly.
+    # 09:30 UTC daily: after the events feed (03:00) and the companies patch (07:00), before fmp's weekday
+    # routine (16:00). The SEC's bulk files are rebuilt nightly.
     - cron: "30 9 * * *"
   workflow_dispatch:
     inputs:
