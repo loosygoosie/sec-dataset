@@ -226,16 +226,43 @@ def test_class_weights_ads_and_splits():
     classes = {"CommonClassAMember": 488_450.0, "CommonClassBMember": 1_408_035_161.0}
     assert V.shares_total(classes, "BRK-B", w, {}) == pytest.approx(1_408_035_161 + 488_450 * 1500)
     assert V.shares_total({"common": 1_300.0}, "ONC", {}, {"ONC": 13.0}) == pytest.approx(100)
-    assert V.shares_total({"common": 100.0}, "X", {}, {}, split=V.split_after([("2026-01-02", 2.0),
-                                                                              ("2025-01-02", 3.0)], "2025-12-31")) == 200
     assert V.shares_total({}, "X", {}, {}) is None
 
 
-@pytest.mark.parametrize("own, yahoo, used, check", [
-    (100, 105, 100, "ok"), (100, 80, 100, "gap_+25pct"), (100, 400, 400, "off_0.25x_used_yahoo"),
-    (None, 50, 50, "own_missing_used_yahoo"), (60, None, 60, "no_yahoo"), (None, None, None, "no_value")])
-def test_market_value_check(own, yahoo, used, check):
-    assert V.mcap_check(own, yahoo) == (used, check)
+def test_size_signals_and_gate():
+    today = dt.date(2026, 9, 25)
+    cf = {"facts": {"dei": {"EntityPublicFloat": {"units": {"USD": [
+            {"val": 1e9, "end": "2024-06-30", "filed": "2025-02-01"}, {"val": 3e9, "end": "2025-06-30", "filed": "2026-02-01"}]}}},
+        "us-gaap": {"Assets": {"units": {"USD": [{"val": 4e9, "end": "2026-06-30", "filed": "2026-08-01"}]}},
+                    "Revenues": {"units": {"USD": [
+                        {"val": 9e8, "start": "2025-01-01", "end": "2025-12-31", "filed": "2026-02-01"},
+                        {"val": 5e8, "start": "2026-01-01", "end": "2026-06-30", "filed": "2026-08-01"}]}},
+                    "SalesRevenueNet": {"units": {"USD": [
+                        {"val": 9e9, "start": "2016-01-01", "end": "2016-12-31", "filed": "2017-02-01"}]}}}}}
+    sig = V.size_signals(cf)
+    assert sig["public_float"] == 3e9 and sig["assets"] == 4e9
+    assert sig["revenue"] == 9e8                              # the 2016 tag is stale, the half year is not annual
+    assert V.size_gate(sig, 5, today) == "float"
+    assert V.size_gate(dict(sig, public_float=1e9), 5, today) is None
+    assert V.size_gate(dict(sig, public_float=1e9, assets=6e9), 5, today) == "assets"
+    assert V.size_gate(dict(sig, public_float=1e9, revenue=2e9), 5, today) == "revenue"
+    ipo = {"public_float": None, "float_filed": None, "assets": 1e9, "revenue": 2e8}
+    assert V.size_gate(ipo, 1, today) == "no_float" and V.size_gate(ipo, 4, today) is None
+    old = dict(sig, float_filed="2024-01-01")                 # a float filed > 18 months ago counts as none
+    assert V.size_gate(old, 1, today) == "no_float" and V.size_gate(old, 3, today) is None
+
+
+def test_instance_cache_prefetch_and_prune(tmp_path, monkeypatch):
+    import gzip
+    monkeypatch.setattr(V, "WORK", tmp_path); monkeypatch.setattr(V, "STORE", tmp_path / "store")
+    (tmp_path / "xbrl").mkdir()
+    for name in ("1_a", "2_b"):
+        with gzip.open(tmp_path / "xbrl" / f"{name}.json.gz", "wt") as fh:
+            fh.write("{}")
+    fetched = []
+    monkeypatch.setattr(V, "instance", lambda cik, accn: fetched.append((cik, accn)))
+    assert V.prefetch({(1, "a"), (3, "c"), (4, "d")}) == 2 and sorted(fetched) == [(3, "c"), (4, "d")]
+    assert V.prune_cache({(1, "a")}) == 1 and not (tmp_path / "xbrl" / "2_b.json.gz").exists()
 
 
 # ---------------------------------------------------------------- universe filters
@@ -283,10 +310,10 @@ def test_prescreen_shares_from_companyfacts():
 
 # ---------------------------------------------------------------- change log and comparison
 def test_universe_changes():
-    prev = {"1": {"ticker": "A", "mcap_used": "20e9"}, "2": {"ticker": "B", "mcap_used": "30e9"}}
-    new = {"1": {"ticker": "A", "mcap_used": 23e9}, "3": {"ticker": "C", "mcap_used": 16e9}}
+    prev = {"1": {"ticker": "A"}, "2": {"ticker": "B"}}
+    new = {"1": {"ticker": "A"}, "3": {"ticker": "C", "gate": "float"}}
     got = {(c["ticker"], c["type"]) for c in V.universe_changes(prev, new)}
-    assert got == {("A", "crossed_sp500_line"), ("B", "left_universe"), ("C", "entered_universe")}
+    assert got == {("B", "left_universe"), ("C", "entered_universe")}
 
 
 def test_company_changes():

@@ -372,7 +372,8 @@ prospectuses (424B2), FWP, S-8, 11-K, SD, 25-NSE, EFFECT, Form 3, ARS. `LIBRARY_
 Completeness is counted against EDGAR's list of the kept forms.
 
 **Where:** https://github.com/loosygoosie/sec-dataset/releases/tag/library — release assets, public, no login.
-**What:** for every pipeline v2 universe company (market value >= $15B), EVERY filing it made in the last 3 years
+**What:** for the companies in `data/v2/pool.txt` (fmp's pool, one ticker per line; without that file, the v2
+universe companies with a public float >= $15B), EVERY filing it made in the last 3 years
 (`LIBRARY_YEARS`), every form (10-K/Q, 8-K, DEF 14A, ARS, 425, 11-K, SD, PX14A6G, FWP, 424B*, S-*, 3/4/5, 144,
 13D/G, CORRESP/UPLOAD, ...), and EVERY document in each filing. Owner, 25 Sep 2026: "fetch everything" — the older
 libraries below kept a subset (Cintas: 83 of its 201 filings since Jan 2024).
@@ -471,12 +472,19 @@ LHX FY2025 missing); share counts from companyfacts with ONE share class (HEICO,
 
 1. Two bulk SEC downloads (`submissions.zip`, `companyfacts.zip`), read entry by entry on the runner.
 2. Universe: a 10-Q in the last 400 days, a listed common-stock ticker (no preferred / warrant / unit / right, no OTC),
-   not a partnership (L.P.), not a commodity trust (SIC 6221), revenue on file, market value >= $15B. Market value =
-   Yahoo close x shares from the latest 10-Q/10-K cover, EVERY class added up (`dei:EntityCommonStockSharesOutstanding`
-   by class in the filing's XBRL; co-registrant subsidiaries dropped), times Yahoo splits after the cover date, with
-   `data/v2/share_class_weights.csv` (Berkshire A = 1,500 B) and `data/v2/ads_ratio.csv` (ONC 13, ZLAB 10), both
-   copied from `fmp/owner/data`. Checked against Yahoo's market cap: beyond 3x Yahoo's is used (`mcap_check`
-   says so); a gap over 15% is flagged.
+   not a partnership (L.P.), not a commodity trust (SIC 6221), revenue on file, and SEC figures saying the company
+   COULD be S&P-sized (`size_gate`): public float >= $2B (10-K cover, filed in the last 18 months), or total assets
+   >= $5B, or annual revenue >= $1B, or a recent IPO with no float yet. **No prices and no Yahoo** (owner, 25 Sep
+   2026: "we shouldn't be using yahoo for anything anymore"): fmp multiplies `shares_total` by its Robinhood price
+   and draws S&P's $22.7B line itself. Checked on 25 Sep 2026: the gate kept all 420 companies of fmp's pool worth
+   >= $15B (a float-only line would have lost 8: BE, ARES, UI, RKT, SUNB, FOXA, ECHO, PPL). `shares_total` = the
+   latest 10-Q/10-K cover, EVERY class added up (`dei:EntityCommonStockSharesOutstanding` by class in the filing's
+   XBRL; co-registrant subsidiaries dropped), with `data/v2/share_class_weights.csv` (Berkshire A = 1,500 B) and
+   `data/v2/ads_ratio.csv` (ONC 13, ZLAB 10), both copied from `fmp/owner/data`. A split after the cover date is not
+   applied (no price feed here); fmp's Robinhood market value alarm catches it.
+   **Speed:** the cover instances are fetched 6 at a time under the shared 8 requests/s (`build_sec_events.get` is
+   thread-safe) and kept across runs in `work/v2/xbrl` (actions/cache), so a normal night fetches only the new
+   10-Qs and 10-Ks; instances no universe company needs any more are pruned.
 3. The complete filing library for every universe company (`library` release assets; see "The complete filing
    library" above). Until 25 Sep 2026 this was `fetch_filings.py`'s EVERYTHING mode on the `filings-v2` branch.
 4. Fundamentals from companyfacts, point in time: every value keeps the form and the date it was first public (and
@@ -491,12 +499,13 @@ LHX FY2025 missing); share counts from companyfacts with ONE share class (HEICO,
    - `companies/<cik>.json` — `annual`, `quarterly` (rows: `end`, `start`, `revenue`, `net_income`,
      `operating_cash_flow`, `capex`, `fcf`, `stock_comp`, `shares_diluted`, `cash_and_sti`, `total_debt`,
      `debt_noncurrent`, `debt_current`, `finance_leases`, `equity`, and `src` per field), `ttm`, `balance`,
-     `tags_used`, `flags`, `latest_filing`, `market` (cover classes, `shares_total`, split factor). No prices in these
+     `tags_used`, `flags`, `latest_filing`, `market` (cover classes, `shares_total`, `size_gate`, `public_float`,
+     `assets`, `revenue`). No prices in these
      files, so they change only when a company files.
-   - `universe.csv` — ticker, cik, name, price, shares_total, classes, mcap_own, mcap_yahoo, mcap_used, mcap_check
-     (+ price_date, cover_date, cover_form, split_after_cover, sic).
+   - `universe.csv` — ticker, cik, name, gate, shares_total, classes, cover_date, cover_form, public_float,
+     float_date, assets, revenue, sic.
    - `changes.jsonl` (appended) — new filings, changed headline facts, companies entering / leaving the universe,
-     market value crossing $22.7B, and the library's new documents (`source: library`).
+     and the library's new documents (`source: library`).
    - `report.md`; `compare.md` — for every universe company, where v2 differs from `data/companies` by > 5% (revenue,
      capex, total debt, shares).
 

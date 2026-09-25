@@ -2,8 +2,13 @@ name: Pipeline v2 (fmp pool - universe, fundamentals, filing library)
 
 # WHY THIS EXISTS (owner, 24 Sep 2026). fmp now reads deeply every US company worth >= $22.7B and buys by market
 # value, and the old jobs (sec.yml's every-filer build + the daily patch + events) kept feeding those reads wrong debt,
-# capex, revenue and share counts. This one job does it all for that pool: 2 bulk SEC downloads, our own market value
-# from every share class on the latest cover, corrected fundamentals, and the filing library.
+# capex, revenue and share counts. This one job does it all for that pool: 2 bulk SEC downloads, share counts from
+# every class on the latest cover, corrected fundamentals, and the filing library.
+#
+# NO PRICES (owner, 25 Sep 2026: "we shouldn't be using yahoo for anything anymore"): which companies to keep is
+# decided from SEC figures alone (pipeline_v2.size_gate); fmp prices them with Robinhood.
+# SPEED: the cover XBRL instances are kept across runs (actions/cache, work/v2/xbrl), so a normal night fetches only
+# the new 10-Qs and 10-Ks, 6 at a time under the shared 8 requests/s.
 #
 # LIBRARY (owner, 25 Sep 2026: "fetch everything"): library.py keeps EVERY filing of the last 3 years and every document
 # in it, per company, as RELEASE ASSETS on the `library` tag (<cik>.tar.gz + index.json), not in a git branch.
@@ -61,7 +66,15 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install --quiet requests yfinance pandas pypdf pytest
+        run: pip install --quiet requests pandas pypdf pytest
+
+      - name: Restore the cover-instance cache
+        # a new key each run (caches are immutable); restore-keys picks up the latest one
+        uses: actions/cache@v4
+        with:
+          path: work/v2/xbrl
+          key: v2-xbrl-${{ github.run_id }}
+          restore-keys: v2-xbrl-
 
       - name: Refuse an empty script
         run: |

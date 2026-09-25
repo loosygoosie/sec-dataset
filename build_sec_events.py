@@ -34,6 +34,7 @@ import json
 import os
 import re
 import sys
+import threading
 import time
 from collections import defaultdict
 from datetime import date, datetime, timedelta, timezone
@@ -60,13 +61,19 @@ BACKFILL_ALL = os.environ.get("BACKFILL_ALL", "").strip().lower() in ("1", "true
 CIK_OVERRIDES_PATH = OUT_DIR / "cik_overrides.json"   # hand-maintained; shared with build_sec_dataset.py
 
 _last = [0.0]
+_slot = threading.Lock()
+
+
 def get(url: str, retries: int = 4, timeout: int = 60) -> requests.Response | None:
+    """~8 requests/second in total, under the SEC's 10/s, also when several threads call it (each takes the next
+    0.12 s slot under a lock, then requests outside it)."""
     for i in range(retries):
-        gap = time.time() - _last[0]
-        if gap < 0.12:                        # ~8 requests/second, under the SEC's 10/s
-            time.sleep(0.12 - gap)
+        with _slot:
+            gap = time.time() - _last[0]
+            if gap < 0.12:
+                time.sleep(0.12 - gap)
+            _last[0] = time.time()
         r = requests.get(url, headers=HEADERS, timeout=timeout)
-        _last[0] = time.time()
         if r.status_code == 200:
             return r
         if r.status_code == 404:

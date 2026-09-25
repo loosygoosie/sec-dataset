@@ -13,14 +13,21 @@ Steps (main()):
  1. SEC bulk files, 2 requests: submissions.zip and companyfacts.zip (streamed to work/v2, read entry by entry).
     ONLY_TICKERS=AAPL,HEI (a development run) uses the per-company APIs instead, cached in work/v2/api.
  2. Universe: a 10-Q in the last 400 days, a listed common-stock ticker (no preferred / warrant / unit / right
-    lines, no OTC), not a partnership (L.P.), not a commodity trust (SIC 6221), revenue on file, market value >=
-    UNIVERSE_MIN ($15B, a cushion under S&P's $22.7B). Market value = Yahoo close x shares from the latest 10-Q/10-K
-    COVER, every class added up (dei:EntityCommonStockSharesOutstanding by class in the filing's XBRL), times the
-    Yahoo splits after the cover date, class weights (data/v2/share_class_weights.csv: Berkshire A = 1,500 B) and
-    ADS ratios (data/v2/ads_ratio.csv). Checked against Yahoo's market cap: beyond 3x Yahoo's is used and flagged.
- 3. Filing library (library.py, 25 Sep 2026): EVERY filing of the last 3 years and every document in it, for every
-    universe company, as release assets on the `library` tag (one <cik>.tar.gz each), checked against EDGAR's count.
-    The per-company filing lists come from submissions.zip (step 1), so finding the new filings costs no requests.
+    lines, no OTC), not a partnership (L.P.), not a commodity trust (SIC 6221), revenue on file, and SEC figures
+    that say the company COULD be S&P-sized (size_gate: public float >= $2B, or total assets >= $5B, or annual
+    revenue >= $1B, or no public float reported in the last 18 months, e.g. a recent IPO). NO PRICES here (owner,
+    25 Sep 2026: no Yahoo for anything; Robinhood is where we invest): fmp multiplies shares_total by its Robinhood
+    price and draws S&P's $22.7B line itself. The rule missed none of the 420 companies in fmp's pool worth
+    >= $15B on 25 Sep 2026 (a float-only line would have missed 8: BE, ARES, UI, RKT, SUNB, FOXA, ECHO, PPL).
+    shares_total = the latest 10-Q/10-K COVER, every class added up (dei:EntityCommonStockSharesOutstanding by
+    class in the filing's XBRL), with class weights (data/v2/share_class_weights.csv: Berkshire A = 1,500 B) and
+    ADS ratios (data/v2/ads_ratio.csv). A split after the cover date is not applied here: fmp's Robinhood market
+    value alarm catches it. Cover instances are fetched in parallel (6 threads, 8 requests/s in total) and cached
+    in work/v2/xbrl across runs (actions/cache), so a normal night fetches only the new 10-Qs and 10-Ks.
+ 3. Filing library (library.py, 25 Sep 2026): the filings that matter (library.KEEP_FORMS) of the last 3 years and
+    every document in them, as release assets on the `library` tag (one <cik>.tar.gz each), for the companies in
+    data/v2/pool.txt (fmp's pool, one ticker per line) or, without that file, the universe companies with a public
+    float >= $15B. The per-company filing lists come from submissions.zip (step 1): finding new filings is free.
  4. Fundamentals from companyfacts, point in time (each value keeps the form and the date it was first public, and
     the first-filed value when later restated), annual + quarterly + TTM, with the tag used per field. The latest
     10-K and 10-Q XBRL instances (from the library) fill a quarter companyfacts lacks (CNP's Q2) and supply the
@@ -29,7 +36,7 @@ Steps (main()):
     universe.csv, changes.jsonl (appended), report.md, compare.md (v2 vs the old
     data/companies file: debt, capex, revenue and shares that differ by > 5%; the parallel week is judged on it).
 
-Env: SEC_USER_AGENT (required), ONLY_TICKERS, LIMIT (largest n companies), UNIVERSE_MIN, LIBRARY=false (skip step 3),
+Env: SEC_USER_AGENT (required), ONLY_TICKERS, LIMIT (largest n companies by public float), LIBRARY=false (skip step 3),
 LIBRARY_MINUTES / MAX_NEW_FILINGS / LIBRARY_YEARS / LIBRARY_TAG (library.py), GH_TOKEN (to publish the library;
 without it the assets stay in work/library/assets), SEC_MIN_GAP (seconds between SEC requests; 0.5 when sharing
 the limit from a workstation), V2_OUT (default data/v2), V2_WORK (default work/v2).
@@ -43,9 +50,11 @@ import json
 import os
 import re
 import sys
+import threading
 import time
 import zipfile
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import build_sec_events as _ev
@@ -57,9 +66,12 @@ WORK = Path(os.environ.get("V2_WORK", "work/v2"))
 OLD = Path("data/companies")
 CONF = Path("data/v2")                 # the two hand-kept CSVs (copied from fmp/owner/data), whatever V2_OUT is
 STORE = Path(os.environ.get("FILINGS_STORE", "filings-store"))
-UNIVERSE_MIN = float(os.environ.get("UNIVERSE_MIN", "15e9"))
-SP_MIN = 22.7e9                        # S&P's minimum market value for adding a company (fmp's pool line)
-PRELIM_MIN = 3e9                       # companyfacts-shares estimate (one class only) that earns a Yahoo check
+# size_gate: SEC figures that say a company COULD be worth S&P's $22.7B (fmp draws the line with Robinhood prices)
+FLOAT_MIN, ASSETS_MIN, REVENUE_MIN = 2e9, 5e9, 1e9
+FLOAT_DAYS = 550                       # a public float filed longer ago than this counts as none
+STALE_DAYS = 800                       # assets / revenue for a period ending longer ago than this are ignored
+LIBRARY_FLOAT_MIN = 15e9               # library without data/v2/pool.txt: public float >= this
+THREADS = 6                            # cover instances in flight at once, under build_sec_events' shared 8/s
 ONLY = [t.strip().upper() for t in os.environ.get("ONLY_TICKERS", "").split(",") if t.strip()]
 LIMIT = int(os.environ.get("LIMIT", "0") or 0)
 LIBRARY = os.environ.get("LIBRARY", "true").strip().lower() not in ("0", "false", "no")
@@ -73,14 +85,13 @@ PERIODIC = ("10-K", "10-Q", "10-KT", "10-QT")
 COVER = "dei:EntityCommonStockSharesOutstanding"
 
 if MIN_GAP > 0.12:                     # slower than build_sec_events' 8/s, for runs that share the SEC limit
-    _raw_get, _last = _ev.get, [0.0]
+    _raw_get, _last, _gap_lock = _ev.get, [0.0], threading.Lock()
 
     def _slow_get(url, *a, **k):
-        time.sleep(max(0.0, MIN_GAP - (time.time() - _last[0])))
-        try:
-            return _raw_get(url, *a, **k)
-        finally:
+        with _gap_lock:
+            time.sleep(max(0.0, MIN_GAP - (time.time() - _last[0])))
             _last[0] = time.time()
+        return _raw_get(url, *a, **k)
     _ev.get = _slow_get
 
 
@@ -523,7 +534,7 @@ def load_ads(path: Path) -> dict:
 
 def shares_total(by_class: dict, ticker: str, weights: dict, ads: dict, split: float = 1.0) -> float | None:
     """Shares in units of the listed ticker: every class added up, a class worth N listed shares counted N times,
-    times the splits after the cover date, divided by the ADS ratio when the listing is an ADS."""
+    divided by the ADS ratio when the listing is an ADS (a split after the cover date: fmp's Robinhood alarm)."""
     if not by_class:
         return None
     n = 0.0
@@ -531,21 +542,6 @@ def shares_total(by_class: dict, ticker: str, weights: dict, ads: dict, split: f
         w = next((w for m, w in weights.get(ticker, []) if m.lower() in cls.lower()), 1.0)
         n += v * w
     return n * (split or 1.0) / ads.get(ticker, 1.0)
-
-
-def mcap_check(own: float | None, yahoo: float | None) -> tuple[float | None, str]:
-    """(market value used, check). Ours unless it is more than 3x off Yahoo's (a wrong class, scale or ADS: use
-    Yahoo's and flag); a gap over 15% is flagged either way."""
-    if not own and not yahoo:
-        return None, "no_value"
-    if not yahoo:
-        return own, "no_yahoo"
-    if not own:
-        return yahoo, "own_missing_used_yahoo"
-    r = own / yahoo
-    if r > 3 or r < 1 / 3:
-        return yahoo, f"off_{r:.2f}x_used_yahoo"
-    return own, ("ok" if abs(r - 1) <= 0.15 else f"gap_{(r - 1) * 100:+.0f}pct")
 
 
 # ================================================================ universe filters
@@ -590,7 +586,7 @@ def candidate(sub: dict, today: dt.date = TODAY) -> tuple[dict | None, str]:
         return None, "commodity_trust"
     return {"cik": int(sub["cik"]), "ticker": t, "tickers": sub.get("tickers"), "name": sub.get("name"),
             "sic": sub.get("sic"), "sic_description": sub.get("sicDescription"), "fye": sub.get("fiscalYearEnd"),
-            "latest": latest_periodic(sub)}, ""
+            "latest": latest_periodic(sub), "tenks": sum(f in ("10-K", "10-KT") for f in r.get("form", []))}, ""
 
 
 def cf_shares(cf: dict) -> float | None:
@@ -601,6 +597,43 @@ def cf_shares(cf: dict) -> float | None:
         return None
     last = max(f["end"] for f in fs)
     return float(max(f["val"] for f in fs if f["end"] == last))
+
+
+def _latest(fs: list[dict], annual: bool = False) -> tuple[float | None, str | None, str | None]:
+    """(value, period end, filed) of the latest fact; annual=True keeps full-year durations only."""
+    fs = [f for f in fs if f.get("val") is not None and f.get("end")
+          and (not annual or f.get("start") and 330 <= _days(f["start"], f["end"]) <= 400)]
+    if not fs:
+        return None, None, None
+    f = max(fs, key=lambda f: (f["end"], f.get("filed", "")))
+    return float(f["val"]), f["end"], f.get("filed")
+
+
+def size_signals(cf: dict) -> dict:
+    """The SEC figures size_gate reads: public float (dei, the 10-K cover), total assets, annual revenue."""
+    facts = (cf or {}).get("facts", {})
+    g = facts.get("us-gaap", {})
+    usd = lambda d, t: d.get(t, {}).get("units", {}).get("USD", [])            # noqa: E731
+    fl, fl_end, fl_filed = _latest(usd(facts.get("dei", {}), "EntityPublicFloat"))
+    recent = lambda x: x[0] if x[1] and _days(x[1], str(TODAY)) <= STALE_DAYS else None   # noqa: E731
+    assets = recent(_latest(usd(g, "Assets")))
+    revs = [recent(_latest(usd(g, t), annual=True)) for t in [RFCWC, *REV_TOTAL, *REV_OTHER]]
+    rev = max((v for v in revs if v), default=None)
+    return {"public_float": fl, "float_date": fl_end, "float_filed": fl_filed, "assets": assets, "revenue": rev}
+
+
+def size_gate(sig: dict, tenks: int = 0, today: dt.date = TODAY) -> str | None:
+    """Why the company could be S&P-sized ('float' / 'assets' / 'revenue' / 'no_float'), or None. No prices."""
+    fresh = sig.get("public_float") and sig.get("float_filed") and _days(sig["float_filed"], str(today)) <= FLOAT_DAYS
+    if fresh and sig["public_float"] >= FLOAT_MIN:
+        return "float"
+    if (sig.get("assets") or 0) >= ASSETS_MIN:
+        return "assets"
+    if (sig.get("revenue") or 0) >= REVENUE_MIN:
+        return "revenue"
+    if not fresh and tenks <= 1:                    # a recent IPO: no float on a 10-K yet
+        return "no_float"
+    return None
 
 
 # ================================================================ change log and comparison
@@ -630,20 +663,15 @@ def company_changes(prev: dict | None, new: dict) -> list[dict]:
 
 
 def universe_changes(prev: dict, new: dict) -> list[dict]:
-    """prev/new: {cik: universe row}. Entering/leaving, and market value crossing S&P's $22.7B line."""
+    """prev/new: {cik: universe row}. Entering and leaving (S&P's $22.7B line is fmp's, on Robinhood prices)."""
     out = []
     for cik in sorted(set(prev) | set(new)):
         p, n = prev.get(cik), new.get(cik)
         row = {"date": str(TODAY), "cik": int(cik), "ticker": (n or p)["ticker"]}
         if p is None:
-            out.append(dict(row, type="entered_universe", mcap=n["mcap_used"]))
+            out.append(dict(row, type="entered_universe", gate=n.get("gate")))
         elif n is None:
-            out.append(dict(row, type="left_universe", mcap=p["mcap_used"]))
-        else:
-            a, b = float(p["mcap_used"] or 0), float(n["mcap_used"] or 0)
-            if (a >= SP_MIN) != (b >= SP_MIN):
-                out.append(dict(row, type="crossed_sp500_line", direction="up" if b >= SP_MIN else "down",
-                                old=a, new=b))
+            out.append(dict(row, type="left_universe"))
     return out
 
 
@@ -776,8 +804,34 @@ class Sources:
             return None
 
 
+def _cached(cik: int, accn: str) -> Path | None:
+    for p in (STORE / str(cik) / f"{accn}_xbrl.json.gz", WORK / "xbrl" / f"{cik}_{accn}.json.gz"):
+        if p.exists():
+            return p
+    return None
+
+
+def prefetch(pairs: set) -> int:
+    """Fetch the (cik, accn) instances not cached yet, THREADS at a time under the shared 8 requests/s."""
+    todo = sorted(p for p in pairs if not _cached(*p))
+    with ThreadPoolExecutor(THREADS) as ex:
+        list(ex.map(lambda p: instance(*p), todo))
+    return len(todo)
+
+
+def prune_cache(keep: set) -> int:
+    """Drop cached instances no universe company needs any more (the cache stays the size of the universe)."""
+    n = 0
+    for p in (WORK / "xbrl").glob("*.json.gz"):
+        cik, _, accn = p.name[:-len(".json.gz")].partition("_")
+        if (int(cik), accn) not in keep:
+            p.unlink(); n += 1
+    return n
+
+
 def instance(cik: int, accn: str) -> dict | None:
-    """A filing's XBRL facts: from the library when it has them, else work/v2/xbrl, else fetched (2 requests)."""
+    """A filing's XBRL facts: from the library when it has them, else work/v2/xbrl (kept across runs by the
+    workflow's cache), else fetched (2 requests)."""
     for p in (STORE / str(cik) / f"{accn}_xbrl.json.gz", WORK / "xbrl" / f"{cik}_{accn}.json.gz"):
         if p.exists():
             try:
@@ -814,51 +868,9 @@ def latest_two(sub: dict) -> list[dict]:
     return out
 
 
-# ================================================================ I/O: Yahoo
-def yahoo_prices(tickers: list[str]) -> dict:
-    """{ticker: (close, date, [(split date, ratio)])} from batched yfinance downloads (1 year, with actions)."""
-    import yfinance as yf
-    out = {}
-    for i in range(0, len(tickers), 100):
-        b = tickers[i:i + 100]
-        try:
-            h = yf.download(b, period="1y", progress=False, auto_adjust=False, actions=True, threads=True,
-                            group_by="column")
-        except Exception as e:                                      # noqa: BLE001
-            print(f"  price batch {i}: {type(e).__name__}"); continue
-        for t in b:
-            try:
-                c = h["Close"][t].dropna() if len(b) > 1 or t in h["Close"] else h["Close"].dropna()
-                if not len(c):
-                    continue
-                sp = h["Stock Splits"][t].fillna(0) if "Stock Splits" in h else None
-                splits = [(str(d.date()), float(x)) for d, x in sp.items() if x and x > 0] if sp is not None else []
-                out[t] = (float(c.iloc[-1]), str(c.index[-1].date()), splits)
-            except Exception:                                       # noqa: BLE001
-                pass
-    return out
-
-
-def yahoo_mcap(t: str) -> float | None:
-    try:
-        import yfinance as yf
-        v = yf.Ticker(t).fast_info["market_cap"]
-        return float(v) if v else None
-    except Exception:                                               # noqa: BLE001
-        return None
-
-
-def split_after(splits: list, date: str | None) -> float:
-    f = 1.0
-    for d, r in splits or []:
-        if date and d > date:
-            f *= r
-    return f
-
-
 # ================================================================ main
 def build_universe(src: Sources, weights: dict, ads: dict, report: dict) -> list[dict]:
-    cands, dropped = [], defaultdict(int)
+    cands, dropped, gates = [], defaultdict(int), defaultdict(int)
     for sub in src.submissions():
         c, why = candidate(sub)
         if c:
@@ -867,44 +879,41 @@ def build_universe(src: Sources, weights: dict, ads: dict, report: dict) -> list
         else:
             dropped[why] += 1
     print(f"candidates: {len(cands)} US 10-Q filers with a listed common ticker", flush=True)
-    for c in cands:
-        c["cf_shares"] = cf_shares(src.facts(c["cik"])) if not ONLY else None
-    px = yahoo_prices(sorted({c["ticker"] for c in cands}))
     uni = []
     for c in cands:
-        p = px.get(c["ticker"])
-        c["price"], c["price_date"], c["_splits"] = (p if p else (None, None, []))
-        pre = (c["price"] or 0) * (c["cf_shares"] or 0)
-        if ONLY or pre >= PRELIM_MIN or c["cf_shares"] is None:
-            c["mcap_yahoo"] = yahoo_mcap(c["ticker"])
-        else:
-            c["mcap_yahoo"] = None
-        if not ONLY and max(pre, c["mcap_yahoo"] or 0) < UNIVERSE_MIN * 0.66:
-            dropped["under_value_prescreen"] += 1
+        cf = src.facts(c["cik"])
+        c["size"] = size_signals(cf)
+        c["gate"] = size_gate(c["size"], c["tenks"]) if not ONLY else "only"
+        if not c["gate"]:
+            dropped["too_small_sec_figures"] += 1
             continue
+        c["cf_shares"] = cf_shares(cf)
+        gates[c["gate"]] += 1
+        uni.append(c)
+    uni.sort(key=lambda c: -(c["size"]["public_float"] or c["size"]["assets"] or 0))
+    if LIMIT:
+        uni = uni[:LIMIT]
+    need = {(c["cik"], f["accn"]) for c in uni for f in c["_two"] + ([c["latest"]] if c["latest"] else [])}
+    t = time.time()
+    report["instances_fetched"] = prefetch(need)
+    report["instances_needed"] = len(need)
+    print(f"cover instances: {report['instances_fetched']} fetched of {len(need)} needed ({time.time() - t:.0f}s)",
+          flush=True)
+    if not LIMIT and not ONLY:
+        report["instances_pruned"] = prune_cache(need)
+    for c in uni:
         cov_date, classes, cov = None, {}, c["latest"]
         if cov:
             x = instance(c["cik"], cov["accn"])
             cov_date, classes = cover_classes(x) if x else (None, {})
         c["cover_date"], c["classes"] = cov_date, classes
-        c["split"] = split_after(c["_splits"], cov_date)
-        raw = sum(classes.values()) if classes else None
-        c["shares_cover"] = raw
-        c["shares_total"] = shares_total(classes, c["ticker"], weights, ads, c["split"])
-        own = c["price"] * c["shares_total"] if c["price"] and c["shares_total"] else None
-        if own is None and c["price"] and c["cf_shares"]:
-            own = c["price"] * c["cf_shares"] / ads.get(c["ticker"], 1.0)
+        c["shares_cover"] = sum(classes.values()) if classes else None
+        c["shares_total"] = shares_total(classes, c["ticker"], weights, ads)
+        if c["shares_total"] is None and c["cf_shares"]:
+            c["shares_total"] = c["cf_shares"] / ads.get(c["ticker"], 1.0)
             c["cover_note"] = "cover unreadable: companyfacts shares"
-        c["mcap_own"] = own
-        c["mcap_used"], c["mcap_check"] = mcap_check(own, c["mcap_yahoo"])
-        if (c["mcap_used"] or 0) >= UNIVERSE_MIN:
-            uni.append(c)
-        else:
-            dropped["under_value"] += 1
-    uni.sort(key=lambda c: -(c["mcap_used"] or 0))
-    if LIMIT:
-        uni = uni[:LIMIT]
     report["dropped"] = dict(dropped)
+    report["gates"] = dict(gates)
     return uni
 
 
@@ -959,10 +968,20 @@ def write_tickers() -> int:
     return len(out)
 
 
+def library_companies(uni: list[dict]) -> list[dict]:
+    """fmp's pool (data/v2/pool.txt, one ticker per line) when that file exists, else public float >= $15B."""
+    p = CONF / "pool.txt"
+    if p.exists():
+        want = {t.strip().upper().replace(".", "-") for t in p.read_text().split() if t.strip()}
+        return [c for c in uni if c["ticker"] in want]
+    return [c for c in uni if (c["size"]["public_float"] or 0) >= LIBRARY_FLOAT_MIN]
+
+
 def run_library(uni: list[dict], changes: list, src: Sources) -> dict:
-    """library.run for the universe; its new-filing entries join data/v2/changes.jsonl with source=library."""
+    """library.run for library_companies; its new-filing entries join data/v2/changes.jsonl with source=library."""
     lib_changes: list = []
-    stats = lib.run([dict(cik=c["cik"], ticker=c["ticker"], name=c["name"], mcap=c["mcap_used"]) for c in uni],
+    stats = lib.run([dict(cik=c["cik"], ticker=c["ticker"], name=c["name"], mcap=c["size"]["public_float"])
+                     for c in library_companies(uni)],
                     lib_changes, src.submission, src.submission_page, full=not LIMIT and not ONLY)
     changes += [dict(ch, source="library") for ch in lib_changes]
     return stats
@@ -982,22 +1001,22 @@ def company_record(c: dict, src: Sources) -> dict | None:
             "sic_description": c["sic_description"], "fiscal_year_end": c["fye"],
             "latest_filing": lf, "instances_merged": merged,
             "market": {"shares_total": c["shares_total"], "shares_cover": c["shares_cover"], "classes": c["classes"],
-                       "cover_date": c["cover_date"], "cover_accession": lf.get("accn"), "split_after_cover": c["split"],
-                       "ads_ratio": None, "note": c.get("cover_note")},
+                       "cover_date": c["cover_date"], "cover_accession": lf.get("accn"),
+                       "ads_ratio": None, "note": c.get("cover_note"), "size_gate": c["gate"], **c["size"]},
             **fund}
 
 
-UNI_COLS = ["ticker", "cik", "name", "price", "shares_total", "classes", "mcap_own", "mcap_yahoo", "mcap_used",
-            "mcap_check", "price_date", "cover_date", "cover_form", "split_after_cover", "sic"]
+UNI_COLS = ["ticker", "cik", "name", "gate", "shares_total", "classes", "cover_date", "cover_form", "public_float",
+            "float_date", "assets", "revenue", "sic"]
 
 
 def _uni_row(c: dict) -> dict:
-    return {"ticker": c["ticker"], "cik": c["cik"], "name": c["name"], "price": c["price"],
+    z = c["size"]
+    return {"ticker": c["ticker"], "cik": c["cik"], "name": c["name"], "gate": c["gate"],
             "shares_total": None if c["shares_total"] is None else round(c["shares_total"]),
-            "classes": json.dumps(c["classes"], sort_keys=True), "mcap_own": _r(c["mcap_own"]),
-            "mcap_yahoo": _r(c["mcap_yahoo"]), "mcap_used": _r(c["mcap_used"]), "mcap_check": c["mcap_check"],
-            "price_date": c["price_date"], "cover_date": c["cover_date"], "cover_form": (c["latest"] or {}).get("form"),
-            "split_after_cover": c["split"], "sic": c["sic"]}
+            "classes": json.dumps(c["classes"], sort_keys=True), "cover_date": c["cover_date"],
+            "cover_form": (c["latest"] or {}).get("form"), "public_float": _r(z["public_float"]),
+            "float_date": z["float_date"], "assets": _r(z["assets"]), "revenue": _r(z["revenue"]), "sic": c["sic"]}
 
 
 def _r(x):
@@ -1018,7 +1037,7 @@ def main() -> int:
     report: dict = {}
     src = Sources()
     uni = build_universe(src, weights, ads, report)
-    print(f"universe: {len(uni)} companies >= ${UNIVERSE_MIN / 1e9:.1f}B ({time.time() - t0:.0f}s)", flush=True)
+    print(f"universe: {len(uni)} companies that could be S&P-sized ({time.time() - t0:.0f}s)", flush=True)
     changes: list = []
     report["events"] = write_events(uni, src)
     report["tickers"] = write_tickers() if not ONLY else 0
@@ -1105,29 +1124,27 @@ def write_report(report: dict, recs: list, excluded: list, changes: list, secs: 
     cov = {f: sum(1 for _, r in recs if f in r["ttm"]) for f in ("revenue", "net_income", "operating_cash_flow",
                                                                   "capex", "stock_comp", "shares_diluted")}
     debt = sum(1 for _, r in recs if r["balance"].get("total_debt") is not None)
-    checks = [(c, c["mcap_check"]) for c, _ in recs if c["mcap_check"] != "ok"]
     ctypes = defaultdict(int)
     for ch in changes:
         ctypes[ch["type"]] += 1
     L = [f"# Pipeline v2 {TODAY}", "", f"- run: {secs / 60:.0f} min" + (f"; ONLY_TICKERS={','.join(ONLY)}" if ONLY else "")
          + (f"; LIMIT={LIMIT}" if LIMIT else ""),
-         f"- universe: {n} companies >= ${UNIVERSE_MIN / 1e9:.1f}B, of which {sum(1 for c, _ in recs if (c['mcap_used'] or 0) >= SP_MIN)} "
-         f">= ${SP_MIN / 1e9:.1f}B (S&P size)",
+         f"- universe: {n} companies that could be S&P-sized (no prices: fmp draws the $22.7B line with Robinhood's); "
+         "by size gate: " + ", ".join(f"{k} {v}" for k, v in sorted(report.get("gates", {}).items())),
+         f"- cover instances: {report.get('instances_fetched')} fetched of {report.get('instances_needed')} needed "
+         f"(the rest from the cache); {report.get('instances_pruned', 0)} dropped from the cache",
          "- dropped before the universe: " + ", ".join(f"{k} {v}" for k, v in sorted(report.get("dropped", {}).items())),
          f"- TTM coverage: " + ", ".join(f"{k} {v}/{n}" for k, v in cov.items()) + f"; total_debt {debt}/{n}",
          "- changes this run: " + (", ".join(f"{k} {v}" for k, v in sorted(ctypes.items())) or "none"),
          ""]
     L += lib.report_lines(report.get("library")) + ["", "## Excluded after the fundamentals", ""]
     L += [f"- {c['ticker']} {c['name']}: {why}" for c, why in excluded] or ["- none"]
-    L += ["", "## Market value checks (not ok)", "", "| ticker | own | yahoo | used | check |", "|---|---|---|---|---|"]
-    L += [f"| {c['ticker']} | {_fmt(c['mcap_own'])} | {_fmt(c['mcap_yahoo'])} | {_fmt(c['mcap_used'])} | {ck} |"
-          for c, ck in checks]
     L += ["", "## Data flags", ""]
     L += [f"- {c['ticker']}: {', '.join(r['flags'])}" for c, r in recs if r["flags"]] or ["- none"]
-    L += ["", "## Largest 25", "", "| ticker | market value | revenue TTM | capex TTM | total debt | shares |",
+    L += ["", "## Largest 25 by public float", "", "| ticker | public float | revenue TTM | capex TTM | total debt | shares |",
           "|---|---|---|---|---|---|"]
     for c, r in recs[:25]:
-        L.append(f"| {c['ticker']} | {_fmt(c['mcap_used'])} | {_fmt((r['ttm'].get('revenue') or {}).get('val'))} | "
+        L.append(f"| {c['ticker']} | {_fmt(c['size']['public_float'])} | {_fmt((r['ttm'].get('revenue') or {}).get('val'))} | "
                  f"{_fmt((r['ttm'].get('capex') or {}).get('val'))} | {_fmt(r['balance'].get('total_debt'))} | "
                  f"{_fmt(c['shares_total'])} |")
     (OUT / "report.md").write_text("\n".join(L) + "\n")
