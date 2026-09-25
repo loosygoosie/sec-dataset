@@ -941,9 +941,19 @@ def alarms(recs: list, changes: list) -> list[str]:
     out = [f"- BIG COMPANY LEFT THE UNIVERSE: {ch['ticker']} (cik {ch['cik']}, float {ch['public_float'] / 1e9:,.1f}B)"
            for ch in changes if ch.get("type") == "ALARM_big_company_left"]
     for c, r in recs:
-        bad = [f for f in r.get("flags", []) if f.startswith(("no_revenue", "short_history", "build_error", "reports_in_"))]
+        bad = [f for f in r.get("flags", []) if f.startswith(("short_history", "build_error"))]
         if bad and c.get("gate") in ("float", "assets"):
             out.append(f"- {c['ticker']}: {', '.join(bad)} (a big company: fix or add to data/v2/predecessors.csv)")
+    # big companies with NO revenue at all: mostly funds, trusts and pre-revenue companies (ARCC, NLY, SPCX), but a
+    # company that moved to a new SEC registrant looks exactly like this (XOM before predecessors.csv): one line to scan
+    norev = sorted(c["ticker"] for c, r in recs if "no_revenue" in r.get("flags", []) and c.get("gate") in ("float", "assets"))
+    if norev:
+        out.append(f"- big companies with no revenue ({len(norev)}; funds / pre-revenue are expected, anything you "
+                   f"recognise as an operating company is a drop): {', '.join(norev)}")
+    cur = sorted(f"{c['ticker']} ({f[11:]})" for c, r in recs for f in r.get("flags", []) if f.startswith("reports_in_")
+                 and c.get("gate") in ("float", "assets"))
+    if cur:
+        out.append(f"- big companies reporting in another currency (not read): {', '.join(cur)}")
     for flag, what in (("debt_too_small_for_interest", "interest is over 25% of the debt v2 found"),):
         hit = [c["ticker"] for c, r in recs if flag in r.get("flags", [])]
         if hit:
@@ -1486,7 +1496,7 @@ def main() -> int:
         rec["market"]["ads_ratio"] = ads.get(c["ticker"])
         if "revenue" not in rec["ttm"] and not any(f.startswith("build_error") for f in rec["flags"]):
             why = currency_note(src.facts(c["cik"])) or "no_revenue"
-            rec["flags"] = rec["flags"] + [why]
+            rec["flags"] = [f for f in rec["flags"] if f != "no_revenue"] + [why]
             excluded.append((c, f"{why} (file written, flagged)"))
         ie = next((a.get("interest_expense") for a in reversed(rec.get("annual", [])) if a.get("interest_expense")), None)
         if rec.get("bank"):                     # a bank's interest expense is mostly on deposits, not debt
@@ -1496,7 +1506,8 @@ def main() -> int:
         td = rec.get("balance", {}).get("total_debt")
         if td and ie and ie > INTEREST_NO_DEBT and ie > 0.25 * td:     # ED: 0.97B found, ~1.2B of interest a year
             rec["flags"] = rec["flags"] + ["debt_too_small_for_interest"]
-        big = (c.get("gate") in ("float", "assets")) and sum(1 for r in rec.get("v2_annual", []) if r.get("revenue")) < 2
+        years = sum(1 for r in rec.get("v2_annual", []) if r.get("revenue"))
+        big = c.get("gate") in ("float", "assets") and 0 < years < 2        # revenue, but under 2 years of it
         if big and int(c["cik"]) not in PREDECESSORS:
             rec["flags"] = rec["flags"] + ["short_history"]            # a big company with < 2 years: a new
                                                                         # registrant (XOM)? add it to predecessors.csv
