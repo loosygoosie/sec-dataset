@@ -1,0 +1,1382 @@
+# Pipeline v2 2026-09-25
+
+- run: 26 min
+- universe: 1935 companies that could be S&P-sized (no prices: fmp draws the $22.7B line with Robinhood's); by size gate: assets 235, float 1378, no_float 334, revenue 327
+- cover instances: 4352 fetched of 4352 needed (the rest from the cache); 0 dropped from the cache
+- dropped before the universe: commodity_trust 92, no_listed_common_ticker 782, no_recent_10q 165, partnership 40, too_small_sec_figures 2153
+- TTM coverage: revenue 1935/1935, net_income 1935/1935, operating_cash_flow 1935/1935, capex 1845/1935, stock_comp 1890/1935, shares_diluted 1906/1935; total_debt 1499/1935
+- changes this run: none
+
+## Filing library
+
+- skipped this run
+
+## Excluded after the fundamentals
+
+- XOM ExxonMobil Holdings Corp: no revenue (fund / trust / shell)
+- SPCX SPACE EXPLORATION TECHNOLOGIES CORP: no revenue (fund / trust / shell)
+- ENB ENBRIDGE INC: no revenue (fund / trust / shell)
+- CP CANADIAN PACIFIC KANSAS CITY LTD/CN: no revenue (fund / trust / shell)
+- HONA Honeywell Aerospace Inc.: no revenue (fund / trust / shell)
+- ARCC ARES CAPITAL CORP: no revenue (fund / trust / shell)
+- MBGL Mobility Global Inc.: no revenue (fund / trust / shell)
+- CLBK Columbia Financial, Inc./MD/: no revenue (fund / trust / shell)
+- NLY ANNALY CAPITAL MANAGEMENT INC: no revenue (fund / trust / shell)
+- CBRS Cerebras Systems Inc.: no revenue (fund / trust / shell)
+- FRBT Forbright, Inc.: no revenue (fund / trust / shell)
+- MAIR Madison Air Solutions Corp: no revenue (fund / trust / shell)
+- GMRS GMR Solutions Inc.: no revenue (fund / trust / shell)
+- OBDC Blue Owl Capital Corp: no revenue (fund / trust / shell)
+- ARXS Arxis, Inc.: no revenue (fund / trust / shell)
+- OKLO Oklo Inc.: no revenue (fund / trust / shell)
+- BXSL Blackstone Secured Lending Fund: no revenue (fund / trust / shell)
+- OTF Blue Owl Technology Finance Corp.: no revenue (fund / trust / shell)
+- OCTV Octave Intelligence plc: no revenue (fund / trust / shell)
+- APA APA Corp: no revenue (fund / trust / shell)
+- BTGO BITGO HOLDINGS, INC.: no revenue (fund / trust / shell)
+- CSQR Csquare, Inc.: no revenue (fund / trust / shell)
+- FSK FS KKR Capital Corp: no revenue (fund / trust / shell)
+- INIO INNIO N.V.: no revenue (fund / trust / shell)
+- VGNT Versigent PLC: no revenue (fund / trust / shell)
+- MAIN Main Street Capital CORP: no revenue (fund / trust / shell)
+- JAN Janus Living, Inc.: no revenue (fund / trust / shell)
+- ADIG ADI GLOBAL DISTRIBUTION INC.: no revenue (fund / trust / shell)
+- MC Moelis & Co: no revenue (fund / trust / shell)
+- GBDC GOLUB CAPITAL BDC, Inc.: no revenue (fund / trust / shell)
+- PCVX Vaxcyte, Inc.: no revenue (fund / trust / shell)
+- NUVL Nuvalent, Inc.: no revenue (fund / trust / shell)
+- FRVO Fervo Energy Co: no revenue (fund / trust / shell)
+- FCBM First Carolina Financial Services, Inc.: no revenue (fund / trust / shell)
+- SKT TANGER INC.: no revenue (fund / trust / shell)
+- HTGC Hercules Capital, Inc.: no revenue (fund / trust / shell)
+- QNT Quantinuum Inc.: no revenue (fund / trust / shell)
+- QS QuantumScape Corp: no revenue (fund / trust / shell)
+- PBAM Private Bancorp of America, Inc.: no revenue (fund / trust / shell)
+- XE X-Energy, Inc.: no revenue (fund / trust / shell)
+- BANR BANNER CORP: no revenue (fund / trust / shell)
+- TSLX Sixth Street Specialty Lending, Inc.: no revenue (fund / trust / shell)
+- MWH SOLV Energy, Inc.: no revenue (fund / trust / shell)
+- YSS York Space Systems Inc.: no revenue (fund / trust / shell)
+- YSWY Yesway, Inc.: no revenue (fund / trust / shell)
+- LFTO Liftoff Mobile, Inc.: no revenue (fund / trust / shell)
+- BXDC Blackstone Digital Infrastructure Trust Inc.: no revenue (fund / trust / shell)
+- BOBS Bob's Discount Furniture, Inc.: no revenue (fund / trust / shell)
+- DPC DPC Holdings PLC: no revenue (fund / trust / shell)
+- PS PERSHING SQUARE INC.: no revenue (fund / trust / shell)
+- LMRI Lumexa Imaging Holdings, Inc.: no revenue (fund / trust / shell)
+- EROK EagleRock Land, LLC: no revenue (fund / trust / shell)
+- FRMI Fermi Inc.: no revenue (fund / trust / shell)
+- NVRI Enviri Corp: no revenue (fund / trust / shell)
+- AADX Applied Aerospace & Defense, Inc.: no revenue (fund / trust / shell)
+- DX DYNEX CAPITAL INC: no revenue (fund / trust / shell)
+- ARR Armour Residential REIT, Inc.: no revenue (fund / trust / shell)
+- MFP Midera Food Processing, Inc.: no revenue (fund / trust / shell)
+- APC ARKO Petroleum Corp.: no revenue (fund / trust / shell)
+- HMH HMH Holding Inc: no revenue (fund / trust / shell)
+- AIAI AIAI Holdings Corp: no revenue (fund / trust / shell)
+- KLRA Kailera Therapeutics, Inc.: no revenue (fund / trust / shell)
+- LIME Neutron Holdings, Inc.: no revenue (fund / trust / shell)
+- PBLS Parabilis Medicines, Inc.: no revenue (fund / trust / shell)
+- CIM CHIMERA INVESTMENT CORP: no revenue (fund / trust / shell)
+- TWOD TWO HARBORS INVESTMENT CORP.: no revenue (fund / trust / shell)
+- ITG ITG, Inc./DE/: no revenue (fund / trust / shell)
+- REF Reformation Inc.: no revenue (fund / trust / shell)
+- LCLN Lincoln International, Inc.: no revenue (fund / trust / shell)
+- EROC ERock, Inc.: no revenue (fund / trust / shell)
+- AVEX AEVEX Corp.: no revenue (fund / trust / shell)
+- IOND Ionic Digital Inc.: no revenue (fund / trust / shell)
+- HAWK HawkEye 360, Inc.: no revenue (fund / trust / shell)
+- PSEC PROSPECT CAPITAL CORP: no revenue (fund / trust / shell)
+- ORC Orchid Island Capital, Inc.: no revenue (fund / trust / shell)
+- MANE Veradermics, Inc: no revenue (fund / trust / shell)
+- EIKN Eikon Therapeutics, Inc.: no revenue (fund / trust / shell)
+- BRUN Boost Run Inc.: no revenue (fund / trust / shell)
+- KARD Kardigan, Inc.: no revenue (fund / trust / shell)
+- RMIX Suncrete, Inc.: no revenue (fund / trust / shell)
+- PXED Phoenix Education Partners, Inc.: no revenue (fund / trust / shell)
+- ADAM ADAMAS TRUST, INC.: no revenue (fund / trust / shell)
+- GENB Generate Biomedicines, Inc.: no revenue (fund / trust / shell)
+- AKTS Aktis Oncology, Inc.: no revenue (fund / trust / shell)
+- WHK WhiteHawk Minerals Corp.: no revenue (fund / trust / shell)
+- DMII Drugs Made In America Acquisition II Corp.: no revenue (fund / trust / shell)
+- ODTX Odyssey Therapeutics, Inc.: no revenue (fund / trust / shell)
+- KREF KKR Real Estate Finance Trust Inc.: no revenue (fund / trust / shell)
+- BCSS Bain Capital GSS Investment Corp.: no revenue (fund / trust / shell)
+- COAG Hemab Therapeutics Holdings, Inc.: no revenue (fund / trust / shell)
+- SPTX Seaport Therapeutics, Inc.: no revenue (fund / trust / shell)
+- AVLN Avalyn Pharma Inc.: no revenue (fund / trust / shell)
+- SUJA SUJA LIFE, INC.: no revenue (fund / trust / shell)
+- CXII Churchill Capital Corp XII: no revenue (fund / trust / shell)
+- GCGR General Catalyst Global Resilience Merger Corp.: no revenue (fund / trust / shell)
+- ALMR Alamar Biosciences, Inc.: no revenue (fund / trust / shell)
+- MPLT MapLight Therapeutics, Inc.: no revenue (fund / trust / shell)
+- MLAA Mountain Lake Acquisition Corp. II: no revenue (fund / trust / shell)
+- LBRX LB PHARMACEUTICALS INC: no revenue (fund / trust / shell)
+- GHXIU Gores Holdings XI, Inc.: no revenue (fund / trust / shell)
+- BRR Silvia, Inc.: no revenue (fund / trust / shell)
+- KRSP Rice Acquisition Corp 3: no revenue (fund / trust / shell)
+- IACO Idea Acquisition Corp.: no revenue (fund / trust / shell)
+- AEXA American Exceptionalism Acquisition Corp. A: no revenue (fund / trust / shell)
+- APXT Apex Treasury Corp: no revenue (fund / trust / shell)
+- CRAN Crane Harbor Acquisition Corp. II: no revenue (fund / trust / shell)
+- NWAX New America Acquisition I Corp.: no revenue (fund / trust / shell)
+- MESH Meshflow Acquisition Corp: no revenue (fund / trust / shell)
+- KBON Karbon Capital Partners Corp.: no revenue (fund / trust / shell)
+- KRAQ KRAKacquisition Corp: no revenue (fund / trust / shell)
+- IEAG Infinite Eagle Acquisition Corp.: no revenue (fund / trust / shell)
+- SSMR Sunshine Silver Mining & Refining Co: no revenue (fund / trust / shell)
+- GUAC Berto Acquisition Corp. II: no revenue (fund / trust / shell)
+- MEVO M Evo Global Acquisition Corp II: no revenue (fund / trust / shell)
+- MZYX MOZAYYX Acquisition Corp.: no revenue (fund / trust / shell)
+- ALOV Aldabra 4 Liquidity Opportunity Vehicle, Inc.: no revenue (fund / trust / shell)
+- CLBR Colombier Acquisition Corp. III: no revenue (fund / trust / shell)
+- BBCQ Bleichroeder Acquisition Corp. II: no revenue (fund / trust / shell)
+- ZKP Lafayette Digital Acquisition Corp. I: no revenue (fund / trust / shell)
+- OIM OneIM Acquisition Corp.: no revenue (fund / trust / shell)
+- FVAV Fortress Value Acquisition Corp. V: no revenue (fund / trust / shell)
+- DBCA D. Boral Acquisition I Corp.: no revenue (fund / trust / shell)
+- HACQ HCM IV Acquisition Corp.: no revenue (fund / trust / shell)
+- KEYY Keystone Acquisition Corp.: no revenue (fund / trust / shell)
+- BCARU D. Boral ARC Acquisition I Corp.: no revenue (fund / trust / shell)
+- ACAA Averin Capital Acquisition Corp.: no revenue (fund / trust / shell)
+- ELMT Elmet Group Co.: no revenue (fund / trust / shell)
+- ARCI Archimedes Tech SPAC Partners III Co.: no revenue (fund / trust / shell)
+- RNA Atrium Therapeutics, Inc.: no revenue (fund / trust / shell)
+- CGCFU Cartesian Growth Corp IV: no revenue (fund / trust / shell)
+- CCII Cohen Circle Acquisition Corp. II: no revenue (fund / trust / shell)
+- HCMA HCM III ACQUISITION CORP.: no revenue (fund / trust / shell)
+- BDCI BTC Development Corp.: no revenue (fund / trust / shell)
+- ARTC Art Technology Acquisition Corp.: no revenue (fund / trust / shell)
+- SORN Soren Acquisition Corp.: no revenue (fund / trust / shell)
+- TLNC Talon Capital Corp.: no revenue (fund / trust / shell)
+- GIX GigCapital9 Corp.: no revenue (fund / trust / shell)
+- IPFX Inflection Point Acquisition Corp. VI: no revenue (fund / trust / shell)
+- CAII Collective Acquisition Corp. II: no revenue (fund / trust / shell)
+- DSAC Daedalus Special Acquisition Corp.: no revenue (fund / trust / shell)
+- IACQ Irenic Acquisition Corp.: no revenue (fund / trust / shell)
+- AACI Armada Acquisition Corp. III: no revenue (fund / trust / shell)
+- RREV RRE Ventures Acquisition Corp.: no revenue (fund / trust / shell)
+- CAES Cantor Equity Partners VII, Inc.: no revenue (fund / trust / shell)
+- EVOX Evolution Global Acquisition Corp: no revenue (fund / trust / shell)
+- SGP SpyGlass Pharma, Inc.: no revenue (fund / trust / shell)
+- XRPN Armada Acquisition Corp. II: no revenue (fund / trust / shell)
+- KOYN CSLM Digital Asset Acquisition Corp III, Ltd: no revenue (fund / trust / shell)
+- RNGT Range Capital Acquisition Corp II: no revenue (fund / trust / shell)
+- VHCP Vine Hill Capital Investment Corp. II: no revenue (fund / trust / shell)
+- VACI Viking Acquisition Corp I: no revenue (fund / trust / shell)
+- SAC Safeguard Acquisition Corp.: no revenue (fund / trust / shell)
+- GPAC General Purpose Acquisition Corp.: no revenue (fund / trust / shell)
+- ADAC American Drive Acquisition Co: no revenue (fund / trust / shell)
+- ITHA ITHAX Acquisition Corp III: no revenue (fund / trust / shell)
+- QLEP Quantum Leap Acquisition Corp: no revenue (fund / trust / shell)
+- LEGO Legato Merger Corp. IV: no revenue (fund / trust / shell)
+- SAAQ Space Asset Acquisition Corp.: no revenue (fund / trust / shell)
+- KCAC-UN Kensington Capital Acquisition Corp. VI: no revenue (fund / trust / shell)
+- MTAL Metals Acquisition Corp. II: no revenue (fund / trust / shell)
+- IPXG Inflection Point Acquisition Corp. VII: no revenue (fund / trust / shell)
+- CAQ Cambridge Acquisition Corp.: no revenue (fund / trust / shell)
+- AACO Abony Acquisition Corp. I: no revenue (fund / trust / shell)
+- SVIV Spring Valley Acquisition Corp. IV: no revenue (fund / trust / shell)
+- TMTS Spartacus Acquisition Corp. II: no revenue (fund / trust / shell)
+- IRHO Iron Horse Acquisition II Corp.: no revenue (fund / trust / shell)
+- KPET KPET Ultra Paceline Corp: no revenue (fund / trust / shell)
+- ILLU Illumination Acquisition Corp. I: no revenue (fund / trust / shell)
+- GSRV GSR V Acquisition Corp.: no revenue (fund / trust / shell)
+- USDE StableCoinX Inc.: no revenue (fund / trust / shell)
+- FGII FG Imperii Acquisition Corp.: no revenue (fund / trust / shell)
+- FTRA FutureCorp Space Acquisition 1: no revenue (fund / trust / shell)
+- YICC Yorkville International Capital Corp.: no revenue (fund / trust / shell)
+- WLCOU Wilco 63 Corp: no revenue (fund / trust / shell)
+- XCBE X3 Acquisition Corp. Ltd.: no revenue (fund / trust / shell)
+- ISNR Snow Rothschild Acquisition Corp.: no revenue (fund / trust / shell)
+- BIXI Bitcoin Infrastructure Acquisition Corp Ltd: no revenue (fund / trust / shell)
+- MTNE CH4 Natural Solutions Corp: no revenue (fund / trust / shell)
+- SIND Sinda Ltd.: no revenue (fund / trust / shell)
+- SVAQ Silicon Valley Acquisition Corp.: no revenue (fund / trust / shell)
+- ACGC ACP Holdings Acquisition Corp.: no revenue (fund / trust / shell)
+- SHOT RMG ML Sports Holdings: no revenue (fund / trust / shell)
+- QMLS QumulusAI, Inc.: no revenue (fund / trust / shell)
+- HCAC Hall Chadwick Acquisition Corp: no revenue (fund / trust / shell)
+- TRGS TRG Latin America Acquisitions Corp.: no revenue (fund / trust / shell)
+- XSLL Xsolla SPAC 1: no revenue (fund / trust / shell)
+- PAII Pyrophyte Acquisition Corp. II: no revenue (fund / trust / shell)
+- DNMX Dynamix Corp III: no revenue (fund / trust / shell)
+- MUZE Muzero Acquisition Corp: no revenue (fund / trust / shell)
+- VEL Velocity Financial, Inc.: no revenue (fund / trust / shell)
+- NHIV NewHold Investment Corp IV: no revenue (fund / trust / shell)
+- IPVV InterPrivate Investment Partners V, Inc.: no revenue (fund / trust / shell)
+- OFRM Once Upon a Farm, PBC: no revenue (fund / trust / shell)
+- QADR QDRO Acquisition Corp.: no revenue (fund / trust / shell)
+- APMD Apnimed, Inc.: no revenue (fund / trust / shell)
+- MOBI Mobia Medical, Inc.: no revenue (fund / trust / shell)
+- PARK Park Dental Partners, Inc.: no revenue (fund / trust / shell)
+- OHAC Oceanhawk Acquisition Corp.: no revenue (fund / trust / shell)
+- TRAX First Tracks Biotherapeutics, Inc.: no revenue (fund / trust / shell)
+- GTERA Globa Terra Acquisition Corp: no revenue (fund / trust / shell)
+- MKLY McKinley Acquisition Corp: no revenue (fund / trust / shell)
+- PTAC Patriot Acquisition Corp./CI: no revenue (fund / trust / shell)
+- DYOR Insight Digital Partners II: no revenue (fund / trust / shell)
+- TDWD Tailwind 2.0 Acquisition Corp.: no revenue (fund / trust / shell)
+- IGAC Invest Green Acquisition Corp: no revenue (fund / trust / shell)
+- BLRK Bluerock Acquisition Corp.: no revenue (fund / trust / shell)
+- BIII Black Spade Acquisition III Co: no revenue (fund / trust / shell)
+- LTGR Long Table Growth Corp.: no revenue (fund / trust / shell)
+- SUMA SUMA Acquisition Corp: no revenue (fund / trust / shell)
+- SSAC SPACSphere Acquisition Corp.: no revenue (fund / trust / shell)
+- AACP Apogee Acquisition Corp: no revenue (fund / trust / shell)
+- TVIV Texas Ventures Acquisition IV Corp: no revenue (fund / trust / shell)
+- SWRD Stewards, Inc.: no revenue (fund / trust / shell)
+- ATLQ JAB Acquisition Corp I: no revenue (fund / trust / shell)
+- IRAB Iris Acquisition Corp II: no revenue (fund / trust / shell)
+- PALO PALOMA ACQUISITION CORP I: no revenue (fund / trust / shell)
+- DGAC DISCIPLINED GROWTH ACQUISITION Corp: no revenue (fund / trust / shell)
+- IDAC Iron Dome Acquisition I Corp.: no revenue (fund / trust / shell)
+- BEBE TGE Value Creative Solutions Corp: no revenue (fund / trust / shell)
+- ETSS Energy Transition Special Opportunities: no revenue (fund / trust / shell)
+- HAVA Harvard Ave Acquisition Corp: no revenue (fund / trust / shell)
+- LFAC Leapfrog Acquisition Corp: no revenue (fund / trust / shell)
+- WLII Willow Lane Acquisition Corp. II: no revenue (fund / trust / shell)
+- STDN Standard Nuclear, Inc.: no revenue (fund / trust / shell)
+- APMC AmperCap Acquisition Co: no revenue (fund / trust / shell)
+- AESP Aeon Acquisition I Corp.: no revenue (fund / trust / shell)
+- AIIA AI Infrastructure Acquisition Corp.: no revenue (fund / trust / shell)
+- BID Tribeca Strategic Acquisition Corp.: no revenue (fund / trust / shell)
+- KTWO K2 Capital Acquisition Corp: no revenue (fund / trust / shell)
+- PAAC Proem Acquisition Corp. I: no revenue (fund / trust / shell)
+- BWIV Blue Water Acquisition Corp. IV: no revenue (fund / trust / shell)
+- CHEC Chenghe Acquisition III Co.: no revenue (fund / trust / shell)
+- ATTO Attovia Therapeutics, Inc.: no revenue (fund / trust / shell)
+- CTAA Clearthink 1 Acquisition Corp.: no revenue (fund / trust / shell)
+- BRVE Braveheart Bio, Inc.: no revenue (fund / trust / shell)
+- BLSM BlossomHill Therapeutics, Inc.: no revenue (fund / trust / shell)
+- ARCL ARC Group Acquisition I Corp.: no revenue (fund / trust / shell)
+- PONO Pono Capital Four, Inc.: no revenue (fund / trust / shell)
+- INAC Indigo Acquisition Corp.: no revenue (fund / trust / shell)
+- NMP NMP Acquisition Corp.: no revenue (fund / trust / shell)
+- SPEG Silver Pegasus Acquisition Corp.: no revenue (fund / trust / shell)
+- EMIS Emmis Acquisition Corp.: no revenue (fund / trust / shell)
+- WPAC White Pearl Acquisition Corp.: no revenue (fund / trust / shell)
+- LAFA LaFayette Acquisition Corp.: no revenue (fund / trust / shell)
+- LKSP Lake Superior Acquisition Corp: no revenue (fund / trust / shell)
+- WENC West Enclave Merger Corp.: no revenue (fund / trust / shell)
+- QRED QuasarEdge Acquisition Corp: no revenue (fund / trust / shell)
+- GLED GalaxyEdge Acquisition Corp: no revenue (fund / trust / shell)
+- CEPS Cantor Equity Partners VI, Inc.: no revenue (fund / trust / shell)
+- ALPX Alpex Acquisition Corp: no revenue (fund / trust / shell)
+- NREF NexPoint Real Estate Finance, Inc.: no revenue (fund / trust / shell)
+- TRAD APEX Tech Acquisition Inc.: no revenue (fund / trust / shell)
+- FMAC Future Money Acquisition Corp: no revenue (fund / trust / shell)
+- AVAT Avalanche Treasury Corp: no revenue (fund / trust / shell)
+- PLUN Plutonian Acquisition Corp. II: no revenue (fund / trust / shell)
+- OTAI Starlink AI Acquisition Corp: no revenue (fund / trust / shell)
+- UAC United Acquisition Corp. I: no revenue (fund / trust / shell)
+- APUR Aperture AC: no revenue (fund / trust / shell)
+- SBMT SILVER BOW MINING CORP.: no revenue (fund / trust / shell)
+- SCPQ Social Commerce Partners Corp: no revenue (fund / trust / shell)
+- REA Rare Earths Americas, Inc.: no revenue (fund / trust / shell)
+- RFAM RF Acquisition Corp III: no revenue (fund / trust / shell)
+- FTHA Forefront Tech Holdings Acquisition Corp: no revenue (fund / trust / shell)
+- VECA Vernal Capital Acquisition Corp.: no revenue (fund / trust / shell)
+- BHAV BHAV Acquisition Corp: no revenue (fund / trust / shell)
+- XFLH XFLH Capital Corp: no revenue (fund / trust / shell)
+- MYX Maywood Acquisition Corp. 2: no revenue (fund / trust / shell)
+- NKLR Terra Innovatum Global N.V.: no revenue (fund / trust / shell)
+- FXAC FortuneX Acquisition Corp: no revenue (fund / trust / shell)
+- FWAC Futurewave Acquisition Corp: no revenue (fund / trust / shell)
+- BRKH Burtech Acquisition Corp II: no revenue (fund / trust / shell)
+- CHPG ChampionsGate Acquisition Corp: no revenue (fund / trust / shell)
+- AMAN Amanat Acquisition Corp.: no revenue (fund / trust / shell)
+- RACC Research Alliance Corp III: no revenue (fund / trust / shell)
+- ORIQ Origin Investment Corp I: no revenue (fund / trust / shell)
+- MMTX Miluna Acquisition Corp: no revenue (fund / trust / shell)
+- GFUZ General Fusion Group Ltd.: no revenue (fund / trust / shell)
+- GLND Greenland Energy Co: no revenue (fund / trust / shell)
+- LTGO Latigo Biotherapeutics, Inc.: no revenue (fund / trust / shell)
+- JATT JATT II Acquisition Corp.: no revenue (fund / trust / shell)
+- ALIS Calisa Acquisition Corp: no revenue (fund / trust / shell)
+- PECE Peace Acquisition Corp.: no revenue (fund / trust / shell)
+- MCAH Mountain Crest Acquisition 6 Corp.: no revenue (fund / trust / shell)
+- NBRG Newbridge Acquisition Ltd: no revenue (fund / trust / shell)
+- APAC StoneBridge Acquisition II Corp: no revenue (fund / trust / shell)
+- BPAC Blueport Acquisition Ltd: no revenue (fund / trust / shell)
+- WSTN Westin Acquisition Corp: no revenue (fund / trust / shell)
+- SCTX Scribe Therapeutics, Inc.: no revenue (fund / trust / shell)
+- OBX Obsidian Therapeutics, Inc.: no revenue (fund / trust / shell)
+- BSEM BioStem Technologies, Inc.: no revenue (fund / trust / shell)
+- DMRC Digimarc Corp: no revenue (fund / trust / shell)
+- ENHA Enhanced Group Inc.: no revenue (fund / trust / shell)
+- NUCL Eagle Nuclear Energy Corp.: no revenue (fund / trust / shell)
+- SWMR Swarmer, Inc: no revenue (fund / trust / shell)
+- SEV Aptera Motors Corp: no revenue (fund / trust / shell)
+- AMSS AMASS BRANDS: no revenue (fund / trust / shell)
+- NUTR NUSATRIP Inc: no revenue (fund / trust / shell)
+- ADBT Advasa Holdings, Inc.: no revenue (fund / trust / shell)
+- VIDA VIDA Global Inc.: no revenue (fund / trust / shell)
+- FBDT First Breach, Inc.: no revenue (fund / trust / shell)
+- TTRX Turn Therapeutics Inc.: no revenue (fund / trust / shell)
+- PLYX Polaryx Therapeutics, Inc.: no revenue (fund / trust / shell)
+- EXYN Exyn Technologies, Inc.: no revenue (fund / trust / shell)
+- AAC-UN Ares Acquisition Corp III: no revenue (fund / trust / shell)
+- CNXU Conexeu Sciences Inc.: no revenue (fund / trust / shell)
+- CURX Curanex Pharmaceuticals Inc: no revenue (fund / trust / shell)
+- LABT Lakewood-Amedex Biotherapeutics Inc.: no revenue (fund / trust / shell)
+- CYAB CYABRA, INC.: no revenue (fund / trust / shell)
+- VOGX Vogenx, Inc.: no revenue (fund / trust / shell)
+- GYGY Game Your Game Inc.: no revenue (fund / trust / shell)
+- THEO BOA Acquisition Corp. II: no revenue (fund / trust / shell)
+- EWAV East West Ave Acquisition Corp.: no revenue (fund / trust / shell)
+- CAST FreeCast, Inc.: no revenue (fund / trust / shell)
+- SAMO-UN Samos Energy Acquisition Corp: no revenue (fund / trust / shell)
+- JONEU Jones Ventures INTL Acquisition1 Corp: no revenue (fund / trust / shell)
+- MRCO Mercator Acquisition Corp.: no revenue (fund / trust / shell)
+- RACD Research Alliance Corp IV: no revenue (fund / trust / shell)
+- BCCQ Bleichroeder Acquisition Corp. III: no revenue (fund / trust / shell)
+- BREZ Breeze Acquisition Corp. II: no revenue (fund / trust / shell)
+- OSPRU Osprey Acquisition Corp. III: no revenue (fund / trust / shell)
+- NCO Southern Cross Acquisition I Corp.: no revenue (fund / trust / shell)
+- MIACU Meridian3 Industrials Acquisition Corp: no revenue (fund / trust / shell)
+- AMACU AMR Resources Acquisition Corp.: no revenue (fund / trust / shell)
+- VII Viking Acquisition Corp. II: no revenue (fund / trust / shell)
+- BRTMU B&R Technology Merger Corp.: no revenue (fund / trust / shell)
+- FJDIU ARC Group Securities Acquisition I: no revenue (fund / trust / shell)
+- FDMM Freedom Metals Acquisition Corp.: no revenue (fund / trust / shell)
+- TCGX TCGX Acquisition Corp.: no revenue (fund / trust / shell)
+- MTAKU Market Technology Acquisition Corp: no revenue (fund / trust / shell)
+- CATLU Catalyst Acquisition Corp.: no revenue (fund / trust / shell)
+- CCCT Columbus Circle Capital Corp III: no revenue (fund / trust / shell)
+- TBCVU Thunder Bridge Capital Partners V, Ltd.: no revenue (fund / trust / shell)
+- SAGU Shreya Acquisition Group: no revenue (fund / trust / shell)
+- PNAQ-UN Pinnacle Acquisition Corp: no revenue (fund / trust / shell)
+- SECZ Securitize Corp.: no revenue (fund / trust / shell)
+- JMKE Jersey Mike's Subs Inc.: no revenue (fund / trust / shell)
+- FTW PRESIDIO PRODUCTION Co: no revenue (fund / trust / shell)
+- JBS JBS N.V.: no revenue (fund / trust / shell)
+- XPRO Expro Ltd: no revenue (fund / trust / shell)
+
+## Data flags
+
+- OLED: debt_one_side_only
+- ONTO: no_debt_tagged
+- MGRC: no_debt_tagged
+- ENVA: debt_one_side_only
+- CLSK: stale_revenue, debt_one_side_only
+- META: debt_one_side_only
+- TRMK: no_debt_tagged
+- HIVE: debt_one_side_only
+- BRK-B: no_debt_tagged
+- JPM: no_capex, debt_one_side_only
+- MCW: debt_one_side_only
+- ATHS: no_capex, stale_stock_comp, debt_one_side_only
+- BAC: no_capex
+- CIVB: no_debt_tagged
+- ORCL: no_debt_tagged
+- PLTR: no_debt_tagged
+- PM: stale_stock_comp
+- WFC: no_capex
+- CVX: debt_one_side_only
+- CRD-A: stale_shares_diluted
+- MCFT: no_debt_tagged
+- MS: no_capex, debt_one_side_only
+- GS: debt_one_side_only
+- MCD: debt_one_side_only
+- ISRG: no_debt_tagged
+- VZ: stale_capex, stale_stock_comp
+- CAT: no_debt_tagged
+- KLAC: debt_one_side_only
+- BLK: debt_one_side_only
+- C: stale_stock_comp
+- PGR: no_debt_tagged
+- SHOP: no_debt_tagged
+- ETN: stale_stock_comp
+- DE: debt_one_side_only
+- PANW: no_debt_tagged
+- MELI: stale_stock_comp
+- CB: no_capex, stale_stock_comp
+- VRTX: no_debt_tagged
+- TMUS: debt_one_side_only
+- CRWD: debt_one_side_only
+- BX: debt_one_side_only
+- ANET: no_debt_tagged
+- APP: stale_capex, debt_one_side_only
+- WELL: debt_one_side_only
+- SO: stale_stock_comp
+- CME: debt_one_side_only
+- PLD: debt_one_side_only
+- KKR: stale_capex, no_debt_tagged
+- DASH: no_debt_tagged
+- CI: stale_capex
+- CDNS: debt_one_side_only
+- EQIX: debt_one_side_only
+- RSG: stale_stock_comp
+- COIN: stale_capex
+- SNOW: no_debt_tagged
+- CL: debt_one_side_only
+- PNC: no_capex, stale_stock_comp, debt_one_side_only
+- HOOD: stale_capex, no_debt_tagged
+- USB: no_capex, debt_one_side_only
+- APD: stale_operating_cash_flow, debt_one_side_only
+- NEM: debt_one_side_only
+- CMG: no_debt_tagged
+- ORLY: debt_one_side_only
+- ROP: stale_capex
+- TRV: no_capex, no_debt_tagged
+- DLR: no_debt_tagged
+- APO: no_capex, debt_one_side_only
+- AZO: debt_one_side_only
+- KMI: stale_stock_comp
+- MNST: no_debt_tagged
+- ABNB: stale_capex
+- AFL: no_capex, no_debt_tagged
+- TFC: stale_capex
+- REGN: debt_one_side_only
+- MET: no_capex, debt_one_side_only
+- ALL: debt_one_side_only
+- O: debt_one_side_only
+- SPG: debt_one_side_only
+- CPRT: no_debt_tagged
+- AMP: no_debt_tagged
+- PCAR: no_debt_tagged
+- EA: debt_one_side_only
+- AIG: stale_capex, no_debt_tagged
+- TTWO: stale_shares_diluted
+- GM: no_debt_tagged
+- EW: debt_one_side_only
+- SLB: debt_one_side_only
+- PSKY: stale_revenue, stale_net_income, stale_operating_cash_flow, stale_capex, stale_stock_comp, stale_fcf
+- EXC: stale_stock_comp
+- MSCI: debt_one_side_only
+- DDOG: no_debt_tagged
+- FERG: stale_revenue, stale_net_income, stale_operating_cash_flow, stale_capex, stale_stock_comp, stale_fcf
+- ALNY: no_debt_tagged
+- VEEV: stale_capex, no_debt_tagged
+- F: no_debt_tagged
+- VLO: stale_capex
+- SNDK: no_debt_tagged
+- KVUE: debt_one_side_only
+- CRWV: no_debt_tagged
+- DHI: no_debt_tagged
+- PRU: no_capex
+- BKR: stale_shares_diluted
+- CRCL: no_debt_tagged
+- ETR: stale_stock_comp
+- TRGP: debt_one_side_only
+- ED: debt_one_side_only
+- HIG: debt_one_side_only
+- NET: no_debt_tagged
+- VICI: debt_one_side_only
+- GRMN: no_debt_tagged
+- DXCM: no_debt_tagged
+- CSGP: debt_one_side_only
+- ACGL: debt_one_side_only
+- FWONA: stale_shares_diluted
+- TTD: no_debt_tagged
+- EXR: no_debt_tagged
+- STT: stale_stock_comp, debt_one_side_only
+- CRDO: no_debt_tagged
+- LPLA: debt_one_side_only
+- MTB: stale_capex
+- ROK: stale_capex
+- VTR: debt_one_side_only
+- HUBS: no_debt_tagged
+- RJF: no_debt_tagged
+- TEAM: debt_one_side_only
+- DTE: stale_stock_comp
+- FANG: stale_stock_comp
+- VMRK: stale_revenue, debt_one_side_only
+- TYL: no_debt_tagged
+- MKL: debt_one_side_only
+- SYF: no_capex, debt_one_side_only
+- MPWR: no_debt_tagged
+- HSY: stale_shares_diluted
+- LEN: no_debt_tagged
+- ATO: stale_stock_comp
+- NTRS: no_debt_tagged
+- TDY: stale_stock_comp
+- IBKR: no_capex, debt_one_side_only
+- SUNB: no_capex
+- FE: stale_stock_comp
+- BAM: debt_one_side_only
+- TOST: no_debt_tagged
+- CINF: stale_stock_comp, debt_one_side_only
+- WSM: no_debt_tagged
+- FOXA: debt_one_side_only
+- TSCO: debt_one_side_only
+- WRB: no_debt_tagged
+- NTRA: debt_one_side_only
+- RDDT: no_debt_tagged
+- INSM: debt_one_side_only
+- WAT: debt_one_side_only
+- TROW: no_debt_tagged
+- AFRM: debt_one_side_only
+- PHM: no_debt_tagged
+- CMS: stale_capex
+- RF: no_capex
+- NVR: no_debt_tagged
+- INVH: debt_one_side_only
+- SOFI: no_debt_tagged
+- TPL: no_debt_tagged
+- ZM: no_debt_tagged
+- EXE: debt_one_side_only
+- CFG: stale_capex
+- MDB: no_debt_tagged
+- DKNG: debt_one_side_only
+- TWLO: stale_capex, debt_one_side_only
+- PINS: no_debt_tagged
+- WY: debt_one_side_only
+- ZS: no_debt_tagged
+- BIIB: debt_one_side_only
+- AVAV: debt_one_side_only
+- TEVA: debt_one_side_only
+- ESS: debt_one_side_only
+- LULU: no_debt_tagged, debt_one_side_only
+- TSN: stale_stock_comp
+- EME: stale_stock_comp, no_debt_tagged
+- FN: no_debt_tagged
+- P: no_debt_tagged
+- EQH: no_capex
+- TW: no_debt_tagged
+- ULTA: debt_one_side_only
+- RPRX: no_capex
+- PKG: debt_one_side_only
+- PNR: debt_one_side_only
+- YUMC: debt_one_side_only
+- RS: debt_one_side_only
+- VRSN: debt_one_side_only
+- OKTA: no_debt_tagged
+- BAX: debt_one_side_only
+- MOH: debt_one_side_only
+- SNA: debt_one_side_only
+- LOGI: no_debt_tagged
+- SFM: no_debt_tagged
+- SUI: no_debt_tagged
+- CRS: debt_one_side_only
+- WSO: debt_one_side_only
+- EXPD: no_debt_tagged
+- FFIV: no_debt_tagged
+- HAL: stale_stock_comp
+- SMCI: no_debt_tagged
+- DOCU: no_debt_tagged
+- ZG: no_debt_tagged
+- RKLB: debt_one_side_only
+- LYB: stale_shares_diluted
+- CF: debt_one_side_only
+- DECK: no_debt_tagged
+- DT: no_debt_tagged
+- J: debt_one_side_only
+- XPO: debt_one_side_only
+- TXT: no_debt_tagged
+- EG: no_capex, no_debt_tagged
+- RIVN: debt_one_side_only
+- GGG: no_debt_tagged
+- KIM: no_debt_tagged
+- UNM: debt_one_side_only
+- FNF: debt_one_side_only
+- EWBC: stale_capex, debt_one_side_only
+- QXO: debt_one_side_only
+- WPC: stale_capex, debt_one_side_only
+- CG: no_debt_tagged
+- MAS: debt_one_side_only
+- DUOL: no_debt_tagged
+- RBRK: no_debt_tagged
+- BWXT: debt_one_side_only
+- ALAB: no_debt_tagged
+- RGA: stale_capex, debt_one_side_only
+- JKHY: debt_one_side_only
+- REG: stale_shares_diluted, debt_one_side_only
+- TER: no_debt_tagged, debt_one_side_only
+- GLPI: debt_one_side_only
+- IOT: no_debt_tagged
+- TXRH: debt_one_side_only
+- OWL: debt_one_side_only
+- ARE: debt_one_side_only
+- LBRDK: stale_revenue, stale_capex
+- JLL: stale_capex
+- ALLY: no_capex, stale_stock_comp
+- RL: stale_capex
+- MAA: no_debt_tagged
+- PAYC: debt_one_side_only
+- MANH: no_debt_tagged
+- ELS: no_debt_tagged
+- RGLD: no_capex, debt_one_side_only
+- AMH: stale_revenue, debt_one_side_only
+- CNH: no_capex, no_debt_tagged
+- IONQ: no_debt_tagged
+- CHRW: debt_one_side_only
+- RNR: no_capex, debt_one_side_only
+- DKS: no_debt_tagged
+- LECO: debt_one_side_only
+- UTHR: no_debt_tagged
+- INCY: stale_capex, no_debt_tagged
+- HLI: no_debt_tagged
+- AKAM: no_debt_tagged
+- ALGN: no_debt_tagged
+- TEM: no_debt_tagged
+- DTM: debt_one_side_only
+- SF: debt_one_side_only
+- NXT: no_debt_tagged
+- OHI: no_debt_tagged
+- FHN: debt_one_side_only
+- BXP: debt_one_side_only
+- SJM: stale_shares_diluted
+- PR: debt_one_side_only
+- HST: no_debt_tagged
+- EVR: debt_one_side_only
+- NTNX: no_debt_tagged
+- WTRG: stale_capex
+- HIMS: no_debt_tagged
+- KNSL: debt_one_side_only
+- EXAS: no_debt_tagged
+- AIZ: no_debt_tagged
+- MRNA: debt_one_side_only
+- DOCS: no_debt_tagged
+- TOL: no_debt_tagged
+- ROIV: no_debt_tagged
+- WING: debt_one_side_only
+- ROKU: no_debt_tagged
+- PEN: no_debt_tagged
+- CUBE: no_debt_tagged
+- RRC: stale_stock_comp, debt_one_side_only
+- EPAM: debt_one_side_only
+- NBIX: no_debt_tagged
+- AIT: debt_one_side_only
+- LKQ: no_debt_tagged
+- HII: debt_one_side_only
+- DOC: debt_one_side_only
+- EXEL: no_debt_tagged
+- ESTC: debt_one_side_only
+- BRBR: debt_one_side_only
+- ARMK: stale_operating_cash_flow
+- SSB: no_debt_tagged
+- ILMN: debt_one_side_only
+- CAVA: no_debt_tagged
+- WBS: debt_one_side_only
+- TECH: debt_one_side_only
+- SCCO: debt_one_side_only
+- NYT: no_debt_tagged
+- U: no_debt_tagged
+- GME: debt_one_side_only
+- AFG: no_capex, debt_one_side_only
+- ARX: no_capex, debt_one_side_only
+- AYI: debt_one_side_only
+- PRI: stale_capex, no_debt_tagged
+- ORI: no_capex, no_debt_tagged
+- EGP: debt_one_side_only
+- CRBG: no_capex, debt_one_side_only
+- ERIE: no_debt_tagged
+- LAD: no_debt_tagged
+- MLI: debt_one_side_only
+- AGNC: no_capex, stale_revenue, no_debt_tagged
+- ALV: stale_stock_comp
+- PNFP: no_debt_tagged
+- REXR: debt_one_side_only
+- WAL: no_capex
+- CHYM: no_debt_tagged
+- ONB: no_debt_tagged
+- APPF: no_debt_tagged
+- WTFC: no_debt_tagged
+- PCOR: no_debt_tagged
+- FRT: no_debt_tagged
+- CFR: no_debt_tagged
+- FLR: debt_one_side_only
+- CVLT: no_debt_tagged
+- AXS: no_capex, no_debt_tagged
+- LOAR: no_capex
+- NNN: no_capex, no_debt_tagged
+- BRX: debt_one_side_only
+- QRVO: debt_one_side_only
+- CBSH: no_debt_tagged
+- PSN: debt_one_side_only
+- DINO: debt_one_side_only
+- TTEK: debt_one_side_only
+- UMBF: debt_one_side_only
+- ZION: debt_one_side_only
+- BPOP: debt_one_side_only
+- AES: no_debt_tagged
+- GWRE: debt_one_side_only
+- BBIO: debt_one_side_only
+- MKTX: debt_one_side_only
+- FIVE: no_debt_tagged
+- BMI: no_debt_tagged
+- TPG: no_capex, debt_one_side_only
+- EQPT: no_capex
+- KNX: stale_capex
+- UGI: stale_stock_comp
+- CHE: debt_one_side_only
+- MEDP: no_debt_tagged
+- APLD: debt_one_side_only
+- CART: no_debt_tagged
+- VNO: debt_one_side_only
+- SLM: no_capex
+- VOYA: stale_capex
+- STAG: debt_one_side_only
+- OMF: no_capex, debt_one_side_only
+- RVMD: no_debt_tagged
+- WTS: debt_one_side_only
+- LNC: no_capex
+- GMED: no_debt_tagged
+- PCTY: debt_one_side_only
+- KTOS: no_debt_tagged
+- COKE: stale_stock_comp, stale_shares_diluted
+- PB: no_debt_tagged
+- STWD: no_debt_tagged
+- AM: debt_one_side_only
+- GTLB: no_debt_tagged
+- FR: no_capex, no_debt_tagged
+- KEX: debt_one_side_only
+- MTG: no_debt_tagged
+- LYFT: no_capex
+- EPRT: stale_capex, debt_one_side_only
+- IDA: stale_stock_comp
+- GPK: stale_capex
+- GH: debt_one_side_only
+- FBIN: debt_one_side_only
+- CORT: no_debt_tagged
+- KBR: stale_stock_comp
+- CTRE: stale_capex, debt_one_side_only
+- FAF: no_debt_tagged
+- TTAN: no_debt_tagged
+- RHP: no_debt_tagged
+- RGEN: debt_one_side_only
+- ZWS: stale_capex
+- RITM: no_capex, debt_one_side_only
+- AHR: no_debt_tagged
+- TMHC: debt_one_side_only
+- ENSG: stale_capex
+- GKOS: no_debt_tagged
+- BEN: debt_one_side_only
+- LPX: debt_one_side_only
+- QTWO: no_debt_tagged
+- MGM: debt_one_side_only
+- TREX: no_debt_tagged
+- AUR: no_debt_tagged
+- IVZ: debt_one_side_only
+- TRNO: debt_one_side_only
+- JOBY: debt_one_side_only
+- CDE: debt_one_side_only
+- AN: debt_one_side_only
+- MDGL: debt_one_side_only
+- VRNS: no_debt_tagged
+- STUB: debt_one_side_only
+- CHRD: debt_one_side_only
+- HR: debt_one_side_only
+- MTDR: debt_one_side_only
+- RLI: stale_stock_comp, debt_one_side_only
+- HLNE: debt_one_side_only
+- AMG: debt_one_side_only
+- UPST: no_debt_tagged
+- GATX: stale_capex, debt_one_side_only
+- MMSI: debt_one_side_only
+- ESNT: no_debt_tagged
+- SMR: no_debt_tagged
+- IONS: no_debt_tagged
+- CGNX: no_debt_tagged
+- HOMB: debt_one_side_only
+- SIGI: no_debt_tagged
+- FCFS: debt_one_side_only
+- UDR: debt_one_side_only
+- RMBS: no_debt_tagged
+- SPSC: no_debt_tagged
+- LOPE: no_debt_tagged
+- W: debt_one_side_only
+- SHAK: debt_one_side_only
+- BCPC: stale_capex, debt_one_side_only
+- STEP: no_debt_tagged
+- S: no_debt_tagged
+- ADC: no_debt_tagged
+- ORA: debt_one_side_only
+- GBCI: no_debt_tagged
+- UHAL: stale_shares_diluted, debt_one_side_only
+- CUZ: debt_one_side_only
+- CRUS: no_debt_tagged
+- VLY: debt_one_side_only
+- PEGA: no_debt_tagged
+- SLAB: no_debt_tagged
+- VNOM: no_capex, debt_one_side_only
+- UBSI: debt_one_side_only
+- AAON: stale_capex, no_debt_tagged
+- FFIN: debt_one_side_only
+- KRG: debt_one_side_only
+- IRTC: no_debt_tagged
+- NJR: stale_capex, stale_stock_comp
+- LIF: no_debt_tagged
+- URBN: no_debt_tagged
+- GNTX: debt_one_side_only
+- CROX: debt_one_side_only
+- PATH: no_debt_tagged
+- BILL: debt_one_side_only
+- KVYO: no_debt_tagged
+- LSTR: no_debt_tagged
+- PIPR: stale_capex, debt_one_side_only
+- SITM: no_debt_tagged
+- MMED: no_debt_tagged
+- MTH: stale_revenue, no_debt_tagged
+- JXN: no_capex, debt_one_side_only
+- NEU: stale_stock_comp, debt_one_side_only
+- ULS: debt_one_side_only
+- MRCY: no_debt_tagged
+- WMG: stale_stock_comp, stale_shares_diluted, debt_one_side_only
+- BOX: debt_one_side_only
+- OSCR: debt_one_side_only
+- LAZ: debt_one_side_only
+- HXL: debt_one_side_only
+- WTM: no_capex, debt_one_side_only
+- EPR: debt_one_side_only
+- SR: stale_stock_comp
+- VEEE: debt_one_side_only
+- FROG: no_debt_tagged
+- SBRA: no_capex, debt_one_side_only
+- PECO: debt_one_side_only
+- AUB: no_capex
+- BYD: debt_one_side_only
+- ST: debt_one_side_only
+- ADT: stale_shares_diluted
+- AROC: debt_one_side_only
+- CORZ: debt_one_side_only
+- IRT: debt_one_side_only
+- ABCB: no_debt_tagged
+- VIAV: debt_one_side_only
+- ANF: no_debt_tagged
+- IBOC: no_debt_tagged
+- KMPR: debt_one_side_only
+- MAC: debt_one_side_only
+- CRSP: debt_one_side_only
+- COLD: no_debt_tagged
+- TENB: no_debt_tagged
+- MGY: debt_one_side_only
+- KRC: no_debt_tagged
+- RHI: stale_stock_comp, no_debt_tagged
+- PLMR: debt_one_side_only
+- CSW: stale_stock_comp
+- GAP: debt_one_side_only
+- ASB: no_capex, stale_stock_comp
+- AGO: no_capex, stale_stock_comp, debt_one_side_only
+- SFBS: stale_capex, no_debt_tagged
+- HL: debt_one_side_only
+- BOOT: no_debt_tagged
+- SLG: stale_capex, no_debt_tagged
+- PJT: no_debt_tagged
+- BE: stale_stock_comp
+- VSAT: stale_capex
+- CALM: no_debt_tagged
+- RGTI: no_debt_tagged
+- CRC: debt_one_side_only
+- INSP: no_debt_tagged
+- ZLAB: debt_one_side_only
+- MRP: no_capex, no_debt_tagged
+- BGC: stale_stock_comp
+- QLYS: no_debt_tagged
+- CLF: debt_one_side_only
+- BRC: debt_one_side_only
+- BWIN: debt_one_side_only
+- COLB: stale_capex, no_debt_tagged
+- HGV: debt_one_side_only
+- CNO: no_capex, no_debt_tagged
+- GLXY: debt_one_side_only
+- SOUN: no_debt_tagged
+- TCBI: debt_one_side_only
+- HWKN: debt_one_side_only
+- KBH: no_debt_tagged
+- KRYS: no_debt_tagged
+- WK: no_debt_tagged
+- VCTR: debt_one_side_only
+- SMPL: debt_one_side_only
+- DDS: stale_stock_comp, debt_one_side_only
+- CHH: debt_one_side_only
+- LSCC: no_debt_tagged
+- AX: debt_one_side_only
+- PLXS: no_debt_tagged
+- NE: debt_one_side_only
+- CNK: stale_operating_cash_flow, stale_capex, no_debt_tagged
+- RARE: no_debt_tagged
+- AZZ: debt_one_side_only
+- TNL: debt_one_side_only
+- HIW: no_debt_tagged
+- FHI: debt_one_side_only
+- HASI: stale_capex, debt_one_side_only
+- FRPT: no_debt_tagged
+- AVPT: no_debt_tagged
+- BL: no_debt_tagged
+- FBP: debt_one_side_only
+- FRHC: no_debt_tagged
+- AIR: debt_one_side_only
+- FULT: no_capex, debt_one_side_only
+- FLG: stale_capex
+- BXMT: stale_revenue, no_debt_tagged
+- ZETA: debt_one_side_only
+- BCC: debt_one_side_only
+- PRCT: debt_one_side_only
+- UNF: no_debt_tagged
+- SEZL: no_debt_tagged
+- COMP: debt_one_side_only
+- FHB: no_debt_tagged
+- GNW: no_capex, debt_one_side_only
+- APAM: debt_one_side_only
+- DBX: no_debt_tagged
+- FRSH: no_debt_tagged
+- AVA: debt_one_side_only
+- WSFS: no_debt_tagged
+- RH: no_debt_tagged
+- SIG: no_debt_tagged
+- DAVE: no_debt_tagged
+- FIGR: no_capex, debt_one_side_only
+- FUL: debt_one_side_only
+- CATY: debt_one_side_only
+- EXPO: no_debt_tagged
+- BHF: no_capex, debt_one_side_only
+- BNL: debt_one_side_only
+- DLB: no_debt_tagged
+- WHD: stale_shares_diluted, no_debt_tagged, debt_one_side_only
+- CBU: no_debt_tagged
+- VKTX: no_capex, no_debt_tagged
+- UEC: no_debt_tagged
+- CVCO: no_debt_tagged
+- ALH: no_debt_tagged
+- WSBC: debt_one_side_only
+- KFY: debt_one_side_only
+- AWR: debt_one_side_only
+- CAKE: debt_one_side_only
+- MHO: no_debt_tagged
+- NHI: no_debt_tagged
+- PTGX: no_debt_tagged
+- EBC: no_debt_tagged
+- PFSI: debt_one_side_only
+- LMND: no_debt_tagged
+- CACC: debt_one_side_only
+- BUR: debt_one_side_only
+- SNEX: no_debt_tagged
+- CAR: no_capex
+- AGX: no_debt_tagged
+- BDC: debt_one_side_only
+- CWEN: stale_stock_comp
+- AVBC: no_debt_tagged
+- FCPT: stale_capex, debt_one_side_only
+- NMIH: no_debt_tagged
+- BFH: stale_capex, no_debt_tagged
+- NOG: debt_one_side_only
+- BRZE: no_debt_tagged
+- CRNX: no_debt_tagged
+- WU: debt_one_side_only
+- ACVA: no_debt_tagged
+- SXI: stale_stock_comp, debt_one_side_only
+- INDB: no_debt_tagged
+- BKU: stale_capex, debt_one_side_only
+- IRDM: no_debt_tagged
+- BOH: debt_one_side_only
+- BANF: debt_one_side_only
+- PRK: debt_one_side_only
+- FIBK: no_capex, no_debt_tagged
+- CDP: debt_one_side_only
+- SRRK: debt_one_side_only
+- MPT: debt_one_side_only
+- AMSC: no_debt_tagged
+- YOU: no_debt_tagged
+- APLE: debt_one_side_only
+- SSRM: no_debt_tagged, debt_one_side_only
+- CVBF: no_debt_tagged
+- VERX: stale_capex, debt_one_side_only
+- QUBT: no_debt_tagged
+- TBBK: debt_one_side_only
+- CPRX: no_debt_tagged
+- VAL: debt_one_side_only
+- BOKF: no_debt_tagged
+- TGTX: debt_one_side_only
+- VC: stale_capex
+- PBF: debt_one_side_only
+- INTA: no_debt_tagged
+- UE: no_debt_tagged
+- NVST: debt_one_side_only
+- SMMT: stale_revenue, no_debt_tagged
+- AKR: debt_one_side_only
+- COSO: no_debt_tagged
+- DEI: debt_one_side_only
+- XENE: no_debt_tagged
+- SBCF: no_capex, debt_one_side_only
+- ALKT: no_debt_tagged
+- LXP: debt_one_side_only
+- FIG: no_debt_tagged
+- SFNC: debt_one_side_only
+- UI: no_debt_tagged, debt_one_side_only
+- AGYS: no_debt_tagged
+- SHAZ: no_debt_tagged
+- TWST: no_debt_tagged
+- POWI: no_debt_tagged
+- PTEN: debt_one_side_only
+- ACAD: no_debt_tagged
+- BB: debt_one_side_only
+- MIRM: no_debt_tagged
+- MQ: no_debt_tagged
+- KYMR: no_debt_tagged
+- WAFD: no_debt_tagged
+- SYBT: debt_one_side_only
+- CRVL: no_debt_tagged
+- CRK: debt_one_side_only
+- FRME: no_capex, no_debt_tagged
+- TNET: debt_one_side_only
+- CCOI: no_debt_tagged
+- CURB: debt_one_side_only
+- AMBA: no_debt_tagged
+- HHH: no_debt_tagged
+- VAC: no_debt_tagged
+- ACLS: no_debt_tagged
+- WRBY: no_debt_tagged
+- TRN: no_debt_tagged
+- SKWD: no_debt_tagged
+- PFS: debt_one_side_only
+- NBTB: debt_one_side_only
+- RKT: debt_one_side_only
+- CALX: no_debt_tagged
+- TDC: no_debt_tagged
+- VCEL: no_debt_tagged
+- EFOR: debt_one_side_only
+- NSP: debt_one_side_only
+- SPNT: no_capex, debt_one_side_only
+- CNS: no_debt_tagged
+- IVT: debt_one_side_only
+- MSGE: no_capex
+- ADUS: debt_one_side_only
+- OSW: debt_one_side_only
+- DV: no_debt_tagged
+- VOYG: no_debt_tagged
+- PAYO: no_debt_tagged
+- LLYVA: no_capex
+- PK: debt_one_side_only
+- SM: debt_one_side_only
+- EFSC: no_debt_tagged
+- SMA: stale_capex, stale_shares_diluted, debt_one_side_only
+- OII: debt_one_side_only
+- STRA: no_debt_tagged
+- CBC: no_debt_tagged
+- ABR: no_capex, debt_one_side_only
+- LRN: debt_one_side_only
+- NNI: stale_revenue, debt_one_side_only
+- JJSF: debt_one_side_only
+- GRBK: no_debt_tagged
+- OFG: no_debt_tagged
+- AAP: debt_one_side_only
+- BANC: stale_stock_comp, debt_one_side_only
+- PGNY: no_debt_tagged
+- KGS: debt_one_side_only
+- ALRM: debt_one_side_only
+- PLUS: no_debt_tagged
+- MBLY: no_debt_tagged
+- LEVI: debt_one_side_only
+- STC: no_debt_tagged
+- HTO: no_capex
+- IPGP: no_debt_tagged
+- NMRK: debt_one_side_only
+- RUN: stale_capex, debt_one_side_only
+- FBNC: debt_one_side_only
+- MCY: debt_one_side_only
+- WLTH: no_capex, debt_one_side_only
+- VISN: no_debt_tagged
+- WOR: debt_one_side_only
+- PRVA: stale_capex, no_debt_tagged
+- HUT: no_capex, no_debt_tagged
+- GBX: debt_one_side_only
+- CUBI: no_debt_tagged
+- NTSK: no_debt_tagged
+- CHCO: debt_one_side_only
+- WD: no_debt_tagged
+- HMN: no_capex, debt_one_side_only
+- SRPT: debt_one_side_only
+- AEO: debt_one_side_only
+- NWBI: stale_shares_diluted, no_debt_tagged
+- WERN: debt_one_side_only
+- GEF: stale_revenue, stale_net_income, stale_operating_cash_flow, stale_capex, stale_stock_comp, stale_fcf
+- DRH: debt_one_side_only
+- DNOW: debt_one_side_only
+- ROOT: debt_one_side_only
+- CWT: no_capex
+- SLDE: debt_one_side_only
+- COLM: no_debt_tagged
+- SAM: no_debt_tagged
+- MLCI: no_capex, debt_one_side_only
+- FBK: no_debt_tagged
+- TDOC: no_debt_tagged
+- BKE: stale_stock_comp, no_debt_tagged
+- LKFN: no_debt_tagged
+- GEMI: no_debt_tagged
+- SAIL: no_debt_tagged
+- CCS: no_debt_tagged
+- EPC: debt_one_side_only
+- STBA: debt_one_side_only
+- YELP: no_debt_tagged
+- UPBD: no_debt_tagged
+- NBHC: stale_capex, debt_one_side_only
+- GABC: no_debt_tagged
+- POWL: no_debt_tagged
+- TCBK: no_debt_tagged
+- IESC: no_debt_tagged
+- RSI: no_debt_tagged
+- PAY: no_debt_tagged
+- LZB: no_debt_tagged
+- EFC: stale_shares_diluted, no_debt_tagged
+- FA: debt_one_side_only
+- HOPE: debt_one_side_only
+- KALU: debt_one_side_only
+- OMCL: no_debt_tagged
+- CRGY: debt_one_side_only
+- TNDM: debt_one_side_only
+- EVH: stale_capex, debt_one_side_only
+- IOSP: no_debt_tagged
+- WULF: no_debt_tagged
+- CCB: no_debt_tagged
+- CRTO: no_debt_tagged
+- HTH: stale_stock_comp, debt_one_side_only
+- TFIN: stale_capex, no_debt_tagged
+- LADR: stale_revenue, no_debt_tagged
+- HAPN: no_debt_tagged, debt_one_side_only
+- PEB: debt_one_side_only
+- LGIH: no_debt_tagged
+- NEXT: debt_one_side_only
+- XHR: debt_one_side_only
+- SRCE: debt_one_side_only
+- WABC: stale_stock_comp, debt_one_side_only
+- KMT: debt_one_side_only
+- FIVN: no_debt_tagged
+- SAFT: debt_one_side_only
+- BBT: debt_one_side_only
+- CLOV: no_debt_tagged
+- QCRH: debt_one_side_only
+- BFC: no_debt_tagged
+- PGY: no_debt_tagged
+- TALO: debt_one_side_only
+- CNOB: no_debt_tagged
+- HG: no_capex, debt_one_side_only
+- SPHR: stale_capex
+- WGO: debt_one_side_only
+- RLJ: debt_one_side_only
+- DCOM: stale_capex, no_debt_tagged
+- DBD: debt_one_side_only
+- OBK: no_debt_tagged
+- LOB: no_debt_tagged
+- SEDG: no_debt_tagged
+- CWH: stale_capex, stale_shares_diluted
+- BBSI: no_debt_tagged
+- SFIX: no_debt_tagged
+- NVAX: debt_one_side_only
+- CDNL: debt_one_side_only
+- BJRI: debt_one_side_only
+- HPP: no_debt_tagged
+- NAVI: no_capex
+- ACT: no_capex, debt_one_side_only
+- SYM: no_debt_tagged
+- CNA: debt_one_side_only
+- MBIN: no_debt_tagged
+- OCFC: no_debt_tagged
+- MFA: stale_revenue, stale_capex, no_debt_tagged
+- CENX: no_debt_tagged
+- CTBI: no_debt_tagged
+- IART: debt_one_side_only
+- AMRC: stale_revenue, stale_net_income, stale_operating_cash_flow, stale_capex, stale_stock_comp, stale_fcf
+- APOG: debt_one_side_only
+- NHC: no_debt_tagged
+- FMBH: no_debt_tagged
+- HCSG: no_debt_tagged
+- IDT: no_debt_tagged
+- ECPG: no_debt_tagged
+- TMP: no_debt_tagged
+- BY: no_debt_tagged
+- FBRT: no_capex, no_debt_tagged
+- UVSP: debt_one_side_only
+- SDRL: no_capex, debt_one_side_only
+- SBSI: debt_one_side_only
+- UWMC: debt_one_side_only
+- SONO: stale_capex, no_debt_tagged
+- PRG: debt_one_side_only
+- RVLV: no_debt_tagged
+- FIZZ: no_debt_tagged
+- SAFE: stale_capex, debt_one_side_only
+- HTZ: debt_one_side_only
+- HFWA: stale_stock_comp, debt_one_side_only
+- PMT: no_capex, debt_one_side_only
+- AGNT: stale_stock_comp, no_debt_tagged
+- AMN: debt_one_side_only
+- QNST: debt_one_side_only
+- BHRB: debt_one_side_only
+- DHC: debt_one_side_only
+- KW: no_debt_tagged
+- RWT: no_capex, stale_revenue, no_debt_tagged
+- PAHC: no_debt_tagged
+- OSBC: debt_one_side_only
+- NX: stale_revenue
+- CPF: debt_one_side_only
+- CNXN: no_debt_tagged
+- BLMN: debt_one_side_only
+- MBWM: no_capex, no_debt_tagged
+- BLLN: debt_one_side_only
+- SXC: debt_one_side_only
+- CFFN: no_debt_tagged
+- VIA: no_debt_tagged
+- AMTB: no_debt_tagged
+- UVE: debt_one_side_only
+- SCHL: debt_one_side_only
+- ADTN: no_debt_tagged
+- SEB: debt_one_side_only
+- BFST: no_debt_tagged
+- MCB: stale_capex, no_debt_tagged
+- RC: no_capex, debt_one_side_only
+- UFCS: no_capex, debt_one_side_only
+- EQBK: debt_one_side_only
+- OPY: no_debt_tagged
+- WMK: no_debt_tagged
+- EZPW: debt_one_side_only
+- CAC: debt_one_side_only
+- ANGI: debt_one_side_only
+- FG: debt_one_side_only
+- KE: debt_one_side_only
+- CRI: debt_one_side_only
+- HBNC: no_debt_tagged
+- IBCP: no_debt_tagged
+- MAGN: debt_one_side_only
+- TFSL: no_debt_tagged
+- GOLD: debt_one_side_only
+- KFRC: no_debt_tagged
+- ASIX: no_debt_tagged
+- RBCAA: no_debt_tagged
+- MTUS: no_debt_tagged
+- BXC: debt_one_side_only
+- XRX: stale_shares_diluted
+- TRST: debt_one_side_only
+- TBLA: debt_one_side_only
+- MPB: debt_one_side_only
+- NBBK: no_debt_tagged
+- TRLV: debt_one_side_only
+- FWRD: debt_one_side_only
+- ORRF: no_debt_tagged
+- GDOT: debt_one_side_only
+- RYZ: debt_one_side_only
+- THFF: debt_one_side_only
+- TIPT: no_debt_tagged
+- SMBC: no_debt_tagged
+- BZH: no_debt_tagged
+- ANDG: debt_one_side_only
+- PRAA: no_debt_tagged
+- PTRN: no_debt_tagged
+- AMAL: no_debt_tagged
+- WASH: no_debt_tagged
+- SMBK: debt_one_side_only
+- IVR: no_capex, stale_revenue, stale_stock_comp, no_debt_tagged
+- GCT: no_debt_tagged
+- GSBC: no_debt_tagged
+- SHBI: debt_one_side_only
+- HYNE: no_debt_tagged
+- HAFC: no_debt_tagged
+- DFH: debt_one_side_only
+- FSBC: no_debt_tagged
+- MSBI: debt_one_side_only
+- PGC: stale_stock_comp, debt_one_side_only
+- JACK: stale_operating_cash_flow
+- ARHS: no_debt_tagged
+- PFIS: debt_one_side_only
+- HOV: debt_one_side_only
+- KRNY: no_debt_tagged
+- SPFI: no_debt_tagged
+- NFBK: no_debt_tagged
+- AMBQ: no_capex, no_debt_tagged
+- RES: debt_one_side_only
+- CAL: no_debt_tagged
+- TCBX: stale_capex, no_debt_tagged
+- GRDN: no_debt_tagged
+- CNDT: debt_one_side_only
+- FOR: debt_one_side_only
+- FSUN: no_debt_tagged
+- CCRN: no_debt_tagged
+- SVC: no_debt_tagged
+- NBR: debt_one_side_only
+- STGW: debt_one_side_only
+- TITN: stale_capex
+- XZO: no_debt_tagged
+- NPB: no_debt_tagged
+- OXM: debt_one_side_only
+- GIC: no_debt_tagged
+- KELYA: debt_one_side_only
+- SHOE: no_debt_tagged
+- CLBK: debt_one_side_only
+- BWB: no_debt_tagged
+- HTFL: no_debt_tagged
+- OPEN: no_debt_tagged
+- CWBC: no_debt_tagged
+- GBFH: no_debt_tagged, debt_one_side_only
+- ARES: stale_capex, no_debt_tagged
+- ARDT: no_capex
+- CMP: debt_one_side_only
+- HBT: stale_capex, no_debt_tagged
+- ACCO: stale_capex
+- HGTY: stale_shares_diluted, debt_one_side_only
+- FLNC: no_debt_tagged
+- EVMN: no_debt_tagged
+- ILPT: stale_revenue, debt_one_side_only
+- ATLCP: stale_capex, no_debt_tagged
+- CTOS: stale_capex
+- ONIT: debt_one_side_only
+- PKOH: debt_one_side_only
+- GIW: no_capex, no_debt_tagged
+- RYAM: stale_capex
+- INBK: no_debt_tagged
+- MITT: no_capex, stale_revenue, no_debt_tagged
+- BNED: debt_one_side_only
+- TBI: debt_one_side_only
+- KSS: debt_one_side_only
+- DOUG: no_debt_tagged
+- ONEW: stale_shares_diluted
+- SSP: stale_stock_comp
+- IMMR: no_debt_tagged
+- CRMT: no_debt_tagged
+- WBTN: no_debt_tagged
+- LESL: debt_one_side_only
+- SI: debt_one_side_only
+- LE: no_debt_tagged
+- FOA: stale_capex, stale_stock_comp, no_debt_tagged
+- KRO: debt_one_side_only
+- CARL: debt_one_side_only
+- LDI: debt_one_side_only
+- NP: no_capex, no_debt_tagged
+- TTEC: no_debt_tagged
+- BKKT: stale_capex, no_debt_tagged
+- RRGB: debt_one_side_only
+- PLCE: debt_one_side_only
+- AHT: debt_one_side_only
+- TYGO: debt_one_side_only
+- AENT: no_debt_tagged
+- BUDA: debt_one_side_only
+- ROC: no_capex, no_debt_tagged
+- NOMA: no_capex, no_debt_tagged
+- CV: no_debt_tagged
+- DIT: debt_one_side_only
+- VTIX: no_capex, debt_one_side_only
+- ELWT: no_capex, no_debt_tagged
+- VHUB: no_debt_tagged
+- AIDX: no_capex, no_debt_tagged
+- ATHR: debt_one_side_only
+- BMNR: no_debt_tagged
+
+## Largest 25 by public float
+
+| ticker | public float | revenue TTM | capex TTM | total debt | shares |
+|---|---|---|---|---|---|
+| CBT | 4,429,047.30B | 3.63B | 0.22B | 1.09B | 51.6M |
+| OLED | 6,792.43B | 0.61B | 42.2M | 1.1M | 46.0M |
+| ONTO | 4,817.28B | 1.12B | 13.8M | - | 49.1M |
+| TTMI | 4,165.94B | 3.38B | 0.34B | 0.97B | 0.11B |
+| SKY | 4,135.96B | 2.67B | 35.1M | 23.8M | 54.3M |
+| NVDA | 4,000.00B | 302.97B | 7.35B | 33.37B | 24.10B |
+| MSFT | 3,600.00B | 331.84B | 115.95B | 40.29B | 7.43B |
+| NOVT | 3,496.56B | 1.03B | 19.6M | 0.23B | 37.8M |
+| AAPL | 3,253.43B | 466.82B | 10.04B | 84.34B | 14.59B |
+| MGRC | 2,853.95B | 0.93B | 42.2M | - | 24.4M |
+| ENVA | 2,669.87B | 3.45B | 46.4M | 5.01B | 24.9M |
+| RENX | 2,290.41B | 15.0M | 3.6M | 23.1M | 2.6M |
+| AMZN | 2,118.06B | 775.68B | 173.03B | 132.22B | 10.79B |
+| CLSK | 1,967.00B | 0.77B | 91.3M | 1.78B | 0.26B |
+| GOOGL | 1,900.00B | 445.87B | 132.40B | 100.16B | 12.23B |
+| META | 1,600.00B | 228.25B | 89.33B | 83.66B | 2.55B |
+| TRMK | 961.60B | 0.82B | 20.8M | - | 58.1M |
+| HIVE | 950.74B | 0.30B | 21.6M | 1.6M | 0.27B |
+| AVGO | 939.20B | 89.10B | 1.25B | 59.42B | 4.77B |
+| BRK-B | 902.70B | 384.69B | 22.42B | - | 2.14B |
+| TSLA | 892.93B | 103.62B | 12.92B | 9.06B | 3.95B |
+| THRM | 853.97B | 1.58B | 46.1M | 0.27B | 30.7M |
+| WTTR | 837.40B | 1.43B | 0.32B | 0.26B | 0.14B |
+| LLY | 807.89B | 79.67B | 9.89B | 54.91B | 0.94B |
+| JPM | 794.43B | 199.41B | - | 72.43B | 2.66B |
