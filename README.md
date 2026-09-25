@@ -364,6 +364,13 @@ the build actually wrote.
 
 ## The complete filing library (release `library`, `library.py`, 25 Sep 2026)
 
+**Forms kept (owner, 25 Sep 2026: "the SEC checking has gotten out of hand"):** the core four an owner reads
+(10-K, 10-Q, proxy DEF 14A / DEFA14A / PRE 14A, 8-K), the forms scripts read (Forms 4/5, 144, 13D/13G, NT late
+filings, amendments, SEC comment letters UPLOAD / CORRESP), and situational ones (deal S-4 / 424B3 / DEFM14A / 425,
+tender offers, proxy fights, stock and bond offerings S-1 / S-3 / 424B5). Dropped as noise: bank structured-note
+prospectuses (424B2), FWP, S-8, 11-K, SD, 25-NSE, EFFECT, Form 3, ARS. `LIBRARY_FORMS=all` keeps every form.
+Completeness is counted against EDGAR's list of the kept forms.
+
 **Where:** https://github.com/loosygoosie/sec-dataset/releases/tag/library — release assets, public, no login.
 **What:** for every pipeline v2 universe company (market value >= $15B), EVERY filing it made in the last 3 years
 (`LIBRARY_YEARS`), every form (10-K/Q, 8-K, DEF 14A, ARS, 425, 11-K, SD, PX14A6G, FWP, 424B*, S-*, 3/4/5, 144,

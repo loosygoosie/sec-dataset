@@ -232,7 +232,7 @@ def test_run_fetches_everything_once_then_only_the_new(tmp_path, monkeypatch):
     calls = []
     monkeypatch.setattr(L, "fetch_filing", fake_fetch(calls))
     monkeypatch.setattr(L, "window_start", lambda *a, **k: "2023-09-25")
-    today = [("4", "2026-09-01", "0001-26-3"), ("425", "2026-05-01", "0001-26-2"), ("ARS", "2024-03-01", "0001-24-1"),
+    today = [("4", "2026-09-01", "0001-26-3"), ("425", "2026-05-01", "0001-26-2"), ("DEF 14A", "2024-03-01", "0001-24-1"),
              ("10-K", "2023-01-01", "0001-23-0")]                                     # the last is outside the window
     subs = {7: sub_json(today)}
     uni = [dict(cik=7, ticker="CTAS", name="Cintas", mcap=8e10)]
@@ -241,7 +241,7 @@ def test_run_fetches_everything_once_then_only_the_new(tmp_path, monkeypatch):
     assert sorted(calls) == ["0001-24-1", "0001-26-2", "0001-26-3"]
     man, names = asset_manifest(store, 7)
     assert (man["edgar_filings"], man["saved_filings"], man["complete"]) == (3, 3, True)
-    assert man["forms"] == {"4": 1, "425": 1, "ARS": 1}
+    assert man["forms"] == {"4": 1, "425": 1, "DEF 14A": 1}
     assert "7/manifest.json" in names and "7/0001-26-2_2026-05-01_425.txt.gz" in names
     assert stats["totals"]["complete"] == 1 and not stats["gaps"]
     assert changes == []                                            # a company's first fill is not "new filings"
@@ -302,3 +302,14 @@ def test_budget_defers_and_the_gap_shows(tmp_path, monkeypatch):
     stats = L.run([dict(cik=7, ticker="X", name="X", mcap=1)], [], subs.get, lambda n: None, full=False, store=store)
     assert len(calls) == 1
     assert stats["gaps"][0]["deferred"] == 1 and stats["gaps"][0]["saved"] == 1
+
+
+def test_window_rows_keeps_only_the_forms_that_matter():
+    import library as lib
+    sub = {"filings": {"recent": {"form": ["10-K", "424B2", "4", "S-8", "8-K", "425", "SD"],
+                                  "filingDate": ["2026-07-01"] * 7,
+                                  "accessionNumber": [f"0000000000-26-00000{i}" for i in range(7)],
+                                  "reportDate": [""] * 7}, "files": []}}
+    rows = lib.window_rows(sub, "2026-01-01", lambda n: None)
+    assert sorted(r["form"] for r in rows) == ["10-K", "4", "425", "8-K"]
+    assert len(lib.window_rows(sub, "2026-01-01", lambda n: None, keep=None)) == 7

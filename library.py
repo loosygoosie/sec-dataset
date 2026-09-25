@@ -1,7 +1,8 @@
 """Complete filing library (owner, 25 Sep 2026: "fix the sec-dataset library to fetch everything").
 
-EVERY filing each universe company made in the window (LIBRARY_YEARS, default 3 years, all forms) and EVERY document
-in each filing, checked against EDGAR's own filing list. pipeline_v2.py calls run() for its universe (>= $15B).
+Every filing of the forms that matter (KEEP_FORMS: the 10-K / 10-Q / proxy / 8-K, the forms scripts read, and deal /
+proxy-fight / offering forms; noise such as bank 424B2 structured notes is dropped) that each universe company made
+in the window (LIBRARY_YEARS, default 3 years), and EVERY document in each, checked against EDGAR's own filing list. pipeline_v2.py calls run() for its universe (>= $15B).
 
 Why: fetch_filings.py's EVERYTHING mode still kept a subset (the latest 10-K + 2 prior, 10-Qs only after the latest
 10-K, the latest DEF 14A, 8-Ks and insider forms of 400 days, capped 424Bs, and no Form 425 / ARS / 11-K / SD /
@@ -78,6 +79,19 @@ TODAY = dt.date.today()
 ARCHIVE_TXT = "https://www.sec.gov/Archives/edgar/data/{cik}/{acc_nodash}/{acc}.txt"
 XBRL_FORMS = {"10-K", "10-K/A", "10-Q", "10-Q/A", "10-KT", "10-KT/A", "10-QT", "10-QT/A"}
 INSIDER_FORMS = {"3", "4", "5", "3/A", "4/A", "5/A"}
+# Forms kept (owner, 25 Sep 2026: "the SEC checking has gotten out of hand"): the core four an owner reads, the
+# forms scripts read (insiders, holders, late filings, amendments, SEC letters), and the situational ones (deals,
+# proxy fights, offerings). Dropped as noise: bank structured-note prospectuses (424B2, thousands per bank), FWP,
+# S-8, 11-K, SD, 25-NSE, EFFECT, Form 3, ARS (a glossy copy of the 10-K), 8-A, POS AM ... LIBRARY_FORMS=all keeps all.
+CORE_FORMS = {"10-K", "10-K/A", "10-KT", "10-KT/A", "10-Q", "10-Q/A", "10-QT", "10-QT/A", "8-K", "8-K/A",
+              "DEF 14A", "DEFA14A", "PRE 14A", "DEFR14A"}
+SCRIPT_FORMS = {"4", "4/A", "5", "5/A", "144", "144/A", "NT 10-K", "NT 10-Q", "NT 10-K/A", "NT 10-Q/A",
+                "UPLOAD", "CORRESP", "SC 13D", "SC 13D/A", "SC 13G", "SC 13G/A",
+                "SCHEDULE 13D", "SCHEDULE 13D/A", "SCHEDULE 13G", "SCHEDULE 13G/A"}
+EVENT_FORMS = {"S-4", "S-4/A", "424B3", "DEFM14A", "PREM14A", "425", "SC TO-T", "SC TO-T/A", "SC TO-I", "SC TO-I/A",
+               "SC 14D9", "SC 14D9/A", "PREC14A", "DEFC14A", "DFAN14A", "PX14A6G", "S-1", "S-1/A", "S-3", "S-3/A",
+               "S-3ASR", "424B1", "424B4", "424B5"}
+KEEP_FORMS = None if os.environ.get("LIBRARY_FORMS", "").strip().lower() == "all" else CORE_FORMS | SCRIPT_FORMS | EVENT_FORMS
 SKIP_TYPES = ("GRAPHIC", "ZIP", "EXCEL", "JSON", "EX-101")
 SKIP_NAMES = re.compile(r"(^R\d+\.htm$|^FilingSummary|\.(xsd|css|js|jpg|jpeg|gif|png|bmp|tif|tiff|zip|xlsx|xls|json)$)",
                         re.I)
@@ -265,8 +279,9 @@ def _rows(block: dict) -> list[dict]:
                 block.get("reportDate", []) or [""] * len(block.get("form", [])))]
 
 
-def window_rows(sub: dict, since: str, load_page) -> list[dict]:
-    """EVERY filing EDGAR lists for the company on or after `since`, newest first, one per accession. The `recent`
+def window_rows(sub: dict, since: str, load_page, keep=KEEP_FORMS) -> list[dict]:
+    """Every filing EDGAR lists for the company on or after `since` whose form is kept (KEEP_FORMS; None = all),
+    newest first, one per accession. The `recent`
     block holds ~1,000 filings (or a year); the older pages in `files` are merged when their range reaches the
     window. A page that cannot be read raises: an undercounted EDGAR list would pass for complete."""
     fl = sub.get("filings", {})
@@ -280,7 +295,7 @@ def window_rows(sub: dict, since: str, load_page) -> list[dict]:
         rows += _rows(p)
     seen, out = set(), []
     for r in rows:
-        if r["date"] >= since and r["acc"] not in seen:
+        if r["date"] >= since and r["acc"] not in seen and (keep is None or r["form"] in keep):
             seen.add(r["acc"])
             out.append(r)
     return sorted(out, key=lambda r: (r["date"], r["acc"]), reverse=True)
