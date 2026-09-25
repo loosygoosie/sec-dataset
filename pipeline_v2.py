@@ -36,7 +36,7 @@ Steps (main()):
     universe.csv, changes.jsonl (appended), report.md, compare.md (v2 vs the old
     data/companies file: debt, capex, revenue and shares that differ by > 5%; the parallel week is judged on it).
 
-Env: SEC_USER_AGENT (required), ONLY_TICKERS, LIMIT (largest n companies by public float), LIBRARY=false (skip step 3),
+Env: SEC_USER_AGENT (required), ONLY_TICKERS, LIMIT (largest n companies by public float), LIBRARY=true (run step 3; on demand only),
 LIBRARY_MINUTES / MAX_NEW_FILINGS / LIBRARY_YEARS / LIBRARY_TAG (library.py), GH_TOKEN (to publish the library;
 without it the assets stay in work/library/assets), SEC_MIN_GAP (seconds between SEC requests; 0.5 when sharing
 the limit from a workstation), V2_OUT (default data/v2), V2_WORK (default work/v2).
@@ -78,7 +78,7 @@ LIBRARY_FLOAT_MIN = 15e9               # library without data/v2/pool.txt: publi
 THREADS = 6                            # cover instances in flight at once, under build_sec_events' shared 8/s
 ONLY = [t.strip().upper() for t in os.environ.get("ONLY_TICKERS", "").split(",") if t.strip()]
 LIMIT = int(os.environ.get("LIMIT", "0") or 0)
-LIBRARY = os.environ.get("LIBRARY", "true").strip().lower() not in ("0", "false", "no")
+LIBRARY = os.environ.get("LIBRARY", "false").strip().lower() in ("1", "true", "yes")   # on demand only
 MIN_GAP = float(os.environ.get("SEC_MIN_GAP", "0") or 0)
 TODAY = dt.date.today()
 # The two bulk files live in DIFFERENT folders (the first v2 run asked for bulkdata/companyfacts.zip: 403).

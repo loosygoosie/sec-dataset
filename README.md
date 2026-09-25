@@ -29,7 +29,7 @@ fundamentals pipeline itself treats every filer alike; which companies matter is
 | `sec.yml` — Build company fundamentals (all filers) | Sunday 06:00 | `data/companies/`, `manifest.json`, `tickers.json`, `REPORT.md` |
 | `companies-patch.yml` — daily patch | Mon–Sat 07:00 | only the company files (and manifest entries) whose 10-Q/10-K is newer than the file |
 | `events.yml` — events feed | daily 03:00 | `data/events/`, `events_recent.json`, `events_report.md` |
-| `pipeline_v2.yml` — Pipeline v2 (parallel week from 24 Sep 2026) | daily 09:30 | ONLY `data/v2/` and the `library` release assets — see "Pipeline v2" and "The complete filing library" below |
+| `pipeline_v2.yml` — Pipeline v2 (parallel week from 24 Sep 2026) | daily 09:30 | ONLY `data/v2/` (the `library` release assets only when dispatched with library=true: on demand since 25 Sep 2026) — see "Pipeline v2" and "The complete filing library" below |
 | `tests.yml` — Tests | every push | nothing |
 
 ## One-time setup (about five minutes)
@@ -363,6 +363,10 @@ the build actually wrote.
 - SEC ticker→CIK maps: https://www.sec.gov/files/company_tickers.json and company_tickers_exchange.json
 
 ## The complete filing library (release `library`, `library.py`, 25 Sep 2026)
+
+**On demand only (owner, 25 Sep 2026):** the nightly pipeline no longer updates the library (it spent up to 3 hours of
+SEC requests a night and blocked every other run, and after the scale-back nothing reads it nightly: fmp's signal
+scripts fetch what they need with `owner/fetch_company.py`). Dispatch `pipeline_v2.yml` with `library=true` to update.
 
 **Forms kept (owner, 25 Sep 2026: "the SEC checking has gotten out of hand"):** the core four an owner reads
 (10-K, 10-Q, proxy DEF 14A / DEFA14A / PRE 14A, 8-K), the forms scripts read (Forms 4/5, 144, 13D/13G, NT late

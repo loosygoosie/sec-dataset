@@ -10,6 +10,9 @@ name: Pipeline v2 (fmp pool - universe, fundamentals, filing library)
 # SPEED: the cover XBRL instances are kept across runs (actions/cache, work/v2/xbrl), so a normal night fetches only
 # the new 10-Qs and 10-Ks, 6 at a time under the shared 8 requests/s.
 #
+# LIBRARY ON DEMAND ONLY (owner, 25 Sep 2026: "switch the library to on-demand only"): the nightly run skips it (it
+# took up to 3 hours of SEC requests and blocked every other run); dispatch with library=true to update it. fmp's
+# signal scripts fetch the filings they need with owner/fetch_company.py.
 # LIBRARY (owner, 25 Sep 2026: "fetch everything"): library.py keeps EVERY filing of the last 3 years and every document
 # in it, per company, as RELEASE ASSETS on the `library` tag (<cik>.tar.gz + index.json), not in a git branch.
 # Only filings not saved yet are fetched; an asset is replaced only when its company changed.
@@ -34,8 +37,8 @@ on:
         default: "0"
         required: false
       library:
-        description: "Update the filing library (true/false)"
-        default: "true"
+        description: "Update the filing library (true/false; ON DEMAND only since 25 Sep 2026, never nightly)"
+        default: "false"
         required: false
       library_minutes:
         description: "Minutes the library may spend fetching (the rest come on later runs)"
@@ -86,7 +89,7 @@ jobs:
         run: python -m pytest -q tests/test_pipeline_v2.py tests/test_golden.py tests/test_fetch_filings.py tests/test_library.py
 
       - name: Make sure the library release exists
-        if: inputs.library != 'false'
+        if: inputs.library == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -100,7 +103,7 @@ jobs:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
           ONLY_TICKERS: ${{ inputs.only_tickers || '' }}
           LIMIT: ${{ inputs.limit || '0' }}
-          LIBRARY: ${{ inputs.library || 'true' }}
+          LIBRARY: ${{ inputs.library || 'false' }}
           LIBRARY_MINUTES: ${{ inputs.library_minutes || '180' }}
           MAX_NEW_FILINGS: ${{ inputs.max_new_filings || '0' }}
           LIBRARY_TAG: library
