@@ -377,3 +377,18 @@ def test_bulk_files_point_at_their_own_folders():
     import pipeline_v2 as P
     assert P.BULK["companyfacts"].endswith("/daily-index/xbrl/companyfacts.zip")
     assert P.BULK["submissions"].endswith("/daily-index/bulkdata/submissions.zip")
+
+
+def test_events_record_keeps_recent_periodic_and_8k_with_items():
+    import datetime as dt
+    import pipeline_v2 as P
+    sub = {"name": "X", "sicDescription": "Y", "sic": "1", "tickers": ["X"],
+           "filings": {"recent": {"form": ["8-K", "4", "10-Q", "8-K"],
+                                  "filingDate": ["2026-09-01", "2026-09-02", "2026-08-01", "2024-01-01"],
+                                  "accessionNumber": ["a1", "a2", "a3", "a4"],
+                                  "items": ["2.02,9.01", "", "", "5.02"],
+                                  "reportDate": ["2026-09-01", "", "2026-06-30", ""],
+                                  "primaryDocument": ["d.htm"] * 4}}}
+    rec = P.events_record(sub, 7, dt.date(2026, 9, 25))
+    assert [e["accession"] for e in rec["events"]] == ["a1", "a3"]
+    assert rec["events"][0]["items"] == ["2.02", "9.01"] and rec["tickers"] == ["X"]

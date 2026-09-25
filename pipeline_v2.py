@@ -25,7 +25,8 @@ Steps (main()):
     the first-filed value when later restated), annual + quarterly + TTM, with the tag used per field. The latest
     10-K and 10-Q XBRL instances (from the library) fill a quarter companyfacts lacks (CNP's Q2) and supply the
     company's own capex tag when no us-gaap one exists (COP, NEE).
- 5. data/v2/: companies/<cik>.json, universe.csv, changes.jsonl (appended), report.md, compare.md (v2 vs the old
+ 5. data/v2/: companies/<cik>.json, events/<cik>.json and tickers.json (the old feed's shapes, for fmp's switch),
+    universe.csv, changes.jsonl (appended), report.md, compare.md (v2 vs the old
     data/companies file: debt, capex, revenue and shares that differ by > 5%; the parallel week is judged on it).
 
 Env: SEC_USER_AGENT (required), ONLY_TICKERS, LIMIT (largest n companies), UNIVERSE_MIN, LIBRARY=false (skip step 3),
@@ -907,6 +908,57 @@ def build_universe(src: Sources, weights: dict, ads: dict, report: dict) -> list
     return uni
 
 
+EVENT_FORMS = {"8-K", "8-K/A", "10-K", "10-K/A", "10-Q", "10-Q/A", "10-KT", "10-QT"}
+EVENT_DAYS = 400
+
+
+def events_record(sub: dict, cik: int, today: dt.date = TODAY) -> dict:
+    """data/events/<cik>.json in the old feed's shape (what fmp's screen / watch / shares read): the 8-K / 10-K / 10-Q
+    filings of the last EVENT_DAYS with their 8-K item codes, straight from the submissions JSON (no requests). The
+    old feed's `exhibits` list is not rebuilt (fmp does not read it; the library holds every exhibit)."""
+    r = sub.get("filings", {}).get("recent", {})
+    since = str(today - dt.timedelta(days=EVENT_DAYS))
+    ev = []
+    for f, d, a, it, rd, doc in zip(r.get("form", []), r.get("filingDate", []), r.get("accessionNumber", []),
+                                    r.get("items", []) or [""] * len(r.get("form", [])),
+                                    r.get("reportDate", []) or [""] * len(r.get("form", [])),
+                                    r.get("primaryDocument", []) or [""] * len(r.get("form", []))):
+        if f in EVENT_FORMS and d >= since:
+            ev.append(dict(accession=a, date=d, form=f, items=[x.strip() for x in (it or "").split(",") if x.strip()],
+                           period=rd or d, url=f"https://www.sec.gov/Archives/edgar/data/{cik}/{a.replace('-', '')}/{doc}"))
+    ev.sort(key=lambda e: e["date"], reverse=True)
+    return dict(cik=cik, name=sub.get("name"), sic=sub.get("sicDescription"), sic_code=sub.get("sic"),
+                tickers=sub.get("tickers", []), events=ev)
+
+
+def write_events(uni: list[dict], src) -> int:
+    d = OUT / "events"
+    d.mkdir(parents=True, exist_ok=True)
+    keep, n = set(), 0
+    for c in uni:
+        sub = src.submission(int(c["cik"]))
+        if not sub:
+            continue
+        (d / f"{c['cik']}.json").write_text(json.dumps(events_record(sub, int(c["cik"])), indent=1) + "\n")
+        keep.add(f"{c['cik']}.json"); n += 1
+    for p in d.glob("*.json"):                          # companies that left the universe
+        if p.name not in keep:
+            p.unlink()
+    return n
+
+
+def write_tickers() -> int:
+    """data/v2/tickers.json in the old shape {TICKER: {cik, name}} from the SEC's company_tickers.json (1 request)."""
+    r = _ev.get("https://www.sec.gov/files/company_tickers.json")
+    if r is None:
+        return 0
+    out = {}
+    for v in r.json().values():
+        out.setdefault(v["ticker"].upper(), dict(cik=int(v["cik_str"]), name=v["title"]))
+    (OUT / "tickers.json").write_text(json.dumps(out, indent=1, sort_keys=True) + "\n")
+    return len(out)
+
+
 def run_library(uni: list[dict], changes: list, src: Sources) -> dict:
     """library.run for the universe; its new-filing entries join data/v2/changes.jsonl with source=library."""
     lib_changes: list = []
@@ -968,6 +1020,9 @@ def main() -> int:
     uni = build_universe(src, weights, ads, report)
     print(f"universe: {len(uni)} companies >= ${UNIVERSE_MIN / 1e9:.1f}B ({time.time() - t0:.0f}s)", flush=True)
     changes: list = []
+    report["events"] = write_events(uni, src)
+    report["tickers"] = write_tickers() if not ONLY else 0
+    print(f"events: {report['events']} companies; tickers: {report['tickers']}", flush=True)
     report["library"] = None
     if LIBRARY:
         report["library"] = run_library(uni, changes, src)
