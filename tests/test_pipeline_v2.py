@@ -329,8 +329,8 @@ def test_company_changes():
 def test_compare_flags_only_differences_over_five_percent():
     old = {"annual": [{"period_end": "2025-12-31", "revenue": 100, "capex": 10}],
            "quarterly": [{"period_end": "2026-06-30", "total_debt": 1000, "shares_outstanding": 55}]}
-    new = {"annual": [{"end": "2025-12-31", "revenue": 104, "capex": 20}],
-           "quarterly": [{"end": "2026-06-30", "total_debt": 1_100}],
+    new = {"v2_annual": [{"end": "2025-12-31", "revenue": 104, "capex": 20}],
+           "v2_quarterly": [{"end": "2026-06-30", "total_debt": 1_100}],
            "market": {"cover_date": "2026-08-25", "shares_cover": 140}}
     got = {r["field"]: r for r in V.compare_company(old, new)}
     assert set(got) == {"capex", "total_debt", "shares"}
@@ -419,3 +419,39 @@ def test_events_record_keeps_recent_periodic_and_8k_with_items():
     rec = P.events_record(sub, 7, dt.date(2026, 9, 25))
     assert [e["accession"] for e in rec["events"]] == ["a1", "a3"]
     assert rec["events"][0]["items"] == ["2.02", "9.01"] and rec["tickers"] == ["X"]
+
+
+def test_overlay_old_rows_with_v2():
+    old = [{"period_end": "2024-12-31", "fiscal_year": 2024, "revenue": 90, "revenue_as_filed": 90, "capex": 5,
+            "net_income": 7},
+           {"period_end": "2025-12-31", "fiscal_year": 2025, "revenue": 100, "revenue_as_filed": 100}]
+    v2 = [{"end": "2025-12-31", "revenue": 110, "net_income": 9, "total_debt": 50,
+           "src": {"revenue": {"filed": "2026-02-01", "first_val": 108, "first_filed": "2026-02-01"},
+                   "total_debt": {"filed": "2026-02-01"}}},
+          {"end": "2024-12-31", "revenue": 90, "net_income": 8, "capex": 6, "src": {}},
+          {"end": "2026-12-31", "revenue": 120, "src": {}}]
+    fixes = V.overlay(old, v2, annual=True)
+    r25 = next(r for r in old if r["period_end"] == "2025-12-31")
+    assert r25["revenue"] == 110 and r25["revenue_as_filed"] == 108 and r25["total_debt"] == 50
+    assert r25["net_income"] == 9                                  # the old row had none: filled
+    r24 = next(r for r in old if r["period_end"] == "2024-12-31")
+    assert r24["net_income"] == 7 and r24["capex"] == 6            # an old value is kept; capex is always v2's
+    assert old[-1] == {"period_end": "2026-12-31", "fiscal_year": 2026, "form": "10-K", "added_by": "v2",
+                       "revenue": 120}
+    assert {(f["period"], f["field"]) for f in fixes} >= {("2025-12-31", "revenue"), ("2024-12-31", "capex")}
+    q = [{"period_end": "2026-03-31", "revenue": 1}]
+    V.overlay(q, [{"end": "2026-06-30", "revenue": 2, "src": {}}], annual=False)
+    assert len(q) == 1                                             # no quarterly rows invented
+
+
+def test_legacy_record_keeps_the_old_shape():
+    fy = lambda y, v: {"val": v, "start": f"{y}-01-01", "end": f"{y}-12-31", "fy": y + 1, "fp": "FY", "form": "10-K",
+                       "filed": f"{y + 1}-02-01", "frame": f"CY{y}"}
+    cf = {"cik": 1, "entityName": "Abc Inc", "facts": {"us-gaap": {
+        "Revenues": {"units": {"USD": [fy(2024, 100), fy(2025, 120)]}},
+        "NetIncomeLoss": {"units": {"USD": [fy(2024, 10), fy(2025, 12)]}}}}}
+    out = V.legacy(cf, {"v2_annual": [{"end": "2025-12-31", "revenue": 125, "src": {}}], "v2_quarterly": []})
+    assert out["sec_name"] == "Abc Inc" and {"annual", "quarterly", "checks", "splits", "tags_used"} <= set(out)
+    row = next(r for r in out["annual"] if r["period_end"] == "2025-12-31")
+    assert row["fiscal_year"] == 2025 and row["revenue"] == 125 and row["net_income"] == 12
+    assert out["v2_fixes"] == [{"period": "2025-12-31", "field": "revenue", "old": 120, "v2": 125, "rows": "annual"}]

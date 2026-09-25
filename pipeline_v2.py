@@ -43,6 +43,7 @@ the limit from a workstation), V2_OUT (default data/v2), V2_WORK (default work/v
 """
 from __future__ import annotations
 
+import copy
 import csv
 import datetime as dt
 import gzip
@@ -57,6 +58,7 @@ from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
+import build_sec_dataset as _old
 import build_sec_events as _ev
 import fetch_filings as ff
 import library as lib
@@ -690,7 +692,7 @@ def compare_company(old: dict, new: dict) -> list[dict]:
         if (a is None) != (b is None) or (p is not None and abs(p) > 5) or (a == 0 and b):
             out.append({"field": field, "period": period, "old": a, "v2": b, "pct": None if p is None else round(p, 1)})
     oa = {r.get("period_end"): r for r in old.get("annual", []) if r.get("period_end")}
-    na = {r["end"]: r for r in new.get("annual", [])}
+    na = {r["end"]: r for r in new.get("v2_annual", [])}
     both = sorted(set(oa) & set(na))
     if both:
         e = both[-1]
@@ -698,7 +700,7 @@ def compare_company(old: dict, new: dict) -> list[dict]:
             add(f, e, oa[e].get(f), na[e].get(f))
     oq = {r.get("period_end"): r for r in old.get("quarterly", []) + old.get("annual", [])
           if r.get("period_end") and r.get("total_debt") is not None}
-    nq = {r["end"]: r for r in new.get("quarterly", []) + new.get("annual", []) if r.get("total_debt") is not None}
+    nq = {r["end"]: r for r in new.get("v2_quarterly", []) + new.get("v2_annual", []) if r.get("total_debt") is not None}
     common = sorted(set(oq) & set(nq))
     if common:
         add("total_debt", common[-1], oq[common[-1]].get("total_debt"), nq[common[-1]].get("total_debt"))
@@ -996,14 +998,94 @@ def company_record(c: dict, src: Sources) -> dict | None:
         if x and merge_instance(F, x, f["form"], f["filed"], f["accn"]):
             merged.append(f["accn"])
     fund = fundamentals(F)
+    fund = {("v2_" + k if k in ("annual", "quarterly", "tags_used") else k): v for k, v in fund.items()}
     lf = c["latest"] or {}
-    return {"cik": c["cik"], "ticker": c["ticker"], "tickers": c["tickers"], "name": c["name"], "sic": c["sic"],
+    return {**legacy(cf, fund), "cik": c["cik"], "ticker": c["ticker"], "tickers": c["tickers"], "name": c["name"], "sic": c["sic"],
             "sic_description": c["sic_description"], "fiscal_year_end": c["fye"],
             "latest_filing": lf, "instances_merged": merged,
             "market": {"shares_total": c["shares_total"], "shares_cover": c["shares_cover"], "classes": c["classes"],
                        "cover_date": c["cover_date"], "cover_accession": lf.get("accn"),
                        "ads_ratio": None, "note": c.get("cover_note"), "size_gate": c["gate"], **c["size"]},
             **fund}
+
+
+# ================================================================ the old file's fields (fmp's switch)
+OVERLAY = {"revenue": "revenue", "capex": "capex", "total_debt": "total_debt", "debt_noncurrent": "lt_debt_noncurrent",
+           "debt_current": "debt_current"}
+FILL = {"net_income": "net_income", "operating_cash_flow": "operating_cash_flow", "stock_comp": "stock_comp"}
+
+
+def overlay(old_rows: list[dict], v2_rows: list[dict], annual: bool) -> list[dict]:
+    """v2's corrected values written over the old build's rows of the same period end: revenue, capex and debt
+    always (the fields v2 exists to fix), net income / operating cash flow / stock comp only where the old row has
+    none. <field>_as_filed follows (screen.py's val() prefers it): v2's first-filed value when it was restated. An
+    annual period only v2 has (LHX FY2025) is added as a row. Returns [{period, field, old, v2}] for what changed."""
+    by_end = {r.get("period_end"): r for r in old_rows if r.get("period_end")}
+    shift = next((r["fiscal_year"] - int(r["period_end"][:4]) for r in old_rows
+                  if r.get("fiscal_year") and r.get("period_end")), 0)
+    fixes = []
+    for v in v2_rows:
+        e = v["end"]
+        row = by_end.get(e)
+        if row is None:
+            if not annual:
+                continue
+            row = {"period_end": e, "fiscal_year": int(e[:4]) + shift, "form": "10-K", "added_by": "v2"}
+            old_rows.append(row); by_end[e] = row
+        for vf, of in list(OVERLAY.items()) + list(FILL.items()):
+            val = v.get(vf)
+            if val is None or (vf in FILL and row.get(of) is not None):
+                continue
+            src = (v.get("src") or {}).get(vf) or {}
+            if row.get(of) != val:
+                fixes.append({"period": e, "field": of, "old": row.get(of), "v2": val})
+            row[of] = val
+            if src.get("filed"):
+                row[of + "_filed"] = src["filed"]
+            if (of + "_as_filed") in row or src.get("first_val") is not None:
+                row[of + "_as_filed"] = src.get("first_val", val)
+                row[of + "_as_filed_filed"] = src.get("first_filed", src.get("filed"))
+    old_rows.sort(key=lambda r: r.get("period_end", ""))
+    return fixes
+
+
+def legacy(cf: dict | None, fund: dict) -> dict:
+    """The old data/companies file's keys (sec_name, annual, quarterly, checks, splits, annual_coverage, tags_used),
+    built by build_sec_dataset from the same companyfacts, with v2's corrections overlaid (v2_fixes lists them).
+    fmp's screen.py, mathprice.py and the reads use ~45 fields of that shape (buybacks, dividends, goodwill, interest,
+    deposits and insurance lines for financials, net_income_parent ...); v2's own rows stay in v2_annual /
+    v2_quarterly. The checks are recomputed after the overlay."""
+    if not cf:
+        return {"annual": [], "quarterly": [], "checks": {}, "v2_fixes": []}
+    norm = _old.normalise_company(cf)
+    ann, qtr = norm["annual"], norm["quarterly"]
+    chk = lambda: _old.data_checks(ann, qtr, norm["tags_used"], norm.get("_top_line"))   # noqa: E731
+    before, q0 = _off(chk()), copy.deepcopy(qtr)
+    fixes = [dict(f, rows="annual") for f in overlay(ann, fund.get("v2_annual", []), True)]
+    fixes += [dict(f, rows="quarterly") for f in overlay(qtr, fund.get("v2_quarterly", []), False)]
+    notes = []
+    broke = _off(chk()) - before
+    if broke:                       # v2's quarters no longer add up to the year (COP: a different revenue line per
+        keep = {r.get("period_end"): r for r in q0}            # quarter): those quarterly fields stay the old build's
+        for r in qtr:
+            o = keep.get(r.get("period_end"), {})
+            for f in broke:
+                for k in (f, f + "_as_filed", f + "_filed", f + "_as_filed_filed"):
+                    if k in o:
+                        r[k] = o[k]
+                    else:
+                        r.pop(k, None)
+        fixes = [x for x in fixes if not (x["rows"] == "quarterly" and x["field"] in broke)]
+        notes.append(f"v2 quarterly {', '.join(sorted(broke))} not used: its quarters did not add up to the year")
+    return {"sec_name": cf.get("entityName"), "annual": ann, "quarterly": qtr, "tags_used": norm["tags_used"],
+            "annual_coverage": norm["annual_coverage"], "splits": norm["splits"], "checks": chk(),
+            "v2_fixes": fixes, "v2_notes": notes}
+
+
+def _off(checks: dict) -> set:
+    """The items a data_checks() result says do not reconcile ("off:revenue,capex" -> {"revenue", "capex"})."""
+    r = str(checks.get("reconciles") or "")
+    return {x.strip() for x in r[4:].split(",") if x.strip()} if r.startswith("off:") else set()
 
 
 UNI_COLS = ["ticker", "cik", "name", "gate", "shares_total", "classes", "cover_date", "cover_form", "public_float",
@@ -1140,7 +1222,8 @@ def write_report(report: dict, recs: list, excluded: list, changes: list, secs: 
     L += lib.report_lines(report.get("library")) + ["", "## Excluded after the fundamentals", ""]
     L += [f"- {c['ticker']} {c['name']}: {why}" for c, why in excluded] or ["- none"]
     L += ["", "## Data flags", ""]
-    L += [f"- {c['ticker']}: {', '.join(r['flags'])}" for c, r in recs if r["flags"]] or ["- none"]
+    L += [f"- {c['ticker']}: {', '.join(r['flags'] + r.get('v2_notes', []))}" for c, r in recs
+          if r["flags"] or r.get("v2_notes")] or ["- none"]
     L += ["", "## Largest 25 by public float", "", "| ticker | public float | revenue TTM | capex TTM | total debt | shares |",
           "|---|---|---|---|---|---|"]
     for c, r in recs[:25]:

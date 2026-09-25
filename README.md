@@ -496,10 +496,21 @@ LHX FY2025 missing); share counts from companyfacts with ONE share class (HEICO,
    when tagged, is the whole current side; `LongTermDebt` includes its current portion); finance leases separate.
    A quarter companyfacts lacks is filled from the latest 10-Q's XBRL (CNP's Q2).
 5. Outputs, ONLY under `data/v2/`:
-   - `companies/<cik>.json` — `annual`, `quarterly` (rows: `end`, `start`, `revenue`, `net_income`,
+   - `companies/<cik>.json` — TWO views of the company (25 Sep 2026, for fmp's switch off the old jobs):
+     - the OLD file's shape, same keys and ~90 fields (`sec_name`, `annual`, `quarterly` with `fiscal_year` /
+       `period_end` / `*_as_filed`, `checks`, `splits`, `annual_coverage`, `tags_used`: buybacks, dividends, goodwill,
+       interest, deposits and insurance lines, net_income_parent ...), built by `build_sec_dataset.normalise_company`
+       from the same companyfacts, with v2's corrections written over it: revenue, capex and total debt (with its
+       current / non-current parts) always, net income / operating cash flow / stock comp only where the old row
+       has none, and a fiscal year only v2 has (LHX FY2025) added. `v2_fixes` lists every overlaid value (period,
+       field, old, v2). If v2's quarters would stop adding up to the year (COP: v2 picks the contract-revenue line
+       for quarters but the total for the year), the old quarterly values stay and `v2_notes` says so (also in
+       report.md "Data flags"). The checks are recomputed after the overlay. fmp's screen.py reads these files
+       unchanged (tested on CTAS, LHX, COP, NTAP, JPM, BRK-B, AAPL, CNP, MKL, IBKR: all reconcile).
+     - v2's own rows: `v2_annual`, `v2_quarterly` (rows: `end`, `start`, `revenue`, `net_income`,
      `operating_cash_flow`, `capex`, `fcf`, `stock_comp`, `shares_diluted`, `cash_and_sti`, `total_debt`,
      `debt_noncurrent`, `debt_current`, `finance_leases`, `equity`, and `src` per field), `ttm`, `balance`,
-     `tags_used`, `flags`, `latest_filing`, `market` (cover classes, `shares_total`, `size_gate`, `public_float`,
+     `v2_tags_used`, `flags`, `latest_filing`, `market` (cover classes, `shares_total`, `size_gate`, `public_float`,
      `assets`, `revenue`). No prices in these
      files, so they change only when a company files.
    - `universe.csv` — ticker, cik, name, gate, shares_total, classes, cover_date, cover_form, public_float,
