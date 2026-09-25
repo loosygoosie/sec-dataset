@@ -203,7 +203,8 @@ def process_submission(raw: bytes, f: dict) -> dict:
                     text = ff.xml_text(xml)
             else:
                 text = ff.to_text(body)
-            if not text or not text.strip():
+            text = (text or "").strip()
+            if not text:
                 continue
             tag = "" if not res["docs"] else "_" + (safe(typ) or "DOC")
             name, k = f"{base}{tag}.txt.gz", 2
