@@ -552,6 +552,12 @@ LHX FY2025 missing); share counts from companyfacts with ONE share class (HEICO,
    lines as printed on the balance sheet (a finance lease inside a printed debt line counts, as CMI and LHX print
    it; finance-lease lines of their own do not). Left: CVNA -1.2% (a revolver on its own tag), EXC -0.7% (debt to
    financing trusts). CBRE, CMI, EXC joined the known-answer tests.
+   MORE FORMS (25 Sep 2026): the nightly events feed (`data/v2/events`, what fmp's watch.py checks held names
+   against) now carries, besides 8-K / 10-K / 10-Q: NT 10-K / NT 10-Q (late filing), SC 13D / SCHEDULE 13D (activist
+   stake), SC TO-T / SC TO-I / SC 14D9 (tender offers), S-4 / 425 / DEFM14A / PREM14A (mergers), PREC14A / DEFC14A /
+   DFAN14A (proxy fights), SC 13E3 (going private with insiders), DEF 14C / PRE 14C / DEFM14C / PREM14C (a controlling
+   holder acting without a vote), 10-12B / 10-12G (spin-off registrations), 15-12B / 15-12G / 15-15D (going dark),
+   25-NSE / 25 (delisting). Metadata only, no extra requests. The library's kept forms gained the same new ones.
 5. Outputs, ONLY under `data/v2/`:
    - `companies/<cik>.json` — TWO views of the company (25 Sep 2026, for fmp's switch off the old jobs):
      - the OLD file's shape, same keys and ~90 fields (`sec_name`, `annual`, `quarterly` with `fiscal_year` /

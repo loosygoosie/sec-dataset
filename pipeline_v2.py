@@ -1267,7 +1267,17 @@ def build_universe(src: Sources, weights: dict, ads: dict, report: dict) -> list
     return uni
 
 
-EVENT_FORMS = {"8-K", "8-K/A", "10-K", "10-K/A", "10-Q", "10-Q/A", "10-KT", "10-QT"}
+# The nightly 8-K feed (data/v2/events) that watch.py checks held names against. Since 25 Sep 2026 it also carries the
+# filings that signal trouble or a deal (owner: "yeah add them"): late filings, activist stakes, tender offers, merger
+# and proxy-fight proxies, going-private, controlled-company actions, spin-off registrations, going dark, delisting.
+# Metadata from submissions.zip only: no extra requests.
+EVENT_FORMS = {"8-K", "8-K/A", "10-K", "10-K/A", "10-Q", "10-Q/A", "10-KT", "10-QT",
+               "NT 10-K", "NT 10-Q", "NT 10-K/A", "NT 10-Q/A",
+               "SC 13D", "SC 13D/A", "SCHEDULE 13D", "SCHEDULE 13D/A",
+               "SC TO-T", "SC TO-T/A", "SC TO-I", "SC TO-I/A", "SC 14D9", "SC 14D9/A",
+               "S-4", "S-4/A", "425", "DEFM14A", "PREM14A", "PREC14A", "DEFC14A", "DFAN14A",
+               "SC 13E3", "SC 13E3/A", "DEF 14C", "PRE 14C", "DEFM14C", "PREM14C",
+               "10-12B", "10-12B/A", "10-12G", "10-12G/A", "15-12B", "15-12G", "15-15D", "25-NSE", "25"}
 EVENT_DAYS = 400
 
 

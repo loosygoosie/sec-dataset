@@ -538,3 +538,16 @@ def test_big_company_leaving_is_an_alarm():
                       ({"ticker": "SMALL", "gate": "no_float"}, {"flags": ["no_revenue"]})], got)
     assert any("XOM" in x for x in lines) and any("NEWCO" in x for x in lines) and any("F" in x for x in lines)
     assert not any("SMALL" in x for x in lines)
+
+
+def test_events_feed_carries_the_warning_and_deal_forms():
+    import datetime as dt
+    import pipeline_v2 as P
+    forms = ["NT 10-K", "SCHEDULE 13D", "SC TO-T", "DEFM14A", "SC 13E3", "DEF 14C", "10-12B", "15-12B", "25-NSE",
+             "4", "424B2", "FWP"]
+    n = len(forms)
+    sub = {"name": "X", "filings": {"recent": {"form": forms, "filingDate": ["2026-09-01"] * n,
+                                               "accessionNumber": [f"a{i}" for i in range(n)], "items": [""] * n,
+                                               "reportDate": [""] * n, "primaryDocument": ["d.htm"] * n}}}
+    got = {e["form"] for e in P.events_record(sub, 7, dt.date(2026, 9, 25))["events"]}
+    assert got == set(forms[:9])                                  # Form 4, 424B2 and FWP stay out

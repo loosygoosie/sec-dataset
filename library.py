@@ -91,6 +91,11 @@ SCRIPT_FORMS = {"4", "4/A", "5", "5/A", "144", "144/A", "NT 10-K", "NT 10-Q", "N
 EVENT_FORMS = {"S-4", "S-4/A", "424B3", "DEFM14A", "PREM14A", "425", "SC TO-T", "SC TO-T/A", "SC TO-I", "SC TO-I/A",
                "SC 14D9", "SC 14D9/A", "PREC14A", "DEFC14A", "DFAN14A", "PX14A6G", "S-1", "S-1/A", "S-3", "S-3/A",
                "S-3ASR", "424B1", "424B4", "424B5"}
+# added 25 Sep 2026 (owner: "are we missing any important forms?"): going-private deals with insiders, actions a
+# controlling holder approves without a vote, spin-off registrations, going dark, delisting
+CONTROL_FORMS = {"SC 13E3", "SC 13E3/A", "DEF 14C", "PRE 14C", "DEFM14C", "PREM14C", "10-12B", "10-12B/A", "10-12G",
+                 "10-12G/A", "15-12B", "15-12G", "15-15D", "25-NSE", "25"}
+EVENT_FORMS = EVENT_FORMS | CONTROL_FORMS
 KEEP_FORMS = None if os.environ.get("LIBRARY_FORMS", "").strip().lower() == "all" else CORE_FORMS | SCRIPT_FORMS | EVENT_FORMS
 SKIP_TYPES = ("GRAPHIC", "ZIP", "EXCEL", "JSON", "EX-101")
 SKIP_NAMES = re.compile(r"(^R\d+\.htm$|^FilingSummary|\.(xsd|css|js|jpg|jpeg|gif|png|bmp|tif|tiff|zip|xlsx|xls|json)$)",
