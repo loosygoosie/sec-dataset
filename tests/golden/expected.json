@@ -1,0 +1,329 @@
+{
+ "AAPL": {
+  "evidence": "Robinhood agrees exactly (revenue, NI, both years).",
+  "flags": [],
+  "fy": {
+   "2024-09-28": {
+    "capex": 9447000000,
+    "net_income": 93736000000,
+    "revenue": 391035000000
+   },
+   "2025-09-27": {
+    "capex": 12715000000,
+    "net_income": 112010000000,
+    "revenue": 416161000000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 14594180000.0,
+  "total_debt": 84344000000,
+  "ttm_revenue": 466823000000
+ },
+ "BRK-B": {
+  "evidence": "Robinhood agrees (revenue, NI). Shares = B + A x 1,500. No consolidated debt tag -> no_debt_tagged (flag, not 0).",
+  "flags": [
+   "no_debt_tagged"
+  ],
+  "fy": {
+   "2024-12-31": {
+    "capex": 18976000000,
+    "net_income": 88995000000,
+    "revenue": 371433000000
+   },
+   "2025-12-31": {
+    "capex": 20927000000,
+    "net_income": 66968000000,
+    "revenue": 371444000000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 2140710161.0,
+  "total_debt": null,
+  "ttm_revenue": 384687000000
+ },
+ "CAT": {
+  "evidence": "Robinhood agrees on revenue (NI within 2M). Debt 36.2B is LOW: the 7.1B current portion of long-term debt is tagged only by segment -> flag current_ltd_untagged_7.1B.",
+  "flags": [
+   "current_ltd_untagged_7.1B"
+  ],
+  "fy": {
+   "2024-12-31": {
+    "capex": 1988000000,
+    "net_income": 10792000000,
+    "revenue": 64809000000
+   },
+   "2025-12-31": {
+    "capex": 2821000000,
+    "net_income": 8884000000,
+    "revenue": 67589000000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 459674889.0,
+  "total_debt": 36210000000,
+  "ttm_revenue": 74729000000
+ },
+ "CNP": {
+  "evidence": "Debt includes the current portion; the subsidiary's 1,000 cover shares (LegalEntityAxis) are not counted.",
+  "flags": [],
+  "fy": {
+   "2024-12-31": {
+    "capex": 4513000000,
+    "net_income": 1019000000,
+    "revenue": 8552000000
+   },
+   "2025-12-31": {
+    "capex": 4870000000,
+    "net_income": 1052000000,
+    "revenue": 9337000000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 658720288.0,
+  "total_debt": 24522000000,
+  "ttm_revenue": 9562000000
+ },
+ "COP": {
+  "evidence": "Robinhood agrees (58.944B / 54.745B revenue, NI). Quarters follow the year's total line (was 51.8B over 4 quarters).",
+  "flags": [],
+  "fy": {
+   "2024-12-31": {
+    "capex": 12118000000,
+    "net_income": 9245000000,
+    "revenue": 54745000000
+   },
+   "2025-12-31": {
+    "capex": 12553000000,
+    "net_income": 7988000000,
+    "revenue": 58944000000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 1201337479.0,
+  "total_debt": 23290000000,
+  "ttm_revenue": 63345000000
+ },
+ "CTAS": {
+  "evidence": "Debt 2.428B = 1.429B non-current + 0.999B current (the old build had only the non-current).",
+  "flags": [],
+  "fy": {
+   "2025-05-31": {
+    "capex": 408884000,
+    "net_income": 1812281000,
+    "revenue": 10340181000
+   },
+   "2026-05-31": {
+    "capex": 395105000,
+    "net_income": 1999968000,
+    "revenue": 11264761000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 400169561.0,
+  "total_debt": 2428073000,
+  "ttm_revenue": 11264761000
+ },
+ "DTE": {
+  "evidence": "Revenue excludes the 61M lease-income line picked alone before.",
+  "flags": [],
+  "fy": {
+   "2024-12-31": {
+    "capex": 4399000000,
+    "net_income": 1404000000,
+    "revenue": 12457000000
+   },
+   "2025-12-31": {
+    "capex": 4343000000,
+    "net_income": 1462000000,
+    "revenue": 15814000000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 208088069.0,
+  "total_debt": 27584000000,
+  "ttm_revenue": 16465000000
+ },
+ "GE": {
+  "evidence": "Robinhood agrees (45.855B / 38.702B, NI). Q1 2023 capex now uses the year's tag.",
+  "flags": [],
+  "fy": {
+   "2024-12-31": {
+    "capex": 1032000000,
+    "net_income": 6556000000,
+    "revenue": 38702000000
+   },
+   "2025-12-31": {
+    "capex": 1273000000,
+    "net_income": 8704000000,
+    "revenue": 45855000000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 1037562513.0,
+  "total_debt": 19157000000,
+  "ttm_revenue": 50639000000
+ },
+ "HEI": {
+  "evidence": "Shares: both classes on the cover (HEI + HEI.A); companyfacts alone counts one class.",
+  "flags": [],
+  "fy": {
+   "2024-10-31": {
+    "capex": 58261000,
+    "net_income": 514109000,
+    "revenue": 3857669000
+   },
+   "2025-10-31": {
+    "capex": 72886000,
+    "net_income": 690385000,
+    "revenue": 4485044000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 139757405.0,
+  "total_debt": 2541173000,
+  "ttm_revenue": 5176756000
+ },
+ "JPM": {
+  "evidence": "Bank: revenue = net interest + noninterest income; Robinhood agrees on 2025 revenue. No capex tag -> no_capex flag.",
+  "flags": [
+   "debt_one_side_only",
+   "no_capex"
+  ],
+  "fy": {
+   "2024-12-31": {
+    "capex": null,
+    "net_income": 58471000000,
+    "revenue": 177556000000
+   },
+   "2025-12-31": {
+    "capex": null,
+    "net_income": 57048000000,
+    "revenue": 182447000000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 2658186195.0,
+  "total_debt": 72430000000,
+  "ttm_revenue": 199408000000
+ },
+ "LHX": {
+  "evidence": "FY2025 21.865B from the 10-K (the year sat on a Sep-Jan quarter context); FY2024 21.325B; Robinhood's rows are shifted a year.",
+  "flags": [],
+  "fy": {
+   "2025-01-03": {
+    "capex": 408000000,
+    "net_income": 1502000000,
+    "revenue": 21325000000
+   },
+   "2026-01-02": {
+    "capex": 424000000,
+    "net_income": 1606000000,
+    "revenue": 21865000000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 186214616.0,
+  "total_debt": 10999000000,
+  "ttm_revenue": 22932000000
+ },
+ "MKL": {
+  "evidence": "2024 revenue restated 16.62B -> 14.81B; Q1/Q2 2024 keep their original values -> quarters_off_year flag is correct.",
+  "flags": [
+   "debt_one_side_only",
+   "quarters_off_year_revenue_2024-12-31"
+  ],
+  "fy": {
+   "2024-12-31": {
+    "capex": 254991000,
+    "net_income": 2747022000,
+    "revenue": 14813544000
+   },
+   "2025-12-31": {
+    "capex": 206894000,
+    "net_income": 2107010000,
+    "revenue": 15513233000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 12389958.0,
+  "total_debt": 4367740000,
+  "ttm_revenue": 15511556000
+ },
+ "NTAP": {
+  "evidence": "6.925B: the 10-K's ASC 606 total, = its four 10-Q quarters (1,559+1,705+1,713+1,948). 'Revenues' 6.237B is a subset; Robinhood takes that one.",
+  "flags": [],
+  "fy": {
+   "2025-04-25": {
+    "capex": 168000000,
+    "net_income": 1186000000,
+    "revenue": 6572000000
+   },
+   "2026-04-24": {
+    "capex": 198000000,
+    "net_income": 1276000000,
+    "revenue": 6925000000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 196419005.0,
+  "total_debt": 2488000000,
+  "ttm_revenue": 7391000000
+ },
+ "ORCL": {
+  "evidence": "Robinhood agrees (67.357B / 57.399B, NI). Debt 129.5B from the May 10-K (debt_end): the Aug 10-Q tags only current notes.",
+  "flags": [],
+  "fy": {
+   "2025-05-31": {
+    "capex": 21215000000,
+    "net_income": 12443000000,
+    "revenue": 57399000000
+   },
+   "2026-05-31": {
+    "capex": 55663000000,
+    "net_income": 17087000000,
+    "revenue": 67357000000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 3023736000.0,
+  "total_debt": 129541000000,
+  "ttm_revenue": 71777000000
+ },
+ "RSG": {
+  "evidence": "Revenue is the consolidated total, not before eliminations.",
+  "flags": [
+   "stale_stock_comp"
+  ],
+  "fy": {
+   "2024-12-31": {
+    "capex": 1855000000,
+    "net_income": 2043173000,
+    "revenue": 16032000000
+   },
+   "2025-12-31": {
+    "capex": 1887000000,
+    "net_income": 2139249000,
+    "revenue": 16591000000
+   }
+  },
+  "gate": "float",
+  "reconciles": "ok",
+  "shares_total": 306212978.0,
+  "total_debt": 14069000000,
+  "ttm_revenue": 16890000000
+ }
+}
