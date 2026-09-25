@@ -444,6 +444,7 @@ def _src(r: dict) -> dict:
 
 
 INVARIANT_YEARS = 3
+DUE_12M = "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths"
 DEBT_STALE_DAYS = 200                  # balance total_debt from an earlier date at most this much older
 
 
@@ -492,7 +493,8 @@ def fundamentals(F: dict) -> dict:
             flows[field] = same_line_as_year(_pick_per_period(ser, choose_capex), ser)
         else:
             flows[field] = _pick_per_period(ser, lambda c, tags=tags: next((t for t in tags if t in c), None))
-    inst = {t: instant_series(F[t]) for t in set(DEBT_TAGS) | {t for ts in INSTANTS.values() for t in ts} if t in F}
+    inst = {t: instant_series(F[t]) for t in set(DEBT_TAGS) | {t for ts in INSTANTS.values() for t in ts} | {DUE_12M}
+            if t in F}
 
     def balance(row: dict, e: str):
         for field, tags in INSTANTS.items():
@@ -562,6 +564,12 @@ def fundamentals(F: dict) -> dict:
     if not bal.get("total_debt") and bal:
         flags.append("no_debt_tagged")
     flags += invariant_flags(annual, quarterly)
+    de = bal.get("debt_end") or bal.get("end")                  # CAT: the current portion of long-term debt is
+    due = inst.get(DUE_12M, {}).get(de, {}).get("val")          # tagged only by segment; its maturity table says
+    lsrc = (latest.get("src") or {}).get("total_debt") or {}    # $7.1B falls due within 12 months
+    if bal.get("total_debt") is not None and due and due > 0 and not set(lsrc.get("tags", [])) & set(DEBT_CURRENT_LTD) \
+            and "DebtCurrent" not in lsrc.get("tags", []) and (bal.get("debt_current") or 0) < due:
+        flags.append(f"current_ltd_untagged_{due / 1e9:.1f}B")
     if latest and latest.get("src", {}).get("total_debt", {}).get("note"):
         flags.append("debt_one_side_only")
     return {"bank": bank, "annual": annual, "quarterly": quarterly, "ttm": ttm, "balance": bal,

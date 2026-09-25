@@ -504,7 +504,15 @@ LHX FY2025 missing); share counts from companyfacts with ONE share class (HEICO,
    `quarter_exceeds_year_<field>_<end>` (revenue, capex) and `quarters_off_year_<field>_<end>` (revenue, operating
    cash flow, capex; four quarters vs the year, 2%). On 40 large companies they leave one real flag (MKL 2024: the
    year was restated, two quarters were not). Known gap, flagged not guessed: CAT tags its debt only by segment
-   (machinery vs financial products), which companyfacts drops, so `no_debt_tagged`.
+   (machinery vs financial products), which companyfacts drops; its 10-K's consolidated total is used (36.2B,
+   debt_end) and `current_ltd_untagged_7.1B` says the current portion (from its own maturity table) is missing.
+   KNOWN-ANSWER TESTS (`tests/test_golden.py`): 15 companies that broke earlier builds (COP, LHX, NTAP, CTAS, ORCL,
+   CAT, BRK-B, HEI, MKL, GE, CNP, JPM, AAPL, RSG, DTE) are rebuilt offline from saved SEC data (`tests/golden/`,
+   2.2 MB) and must give the pinned values in `tests/golden/expected.json` (two fiscal years of revenue / net income /
+   capex, TTM revenue, total debt, cover shares, flags), each with its evidence: Robinhood's financials agree for
+   COP, ORCL, CAT, BRK-B, GE, AAPL, JPM; NTAP's 6.925B is its four 10-Q quarters (Robinhood's 6.237B is the
+   'Revenues' subset). Turning off the COP fix fails COP and GE. Regenerate only after fixing the evidence:
+   `python tests/golden_harness.py`.
 5. Outputs, ONLY under `data/v2/`:
    - `companies/<cik>.json` — TWO views of the company (25 Sep 2026, for fmp's switch off the old jobs):
      - the OLD file's shape, same keys and ~90 fields (`sec_name`, `annual`, `quarterly` with `fiscal_year` /
