@@ -376,11 +376,16 @@ SEC requests a night and blocked every other run, and after the scale-back nothi
 scripts fetch what they need with `owner/fetch_company.py`). Dispatch `pipeline_v2.yml` with `library=true` to update.
 
 **Forms kept (owner, 25 Sep 2026: "the SEC checking has gotten out of hand"):** the core four an owner reads
-(10-K, 10-Q, proxy DEF 14A / DEFA14A / PRE 14A, 8-K), the forms scripts read (Forms 4/5, 144, 13D/13G, NT late
+(10-K, 10-Q, proxy DEF 14A / DEFA14A / PRE 14A, 8-K), the forms scripts read (13D, NT late
 filings, amendments, SEC comment letters UPLOAD / CORRESP), and situational ones (deal S-4 / 424B3 / DEFM14A / 425,
 tender offers, proxy fights, stock and bond offerings S-1 / S-3 / 424B5). Dropped as noise: bank structured-note
 prospectuses (424B2), FWP, S-8, 11-K, SD, 25-NSE, EFFECT, Form 3, ARS. `LIBRARY_FORMS=all` keeps every form.
 Completeness is counted against EDGAR's list of the kept forms.
+**Trimmed 26 Sep 2026:** Forms 4/5 and 144 (89% of NVDA's filings) and 13G (passive holders, incl. the ones a bank
+files about other companies) are no longer kept; fmp's insider data comes from the SEC's quarterly data sets. 424B3 is
+kept only when the window also holds an S-4 / 425 (a merger prospectus); alone it is a bank's notes (3,295 at JPM).
+Filings already saved of those forms leave the assets on the next library run. A cover public float filed at the wrong
+scale (CBT 4.4 quadrillion, OLED 6.8 trillion) is scaled back by 1,000s (`pipeline_v2.plausible_float`).
 
 **Where:** https://github.com/loosygoosie/sec-dataset/releases/tag/library — release assets, public, no login.
 **What:** for the companies in `data/v2/pool.txt` (fmp's pool, one ticker per line; without that file, the v2

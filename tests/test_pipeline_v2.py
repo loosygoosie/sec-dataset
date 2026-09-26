@@ -235,6 +235,14 @@ def test_class_weights_ads_and_splits():
     assert V.shares_total({}, "X", {}, {}) is None
 
 
+def test_a_float_filed_at_the_wrong_scale_is_scaled_back():
+    assert V.plausible_float(4.429047299e15, 3.713e9) == pytest.approx(4.429047299e9)     # CBT
+    assert V.plausible_float(6.792425456e12, 0.650611e9) == pytest.approx(6.792425456e9)  # OLED
+    assert V.plausible_float(4.3e12, 216e9) == 4.3e12                                     # NVDA: real
+    assert V.plausible_float(20e9, None) == 20e9                                          # no revenue, normal float
+    assert V.plausible_float(None, 1e9) is None
+
+
 def test_size_signals_and_gate():
     today = dt.date(2026, 9, 25)
     cf = {"facts": {"dei": {"EntityPublicFloat": {"units": {"USD": [
