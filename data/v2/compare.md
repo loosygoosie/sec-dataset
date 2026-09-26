@@ -2,8 +2,8 @@
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
-- companies: 2489; with a difference: 1292
-- by field: capex 103, file 280, revenue 186, shares 657, total_debt 280
+- companies: 2489; with a difference: 1291
+- by field: capex 103, file 280, revenue 186, shares 656, total_debt 280
 
 | ticker | field | period | old | v2 | diff % |
 |---|---|---|---|---|---|
@@ -314,6 +314,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | CNM | shares | 2026-09-04 | - | 0.19B | - |
 | MAA | total_debt | 2026-06-30 | 5.69B | 6.05B | 6.3 |
 | IREN | shares | 2026-08-14 | - | 0.39B | - |
+| DCI | shares | 2026-09-11 | - | 0.12B | - |
 | ELS | total_debt | 2026-06-30 | 2.75B | 3.31B | 20.6 |
 | AR | capex | 2025-12-31 | 5.4M | 0.25B | 4581.5 |
 | AMH | shares | 2026-07-29 | - | 0.36B | - |
@@ -375,7 +376,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | RYAN | shares | 2026-07-27 | - | 0.26B | - |
 | FRBT | file | - | - | - | - |
 | BROS | shares | 2026-07-31 | 0.15B | 0.17B | 13.3 |
-| DCI | shares | 2026-05-21 | - | 0.12B | - |
 | PNFP | revenue | 2025-12-31 | 2.80B | 2.05B | -26.5 |
 | OLLI | shares | 2026-08-26 | - | 59.4M | - |
 | WAL | revenue | 2025-12-31 | 4.69B | 3.54B | -24.5 |
@@ -1080,7 +1080,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | VIA | shares | 2026-07-31 | 12.7M | 81.5M | 541.2 |
 | AMTB | revenue | 2025-12-31 | 0.60B | 0.44B | -26.5 |
 | AMTB | total_debt | 2025-12-31 / - | 0 | - | - |
-| SCHL | shares | 2026-06-30 | 20.9M | 18.9M | -9.7 |
 | ARRY | shares | 2026-07-31 | - | 0.15B | - |
 | ADTN | total_debt | 2022-12-31 | 95.9M | 24.6M | -74.4 |
 | RMIX | file | - | - | - | - |
