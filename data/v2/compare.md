@@ -1,4 +1,4 @@
-# v2 vs data/companies (2026-09-25)
+# v2 vs data/companies (2026-09-26)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
@@ -7,11 +7,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 
 | ticker | field | period | old | v2 | diff % |
 |---|---|---|---|---|---|
-| CBT | total_debt | 2026-06-30 | 1.09B | 1.27B | 16.9 |
-| OLED | total_debt | - / 2026-06-30 | - | 1.1M | - |
-| SKY | shares | 2026-07-29 | - | 54.3M | - |
 | MSFT | total_debt | 2026-06-30 | 46.14B | 40.29B | -12.7 |
-| RENX | total_debt | 2026-06-30 | 30.2M | 39.2M | 29.7 |
 | META | shares | 2026-07-24 | - | 2.55B | - |
 | TRMK | revenue | 2025-12-31 | 0.95B | 0.80B | -15.7 |
 | HIVE | shares | 2026-08-14 | - | 0.27B | - |
@@ -437,6 +433,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | VNO | total_debt | 2026-06-30 | 2.60B | 6.60B | 154.0 |
 | SLM | revenue | 2025-12-31 | 2.63B | 1.98B | -24.5 |
 | KD | shares | 2026-07-29 | - | 0.22B | - |
+| OLED | total_debt | - / 2026-06-30 | - | 1.1M | - |
 | OMF | revenue | 2025-12-31 | 5.46B | 4.90B | -10.1 |
 | WTS | shares | 2026-07-26 | - | 33.4M | - |
 | CHDN | capex | 2025-12-31 | 0.20B | 70.2M | -65.7 |
@@ -551,6 +548,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | OSCR | shares | 2026-07-31 | - | 0.31B | - |
 | LAZ | shares | 2026-07-17 | - | 0.11B | - |
 | EPR | shares | 2026-07-29 | - | 76.6M | - |
+| CBT | total_debt | 2026-06-30 | 1.09B | 1.27B | 16.9 |
 | TMDX | total_debt | 2026-06-30 | 20.0M | 59.7M | 198.7 |
 | SBRA | capex | 2025-12-31 | 0.45B | - | - |
 | PECO | capex | 2025-12-31 | 0.36B | 0.14B | -62.2 |
@@ -569,6 +567,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | SKYW | capex | 2025-12-31 | 0.55B | 32.0M | -94.2 |
 | SKYW | shares | 2026-07-17 | - | 38.8M | - |
 | IBOC | shares | 2026-08-03 | - | 62.2M | - |
+| SKY | shares | 2026-07-29 | - | 54.3M | - |
 | SXT | shares | 2026-07-22 | - | 42.6M | - |
 | MAC | capex | 2025-12-31 | 0.27B | 66.4M | -75.1 |
 | COLD | total_debt | 2021-12-31 | 2.85B | 5.02B | 75.8 |
@@ -750,6 +749,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | TFX | shares | 2026-08-04 | - | 42.4M | - |
 | FFBC | revenue | 2025-12-31 | 1.00B | 0.90B | -10.2 |
 | FFBC | shares | 2026-08-05 | - | 0.10B | - |
+| RENX | total_debt | 2026-06-30 | 30.2M | 39.2M | 29.7 |
 | WAFD | revenue | 2025-09-30 | 1.34B | 0.73B | -45.8 |
 | WAFD | total_debt | 2026-06-30 / - | 3.26B | - | - |
 | XE | file | - | - | - | - |
