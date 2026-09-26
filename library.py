@@ -85,9 +85,11 @@ INSIDER_FORMS = {"3", "4", "5", "3/A", "4/A", "5/A"}
 # S-8, 11-K, SD, 25-NSE, EFFECT, Form 3, ARS (a glossy copy of the 10-K), 8-A, POS AM ... LIBRARY_FORMS=all keeps all.
 CORE_FORMS = {"10-K", "10-K/A", "10-KT", "10-KT/A", "10-Q", "10-Q/A", "10-QT", "10-QT/A", "8-K", "8-K/A",
               "DEF 14A", "DEFA14A", "PRE 14A", "DEFR14A"}
-SCRIPT_FORMS = {"4", "4/A", "5", "5/A", "144", "144/A", "NT 10-K", "NT 10-Q", "NT 10-K/A", "NT 10-Q/A",
-                "UPLOAD", "CORRESP", "SC 13D", "SC 13D/A", "SC 13G", "SC 13G/A",
-                "SCHEDULE 13D", "SCHEDULE 13D/A", "SCHEDULE 13G", "SCHEDULE 13G/A"}
+# Trimmed 26 Sep 2026: Forms 4/5 and 144 were 89% of NVDA's filings and 13Gs (passive holders, including the ones a
+# bank files about OTHER companies) ~430 of JPM's; fmp's insider data comes from the SEC's quarterly data sets, not
+# from here. Activist stakes (13D) stay.
+SCRIPT_FORMS = {"NT 10-K", "NT 10-Q", "NT 10-K/A", "NT 10-Q/A",
+                "UPLOAD", "CORRESP", "SC 13D", "SC 13D/A", "SCHEDULE 13D", "SCHEDULE 13D/A"}
 EVENT_FORMS = {"S-4", "S-4/A", "424B3", "DEFM14A", "PREM14A", "425", "SC TO-T", "SC TO-T/A", "SC TO-I", "SC TO-I/A",
                "SC 14D9", "SC 14D9/A", "PREC14A", "DEFC14A", "DFAN14A", "PX14A6G", "S-1", "S-1/A", "S-3", "S-3/A",
                "S-3ASR", "424B1", "424B4", "424B5"}
@@ -97,6 +99,8 @@ CONTROL_FORMS = {"SC 13E3", "SC 13E3/A", "DEF 14C", "PRE 14C", "DEFM14C", "PREM1
                  "10-12G/A", "15-12B", "15-12G", "15-15D", "25-NSE", "25"}
 EVENT_FORMS = EVENT_FORMS | CONTROL_FORMS
 KEEP_FORMS = None if os.environ.get("LIBRARY_FORMS", "").strip().lower() == "all" else CORE_FORMS | SCRIPT_FORMS | EVENT_FORMS
+# 424B3 is a merger prospectus only next to a merger filing; alone it is a bank's structured notes (3,295 at JPM)
+MERGER_FORMS = {"S-4", "S-4/A", "425"}
 SKIP_TYPES = ("GRAPHIC", "ZIP", "EXCEL", "JSON", "EX-101")
 SKIP_NAMES = re.compile(r"(^R\d+\.htm$|^FilingSummary|\.(xsd|css|js|jpg|jpeg|gif|png|bmp|tif|tiff|zip|xlsx|xls|json)$)",
                         re.I)
@@ -303,6 +307,8 @@ def window_rows(sub: dict, since: str, load_page, keep=KEEP_FORMS) -> list[dict]
         if r["date"] >= since and r["acc"] not in seen and (keep is None or r["form"] in keep):
             seen.add(r["acc"])
             out.append(r)
+    if keep is not None and not any(r["form"] in MERGER_FORMS for r in out):
+        out = [r for r in out if r["form"] != "424B3"]
     return sorted(out, key=lambda r: (r["date"], r["acc"]), reverse=True)
 
 

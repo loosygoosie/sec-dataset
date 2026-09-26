@@ -890,7 +890,16 @@ def size_signals(cf: dict) -> dict:
     assets = recent(_latest(usd(g, "Assets")))
     revs = [recent(_latest(usd(g, t), annual=True)) for t in [RFCWC, *REV_TOTAL, *REV_OTHER]]
     rev = max((v for v in revs if v), default=None)
+    fl = plausible_float(fl, rev)
     return {"public_float": fl, "float_date": fl_end, "float_filed": fl_filed, "assets": assets, "revenue": rev}
+
+
+def plausible_float(fl, rev):
+    """A cover's public float filed at the wrong scale (CBT 4.4 quadrillion, OLED 6.8 trillion: thousands entered as
+    dollars), scaled down by 1,000s until it is. Implausible = over $1T and over 200x annual revenue (NVDA ~20x)."""
+    while fl and fl > 1e12 and (not rev or fl > 200 * rev):
+        fl /= 1000
+    return fl
 
 
 def size_gate(sig: dict, tenks: int = 0, today: dt.date = TODAY) -> str | None:

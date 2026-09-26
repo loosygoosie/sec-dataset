@@ -171,7 +171,7 @@ def sub_json(rows, files=()):
 
 
 def test_window_rows_merges_older_pages_only_when_they_reach_the_window():
-    sub = sub_json([("4", "2026-09-01", "a1"), ("10-Q", "2026-08-01", "a2")],
+    sub = sub_json([("8-K", "2026-09-01", "a1"), ("10-Q", "2026-08-01", "a2")],
                    files=[{"name": "p1.json", "filingFrom": "2023-01-01", "filingTo": "2025-12-31"},
                           {"name": "p2.json", "filingFrom": "2010-01-01", "filingTo": "2022-12-31"}])
     pages = {"p1.json": sub_json([("425", "2025-01-02", "b1"), ("ARS", "2023-06-01", "b2"),
@@ -232,7 +232,7 @@ def test_run_fetches_everything_once_then_only_the_new(tmp_path, monkeypatch):
     calls = []
     monkeypatch.setattr(L, "fetch_filing", fake_fetch(calls))
     monkeypatch.setattr(L, "window_start", lambda *a, **k: "2023-09-25")
-    today = [("4", "2026-09-01", "0001-26-3"), ("425", "2026-05-01", "0001-26-2"), ("DEF 14A", "2024-03-01", "0001-24-1"),
+    today = [("8-K", "2026-09-01", "0001-26-3"), ("425", "2026-05-01", "0001-26-2"), ("DEF 14A", "2024-03-01", "0001-24-1"),
              ("10-K", "2023-01-01", "0001-23-0")]                                     # the last is outside the window
     subs = {7: sub_json(today)}
     uni = [dict(cik=7, ticker="CTAS", name="Cintas", mcap=8e10)]
@@ -241,7 +241,7 @@ def test_run_fetches_everything_once_then_only_the_new(tmp_path, monkeypatch):
     assert sorted(calls) == ["0001-24-1", "0001-26-2", "0001-26-3"]
     man, names = asset_manifest(store, 7)
     assert (man["edgar_filings"], man["saved_filings"], man["complete"]) == (3, 3, True)
-    assert man["forms"] == {"4": 1, "425": 1, "DEF 14A": 1}
+    assert man["forms"] == {"8-K": 1, "425": 1, "DEF 14A": 1}
     assert "7/manifest.json" in names and "7/0001-26-2_2026-05-01_425.txt.gz" in names
     assert stats["totals"]["complete"] == 1 and not stats["gaps"]
     assert changes == []                                            # a company's first fill is not "new filings"
@@ -251,7 +251,7 @@ def test_run_fetches_everything_once_then_only_the_new(tmp_path, monkeypatch):
     # next night: one new filing, one that failed, and the oldest leaves the window
     calls.clear()
     monkeypatch.setattr(L, "window_start", lambda *a, **k: "2024-06-01")
-    subs[7] = sub_json([("8-K", "2026-09-20", "0001-26-4"), ("4", "2026-09-19", "0001-26-bad")] + today)
+    subs[7] = sub_json([("8-K", "2026-09-20", "0001-26-4"), ("8-K", "2026-09-19", "0001-26-bad")] + today)
     stats = L.run(uni, changes, subs.get, lambda n: None, full=True, store=store)
     assert sorted(calls) == ["0001-26-4", "0001-26-bad"]            # only what is not saved yet
     man, names = asset_manifest(store, 7)
@@ -311,5 +311,24 @@ def test_window_rows_keeps_only_the_forms_that_matter():
                                   "accessionNumber": [f"0000000000-26-00000{i}" for i in range(7)],
                                   "reportDate": [""] * 7}, "files": []}}
     rows = lib.window_rows(sub, "2026-01-01", lambda n: None)
-    assert sorted(r["form"] for r in rows) == ["10-K", "4", "425", "8-K"]
+    assert sorted(r["form"] for r in rows) == ["10-K", "425", "8-K"]
     assert len(lib.window_rows(sub, "2026-01-01", lambda n: None, keep=None)) == 7
+
+
+def _forms(*forms):
+    return {"filings": {"recent": {"form": list(forms), "filingDate": ["2026-07-01"] * len(forms),
+                                   "accessionNumber": [f"0000000000-26-{i:06d}" for i in range(len(forms))],
+                                   "reportDate": [""] * len(forms)}, "files": []}}
+
+
+def test_insider_and_passive_holder_forms_are_not_kept():
+    rows = L.window_rows(_forms("4", "4/A", "5", "144", "SC 13G", "SCHEDULE 13G/A", "SC 13D", "10-Q"), "2026-01-01",
+                         lambda n: None)
+    assert sorted(r["form"] for r in rows) == ["10-Q", "SC 13D"]
+
+
+def test_424b3_is_kept_only_next_to_a_merger_filing():
+    notes = L.window_rows(_forms("424B3", "424B3", "10-K"), "2026-01-01", lambda n: None)
+    assert [r["form"] for r in notes] == ["10-K"]                   # a bank's structured notes
+    deal = L.window_rows(_forms("424B3", "S-4", "10-K"), "2026-01-01", lambda n: None)
+    assert sorted(r["form"] for r in deal) == ["10-K", "424B3", "S-4"]
