@@ -1,9 +1,9 @@
-# SEC dataset build — 2026-09-23T20:08:58Z
+# SEC dataset build — 2026-09-27T06:20:53Z
 
-- filers scanned: 20395
+- filers scanned: 20411
 - companies published: 14609
-- of those, no longer filing (`active: false`): 7203
-- tickers in map: 10461
+- of those, no longer filing (`active: false`): 7205
+- tickers in map: 10428
 
 A filer is published while it has filed within 15 years and marked
 `active` while it has filed within 3. The second window was the first
@@ -17,9 +17,9 @@ The question a consumer asks. A field can resolve a tag and still carry no figur
 of the eight years this file publishes — see the tag count below, and NOTES §18.
 
 - acquisition_cost_amort: 220
-- acquisitions: 5649
-- buybacks: 5938
-- capex: 11041
+- acquisitions: 5651
+- buybacks: 5940
+- capex: 11042
 - capitalized_software: 1053
 - cash: 13143
 - cash_and_short_term_investments: 911
@@ -28,7 +28,7 @@ of the eight years this file publishes — see the tag count below, and NOTES §
 - credit_loss_provision: 1442
 - current_assets: 11154
 - current_liabilities: 11113
-- d_and_a: 11891
+- d_and_a: 11892
 - debt_current: 5339
 - debt_current_total: 1399
 - debt_due_1y: 4688
@@ -36,18 +36,18 @@ of the eight years this file publishes — see the tag count below, and NOTES §
 - debt_due_3y: 4590
 - deposits: 1490
 - dividends_paid: 4347
-- eps_diluted: 9674
+- eps_diluted: 9676
 - finance_lease_liabilities: 2611
 - goodwill: 6417
 - gross_profit: 6457
-- impairments: 7952
+- impairments: 7953
 - income_tax: 11437
-- intangibles: 5794
+- intangibles: 5795
 - interest_expense: 10903
-- interest_income: 1998
+- interest_income: 1999
 - inventory: 5878
 - loan_loss_allowance: 1253
-- loans: 1903
+- loans: 1904
 - long_term_investments: 2038
 - loss_reserves: 278
 - lt_debt_current: 4920
@@ -58,17 +58,17 @@ of the eight years this file publishes — see the tag count below, and NOTES §
 - net_interest_income: 3203
 - operating_cash_flow: 14461
 - operating_income: 11814
-- operating_leases: 6211
+- operating_leases: 6212
 - payments_for_intangibles: 3007
 - pension_funded_status: 723
 - premiums_earned: 249
-- pretax_income: 11503
+- pretax_income: 11504
 - rd_expense: 5358
 - receivables: 8097
 - retained_earnings: 12679
-- revenue: 12038
+- revenue: 12039
 - sga_expense: 4512
-- shares_diluted: 12559
+- shares_diluted: 12560
 - shares_outstanding: 11463
 - short_term_borrowings: 2830
 - short_term_investments: 3673
@@ -87,7 +87,7 @@ The older count, under a name that says what it measures. A company that tagged 
 in 2012 and stopped is counted here and not above.
 
 - acquisition_cost_amort: 244
-- acquisitions: 6186
+- acquisitions: 6187
 - buybacks: 6443
 - capex: 11414
 - capitalized_software: 1213
@@ -99,8 +99,8 @@ in 2012 and stopped is counted here and not above.
 - current_assets: 12048
 - current_liabilities: 12013
 - d_and_a: 12132
-- debt_current: 5912
-- debt_current_total: 1632
+- debt_current: 5913
+- debt_current_total: 1633
 - debt_due_1y: 5189
 - debt_due_2y: 5244
 - debt_due_3y: 5089
@@ -110,11 +110,11 @@ in 2012 and stopped is counted here and not above.
 - finance_lease_liabilities: 2931
 - goodwill: 7021
 - gross_profit: 6965
-- impairments: 8462
+- impairments: 8464
 - income_tax: 11903
-- intangibles: 6428
+- intangibles: 6429
 - interest_expense: 11421
-- interest_income: 2209
+- interest_income: 2210
 - inventory: 6532
 - loan_loss_allowance: 1396
 - loans: 2135
@@ -128,11 +128,11 @@ in 2012 and stopped is counted here and not above.
 - net_interest_income: 3753
 - operating_cash_flow: 14505
 - operating_income: 12059
-- operating_leases: 7094
+- operating_leases: 7095
 - payments_for_intangibles: 3407
 - pension_funded_status: 781
 - premiums_earned: 257
-- pretax_income: 11903
+- pretax_income: 11904
 - rd_expense: 5533
 - receivables: 9117
 - retained_earnings: 13585
@@ -147,33 +147,33 @@ in 2012 and stopped is counted here and not above.
 - total_assets: 14544
 - total_debt: 10043
 - total_equity: 14134
-- total_equity_incl_nci: 6468
+- total_equity_incl_nci: 6469
 - total_equity_parent: 13932
 - total_liabilities: 13027
 
 ## Self-check: four quarters sum to the fiscal year (revenue, net income, operating cash flow, capex)
 
-- ok: 13154
-- off (one or more items miss by >3%): 155
-- n/a (no fiscal year with four quarters on file): 1300
+- ok: 13167
+- off (one or more items miss by >3%): 156
+- n/a (no fiscal year with four quarters on file): 1286
 
 Readers treat an `off` company, or one whose latest quarter is more than 150 days old (a 10-K may lawfully take 90 days; anything older means the structured feed is behind the filing), as unmeasured on its quarterly metrics.
 
 ## Share counts (added 8 Sep 2026)
 
-- diluted count on file: 9225
-- basic count only: 331
-- cover-page count only: 652
+- diluted count on file: 9224
+- basic count only: 328
+- cover-page count only: 655
 - none (multi-class filers tag by class; companyfacts drops dimensioned facts): 965
-- **invalid (a share count of zero or less somewhere in the file): 896**
+- **invalid (a share count of zero or less somewhere in the file): 897**
 
 A reader does not drop a name on a per-share test it cannot run; `shares` in the manifest says which case applies.
 
 ## Share scale (added 9 Sep 2026)
 
-- consistent: 11224
-- **suspect: 2531** (`scale` — a diluted count more than fifty times its own outstanding count, or less than a fiftieth; `levels` — the quarterly series steps between levels more than once, so no per-share figure spans it)
-- no share data at all: 854
+- consistent: 11221
+- **suspect: 2532** (`scale` — a diluted count more than fifty times its own outstanding count, or less than a fiftieth; `levels` — the quarterly series steps between levels more than once, so no per-share figure spans it)
+- no share data at all: 856
 
 `share_scale` says whether a company's share counts can all be true at once. It is not a reason to drop a name — it says the per-share metrics for that company are unmeasured. Both the flag and `shares` are in the manifest, so a reader need not open 7,411 company files to screen on them.
 
@@ -185,27 +185,14 @@ A reader does not drop a name on a per-share test it cannot run; `shares` in the
 
 `short_term_investments`, `long_term_investments`, `cash_and_short_term_investments` (net cash beyond `cash`); `lt_debt_current`, `debt_current_total`, `short_term_borrowings`, `commercial_paper`, `finance_lease_liabilities` (the pieces `total_debt` is now built from, never counting one twice — `total_debt_basis` `components_exceed_tagged` marks a tagged total that was short of its own pieces, kept as `total_debt_tagged`); `capitalized_software` and `payments_for_intangibles` (their own fields, not in `capex`); per company `splits`, and per row `shares_diluted_filled` / `_source` / `_filed` and `shares_diluted_adj` (on the newest filing's basis). No existing key changed meaning; every as-filed value is untouched.
 - rows where the pieces exceeded the tagged total: 524 companies (latest annual row)
-- companies with at least one split found in their own share counts: 2465
+- companies with at least one split found in their own share counts: 2467
 
 ## Stale-name fallback
 
 - companies whose companyfacts quarterly series was behind their own filings: 218
-- of those, patched from the filing's own XBRL this run: 193 (cap 600 filings)
+- of those, patched from the filing's own XBRL this run: 168 (cap 600 filings)
 
 A quarterly row carrying `"source": "filing"` was derived from the filing's own XBRL instance,
 through the same tag map, picking rules and year-to-date differencing as every other row. A row
 with no `source` came from the SEC's bulk companyfacts file. Only quarters missing from
 companyfacts are added; the prior-year comparatives a filing also carries are left alone.
-
-## S&P 500 constituents
-
-- source: https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv
-- snapshot date: 2026-09-23
-- constituents: 503
-- resolved to a CIK via the SEC ticker map: 503
-- unmatched (no CIK in the SEC ticker map): none
-- resolved but with no company file, so nothing to join to: HONA
-
-Membership comes from a public constituents list, not from the SEC — it is a fact about
-an index, not a company fundamental. `cik` is resolved through the SEC's own ticker map, so a
-ticker the map has not caught up with is listed under `unmatched` rather than guessed at.
