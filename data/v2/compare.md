@@ -1,9 +1,9 @@
-# v2 vs data/companies (2026-09-29)
+# v2 vs data/companies (2026-09-30)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
-- companies: 2489; with a difference: 1291
-- by field: capex 103, file 280, revenue 186, shares 656, total_debt 280
+- companies: 2491; with a difference: 1293
+- by field: capex 103, file 282, revenue 186, shares 656, total_debt 280
 
 | ticker | field | period | old | v2 | diff % |
 |---|---|---|---|---|---|
@@ -458,7 +458,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | MAT | shares | 2026-07-24 | - | 0.29B | - |
 | KEX | shares | 2026-08-04 | - | 52.8M | - |
 | LYFT | shares | 2026-07-31 | - | 0.38B | - |
-| MTN | shares | 2026-06-03 | - | 35.6M | - |
 | CWAN | shares | 2026-05-04 | - | 0.30B | - |
 | JAZZ | shares | 2026-07-27 | 61.4M | 64.9M | 5.7 |
 | IDA | shares | 2026-07-24 | - | 57.8M | - |
@@ -539,6 +538,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | LSTR | shares | 2026-07-20 | - | 33.9M | - |
 | SITM | shares | 2026-08-01 | 26.5M | 30.1M | 13.4 |
 | JAN | file | - | - | - | - |
+| MTN | shares | 2026-09-23 | - | 35.6M | - |
 | ABG | capex | 2025-12-31 | 19.3M | 0.19B | 863.7 |
 | ABG | shares | 2026-07-29 | - | 18.0M | - |
 | ADIG | file | - | - | - | - |
@@ -1401,7 +1401,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | GLED | file | - | - | - | - |
 | CEPS | shares | 2026-08-14 | - | 14.7M | - |
 | ACDC | shares | 2026-08-03 | - | 0.18B | - |
-| ALPX | file | - | - | - | - |
+| ALPXR | file | - | - | - | - |
 | NREF | capex | 2025-12-31 | 1.4M | - | - |
 | NREF | total_debt | 2026-06-30 | 0.48B | 0.68B | 41.1 |
 | TRAD | file | - | - | - | - |
@@ -1446,8 +1446,8 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | NBRG | shares | 2026-08-07 | - | 7.5M | - |
 | APAC | total_debt | - / 2026-06-30 | - | 22 | - |
 | APAC | shares | 2026-08-13 | - | 8.1M | - |
-| BPAC | shares | 2026-08-11 | 1.4M | 7.4M | 413.7 |
 | WSTN | file | - | - | - | - |
+| BPAC | shares | 2026-08-11 | 1.4M | 7.4M | 413.7 |
 | SCTX | file | - | - | - | - |
 | OBX | file | - | - | - | - |
 | BSEM | file | - | - | - | - |
@@ -1464,6 +1464,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | VATE | capex | 2025-12-31 | 0.5M | 26.1M | 5120.0 |
 | AENT | shares | 2026-09-10 | 51.0M | 0.11B | 117.7 |
 | NUTR | file | - | - | - | - |
+| RVII | file | - | - | - | - |
 | ADBT | file | - | - | - | - |
 | NOMA | shares | 2026-08-14 | 14.3M | 15.3M | 7.1 |
 | VIDA | file | - | - | - | - |
@@ -1475,6 +1476,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | PIII | shares | 2026-08-03 | - | 7.3M | - |
 | AAC-UN | file | - | - | - | - |
 | ELWT | shares | 2026-08-17 | - | 6.6M | - |
+| CAST | file | - | - | - | - |
 | CNXU | file | - | - | - | - |
 | CURX | shares | 2026-08-14 | 28.4M | 31.4M | 10.6 |
 | LABT | file | - | - | - | - |
@@ -1485,7 +1487,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | GYGY | file | - | - | - | - |
 | THEO | file | - | - | - | - |
 | EWAV | file | - | - | - | - |
-| CAST | file | - | - | - | - |
 | SAMO-UN | file | - | - | - | - |
 | JONEU | file | - | - | - | - |
 | MRCO | file | - | - | - | - |
@@ -1507,6 +1508,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | TBCVU | file | - | - | - | - |
 | SAGU | file | - | - | - | - |
 | PNAQ-UN | file | - | - | - | - |
+| IPHXU | file | - | - | - | - |
 | SECZ | file | - | - | - | - |
 | JMKE | file | - | - | - | - |
 | FTW | file | - | - | - | - |
