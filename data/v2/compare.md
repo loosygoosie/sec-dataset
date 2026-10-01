@@ -1,8 +1,8 @@
-# v2 vs data/companies (2026-09-30)
+# v2 vs data/companies (2026-10-01)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
-- companies: 2491; with a difference: 1293
+- companies: 2490; with a difference: 1293
 - by field: capex 103, file 282, revenue 186, shares 656, total_debt 280
 
 | ticker | field | period | old | v2 | diff % |
@@ -193,7 +193,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | TYL | shares | 2026-07-27 | 48.1M | 41.0M | -14.9 |
 | ADM | total_debt | 2026-06-30 | 7.60B | 8.01B | 5.4 |
 | ADM | shares | 2026-07-30 | - | 0.48B | - |
-| CCL | shares | 2026-06-19 | - | 1.37B | - |
+| CCL | shares | 2026-09-22 | - | 1.34B | - |
 | SBAC | capex | 2025-12-31 | 1.29B | 0.22B | -82.6 |
 | DOV | shares | 2026-07-17 | - | 0.13B | - |
 | STZ | shares | 2026-06-26 | - | 0.17B | - |
@@ -592,7 +592,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | EEFT | shares | 2026-07-30 | - | 37.4M | - |
 | SLG | total_debt | 2026-06-30 | 2.23B | 4.21B | 88.9 |
 | PJT | shares | 2026-07-27 | - | 25.6M | - |
-| CALM | shares | 2026-07-22 | - | 46.9M | - |
+| CALM | shares | 2026-09-30 | - | 46.7M | - |
 | ZLAB | shares | 2026-07-31 | 1.12B | 1.55B | 38.4 |
 | MRP | shares | 2026-08-03 | - | 0.17B | - |
 | BGC | revenue | 2025-12-31 | 2.94B | 2.44B | -17.0 |
@@ -1020,13 +1020,13 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | IOND | file | - | - | - | - |
 | TRIN | revenue | 2025-12-31 | 0.28B | - | - |
 | AMRC | shares | 2026-07-31 | - | 53.1M | - |
+| IDT | shares | 2026-09-21 | - | 24.8M | - |
 | UTZ | shares | 2026-08-03 | - | 0.14B | - |
 | CRMD | total_debt | - / 2025-12-31 | - | 0.1M | - |
 | HAWK | file | - | - | - | - |
 | LILA | shares | 2026-07-31 | - | 0.20B | - |
 | FMBH | revenue | 2025-12-31 | 0.37B | 0.35B | -6.4 |
 | HCSG | total_debt | 2026-06-30 / - | 0 | - | - |
-| IDT | shares | 2026-06-01 | - | 24.9M | - |
 | STAA | total_debt | 2016-12-30 / - | 2.8M | - | - |
 | ORC | revenue | 2025-12-31 | 0.41B | - | - |
 | WYFI | total_debt | 2026-06-30 | 83.2M | 35.6M | -57.2 |
