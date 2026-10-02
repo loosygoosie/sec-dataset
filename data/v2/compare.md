@@ -1,9 +1,9 @@
-# v2 vs data/companies (2026-10-01)
+# v2 vs data/companies (2026-10-02)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
 - companies: 2490; with a difference: 1293
-- by field: capex 103, file 282, revenue 186, shares 656, total_debt 280
+- by field: capex 103, file 282, revenue 186, shares 656, total_debt 281
 
 | ticker | field | period | old | v2 | diff % |
 |---|---|---|---|---|---|
@@ -234,7 +234,8 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | KEY | total_debt | 2026-06-30 | 10.97B | 18.33B | 67.1 |
 | KEY | shares | 2026-07-31 | - | 1.07B | - |
 | HONA | file | - | - | - | - |
-| MKC | shares | 2026-05-31 | - | 0.27B | - |
+| MKC | total_debt | 2026-08-31 | 4.25B | 5.02B | 18.2 |
+| MKC | shares | 2026-08-31 | - | 0.27B | - |
 | AMCR | shares | 2026-08-12 | - | 0.46B | - |
 | CFG | total_debt | 2026-06-30 | 15.30B | 16.35B | 6.9 |
 | MDB | total_debt | 2019-01-31 | 0.30B | 0.22B | -27.7 |
@@ -367,7 +368,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | ARX | shares | 2026-08-07 | 0.17B | 0.22B | 30.7 |
 | WCC | shares | 2026-07-29 | - | 48.7M | - |
 | AYI | shares | 2026-06-23 | - | 29.9M | - |
-| SNX | shares | 2026-06-24 | - | 80.0M | - |
+| SNX | shares | 2026-09-23 | - | 79.8M | - |
 | EGP | capex | 2025-12-31 | 0.32B | 75.8M | -76.4 |
 | ERIE | shares | 2026-07-24 | - | 46.2M | - |
 | HRL | shares | 2026-08-23 | - | 0.55B | - |
@@ -396,8 +397,8 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | JEF | total_debt | 2026-05-31 | 18.04B | 19.64B | 8.9 |
 | JEF | shares | 2026-06-30 | 0.20B | 0.23B | 13.4 |
 | NNN | total_debt | 2026-06-30 | 4.48B | 4.97B | 11.1 |
-| TAP-A | revenue | 2025-12-31 | 13.04B | 11.14B | -14.6 |
-| TAP-A | shares | 2026-07-30 | - | 0.18B | - |
+| TAP | revenue | 2025-12-31 | 13.04B | 11.14B | -14.6 |
+| TAP | shares | 2026-07-30 | - | 0.18B | - |
 | GNRC | shares | 2026-07-31 | - | 59.0M | - |
 | LW | shares | 2026-07-17 | - | 0.14B | - |
 | CHWY | shares | 2026-09-02 | - | 0.40B | - |
@@ -1463,7 +1464,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | AMSS | file | - | - | - | - |
 | VATE | capex | 2025-12-31 | 0.5M | 26.1M | 5120.0 |
 | AENT | shares | 2026-09-10 | 51.0M | 0.11B | 117.7 |
-| NUTR | file | - | - | - | - |
 | RVII | file | - | - | - | - |
 | ADBT | file | - | - | - | - |
 | NOMA | shares | 2026-08-14 | 14.3M | 15.3M | 7.1 |
@@ -1509,6 +1509,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | SAGU | file | - | - | - | - |
 | PNAQ-UN | file | - | - | - | - |
 | IPHXU | file | - | - | - | - |
+| XTER | file | - | - | - | - |
 | SECZ | file | - | - | - | - |
 | JMKE | file | - | - | - | - |
 | FTW | file | - | - | - | - |
