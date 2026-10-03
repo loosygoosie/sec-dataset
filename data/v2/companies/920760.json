@@ -1379,17 +1379,14 @@
   "total_liabilities": 17
  },
  "balance": {
-  "cash_and_sti": 2173778000,
-  "debt_end": "2025-11-30",
-  "debt_noncurrent": 5874995000,
-  "end": "2026-05-31",
-  "equity": 21620638000,
-  "total_debt": 5874995000
+  "cash_and_sti": 1498890000,
+  "end": "2026-08-31",
+  "equity": 21558959000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-05-31",
-  "quarter_age_days": 117,
+  "latest_quarter_end": "2026-08-31",
+  "quarter_age_days": 33,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1399,68 +1396,35 @@
  "cik": 920760,
  "fiscal_year_end": "1130",
  "flags": [
-  "debt_one_side_only"
+  "no_debt_tagged"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001628280-26-046019",
-  "filed": "2026-06-29",
+  "accn": "0001628280-26-064557",
+  "filed": "2026-10-02",
   "form": "10-Q",
-  "report": "2026-05-31"
+  "report": "2026-08-31"
  },
  "market": {
   "ads_ratio": null,
   "assets": 33701455000.0,
   "classes": {
-   "CommonClassAMember": 210506003.0,
-   "CommonClassBMember": 30389139.0
+   "CommonClassAMember": 207876222.0,
+   "CommonClassBMember": 30024017.0
   },
-  "cover_accession": "0001628280-26-046019",
-  "cover_date": "2026-05-31",
+  "cover_accession": "0001628280-26-064557",
+  "cover_date": "2026-08-31",
   "float_date": "2025-05-31",
   "float_filed": "2026-01-28",
   "note": null,
   "public_float": 24643058075.0,
   "revenue": 34186934000.0,
-  "shares_cover": 240895142.0,
-  "shares_total": 240895142.0,
+  "shares_cover": 237900239.0,
+  "shares_total": 237900239.0,
   "size_gate": "float"
  },
  "name": "LENNAR CORP /NEW/",
  "quarterly": [
-  {
-   "buybacks": 376314000,
-   "capex": 22342000,
-   "capex_filed": "2023-09-29",
-   "cash": 4124032000,
-   "d_and_a": 37107000,
-   "dividends_paid": 107082000,
-   "eps_diluted": 3.87,
-   "filed": "2024-10-02",
-   "form": "10-Q",
-   "income_tax": 358209000,
-   "net_income": 1108996000,
-   "net_income_incl_nci": 1116952000,
-   "net_income_parent": 1108996000,
-   "operating_cash_flow": 951865000,
-   "operating_leases": 146006000,
-   "period_end": "2023-08-31",
-   "pretax_income": 1475161000,
-   "retained_earnings": 21113282000,
-   "revenue": 8729603000,
-   "revenue_filed": "2023-09-29",
-   "shares_diluted": 282854000,
-   "shares_diluted_adj": 282854000,
-   "shares_diluted_filled": 282854000,
-   "shares_diluted_filled_filed": "2024-10-02",
-   "shares_diluted_filled_source": "shares_diluted",
-   "stock_comp": 12885000,
-   "total_assets": 37438125000,
-   "total_equity": 25656619000,
-   "total_equity_incl_nci": 25788542000,
-   "total_equity_parent": 25656619000,
-   "total_liabilities": 11649583000
-  },
   {
    "buybacks": 341100000,
    "capex": 46189000,
@@ -1714,7 +1678,7 @@
    "d_and_a": 34169000,
    "dividends_paid": 129122000,
    "eps_diluted": 2.29,
-   "filed": "2025-10-03",
+   "filed": "2026-10-02",
    "form": "10-Q",
    "income_tax": 190892000,
    "net_income": 590967000,
@@ -1727,10 +1691,11 @@
    "retained_earnings": 22107836000,
    "revenue": 8810278000,
    "revenue_filed": "2025-10-03",
+   "sga_expense": 676491000,
    "shares_diluted": 255601000,
    "shares_diluted_adj": 255601000,
    "shares_diluted_filled": 255601000,
-   "shares_diluted_filled_filed": "2025-10-03",
+   "shares_diluted_filled_filed": "2026-10-02",
    "shares_diluted_filled_source": "shares_diluted",
    "stock_comp": 25505000,
    "total_assets": 34878401000,
@@ -1762,6 +1727,7 @@
    "retained_earnings": 22471471000,
    "revenue": 9367609000,
    "revenue_filed": "2026-01-28",
+   "sga_expense": 697260000,
    "shares_diluted": 257746000,
    "shares_diluted_adj": 257746000,
    "shares_diluted_filled": 257746000,
@@ -1846,6 +1812,39 @@
    "total_equity_incl_nci": 21765726000,
    "total_equity_parent": 21620638000,
    "total_liabilities": 11935729000
+  },
+  {
+   "acquisitions": 0,
+   "buybacks": 255904000,
+   "capex": -8019000,
+   "capex_filed": "2026-10-02",
+   "cash": 1498890000,
+   "d_and_a": 35902000,
+   "dividends_paid": 119401000,
+   "eps_diluted": 1.19,
+   "filed": "2026-10-02",
+   "form": "10-Q",
+   "income_tax": 101592000,
+   "net_income": 283876000,
+   "net_income_incl_nci": 285487000,
+   "net_income_parent": 283876000,
+   "operating_cash_flow": -104299000,
+   "operating_leases": 236991000,
+   "period_end": "2026-08-31",
+   "pretax_income": 387079000,
+   "retained_earnings": 22923564000,
+   "revenue": 8046119000,
+   "revenue_filed": "2026-10-02",
+   "sga_expense": 714040000,
+   "shares_diluted": 237756000,
+   "shares_diluted_adj": 237756000,
+   "shares_diluted_filled": 237756000,
+   "shares_diluted_filled_filed": "2026-10-02",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 29259000,
+   "total_equity": 21558959000,
+   "total_equity_incl_nci": 21696420000,
+   "total_equity_parent": 21558959000
   }
  ],
  "sec_name": "LENNAR CORP /NEW/",
@@ -1925,63 +1924,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-05-31",
-   "filed": "2026-06-29",
+   "end": "2026-08-31",
+   "filed": "2026-10-02",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 166218000
+   "val": 126034000
   },
   "fcf": {
-   "end": "2026-05-31",
+   "end": "2026-08-31",
    "method": "four_quarters",
-   "val": 716773000
+   "val": 811269000
   },
   "net_income": {
-   "end": "2026-05-31",
-   "filed": "2026-06-29",
+   "end": "2026-08-31",
+   "filed": "2026-10-02",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 1615359000
+   "val": 1308268000
   },
   "operating_cash_flow": {
-   "end": "2026-05-31",
-   "filed": "2026-06-29",
+   "end": "2026-08-31",
+   "filed": "2026-10-02",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 882991000
+   "val": 937303000
   },
   "revenue": {
-   "end": "2026-05-31",
-   "filed": "2026-06-29",
+   "end": "2026-08-31",
+   "filed": "2026-10-02",
    "method": "four_quarters",
    "tags": [
     "Revenues"
    ],
-   "val": 32737235000
+   "val": 31973076000
   },
   "shares_diluted": {
-   "end": "2026-05-31",
-   "filed": "2026-06-29",
+   "end": "2026-08-31",
+   "filed": "2026-10-02",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 240776000
+   "val": 237756000
   },
   "stock_comp": {
-   "end": "2026-05-31",
-   "filed": "2026-06-29",
+   "end": "2026-08-31",
+   "filed": "2026-10-02",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 139284000
+   "val": 143038000
   }
  },
  "v2_annual": [
@@ -7682,6 +7681,73 @@
    },
    "start": "2026-03-01",
    "stock_comp": 26271000
+  },
+  {
+   "capex": -8019000,
+   "cash": 1498890000,
+   "cash_and_sti": 1498890000,
+   "end": "2026-08-31",
+   "equity": 21558959000,
+   "fcf": -96280000,
+   "net_income": 283876000,
+   "operating_cash_flow": -104299000,
+   "revenue": 8046119000,
+   "shares_diluted": 237756000,
+   "src": {
+    "capex": {
+     "accn": "0001628280-26-064557",
+     "derived": true,
+     "filed": "2026-10-02",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001628280-26-064557",
+     "filed": "2026-10-02",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001628280-26-064557",
+     "filed": "2026-10-02",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001628280-26-064557",
+     "filed": "2026-10-02",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001628280-26-064557",
+     "derived": true,
+     "filed": "2026-10-02",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001628280-26-064557",
+     "filed": "2026-10-02",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001628280-26-064557",
+     "filed": "2026-10-02",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001628280-26-064557",
+     "derived": true,
+     "filed": "2026-10-02",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-06-01",
+   "stock_comp": 29259000
   }
  ],
  "v2_tags_used": {

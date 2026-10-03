@@ -1,9 +1,9 @@
-# v2 vs data/companies (2026-10-02)
+# v2 vs data/companies (2026-10-03)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
-- companies: 2490; with a difference: 1293
-- by field: capex 103, file 282, revenue 186, shares 656, total_debt 281
+- companies: 2491; with a difference: 1294
+- by field: capex 103, file 283, revenue 186, shares 656, total_debt 281
 
 | ticker | field | period | old | v2 | diff % |
 |---|---|---|---|---|---|
@@ -77,7 +77,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | MDLZ | total_debt | 2026-06-30 | 19.12B | 21.45B | 12.2 |
 | MDLZ | shares | 2026-07-24 | - | 1.28B | - |
 | CDNS | total_debt | 2017-12-30 | 0 | 0.64B | - |
-| NKE | shares | 2026-07-08 | - | 1.48B | - |
+| NKE | shares | 2026-09-28 | - | 1.49B | - |
 | RCL | shares | 2026-07-24 | - | 0.27B | - |
 | EAI | file | - | - | - | - |
 | RSG | revenue | 2025-12-31 | 19.03B | 16.59B | -12.8 |
@@ -202,7 +202,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | MPWR | total_debt | - / 2013-09-30 | - | 1.3M | - |
 | HSY | total_debt | 2026-06-28 | 5.19B | 5.61B | 8.1 |
 | IP | shares | 2026-07-31 | 0.63B | 0.53B | -15.5 |
-| LEN | shares | 2026-05-31 | - | 0.24B | - |
+| LEN | shares | 2026-08-31 | - | 0.24B | - |
 | HBAN | revenue | 2025-12-31 | 10.31B | 8.17B | -20.8 |
 | HBAN | total_debt | 2026-06-30 | 18.74B | 21.85B | 16.6 |
 | NTRS | total_debt | 2012-12-31 | 2.41B | 1.42B | -40.9 |
@@ -225,7 +225,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | RF | revenue | 2025-12-31 | 7.07B | 7.53B | 6.4 |
 | RF | shares | 2026-08-05 | 0.90B | 0.85B | -5.2 |
 | DVN | shares | 2026-07-22 | 0.62B | 1.10B | 77.1 |
-| DRI | total_debt | 2026-05-31 | 2.19B | 2.33B | 6.5 |
+| DRI | total_debt | 2026-08-30 | 1.64B | 2.62B | 59.9 |
 | DGX | shares | 2026-07-15 | - | 0.11B | - |
 | TPL | capex | 2025-12-31 | 36.0M | - | - |
 | Q | shares | 2026-07-31 | - | 0.21B | - |
@@ -1402,6 +1402,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | GLED | file | - | - | - | - |
 | CEPS | shares | 2026-08-14 | - | 14.7M | - |
 | ACDC | shares | 2026-08-03 | - | 0.18B | - |
+| OCLT | file | - | - | - | - |
 | ALPXR | file | - | - | - | - |
 | NREF | capex | 2025-12-31 | 1.4M | - | - |
 | NREF | total_debt | 2026-06-30 | 0.48B | 0.68B | 41.1 |
