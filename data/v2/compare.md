@@ -1,4 +1,4 @@
-# v2 vs data/companies (2026-10-06)
+# v2 vs data/companies (2026-10-07)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
@@ -400,7 +400,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | TAP | revenue | 2025-12-31 | 13.04B | 11.14B | -14.6 |
 | TAP | shares | 2026-07-30 | - | 0.18B | - |
 | GNRC | shares | 2026-07-31 | - | 59.0M | - |
-| LW | shares | 2026-07-17 | - | 0.14B | - |
+| LW | shares | 2026-09-29 | - | 0.14B | - |
 | CHWY | shares | 2026-09-02 | - | 0.40B | - |
 | BRX | capex | 2025-12-31 | 0.42B | 0.32B | -23.9 |
 | ALSN | shares | 2026-07-22 | - | 82.6M | - |
@@ -1237,8 +1237,8 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | FVAV | file | - | - | - | - |
 | DBCA | file | - | - | - | - |
 | HACQ | file | - | - | - | - |
-| ATLCP | revenue | 2025-12-31 | 1.97B | 0.56B | -71.7 |
-| ATLCP | total_debt | 2026-06-30 / - | 5.58B | - | - |
+| ATLC | revenue | 2025-12-31 | 1.97B | 0.56B | -71.7 |
+| ATLC | total_debt | 2026-06-30 / - | 5.58B | - | - |
 | CTOS | capex | 2025-12-31 | - | 0.46B | - |
 | KEYY | file | - | - | - | - |
 | TASK | shares | 2026-07-31 | - | 91.7M | - |
