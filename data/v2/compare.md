@@ -1,4 +1,4 @@
-# v2 vs data/companies (2026-10-07)
+# v2 vs data/companies (2026-10-08)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
@@ -196,7 +196,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | CCL | shares | 2026-09-22 | - | 1.34B | - |
 | SBAC | capex | 2025-12-31 | 1.29B | 0.22B | -82.6 |
 | DOV | shares | 2026-07-17 | - | 0.13B | - |
-| STZ | shares | 2026-06-26 | - | 0.17B | - |
+| STZ | shares | 2026-09-30 | - | 0.17B | - |
 | MKL | shares | 2026-07-22 | - | 12.4M | - |
 | SYF | revenue | 2025-12-31 | 0.52B | 18.99B | 3551.2 |
 | MPWR | total_debt | - / 2013-09-30 | - | 1.3M | - |
@@ -807,7 +807,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | MAN | shares | 2026-08-05 | - | 46.5M | - |
 | MBLY | shares | 2026-07-15 | 94.7M | 0.25B | 166.7 |
 | INDV | shares | 2026-07-28 | - | 0.12B | - |
-| LEVI | shares | 2026-07-01 | - | 0.38B | - |
+| LEVI | shares | 2026-09-30 | - | 0.38B | - |
 | UFPT | capex | 2025-12-31 | 0 | - | - |
 | PS | file | - | - | - | - |
 | LMRI | file | - | - | - | - |
@@ -1277,7 +1277,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | MEI | shares | 2026-08-31 | - | 35.6M | - |
 | RNGT | file | - | - | - | - |
 | VHCP | file | - | - | - | - |
-| VACI | file | - | - | - | - |
+| NSTR | file | - | - | - | - |
 | SAC | file | - | - | - | - |
 | GPAC | file | - | - | - | - |
 | ADAC | file | - | - | - | - |
