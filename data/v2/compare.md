@@ -1,4 +1,4 @@
-# v2 vs data/companies (2026-10-08)
+# v2 vs data/companies (2026-10-09)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
@@ -42,7 +42,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | TXN | shares | 2026-07-15 | - | 0.91B | - |
 | BKNG | shares | 2026-07-27 | - | 0.75B | - |
 | CAT | capex | 2025-12-31 | 2.82B | 4.29B | 51.9 |
-| PEP | shares | 2026-07-02 | - | 1.36B | - |
+| PEP | shares | 2026-10-01 | - | 1.36B | - |
 | DIS | shares | 2026-07-29 | 1.90B | 1.73B | -9.1 |
 | NOW | total_debt | 2026-06-30 | 5.43B | 7.54B | 38.6 |
 | BLK | shares | 2026-07-31 | 0.15B | 0.32B | 109.7 |
@@ -975,7 +975,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | ATRO | shares | 2026-08-06 | - | 43.0M | - |
 | DCOM | revenue | 2025-12-31 | 0.69B | 0.45B | -33.9 |
 | ITG | file | - | - | - | - |
-| NG | shares | 2026-06-19 | 0.41B | 0.44B | 7.8 |
+| NG | shares | 2026-10-02 | 0.41B | 0.44B | 7.8 |
 | DBD | capex | 2025-12-31 | - | 37.4M | - |
 | OBK | revenue | 2025-12-31 | 0.54B | 0.39B | -27.4 |
 | OBK | total_debt | 2024-12-31 / - | 0 | - | - |
@@ -1348,7 +1348,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | TVIV | file | - | - | - | - |
 | SWRD | file | - | - | - | - |
 | ATLQ | file | - | - | - | - |
-| VLGEA | shares | 2026-05-29 | 4.2M | 14.8M | 252.3 |
+| VLGEA | shares | 2026-10-01 | 4.2M | 14.8M | 252.2 |
 | QUAD | shares | 2026-07-24 | - | 51.5M | - |
 | IRAB | file | - | - | - | - |
 | PALO | file | - | - | - | - |
