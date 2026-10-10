@@ -1,9 +1,9 @@
-# v2 vs data/companies (2026-10-09)
+# v2 vs data/companies (2026-10-10)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
 - companies: 2473; with a difference: 1286
-- by field: capex 103, file 279, revenue 184, shares 654, total_debt 281
+- by field: capex 103, file 279, revenue 184, shares 653, total_debt 281
 
 | ticker | field | period | old | v2 | diff % |
 |---|---|---|---|---|---|
@@ -127,7 +127,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | KR | shares | 2026-09-15 | - | 0.59B | - |
 | LHX | revenue | 2026-01-02 | - | 21.86B | - |
 | GLW | shares | 2026-07-24 | - | 0.86B | - |
-| PSKY | shares | 2026-07-31 | 1,000 | 1.12B | 112194477.9 |
+| SKYD | shares | 2026-07-31 | 1,000 | 1.12B | 112194477.9 |
 | PSA | capex | 2025-12-31 | 0.95B | 0.31B | -67.1 |
 | CVNA | shares | 2026-07-27 | - | 1.10B | - |
 | DDOG | shares | 2026-07-31 | - | 0.36B | - |
@@ -394,8 +394,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | CFR | total_debt | 2016-12-31 / - | 100.0M | - | - |
 | CFR | shares | 2026-07-30 | - | 62.1M | - |
 | JEF | revenue | 2025-11-30 | 7.34B | 10.82B | 47.4 |
-| JEF | total_debt | 2026-05-31 | 18.04B | 19.64B | 8.9 |
-| JEF | shares | 2026-06-30 | 0.20B | 0.23B | 13.4 |
+| JEF | total_debt | 2026-08-31 | 18.46B | 19.92B | 7.9 |
 | NNN | total_debt | 2026-06-30 | 4.48B | 4.97B | 11.1 |
 | TAP | revenue | 2025-12-31 | 13.04B | 11.14B | -14.6 |
 | TAP | shares | 2026-07-30 | - | 0.18B | - |
@@ -1278,6 +1277,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | RNGT | file | - | - | - | - |
 | VHCP | file | - | - | - | - |
 | NSTR | file | - | - | - | - |
+| IRHO | shares | 2026-10-09 | 6.3M | 29.3M | 363.9 |
 | SAC | file | - | - | - | - |
 | GPAC | file | - | - | - | - |
 | ADAC | file | - | - | - | - |
@@ -1292,7 +1292,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | AACO | file | - | - | - | - |
 | SVIV | file | - | - | - | - |
 | TMTS | file | - | - | - | - |
-| IRHO | shares | 2026-07-13 | 6.3M | 29.3M | 363.9 |
 | KPET | file | - | - | - | - |
 | ILLU | file | - | - | - | - |
 | GSRV | file | - | - | - | - |
