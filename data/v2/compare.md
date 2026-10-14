@@ -1,4 +1,4 @@
-# v2 vs data/companies (2026-10-13)
+# v2 vs data/companies (2026-10-14)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
@@ -144,10 +144,10 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | YUM | shares | 2026-07-30 | - | 0.27B | - |
 | XEL | revenue | 2025-12-31 | - | 14.67B | - |
 | XEL | total_debt | 2026-06-30 | 36.95B | 39.46B | 6.8 |
-| NRUC | revenue | 2026-05-31 | 0.11B | 0.41B | 269.4 |
-| NRUC | total_debt | 2026-05-31 | 28.35B | 33.51B | 18.2 |
-| NRUC | shares | 2026-05-31 | - | 0 | - |
 | CRWV | shares | 2026-07-31 | - | 0.55B | - |
+| NRUC | revenue | 2026-05-31 | 0.11B | 0.41B | 269.4 |
+| NRUC | total_debt | 2026-08-31 | 28.46B | 33.25B | 16.8 |
+| NRUC | shares | 2026-08-31 | - | 0 | - |
 | XYZ | shares | 2026-07-31 | - | 0.60B | - |
 | OTIS | shares | 2026-07-15 | 0.44B | 0.38B | -13.2 |
 | PRU | total_debt | 2026-06-30 | 36.03B | 20.62B | -42.8 |
@@ -633,7 +633,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | ROAD | shares | 2026-08-05 | - | 56.8M | - |
 | RNST | revenue | 2025-12-31 | 1.26B | 0.99B | -21.9 |
 | RNST | total_debt | 2026-06-30 | 0.80B | 1.11B | 39.6 |
-| AZZ | total_debt | 2026-05-31 | 0.52B | 0.48B | -6.7 |
+| AZZ | total_debt | 2026-08-31 | 0.50B | 0.47B | -6.3 |
 | HIW | capex | 2025-12-31 | 0.44B | 3.9M | -99.1 |
 | FHI | shares | 2026-07-24 | - | 74.7M | - |
 | HASI | total_debt | 2026-06-30 | 3.81B | 4.28B | 12.6 |
@@ -1400,6 +1400,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | TRAD | file | - | - | - | - |
 | FMAC | file | - | - | - | - |
 | LUCK | shares | 2026-08-20 | - | 0.14B | - |
+| SAGU | file | - | - | - | - |
 | AVAT | file | - | - | - | - |
 | PLUN | file | - | - | - | - |
 | OTAI | file | - | - | - | - |
@@ -1498,7 +1499,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | CATL | file | - | - | - | - |
 | CCCT | file | - | - | - | - |
 | TBCVU | file | - | - | - | - |
-| SAGU | file | - | - | - | - |
 | PNAQ | file | - | - | - | - |
 | IPHXU | file | - | - | - | - |
 | XTER | file | - | - | - | - |

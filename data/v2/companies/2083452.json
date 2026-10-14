@@ -1,18 +1,53 @@
 {
- "annual": [],
+ "annual": [
+  {
+   "cash": 840520,
+   "cash_as_filed": 840520,
+   "cash_as_filed_filed": "2026-10-13",
+   "current_liabilities": 170505,
+   "current_liabilities_as_filed": 170505,
+   "current_liabilities_as_filed_filed": "2026-10-13",
+   "filed": "2026-10-13",
+   "fiscal_year": 2026,
+   "net_income": 372145,
+   "net_income_as_filed": 372145,
+   "net_income_as_filed_filed": "2026-10-13",
+   "net_income_filed": "2026-10-13",
+   "net_income_incl_nci": 372145,
+   "net_income_parent": 372145,
+   "operating_cash_flow": -166886,
+   "operating_cash_flow_as_filed": -166886,
+   "operating_cash_flow_as_filed_filed": "2026-10-13",
+   "operating_cash_flow_filed": "2026-10-13",
+   "operating_income": -214968,
+   "operating_income_as_filed": -214968,
+   "operating_income_as_filed_filed": "2026-10-13",
+   "operating_income_filed": "2026-10-13",
+   "period_end": "2026-06-30",
+   "retained_earnings": -181133,
+   "retained_earnings_as_filed": -181133,
+   "retained_earnings_as_filed_filed": "2026-10-13",
+   "total_assets": 111477991,
+   "total_assets_as_filed": 111477991,
+   "total_assets_as_filed_filed": "2026-10-13",
+   "total_equity": 160873,
+   "total_equity_parent": 160873,
+   "total_liabilities": 770505
+  }
+ ],
  "annual_coverage": {
   "acquisition_cost_amort": 0,
   "acquisitions": 0,
   "buybacks": 0,
   "capex": 0,
   "capitalized_software": 0,
-  "cash": 0,
+  "cash": 1,
   "cash_and_short_term_investments": 0,
   "claims_incurred": 0,
   "commercial_paper": 0,
   "credit_loss_provision": 0,
   "current_assets": 0,
-  "current_liabilities": 0,
+  "current_liabilities": 1,
   "d_and_a": 0,
   "debt_current": 0,
   "debt_current_total": 0,
@@ -37,12 +72,12 @@
   "loss_reserves": 0,
   "lt_debt_current": 0,
   "lt_debt_noncurrent": 0,
-  "net_income": 0,
-  "net_income_incl_nci": 0,
-  "net_income_parent": 0,
+  "net_income": 1,
+  "net_income_incl_nci": 1,
+  "net_income_parent": 1,
   "net_interest_income": 0,
-  "operating_cash_flow": 0,
-  "operating_income": 0,
+  "operating_cash_flow": 1,
+  "operating_income": 1,
   "operating_leases": 0,
   "payments_for_intangibles": 0,
   "pension_funded_status": 0,
@@ -50,7 +85,7 @@
   "pretax_income": 0,
   "rd_expense": 0,
   "receivables": 0,
-  "retained_earnings": 0,
+  "retained_earnings": 1,
   "revenue": 0,
   "sga_expense": 0,
   "shares_diluted": 0,
@@ -59,24 +94,24 @@
   "short_term_investments": 0,
   "stock_comp": 0,
   "tier1_capital_ratio": 0,
-  "total_assets": 0,
+  "total_assets": 1,
   "total_debt": 0,
-  "total_equity": 0,
+  "total_equity": 1,
   "total_equity_incl_nci": 0,
-  "total_equity_parent": 0,
-  "total_liabilities": 0
+  "total_equity_parent": 1,
+  "total_liabilities": 1
  },
  "balance": {
-  "cash_and_sti": 0,
-  "end": "2026-03-31",
-  "equity": -79473
+  "cash_and_sti": 840520,
+  "end": "2026-06-30",
+  "equity": 160873
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-03-31",
-  "quarter_age_days": 178,
-  "reconciled_fy": null,
-  "reconciles": "n/a",
+  "latest_quarter_end": "2026-06-30",
+  "quarter_age_days": 106,
+  "reconciled_fy": 2026,
+  "reconciles": "ok",
   "revenue": "ok",
   "share_scale": "n/a",
   "shares": "none"
@@ -84,34 +119,33 @@
  "cik": 2083452,
  "fiscal_year_end": "0630",
  "flags": [
-  "no_operating_cash_flow",
   "no_capex",
   "no_debt_tagged",
   "no_revenue"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001829126-26-006697",
-  "filed": "2026-06-18",
-  "form": "10-Q",
-  "report": "2026-03-31"
+  "accn": "0001829126-26-011085",
+  "filed": "2026-10-13",
+  "form": "10-K",
+  "report": "2026-06-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 156405.0,
+  "assets": 111477991.0,
   "classes": {
    "CommonClassAMember": 11231750.0,
-   "CommonClassBMember": 4928571.0
+   "CommonClassBMember": 4714285.0
   },
-  "cover_accession": "0001829126-26-006697",
-  "cover_date": "2026-06-18",
-  "float_date": null,
-  "float_filed": null,
+  "cover_accession": "0001829126-26-011085",
+  "cover_date": "2026-10-13",
+  "float_date": "2026-06-30",
+  "float_filed": "2026-10-13",
   "note": null,
-  "public_float": null,
+  "public_float": 0.0,
   "revenue": null,
-  "shares_cover": 16160321.0,
-  "shares_total": 16160321.0,
+  "shares_cover": 15946035.0,
+  "shares_total": 15946035.0,
   "size_gate": "no_float"
  },
  "name": "Shreya Acquisition Group",
@@ -147,6 +181,20 @@
    "total_assets": 156405,
    "total_equity": -79473,
    "total_equity_parent": -79473
+  },
+  {
+   "cash": 840520,
+   "current_liabilities": 170505,
+   "filed": "2026-10-13",
+   "form": "10-K (derived from YTD)",
+   "net_income": 469953,
+   "net_income_incl_nci": 469953,
+   "period_end": "2026-06-30",
+   "retained_earnings": -181133,
+   "total_assets": 111477991,
+   "total_equity": 160873,
+   "total_equity_parent": 160873,
+   "total_liabilities": 770505
   }
  ],
  "sec_name": "SHREYA ACQUISITION GROUP",
@@ -159,7 +207,7 @@
   "buybacks": null,
   "capex": null,
   "capitalized_software": null,
-  "cash": "CashAndCashEquivalentsAtCarryingValue",
+  "cash": "CashAndCashEquivalentsAtCarryingValue,CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
   "cash_and_short_term_investments": null,
   "claims_incurred": null,
   "commercial_paper": null,
@@ -194,8 +242,8 @@
   "net_income_incl_nci": "ProfitLoss",
   "net_income_parent": "NetIncomeLoss,NetIncomeLossAvailableToCommonStockholdersBasic",
   "net_interest_income": null,
-  "operating_cash_flow": null,
-  "operating_income": null,
+  "operating_cash_flow": "NetCashProvidedByUsedInOperatingActivities",
+  "operating_income": "OperatingIncomeLoss",
   "operating_leases": null,
   "payments_for_intangibles": null,
   "pension_funded_status": null,
@@ -217,7 +265,7 @@
   "total_equity": "StockholdersEquity",
   "total_equity_incl_nci": null,
   "total_equity_parent": "StockholdersEquity",
-  "total_liabilities": null
+  "total_liabilities": "Liabilities"
  },
  "ticker": "SAGU",
  "tickers": [
@@ -226,8 +274,63 @@
   "SAGU-UN",
   "SAGU-WT"
  ],
- "ttm": {},
- "v2_annual": [],
+ "ttm": {
+  "net_income": {
+   "end": "2026-06-30",
+   "filed": "2026-10-13",
+   "method": "fiscal_year",
+   "tags": [
+    "NetIncomeLoss"
+   ],
+   "val": 372145
+  },
+  "operating_cash_flow": {
+   "end": "2026-06-30",
+   "filed": "2026-10-13",
+   "method": "fiscal_year",
+   "tags": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "val": -166886
+  }
+ },
+ "v2_annual": [
+  {
+   "cash": 840520,
+   "cash_and_sti": 840520,
+   "end": "2026-06-30",
+   "equity": 160873,
+   "net_income": 372145,
+   "operating_cash_flow": -166886,
+   "src": {
+    "cash": {
+     "accn": "0001829126-26-011085",
+     "filed": "2026-10-13",
+     "form": "10-K",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001829126-26-011085",
+     "filed": "2026-10-13",
+     "form": "10-K",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001829126-26-011085",
+     "filed": "2026-10-13",
+     "form": "10-K",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001829126-26-011085",
+     "filed": "2026-10-13",
+     "form": "10-K",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2025-07-01"
+  }
+ ],
  "v2_fixes": [],
  "v2_notes": [],
  "v2_quarterly": [
@@ -298,15 +401,47 @@
     }
    },
    "start": "2026-01-01"
+  },
+  {
+   "cash": 840520,
+   "cash_and_sti": 840520,
+   "end": "2026-06-30",
+   "equity": 160873,
+   "net_income": 469953,
+   "src": {
+    "cash": {
+     "accn": "0001829126-26-011085",
+     "filed": "2026-10-13",
+     "form": "10-K",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001829126-26-011085",
+     "filed": "2026-10-13",
+     "form": "10-K",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001829126-26-011085",
+     "derived": true,
+     "filed": "2026-10-13",
+     "form": "10-K",
+     "tag": "NetIncomeLoss"
+    }
+   },
+   "start": "2026-04-01"
   }
  ],
  "v2_tags_used": {
   "capex": [],
   "net_income": [
+   "NetIncomeLoss",
    "NetIncomeLossAvailableToCommonStockholdersBasic",
    "ProfitLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [],
   "shares_diluted": [],
   "stock_comp": []
