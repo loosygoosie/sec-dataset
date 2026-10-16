@@ -67,16 +67,16 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 492564,
+  "cash_and_sti": 270975,
   "debt_current": 0,
-  "end": "2026-05-31",
-  "equity": 474053,
+  "end": "2026-08-31",
+  "equity": 218245,
   "total_debt": 0
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-05-31",
-  "quarter_age_days": 117,
+  "latest_quarter_end": "2026-08-31",
+  "quarter_age_days": 46,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -94,26 +94,26 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001477932-26-004325",
-  "filed": "2026-07-15",
+  "accn": "0001477932-26-006266",
+  "filed": "2026-10-15",
   "form": "10-Q",
-  "report": "2026-05-31"
+  "report": "2026-08-31"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 108885430.0,
+  "assets": 109623472.0,
   "classes": {
-   "common": 14071337.0
+   "common": 11383837.0
   },
-  "cover_accession": "0001477932-26-004325",
-  "cover_date": "2026-07-15",
+  "cover_accession": "0001477932-26-006266",
+  "cover_date": "2026-10-15",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 14071337.0,
-  "shares_total": 14071337.0,
+  "shares_cover": 11383837.0,
+  "shares_total": 11383837.0,
   "size_gate": "no_float"
  },
  "name": "Plutonian Acquisition Corp. II",
@@ -129,6 +129,18 @@
    "period_end": "2025-05-31",
    "total_equity": -24024,
    "total_equity_parent": -24024
+  },
+  {
+   "cash": 99878,
+   "filed": "2026-10-15",
+   "form": "10-Q",
+   "net_income": -16366,
+   "net_income_parent": -16366,
+   "operating_cash_flow": -12116,
+   "operating_income": -17250,
+   "period_end": "2025-08-31",
+   "total_equity": -40390,
+   "total_equity_parent": -40390
   },
   {
    "cash": 492564,
@@ -155,6 +167,32 @@
    "total_equity": 474053,
    "total_equity_parent": 474053,
    "total_liabilities": 46511
+  },
+  {
+   "cash": 270975,
+   "current_assets": 291225,
+   "current_liabilities": 72980,
+   "debt_current": 0,
+   "filed": "2026-10-15",
+   "form": "10-Q",
+   "net_income": 711573,
+   "net_income_parent": 711573,
+   "operating_cash_flow": -221589,
+   "operating_income": -259473,
+   "period_end": "2026-08-31",
+   "retained_earnings": 217914,
+   "shares_diluted_adj": 11383837,
+   "shares_diluted_filled": 11383837,
+   "shares_diluted_filled_filed": "2026-10-15",
+   "shares_diluted_filled_source": "cover",
+   "short_term_borrowings": 0,
+   "total_assets": 109623472,
+   "total_debt": 0,
+   "total_debt_basis": "components_partial",
+   "total_debt_filed": "2026-10-15",
+   "total_equity": 218245,
+   "total_equity_parent": 218245,
+   "total_liabilities": 72980
   }
  ],
  "sec_name": "Plutonian Acquisition Corp II",
@@ -198,8 +236,8 @@
   "loss_reserves": null,
   "lt_debt_current": null,
   "lt_debt_noncurrent": null,
-  "net_income": "NetIncomeLoss",
-  "net_income_incl_nci": null,
+  "net_income": "NetIncomeLoss,ProfitLoss",
+  "net_income_incl_nci": "ProfitLoss",
   "net_income_parent": "NetIncomeLoss",
   "net_interest_income": null,
   "operating_cash_flow": "NetCashProvidedByUsedInOperatingActivities",
@@ -242,6 +280,13 @@
    "period": "2026-05-31",
    "rows": "quarterly",
    "v2": 0
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-08-31",
+   "rows": "quarterly",
+   "v2": 0
   }
  ],
  "v2_notes": [],
@@ -280,6 +325,42 @@
     }
    },
    "start": "2025-03-01"
+  },
+  {
+   "cash": 99878,
+   "cash_and_sti": 99878,
+   "end": "2025-08-31",
+   "equity": -40390,
+   "net_income": -16366,
+   "operating_cash_flow": -12116,
+   "src": {
+    "cash": {
+     "accn": "0001477932-26-006266",
+     "filed": "2026-10-15",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001477932-26-006266",
+     "filed": "2026-10-15",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001477932-26-006266",
+     "filed": "2026-10-15",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001477932-26-006266",
+     "derived": true,
+     "filed": "2026-10-15",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2025-06-01"
   },
   {
    "cash": 492564,
@@ -326,6 +407,54 @@
     }
    },
    "start": "2026-03-01",
+   "total_debt": 0
+  },
+  {
+   "cash": 270975,
+   "cash_and_sti": 270975,
+   "debt_current": 0,
+   "end": "2026-08-31",
+   "equity": 218245,
+   "net_income": 711573,
+   "operating_cash_flow": -221589,
+   "src": {
+    "cash": {
+     "accn": "0001477932-26-006266",
+     "filed": "2026-10-15",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001477932-26-006266",
+     "filed": "2026-10-15",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001477932-26-006266",
+     "filed": "2026-10-15",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001477932-26-006266",
+     "derived": true,
+     "filed": "2026-10-15",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "total_debt": {
+     "filed": "2026-10-15",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBorrowings"
+     ],
+     "values": {
+      "ShortTermBorrowings": 0
+     }
+    }
+   },
+   "start": "2026-06-01",
    "total_debt": 0
   }
  ],

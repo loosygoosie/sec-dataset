@@ -1,9 +1,9 @@
-# v2 vs data/companies (2026-10-15)
+# v2 vs data/companies (2026-10-16)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
-- companies: 2473; with a difference: 1286
-- by field: capex 103, file 279, revenue 184, shares 653, total_debt 281
+- companies: 2472; with a difference: 1285
+- by field: capex 103, file 279, revenue 183, shares 652, total_debt 281
 
 | ticker | field | period | old | v2 | diff % |
 |---|---|---|---|---|---|
@@ -800,8 +800,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | AGM | revenue | 2025-12-31 | 1.61B | 0.41B | -74.7 |
 | AGM | shares | 2026-07-23 | - | 10.9M | - |
 | BANC | revenue | 2025-12-31 | 1.82B | 1.12B | -38.4 |
-| DBRG | revenue | 2025-12-31 | 0.37B | 94.0M | -74.9 |
-| DBRG | shares | 2026-07-31 | - | 0.19B | - |
 | DPC | file | - | - | - | - |
 | MAN | shares | 2026-08-05 | - | 46.5M | - |
 | MBLY | shares | 2026-07-15 | 94.7M | 0.25B | 166.7 |
@@ -1401,8 +1399,8 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | FMAC | file | - | - | - | - |
 | LUCK | shares | 2026-08-20 | - | 0.14B | - |
 | SAGU | file | - | - | - | - |
-| AVAT | file | - | - | - | - |
 | PLUN | file | - | - | - | - |
+| AVAT | file | - | - | - | - |
 | OTAI | file | - | - | - | - |
 | LDI | shares | 2026-08-03 | - | 0.34B | - |
 | UAC | file | - | - | - | - |
@@ -1416,6 +1414,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | FTHA | file | - | - | - | - |
 | VECA | file | - | - | - | - |
 | BHAV | file | - | - | - | - |
+| EWAV | file | - | - | - | - |
 | XFLH | file | - | - | - | - |
 | MYX | file | - | - | - | - |
 | NXB | total_debt | 2026-06-30 | 5.2M | 57.0M | 989.2 |
@@ -1479,7 +1478,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | VOGX | file | - | - | - | - |
 | GYGY | file | - | - | - | - |
 | THEO | file | - | - | - | - |
-| EWAV | file | - | - | - | - |
 | SAMO | file | - | - | - | - |
 | JONE | file | - | - | - | - |
 | MRCO | file | - | - | - | - |
