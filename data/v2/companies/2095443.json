@@ -67,13 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "end": "2026-03-31",
-  "equity": -239545
+  "cash_and_sti": 130963,
+  "end": "2026-06-30",
+  "equity": 343773
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-03-31",
-  "quarter_age_days": 178,
+  "latest_quarter_end": "2026-06-30",
+  "quarter_age_days": 109,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -90,26 +91,26 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-102588",
-  "filed": "2026-09-23",
+  "accn": "0001213900-26-110239",
+  "filed": "2026-10-16",
   "form": "10-Q",
-  "report": "2026-03-31"
+  "report": "2026-06-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 491200.0,
+  "assets": 141497960.0,
   "classes": {
-   "common": 19870676.0
+   "common": 19738919.0
   },
-  "cover_accession": "0001213900-26-102588",
-  "cover_date": "2026-09-23",
+  "cover_accession": "0001213900-26-110239",
+  "cover_date": "2026-10-14",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 19870676.0,
-  "shares_total": 19870676.0,
+  "shares_cover": 19738919.0,
+  "shares_total": 19738919.0,
   "size_gate": "no_float"
  },
  "name": "Breeze Acquisition Corp. II",
@@ -117,7 +118,7 @@
   {
    "current_assets": 37137,
    "eps_diluted": -0.03,
-   "filed": "2026-09-23",
+   "filed": "2026-10-16",
    "form": "10-Q",
    "net_income": -138206,
    "net_income_parent": -138206,
@@ -134,6 +135,26 @@
    "total_equity": -239545,
    "total_equity_parent": -239545,
    "total_liabilities": 730745
+  },
+  {
+   "cash": 130963,
+   "current_assets": 523311,
+   "filed": "2026-10-16",
+   "form": "10-Q",
+   "net_income": 398121,
+   "net_income_parent": 398121,
+   "operating_cash_flow": -522926,
+   "operating_income": -248218,
+   "period_end": "2026-06-30",
+   "retained_earnings": 133576,
+   "shares_diluted_adj": 19870676,
+   "shares_diluted_filled": 19870676,
+   "shares_diluted_filled_filed": "2026-09-23",
+   "shares_diluted_filled_source": "cover",
+   "total_assets": 141497960,
+   "total_equity": 343773,
+   "total_equity_parent": 343773,
+   "total_liabilities": 179538
   }
  ],
  "sec_name": "BREEZE ACQUISITION CORP. II",
@@ -146,7 +167,7 @@
   "buybacks": null,
   "capex": null,
   "capitalized_software": null,
-  "cash": null,
+  "cash": "CashAndCashEquivalentsAtCarryingValue,CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
   "cash_and_short_term_investments": null,
   "claims_incurred": null,
   "commercial_paper": null,
@@ -182,7 +203,7 @@
   "net_income_parent": "NetIncomeLoss",
   "net_interest_income": null,
   "operating_cash_flow": "NetCashProvidedByUsedInOperatingActivities",
-  "operating_income": null,
+  "operating_income": "OperatingIncomeLoss",
   "operating_leases": null,
   "payments_for_intangibles": null,
   "pension_funded_status": null,
@@ -259,6 +280,42 @@
     }
    },
    "start": "2026-01-01"
+  },
+  {
+   "cash": 130963,
+   "cash_and_sti": 130963,
+   "end": "2026-06-30",
+   "equity": 343773,
+   "net_income": 398121,
+   "operating_cash_flow": -522926,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-110239",
+     "filed": "2026-10-16",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-110239",
+     "filed": "2026-10-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-110239",
+     "filed": "2026-10-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-110239",
+     "derived": true,
+     "filed": "2026-10-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-04-01"
   }
  ],
  "v2_tags_used": {

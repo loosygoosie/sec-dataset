@@ -1,4 +1,4 @@
-# v2 vs data/companies (2026-10-16)
+# v2 vs data/companies (2026-10-17)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
@@ -33,7 +33,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | WFC | total_debt | 2026-06-30 | 182.14B | 207.31B | 13.8 |
 | CVX | total_debt | 2026-06-30 | 0.40B | 36.67B | 9045.6 |
 | CRD-A | shares | 2026-07-27 | - | 48.6M | - |
-| ACN | shares | 2026-06-04 | - | 0.67B | - |
 | GS | total_debt | 2026-06-30 | 437.87B | 347.96B | -20.5 |
 | T | shares | 2026-07-16 | - | 6.85B | - |
 | MRK | shares | 2026-07-31 | - | 2.47B | - |
@@ -59,6 +58,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | SHOP | shares | 2026-07-31 | - | 1.29B | - |
 | PFE | shares | 2026-07-29 | - | 5.70B | - |
 | CMCSA | shares | 2026-07-15 | - | 3.55B | - |
+| ACN | shares | 2026-10-02 | - | 0.67B | - |
 | MELI | total_debt | 2026-06-30 | 10.63B | 17.11B | 61.0 |
 | VRTX | total_debt | 2015-12-31 | 21.9M | 0.30B | 1247.8 |
 | COP | capex | 2025-12-31 | - | 12.55B | - |
@@ -1368,6 +1368,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | FOA | shares | 2026-08-06 | - | 17.3M | - |
 | AIIA | file | - | - | - | - |
 | BID | file | - | - | - | - |
+| BREZ | file | - | - | - | - |
 | KTWO | file | - | - | - | - |
 | PAAC | file | - | - | - | - |
 | BWIV | file | - | - | - | - |
@@ -1483,7 +1484,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | MRCO | file | - | - | - | - |
 | RACD | file | - | - | - | - |
 | BCCQ | file | - | - | - | - |
-| BREZ | file | - | - | - | - |
 | OSPR | file | - | - | - | - |
 | NCO | file | - | - | - | - |
 | MIAC | file | - | - | - | - |
