@@ -1,4 +1,4 @@
-# v2 vs data/companies (2026-10-19)
+# v2 vs data/companies (2026-10-20)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
@@ -1266,7 +1266,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | RREV | file | - | - | - | - |
 | CAES | file | - | - | - | - |
 | EVOX | file | - | - | - | - |
-| XRPN | shares | 2026-08-11 | - | 31.6M | - |
+| XRPNU | shares | 2026-08-11 | - | 31.6M | - |
 | KOYN | total_debt | 2026-06-30 / - | 1.5M | - | - |
 | KOYN | shares | 2026-08-12 | - | 31.6M | - |
 | MCHB | total_debt | 2026-06-30 | 0.13B | 0.21B | 61.3 |
@@ -1498,7 +1498,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | CCCT | file | - | - | - | - |
 | TBCVU | file | - | - | - | - |
 | PNAQ | file | - | - | - | - |
-| IPHXU | file | - | - | - | - |
+| IPHX | file | - | - | - | - |
 | XTER | file | - | - | - | - |
 | SECZ | file | - | - | - | - |
 | JMKE | file | - | - | - | - |
