@@ -1331,15 +1331,15 @@
   "total_liabilities": 16
  },
  "balance": {
-  "cash_and_sti": 12518000,
-  "end": "2026-06-30",
-  "equity": 6520136000,
-  "total_debt": 2627746000
+  "cash_and_sti": 80559000,
+  "end": "2026-09-30",
+  "equity": 6942627000,
+  "total_debt": 3018785000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 112,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 21,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1349,80 +1349,38 @@
  "cik": 917251,
  "fiscal_year_end": "1231",
  "flags": [
-  "revenue_unverified_2024-12-31",
-  "revenue_unverified_2023-12-31",
+  "stale_capex",
   "revenue_unverified_2025-12-31",
+  "revenue_unverified_2023-12-31",
+  "revenue_unverified_2024-12-31",
   "current_ltd_untagged_0.1B"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0000917251-26-000063",
-  "filed": "2026-07-30",
+  "accn": "0000917251-26-000076",
+  "filed": "2026-10-20",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 10586829000.0,
+  "assets": 10950922000.0,
   "classes": {
-   "common": 124379310.0
+   "common": 130101031.0
   },
-  "cover_accession": "0000917251-26-000063",
-  "cover_date": "2026-07-29",
+  "cover_accession": "0000917251-26-000076",
+  "cover_date": "2026-10-19",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-10",
   "note": null,
   "public_float": 5088774755.0,
   "revenue": 737581000.0,
-  "shares_cover": 124379310.0,
-  "shares_total": 124379310.0,
+  "shares_cover": 130101031.0,
+  "shares_total": 130101031.0,
   "size_gate": "float"
  },
  "name": "AGREE REALTY CORP",
  "quarterly": [
-  {
-   "buybacks": 57000,
-   "capex": 399700000,
-   "capex_filed": "2023-10-24",
-   "cash": 6384000,
-   "d_and_a": 45625000,
-   "debt_due_1y": 963000,
-   "debt_due_2y": 51026000,
-   "debt_due_3y": 49629000,
-   "dividends_paid": 70481000,
-   "eps_diluted": 0.41,
-   "filed": "2024-10-22",
-   "finance_lease_liabilities": 6066000,
-   "form": "10-Q",
-   "impairments": 3195000,
-   "income_tax": 709000,
-   "interest_expense": 20803000,
-   "net_income": 41522000,
-   "net_income_incl_nci": 41657000,
-   "net_income_parent": 41522000,
-   "operating_cash_flow": 109860000,
-   "operating_income": 63075000,
-   "operating_leases": 17066000,
-   "payments_for_intangibles": 47400000,
-   "period_end": "2023-09-30",
-   "revenue": 136812000,
-   "revenue_filed": "2023-10-24",
-   "shares_diluted": 97349473,
-   "shares_diluted_adj": 97349473,
-   "shares_diluted_filled": 97349473,
-   "shares_diluted_filled_filed": "2024-10-22",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 100519717,
-   "stock_comp": 2172000,
-   "total_assets": 7647106000,
-   "total_debt": 1885729000,
-   "total_debt_basis": "tagged",
-   "total_debt_filed": "2023-10-24",
-   "total_equity": 5244281000,
-   "total_equity_incl_nci": 5245394000,
-   "total_equity_parent": 5244281000,
-   "total_liabilities": 2401712000
-  },
   {
    "buybacks": 12000,
    "capex": 190000000,
@@ -1730,7 +1688,7 @@
    "debt_due_3y": 410000000,
    "dividends_paid": 85160000,
    "eps_diluted": 0.45,
-   "filed": "2025-10-21",
+   "filed": "2026-10-20",
    "finance_lease_liabilities": 3194000,
    "form": "10-Q",
    "income_tax": 225000,
@@ -1747,7 +1705,7 @@
    "shares_diluted": 111511615,
    "shares_diluted_adj": 111511615,
    "shares_diluted_filled": 111511615,
-   "shares_diluted_filled_filed": "2025-10-21",
+   "shares_diluted_filled_filed": "2026-10-20",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 114134251,
    "stock_comp": 3306000,
@@ -1880,6 +1838,46 @@
    "total_equity_incl_nci": 6520131000,
    "total_equity_parent": 6520136000,
    "total_liabilities": 4066698000
+  },
+  {
+   "buybacks": 86000,
+   "capex": 310811000,
+   "cash": 80559000,
+   "d_and_a": 71913000,
+   "debt_due_1y": 50000000,
+   "debt_due_2y": 410000000,
+   "debt_due_3y": 492250000,
+   "dividends_paid": 99629000,
+   "eps_diluted": 0.53,
+   "filed": "2026-10-20",
+   "finance_lease_liabilities": 5188000,
+   "form": "10-Q",
+   "income_tax": 375000,
+   "interest_expense": 41001000,
+   "net_income": 68352000,
+   "net_income_incl_nci": 68543000,
+   "net_income_parent": 68352000,
+   "operating_cash_flow": 184599000,
+   "operating_income": 109577000,
+   "operating_leases": 19379000,
+   "period_end": "2026-09-30",
+   "revenue": 213884000,
+   "revenue_filed": "2026-10-20",
+   "shares_diluted": 124602961,
+   "shares_diluted_adj": 124602961,
+   "shares_diluted_filled": 124602961,
+   "shares_diluted_filled_filed": "2026-10-20",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 130101031,
+   "stock_comp": 3650000,
+   "total_assets": 10950922000,
+   "total_debt": 3018785000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-10-20",
+   "total_equity": 6942627000,
+   "total_equity_incl_nci": 6942612000,
+   "total_equity_parent": 6942627000,
+   "total_liabilities": 4008310000
   }
  ],
  "sec_name": "AGREE REALTY CORPORATION",
@@ -1962,55 +1960,56 @@
    "end": "2025-12-31",
    "filed": "2026-02-10",
    "method": "fiscal_year",
+   "stale": true,
    "tags": [
     "PaymentsToDevelopRealEstateAssets"
    ],
    "val": 836095000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-20",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 224858000
+   "val": 241093000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-20",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 533960000
+   "val": 572040000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-20",
    "method": "four_quarters",
    "tags": [
     "Revenues"
    ],
-   "val": 779618000
+   "val": 810280000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-20",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 120487256
+   "val": 124602961
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-20",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 13912000
+   "val": 14256000
   }
  },
  "v2_annual": [
@@ -3541,13 +3540,6 @@
    "v2": 2626154000
   },
   {
-   "field": "total_debt",
-   "old": 2254099000,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 1885729000
-  },
-  {
    "field": "capex",
    "old": 195425000,
    "period": "2023-12-31",
@@ -3693,6 +3685,13 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 2627746000
+  },
+  {
+   "field": "total_debt",
+   "old": 3752250000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 3018785000
   }
  ],
  "v2_notes": [],
@@ -8707,6 +8706,76 @@
    "start": "2026-04-01",
    "stock_comp": 3775000,
    "total_debt": 2627746000
+  },
+  {
+   "cash": 80559000,
+   "cash_and_sti": 80559000,
+   "end": "2026-09-30",
+   "equity": 6942627000,
+   "net_income": 68352000,
+   "operating_cash_flow": 184599000,
+   "revenue": 213884000,
+   "shares_diluted": 124602961,
+   "src": {
+    "cash": {
+     "accn": "0000917251-26-000076",
+     "filed": "2026-10-20",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0000917251-26-000076",
+     "filed": "2026-10-20",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0000917251-26-000076",
+     "filed": "2026-10-20",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0000917251-26-000076",
+     "derived": true,
+     "filed": "2026-10-20",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0000917251-26-000076",
+     "filed": "2026-10-20",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0000917251-26-000076",
+     "filed": "2026-10-20",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0000917251-26-000076",
+     "derived": true,
+     "filed": "2026-10-20",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-10-20",
+     "tags": [
+      "SeniorNotes",
+      "SecuredDebt"
+     ],
+     "values": {
+      "SecuredDebt": 41183000,
+      "SeniorNotes": 2977602000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 3650000,
+   "total_debt": 3018785000
   }
  ],
  "v2_tags_used": {

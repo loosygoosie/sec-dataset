@@ -1,9 +1,9 @@
-# v2 vs data/companies (2026-10-20)
+# v2 vs data/companies (2026-10-21)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
-- companies: 2472; with a difference: 1285
-- by field: capex 103, file 278, revenue 183, shares 653, total_debt 281
+- companies: 2472; with a difference: 1284
+- by field: capex 103, file 278, revenue 183, shares 653, total_debt 280
 
 | ticker | field | period | old | v2 | diff % |
 |---|---|---|---|---|---|
@@ -251,7 +251,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | NTAP | revenue | 2026-04-24 | 6.24B | 6.92B | 11.0 |
 | KEYS | shares | 2026-08-27 | - | 0.17B | - |
 | P | shares | 2026-08-31 | - | 0.33B | - |
-| GPC | total_debt | 2026-06-30 | 4.73B | 4.98B | 5.3 |
 | TW | shares | 2026-07-23 | - | 0.23B | - |
 | LUV | shares | 2026-07-22 | - | 0.49B | - |
 | RPRX | shares | 2026-07-31 | - | 0.58B | - |
@@ -403,7 +402,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | CHWY | shares | 2026-09-02 | - | 0.40B | - |
 | BRX | capex | 2025-12-31 | 0.42B | 0.32B | -23.9 |
 | ALSN | shares | 2026-07-22 | - | 82.6M | - |
-| ACI | shares | 2026-07-24 | - | 0.49B | - |
+| ACI | shares | 2026-10-16 | - | 0.47B | - |
 | CBSH | revenue | 2025-12-31 | 1.48B | 1.76B | 18.9 |
 | CBSH | shares | 2026-08-03 | - | 0.14B | - |
 | PSN | shares | 2026-07-21 | 57.6M | 0.11B | 85.6 |
@@ -506,7 +505,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | STEP | shares | 2026-08-04 | - | 0.12B | - |
 | S | shares | 2026-08-21 | - | 0.35B | - |
 | ADC | capex | 2025-12-31 | 1.45B | 0.84B | -42.3 |
-| ADC | total_debt | 2026-06-30 | 3.85B | 2.63B | -31.7 |
+| ADC | total_debt | 2026-09-30 | 3.75B | 3.02B | -19.5 |
 | GBCI | revenue | 2025-12-31 | 1.30B | 1.03B | -20.5 |
 | FNB | revenue | 2025-12-31 | 2.33B | 1.76B | -24.1 |
 | FNB | total_debt | 2026-06-30 | 2.68B | 4.68B | 74.7 |

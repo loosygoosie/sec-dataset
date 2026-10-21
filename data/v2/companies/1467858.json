@@ -1462,16 +1462,14 @@
   "total_liabilities": 16
  },
  "balance": {
-  "cash_and_sti": 24719000000,
-  "debt_end": "2025-12-31",
-  "end": "2026-06-30",
-  "equity": 62000000000,
-  "total_debt": 131574000000
+  "cash_and_sti": 27805000000,
+  "end": "2026-09-30",
+  "equity": 62806000000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 21,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1480,72 +1478,37 @@
  },
  "cik": 1467858,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "stale_stock_comp",
+  "no_debt_tagged",
+  "interest_but_no_debt"
+ ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001467858-26-000051",
-  "filed": "2026-07-21",
+  "accn": "0001467858-26-000059",
+  "filed": "2026-10-20",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 282742000000.0,
+  "assets": 289183000000.0,
   "classes": {
-   "common": 877451541.0
+   "common": 843549423.0
   },
-  "cover_accession": "0001467858-26-000051",
-  "cover_date": "2026-07-10",
+  "cover_accession": "0001467858-26-000059",
+  "cover_date": "2026-10-09",
   "float_date": "2025-06-30",
   "float_filed": "2026-01-27",
   "note": null,
   "public_float": 47000000000.0,
   "revenue": 185019000000.0,
-  "shares_cover": 877451541.0,
-  "shares_total": 877451541.0,
+  "shares_cover": 843549423.0,
+  "shares_total": 843549423.0,
   "size_gate": "float"
  },
  "name": "General Motors Co",
  "quarterly": [
-  {
-   "buybacks": 250000000,
-   "capex": 2581000000,
-   "capex_filed": "2023-10-24",
-   "cash": 25224000000,
-   "current_assets": 110721000000,
-   "current_liabilities": 96820000000,
-   "d_and_a": 2992000000,
-   "dividends_paid": 182000000,
-   "eps_diluted": 2.2,
-   "filed": "2024-10-22",
-   "form": "10-Q",
-   "impairments": 0,
-   "income_tax": 470000000,
-   "inventory": 17740000000,
-   "net_income": 3064000000,
-   "net_income_incl_nci": 2994000000,
-   "net_income_parent": 3064000000,
-   "operating_cash_flow": 6596000000,
-   "operating_income": 3013000000,
-   "period_end": "2023-09-30",
-   "pretax_income": 3464000000,
-   "receivables": 13923000000,
-   "retained_earnings": 56322000000,
-   "revenue": 44131000000,
-   "revenue_filed": "2023-10-24",
-   "shares_diluted": 1378000000,
-   "shares_diluted_adj": 1378000000,
-   "shares_diluted_filled": 1378000000,
-   "shares_diluted_filled_filed": "2024-10-22",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 1400000000,
-   "short_term_investments": 9651000000,
-   "total_assets": 281705000000,
-   "total_equity": 74475000000,
-   "total_equity_incl_nci": 78404000000,
-   "total_equity_parent": 74475000000,
-   "total_liabilities": 202978000000
-  },
   {
    "buybacks": 9996000000,
    "capex": 3706000000,
@@ -1839,7 +1802,7 @@
    "d_and_a": 3066000000,
    "dividends_paid": 200000000,
    "eps_diluted": 1.35,
-   "filed": "2025-10-21",
+   "filed": "2026-10-20",
    "form": "10-Q",
    "goodwill": 1900000000,
    "impairments": 1044000000,
@@ -1859,7 +1822,7 @@
    "shares_diluted": 964000000,
    "shares_diluted_adj": 964000000,
    "shares_diluted_filled": 964000000,
-   "shares_diluted_filled_filed": "2025-10-21",
+   "shares_diluted_filled_filed": "2026-10-20",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 933000000,
    "short_term_investments": 6792000000,
@@ -1989,6 +1952,45 @@
    "total_equity_incl_nci": 63641000000,
    "total_equity_parent": 62000000000,
    "total_liabilities": 219101000000
+  },
+  {
+   "buybacks": 2501000000,
+   "capex": 2346000000,
+   "capex_filed": "2026-10-20",
+   "cash": 23196000000,
+   "current_assets": 115867000000,
+   "current_liabilities": 106330000000,
+   "d_and_a": 2935000000,
+   "dividends_paid": 215000000,
+   "eps_diluted": 3.73,
+   "filed": "2026-10-20",
+   "form": "10-Q",
+   "impairments": -60000000,
+   "income_tax": 565000000,
+   "inventory": 15640000000,
+   "net_income": 3335000000,
+   "net_income_incl_nci": 3377000000,
+   "net_income_parent": 3335000000,
+   "operating_cash_flow": 7316000000,
+   "operating_income": 3598000000,
+   "period_end": "2026-09-30",
+   "pretax_income": 3943000000,
+   "receivables": 17138000000,
+   "retained_earnings": 54210000000,
+   "revenue": 50015000000,
+   "revenue_filed": "2026-10-20",
+   "shares_diluted": 887000000,
+   "shares_diluted_adj": 887000000,
+   "shares_diluted_filled": 887000000,
+   "shares_diluted_filled_filed": "2026-10-20",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 849000000,
+   "short_term_investments": 4609000000,
+   "total_assets": 289183000000,
+   "total_equity": 62806000000,
+   "total_equity_incl_nci": 64518000000,
+   "total_equity_parent": 62806000000,
+   "total_liabilities": 224664000000
   }
  ],
  "sec_name": "GENERAL MOTORS COMPANY",
@@ -2067,59 +2069,60 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-07-21",
+   "end": "2026-09-30",
+   "filed": "2026-10-20",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 8804000000
+   "val": 9020000000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": 14398000000
+   "val": 14395000000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-07-21",
+   "end": "2026-09-30",
+   "filed": "2026-10-20",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 1949000000
+   "val": 3957000000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-07-21",
+   "end": "2026-09-30",
+   "filed": "2026-10-20",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 23202000000
+   "val": 23415000000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-07-21",
+   "end": "2026-09-30",
+   "filed": "2026-10-20",
    "method": "four_quarters",
    "tags": [
     "Revenues"
    ],
-   "val": 185528000000
+   "val": 186952000000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-07-21",
+   "end": "2026-09-30",
+   "filed": "2026-10-20",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 910000000
+   "val": 887000000
   },
   "stock_comp": {
    "end": "2025-12-31",
    "filed": "2026-01-27",
    "method": "fiscal_year",
+   "stale": true,
    "tags": [
     "AllocatedShareBasedCompensationExpense"
    ],
@@ -7890,6 +7893,72 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "capex": 2346000000,
+   "cash": 23196000000,
+   "cash_and_sti": 27805000000,
+   "end": "2026-09-30",
+   "equity": 62806000000,
+   "fcf": 4970000000,
+   "net_income": 3335000000,
+   "operating_cash_flow": 7316000000,
+   "revenue": 50015000000,
+   "shares_diluted": 887000000,
+   "short_term_investments": 4609000000,
+   "src": {
+    "capex": {
+     "accn": "0001467858-26-000059",
+     "derived": true,
+     "filed": "2026-10-20",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001467858-26-000059",
+     "filed": "2026-10-20",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001467858-26-000059",
+     "filed": "2026-10-20",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001467858-26-000059",
+     "filed": "2026-10-20",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001467858-26-000059",
+     "derived": true,
+     "filed": "2026-10-20",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001467858-26-000059",
+     "filed": "2026-10-20",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001467858-26-000059",
+     "filed": "2026-10-20",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "short_term_investments": {
+     "accn": "0001467858-26-000059",
+     "filed": "2026-10-20",
+     "form": "10-Q",
+     "tag": "AvailableForSaleSecuritiesDebtSecuritiesCurrent"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {
