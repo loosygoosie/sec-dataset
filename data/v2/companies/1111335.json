@@ -1371,6 +1371,7 @@
    "shares_diluted_filled_filed": "2026-02-19",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 26800000,
+   "short_term_borrowings": 18000000,
    "stock_comp": 45000000,
    "stock_comp_as_filed": 45000000,
    "stock_comp_as_filed_filed": "2026-02-19",
@@ -1381,8 +1382,9 @@
    "total_debt": 301000000,
    "total_debt_as_filed": 301000000,
    "total_debt_as_filed_filed": "2026-02-19",
-   "total_debt_basis": "components",
+   "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2026-02-19",
+   "total_debt_tagged": 283000000,
    "total_equity": 1568000000,
    "total_equity_incl_nci": 1651000000,
    "total_equity_parent": 1568000000
@@ -1443,7 +1445,7 @@
   "sga_expense": 15,
   "shares_diluted": 15,
   "shares_outstanding": 15,
-  "short_term_borrowings": 9,
+  "short_term_borrowings": 10,
   "short_term_investments": 3,
   "stock_comp": 15,
   "tier1_capital_ratio": 0,
@@ -1455,17 +1457,17 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 648000000,
-  "debt_current": 15000000,
-  "debt_noncurrent": 284000000,
-  "end": "2026-06-30",
-  "equity": 1611000000,
-  "total_debt": 299000000
+  "cash_and_sti": 464000000,
+  "debt_current": 23000000,
+  "debt_noncurrent": 307000000,
+  "end": "2026-09-30",
+  "equity": 1413000000,
+  "total_debt": 330000000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 23,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1479,74 +1481,30 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001111335-26-000046",
-  "filed": "2026-07-23",
+  "accn": "0001111335-26-000055",
+  "filed": "2026-10-22",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 3456000000.0,
+  "assets": 3401000000.0,
   "classes": {
-   "common": 26695429.0
+   "common": 24707936.0
   },
-  "cover_accession": "0001111335-26-000046",
-  "cover_date": "2026-07-16",
+  "cover_accession": "0001111335-26-000055",
+  "cover_date": "2026-10-15",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-19",
   "note": null,
   "public_float": 2500000000.0,
   "revenue": 3768000000.0,
-  "shares_cover": 26695429.0,
-  "shares_total": 26695429.0,
+  "shares_cover": 24707936.0,
+  "shares_total": 24707936.0,
   "size_gate": "float"
  },
  "name": "VISTEON CORP",
  "quarterly": [
-  {
-   "buybacks": 46000000,
-   "cash": 481000000,
-   "current_assets": 1622000000,
-   "current_liabilities": 948000000,
-   "d_and_a": 24000000,
-   "debt_current": 18000000,
-   "debt_current_total": 18000000,
-   "eps_diluted": 2.32,
-   "filed": "2024-10-24",
-   "form": "10-Q",
-   "gross_profit": 143000000,
-   "impairments": 0,
-   "income_tax": 21000000,
-   "interest_expense": 4000000,
-   "inventory": 318000000,
-   "lt_debt_noncurrent": 323000000,
-   "net_income": 66000000,
-   "net_income_incl_nci": 71000000,
-   "net_income_parent": 66000000,
-   "operating_cash_flow": 127000000,
-   "operating_leases": 87000000,
-   "period_end": "2023-09-30",
-   "pretax_income": 92000000,
-   "receivables": 679000000,
-   "retained_earnings": 1908000000,
-   "revenue": 1014000000,
-   "revenue_filed": "2023-10-26",
-   "sga_expense": 52000000,
-   "shares_diluted": 28500000,
-   "shares_diluted_adj": 28500000,
-   "shares_diluted_filled": 28500000,
-   "shares_diluted_filled_filed": "2024-10-24",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 27900000,
-   "stock_comp": 9000000,
-   "total_assets": 2357000000,
-   "total_debt": 341000000,
-   "total_debt_basis": "components",
-   "total_debt_filed": "2023-10-26",
-   "total_equity": 724000000,
-   "total_equity_incl_nci": 801000000,
-   "total_equity_parent": 724000000
-  },
   {
    "buybacks": 31000000,
    "cash": 515000000,
@@ -1870,7 +1828,7 @@
    "inventory": 313000000,
    "lt_debt_noncurrent": 288000000,
    "net_income": -11000000,
-   "net_income_incl_nci": 59000000,
+   "net_income_incl_nci": -9000000,
    "net_income_parent": -11000000,
    "operating_cash_flow": 127000000,
    "operating_leases": 115000000,
@@ -1881,10 +1839,10 @@
    "revenue": 917000000,
    "revenue_filed": "2025-10-23",
    "sga_expense": 53000000,
-   "shares_diluted": 27900000,
-   "shares_diluted_adj": 27900000,
-   "shares_diluted_filled": 27900000,
-   "shares_diluted_filled_filed": "2025-10-23",
+   "shares_diluted": 27300000,
+   "shares_diluted_adj": 27300000,
+   "shares_diluted_filled": 27300000,
+   "shares_diluted_filled_filed": "2026-10-22",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 27300000,
    "stock_comp": 11000000,
@@ -1914,7 +1872,7 @@
    "inventory": 269000000,
    "lt_debt_noncurrent": 283000000,
    "net_income": 74000000,
-   "net_income_incl_nci": 10000000,
+   "net_income_incl_nci": 78000000,
    "net_income_parent": 74000000,
    "operating_cash_flow": 118000000,
    "operating_leases": 130000000,
@@ -1931,11 +1889,13 @@
    "shares_diluted_filled_filed": "2026-02-19",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 26800000,
+   "short_term_borrowings": 18000000,
    "stock_comp": 11000000,
    "total_assets": 3386000000,
    "total_debt": 301000000,
-   "total_debt_basis": "components",
+   "total_debt_basis": "components_exceed_tagged",
    "total_debt_filed": "2026-02-19",
+   "total_debt_tagged": 283000000,
    "total_equity": 1568000000,
    "total_equity_incl_nci": 1651000000,
    "total_equity_parent": 1568000000
@@ -2027,6 +1987,52 @@
    "total_equity": 1611000000,
    "total_equity_incl_nci": 1689000000,
    "total_equity_parent": 1611000000
+  },
+  {
+   "buybacks": 201000000,
+   "cash": 464000000,
+   "current_assets": 1695000000,
+   "current_liabilities": 1056000000,
+   "d_and_a": 31000000,
+   "debt_current": 23000000,
+   "debt_current_total": 23000000,
+   "dividends_paid": 9000000,
+   "eps_diluted": 0.19,
+   "filed": "2026-10-22",
+   "form": "10-Q",
+   "gross_profit": 47000000,
+   "income_tax": 1000000,
+   "interest_expense": 4000000,
+   "inventory": 359000000,
+   "lt_debt_noncurrent": 307000000,
+   "net_income": 5000000,
+   "net_income_incl_nci": 6000000,
+   "net_income_parent": 5000000,
+   "operating_cash_flow": 38000000,
+   "operating_leases": 106000000,
+   "period_end": "2026-09-30",
+   "pretax_income": 7000000,
+   "receivables": 696000000,
+   "retained_earnings": 2893000000,
+   "revenue": 970000000,
+   "revenue_filed": "2026-10-22",
+   "sga_expense": 46000000,
+   "shares_diluted": 26000000,
+   "shares_diluted_adj": 26000000,
+   "shares_diluted_filled": 26000000,
+   "shares_diluted_filled_filed": "2026-10-22",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 24700000,
+   "short_term_borrowings": 23000000,
+   "stock_comp": 11000000,
+   "total_assets": 3401000000,
+   "total_debt": 330000000,
+   "total_debt_basis": "components_exceed_tagged",
+   "total_debt_filed": "2026-10-22",
+   "total_debt_tagged": 281000000,
+   "total_equity": 1413000000,
+   "total_equity_incl_nci": 1497000000,
+   "total_equity_parent": 1413000000
   }
  ],
  "sec_name": "VISTEON CORP",
@@ -2088,12 +2094,12 @@
   "sga_expense": "SellingGeneralAndAdministrativeExpense",
   "shares_diluted": "WeightedAverageNumberOfDilutedSharesOutstanding,WeightedAverageNumberOfSharesOutstandingBasic",
   "shares_outstanding": "dei:EntityCommonStockSharesOutstanding,CommonStockSharesOutstanding",
-  "short_term_borrowings": "ShortTermBorrowings",
+  "short_term_borrowings": "ShortTermBorrowings,OtherShortTermBorrowings",
   "short_term_investments": "ShortTermInvestments",
   "stock_comp": "ShareBasedCompensation,AllocatedShareBasedCompensationExpense",
   "tier1_capital_ratio": null,
   "total_assets": "Assets",
-  "total_debt": "DebtLongtermAndShorttermCombinedAmount",
+  "total_debt": "LongTermDebt,DebtLongtermAndShorttermCombinedAmount",
   "total_equity": "StockholdersEquity,StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
   "total_equity_incl_nci": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
   "total_equity_parent": "StockholdersEquity",
@@ -2115,45 +2121,45 @@
    "val": 142000000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-07-23",
+   "end": "2026-09-30",
+   "filed": "2026-10-22",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 143000000
+   "val": 159000000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-07-23",
+   "end": "2026-09-30",
+   "filed": "2026-10-22",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 288000000
+   "val": 199000000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-07-23",
+   "end": "2026-09-30",
+   "filed": "2026-10-22",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax",
     "Revenues"
    ],
-   "val": 3779000000
+   "val": 3832000000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-07-23",
+   "end": "2026-09-30",
+   "filed": "2026-10-22",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 27200000
+   "val": 26000000
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-07-23",
+   "end": "2026-09-30",
+   "filed": "2026-10-22",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
@@ -7713,7 +7719,7 @@
    "net_income": -11000000,
    "operating_cash_flow": 127000000,
    "revenue": 917000000,
-   "shares_diluted": 27900000,
+   "shares_diluted": 27300000,
    "src": {
     "cash": {
      "accn": "0001111335-25-000172",
@@ -7751,8 +7757,10 @@
      "tag": "Revenues"
     },
     "shares_diluted": {
-     "accn": "0001111335-25-000172",
-     "filed": "2025-10-23",
+     "accn": "0001111335-26-000055",
+     "filed": "2026-10-22",
+     "first_filed": "2025-10-23",
+     "first_val": 27900000,
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
     },
@@ -7984,6 +7992,77 @@
    "start": "2026-04-01",
    "stock_comp": 12000000,
    "total_debt": 299000000
+  },
+  {
+   "cash": 464000000,
+   "cash_and_sti": 464000000,
+   "debt_current": 23000000,
+   "debt_noncurrent": 307000000,
+   "end": "2026-09-30",
+   "equity": 1413000000,
+   "net_income": 5000000,
+   "operating_cash_flow": 38000000,
+   "revenue": 970000000,
+   "shares_diluted": 26000000,
+   "src": {
+    "cash": {
+     "accn": "0001111335-26-000055",
+     "filed": "2026-10-22",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001111335-26-000055",
+     "filed": "2026-10-22",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001111335-26-000055",
+     "filed": "2026-10-22",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001111335-26-000055",
+     "derived": true,
+     "filed": "2026-10-22",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001111335-26-000055",
+     "filed": "2026-10-22",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001111335-26-000055",
+     "filed": "2026-10-22",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001111335-26-000055",
+     "filed": "2026-10-22",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-10-22",
+     "tags": [
+      "LongTermDebtNoncurrent",
+      "DebtCurrent"
+     ],
+     "values": {
+      "DebtCurrent": 23000000,
+      "LongTermDebtNoncurrent": 307000000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 11000000,
+   "total_debt": 330000000
   }
  ],
  "v2_tags_used": {
