@@ -1291,14 +1291,14 @@
   "total_liabilities": 17
  },
  "balance": {
-  "cash_and_sti": 145377000,
-  "end": "2026-06-30",
-  "equity": 2391440000
+  "cash_and_sti": 279205000,
+  "end": "2026-09-30",
+  "equity": 2371915000
  },
  "bank": false,
  "checks": {
   "latest_quarter_end": "2026-03-31",
-  "quarter_age_days": 178,
+  "quarter_age_days": 211,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1312,29 +1312,29 @@
   "interest_but_no_debt"
  ],
  "instances_merged": [
-  "0000921082-26-000045"
+  "0000921082-26-000049"
  ],
  "latest_filing": {
-  "accn": "0000921082-26-000045",
-  "filed": "2026-07-28",
+  "accn": "0000921082-26-000049",
+  "filed": "2026-10-27",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
   "assets": 6596901000.0,
   "classes": {
-   "common": 110306211.0
+   "common": 110315322.0
   },
-  "cover_accession": "0000921082-26-000045",
-  "cover_date": "2026-07-21",
+  "cover_accession": "0000921082-26-000049",
+  "cover_date": "2026-10-20",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-10",
   "note": null,
   "public_float": 3300000000.0,
   "revenue": 806112000.0,
-  "shares_cover": 110306211.0,
-  "shares_total": 110306211.0,
+  "shares_cover": 110315322.0,
+  "shares_total": 110315322.0,
   "size_gate": "float"
  },
  "name": "HIGHWOODS PROPERTIES, INC.",
@@ -1828,63 +1828,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-07-28",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-10-27",
+   "method": "year_to_date",
    "tags": [
     "PaymentsToDevelopRealEstateAssets"
    ],
-   "val": 5082000
+   "val": 10859000
   },
   "fcf": {
-   "end": "2026-06-30",
-   "method": "four_quarters",
-   "val": 379346000
+   "end": "2026-09-30",
+   "method": "year_to_date",
+   "val": 368681000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-07-28",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-10-27",
+   "method": "year_to_date",
    "tags": [
     "NetIncomeLossAvailableToCommonStockholdersBasic"
    ],
-   "val": 166371000
+   "val": 185244000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-07-28",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-10-27",
+   "method": "year_to_date",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 384428000
+   "val": 379540000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-07-28",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-10-27",
+   "method": "year_to_date",
    "tags": [
     "Revenues"
    ],
-   "val": 835542000
+   "val": 851952000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-07-28",
+   "end": "2026-09-30",
+   "filed": "2026-10-27",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 112301000
+   "val": 112323000
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-07-28",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-10-27",
+   "method": "year_to_date",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 9413000
+   "val": 9111000
   }
  },
  "v2_annual": [
@@ -7442,70 +7442,53 @@
    "stock_comp": 6450000
   },
   {
-   "capex": 293000,
-   "cash": 145377000,
-   "cash_and_sti": 145377000,
-   "end": "2026-06-30",
-   "equity": 2391440000,
-   "fcf": 124934000,
-   "net_income": 93474000,
-   "operating_cash_flow": 125227000,
-   "revenue": 216379000,
-   "shares_diluted": 112301000,
+   "cash": 279205000,
+   "cash_and_sti": 279205000,
+   "end": "2026-09-30",
+   "equity": 2371915000,
+   "net_income": 31750000,
+   "revenue": 218183000,
+   "shares_diluted": 112323000,
    "src": {
-    "capex": {
-     "accn": "0000921082-26-000045",
-     "derived": true,
-     "filed": "2026-07-28",
-     "form": "10-Q",
-     "tag": "PaymentsToDevelopRealEstateAssets"
-    },
     "cash": {
-     "accn": "0000921082-26-000045",
-     "filed": "2026-07-28",
+     "accn": "0000921082-26-000049",
+     "filed": "2026-10-27",
      "form": "10-Q",
      "tag": "CashAndCashEquivalentsAtCarryingValue"
     },
     "equity": {
-     "accn": "0000921082-26-000045",
-     "filed": "2026-07-28",
+     "accn": "0000921082-26-000049",
+     "filed": "2026-10-27",
      "form": "10-Q",
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0000921082-26-000045",
-     "filed": "2026-07-28",
+     "accn": "0000921082-26-000049",
+     "filed": "2026-10-27",
      "form": "10-Q",
      "tag": "NetIncomeLossAvailableToCommonStockholdersBasic"
     },
-    "operating_cash_flow": {
-     "accn": "0000921082-26-000045",
-     "derived": true,
-     "filed": "2026-07-28",
-     "form": "10-Q",
-     "tag": "NetCashProvidedByUsedInOperatingActivities"
-    },
     "revenue": {
-     "accn": "0000921082-26-000045",
-     "filed": "2026-07-28",
+     "accn": "0000921082-26-000049",
+     "filed": "2026-10-27",
      "form": "10-Q",
      "tag": "Revenues"
     },
     "shares_diluted": {
-     "accn": "0000921082-26-000045",
-     "filed": "2026-07-28",
+     "accn": "0000921082-26-000049",
+     "filed": "2026-10-27",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
     },
     "stock_comp": {
-     "accn": "0000921082-26-000045",
-     "filed": "2026-07-28",
+     "accn": "0000921082-26-000049",
+     "filed": "2026-10-27",
      "form": "10-Q",
      "tag": "ShareBasedCompensation"
     }
    },
-   "start": "2026-04-01",
-   "stock_comp": 1000000
+   "start": "2026-07-01",
+   "stock_comp": 900000
   }
  ],
  "v2_tags_used": {

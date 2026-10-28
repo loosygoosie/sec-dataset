@@ -918,17 +918,17 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1350000000,
+  "cash_and_sti": 1178000000,
   "debt_current": 602000000,
   "debt_noncurrent": 1402000000,
-  "end": "2026-06-28",
-  "equity": 7004000000,
+  "end": "2026-09-27",
+  "equity": 7015000000,
   "total_debt": 2004000000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-28",
-  "quarter_age_days": 89,
+  "latest_quarter_end": "2026-09-27",
+  "quarter_age_days": 31,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -937,47 +937,35 @@
  },
  "cik": 91388,
  "fiscal_year_end": "0103",
- "flags": [],
+ "flags": [
+  "stale_stock_comp"
+ ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0000091388-26-000051",
-  "filed": "2026-08-11",
+  "accn": "0000091388-26-000069",
+  "filed": "2026-10-27",
   "form": "10-Q",
-  "report": "2026-06-28"
+  "report": "2026-09-27"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 12014000000.0,
+  "assets": 12152000000.0,
   "classes": {
-   "common": 393767431.0
+   "common": 393800826.0
   },
-  "cover_accession": "0000091388-26-000051",
-  "cover_date": "2026-08-09",
+  "cover_accession": "0000091388-26-000069",
+  "cover_date": "2026-10-25",
   "float_date": "2025-06-27",
   "float_filed": "2026-03-24",
   "note": null,
   "public_float": 585552517.92,
   "revenue": 15531000000.0,
-  "shares_cover": 393767431.0,
-  "shares_total": 393767431.0,
+  "shares_cover": 393800826.0,
+  "shares_total": 393800826.0,
   "size_gate": "assets"
  },
  "name": "SMITHFIELD FOODS INC",
  "quarterly": [
-  {
-   "cash": 547000000,
-   "filed": "2025-03-25",
-   "form": "10-K",
-   "goodwill": 1617000000,
-   "period_end": "2023-01-01",
-   "shares_diluted": 380069232,
-   "shares_diluted_adj": 380069232,
-   "shares_diluted_filled": 380069232,
-   "shares_diluted_filled_filed": "2025-03-25",
-   "shares_diluted_filled_source": "shares_diluted",
-   "total_equity": 7374000000,
-   "total_equity_incl_nci": 7374000000
-  },
   {
    "cash": 687000000,
    "current_assets": 4921000000,
@@ -1246,7 +1234,7 @@
    "debt_current": 3000000,
    "dividends_paid": 100000000,
    "eps_diluted": 0.63,
-   "filed": "2025-10-28",
+   "filed": "2026-10-27",
    "form": "10-Q",
    "goodwill": 1621000000,
    "gross_profit": 479000000,
@@ -1272,7 +1260,7 @@
    "shares_diluted": 394594035,
    "shares_diluted_adj": 394594035,
    "shares_diluted_filled": 394594035,
-   "shares_diluted_filled_filed": "2025-10-28",
+   "shares_diluted_filled_filed": "2026-10-27",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 393112711,
    "total_assets": 11523000000,
@@ -1424,6 +1412,52 @@
    "total_debt_tagged": 1402000000,
    "total_equity": 7004000000,
    "total_equity_parent": 7004000000
+  },
+  {
+   "capex": 116000000,
+   "capex_filed": "2026-10-27",
+   "cash": 1178000000,
+   "current_assets": 5116000000,
+   "current_liabilities": 2137000000,
+   "d_and_a": 86000000,
+   "debt_current": 602000000,
+   "eps_diluted": 0.23,
+   "filed": "2026-10-27",
+   "form": "10-Q",
+   "goodwill": 1624000000,
+   "gross_profit": 313000000,
+   "income_tax": 30000000,
+   "intangibles": 1256000000,
+   "interest_expense": 6000000,
+   "inventory": 2543000000,
+   "lt_debt_current": 602000000,
+   "lt_debt_noncurrent": 1402000000,
+   "net_income": 89000000,
+   "net_income_incl_nci": 91000000,
+   "net_income_parent": 89000000,
+   "operating_cash_flow": 161000000,
+   "operating_income": 127000000,
+   "operating_leases": 312000000,
+   "period_end": "2026-09-27",
+   "pretax_income": 120000000,
+   "receivables": 1011000000,
+   "retained_earnings": 3978000000,
+   "revenue": 3437000000,
+   "revenue_filed": "2026-10-27",
+   "sga_expense": 193000000,
+   "shares_diluted": 394905788,
+   "shares_diluted_adj": 394905788,
+   "shares_diluted_filled": 394905788,
+   "shares_diluted_filled_filed": "2026-10-27",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 393800826,
+   "total_assets": 12152000000,
+   "total_debt": 2004000000,
+   "total_debt_basis": "components_exceed_tagged",
+   "total_debt_filed": "2026-10-27",
+   "total_debt_tagged": 1402000000,
+   "total_equity": 7015000000,
+   "total_equity_parent": 7015000000
   }
  ],
  "sec_name": "SMITHFIELD FOODS, INC.",
@@ -1502,60 +1536,61 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-28",
-   "filed": "2026-08-11",
+   "end": "2026-09-27",
+   "filed": "2026-10-27",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquireProductiveAssets"
    ],
-   "val": 348000000
+   "val": 376000000
   },
   "fcf": {
-   "end": "2026-06-28",
+   "end": "2026-09-27",
    "method": "four_quarters",
-   "val": 807000000
+   "val": 927000000
   },
   "net_income": {
-   "end": "2026-06-28",
-   "filed": "2026-08-11",
+   "end": "2026-09-27",
+   "filed": "2026-10-27",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 1059000000
+   "val": 900000000
   },
   "operating_cash_flow": {
-   "end": "2026-06-28",
-   "filed": "2026-08-11",
+   "end": "2026-09-27",
+   "filed": "2026-10-27",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities",
     "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
    ],
-   "val": 1155000000
+   "val": 1303000000
   },
   "revenue": {
-   "end": "2026-06-28",
-   "filed": "2026-08-11",
+   "end": "2026-09-27",
+   "filed": "2026-10-27",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
    ],
-   "val": 15474000000
+   "val": 15164000000
   },
   "shares_diluted": {
-   "end": "2026-06-28",
-   "filed": "2026-08-11",
+   "end": "2026-09-27",
+   "filed": "2026-10-27",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 395772571
+   "val": 394905788
   },
   "stock_comp": {
    "end": "2025-12-28",
    "filed": "2026-03-24",
    "method": "fiscal_year",
+   "stale": true,
    "tags": [
     "ShareBasedCompensation"
    ],
@@ -4910,11 +4945,11 @@
      "tag": "NetIncomeLoss"
     },
     "operating_cash_flow": {
-     "accn": "0000091388-25-000082",
+     "accn": "0000091388-26-000069",
      "derived": true,
-     "filed": "2025-10-28",
+     "filed": "2026-10-27",
      "form": "10-Q",
-     "tag": "NetCashProvidedByUsedInOperatingActivitiesContinuingOperations"
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
     },
     "revenue": {
      "accn": "0000091388-25-000082",
@@ -5154,6 +5189,79 @@
     }
    },
    "start": "2026-03-30",
+   "total_debt": 2004000000
+  },
+  {
+   "capex": 116000000,
+   "cash": 1178000000,
+   "cash_and_sti": 1178000000,
+   "debt_current": 602000000,
+   "debt_noncurrent": 1402000000,
+   "end": "2026-09-27",
+   "equity": 7015000000,
+   "fcf": 45000000,
+   "net_income": 89000000,
+   "operating_cash_flow": 161000000,
+   "revenue": 3437000000,
+   "shares_diluted": 394905788,
+   "src": {
+    "capex": {
+     "accn": "0000091388-26-000069",
+     "derived": true,
+     "filed": "2026-10-27",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireProductiveAssets"
+    },
+    "cash": {
+     "accn": "0000091388-26-000069",
+     "filed": "2026-10-27",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0000091388-26-000069",
+     "filed": "2026-10-27",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0000091388-26-000069",
+     "filed": "2026-10-27",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0000091388-26-000069",
+     "derived": true,
+     "filed": "2026-10-27",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0000091388-26-000069",
+     "filed": "2026-10-27",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0000091388-26-000069",
+     "filed": "2026-10-27",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2026-10-27",
+     "tags": [
+      "LongTermDebtAndCapitalLeaseObligations",
+      "LongTermDebtAndCapitalLeaseObligationsCurrent"
+     ],
+     "values": {
+      "LongTermDebtAndCapitalLeaseObligations": 1402000000,
+      "LongTermDebtAndCapitalLeaseObligationsCurrent": 602000000
+     }
+    }
+   },
+   "start": "2026-06-29",
    "total_debt": 2004000000
   }
  ],
