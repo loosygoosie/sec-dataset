@@ -66,16 +66,23 @@
   "total_equity_parent": 0,
   "total_liabilities": 0
  },
- "balance": {},
+ "balance": {
+  "cash_and_sti": 295000000,
+  "debt_current": 0,
+  "debt_noncurrent": 1798000000,
+  "end": "2026-09-27",
+  "equity": 3298000000,
+  "total_debt": 1798000000
+ },
  "bank": false,
  "checks": {
-  "latest_quarter_end": null,
-  "quarter_age_days": null,
+  "latest_quarter_end": "2026-09-27",
+  "quarter_age_days": 32,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
-  "share_scale": "n/a",
-  "shares": "none"
+  "share_scale": "ok",
+  "shares": "ok"
  },
  "cik": 2127043,
  "fiscal_year_end": "1228",
@@ -86,20 +93,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0002127043-26-000010",
-  "filed": "2026-09-09",
+  "accn": "0002127043-26-000018",
+  "filed": "2026-10-28",
   "form": "10-Q",
-  "report": "2026-06-28"
+  "report": "2026-09-27"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 1.0,
+  "assets": 8471000000.0,
   "classes": {
    "CommonClassAMember": 233405414.0,
    "CommonClassBMember": 84233486.0
   },
-  "cover_accession": "0002127043-26-000010",
-  "cover_date": "2026-09-04",
+  "cover_accession": "0002127043-26-000018",
+  "cover_date": "2026-10-23",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -107,77 +114,161 @@
   "revenue": null,
   "shares_cover": 317638900.0,
   "shares_total": 317638900.0,
-  "size_gate": "no_float"
+  "size_gate": "assets"
  },
  "name": "Jersey Mike's Subs Inc.",
- "quarterly": [],
+ "quarterly": [
+  {
+   "filed": "2026-10-28",
+   "form": "10-Q",
+   "net_income": 59000000,
+   "net_income_parent": 59000000,
+   "period_end": "2025-06-29"
+  },
+  {
+   "cash": 256000000,
+   "d_and_a": 25000000,
+   "filed": "2026-10-28",
+   "form": "10-Q",
+   "income_tax": 0,
+   "interest_expense": 29000000,
+   "net_income": 32000000,
+   "net_income_parent": 32000000,
+   "operating_income": 58000000,
+   "period_end": "2025-09-28",
+   "pretax_income": 32000000,
+   "revenue": 190000000,
+   "revenue_filed": "2026-10-28",
+   "stock_comp": 7000000
+  },
+  {
+   "filed": "2026-10-28",
+   "form": "10-Q",
+   "net_income": -24000000,
+   "net_income_parent": -24000000,
+   "period_end": "2026-03-29"
+  },
+  {
+   "filed": "2026-10-28",
+   "form": "10-Q",
+   "net_income": 37000000,
+   "net_income_parent": 37000000,
+   "period_end": "2026-06-28",
+   "total_assets": 1,
+   "total_equity": 1,
+   "total_equity_parent": 1,
+   "total_liabilities": 0
+  },
+  {
+   "cash": 295000000,
+   "current_assets": 376000000,
+   "current_liabilities": 134000000,
+   "d_and_a": 26000000,
+   "debt_current": 0,
+   "debt_due_1y": 0,
+   "debt_due_2y": 0,
+   "debt_due_3y": 244000000,
+   "eps_diluted": -0.05,
+   "filed": "2026-10-28",
+   "form": "10-Q",
+   "goodwill": 407000000,
+   "income_tax": 7000000,
+   "intangibles": 7367000000,
+   "interest_expense": 28000000,
+   "lt_debt_current": 0,
+   "lt_debt_noncurrent": 1798000000,
+   "net_income": 10000000,
+   "net_income_incl_nci": 10000000,
+   "operating_income": 48000000,
+   "period_end": "2026-09-27",
+   "pretax_income": 17000000,
+   "receivables": 33000000,
+   "retained_earnings": -11000000,
+   "revenue": 209000000,
+   "revenue_filed": "2026-10-28",
+   "shares_diluted": 318000000,
+   "shares_diluted_adj": 318000000,
+   "shares_diluted_filled": 318000000,
+   "shares_diluted_filled_filed": "2026-10-28",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 37000000,
+   "total_assets": 8471000000,
+   "total_debt": 1798000000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-10-28",
+   "total_equity": 3298000000,
+   "total_equity_incl_nci": 4870000000,
+   "total_equity_parent": 3298000000,
+   "total_liabilities": 3601000000
+  }
+ ],
  "sec_name": "Jersey Mike\u2019s Subs Inc.",
  "sic": "5812",
  "sic_description": "Retail-Eating  Places",
  "splits": [],
  "tags_used": {
   "acquisition_cost_amort": null,
-  "acquisitions": null,
+  "acquisitions": "PaymentsToAcquireBusinessesGross",
   "buybacks": null,
-  "capex": null,
-  "capitalized_software": null,
-  "cash": null,
+  "capex": "PaymentsToAcquirePropertyPlantAndEquipment",
+  "capitalized_software": "PaymentsToDevelopSoftware",
+  "cash": "CashAndCashEquivalentsAtCarryingValue,CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
   "cash_and_short_term_investments": null,
   "claims_incurred": null,
   "commercial_paper": null,
   "credit_loss_provision": null,
-  "current_assets": null,
-  "current_liabilities": null,
-  "d_and_a": null,
-  "debt_current": null,
+  "current_assets": "AssetsCurrent",
+  "current_liabilities": "LiabilitiesCurrent",
+  "d_and_a": "DepreciationDepletionAndAmortization",
+  "debt_current": "LongTermDebtCurrent",
   "debt_current_total": null,
-  "debt_due_1y": null,
-  "debt_due_2y": null,
-  "debt_due_3y": null,
+  "debt_due_1y": "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+  "debt_due_2y": "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+  "debt_due_3y": "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
   "deposits": null,
   "dividends_paid": null,
-  "eps_diluted": null,
+  "eps_diluted": "EarningsPerShareDiluted",
   "finance_lease_liabilities": null,
-  "goodwill": null,
+  "goodwill": "Goodwill",
   "gross_profit": null,
   "impairments": null,
-  "income_tax": null,
-  "intangibles": null,
-  "interest_expense": null,
+  "income_tax": "IncomeTaxExpenseBenefit",
+  "intangibles": "IntangibleAssetsNetExcludingGoodwill",
+  "interest_expense": "InterestExpenseNonoperating",
   "interest_income": null,
   "inventory": null,
   "loan_loss_allowance": null,
   "loans": null,
   "long_term_investments": null,
   "loss_reserves": null,
-  "lt_debt_current": null,
-  "lt_debt_noncurrent": null,
-  "net_income": null,
-  "net_income_incl_nci": null,
-  "net_income_parent": null,
+  "lt_debt_current": "LongTermDebtCurrent",
+  "lt_debt_noncurrent": "LongTermDebtNoncurrent",
+  "net_income": "NetIncomeLoss,ProfitLoss,NetIncomeLossAvailableToCommonStockholdersBasic",
+  "net_income_incl_nci": "ProfitLoss",
+  "net_income_parent": "NetIncomeLoss,NetIncomeLossAvailableToCommonStockholdersBasic",
   "net_interest_income": null,
-  "operating_cash_flow": null,
-  "operating_income": null,
+  "operating_cash_flow": "NetCashProvidedByUsedInOperatingActivities",
+  "operating_income": "OperatingIncomeLoss",
   "operating_leases": null,
   "payments_for_intangibles": null,
   "pension_funded_status": null,
   "premiums_earned": null,
-  "pretax_income": null,
+  "pretax_income": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
   "rd_expense": null,
-  "receivables": null,
-  "retained_earnings": null,
-  "revenue": null,
+  "receivables": "AccountsReceivableNetCurrent",
+  "retained_earnings": "RetainedEarningsAccumulatedDeficit",
+  "revenue": "RevenueFromContractWithCustomerExcludingAssessedTax,RevenueFromContractWithCustomerIncludingAssessedTax",
   "sga_expense": null,
-  "shares_diluted": null,
+  "shares_diluted": "WeightedAverageNumberOfDilutedSharesOutstanding,WeightedAverageNumberOfSharesOutstandingBasic",
   "shares_outstanding": null,
   "short_term_borrowings": null,
   "short_term_investments": null,
-  "stock_comp": null,
+  "stock_comp": "ShareBasedCompensation,AllocatedShareBasedCompensationExpense",
   "tier1_capital_ratio": null,
   "total_assets": "Assets",
-  "total_debt": null,
-  "total_equity": "StockholdersEquity",
-  "total_equity_incl_nci": null,
+  "total_debt": "LongTermDebt",
+  "total_equity": "StockholdersEquity,StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+  "total_equity_incl_nci": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
   "total_equity_parent": "StockholdersEquity",
   "total_liabilities": "Liabilities"
  },
@@ -185,17 +276,197 @@
  "tickers": [
   "JMKE"
  ],
- "ttm": {},
+ "ttm": {
+  "shares_diluted": {
+   "end": "2026-09-27",
+   "filed": "2026-10-28",
+   "method": "latest_quarter",
+   "tags": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ],
+   "val": 318000000
+  }
+ },
  "v2_annual": [],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "total_debt",
+   "old": 1834000000,
+   "period": "2026-09-27",
+   "rows": "quarterly",
+   "v2": 1798000000
+  }
+ ],
  "v2_notes": [],
- "v2_quarterly": [],
+ "v2_quarterly": [
+  {
+   "end": "2025-06-29",
+   "net_income": 59000000,
+   "src": {
+    "net_income": {
+     "accn": "0002127043-26-000018",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    }
+   },
+   "start": "2025-03-31"
+  },
+  {
+   "cash": 256000000,
+   "cash_and_sti": 256000000,
+   "end": "2025-09-28",
+   "net_income": 32000000,
+   "revenue": 190000000,
+   "src": {
+    "cash": {
+     "accn": "0002127043-26-000018",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "net_income": {
+     "accn": "0002127043-26-000018",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "revenue": {
+     "accn": "0002127043-26-000018",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "stock_comp": {
+     "accn": "0002127043-26-000018",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "AllocatedShareBasedCompensationExpense"
+    }
+   },
+   "start": "2025-06-30",
+   "stock_comp": 7000000
+  },
+  {
+   "end": "2026-03-29",
+   "net_income": -24000000,
+   "src": {
+    "net_income": {
+     "accn": "0002127043-26-000018",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    }
+   },
+   "start": "2025-12-29"
+  },
+  {
+   "cash": 1,
+   "cash_and_sti": 1,
+   "end": "2026-06-28",
+   "equity": 1,
+   "net_income": 37000000,
+   "src": {
+    "cash": {
+     "accn": "0002127043-26-000010",
+     "filed": "2026-09-09",
+     "form": "10-Q",
+     "tag": "Cash"
+    },
+    "equity": {
+     "accn": "0002127043-26-000010",
+     "filed": "2026-09-09",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0002127043-26-000018",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    }
+   },
+   "start": "2026-03-30"
+  },
+  {
+   "cash": 295000000,
+   "cash_and_sti": 295000000,
+   "debt_current": 0,
+   "debt_noncurrent": 1798000000,
+   "end": "2026-09-27",
+   "equity": 3298000000,
+   "net_income": 10000000,
+   "revenue": 209000000,
+   "shares_diluted": 318000000,
+   "src": {
+    "cash": {
+     "accn": "0002127043-26-000018",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0002127043-26-000018",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0002127043-26-000018",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "ProfitLoss"
+    },
+    "revenue": {
+     "accn": "0002127043-26-000018",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0002127043-26-000018",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0002127043-26-000018",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2026-10-28",
+     "tags": [
+      "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent"
+     ],
+     "values": {
+      "LongTermDebtCurrent": 0,
+      "LongTermDebtNoncurrent": 1798000000
+     }
+    }
+   },
+   "start": "2026-06-29",
+   "stock_comp": 37000000,
+   "total_debt": 1798000000
+  }
+ ],
  "v2_tags_used": {
   "capex": [],
-  "net_income": [],
+  "net_income": [
+   "NetIncomeLoss",
+   "ProfitLoss"
+  ],
   "operating_cash_flow": [],
-  "revenue": [],
-  "shares_diluted": [],
-  "stock_comp": []
+  "revenue": [
+   "RevenueFromContractWithCustomerExcludingAssessedTax"
+  ],
+  "shares_diluted": [
+   "WeightedAverageNumberOfDilutedSharesOutstanding"
+  ],
+  "stock_comp": [
+   "AllocatedShareBasedCompensationExpense"
+  ]
  }
 }

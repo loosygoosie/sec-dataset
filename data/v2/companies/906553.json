@@ -1699,16 +1699,17 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 323613000,
-  "debt_noncurrent": 2613755000,
-  "end": "2026-06-30",
-  "equity": 2500521000,
-  "total_debt": 2613755000
+  "cash_and_sti": 298082000,
+  "debt_current": 800900000,
+  "debt_noncurrent": 1874206000,
+  "end": "2026-09-30",
+  "equity": 2449986000,
+  "total_debt": 2675106000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 29,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1717,85 +1718,35 @@
  },
  "cik": 906553,
  "fiscal_year_end": "1231",
- "flags": [
-  "debt_one_side_only"
- ],
+ "flags": [],
  "instances_merged": [
   "0001437749-26-004908"
  ],
  "latest_filing": {
-  "accn": "0001437749-26-025062",
-  "filed": "2026-07-30",
+  "accn": "0001437749-26-033786",
+  "filed": "2026-10-28",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 6684204000.0,
+  "assets": 6662672000.0,
   "classes": {
-   "common": 72655414.0
+   "common": 70666413.0
   },
-  "cover_accession": "0001437749-26-025062",
-  "cover_date": "2026-07-27",
+  "cover_accession": "0001437749-26-033786",
+  "cover_date": "2026-10-23",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-20",
   "note": null,
   "public_float": 4300000000.0,
   "revenue": 4091989000.0,
-  "shares_cover": 72655414.0,
-  "shares_total": 72655414.0,
+  "shares_cover": 70666413.0,
+  "shares_total": 70666413.0,
   "size_gate": "float"
  },
  "name": "BOYD GAMING CORP",
  "quarterly": [
-  {
-   "buybacks": 106300000,
-   "capex": 107637000,
-   "capex_filed": "2023-11-01",
-   "cash": 269155000,
-   "credit_loss_provision": 0,
-   "current_assets": 469248000,
-   "current_liabilities": 583419000,
-   "d_and_a": 64797000,
-   "debt_current": 44275000,
-   "dividends_paid": 16041000,
-   "eps_diluted": 1.34,
-   "filed": "2024-10-31",
-   "form": "10-Q",
-   "goodwill": 1029219000,
-   "impairments": 0,
-   "income_tax": 41902000,
-   "intangibles": 1417230000,
-   "interest_expense": 42352000,
-   "inventory": 20640000,
-   "lt_debt_current": 44275000,
-   "lt_debt_noncurrent": 2864850000,
-   "net_income": 135233000,
-   "net_income_parent": 135233000,
-   "operating_cash_flow": 233977000,
-   "operating_income": 217872000,
-   "operating_leases": 722229000,
-   "period_end": "2023-09-30",
-   "pretax_income": 177135000,
-   "receivables": 103577000,
-   "retained_earnings": 1765111000,
-   "revenue": 903164000,
-   "revenue_filed": "2023-11-01",
-   "sga_expense": 99944000,
-   "shares_diluted": 100850,
-   "shares_diluted_adj": 97862123,
-   "shares_diluted_filled": 97862123,
-   "shares_diluted_filled_filed": "2023-11-01",
-   "shares_diluted_filled_source": "cover",
-   "shares_outstanding": 98386239,
-   "stock_comp": 8033000,
-   "total_assets": 6311611000,
-   "total_debt": 2909125000,
-   "total_debt_basis": "tagged",
-   "total_debt_filed": "2023-11-01",
-   "total_equity": 1768481000,
-   "total_equity_parent": 1768481000
-  },
   {
    "buybacks": 99999000,
    "capex": 94927000,
@@ -2156,7 +2107,7 @@
    "total_equity_parent": 1393518000
   },
   {
-   "acquisitions": 41761000,
+   "acquisitions": 0,
    "buybacks": 160007000,
    "capex": 145567000,
    "capex_filed": "2025-10-31",
@@ -2167,7 +2118,7 @@
    "debt_current": 0,
    "dividends_paid": 14534000,
    "eps_diluted": 17.81,
-   "filed": "2025-10-31",
+   "filed": "2026-10-28",
    "form": "10-Q",
    "goodwill": 957948000,
    "impairments": 65123000,
@@ -2193,7 +2144,7 @@
    "shares_diluted": 80875000,
    "shares_diluted_adj": 80875000,
    "shares_diluted_filled": 80875000,
-   "shares_diluted_filled_filed": "2025-10-31",
+   "shares_diluted_filled_filed": "2026-10-28",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 78645912,
    "stock_comp": 8534000,
@@ -2207,7 +2158,7 @@
    "total_equity_parent": 2666357000
   },
   {
-   "acquisitions": -41761000,
+   "acquisitions": 0,
    "buybacks": 185320000,
    "capex": 148326000,
    "capex_filed": "2026-02-20",
@@ -2362,6 +2313,58 @@
    "total_equity": 2500521000,
    "total_equity_incl_nci": 2497344000,
    "total_equity_parent": 2500521000
+  },
+  {
+   "acquisitions": 0,
+   "buybacks": 163945000,
+   "capex": 158906000,
+   "capex_filed": "2026-10-28",
+   "cash": 297182000,
+   "current_assets": 469018000,
+   "current_liabilities": 1431765000,
+   "d_and_a": 91267000,
+   "debt_current": 800900000,
+   "dividends_paid": 14597000,
+   "eps_diluted": 1.71,
+   "filed": "2026-10-28",
+   "form": "10-Q",
+   "goodwill": 990060000,
+   "impairments": 0,
+   "income_tax": 38699000,
+   "intangibles": 1485222000,
+   "interest_expense": 33785000,
+   "inventory": 19129000,
+   "long_term_investments": 10600000,
+   "lt_debt_current": 800900000,
+   "lt_debt_noncurrent": 1874206000,
+   "net_income": 124933000,
+   "net_income_incl_nci": 123590000,
+   "net_income_parent": 124933000,
+   "operating_cash_flow": 202603000,
+   "operating_income": 194902000,
+   "operating_leases": 492133000,
+   "period_end": "2026-09-30",
+   "pretax_income": 162289000,
+   "receivables": 86481000,
+   "retained_earnings": 2451542000,
+   "revenue": 990455000,
+   "revenue_filed": "2026-10-28",
+   "sga_expense": 105370000,
+   "shares_diluted": 73048000,
+   "shares_diluted_adj": 73048000,
+   "shares_diluted_filled": 73048000,
+   "shares_diluted_filled_filed": "2026-10-28",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 71229681,
+   "short_term_investments": 900000,
+   "stock_comp": 8643000,
+   "total_assets": 6662672000,
+   "total_debt": 2675106000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-10-28",
+   "total_equity": 2449986000,
+   "total_equity_incl_nci": 2445466000,
+   "total_equity_parent": 2449986000
   }
  ],
  "sec_name": "BOYD GAMING CORP",
@@ -2440,63 +2443,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-28",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 591006000
+   "val": 604345000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": 35064000
+   "val": -15654000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-28",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 1817172000
+   "val": 502112000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-28",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 626070000
+   "val": 588691000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-28",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
    ],
-   "val": 4098167000
+   "val": 4084261000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-28",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 74817000
+   "val": 73048000
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-28",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 31664000
+   "val": 31773000
   }
  },
  "v2_annual": [
@@ -4018,13 +4021,6 @@
   },
   {
    "field": "total_debt",
-   "old": 2942338000,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 2909125000
-  },
-  {
-   "field": "total_debt",
    "old": 2946804000,
    "period": "2023-12-31",
    "rows": "quarterly",
@@ -4078,6 +4074,13 @@
    "period": "2025-12-31",
    "rows": "quarterly",
    "v2": 2045569000
+  },
+  {
+   "field": "total_debt",
+   "old": 2700900000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 2675106000
   }
  ],
  "v2_notes": [],
@@ -9183,6 +9186,93 @@
    "start": "2026-04-01",
    "stock_comp": 12817000,
    "total_debt": 2613755000
+  },
+  {
+   "capex": 158906000,
+   "cash": 297182000,
+   "cash_and_sti": 298082000,
+   "debt_current": 800900000,
+   "debt_noncurrent": 1874206000,
+   "end": "2026-09-30",
+   "equity": 2449986000,
+   "fcf": 43697000,
+   "net_income": 124933000,
+   "operating_cash_flow": 202603000,
+   "revenue": 990455000,
+   "shares_diluted": 73048000,
+   "short_term_investments": 900000,
+   "src": {
+    "capex": {
+     "accn": "0001437749-26-033786",
+     "derived": true,
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001437749-26-033786",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001437749-26-033786",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001437749-26-033786",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001437749-26-033786",
+     "derived": true,
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001437749-26-033786",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001437749-26-033786",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "short_term_investments": {
+     "accn": "0001437749-26-033786",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "AvailableForSaleSecuritiesDebtSecuritiesCurrent"
+    },
+    "stock_comp": {
+     "accn": "0001437749-26-033786",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-10-28",
+     "tags": [
+      "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent"
+     ],
+     "values": {
+      "LongTermDebtCurrent": 800900000,
+      "LongTermDebtNoncurrent": 1874206000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 8643000,
+   "total_debt": 2675106000
   }
  ],
  "v2_tags_used": {

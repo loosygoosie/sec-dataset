@@ -1712,19 +1712,14 @@
   "total_liabilities": 16
  },
  "balance": {
-  "cash_and_sti": 110300000,
-  "debt_current": 133900000,
-  "debt_end": "2025-12-31",
-  "debt_noncurrent": 9679100000,
-  "end": "2026-06-30",
-  "equity": 6402100000,
-  "finance_leases": 112400000,
-  "total_debt": 9813000000
+  "cash_and_sti": 108100000,
+  "end": "2026-09-30",
+  "equity": 6614600000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 29,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1733,77 +1728,36 @@
  },
  "cik": 1023128,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "no_debt_tagged",
+  "interest_but_no_debt"
+ ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001023128-26-000051",
-  "filed": "2026-07-29",
+  "accn": "0001023128-26-000060",
+  "filed": "2026-10-28",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 26245800000.0,
+  "assets": 26836000000.0,
   "classes": {
-   "common": 21983116.0
+   "common": 21620296.0
   },
-  "cover_accession": "0001023128-26-000051",
-  "cover_date": "2026-07-29",
+  "cover_accession": "0001023128-26-000060",
+  "cover_date": "2026-10-28",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-25",
   "note": null,
   "public_float": 8685471000.0,
   "revenue": 37634900000.0,
-  "shares_cover": 21983116.0,
-  "shares_total": 21983116.0,
+  "shares_cover": 21620296.0,
+  "shares_total": 21620296.0,
   "size_gate": "float"
  },
  "name": "LITHIA MOTORS INC",
  "quarterly": [
-  {
-   "acquisitions": 226200000,
-   "buybacks": 0,
-   "capex": 66600000,
-   "capex_filed": "2023-10-27",
-   "cash": 146900000,
-   "current_assets": 5818200000,
-   "current_liabilities": 4375300000,
-   "d_and_a": 50800000,
-   "dividends_paid": 13700000,
-   "eps_diluted": 9.46,
-   "filed": "2024-10-25",
-   "form": "10-Q",
-   "goodwill": 1725600000,
-   "gross_profit": 1371300000,
-   "income_tax": 96400000,
-   "interest_expense": 58500000,
-   "inventory": 4404500000,
-   "net_income": 261500000,
-   "net_income_incl_nci": 264900000,
-   "net_income_parent": 261500000,
-   "operating_cash_flow": 121500000,
-   "operating_income": 465300000,
-   "operating_leases": 424000000,
-   "period_end": "2023-09-30",
-   "pretax_income": 361300000,
-   "receivables": 999300000,
-   "retained_earnings": 4813500000,
-   "revenue": 8277000000,
-   "revenue_filed": "2023-10-27",
-   "sga_expense": 850800000,
-   "shares_diluted": 27600000,
-   "shares_diluted_adj": 27600000,
-   "shares_diluted_filled": 27600000,
-   "shares_diluted_filled_filed": "2024-10-25",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 27600000,
-   "stock_comp": 11100000,
-   "total_assets": 18269800000,
-   "total_equity": 5996400000,
-   "total_equity_incl_nci": 6022500000,
-   "total_equity_parent": 5996400000,
-   "total_liabilities": 12203000000
-  },
   {
    "acquisitions": -19600000,
    "buybacks": 34400000,
@@ -2139,7 +2093,7 @@
    "d_and_a": 65500000,
    "dividends_paid": 13900000,
    "eps_diluted": 8.61,
-   "filed": "2025-10-24",
+   "filed": "2026-10-28",
    "form": "10-Q",
    "goodwill": 2440100000,
    "gross_profit": 1466000000,
@@ -2162,7 +2116,7 @@
    "shares_diluted": 25200000,
    "shares_diluted_adj": 25200000,
    "shares_diluted_filled": 25200000,
-   "shares_diluted_filled_filed": "2025-10-24",
+   "shares_diluted_filled_filed": "2026-10-28",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 24400000,
    "stock_comp": 14000000,
@@ -2310,6 +2264,50 @@
    "total_equity_incl_nci": 6427400000,
    "total_equity_parent": 6402100000,
    "total_liabilities": 19818400000
+  },
+  {
+   "acquisitions": 43100000,
+   "buybacks": 90500000,
+   "capex": 98900000,
+   "capex_filed": "2026-10-28",
+   "cash": 108100000,
+   "current_assets": 8393000000,
+   "current_liabilities": 8405300000,
+   "d_and_a": 71600000,
+   "dividends_paid": 15400000,
+   "eps_diluted": 13.22,
+   "filed": "2026-10-28",
+   "form": "10-Q",
+   "goodwill": 2736100000,
+   "gross_profit": 1495800000,
+   "income_tax": 98100000,
+   "interest_expense": 63100000,
+   "inventory": 6624300000,
+   "net_income": 291100000,
+   "net_income_incl_nci": 292900000,
+   "net_income_parent": 291100000,
+   "operating_cash_flow": -30800000,
+   "operating_income": 420200000,
+   "operating_leases": 619900000,
+   "period_end": "2026-09-30",
+   "pretax_income": 391000000,
+   "receivables": 1132900000,
+   "retained_earnings": 6577300000,
+   "revenue": 9946700000,
+   "revenue_filed": "2026-10-28",
+   "sga_expense": 1036300000,
+   "shares_diluted": 22000000,
+   "shares_diluted_adj": 22000000,
+   "shares_diluted_filled": 22000000,
+   "shares_diluted_filled_filed": "2026-10-28",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 21700000,
+   "stock_comp": 16000000,
+   "total_assets": 26836000000,
+   "total_equity": 6614600000,
+   "total_equity_incl_nci": 6640800000,
+   "total_equity_parent": 6614600000,
+   "total_liabilities": 20195200000
   }
  ],
  "sec_name": "Lithia Motors, Inc.",
@@ -2388,63 +2386,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-07-29",
+   "end": "2026-09-30",
+   "filed": "2026-10-28",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 355500000
+   "val": 345500000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": -504300000
+   "val": -426700000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-07-29",
+   "end": "2026-09-30",
+   "filed": "2026-10-28",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 714400000
+   "val": 788400000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-07-29",
+   "end": "2026-09-30",
+   "filed": "2026-10-28",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -148800000
+   "val": -81200000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-07-29",
+   "end": "2026-09-30",
+   "filed": "2026-10-28",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
    ],
-   "val": 37936300000
+   "val": 38207200000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-07-29",
+   "end": "2026-09-30",
+   "filed": "2026-10-28",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 22500000
+   "val": 22000000
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-07-29",
+   "end": "2026-09-30",
+   "filed": "2026-10-28",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 53000000
+   "val": 55000000
   }
  },
  "v2_annual": [
@@ -8923,6 +8921,73 @@
    },
    "start": "2026-04-01",
    "stock_comp": 11700000
+  },
+  {
+   "capex": 98900000,
+   "cash": 108100000,
+   "cash_and_sti": 108100000,
+   "end": "2026-09-30",
+   "equity": 6614600000,
+   "fcf": -129700000,
+   "net_income": 291100000,
+   "operating_cash_flow": -30800000,
+   "revenue": 9946700000,
+   "shares_diluted": 22000000,
+   "src": {
+    "capex": {
+     "accn": "0001023128-26-000060",
+     "derived": true,
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001023128-26-000060",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001023128-26-000060",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001023128-26-000060",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001023128-26-000060",
+     "derived": true,
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001023128-26-000060",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001023128-26-000060",
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001023128-26-000060",
+     "derived": true,
+     "filed": "2026-10-28",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 16000000
   }
  ],
  "v2_tags_used": {
