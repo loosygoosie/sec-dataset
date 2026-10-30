@@ -1183,15 +1183,15 @@
   "total_liabilities": 12
  },
  "balance": {
-  "cash_and_sti": 51836000,
-  "end": "2026-06-30",
-  "equity": 5433995000,
-  "total_debt": 6052357000
+  "cash_and_sti": 25693000,
+  "end": "2026-09-30",
+  "equity": 5284285000,
+  "total_debt": 6199745000
  },
  "bank": false,
  "checks": {
   "latest_quarter_end": "2026-03-31",
-  "quarter_age_days": 210,
+  "quarter_age_days": 213,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1201,32 +1201,32 @@
  "cik": 912595,
  "fiscal_year_end": "1231",
  "flags": [
-  "current_ltd_untagged_1.6B"
+  "current_ltd_untagged_1.5B"
  ],
  "instances_merged": [
-  "0001193125-26-326153"
+  "0001193125-26-437813"
  ],
  "latest_filing": {
-  "accn": "0001193125-26-326153",
-  "filed": "2026-07-30",
+  "accn": "0001193125-26-437813",
+  "filed": "2026-10-29",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
   "assets": 11994502000.0,
   "classes": {
-   "common": 116021957.0
+   "common": 115993211.0
   },
-  "cover_accession": "0001193125-26-326153",
-  "cover_date": "2026-07-27",
+  "cover_accession": "0001193125-26-437813",
+  "cover_date": "2026-10-26",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-06",
   "note": null,
   "public_float": 11900000000.0,
   "revenue": 2209126000.0,
-  "shares_cover": 116021957.0,
-  "shares_total": 116021957.0,
+  "shares_cover": 115993211.0,
+  "shares_total": 115993211.0,
   "size_gate": "float"
  },
  "name": "MID AMERICA APARTMENT COMMUNITIES INC.",
@@ -1752,63 +1752,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-10-29",
+   "method": "year_to_date",
    "tags": [
     "PaymentsForCapitalImprovements"
    ],
-   "val": 366051000
+   "val": 378787000
   },
   "fcf": {
-   "end": "2026-06-30",
-   "method": "four_quarters",
-   "val": 644606000
+   "end": "2026-09-30",
+   "method": "year_to_date",
+   "val": 622520000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-10-29",
+   "method": "year_to_date",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 403218000
+   "val": 387678000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-10-29",
+   "method": "year_to_date",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 1010657000
+   "val": 1001307000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-10-29",
+   "method": "year_to_date",
    "tags": [
     "Revenues"
    ],
-   "val": 2218781000
+   "val": 2224538000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-29",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 116144000
+   "val": 115952000
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-10-29",
+   "method": "year_to_date",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 17599000
+   "val": 17854000
   }
  },
  "v2_annual": [
@@ -6784,83 +6784,58 @@
    "total_debt": 6016944000
   },
   {
-   "capex": 108985000,
-   "cash": 51836000,
-   "cash_and_sti": 51836000,
-   "end": "2026-06-30",
-   "equity": 5433995000,
-   "fcf": 223920000,
-   "net_income": 121750000,
-   "operating_cash_flow": 332905000,
-   "revenue": 555127000,
-   "shares_diluted": 116144000,
+   "cash": 25693000,
+   "cash_and_sti": 25693000,
+   "end": "2026-09-30",
+   "equity": 5284285000,
+   "net_income": 83998000,
+   "revenue": 560130000,
+   "shares_diluted": 115952000,
    "src": {
-    "capex": {
-     "accn": "0001193125-26-326153",
-     "derived": true,
-     "filed": "2026-07-30",
-     "form": "10-Q",
-     "tag": "PaymentsForCapitalImprovements"
-    },
     "cash": {
-     "accn": "0001193125-26-326153",
-     "filed": "2026-07-30",
+     "accn": "0001193125-26-437813",
+     "filed": "2026-10-29",
      "form": "10-Q",
      "tag": "CashAndCashEquivalentsAtCarryingValue"
     },
     "equity": {
-     "accn": "0001193125-26-326153",
-     "filed": "2026-07-30",
+     "accn": "0001193125-26-437813",
+     "filed": "2026-10-29",
      "form": "10-Q",
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0001193125-26-326153",
-     "filed": "2026-07-30",
+     "accn": "0001193125-26-437813",
+     "filed": "2026-10-29",
      "form": "10-Q",
      "tag": "NetIncomeLoss"
     },
-    "operating_cash_flow": {
-     "accn": "0001193125-26-326153",
-     "derived": true,
-     "filed": "2026-07-30",
-     "form": "10-Q",
-     "tag": "NetCashProvidedByUsedInOperatingActivities"
-    },
     "revenue": {
-     "accn": "0001193125-26-326153",
-     "filed": "2026-07-30",
+     "accn": "0001193125-26-437813",
+     "filed": "2026-10-29",
      "form": "10-Q",
      "tag": "Revenues"
     },
     "shares_diluted": {
-     "accn": "0001193125-26-326153",
-     "filed": "2026-07-30",
+     "accn": "0001193125-26-437813",
+     "filed": "2026-10-29",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
     },
-    "stock_comp": {
-     "accn": "0001193125-26-326153",
-     "derived": true,
-     "filed": "2026-07-30",
-     "form": "10-Q",
-     "tag": "ShareBasedCompensation"
-    },
     "total_debt": {
-     "filed": "2026-07-30",
+     "filed": "2026-10-29",
      "tags": [
       "NotesPayable",
       "SecuredDebt"
      ],
      "values": {
-      "NotesPayable": 5691901000,
-      "SecuredDebt": 360456000
+      "NotesPayable": 5839258000,
+      "SecuredDebt": 360487000
      }
     }
    },
-   "start": "2026-04-01",
-   "stock_comp": 3665000,
-   "total_debt": 6052357000
+   "start": "2026-07-01",
+   "total_debt": 6199745000
   }
  ],
  "v2_tags_used": {

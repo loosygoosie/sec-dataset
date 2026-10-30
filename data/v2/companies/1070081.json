@@ -1295,18 +1295,17 @@
   "total_liabilities": 14
  },
  "balance": {
-  "cash_and_sti": 2229082000,
-  "debt_current": 55451000,
-  "debt_noncurrent": 535519000,
-  "end": "2026-06-30",
-  "equity": -165363000,
-  "finance_leases": 6000000,
-  "total_debt": 590970000
+  "cash_and_sti": 2127918000,
+  "debt_noncurrent": 536268000,
+  "end": "2026-09-30",
+  "equity": -191209000,
+  "finance_leases": 3000000,
+  "total_debt": 536268000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 30,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1316,80 +1315,35 @@
  "cik": 1070081,
  "fiscal_year_end": "1231",
  "flags": [
-  "quarter_exceeds_year_capex_2024-12-31"
+  "quarter_exceeds_year_capex_2024-12-31",
+  "debt_one_side_only"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001070081-26-000017",
-  "filed": "2026-07-30",
+  "accn": "0001104659-26-120223",
+  "filed": "2026-10-29",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 3250477000.0,
+  "assets": 3207715000.0,
   "classes": {
-   "common": 83460802.0
+   "common": 83544284.0
   },
-  "cover_accession": "0001070081-26-000017",
-  "cover_date": "2026-07-29",
+  "cover_accession": "0001104659-26-120223",
+  "cover_date": "2026-10-27",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-19",
   "note": null,
   "public_float": 3350589.0,
   "revenue": 1730655000.0,
-  "shares_cover": 83460802.0,
-  "shares_total": 83460802.0,
+  "shares_cover": 83544284.0,
+  "shares_total": 83544284.0,
   "size_gate": "revenue"
  },
  "name": "PTC THERAPEUTICS, INC.",
  "quarterly": [
-  {
-   "capex": 6357000,
-   "capex_filed": "2023-10-26",
-   "cash": 165157000,
-   "current_assets": 540362000,
-   "current_liabilities": 492118000,
-   "d_and_a": 62055000,
-   "eps_diluted": -1.76,
-   "filed": "2024-11-07",
-   "finance_lease_liabilities": 19795000,
-   "form": "10-Q",
-   "goodwill": 82341000,
-   "income_tax": -33620000,
-   "intangibles": 423342000,
-   "inventory": 35752000,
-   "lt_debt_noncurrent": 573174000,
-   "net_income": -132970000,
-   "net_income_parent": -132970000,
-   "operating_cash_flow": -14519000,
-   "operating_income": -118164000,
-   "operating_leases": 111385000,
-   "payments_for_intangibles": 22849000,
-   "period_end": "2023-09-30",
-   "pretax_income": -166590000,
-   "rd_expense": 164212000,
-   "receivables": 165718000,
-   "retained_earnings": -3127786000,
-   "revenue": 196576000,
-   "revenue_filed": "2023-10-26",
-   "sga_expense": 80886000,
-   "shares_diluted": 75377997,
-   "shares_diluted_adj": 75377997,
-   "shares_diluted_filled": 75377997,
-   "shares_diluted_filled_filed": "2024-11-07",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 75459022,
-   "short_term_investments": 129653000,
-   "stock_comp": 26942000,
-   "total_assets": 1259885000,
-   "total_debt": 573174000,
-   "total_debt_basis": "components_partial",
-   "total_debt_filed": "2023-10-26",
-   "total_equity": -670810000,
-   "total_equity_parent": -670810000,
-   "total_liabilities": 1930695000
-  },
   {
    "capex": 5566000,
    "capex_filed": "2024-02-29",
@@ -1721,7 +1675,7 @@
    "d_and_a": 11109000,
    "debt_current": 286319000,
    "eps_diluted": 0.2,
-   "filed": "2025-11-04",
+   "filed": "2026-10-29",
    "finance_lease_liabilities": 16509000,
    "form": "10-Q",
    "goodwill": 82341000,
@@ -1746,7 +1700,7 @@
    "shares_diluted": 87115369,
    "shares_diluted_adj": 87115369,
    "shares_diluted_filled": 87115369,
-   "shares_diluted_filled_filed": "2025-11-04",
+   "shares_diluted_filled_filed": "2026-10-29",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 79931766,
    "short_term_investments": 1015200000,
@@ -1900,6 +1854,52 @@
    "total_equity": -165363000,
    "total_equity_parent": -165363000,
    "total_liabilities": 3415840000
+  },
+  {
+   "capex": 2657000,
+   "capex_filed": "2026-10-29",
+   "cash": 508894000,
+   "current_assets": 2537784000,
+   "current_liabilities": 776076000,
+   "d_and_a": 16817000,
+   "eps_diluted": -0.62,
+   "filed": "2026-10-29",
+   "finance_lease_liabilities": 3000000,
+   "form": "10-Q",
+   "goodwill": 82341000,
+   "income_tax": 10605000,
+   "intangibles": 443686000,
+   "inventory": 109332000,
+   "lt_debt_noncurrent": 536268000,
+   "net_income": -51693000,
+   "net_income_parent": -51693000,
+   "operating_cash_flow": -25311000,
+   "operating_income": 25114000,
+   "operating_leases": 85554000,
+   "payments_for_intangibles": 3366000,
+   "period_end": "2026-09-30",
+   "pretax_income": -41088000,
+   "rd_expense": 105353000,
+   "receivables": 238069000,
+   "retained_earnings": -2935235000,
+   "revenue": 357807000,
+   "revenue_filed": "2026-10-29",
+   "sga_expense": 80081000,
+   "shares_diluted": 83476100,
+   "shares_diluted_adj": 83476100,
+   "shares_diluted_filled": 83476100,
+   "shares_diluted_filled_filed": "2026-10-29",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 83535767,
+   "short_term_investments": 1619024000,
+   "stock_comp": 23827000,
+   "total_assets": 3207715000,
+   "total_debt": 536268000,
+   "total_debt_basis": "components_partial",
+   "total_debt_filed": "2026-10-29",
+   "total_equity": -191209000,
+   "total_equity_parent": -191209000,
+   "total_liabilities": 3398924000
   }
  ],
  "sec_name": "PTC Therapeutics,\u00a0Inc.",
@@ -1978,63 +1978,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-29",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 9278000
+   "val": 8420000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": -39781000
+   "val": 2067000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-29",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -38382000
+   "val": -105971000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-29",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -30503000
+   "val": 10487000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-29",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
    ],
-   "val": 1008754000
+   "val": 1155554000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-29",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 92020009
+   "val": 83476100
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-07-30",
+   "end": "2026-09-30",
+   "filed": "2026-10-29",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 84656000
+   "val": 89057000
   }
  },
  "v2_annual": [
@@ -8019,6 +8019,93 @@
    "start": "2026-04-01",
    "stock_comp": 23291000,
    "total_debt": 590970000
+  },
+  {
+   "capex": 2657000,
+   "cash": 508894000,
+   "cash_and_sti": 2127918000,
+   "debt_noncurrent": 536268000,
+   "end": "2026-09-30",
+   "equity": -191209000,
+   "fcf": -27968000,
+   "finance_leases": 3000000,
+   "net_income": -51693000,
+   "operating_cash_flow": -25311000,
+   "revenue": 357807000,
+   "shares_diluted": 83476100,
+   "short_term_investments": 1619024000,
+   "src": {
+    "capex": {
+     "accn": "0001104659-26-120223",
+     "derived": true,
+     "filed": "2026-10-29",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001104659-26-120223",
+     "filed": "2026-10-29",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001104659-26-120223",
+     "filed": "2026-10-29",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001104659-26-120223",
+     "filed": "2026-10-29",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001104659-26-120223",
+     "derived": true,
+     "filed": "2026-10-29",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001104659-26-120223",
+     "filed": "2026-10-29",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001104659-26-120223",
+     "filed": "2026-10-29",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "short_term_investments": {
+     "accn": "0001104659-26-120223",
+     "filed": "2026-10-29",
+     "form": "10-Q",
+     "tag": "MarketableSecuritiesCurrent"
+    },
+    "stock_comp": {
+     "accn": "0001104659-26-120223",
+     "derived": true,
+     "filed": "2026-10-29",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-10-29",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LongTermDebtNoncurrent"
+     ],
+     "values": {
+      "LongTermDebtNoncurrent": 536268000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 23827000,
+   "total_debt": 536268000
   }
  ],
  "v2_tags_used": {

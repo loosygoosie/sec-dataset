@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 226,
-  "end": "2026-06-30",
-  "equity": -71794
+  "cash_and_sti": 976182,
+  "end": "2026-09-30",
+  "equity": -11061259
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 119,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 30,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-101420",
-  "filed": "2026-09-18",
+  "accn": "0001213900-26-113833",
+  "filed": "2026-10-29",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 172442.0,
+  "assets": 302813256.0,
   "classes": {
    "CommonClassAMember": 30762000.0,
    "CommonClassBMember": 7503750.0
   },
-  "cover_accession": "0001213900-26-101420",
-  "cover_date": "2026-09-18",
+  "cover_accession": "0001213900-26-113833",
+  "cover_date": "2026-10-29",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -117,7 +117,7 @@
  "name": "Thunder Bridge Capital Partners V, Ltd.",
  "quarterly": [
   {
-   "filed": "2026-09-18",
+   "filed": "2026-10-29",
    "form": "10-Q",
    "net_income": -3850,
    "net_income_parent": -3850,
@@ -135,7 +135,16 @@
    "total_equity_parent": -18518
   },
   {
-   "filed": "2026-09-18",
+   "filed": "2026-10-29",
+   "form": "10-Q (derived from YTD)",
+   "net_income": 0,
+   "net_income_parent": 0,
+   "period_end": "2025-09-30",
+   "total_equity": -18518,
+   "total_equity_parent": -18518
+  },
+  {
+   "filed": "2026-10-29",
    "form": "10-Q",
    "net_income": -3700,
    "net_income_parent": -3700,
@@ -158,6 +167,24 @@
    "total_equity": -71794,
    "total_equity_parent": -71794,
    "total_liabilities": 244236
+  },
+  {
+   "cash": 976182,
+   "current_assets": 1203127,
+   "current_liabilities": 82588,
+   "filed": "2026-10-29",
+   "form": "10-Q",
+   "net_income": 1057015,
+   "net_income_parent": 1057015,
+   "operating_cash_flow": -588646,
+   "operating_cash_flow_filed": "2026-10-29",
+   "operating_income": -297713,
+   "period_end": "2026-09-30",
+   "retained_earnings": -11062084,
+   "total_assets": 302813256,
+   "total_equity": -11061259,
+   "total_equity_parent": -11061259,
+   "total_liabilities": 12871588
   }
  ],
  "sec_name": "Thunder Bridge Capital Partners V, Ltd.",
@@ -238,7 +265,15 @@
  ],
  "ttm": {},
  "v2_annual": [],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": -588646
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
   {
@@ -281,6 +316,27 @@
     }
    },
    "start": "2025-04-01"
+  },
+  {
+   "end": "2025-09-30",
+   "equity": -18518,
+   "net_income": 0,
+   "src": {
+    "equity": {
+     "accn": "0001213900-26-113833",
+     "filed": "2026-10-29",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-113833",
+     "derived": true,
+     "filed": "2026-10-29",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    }
+   },
+   "start": "2025-07-01"
   },
   {
    "end": "2026-03-31",
@@ -329,6 +385,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 976182,
+   "cash_and_sti": 976182,
+   "end": "2026-09-30",
+   "equity": -11061259,
+   "net_income": 1057015,
+   "operating_cash_flow": -588646,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-113833",
+     "filed": "2026-10-29",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-113833",
+     "filed": "2026-10-29",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-113833",
+     "filed": "2026-10-29",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-113833",
+     "derived": true,
+     "filed": "2026-10-29",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {
@@ -336,7 +428,9 @@
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [],
   "shares_diluted": [],
   "stock_comp": []
