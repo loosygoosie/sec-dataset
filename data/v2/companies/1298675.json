@@ -1193,14 +1193,14 @@
   "total_liabilities": 16
  },
  "balance": {
-  "cash_and_sti": 14310000,
-  "end": "2026-06-30",
-  "equity": 2579243000
+  "cash_and_sti": 14311000,
+  "end": "2026-09-30",
+  "equity": 2476559000
  },
  "bank": false,
  "checks": {
   "latest_quarter_end": "2026-03-31",
-  "quarter_age_days": 213,
+  "quarter_age_days": 214,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1211,35 +1211,35 @@
  "fiscal_year_end": "1231",
  "flags": [
   "no_debt_tagged",
-  "revenue_unverified_2023-12-31",
-  "revenue_unverified_2025-12-31",
   "revenue_unverified_2024-12-31",
+  "revenue_unverified_2025-12-31",
+  "revenue_unverified_2023-12-31",
   "interest_but_no_debt"
  ],
  "instances_merged": [
-  "0001298675-26-000038"
+  "0001298675-26-000050"
  ],
  "latest_filing": {
-  "accn": "0001298675-26-000038",
-  "filed": "2026-07-31",
+  "accn": "0001298675-26-000050",
+  "filed": "2026-10-30",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
   "assets": 6598136000.0,
   "classes": {
-   "common": 225162253.0
+   "common": 223402687.0
   },
-  "cover_accession": "0001298675-26-000038",
-  "cover_date": "2026-07-29",
+  "cover_accession": "0001298675-26-000050",
+  "cover_date": "2026-10-28",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-27",
   "note": null,
   "public_float": 9659711015.0,
   "revenue": 1123110000.0,
-  "shares_cover": 225162253.0,
-  "shares_total": 225162253.0,
+  "shares_cover": 223402687.0,
+  "shares_total": 223402687.0,
   "size_gate": "float"
  },
  "name": "CubeSmart",
@@ -1725,63 +1725,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-07-31",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-10-30",
+   "method": "year_to_date",
    "tags": [
     "PaymentsToDevelopRealEstateAssets"
    ],
-   "val": 22830000
+   "val": 20344000
   },
   "fcf": {
-   "end": "2026-06-30",
-   "method": "four_quarters",
-   "val": 575054000
+   "end": "2026-09-30",
+   "method": "year_to_date",
+   "val": 580423000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-07-31",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-10-30",
+   "method": "year_to_date",
    "tags": [
     "NetIncomeLossAvailableToCommonStockholdersBasic"
    ],
-   "val": 334097000
+   "val": 345522000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-07-31",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-10-30",
+   "method": "year_to_date",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 597884000
+   "val": 600767000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-07-31",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-10-30",
+   "method": "year_to_date",
    "tags": [
     "Revenues"
    ],
-   "val": 1136186000
+   "val": 1145074000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-07-31",
+   "end": "2026-09-30",
+   "filed": "2026-10-30",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 227189000
+   "val": 226109000
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-07-31",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-10-30",
+   "method": "year_to_date",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 12436000
+   "val": 12506000
   }
  },
  "v2_annual": [
@@ -7592,71 +7592,46 @@
    "stock_comp": 3284000
   },
   {
-   "capex": 3004000,
-   "cash": 14310000,
-   "cash_and_sti": 14310000,
-   "end": "2026-06-30",
-   "equity": 2579243000,
-   "fcf": 141332000,
-   "net_income": 89585000,
-   "operating_cash_flow": 144336000,
-   "revenue": 286486000,
-   "shares_diluted": 227189000,
+   "cash": 14311000,
+   "cash_and_sti": 14311000,
+   "end": "2026-09-30",
+   "equity": 2476559000,
+   "net_income": 94355000,
+   "revenue": 293968000,
+   "shares_diluted": 226109000,
    "src": {
-    "capex": {
-     "accn": "0001298675-26-000038",
-     "derived": true,
-     "filed": "2026-07-31",
-     "form": "10-Q",
-     "tag": "PaymentsToDevelopRealEstateAssets"
-    },
     "cash": {
-     "accn": "0001298675-26-000038",
-     "filed": "2026-07-31",
+     "accn": "0001298675-26-000050",
+     "filed": "2026-10-30",
      "form": "10-Q",
      "tag": "CashAndCashEquivalentsAtCarryingValue"
     },
     "equity": {
-     "accn": "0001298675-26-000038",
-     "filed": "2026-07-31",
+     "accn": "0001298675-26-000050",
+     "filed": "2026-10-30",
      "form": "10-Q",
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0001298675-26-000038",
-     "filed": "2026-07-31",
+     "accn": "0001298675-26-000050",
+     "filed": "2026-10-30",
      "form": "10-Q",
      "tag": "NetIncomeLossAvailableToCommonStockholdersBasic"
     },
-    "operating_cash_flow": {
-     "accn": "0001298675-26-000038",
-     "derived": true,
-     "filed": "2026-07-31",
-     "form": "10-Q",
-     "tag": "NetCashProvidedByUsedInOperatingActivities"
-    },
     "revenue": {
-     "accn": "0001298675-26-000038",
-     "filed": "2026-07-31",
+     "accn": "0001298675-26-000050",
+     "filed": "2026-10-30",
      "form": "10-Q",
      "tag": "Revenues"
     },
     "shares_diluted": {
-     "accn": "0001298675-26-000038",
-     "filed": "2026-07-31",
+     "accn": "0001298675-26-000050",
+     "filed": "2026-10-30",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
-    },
-    "stock_comp": {
-     "accn": "0001298675-26-000038",
-     "derived": true,
-     "filed": "2026-07-31",
-     "form": "10-Q",
-     "tag": "ShareBasedCompensation"
     }
    },
-   "start": "2026-04-01",
-   "stock_comp": 3320000
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

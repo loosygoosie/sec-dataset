@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 924227,
-  "end": "2026-06-30",
-  "equity": -15870250
+  "cash_and_sti": 835487,
+  "end": "2026-09-30",
+  "equity": -18733837
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 31,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-086188",
-  "filed": "2026-08-06",
+  "accn": "0001213900-26-114377",
+  "filed": "2026-10-30",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 292170321.0,
+  "assets": 294662105.0,
   "classes": {
    "CommonClassAMember": 28950000.0,
    "CommonClassBMember": 7187500.0
   },
-  "cover_accession": "0001213900-26-086188",
-  "cover_date": "2026-07-27",
+  "cover_accession": "0001213900-26-114377",
+  "cover_date": "2026-10-26",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -151,6 +151,24 @@
    "total_equity": -15870250,
    "total_equity_parent": -15870250,
    "total_liabilities": 17175805
+  },
+  {
+   "cash": 835487,
+   "current_assets": 1145251,
+   "current_liabilities": 4066588,
+   "filed": "2026-10-30",
+   "form": "10-Q",
+   "net_income": -211499,
+   "net_income_parent": -211499,
+   "operating_cash_flow": -88740,
+   "operating_income": -2863587,
+   "period_end": "2026-09-30",
+   "retained_earnings": -18734576,
+   "sga_expense": 2863587,
+   "total_assets": 294662105,
+   "total_equity": -18733837,
+   "total_equity_parent": -18733837,
+   "total_liabilities": 19879088
   }
  ],
  "sec_name": "FORTRESS VALUE ACQUISITION CORP. V",
@@ -302,6 +320,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 835487,
+   "cash_and_sti": 835487,
+   "end": "2026-09-30",
+   "equity": -18733837,
+   "net_income": -211499,
+   "operating_cash_flow": -88740,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-114377",
+     "filed": "2026-10-30",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-114377",
+     "filed": "2026-10-30",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-114377",
+     "filed": "2026-10-30",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-114377",
+     "derived": true,
+     "filed": "2026-10-30",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {
