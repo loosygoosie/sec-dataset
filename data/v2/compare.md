@@ -1,9 +1,9 @@
-# v2 vs data/companies (2026-11-02)
+# v2 vs data/companies (2026-11-03)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
-- companies: 2468; with a difference: 1284
-- by field: capex 104, file 278, revenue 183, shares 655, total_debt 280
+- companies: 2467; with a difference: 1284
+- by field: capex 104, file 278, revenue 182, shares 658, total_debt 279
 
 | ticker | field | period | old | v2 | diff % |
 |---|---|---|---|---|---|
@@ -33,8 +33,8 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | WFC | total_debt | 2026-09-30 | 182.85B | 221.04B | 20.9 |
 | SPCX | file | - | - | - | - |
 | CVX | total_debt | 2026-06-30 | 0.40B | 36.67B | 9045.6 |
-| CRD-A | shares | 2026-07-27 | - | 48.6M | - |
-| GS | total_debt | 2026-06-30 | 437.87B | 347.96B | -20.5 |
+| CRD-A | shares | 2026-10-26 | - | 47.7M | - |
+| GS | total_debt | 2026-09-30 | 444.82B | 352.47B | -20.8 |
 | T | shares | 2026-10-15 | - | 6.74B | - |
 | MRK | shares | 2026-07-31 | - | 2.47B | - |
 | CRM | shares | 2026-08-20 | 0.93B | 0.82B | -11.4 |
@@ -45,7 +45,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | DIS | shares | 2026-07-29 | 1.90B | 1.73B | -9.1 |
 | NOW | total_debt | 2026-09-30 | 5.44B | 7.54B | 38.6 |
 | BLK | shares | 2026-07-31 | 0.15B | 0.32B | 109.7 |
-| BSX | shares | 2026-07-30 | - | 1.45B | - |
+| BSX | shares | 2026-10-29 | - | 1.45B | - |
 | BA | shares | 2026-10-20 | 1.01B | 0.79B | -21.7 |
 | SCHW | capex | 2025-12-31 | 0.60B | 0.55B | -9.0 |
 | SCHW | shares | 2026-07-31 | - | 1.73B | - |
@@ -66,7 +66,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | CRWD | shares | 2026-08-20 | - | 1.02B | - |
 | LMT | total_debt | 2026-09-27 | 21.70B | 20.50B | -5.5 |
 | APH | shares | 2026-10-27 | 1.23B | 2.47B | 101.3 |
-| MSTR | shares | 2026-07-24 | - | 0.38B | - |
+| MSTR | shares | 2026-10-25 | - | 0.42B | - |
 | CME | total_debt | 2025-12-31 | 0 | 3.42B | - |
 | CME | shares | 2026-10-14 | - | 0.36B | - |
 | ENB | file | - | - | - | - |
@@ -77,9 +77,9 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | DASH | shares | 2026-10-26 | - | 0.44B | - |
 | MDLZ | total_debt | 2026-09-30 | 20.00B | 21.74B | 8.7 |
 | MDLZ | shares | 2026-10-26 | - | 1.27B | - |
+| EAI | file | - | - | - | - |
 | NKE | shares | 2026-09-28 | - | 1.49B | - |
 | RCL | shares | 2026-10-23 | - | 0.27B | - |
-| EAI | file | - | - | - | - |
 | RSG | revenue | 2025-12-31 | 19.03B | 16.59B | -12.8 |
 | RSG | shares | 2026-10-22 | - | 0.30B | - |
 | AON | shares | 2026-10-27 | - | 0.21B | - |
@@ -89,7 +89,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | CP | file | - | - | - | - |
 | HOOD | shares | 2026-10-21 | - | 0.90B | - |
 | WMB | capex | 2025-12-31 | 5.42B | 4.89B | -9.8 |
-| WMB | shares | 2026-07-30 | - | 1.22B | - |
+| WMB | shares | 2026-10-29 | - | 1.25B | - |
 | APD | total_debt | 2026-06-30 | 0.77B | 0.90B | 16.5 |
 | EOG | capex | 2025-12-31 | 0.48B | 6.12B | 1176.6 |
 | EOG | shares | 2026-07-28 | - | 0.52B | - |
@@ -105,7 +105,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | AEP | capex | 2025-12-31 | 8.45B | 11.91B | 40.8 |
 | TFC | revenue | 2025-12-31 | 24.54B | 20.32B | -17.2 |
 | TFC | total_debt | 2026-09-30 | 53.37B | 65.79B | 23.3 |
-| REGN | shares | 2026-07-23 | - | 0.10B | - |
+| REGN | shares | 2026-10-22 | - | 0.10B | - |
 | NXPI | total_debt | 2026-09-27 | 12.98B | 10.98B | -15.4 |
 | NXPI | shares | 2026-10-24 | - | 0.25B | - |
 | LNG | shares | 2026-10-23 | - | 0.20B | - |
@@ -186,7 +186,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | AMRZ | total_debt | 2026-09-30 | 5.14B | 5.85B | 13.8 |
 | DTE | revenue | 2025-12-31 | 61.0M | 15.81B | 25824.6 |
 | DTE | capex | 2025-12-31 | - | 4.34B | - |
-| EL | shares | 2026-08-12 | - | 0.36B | - |
+| EL | shares | 2026-10-26 | - | 0.36B | - |
 | AEE | total_debt | 2026-06-30 | 20.59B | 21.81B | 5.9 |
 | FANG | capex | 2025-12-31 | - | 5.94B | - |
 | GIS | shares | 2026-09-16 | - | 0.53B | - |
@@ -215,11 +215,11 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | FE | total_debt | 2026-09-30 | 28.08B | 30.05B | 7.0 |
 | BAM | revenue | 2025-12-31 | 4.82B | 3.94B | -18.1 |
 | BAM | shares | 2026-08-06 | - | 1.60B | - |
+| FOXA | shares | 2026-10-28 | - | 0.42B | - |
 | HONA | file | - | - | - | - |
 | TOST | shares | 2026-07-30 | - | 0.58B | - |
 | CHD | shares | 2026-10-28 | - | 0.24B | - |
 | CINF | shares | 2026-10-22 | - | 0.15B | - |
-| FOXA | shares | 2026-08-04 | - | 0.42B | - |
 | WRB | capex | 2025-12-31 | - | 0.17B | - |
 | QSR | shares | 2026-10-23 | 0.35B | 0.45B | 29.5 |
 | RDDT | shares | 2026-10-28 | - | 0.19B | - |
@@ -272,7 +272,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | WSO | shares | 2026-08-04 | - | 41.3M | - |
 | NWSA | shares | 2026-07-31 | - | 0.54B | - |
 | ZBRA | shares | 2026-07-28 | - | 47.3M | - |
-| L | shares | 2026-07-31 | - | 0.20B | - |
+| L | shares | 2026-10-30 | - | 0.20B | - |
 | BALL | shares | 2026-07-31 | - | 0.26B | - |
 | DOCU | total_debt | - / 2021-10-31 | - | 6.0M | - |
 | UAA | shares | 2026-07-31 | - | 0.43B | - |
@@ -296,6 +296,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | DUOL | shares | 2026-08-04 | - | 46.8M | - |
 | RBRK | shares | 2026-08-24 | - | 0.21B | - |
 | IEX | shares | 2026-10-23 | - | 73.5M | - |
+| BWXT | shares | 2026-10-30 | - | 91.6M | - |
 | RGA | shares | 2026-07-28 | - | 65.3M | - |
 | JKHY | shares | 2026-08-12 | - | 70.1M | - |
 | MBGL | file | - | - | - | - |
@@ -308,7 +309,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | EHC | shares | 2026-07-28 | - | 98.7M | - |
 | CLBK | file | - | - | - | - |
 | NLY | total_debt | 2020-12-31 | 0.50B | 0.43B | -13.7 |
-| ALLY | total_debt | 2026-06-30 | 19.82B | 22.97B | 15.9 |
+| ALLY | total_debt | 2026-09-30 | 21.52B | 25.03B | 16.3 |
 | DD | shares | 2026-07-31 | - | 0.14B | - |
 | CPT | capex | 2025-12-31 | 0.44B | 2.4M | -99.4 |
 | CPT | total_debt | 2026-06-30 | 4.85B | 5.45B | 12.4 |
@@ -329,11 +330,10 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | UTHR | total_debt | 2013-12-31 | 3.7M | 70.3M | 1788.8 |
 | HLI | shares | 2026-10-27 | - | 69.4M | - |
 | ALGN | total_debt | 2024-12-31 / - | 0 | - | - |
-| TEM | total_debt | 2026-06-30 / - | 0 | - | - |
-| TEM | shares | 2026-07-24 | - | 0.18B | - |
+| TEM | total_debt | 2026-09-30 / - | 0 | - | - |
+| TEM | shares | 2026-10-29 | - | 0.18B | - |
 | SF | revenue | 2025-12-31 | 5.53B | 6.35B | 14.8 |
 | SF | shares | 2026-07-30 | - | 0.38B | - |
-| NXT | shares | 2026-07-24 | - | 0.15B | - |
 | OHI | capex | 2025-12-31 | 0.69B | 80.9M | -88.3 |
 | BG | shares | 2026-10-27 | - | 0.19B | - |
 | FHN | shares | 2026-07-31 | - | 0.47B | - |
@@ -433,7 +433,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | UGI | shares | 2026-07-31 | - | 0.21B | - |
 | OTF | revenue | 2025-12-31 | 1.3M | - | - |
 | MIDD | shares | 2026-08-10 | - | 45.2M | - |
-| VNO | total_debt | 2026-06-30 | 2.60B | 6.60B | 154.0 |
+| VNO | total_debt | 2026-09-30 | 2.60B | 6.61B | 154.1 |
 | SLM | revenue | 2025-12-31 | 2.63B | 1.98B | -24.5 |
 | KD | shares | 2026-07-29 | - | 0.22B | - |
 | OLED | total_debt | - / 2026-09-30 | - | 1.3M | - |
@@ -461,7 +461,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | MAT | shares | 2026-07-24 | - | 0.29B | - |
 | KEX | shares | 2026-08-04 | - | 52.8M | - |
 | LYFT | shares | 2026-07-31 | - | 0.38B | - |
-| JAZZ | shares | 2026-07-27 | 61.4M | 64.9M | 5.7 |
 | IDA | shares | 2026-10-23 | - | 58.9M | - |
 | QVCG | total_debt | 2026-06-30 | 5.05B | 1.0M | -100.0 |
 | BIO | shares | 2026-07-30 | - | 26.7M | - |
@@ -695,7 +694,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | CPK | shares | 2026-08-03 | - | 24.1M | - |
 | AVBC | revenue | 2025-12-31 | 0.13B | 0.10B | -20.7 |
 | FCPT | capex | 2025-12-31 | 0.33B | - | - |
-| PPLI | shares | 2026-07-31 | - | 74.5M | - |
+| PPLI | shares | 2026-10-30 | - | 75.0M | - |
 | PBAM | file | - | - | - | - |
 | ALIT | shares | 2026-07-30 | - | 26.9M | - |
 | NOG | capex | 2025-12-31 | 0.8M | 1.25B | 164814.8 |
@@ -779,6 +778,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | YSS | file | - | - | - | - |
 | YSWY | file | - | - | - | - |
 | LFTO | file | - | - | - | - |
+| RXRX | shares | 2026-10-26 | 0.56B | 0.62B | 11.0 |
 | VOYG | shares | 2026-07-31 | - | 61.0M | - |
 | LLYVA | shares | 2026-07-31 | - | 92.0M | - |
 | SM | capex | 2025-12-31 | - | 34.0M | - |
@@ -814,7 +814,8 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | LBRT | shares | 2026-10-19 | - | 0.16B | - |
 | NMRK | revenue | 2025-12-31 | 3.29B | 2.77B | -15.9 |
 | NMRK | shares | 2026-08-03 | - | 0.18B | - |
-| CIFR | total_debt | 2026-06-30 | 6.02B | 5.54B | -7.9 |
+| CIFR | total_debt | 2026-09-30 | 6.02B | 5.56B | -7.6 |
+| CIFR | shares | 2026-10-30 | 0.42B | 0.46B | 9.9 |
 | EROK | file | - | - | - | - |
 | FBNC | revenue | 2025-12-31 | 0.56B | 0.39B | -30.0 |
 | FRMI | total_debt | 2026-06-30 | 0.54B | 1.04B | 93.7 |
@@ -871,7 +872,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | GABC | revenue | 2025-12-31 | 0.49B | 0.36B | -25.8 |
 | GABC | total_debt | 2025-12-31 | 0.19B | 0.10B | -46.6 |
 | MFP | file | - | - | - | - |
-| UMH | total_debt | 2026-06-30 | 0.55B | 1.19B | 116.4 |
+| UMH | total_debt | 2026-09-30 | 0.55B | 1.25B | 127.9 |
 | TCBK | revenue | 2025-12-31 | 0.47B | 0.42B | -10.9 |
 | TCBK | total_debt | 2015-12-31 / - | 1.81B | - | - |
 | BHE | capex | 2025-12-31 | 38.5M | 35.6M | -7.6 |
@@ -891,7 +892,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | HMH | file | - | - | - | - |
 | ESRT | total_debt | 2026-06-30 | 2.24B | 0.62B | -72.4 |
 | ESRT | shares | 2026-08-04 | - | 0.17B | - |
-| PAY | shares | 2026-07-30 | - | 0.13B | - |
+| PAY | shares | 2026-10-29 | - | 0.13B | - |
 | AMC | shares | 2026-07-22 | - | 0.89B | - |
 | MLTX | shares | 2026-08-01 | - | 85.1M | - |
 | EFC | revenue | 2025-12-31 | 0.15B | 0.34B | 129.7 |
@@ -903,7 +904,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | TVTX | total_debt | - / 2018-09-30 | - | 22.6M | - |
 | CLDX | total_debt | 2012-12-31 / - | 11.3M | - | - |
 | CRGY | capex | 2025-12-31 | - | 0.82B | - |
-| CRGY | shares | 2026-07-31 | - | 0.33B | - |
+| CRGY | shares | 2026-10-30 | - | 0.42B | - |
 | ARI | total_debt | 2020-12-31 | 6.50B | 0.48B | -92.6 |
 | ATEC | total_debt | 2026-09-30 | 0.65B | 0.55B | -15.8 |
 | EVH | shares | 2026-08-01 | - | 0.11B | - |
@@ -953,8 +954,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | CALY | total_debt | 2026-06-30 | 47.2M | 50.8M | 7.6 |
 | CALY | shares | 2026-08-03 | - | 0.18B | - |
 | KNSA | shares | 2026-10-23 | - | 0.16B | - |
-| PGY | total_debt | 2026-06-30 | 0.47B | 0.40B | -14.6 |
-| PGY | shares | 2026-07-29 | - | 85.5M | - |
+| PGY | shares | 2026-10-30 | - | 86.1M | - |
 | HLIO | total_debt | 2026-07-04 | 0.33B | 0.23B | -32.0 |
 | TALO | capex | 2025-12-31 | - | 0.48B | - |
 | TALO | shares | 2026-07-28 | - | 0.17B | - |
@@ -991,7 +991,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | DGII | shares | 2026-07-31 | - | 37.9M | - |
 | REF | file | - | - | - | - |
 | CDNA | capex | 2025-12-31 | - | 5.9M | - |
-| NAVI | revenue | 2025-12-31 | 3.11B | 0.61B | -80.4 |
 | SYM | capex | 2025-09-27 | - | 79.0M | - |
 | EVLV | capex | 2025-12-31 | - | 31.4M | - |
 | LCLN | file | - | - | - | - |
@@ -1054,10 +1053,11 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | CVI | shares | 2026-07-24 | - | 0.10B | - |
 | RVLV | shares | 2026-07-28 | - | 71.1M | - |
 | FIZZ | shares | 2026-09-08 | - | 93.6M | - |
+| SNDX | shares | None | 90.0M | - | - |
 | HFWA | revenue | 2025-12-31 | 0.31B | 0.25B | -21.7 |
 | PMT | total_debt | 2026-06-30 | 12.46B | 2.48B | -80.1 |
 | KOS | capex | 2025-12-31 | - | -5.8M | - |
-| KOS | shares | 2026-07-30 | - | 0.60B | - |
+| KOS | shares | 2026-10-29 | - | 0.60B | - |
 | EIKN | file | - | - | - | - |
 | IBTA | shares | 2026-07-31 | 9.4M | 23.2M | 146.0 |
 | BHRB | revenue | 2025-12-31 | 46.1M | 0.34B | 641.8 |
@@ -1169,12 +1169,12 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | HOV | shares | 2026-08-25 | - | 6.0M | - |
 | KRNY | revenue | 2026-06-30 | 0.32B | 0.18B | -45.1 |
 | SPFI | revenue | 2025-12-31 | 0.25B | 0.21B | -15.9 |
-| SPTX | file | - | - | - | - |
 | CLW | shares | 2026-10-23 | - | 16.1M | - |
 | AVLN | file | - | - | - | - |
 | RES | total_debt | 2026-09-30 | 20.0M | 30.0M | 50.0 |
 | SUJA | file | - | - | - | - |
 | CXII | file | - | - | - | - |
+| SPTX | file | - | - | - | - |
 | CCO | shares | 2026-07-31 | - | 0.51B | - |
 | TCBX | revenue | 2025-12-31 | 13.7M | 0.21B | 1429.8 |
 | TCBX | total_debt | 2026-06-30 / - | 60.4M | - | - |
@@ -1225,6 +1225,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | ARES | revenue | 2025-12-31 | 4.76B | 5.60B | 17.8 |
 | ARES | shares | 2026-08-03 | 0.31B | 0.36B | 15.0 |
 | SENEA | shares | 2026-07-24 | - | 6.8M | - |
+| SIND | file | - | - | - | - |
 | CMP | shares | 2026-08-03 | - | 42.0M | - |
 | GUAC | file | - | - | - | - |
 | HBT | revenue | 2025-12-31 | 0.26B | 0.24B | -7.3 |
@@ -1275,12 +1276,12 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | KOYN | shares | 2026-08-12 | - | 31.6M | - |
 | MCHB | total_debt | 2026-06-30 | 0.13B | 0.21B | 61.3 |
 | MCHB | shares | 2026-08-03 | 18.9M | 0.22B | 1070.3 |
+| SAC | file | - | - | - | - |
 | MEI | shares | 2026-08-31 | - | 35.6M | - |
 | RNGT | file | - | - | - | - |
 | VHCP | file | - | - | - | - |
 | NSTR | file | - | - | - | - |
 | IRHO | shares | 2026-10-09 | 6.3M | 29.3M | 363.9 |
-| SAC | file | - | - | - | - |
 | GPAC | file | - | - | - | - |
 | ADAC | file | - | - | - | - |
 | ITHA | file | - | - | - | - |
@@ -1306,7 +1307,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | ISNR | file | - | - | - | - |
 | BIXI | file | - | - | - | - |
 | MTNE | file | - | - | - | - |
-| SIND | file | - | - | - | - |
 | SVAQ | file | - | - | - | - |
 | ACGC | file | - | - | - | - |
 | SHOT | file | - | - | - | - |
@@ -1383,7 +1383,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | BLSM | file | - | - | - | - |
 | ARCL | file | - | - | - | - |
 | PONO | file | - | - | - | - |
-| INAC | shares | 2026-08-05 | 3.3M | 14.8M | 353.3 |
+| INAC | shares | 2026-11-02 | 3.3M | 14.8M | 353.3 |
 | NMP | shares | 2026-08-13 | - | 16.0M | - |
 | SPEG | shares | 2026-08-13 | - | 15.3M | - |
 | EMIS | file | - | - | - | - |
@@ -1476,9 +1476,10 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | CAST | shares | 2026-09-25 | - | 50.8M | - |
 | CNXU | file | - | - | - | - |
 | CURX | shares | 2026-08-14 | 28.4M | 31.4M | 10.6 |
+| FUSE | total_debt | 2026-06-30 | 0.3M | 0.6M | 100.0 |
+| FUSE | shares | 2026-11-02 | 29.0M | 32.5M | 12.3 |
 | LABT | file | - | - | - | - |
 | BMNR | total_debt | - / 2025-05-31 | - | 1.9M | - |
-| FUSE | total_debt | 2026-06-30 | 0.3M | 0.6M | 100.0 |
 | CYAB | shares | 2026-08-12 | 1,000 | 17.6M | 1759607.1 |
 | VOGX | file | - | - | - | - |
 | GYGY | file | - | - | - | - |
