@@ -1453,18 +1453,18 @@
   "total_liabilities": 16
  },
  "balance": {
-  "cash_and_sti": 990297000,
-  "debt_current": 1105659000,
-  "debt_noncurrent": 775681000,
-  "end": "2026-06-30",
-  "equity": 5153414000,
-  "finance_leases": 12082000,
-  "total_debt": 1881340000
+  "cash_and_sti": 700761000,
+  "debt_current": 764650000,
+  "debt_noncurrent": 857753000,
+  "end": "2026-09-30",
+  "equity": 5050604000,
+  "finance_leases": 13825000,
+  "total_debt": 1622403000
  },
  "bank": true,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 35,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1474,80 +1474,35 @@
  "cik": 883948,
  "fiscal_year_end": "1231",
  "flags": [
-  "no_capex"
+  "no_capex",
+  "stale_stock_comp"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0000883948-26-000073",
-  "filed": "2026-08-06",
+  "accn": "0000883948-26-000087",
+  "filed": "2026-11-03",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 38099868000.0,
+  "assets": 38351665000.0,
   "classes": {
-   "common": 142814896.0
+   "common": 139957133.0
   },
-  "cover_accession": "0000883948-26-000073",
-  "cover_date": "2026-07-30",
+  "cover_accession": "0000883948-26-000087",
+  "cover_date": "2026-10-27",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-26",
   "note": null,
   "public_float": 4392659315.0,
   "revenue": null,
-  "shares_cover": 142814896.0,
-  "shares_total": 142814896.0,
+  "shares_cover": 139957133.0,
+  "shares_total": 139957133.0,
   "size_gate": "float"
  },
  "name": "Atlantic Union Bankshares Corp",
  "quarterly": [
-  {
-   "buybacks": 0,
-   "cash": 398945000,
-   "credit_loss_provision": 4991000,
-   "d_and_a": 3201000,
-   "debt_current": 629936000,
-   "deposits": 16786505000,
-   "dividends_paid": 22499000,
-   "eps_diluted": 0.68,
-   "filed": "2024-11-05",
-   "finance_lease_liabilities": 7369000,
-   "form": "10-Q",
-   "goodwill": 925211000,
-   "impairments": 0,
-   "income_tax": 11519000,
-   "intangibles": 21277000,
-   "interest_expense": 95218000,
-   "interest_income": 247159000,
-   "lt_debt_noncurrent": 390733000,
-   "net_income": 54017000,
-   "net_income_parent": 54017000,
-   "net_interest_income": 151941000,
-   "operating_cash_flow": 89383000,
-   "operating_leases": 75502000,
-   "period_end": "2023-09-30",
-   "pretax_income": 65536000,
-   "retained_earnings": 988133000,
-   "revenue": 179035000,
-   "revenue_filed": "2023-11-02",
-   "shares_diluted": 74999128,
-   "shares_diluted_adj": 74999128,
-   "shares_diluted_filled": 74999128,
-   "shares_diluted_filled_filed": "2024-11-05",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 74997132,
-   "short_term_borrowings": 629936000,
-   "stock_comp": 2728000,
-   "total_assets": 20736236000,
-   "total_debt": 1020669000,
-   "total_debt_basis": "components_exceed_tagged",
-   "total_debt_filed": "2023-11-02",
-   "total_debt_tagged": 390733000,
-   "total_equity": 2388801000,
-   "total_equity_parent": 2388801000,
-   "total_liabilities": 18347435000
-  },
   {
    "buybacks": 0,
    "cash": 378131000,
@@ -1845,7 +1800,7 @@
    "debt_current": 91630000,
    "deposits": 30665324000,
    "eps_diluted": 0.63,
-   "filed": "2025-11-04",
+   "filed": "2026-11-03",
    "finance_lease_liabilities": 7591000,
    "form": "10-Q",
    "goodwill": 1726386000,
@@ -1866,7 +1821,7 @@
    "shares_diluted": 141986217,
    "shares_diluted_adj": 141986217,
    "shares_diluted_filled": 141986217,
-   "shares_diluted_filled_filed": "2025-11-04",
+   "shares_diluted_filled_filed": "2026-11-03",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 141732071,
    "short_term_borrowings": 91630000,
@@ -1999,6 +1954,46 @@
    "total_equity": 5153414000,
    "total_equity_parent": 5153414000,
    "total_liabilities": 32946454000
+  },
+  {
+   "cash": 700761000,
+   "credit_loss_provision": 5731000,
+   "d_and_a": 5009000,
+   "debt_current": 764650000,
+   "deposits": 30965529000,
+   "eps_diluted": 0.94,
+   "filed": "2026-11-03",
+   "finance_lease_liabilities": 13825000,
+   "form": "10-Q",
+   "goodwill": 1754875000,
+   "income_tax": 36518000,
+   "intangibles": 270016000,
+   "interest_income": 501133000,
+   "lt_debt_noncurrent": 857753000,
+   "net_income": 136632000,
+   "net_income_parent": 136632000,
+   "net_interest_income": 328422000,
+   "operating_cash_flow": 182485000,
+   "operating_leases": 117969000,
+   "period_end": "2026-09-30",
+   "pretax_income": 173150000,
+   "retained_earnings": 1437072000,
+   "revenue": 383214000,
+   "revenue_filed": "2026-11-03",
+   "shares_diluted": 141641618,
+   "shares_diluted_adj": 141641618,
+   "shares_diluted_filled": 141641618,
+   "shares_diluted_filled_filed": "2026-11-03",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 140445286,
+   "short_term_borrowings": 764650000,
+   "total_assets": 38351665000,
+   "total_debt": 1622403000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-03",
+   "total_equity": 5050604000,
+   "total_equity_parent": 5050604000,
+   "total_liabilities": 33301061000
   }
  ],
  "sec_name": "ATLANTIC UNION BANKSHARES CORPORATION",
@@ -2078,45 +2073,46 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-03",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 487284000
+   "val": 531776000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-03",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 548912000
+   "val": 574451000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-03",
    "method": "four_quarters",
    "tags": [
     "InterestIncomeExpenseNet+NoninterestIncome"
    ],
-   "val": 1540651000
+   "val": 1552904000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-03",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 142320806
+   "val": 141641618
   },
   "stock_comp": {
    "end": "2025-12-31",
    "filed": "2026-02-26",
    "method": "fiscal_year",
+   "stale": true,
    "tags": [
     "AllocatedShareBasedCompensationExpense"
    ],
@@ -3780,34 +3776,6 @@
   },
   {
    "field": "revenue",
-   "old": 247159000,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 179035000
-  },
-  {
-   "field": "total_debt",
-   "old": 629936000,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 1020669000
-  },
-  {
-   "field": "lt_debt_noncurrent",
-   "old": null,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 390733000
-  },
-  {
-   "field": "debt_current",
-   "old": null,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 629936000
-  },
-  {
-   "field": "revenue",
    "old": 259498000,
    "period": "2023-12-31",
    "rows": "quarterly",
@@ -4113,6 +4081,34 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 1105659000
+  },
+  {
+   "field": "revenue",
+   "old": 501133000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 383214000
+  },
+  {
+   "field": "total_debt",
+   "old": 857753000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 1622403000
+  },
+  {
+   "field": "lt_debt_noncurrent",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 857753000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 764650000
   }
  ],
  "v2_notes": [],
@@ -8627,6 +8623,71 @@
    },
    "start": "2026-04-01",
    "total_debt": 1881340000
+  },
+  {
+   "cash": 700761000,
+   "cash_and_sti": 700761000,
+   "debt_current": 764650000,
+   "debt_noncurrent": 857753000,
+   "end": "2026-09-30",
+   "equity": 5050604000,
+   "finance_leases": 13825000,
+   "net_income": 136632000,
+   "operating_cash_flow": 182485000,
+   "revenue": 383214000,
+   "shares_diluted": 141641618,
+   "src": {
+    "cash": {
+     "accn": "0000883948-26-000087",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0000883948-26-000087",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0000883948-26-000087",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0000883948-26-000087",
+     "derived": true,
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0000883948-26-000087",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "InterestIncomeExpenseNet+NoninterestIncome"
+    },
+    "shares_diluted": {
+     "accn": "0000883948-26-000087",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2026-11-03",
+     "tags": [
+      "LongTermDebt",
+      "ShortTermBorrowings"
+     ],
+     "values": {
+      "LongTermDebt": 857753000,
+      "ShortTermBorrowings": 764650000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "total_debt": 1622403000
   }
  ],
  "v2_tags_used": {

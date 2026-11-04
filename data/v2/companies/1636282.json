@@ -861,13 +861,13 @@
  },
  "balance": {
   "cash_and_sti": 1100000000,
-  "end": "2026-06-30",
-  "equity": 1101141000
+  "end": "2026-09-30",
+  "equity": 1051535000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 99,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 35,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -877,71 +877,37 @@
  "cik": 1636282,
  "fiscal_year_end": "1231",
  "flags": [
+  "stale_revenue",
   "stale_capex",
   "stale_shares_diluted",
   "no_debt_tagged"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001636282-26-000096",
-  "filed": "2026-08-04",
+  "accn": "0001636282-26-000131",
+  "filed": "2026-11-03",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 1173003000.0,
+  "assets": 1099728000.0,
   "classes": {
-   "common": 88173762.0
+   "common": 94969184.0
   },
-  "cover_accession": "0001636282-26-000096",
-  "cover_date": "2026-07-28",
+  "cover_accession": "0001636282-26-000131",
+  "cover_date": "2026-10-27",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-19",
   "note": null,
   "public_float": 1100000000.0,
   "revenue": null,
-  "shares_cover": 88173762.0,
-  "shares_total": 88173762.0,
+  "shares_cover": 94969184.0,
+  "shares_total": 94969184.0,
   "size_gate": "float"
  },
  "name": "Spyre Therapeutics, Inc.",
  "quarterly": [
-  {
-   "cash": 90592000,
-   "cash_and_short_term_investments": 203600000,
-   "current_assets": 205949000,
-   "current_liabilities": 44872000,
-   "d_and_a": 0,
-   "eps_diluted": 0.86,
-   "filed": "2024-11-18",
-   "form": "10-Q/A",
-   "income_tax": 3000,
-   "net_income": -40107000,
-   "net_income_incl_nci": -40107000,
-   "net_income_parent": -40107000,
-   "operating_cash_flow": -34597000,
-   "operating_income": -18337000,
-   "operating_leases": 0,
-   "period_end": "2023-09-30",
-   "pretax_income": -40104000,
-   "rd_expense": 24660000,
-   "retained_earnings": -701234000,
-   "revenue": 0,
-   "revenue_filed": "2023-11-09",
-   "shares_diluted": 4293812,
-   "shares_diluted_adj": 4293812,
-   "shares_diluted_filled": 4293812,
-   "shares_diluted_filled_filed": "2024-11-18",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 4048687,
-   "short_term_investments": 113007000,
-   "stock_comp": 4800000,
-   "total_assets": 207265000,
-   "total_equity": -245402000,
-   "total_equity_parent": -245402000,
-   "total_liabilities": 65562000
-  },
   {
    "capex": 0,
    "capex_filed": "2024-02-29",
@@ -1169,7 +1135,7 @@
    "cash": 64897000,
    "current_assets": 504604000,
    "current_liabilities": 46274000,
-   "filed": "2025-11-04",
+   "filed": "2026-11-03",
    "form": "10-Q",
    "income_tax": 0,
    "net_income": -11183000,
@@ -1277,9 +1243,38 @@
    "total_equity": 1101141000,
    "total_equity_parent": 1101141000,
    "total_liabilities": 71862000
+  },
+  {
+   "cash": 82727000,
+   "cash_and_short_term_investments": 1100000000,
+   "current_assets": 1099728000,
+   "current_liabilities": 40143000,
+   "eps_diluted": -0.95,
+   "filed": "2026-11-03",
+   "form": "10-Q",
+   "income_tax": 0,
+   "net_income": -96121000,
+   "net_income_parent": -96121000,
+   "operating_cash_flow": -77495000,
+   "operating_income": -105719000,
+   "period_end": "2026-09-30",
+   "pretax_income": -96121000,
+   "rd_expense": 89169000,
+   "retained_earnings": -1328961000,
+   "shares_diluted_adj": 94969184,
+   "shares_diluted_filled": 94969184,
+   "shares_diluted_filled_filed": "2026-11-03",
+   "shares_diluted_filled_source": "cover",
+   "shares_outstanding": 89953997,
+   "short_term_investments": 989180000,
+   "stock_comp": 14167000,
+   "total_assets": 1099728000,
+   "total_equity": 1051535000,
+   "total_equity_parent": 1051535000,
+   "total_liabilities": 48193000
   }
  ],
- "sec_name": "Spyre Therapeutics, Inc.",
+ "sec_name": "SPYRE THERAPEUTICS, INC.",
  "sic": "2834",
  "sic_description": "Pharmaceutical Preparations",
  "splits": [
@@ -1375,27 +1370,28 @@
    "val": 0
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-04",
+   "end": "2026-09-30",
+   "filed": "2026-11-03",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -178918000
+   "val": -263856000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-04",
+   "end": "2026-09-30",
+   "filed": "2026-11-03",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -208944000
+   "val": -249322000
   },
   "revenue": {
    "end": "2025-12-31",
    "filed": "2026-02-19",
    "method": "fiscal_year",
+   "stale": true,
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
    ],
@@ -1412,13 +1408,13 @@
    "val": 50889433
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-04",
+   "end": "2026-09-30",
+   "filed": "2026-11-03",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 45695000
+   "val": 50296000
   }
  },
  "v2_annual": [
@@ -5228,6 +5224,57 @@
    },
    "start": "2026-04-01",
    "stock_comp": 13512000
+  },
+  {
+   "cash": 82727000,
+   "cash_and_sti": 1100000000,
+   "end": "2026-09-30",
+   "equity": 1051535000,
+   "net_income": -96121000,
+   "operating_cash_flow": -77495000,
+   "short_term_investments": 989180000,
+   "src": {
+    "cash": {
+     "accn": "0001636282-26-000131",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001636282-26-000131",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001636282-26-000131",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001636282-26-000131",
+     "derived": true,
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "short_term_investments": {
+     "accn": "0001636282-26-000131",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "AvailableForSaleSecuritiesDebtSecuritiesCurrent"
+    },
+    "stock_comp": {
+     "accn": "0001636282-26-000131",
+     "derived": true,
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 14167000
   }
  ],
  "v2_tags_used": {

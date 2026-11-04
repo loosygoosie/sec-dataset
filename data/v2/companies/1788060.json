@@ -299,17 +299,14 @@
   "total_liabilities": 2
  },
  "balance": {
-  "cash_and_sti": 373436000,
-  "debt_end": "2025-12-31",
-  "debt_noncurrent": 0,
-  "end": "2026-06-30",
-  "equity": 325714000,
-  "total_debt": 0
+  "cash_and_sti": 553613000,
+  "end": "2026-09-30",
+  "equity": 319724000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 35,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -319,32 +316,31 @@
  "cik": 1788060,
  "fiscal_year_end": "1231",
  "flags": [
-  "no_debt_tagged",
-  "debt_one_side_only"
+  "no_debt_tagged"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001628280-26-052292",
-  "filed": "2026-08-04",
+  "accn": "0001628280-26-069548",
+  "filed": "2026-11-03",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 1009273000.0,
+  "assets": 1592272000.0,
   "classes": {
-   "CommonClassAMember": 55270494.0,
+   "CommonClassAMember": 56339819.0,
    "CommonClassBMember": 5758566.0
   },
-  "cover_accession": "0001628280-26-052292",
-  "cover_date": "2026-07-31",
+  "cover_accession": "0001628280-26-069548",
+  "cover_date": "2026-10-30",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-10",
   "note": null,
   "public_float": 2030000000.0,
   "revenue": 166419000.0,
-  "shares_cover": 61029060.0,
-  "shares_total": 61029060.0,
+  "shares_cover": 62098385.0,
+  "shares_total": 62098385.0,
   "size_gate": "float"
  },
  "name": "Voyager Technologies, Inc./TX",
@@ -550,9 +546,10 @@
    "d_and_a": 1100000,
    "debt_current": 0,
    "eps_diluted": -0.28,
-   "filed": "2025-11-04",
+   "filed": "2026-11-03",
    "form": "10-Q",
    "goodwill": 72108000,
+   "gross_profit": 6090000,
    "impairments": 0,
    "income_tax": -1762000,
    "intangibles": 44876000,
@@ -567,15 +564,16 @@
    "operating_leases": 6132000,
    "period_end": "2025-09-30",
    "pretax_income": -20098000,
+   "rd_expense": 3038000,
    "receivables": 16519000,
    "retained_earnings": -355706000,
    "revenue": 39587000,
    "revenue_filed": "2025-11-04",
    "sga_expense": 25106000,
-   "shares_diluted": 58407000,
-   "shares_diluted_adj": 58407000,
-   "shares_diluted_filled": 58407000,
-   "shares_diluted_filled_filed": "2025-11-04",
+   "shares_diluted": 58406626,
+   "shares_diluted_adj": 58406626,
+   "shares_diluted_filled": 58406626,
+   "shares_diluted_filled_filed": "2026-11-03",
    "shares_diluted_filled_source": "shares_diluted",
    "stock_comp": 2120000,
    "total_assets": 727796000,
@@ -611,6 +609,7 @@
    "operating_leases": 19167000,
    "period_end": "2025-12-31",
    "pretax_income": -31809000,
+   "rd_expense": 11420000,
    "receivables": 29819000,
    "retained_earnings": -385927000,
    "revenue": 46651000,
@@ -714,22 +713,54 @@
    "total_equity_incl_nci": 376582000,
    "total_equity_parent": 325714000,
    "total_liabilities": 632691000
+  },
+  {
+   "capex": 28187000,
+   "capex_filed": "2026-11-03",
+   "cash": 553613000,
+   "current_assets": 687866000,
+   "current_liabilities": 234412000,
+   "d_and_a": 2100000,
+   "eps_diluted": -0.91,
+   "filed": "2026-11-03",
+   "form": "10-Q",
+   "goodwill": 371825000,
+   "gross_profit": 10231000,
+   "income_tax": -3730000,
+   "intangibles": 203351000,
+   "interest_expense": 2695000,
+   "inventory": 12451000,
+   "net_income": -55680000,
+   "net_income_incl_nci": -58373000,
+   "net_income_parent": -55680000,
+   "operating_cash_flow": -29704000,
+   "operating_income": -61903000,
+   "operating_leases": 33267000,
+   "period_end": "2026-09-30",
+   "pretax_income": -62103000,
+   "rd_expense": 16347000,
+   "receivables": 42899000,
+   "retained_earnings": -532080000,
+   "revenue": 88715000,
+   "revenue_filed": "2026-11-03",
+   "sga_expense": 47846000,
+   "shares_diluted": 61011922,
+   "shares_diluted_adj": 61011922,
+   "shares_diluted_filled": 61011922,
+   "shares_diluted_filled_filed": "2026-11-03",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 5002000,
+   "total_assets": 1592272000,
+   "total_equity": 319724000,
+   "total_equity_incl_nci": 368870000,
+   "total_equity_parent": 319724000,
+   "total_liabilities": 1223402000
   }
  ],
  "sec_name": "Voyager Technologies, Inc./TX",
  "sic": "3760",
  "sic_description": "Guided Missiles & Space Vehicles & Parts",
- "splits": [
-  {
-   "after": null,
-   "applied": false,
-   "cover": false,
-   "date": "2025-08-05",
-   "evidence": 0,
-   "ratio": 1.5,
-   "xbrl": true
-  }
- ],
+ "splits": [],
  "tags_used": {
   "acquisition_cost_amort": null,
   "acquisitions": "PaymentsToAcquireBusinessesNetOfCashAcquired",
@@ -802,63 +833,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-04",
+   "end": "2026-09-30",
+   "filed": "2026-11-03",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 173460000
+   "val": 162950000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": -287527000
+   "val": -291660000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-04",
+   "end": "2026-09-30",
+   "filed": "2026-11-03",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -136967000
+   "val": -176374000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-04",
+   "end": "2026-09-30",
+   "filed": "2026-11-03",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -114067000
+   "val": -128710000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-04",
+   "end": "2026-09-30",
+   "filed": "2026-11-03",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
    ],
-   "val": 174230000
+   "val": 223358000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-04",
+   "end": "2026-09-30",
+   "filed": "2026-11-03",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 58521968
+   "val": 61011922
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-04",
+   "end": "2026-09-30",
+   "filed": "2026-11-03",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 13520000
+   "val": 16403000
   }
  },
  "v2_annual": [
@@ -1567,7 +1598,7 @@
    "net_income": -16273000,
    "operating_cash_flow": -15061000,
    "revenue": 39587000,
-   "shares_diluted": 58407000,
+   "shares_diluted": 58406626,
    "src": {
     "capex": {
      "accn": "0001628280-25-048679",
@@ -1608,8 +1639,10 @@
      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
     },
     "shares_diluted": {
-     "accn": "0001628280-25-048679",
-     "filed": "2025-11-04",
+     "accn": "0001628280-26-069548",
+     "filed": "2026-11-03",
+     "first_filed": "2025-11-04",
+     "first_val": 58407000,
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
     },
@@ -1840,6 +1873,73 @@
    },
    "start": "2026-04-01",
    "stock_comp": 3762000
+  },
+  {
+   "capex": 28187000,
+   "cash": 553613000,
+   "cash_and_sti": 553613000,
+   "end": "2026-09-30",
+   "equity": 319724000,
+   "fcf": -57891000,
+   "net_income": -55680000,
+   "operating_cash_flow": -29704000,
+   "revenue": 88715000,
+   "shares_diluted": 61011922,
+   "src": {
+    "capex": {
+     "accn": "0001628280-26-069548",
+     "derived": true,
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001628280-26-069548",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001628280-26-069548",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001628280-26-069548",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001628280-26-069548",
+     "derived": true,
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001628280-26-069548",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001628280-26-069548",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001628280-26-069548",
+     "derived": true,
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 5003000
   }
  ],
  "v2_tags_used": {

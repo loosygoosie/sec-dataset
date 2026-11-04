@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 168018000,
-  "end": "2026-06-30",
-  "equity": 168796000
+  "cash_and_sti": 155627000,
+  "end": "2026-09-30",
+  "equity": 151011000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 119,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 35,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,26 +91,26 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001193125-26-346931",
-  "filed": "2026-08-12",
+  "accn": "0001193125-26-445430",
+  "filed": "2026-11-03",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 183140000.0,
+  "assets": 170456000.0,
   "classes": {
-   "common": 35730843.0
+   "common": 42017901.0
   },
-  "cover_accession": "0001193125-26-346931",
-  "cover_date": "2026-08-07",
+  "cover_accession": "0001193125-26-445430",
+  "cover_date": "2026-10-29",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 35730843.0,
-  "shares_total": 35730843.0,
+  "shares_cover": 42017901.0,
+  "shares_total": 42017901.0,
   "size_gate": "no_float"
  },
  "name": "First Tracks Biotherapeutics, Inc.",
@@ -154,6 +154,29 @@
    "stock_comp": 7656000,
    "total_equity": 270657000,
    "total_equity_parent": 270657000
+  },
+  {
+   "capex": 12000,
+   "capex_filed": "2026-11-03",
+   "cash": 109833000,
+   "d_and_a": 140000,
+   "eps_diluted": -1.5,
+   "filed": "2026-11-03",
+   "form": "10-Q",
+   "net_income": -41859000,
+   "net_income_parent": -41859000,
+   "operating_cash_flow": -30691000,
+   "operating_income": -45057000,
+   "period_end": "2025-09-30",
+   "rd_expense": 33322000,
+   "shares_diluted": 27833000,
+   "shares_diluted_adj": 27833000,
+   "shares_diluted_filled": 27833000,
+   "shares_diluted_filled_filed": "2026-11-03",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 9845000,
+   "total_equity": 231640000,
+   "total_equity_parent": 231640000
   },
   {
    "capex": 17000,
@@ -210,9 +233,39 @@
    "total_assets": 183140000,
    "total_equity": 168796000,
    "total_equity_parent": 168796000
+  },
+  {
+   "capex": 0,
+   "capex_filed": "2026-11-03",
+   "cash": 155627000,
+   "current_assets": 165722000,
+   "current_liabilities": 18090000,
+   "d_and_a": 92000,
+   "eps_diluted": -0.88,
+   "filed": "2026-11-03",
+   "form": "10-Q",
+   "net_income": -31356000,
+   "net_income_parent": -31356000,
+   "operating_cash_flow": -17051000,
+   "operating_income": -32844000,
+   "operating_leases": 3773000,
+   "period_end": "2026-09-30",
+   "rd_expense": 23846000,
+   "retained_earnings": -55932000,
+   "shares_diluted": 35747000,
+   "shares_diluted_adj": 35747000,
+   "shares_diluted_filled": 35747000,
+   "shares_diluted_filled_filed": "2026-11-03",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 35902449,
+   "short_term_investments": 0,
+   "stock_comp": 8897000,
+   "total_assets": 170456000,
+   "total_equity": 151011000,
+   "total_equity_parent": 151011000
   }
  ],
- "sec_name": "First Tracks Biotherapeutics, Inc.",
+ "sec_name": "FIRST TRACKS BIOTHERAPEUTICS, INC.",
  "sic": "2834",
  "sic_description": "Pharmaceutical Preparations",
  "splits": [],
@@ -288,13 +341,13 @@
  ],
  "ttm": {
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-03",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 35003000
+   "val": 35747000
   }
  },
  "v2_annual": [],
@@ -410,6 +463,66 @@
    },
    "start": "2025-04-01",
    "stock_comp": 7656000
+  },
+  {
+   "capex": 12000,
+   "cash": 109833000,
+   "cash_and_sti": 109833000,
+   "end": "2025-09-30",
+   "equity": 231640000,
+   "fcf": -30703000,
+   "net_income": -41859000,
+   "operating_cash_flow": -30691000,
+   "shares_diluted": 27833000,
+   "src": {
+    "capex": {
+     "accn": "0001193125-26-445430",
+     "derived": true,
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001193125-26-445430",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001193125-26-445430",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001193125-26-445430",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-445430",
+     "derived": true,
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "shares_diluted": {
+     "accn": "0001193125-26-445430",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001193125-26-445430",
+     "derived": true,
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2025-07-01",
+   "stock_comp": 9845000
   },
   {
    "capex": 17000,
@@ -534,6 +647,73 @@
    },
    "start": "2026-04-01",
    "stock_comp": 8319000
+  },
+  {
+   "capex": 0,
+   "cash": 155627000,
+   "cash_and_sti": 155627000,
+   "end": "2026-09-30",
+   "equity": 151011000,
+   "fcf": -17051000,
+   "net_income": -31356000,
+   "operating_cash_flow": -17051000,
+   "shares_diluted": 35747000,
+   "short_term_investments": 0,
+   "src": {
+    "capex": {
+     "accn": "0001193125-26-445430",
+     "derived": true,
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001193125-26-445430",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001193125-26-445430",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001193125-26-445430",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-445430",
+     "derived": true,
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "shares_diluted": {
+     "accn": "0001193125-26-445430",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "short_term_investments": {
+     "accn": "0001193125-26-445430",
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "AvailableForSaleSecuritiesDebtSecuritiesCurrent"
+    },
+    "stock_comp": {
+     "accn": "0001193125-26-445430",
+     "derived": true,
+     "filed": "2026-11-03",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 8897000
   }
  ],
  "v2_tags_used": {
