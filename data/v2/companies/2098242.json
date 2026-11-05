@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 860725,
-  "end": "2026-06-30",
-  "equity": -8151542
+  "cash_and_sti": 0,
+  "end": "2026-09-30",
+  "equity": -8208699
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 36,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001104659-26-092686",
-  "filed": "2026-08-07",
+  "accn": "0001104659-26-122662",
+  "filed": "2026-11-04",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 234089094.0,
+  "assets": 236057455.0,
   "classes": {
    "CommonClassAMember": 23000000.0,
    "CommonClassBMember": 7666667.0
   },
-  "cover_accession": "0001104659-26-092686",
-  "cover_date": "2026-08-06",
+  "cover_accession": "0001104659-26-122662",
+  "cover_date": "2026-11-04",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -150,6 +150,23 @@
    "total_equity": -8151542,
    "total_equity_parent": -8151542,
    "total_liabilities": 9276500
+  },
+  {
+   "current_assets": 939556,
+   "current_liabilities": 79693,
+   "filed": "2026-11-04",
+   "form": "10-Q",
+   "net_income": 1965168,
+   "net_income_incl_nci": 1965168,
+   "net_income_parent": 1965168,
+   "operating_cash_flow": -120036,
+   "operating_income": -163595,
+   "period_end": "2026-09-30",
+   "retained_earnings": -8209466,
+   "total_assets": 236057455,
+   "total_equity": -8208699,
+   "total_equity_parent": -8208699,
+   "total_liabilities": 9279693
   }
  ],
  "sec_name": "SPRING VALLEY ACQUISITION CORP. IV",
@@ -303,6 +320,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 0,
+   "cash_and_sti": 0,
+   "end": "2026-09-30",
+   "equity": -8208699,
+   "net_income": 1965168,
+   "operating_cash_flow": -120036,
+   "src": {
+    "cash": {
+     "accn": "0001104659-26-122662",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "Cash"
+    },
+    "equity": {
+     "accn": "0001104659-26-122662",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001104659-26-122662",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001104659-26-122662",
+     "derived": true,
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

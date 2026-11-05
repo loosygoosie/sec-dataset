@@ -1144,17 +1144,14 @@
   "total_liabilities": 14
  },
  "balance": {
-  "cash_and_sti": 410968000,
-  "debt_end": "2025-12-31",
-  "debt_noncurrent": 249500000,
-  "end": "2026-06-30",
-  "equity": 363547000,
-  "total_debt": 249500000
+  "cash_and_sti": 652274000,
+  "end": "2026-09-30",
+  "equity": 354408000
  },
  "bank": true,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 36,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1164,23 +1161,23 @@
  "cik": 1562463,
  "fiscal_year_end": "1231",
  "flags": [
-  "debt_one_side_only"
+  "no_debt_tagged"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001562463-26-000088",
-  "filed": "2026-08-05",
+  "accn": "0001562463-26-000106",
+  "filed": "2026-11-04",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 5556375000.0,
+  "assets": 5888003000.0,
   "classes": {
    "common": 8733574.0
   },
-  "cover_accession": "0001562463-26-000088",
-  "cover_date": "2026-07-31",
+  "cover_accession": "0001562463-26-000106",
+  "cover_date": "2026-10-30",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-11",
   "note": null,
@@ -1192,47 +1189,6 @@
  },
  "name": "First Internet Bancorp",
  "quarterly": [
-  {
-   "buybacks": 1846000,
-   "capex": 1838000,
-   "capex_filed": "2023-11-08",
-   "cash": 521205000,
-   "credit_loss_provision": 1850000,
-   "d_and_a": 101000,
-   "deposits": 4083545000,
-   "dividends_paid": 532000,
-   "eps_diluted": 0.39,
-   "filed": "2024-11-07",
-   "form": "10-Q",
-   "goodwill": 4687000,
-   "income_tax": -326000,
-   "interest_expense": 45637000,
-   "interest_income": 63015000,
-   "loans": 3698616000,
-   "lt_debt_noncurrent": 614933000,
-   "net_income": 3409000,
-   "net_income_parent": 3409000,
-   "net_interest_income": 17378000,
-   "operating_cash_flow": 4220000,
-   "period_end": "2023-09-30",
-   "pretax_income": 3083000,
-   "retained_earnings": 203856000,
-   "revenue": 24785000,
-   "revenue_filed": "2023-11-08",
-   "shares_diluted": 8767217,
-   "shares_diluted_adj": 8767217,
-   "shares_diluted_filled": 8767217,
-   "shares_diluted_filled_filed": "2024-11-07",
-   "shares_diluted_filled_source": "shares_diluted",
-   "stock_comp": 386000,
-   "total_assets": 5169023000,
-   "total_debt": 614933000,
-   "total_debt_basis": "tagged",
-   "total_debt_filed": "2023-11-08",
-   "total_equity": 347744000,
-   "total_equity_parent": 347744000,
-   "total_liabilities": 4821279000
-  },
   {
    "buybacks": 720000,
    "capex": 397000,
@@ -1506,7 +1462,7 @@
    "deposits": 4915434000,
    "dividends_paid": 517000,
    "eps_diluted": -4.76,
-   "filed": "2025-11-10",
+   "filed": "2026-11-04",
    "form": "10-Q",
    "goodwill": 4687000,
    "income_tax": -12950000,
@@ -1524,7 +1480,7 @@
    "shares_diluted": 8742052,
    "shares_diluted_adj": 8742052,
    "shares_diluted_filled": 8742052,
-   "shares_diluted_filled_filed": "2025-11-10",
+   "shares_diluted_filled_filed": "2026-11-04",
    "shares_diluted_filled_source": "shares_diluted",
    "stock_comp": 490000,
    "total_assets": 5639174000,
@@ -1642,6 +1598,41 @@
    "total_equity": 363547000,
    "total_equity_parent": 363547000,
    "total_liabilities": 5192828000
+  },
+  {
+   "capex": 44000,
+   "capex_filed": "2026-11-04",
+   "cash": 652274000,
+   "credit_loss_provision": 12148000,
+   "d_and_a": 973000,
+   "deposits": 5152766000,
+   "dividends_paid": 524000,
+   "eps_diluted": 0.54,
+   "filed": "2026-11-04",
+   "form": "10-Q",
+   "goodwill": 4687000,
+   "income_tax": 236000,
+   "interest_income": 80031000,
+   "loans": 3806623000,
+   "net_income": 4819000,
+   "net_income_parent": 4819000,
+   "net_interest_income": 34742000,
+   "operating_cash_flow": 29409000,
+   "period_end": "2026-09-30",
+   "pretax_income": 5055000,
+   "retained_earnings": 201399000,
+   "revenue": 43941000,
+   "revenue_filed": "2026-11-04",
+   "shares_diluted": 8865954,
+   "shares_diluted_adj": 8865954,
+   "shares_diluted_filled": 8865954,
+   "shares_diluted_filled_filed": "2026-11-04",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 515000,
+   "total_assets": 5888003000,
+   "total_equity": 354408000,
+   "total_equity_parent": 354408000,
+   "total_liabilities": 5533595000
   }
  ],
  "sec_name": "First Internet Bancorp",
@@ -1731,63 +1722,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 714000
+   "val": 652000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": 159910000
+   "val": 152308000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -31428000
+   "val": 14984000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 160624000
+   "val": 152960000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "InterestIncomeExpenseNet+NoninterestIncome"
    ],
-   "val": 131642000
+   "val": 169878000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 8822099
+   "val": 8865954
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 2117000
+   "val": 2142000
   }
  },
  "v2_annual": [
@@ -3055,20 +3046,6 @@
   },
   {
    "field": "revenue",
-   "old": 63015000,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 24785000
-  },
-  {
-   "field": "lt_debt_noncurrent",
-   "old": null,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 614933000
-  },
-  {
-   "field": "revenue",
    "old": 66272000,
    "period": "2023-12-31",
    "rows": "quarterly",
@@ -3164,6 +3141,13 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 41124000
+  },
+  {
+   "field": "revenue",
+   "old": 80031000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 43941000
   }
  ],
  "v2_notes": [],
@@ -7237,6 +7221,73 @@
    },
    "start": "2026-04-01",
    "stock_comp": 578000
+  },
+  {
+   "capex": 44000,
+   "cash": 652274000,
+   "cash_and_sti": 652274000,
+   "end": "2026-09-30",
+   "equity": 354408000,
+   "fcf": 29365000,
+   "net_income": 4819000,
+   "operating_cash_flow": 29409000,
+   "revenue": 43941000,
+   "shares_diluted": 8865954,
+   "src": {
+    "capex": {
+     "accn": "0001562463-26-000106",
+     "derived": true,
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001562463-26-000106",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001562463-26-000106",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001562463-26-000106",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001562463-26-000106",
+     "derived": true,
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001562463-26-000106",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "InterestIncomeExpenseNet+NoninterestIncome"
+    },
+    "shares_diluted": {
+     "accn": "0001562463-26-000106",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001562463-26-000106",
+     "derived": true,
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 515000
   }
  ],
  "v2_tags_used": {

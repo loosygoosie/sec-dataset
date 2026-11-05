@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1171800000,
-  "end": "2026-06-30",
-  "equity": 1118464000
+  "cash_and_sti": 1037600000,
+  "end": "2026-09-30",
+  "equity": 1031116000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 36,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,26 +91,26 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001193125-26-346958",
-  "filed": "2026-08-12",
+  "accn": "0001193125-26-447257",
+  "filed": "2026-11-04",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 1211416000.0,
+  "assets": 1082178000.0,
   "classes": {
-   "common": 129643676.0
+   "common": 129850481.0
   },
-  "cover_accession": "0001193125-26-346958",
-  "cover_date": "2026-08-06",
+  "cover_accession": "0001193125-26-447257",
+  "cover_date": "2026-10-29",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 129643676.0,
-  "shares_total": 129643676.0,
+  "shares_cover": 129850481.0,
+  "shares_total": 129850481.0,
   "size_gate": "no_float"
  },
  "name": "Kailera Therapeutics, Inc.",
@@ -148,6 +148,23 @@
    "stock_comp": 1631000,
    "total_equity": -262580000,
    "total_equity_parent": -262580000
+  },
+  {
+   "cash": 97914000,
+   "d_and_a": 63000,
+   "eps_diluted": -39623,
+   "filed": "2026-11-04",
+   "form": "10-Q",
+   "net_income": -39623000,
+   "net_income_parent": -39623000,
+   "operating_cash_flow": -29698000,
+   "operating_income": -40109000,
+   "period_end": "2025-09-30",
+   "rd_expense": 26994000,
+   "shares_diluted": 1,
+   "stock_comp": 4269000,
+   "total_equity": -297878000,
+   "total_equity_parent": -297878000
   },
   {
    "cash": 111826000,
@@ -210,6 +227,37 @@
    "total_equity": 1118464000,
    "total_equity_parent": 1118464000,
    "total_liabilities": 92952000
+  },
+  {
+   "cash": 106537000,
+   "cash_and_short_term_investments": 1037600000,
+   "current_assets": 919756000,
+   "current_liabilities": 42116000,
+   "d_and_a": 101000,
+   "eps_diluted": -0.74,
+   "filed": "2026-11-04",
+   "form": "10-Q",
+   "long_term_investments": 136187000,
+   "net_income": -95665000,
+   "net_income_parent": -95665000,
+   "operating_cash_flow": -133668000,
+   "operating_income": -106336000,
+   "operating_leases": 9971000,
+   "period_end": "2026-09-30",
+   "rd_expense": 84667000,
+   "retained_earnings": -654505000,
+   "shares_diluted": 129653008,
+   "shares_diluted_adj": 129653008,
+   "shares_diluted_filled": 129653008,
+   "shares_diluted_filled_filed": "2026-11-04",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 129684183,
+   "short_term_investments": 794917000,
+   "stock_comp": 9921000,
+   "total_assets": 1082178000,
+   "total_equity": 1031116000,
+   "total_equity_parent": 1031116000,
+   "total_liabilities": 51062000
   }
  ],
  "sec_name": "Kailera Therapeutics, Inc.",
@@ -220,7 +268,7 @@
   "acquisition_cost_amort": null,
   "acquisitions": null,
   "buybacks": null,
-  "capex": null,
+  "capex": "PaymentsToAcquirePropertyPlantAndEquipment",
   "capitalized_software": null,
   "cash": "CashAndCashEquivalentsAtCarryingValue,CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
   "cash_and_short_term_investments": "CashCashEquivalentsAndShortTermInvestments",
@@ -288,13 +336,13 @@
  ],
  "ttm": {
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 102226608
+   "val": 129653008
   }
  },
  "v2_annual": [],
@@ -400,6 +448,57 @@
    },
    "start": "2025-04-01",
    "stock_comp": 1631000
+  },
+  {
+   "cash": 97914000,
+   "cash_and_sti": 97914000,
+   "end": "2025-09-30",
+   "equity": -297878000,
+   "net_income": -39623000,
+   "operating_cash_flow": -29698000,
+   "shares_diluted": 1,
+   "src": {
+    "cash": {
+     "accn": "0001193125-26-447257",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001193125-26-447257",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001193125-26-447257",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-447257",
+     "derived": true,
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "shares_diluted": {
+     "accn": "0001193125-26-447257",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001193125-26-447257",
+     "derived": true,
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2025-07-01",
+   "stock_comp": 4269000
   },
   {
    "cash": 111826000,
@@ -514,6 +613,64 @@
    },
    "start": "2026-04-01",
    "stock_comp": 8344000
+  },
+  {
+   "cash": 106537000,
+   "cash_and_sti": 1037600000,
+   "end": "2026-09-30",
+   "equity": 1031116000,
+   "net_income": -95665000,
+   "operating_cash_flow": -133668000,
+   "shares_diluted": 129653008,
+   "short_term_investments": 794917000,
+   "src": {
+    "cash": {
+     "accn": "0001193125-26-447257",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001193125-26-447257",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001193125-26-447257",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-447257",
+     "derived": true,
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "shares_diluted": {
+     "accn": "0001193125-26-447257",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "short_term_investments": {
+     "accn": "0001193125-26-447257",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "MarketableSecuritiesCurrent"
+    },
+    "stock_comp": {
+     "accn": "0001193125-26-447257",
+     "derived": true,
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 9921000
   }
  ],
  "v2_tags_used": {

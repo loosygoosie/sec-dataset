@@ -593,16 +593,16 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 337000000,
+  "cash_and_sti": 483000000,
   "debt_noncurrent": 737000000,
-  "end": "2026-06-30",
-  "equity": 2864000000,
+  "end": "2026-09-30",
+  "equity": 2816000000,
   "total_debt": 737000000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 126,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 36,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -614,50 +614,36 @@
  "flags": [
   "no_capex",
   "revenue_unverified_2023-12-31",
-  "revenue_unverified_2025-12-31",
   "revenue_unverified_2024-12-31",
+  "revenue_unverified_2025-12-31",
   "debt_one_side_only"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001737706-26-000026",
-  "filed": "2026-08-10",
+  "accn": "0001737706-26-000033",
+  "filed": "2026-11-04",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 4106000000.0,
+  "assets": 4152000000.0,
   "classes": {
-   "common": 62541443.0
+   "common": 61498053.0
   },
-  "cover_accession": "0001737706-26-000026",
-  "cover_date": "2026-08-06",
+  "cover_accession": "0001737706-26-000033",
+  "cover_date": "2026-10-30",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-26",
   "note": null,
   "public_float": 849000000.0,
   "revenue": 1437000000.0,
-  "shares_cover": 62541443.0,
-  "shares_total": 62541443.0,
+  "shares_cover": 61498053.0,
+  "shares_total": 61498053.0,
   "size_gate": "float"
  },
  "name": "SEADRILL Ltd",
  "quarterly": [
-  {
-   "cash": 480000000,
-   "filed": "2025-02-27",
-   "form": "10-K",
-   "period_end": "2022-12-31",
-   "shares_diluted": 53000000,
-   "shares_diluted_adj": 53000000,
-   "shares_diluted_filled": 53000000,
-   "shares_diluted_filled_filed": "2025-02-27",
-   "shares_diluted_filled_source": "shares_diluted",
-   "total_equity": 1702000000,
-   "total_equity_incl_nci": 1702000000,
-   "total_equity_parent": 1702000000
-  },
   {
    "cash": 697000000,
    "current_assets": 1158000000,
@@ -884,7 +870,7 @@
    "current_liabilities": 439000000,
    "d_and_a": 58000000,
    "eps_diluted": -0.17,
-   "filed": "2025-11-06",
+   "filed": "2026-11-04",
    "form": "10-Q",
    "income_tax": 11000000,
    "interest_expense": 15000000,
@@ -904,7 +890,7 @@
    "shares_diluted": 65000000,
    "shares_diluted_adj": 65000000,
    "shares_diluted_filled": 65000000,
-   "shares_diluted_filled_filed": "2025-11-06",
+   "shares_diluted_filled_filed": "2026-11-04",
    "shares_diluted_filled_source": "shares_diluted",
    "stock_comp": 5000000,
    "total_assets": 4067000000,
@@ -1022,6 +1008,42 @@
    "total_debt_filed": "2026-08-10",
    "total_equity": 2864000000,
    "total_equity_parent": 2864000000
+  },
+  {
+   "cash": 483000000,
+   "current_assets": 1006000000,
+   "current_liabilities": 462000000,
+   "d_and_a": 77000000,
+   "eps_diluted": -0.49,
+   "filed": "2026-11-04",
+   "form": "10-Q",
+   "income_tax": 19000000,
+   "interest_expense": 15000000,
+   "lt_debt_noncurrent": 737000000,
+   "net_income": -30000000,
+   "net_income_parent": -30000000,
+   "operating_cash_flow": 195000000,
+   "operating_income": 44000000,
+   "operating_leases": 22000000,
+   "period_end": "2026-09-30",
+   "pretax_income": -11000000,
+   "receivables": 239000000,
+   "retained_earnings": 862000000,
+   "revenue": 428000000,
+   "revenue_filed": "2026-11-04",
+   "sga_expense": 25000000,
+   "shares_diluted": 65000000,
+   "shares_diluted_adj": 65000000,
+   "shares_diluted_filled": 65000000,
+   "shares_diluted_filled_filed": "2026-11-04",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 4000000,
+   "total_assets": 4152000000,
+   "total_debt": 737000000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-04",
+   "total_equity": 2816000000,
+   "total_equity_parent": 2816000000
   }
  ],
  "sec_name": "SEADRILL LIMITED",
@@ -1100,35 +1122,35 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 1000000
+   "val": -18000000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -52000000
+   "val": 115000000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "Revenues"
    ],
-   "val": 1532000000
+   "val": 1597000000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
@@ -1136,13 +1158,13 @@
    "val": 65000000
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 17000000
+   "val": 16000000
   }
  },
  "v2_annual": [
@@ -1419,6 +1441,13 @@
    "field": "total_debt",
    "old": 750000000,
    "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 737000000
+  },
+  {
+   "field": "total_debt",
+   "old": 750000000,
+   "period": "2026-09-30",
    "rows": "quarterly",
    "v2": 737000000
   }
@@ -2071,6 +2100,76 @@
    },
    "start": "2026-04-01",
    "stock_comp": 5000000,
+   "total_debt": 737000000
+  },
+  {
+   "cash": 483000000,
+   "cash_and_sti": 483000000,
+   "debt_noncurrent": 737000000,
+   "end": "2026-09-30",
+   "equity": 2816000000,
+   "net_income": -30000000,
+   "operating_cash_flow": 195000000,
+   "revenue": 428000000,
+   "shares_diluted": 65000000,
+   "src": {
+    "cash": {
+     "accn": "0001737706-26-000033",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001737706-26-000033",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001737706-26-000033",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001737706-26-000033",
+     "derived": true,
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001737706-26-000033",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001737706-26-000033",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001737706-26-000033",
+     "derived": true,
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-04",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LongTermDebtNoncurrent"
+     ],
+     "values": {
+      "LongTermDebtNoncurrent": 737000000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 4000000,
    "total_debt": 737000000
   }
  ],

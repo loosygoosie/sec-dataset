@@ -1548,98 +1548,51 @@
   "total_liabilities": 17
  },
  "balance": {
-  "cash_and_sti": 143707000,
-  "debt_current": 1621000,
-  "debt_end": "2025-12-31",
-  "debt_noncurrent": 6124000,
-  "end": "2026-06-30",
-  "equity": 572474000,
-  "total_debt": 7745000
+  "cash_and_sti": 169916000,
+  "end": "2026-09-30",
+  "equity": 582134000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 36,
   "reconciled_fy": 2026,
-  "reconciles": "ok",
+  "reconciles": "off:operating_cash_flow",
   "revenue": "ok",
   "share_scale": "suspect:scale,levels",
   "shares": "ok"
  },
  "cik": 880807,
  "fiscal_year_end": "0331",
- "flags": [],
+ "flags": [
+  "no_debt_tagged"
+ ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001437749-26-025922",
-  "filed": "2026-08-05",
+  "accn": "0001437749-26-034936",
+  "filed": "2026-11-04",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 762217000.0,
+  "assets": 774660000.0,
   "classes": {
-   "common": 48442143.0
+   "common": 48455057.0
   },
-  "cover_accession": "0001437749-26-025922",
-  "cover_date": "2026-07-31",
+  "cover_accession": "0001437749-26-034936",
+  "cover_date": "2026-10-30",
   "float_date": "2025-09-30",
   "float_filed": "2026-05-27",
   "note": null,
   "public_float": 2581300000.0,
   "revenue": 299155000.0,
-  "shares_cover": 48442143.0,
-  "shares_total": 48442143.0,
+  "shares_cover": 48455057.0,
+  "shares_total": 48455057.0,
   "size_gate": "float"
  },
  "name": "AMERICAN SUPERCONDUCTOR CORP /DE/",
  "quarterly": [
-  {
-   "capex": 216000,
-   "capex_filed": "2023-11-01",
-   "cash": 22818000,
-   "current_assets": 104106000,
-   "current_liabilities": 85265000,
-   "d_and_a": 600000,
-   "debt_current": 57000,
-   "debt_current_total": 57000,
-   "eps_diluted": -0.09,
-   "filed": "2024-10-30",
-   "form": "10-Q",
-   "goodwill": 43471000,
-   "gross_profit": 8586000,
-   "impairments": 0,
-   "income_tax": 106000,
-   "intangibles": 7445000,
-   "inventory": 47835000,
-   "lt_debt_noncurrent": 0,
-   "net_income": -2485000,
-   "net_income_parent": -2485000,
-   "operating_cash_flow": 897000,
-   "operating_income": -2369000,
-   "period_end": "2023-09-30",
-   "pretax_income": -2379000,
-   "rd_expense": 1641000,
-   "receivables": 27509000,
-   "retained_earnings": -1063430000,
-   "revenue": 34004000,
-   "revenue_filed": "2023-11-01",
-   "sga_expense": 7946000,
-   "shares_diluted": 28828000,
-   "shares_diluted_adj": 28828000,
-   "shares_diluted_filled": 28828000,
-   "shares_diluted_filled_filed": "2024-10-30",
-   "shares_diluted_filled_source": "shares_diluted",
-   "stock_comp": 1111000,
-   "total_assets": 171327000,
-   "total_debt": 57000,
-   "total_debt_basis": "components",
-   "total_debt_filed": "2023-11-01",
-   "total_equity": 76894000,
-   "total_equity_parent": 76894000,
-   "total_liabilities": 94433000
-  },
   {
    "capex": 205000,
    "capex_filed": "2024-01-24",
@@ -1965,7 +1918,7 @@
    "current_liabilities": 87804000,
    "d_and_a": 900000,
    "eps_diluted": 0.11,
-   "filed": "2025-11-05",
+   "filed": "2026-11-04",
    "form": "10-Q",
    "goodwill": 48164000,
    "gross_profit": 20439000,
@@ -1975,7 +1928,7 @@
    "inventory": 75457000,
    "net_income": 4750000,
    "net_income_parent": 4750000,
-   "operating_cash_flow": 6487000,
+   "operating_cash_flow": 197000,
    "operating_income": 2965000,
    "operating_leases": 3649000,
    "period_end": "2025-09-30",
@@ -1986,11 +1939,11 @@
    "revenue": 65862000,
    "revenue_filed": "2025-11-05",
    "sga_expense": 13408000,
-   "shares_diluted": 44210,
-   "shares_diluted_adj": 45186789,
-   "shares_diluted_filled": 45186789,
-   "shares_diluted_filled_filed": "2025-11-05",
-   "shares_diluted_filled_source": "cover",
+   "shares_diluted": 44210000,
+   "shares_diluted_adj": 44210000,
+   "shares_diluted_filled": 44210000,
+   "shares_diluted_filled_filed": "2026-11-04",
+   "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 45186789,
    "stock_comp": 3766000,
    "total_assets": 445603000,
@@ -2125,6 +2078,46 @@
    "total_equity": 572474000,
    "total_equity_parent": 572474000,
    "total_liabilities": 189743000
+  },
+  {
+   "capex": 2138000,
+   "cash": 169916000,
+   "current_assets": 354001000,
+   "current_liabilities": 148465000,
+   "d_and_a": 2583000,
+   "eps_diluted": 0.06,
+   "filed": "2026-11-04",
+   "form": "10-Q",
+   "goodwill": 176341000,
+   "gross_profit": 26530000,
+   "impairments": 0,
+   "income_tax": 3395000,
+   "intangibles": 11700000,
+   "inventory": 98184000,
+   "net_income": 2999000,
+   "net_income_parent": 2999000,
+   "operating_cash_flow": 23420000,
+   "operating_income": 5360000,
+   "operating_leases": 7224000,
+   "period_end": "2026-09-30",
+   "pretax_income": 6394000,
+   "rd_expense": 3771000,
+   "receivables": 66354000,
+   "retained_earnings": -914327000,
+   "revenue": 94038000,
+   "revenue_filed": "2026-11-04",
+   "sga_expense": 18268000,
+   "shares_diluted": 47033000,
+   "shares_diluted_adj": 47033000,
+   "shares_diluted_filled": 47033000,
+   "shares_diluted_filled_filed": "2026-11-04",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 48465557,
+   "stock_comp": 6517000,
+   "total_assets": 774660000,
+   "total_equity": 582134000,
+   "total_equity_parent": 582134000,
+   "total_liabilities": 192526000
   }
  ],
  "sec_name": "AMERICAN SUPERCONDUCTOR CORP /DE/",
@@ -2227,13 +2220,13 @@
    "val": 20524000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 136575000
+   "val": 134824000
   },
   "operating_cash_flow": {
    "end": "2026-06-30",
@@ -2245,31 +2238,32 @@
    "val": 35036000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerIncludingAssessedTax"
    ],
-   "val": 320870000
+   "val": 349046000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 47124000
+   "val": 47033000
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
+    "AllocatedShareBasedCompensationExpense",
     "ShareBasedCompensation"
    ],
-   "val": 16607000
+   "val": 19358000
   }
  },
  "v2_annual": [
@@ -3876,6 +3870,13 @@
    "period": "2025-03-31",
    "rows": "quarterly",
    "v2": 66655000
+  },
+  {
+   "field": "capex",
+   "old": 353000,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": 1392000
   }
  ],
  "v2_notes": [],
@@ -8826,7 +8827,7 @@
    "net_income": 4750000,
    "operating_cash_flow": 6487000,
    "revenue": 65862000,
-   "shares_diluted": 44210,
+   "shares_diluted": 44210000,
    "src": {
     "capex": {
      "accn": "0001437749-25-033351",
@@ -8867,8 +8868,10 @@
      "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
     },
     "shares_diluted": {
-     "accn": "0001437749-25-033351",
-     "filed": "2025-11-05",
+     "accn": "0001437749-26-034936",
+     "filed": "2026-11-04",
+     "first_filed": "2025-11-05",
+     "first_val": 44210,
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
     },
@@ -9089,6 +9092,55 @@
    },
    "start": "2026-04-01",
    "stock_comp": 5264000
+  },
+  {
+   "cash": 169916000,
+   "cash_and_sti": 169916000,
+   "end": "2026-09-30",
+   "equity": 582134000,
+   "net_income": 2999000,
+   "revenue": 94038000,
+   "shares_diluted": 47033000,
+   "src": {
+    "cash": {
+     "accn": "0001437749-26-034936",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001437749-26-034936",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001437749-26-034936",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "revenue": {
+     "accn": "0001437749-26-034936",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001437749-26-034936",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001437749-26-034936",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "AllocatedShareBasedCompensationExpense"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 6517000
   }
  ],
  "v2_tags_used": {

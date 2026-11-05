@@ -1657,17 +1657,14 @@
   "total_liabilities": 18
  },
  "balance": {
-  "cash_and_sti": 1565000000,
-  "debt_end": "2025-12-31",
-  "debt_noncurrent": 9191000000,
-  "end": "2026-06-30",
-  "equity": 40606000000,
-  "total_debt": 9191000000
+  "cash_and_sti": 1787000000,
+  "end": "2026-09-30",
+  "equity": 38883000000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 36,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1678,80 +1675,36 @@
  "fiscal_year_end": "1231",
  "flags": [
   "stale_capex",
-  "debt_one_side_only"
+  "stale_stock_comp",
+  "no_debt_tagged",
+  "interest_but_no_debt"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0000005272-26-000076",
-  "filed": "2026-08-07",
+  "accn": "0000005272-26-000104",
+  "filed": "2026-11-04",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 163464000000.0,
+  "assets": 161861000000.0,
   "classes": {
-   "common": 522893169.0
+   "common": 518438878.0
   },
-  "cover_accession": "0000005272-26-000076",
-  "cover_date": "2026-07-31",
+  "cover_accession": "0000005272-26-000104",
+  "cover_date": "2026-10-29",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-12",
   "note": null,
   "public_float": 47910000000.0,
   "revenue": 26775000000.0,
-  "shares_cover": 522893169.0,
-  "shares_total": 522893169.0,
+  "shares_cover": 518438878.0,
+  "shares_total": 518438878.0,
   "size_gate": "float"
  },
  "name": "AMERICAN INTERNATIONAL GROUP, INC.",
  "quarterly": [
-  {
-   "acquisition_cost_amort": 922000000,
-   "buybacks": 810000000,
-   "cash": 1451000000,
-   "claims_incurred": 3876000000,
-   "d_and_a": 869000000,
-   "debt_current": 1000000000,
-   "dividends_paid": 254000000,
-   "eps_diluted": 2.81,
-   "filed": "2025-02-13",
-   "form": "10-K",
-   "impairments": 2000000,
-   "income_tax": 399000000,
-   "interest_expense": 138000000,
-   "loans": 50922000000,
-   "loss_reserves": 69823000000,
-   "net_income": 2027000000,
-   "net_income_incl_nci": 2747000000,
-   "net_income_parent": 2027000000,
-   "operating_cash_flow": 3513000000,
-   "period_end": "2023-09-30",
-   "premiums_earned": 6543000000,
-   "pretax_income": 1100000000,
-   "retained_earnings": 37689000000,
-   "revenue": 7267000000,
-   "revenue_as_filed": 12774000000,
-   "revenue_as_filed_filed": "2023-11-02",
-   "revenue_filed": "2024-11-07",
-   "sga_expense": 1311000000,
-   "shares_diluted": 718727312,
-   "shares_diluted_adj": 718727312,
-   "shares_diluted_filled": 718727312,
-   "shares_diluted_filled_filed": "2025-02-13",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 704600000,
-   "short_term_borrowings": 1000000000,
-   "short_term_investments": 13048000000,
-   "total_assets": 521521000000,
-   "total_debt": 1000000000,
-   "total_debt_basis": "components_partial",
-   "total_debt_filed": "2023-11-02",
-   "total_equity": 39984000000,
-   "total_equity_incl_nci": 43213000000,
-   "total_equity_parent": 39984000000,
-   "total_liabilities": 478308000000
-  },
   {
    "acquisition_cost_amort": 877000000,
    "buybacks": 1034000000,
@@ -2058,7 +2011,7 @@
    "d_and_a": 831000000,
    "dividends_paid": 246000000,
    "eps_diluted": 0.93,
-   "filed": "2025-11-05",
+   "filed": "2026-11-04",
    "form": "10-Q",
    "goodwill": 3439000000,
    "impairments": 286000000,
@@ -2080,7 +2033,7 @@
    "shares_diluted": 558519830,
    "shares_diluted_adj": 558519830,
    "shares_diluted_filled": 558519830,
-   "shares_diluted_filled_filed": "2025-11-05",
+   "shares_diluted_filled_filed": "2026-11-04",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 544500000,
    "short_term_investments": 9417000000,
@@ -2213,9 +2166,48 @@
    "total_equity_incl_nci": 40626000000,
    "total_equity_parent": 40606000000,
    "total_liabilities": 122838000000
+  },
+  {
+   "acquisition_cost_amort": 934000000,
+   "buybacks": 529000000,
+   "cash": 1787000000,
+   "claims_incurred": 4023000000,
+   "d_and_a": 972000000,
+   "dividends_paid": 260000000,
+   "eps_diluted": 1.6,
+   "filed": "2026-11-04",
+   "form": "10-Q",
+   "goodwill": 3423000000,
+   "income_tax": 270000000,
+   "interest_expense": 101000000,
+   "loans": 2298000000,
+   "loss_reserves": 70182000000,
+   "net_income": 849000000,
+   "net_income_incl_nci": 849000000,
+   "net_income_parent": 844000000,
+   "operating_cash_flow": 2691000000,
+   "period_end": "2026-09-30",
+   "premiums_earned": 6453000000,
+   "pretax_income": 1119000000,
+   "retained_earnings": 38965000000,
+   "revenue": 7443000000,
+   "revenue_filed": "2026-11-04",
+   "sga_expense": 1266000000,
+   "shares_diluted": 527224651,
+   "shares_diluted_adj": 527224651,
+   "shares_diluted_filled": 527224651,
+   "shares_diluted_filled_filed": "2026-11-04",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 518700000,
+   "short_term_investments": 10183000000,
+   "total_assets": 161861000000,
+   "total_equity": 38883000000,
+   "total_equity_incl_nci": 38909000000,
+   "total_equity_parent": 38883000000,
+   "total_liabilities": 122952000000
   }
  ],
- "sec_name": "AMERICAN INTERNATIONAL GROUP, INC.",
+ "sec_name": "American International Group, Inc.",
  "sic": "6331",
  "sic_description": "Fire, Marine & Casualty Insurance",
  "splits": [],
@@ -2301,46 +2293,47 @@
    "val": 240000000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-07",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss",
     "NetIncomeLossAvailableToCommonStockholdersBasic"
    ],
-   "val": 2965000000
+   "val": 3290000000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-07",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 3850000000
+   "val": 5198000000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-07",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "Revenues"
    ],
-   "val": 26636000000
+   "val": 27728000000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-07",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 533574538
+   "val": 527224651
   },
   "stock_comp": {
    "end": "2025-12-31",
    "filed": "2026-02-12",
    "method": "fiscal_year",
+   "stale": true,
    "tags": [
     "AllocatedShareBasedCompensationExpense"
    ],
@@ -3961,13 +3954,6 @@
    "period": "2025-12-31",
    "rows": "annual",
    "v2": 9191000000
-  },
-  {
-   "field": "debt_current",
-   "old": null,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 1000000000
   },
   {
    "field": "lt_debt_noncurrent",
@@ -8393,6 +8379,56 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 1787000000,
+   "cash_and_sti": 1787000000,
+   "end": "2026-09-30",
+   "equity": 38883000000,
+   "net_income": 844000000,
+   "operating_cash_flow": 2691000000,
+   "revenue": 7443000000,
+   "shares_diluted": 527224651,
+   "src": {
+    "cash": {
+     "accn": "0000005272-26-000104",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0000005272-26-000104",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0000005272-26-000104",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetIncomeLossAvailableToCommonStockholdersBasic"
+    },
+    "operating_cash_flow": {
+     "accn": "0000005272-26-000104",
+     "derived": true,
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0000005272-26-000104",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0000005272-26-000104",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

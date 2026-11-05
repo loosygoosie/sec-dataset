@@ -400,18 +400,18 @@
   "total_liabilities": 4
  },
  "balance": {
-  "cash_and_sti": 116278000,
-  "debt_current": 333236000,
-  "debt_noncurrent": 459891000,
-  "end": "2026-06-30",
-  "equity": 514279000,
-  "finance_leases": 96710000,
-  "total_debt": 793127000
+  "cash_and_sti": 121525000,
+  "debt_current": 333007000,
+  "debt_noncurrent": 480330000,
+  "end": "2026-09-30",
+  "equity": 538830000,
+  "finance_leases": 97706000,
+  "total_debt": 813337000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 36,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -420,78 +420,37 @@
  },
  "cik": 1958140,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "stale_capex"
+ ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001104659-26-091124",
-  "filed": "2026-08-05",
+  "accn": "0001104659-26-122382",
+  "filed": "2026-11-04",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 1740383000.0,
+  "assets": 1736136000.0,
   "classes": {
    "CommonClassAMember": 10318187.0,
    "CommonClassBMember": 977751.0,
-   "CommonClassCMember": 52871959.0
+   "CommonClassCMember": 53203078.0
   },
-  "cover_accession": "0001104659-26-091124",
-  "cover_date": "2026-07-31",
+  "cover_accession": "0001104659-26-122382",
+  "cover_date": "2026-10-31",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-26",
   "note": null,
   "public_float": 2500000000.0,
   "revenue": 732492000.0,
-  "shares_cover": 64167897.0,
-  "shares_total": 64167897.0,
+  "shares_cover": 64499016.0,
+  "shares_total": 64499016.0,
   "size_gate": "float"
  },
  "name": "Atlanta Braves Holdings, Inc.",
  "quarterly": [
-  {
-   "capex": 15613000,
-   "capex_filed": "2023-11-06",
-   "cash": 106715000,
-   "current_assets": 243848000,
-   "current_liabilities": 189301000,
-   "d_and_a": 21286000,
-   "debt_current": 7786000,
-   "eps_diluted": -0.1,
-   "filed": "2024-11-07",
-   "finance_lease_liabilities": 106751000,
-   "form": "10-Q",
-   "goodwill": 175764000,
-   "income_tax": 8256000,
-   "interest_expense": 9657000,
-   "lt_debt_current": 7786000,
-   "lt_debt_noncurrent": 547485000,
-   "net_income": -6047000,
-   "net_income_incl_nci": -6047000,
-   "net_income_parent": -6047000,
-   "operating_cash_flow": -57198000,
-   "operating_income": 15716000,
-   "period_end": "2023-09-30",
-   "pretax_income": 2209000,
-   "retained_earnings": -522018000,
-   "revenue": 271824000,
-   "revenue_filed": "2023-11-06",
-   "sga_expense": 34380000,
-   "shares_diluted": 62588000,
-   "shares_diluted_adj": 62588000,
-   "shares_diluted_filled": 62588000,
-   "shares_diluted_filled_filed": "2024-11-07",
-   "shares_diluted_filled_source": "shares_diluted",
-   "stock_comp": 3309000,
-   "total_assets": 1518839000,
-   "total_debt": 555271000,
-   "total_debt_basis": "tagged",
-   "total_debt_filed": "2023-11-06",
-   "total_equity": 563606000,
-   "total_equity_incl_nci": 575651000,
-   "total_equity_parent": 563606000,
-   "total_liabilities": 943188000
-  },
   {
    "capex": 23723000,
    "capex_filed": "2024-02-29",
@@ -812,7 +771,7 @@
    "d_and_a": 23468000,
    "debt_current": 104833000,
    "eps_diluted": 0.47,
-   "filed": "2025-11-05",
+   "filed": "2026-11-04",
    "finance_lease_liabilities": 101881000,
    "form": "10-Q",
    "goodwill": 175764000,
@@ -834,7 +793,7 @@
    "shares_diluted": 63832000,
    "shares_diluted_adj": 63832000,
    "shares_diluted_filled": 63832000,
-   "shares_diluted_filled_filed": "2025-11-05",
+   "shares_diluted_filled_filed": "2026-11-04",
    "shares_diluted_filled_source": "shares_diluted",
    "stock_comp": 4757000,
    "total_assets": 1671466000,
@@ -975,6 +934,47 @@
    "total_equity_incl_nci": 526638000,
    "total_equity_parent": 514279000,
    "total_liabilities": 1213745000
+  },
+  {
+   "cash": 121525000,
+   "current_assets": 270407000,
+   "current_liabilities": 521690000,
+   "d_and_a": 24950000,
+   "debt_current": 333007000,
+   "eps_diluted": 0.15,
+   "filed": "2026-11-04",
+   "finance_lease_liabilities": 97706000,
+   "form": "10-Q",
+   "goodwill": 175764000,
+   "income_tax": 6510000,
+   "interest_expense": 12350000,
+   "lt_debt_current": 333007000,
+   "lt_debt_noncurrent": 480330000,
+   "net_income": 9805000,
+   "net_income_incl_nci": 9787000,
+   "net_income_parent": 9805000,
+   "operating_cash_flow": -63836000,
+   "operating_income": 8667000,
+   "period_end": "2026-09-30",
+   "pretax_income": 16297000,
+   "retained_earnings": -651923000,
+   "revenue": 324629000,
+   "revenue_filed": "2026-11-04",
+   "sga_expense": 41912000,
+   "shares_diluted": 64958000,
+   "shares_diluted_adj": 64958000,
+   "shares_diluted_filled": 64958000,
+   "shares_diluted_filled_filed": "2026-11-04",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 6967000,
+   "total_assets": 1736136000,
+   "total_debt": 813337000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-04",
+   "total_equity": 538830000,
+   "total_equity_incl_nci": 551171000,
+   "total_equity_parent": 538830000,
+   "total_liabilities": 1184965000
   }
  ],
  "sec_name": "ATLANTA BRAVES HOLDINGS, INC.",
@@ -1058,55 +1058,56 @@
    "end": "2025-12-31",
    "filed": "2026-02-26",
    "method": "fiscal_year",
+   "stale": true,
    "tags": [
     "PaymentsToAcquireProductiveAssets"
    ],
    "val": 93709000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -64187000
+   "val": -84360000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -64051000
+   "val": -39072000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
    ],
-   "val": 749967000
+   "val": 763058000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 64966000
+   "val": 64958000
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-04",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 23675000
+   "val": 25885000
   }
  },
  "v2_annual": [
@@ -2669,6 +2670,79 @@
    "start": "2026-04-01",
    "stock_comp": 6824000,
    "total_debt": 793127000
+  },
+  {
+   "cash": 121525000,
+   "cash_and_sti": 121525000,
+   "debt_current": 333007000,
+   "debt_noncurrent": 480330000,
+   "end": "2026-09-30",
+   "equity": 538830000,
+   "finance_leases": 97706000,
+   "net_income": 9805000,
+   "operating_cash_flow": -63836000,
+   "revenue": 324629000,
+   "shares_diluted": 64958000,
+   "src": {
+    "cash": {
+     "accn": "0001104659-26-122382",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001104659-26-122382",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001104659-26-122382",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001104659-26-122382",
+     "derived": true,
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001104659-26-122382",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001104659-26-122382",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001104659-26-122382",
+     "derived": true,
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-04",
+     "tags": [
+      "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent"
+     ],
+     "values": {
+      "LongTermDebtCurrent": 333007000,
+      "LongTermDebtNoncurrent": 480330000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 6967000,
+   "total_debt": 813337000
   }
  ],
  "v2_tags_used": {

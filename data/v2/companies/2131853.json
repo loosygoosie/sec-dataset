@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1003716,
-  "end": "2026-06-30",
-  "equity": -8667255
+  "cash_and_sti": 960277,
+  "end": "2026-09-30",
+  "equity": -8858354
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 36,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-087816",
-  "filed": "2026-08-11",
+  "accn": "0001213900-26-115647",
+  "filed": "2026-11-04",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 231764464.0,
+  "assets": 233786230.0,
   "classes": {
    "CommonClassAMember": 23000000.0,
    "CommonClassBMember": 5750000.0
   },
-  "cover_accession": "0001213900-26-087816",
-  "cover_date": "2026-08-10",
+  "cover_accession": "0001213900-26-115647",
+  "cover_date": "2026-11-03",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -133,6 +133,24 @@
    "total_equity": -8667255,
    "total_equity_parent": -8667255,
    "total_liabilities": 9940803
+  },
+  {
+   "cash": 960277,
+   "current_assets": 1100497,
+   "current_liabilities": 221850,
+   "filed": "2026-11-04",
+   "form": "10-Q",
+   "net_income": 1914985,
+   "net_income_parent": 1914985,
+   "operating_cash_flow": -43439,
+   "operating_income": -192397,
+   "period_end": "2026-09-30",
+   "retained_earnings": -8858929,
+   "stock_comp": 0,
+   "total_assets": 233786230,
+   "total_equity": -8858354,
+   "total_equity_parent": -8858354,
+   "total_liabilities": 10047584
   }
  ],
  "sec_name": "FUTURECORP SPACE ACQUISITION 1",
@@ -250,6 +268,50 @@
    },
    "start": "2026-04-01",
    "stock_comp": 208750
+  },
+  {
+   "cash": 960277,
+   "cash_and_sti": 960277,
+   "end": "2026-09-30",
+   "equity": -8858354,
+   "net_income": 1914985,
+   "operating_cash_flow": -43439,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-115647",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-115647",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-115647",
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-115647",
+     "derived": true,
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "stock_comp": {
+     "accn": "0001213900-26-115647",
+     "derived": true,
+     "filed": "2026-11-04",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 0
   }
  ],
  "v2_tags_used": {
@@ -257,7 +319,9 @@
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [],
   "shares_diluted": [],
   "stock_comp": [
