@@ -67,21 +67,21 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 924963,
+  "cash_and_sti": 877781,
   "debt_current": 0,
-  "end": "2026-06-30",
-  "equity": -3986570,
+  "end": "2026-09-30",
+  "equity": -4101351,
   "total_debt": 0
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 37,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
   "share_scale": "ok",
-  "shares": "ok"
+  "shares": "none"
  },
  "cik": 2084563,
  "fiscal_year_end": "1231",
@@ -95,20 +95,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001185185-26-003435",
-  "filed": "2026-08-12",
+  "accn": "0001185185-26-005198",
+  "filed": "2026-11-05",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 147699039.0,
+  "assets": 148910349.0,
   "classes": {
    "CommonClassAMember": 14847500.0,
    "CommonClassBMember": 4791667.0
   },
-  "cover_accession": "0001185185-26-003435",
-  "cover_date": "2026-08-12",
+  "cover_accession": "0001185185-26-005198",
+  "cover_date": "2026-11-05",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-20",
   "note": null,
@@ -124,11 +124,14 @@
    "cash": 0,
    "current_liabilities": 331318,
    "eps_diluted": -0.01,
-   "filed": "2026-01-20",
+   "filed": "2026-11-05",
    "form": "10-Q",
-   "net_income": -60889,
-   "net_income_parent": -60889,
+   "interest_income": 0,
+   "net_income": -54875,
+   "net_income_incl_nci": -60889,
+   "net_income_parent": -54875,
    "operating_cash_flow": 0,
+   "operating_income": -54875,
    "period_end": "2025-09-30",
    "retained_earnings": -60889,
    "shares_diluted": 4166667,
@@ -149,9 +152,10 @@
    "debt_current": 0,
    "filed": "2026-03-20",
    "form": "10-K (derived from YTD)",
-   "net_income": 266185,
-   "net_income_parent": 266185,
+   "net_income": 260171,
+   "net_income_parent": 260171,
    "operating_cash_flow": -65381,
+   "operating_income": -77442,
    "period_end": "2025-12-31",
    "retained_earnings": -3676717,
    "total_assets": 145667472,
@@ -195,6 +199,25 @@
    "total_equity": -3986570,
    "total_equity_parent": -3986570,
    "total_liabilities": 5087779
+  },
+  {
+   "cash": 877781,
+   "current_assets": 992813,
+   "current_liabilities": 79433,
+   "debt_current": 0,
+   "filed": "2026-11-05",
+   "form": "10-Q",
+   "net_income": 1188406,
+   "net_income_parent": 1188406,
+   "operating_income": -114781,
+   "period_end": "2026-09-30",
+   "retained_earnings": -4101877,
+   "total_assets": 148910349,
+   "total_debt": 0,
+   "total_debt_filed": "2026-11-05",
+   "total_equity": -4101351,
+   "total_equity_parent": -4101351,
+   "total_liabilities": 5110683
   }
  ],
  "sec_name": "Leapfrog Acquisition Corporation",
@@ -275,13 +298,13 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 2405134
+   "val": 3654429
   },
   "shares_diluted": {
    "end": "2025-09-30",
@@ -323,6 +346,20 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 0
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 0
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 0
   }
  ],
  "v2_notes": [],
@@ -332,7 +369,7 @@
    "cash_and_sti": 0,
    "end": "2025-09-30",
    "equity": -35889,
-   "net_income": -60889,
+   "net_income": -54875,
    "shares_diluted": 4166667,
    "src": {
     "cash": {
@@ -348,8 +385,10 @@
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0001185185-26-000207",
-     "filed": "2026-01-20",
+     "accn": "0001185185-26-005198",
+     "filed": "2026-11-05",
+     "first_filed": "2026-01-20",
+     "first_val": -60889,
      "form": "10-Q",
      "tag": "NetIncomeLoss"
     },
@@ -477,6 +516,46 @@
     }
    },
    "start": "2026-04-01",
+   "total_debt": 0
+  },
+  {
+   "cash": 877781,
+   "cash_and_sti": 877781,
+   "debt_current": 0,
+   "end": "2026-09-30",
+   "equity": -4101351,
+   "net_income": 1188406,
+   "src": {
+    "cash": {
+     "accn": "0001185185-26-005198",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001185185-26-005198",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001185185-26-005198",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "total_debt": {
+     "filed": "2026-11-05",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 0
+     }
+    }
+   },
+   "start": "2026-07-01",
    "total_debt": 0
   }
  ],

@@ -1462,18 +1462,14 @@
   "total_liabilities": 16
  },
  "balance": {
-  "cash_and_sti": 183703000,
-  "debt_end": "2025-12-31",
-  "debt_noncurrent": 1730400000,
-  "end": "2026-06-30",
-  "equity": -34130000,
-  "finance_leases": 623351000,
-  "total_debt": 1730400000
+  "cash_and_sti": 166855000,
+  "end": "2026-09-30",
+  "equity": -57019000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 37,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "below-income:2023",
@@ -1483,74 +1479,35 @@
  "cik": 1158324,
  "fiscal_year_end": "1231",
  "flags": [
-  "debt_one_side_only"
+  "no_debt_tagged",
+  "interest_but_no_debt"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001104659-26-091790",
-  "filed": "2026-08-06",
+  "accn": "0001104659-26-123158",
+  "filed": "2026-11-05",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 3103869000.0,
+  "assets": 2892734000.0,
   "classes": {
-   "common": 51215736.0
+   "common": 51203883.0
   },
-  "cover_accession": "0001104659-26-091790",
-  "cover_date": "2026-07-31",
+  "cover_accession": "0001104659-26-123158",
+  "cover_date": "2026-10-31",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-20",
   "note": null,
   "public_float": 2200000000.0,
   "revenue": 975766000.0,
-  "shares_cover": 51215736.0,
-  "shares_total": 51215736.0,
+  "shares_cover": 51203883.0,
+  "shares_total": 51203883.0,
   "size_gate": "float"
  },
  "name": "COGENT COMMUNICATIONS HOLDINGS, INC.",
  "quarterly": [
-  {
-   "capex": 25370000,
-   "capex_filed": "2023-11-09",
-   "cash": 109661000,
-   "current_assets": 581251000,
-   "current_liabilities": 355662000,
-   "d_and_a": 86734000,
-   "dividends_paid": 45136000,
-   "eps_diluted": -1.2,
-   "filed": "2024-11-07",
-   "finance_lease_liabilities": 483177000,
-   "form": "10-Q",
-   "income_tax": -13623000,
-   "intangibles": 54362000,
-   "interest_expense": 24198000,
-   "net_income": -56723000,
-   "net_income_incl_nci": -56723000,
-   "net_income_parent": -56723000,
-   "operating_cash_flow": -52432000,
-   "operating_income": -50558000,
-   "operating_leases": 399411000,
-   "period_end": "2023-09-30",
-   "pretax_income": -70346000,
-   "receivables": 87170000,
-   "retained_earnings": -136654000,
-   "revenue": 275429000,
-   "revenue_filed": "2023-11-09",
-   "sga_expense": 65308000,
-   "shares_diluted": 47227338,
-   "shares_diluted_adj": 47227338,
-   "shares_diluted_filled": 47227338,
-   "shares_diluted_filled_filed": "2024-11-07",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 48612382,
-   "stock_comp": 7411000,
-   "total_assets": 2961681000,
-   "total_equity": 442128000,
-   "total_equity_parent": 442128000,
-   "total_liabilities": 2519553000
-  },
   {
    "capex": 43609000,
    "capex_filed": "2024-02-29",
@@ -1840,9 +1797,9 @@
    "current_assets": 479769000,
    "current_liabilities": 237546000,
    "d_and_a": 60429000,
-   "dividends_paid": 49026000,
+   "dividends_paid": 49100000,
    "eps_diluted": -0.87,
-   "filed": "2025-11-06",
+   "filed": "2026-11-05",
    "finance_lease_liabilities": 601841000,
    "form": "10-Q",
    "income_tax": -11051000,
@@ -1862,7 +1819,7 @@
    "shares_diluted": 47603287,
    "shares_diluted_adj": 47603287,
    "shares_diluted_filled": 47603287,
-   "shares_diluted_filled_filed": "2025-11-06",
+   "shares_diluted_filled_filed": "2026-11-05",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 49121159,
    "stock_comp": 8932000,
@@ -1879,7 +1836,7 @@
    "current_liabilities": 220841000,
    "d_and_a": 58424000,
    "debt_due_2y": 750000000,
-   "dividends_paid": 2304000,
+   "dividends_paid": 2230000,
    "eps_diluted": -0.6299999999999999,
    "filed": "2026-02-20",
    "finance_lease_liabilities": 623351000,
@@ -1990,6 +1947,44 @@
    "total_equity": -34130000,
    "total_equity_parent": -34130000,
    "total_liabilities": 3137999000
+  },
+  {
+   "capex": 36305000,
+   "capex_filed": "2026-11-05",
+   "cash": 166855000,
+   "current_assets": 435989000,
+   "current_liabilities": 908305000,
+   "d_and_a": 53150000,
+   "dividends_paid": 1300000,
+   "eps_diluted": -0.62,
+   "filed": "2026-11-05",
+   "finance_lease_liabilities": 622097000,
+   "form": "10-Q",
+   "income_tax": -4111000,
+   "net_income": -29766000,
+   "net_income_incl_nci": -29766000,
+   "net_income_parent": -29766000,
+   "operating_cash_flow": 3783000,
+   "operating_income": -6931000,
+   "operating_leases": 297427000,
+   "period_end": "2026-09-30",
+   "pretax_income": -33877000,
+   "receivables": 91389000,
+   "retained_earnings": -716138000,
+   "revenue": 231203000,
+   "revenue_filed": "2026-11-05",
+   "sga_expense": 68812000,
+   "shares_diluted": 48001733,
+   "shares_diluted_adj": 48001733,
+   "shares_diluted_filled": 48001733,
+   "shares_diluted_filled_filed": "2026-11-05",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 51203883,
+   "stock_comp": 7875000,
+   "total_assets": 2892734000,
+   "total_equity": -57019000,
+   "total_equity_parent": -57019000,
+   "total_liabilities": 2949753000
   }
  ],
  "sec_name": "COGENT COMMUNICATIONS HOLDINGS,\u00a0INC.",
@@ -2068,63 +2063,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 158055000
+   "val": 158110000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": -142918000
+   "val": -142290000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -45231000
+   "val": -33453000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 15137000
+   "val": 15820000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerIncludingAssessedTax"
    ],
-   "val": 957219000
+   "val": 946473000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 48429166
+   "val": 48001733
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "AllocatedShareBasedCompensationExpense"
    ],
-   "val": 28945000
+   "val": 27888000
   }
  },
  "v2_annual": [
@@ -8203,6 +8198,73 @@
    },
    "start": "2026-04-01",
    "stock_comp": 7642000
+  },
+  {
+   "capex": 36305000,
+   "cash": 166855000,
+   "cash_and_sti": 166855000,
+   "end": "2026-09-30",
+   "equity": -57019000,
+   "fcf": -32522000,
+   "net_income": -29766000,
+   "operating_cash_flow": 3783000,
+   "revenue": 231203000,
+   "shares_diluted": 48001733,
+   "src": {
+    "capex": {
+     "accn": "0001104659-26-123158",
+     "derived": true,
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001104659-26-123158",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001104659-26-123158",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001104659-26-123158",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001104659-26-123158",
+     "derived": true,
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001104659-26-123158",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerIncludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001104659-26-123158",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001104659-26-123158",
+     "derived": true,
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "AllocatedShareBasedCompensationExpense"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 7875000
   }
  ],
  "v2_tags_used": {

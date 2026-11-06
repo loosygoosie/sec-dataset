@@ -1396,15 +1396,15 @@
   "total_liabilities": 17
  },
  "balance": {
-  "cash_and_sti": 180788000,
-  "end": "2026-06-30",
-  "equity": 3417575000,
-  "total_debt": 4212419000
+  "cash_and_sti": 186439000,
+  "end": "2026-09-30",
+  "equity": 3499934000,
+  "total_debt": 4266834000
  },
  "bank": false,
  "checks": {
   "latest_quarter_end": "2026-03-31",
-  "quarter_age_days": 219,
+  "quarter_age_days": 220,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1415,36 +1415,36 @@
  "fiscal_year_end": "1231",
  "flags": [
   "stale_capex",
-  "revenue_unverified_2025-12-31",
   "revenue_unverified_2024-12-31",
   "revenue_unverified_2023-12-31",
-  "current_ltd_untagged_1.4B"
+  "revenue_unverified_2025-12-31",
+  "current_ltd_untagged_1.2B"
  ],
  "instances_merged": [
-  "0001628280-26-054436"
+  "0001628280-26-071014"
  ],
  "latest_filing": {
-  "accn": "0001628280-26-054436",
-  "filed": "2026-08-06",
+  "accn": "0001628280-26-071014",
+  "filed": "2026-11-05",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
   "assets": 11758750000.0,
   "classes": {
-   "SubsidiariesMember": 298263.0,
-   "common": 70849907.0
+   "SubsidiariesMember": 298108.0,
+   "common": 70940125.0
   },
-  "cover_accession": "0001628280-26-054436",
-  "cover_date": "2026-08-05",
+  "cover_accession": "0001628280-26-071014",
+  "cover_date": "2026-11-04",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-17",
   "note": null,
   "public_float": 3900000000.0,
   "revenue": 1003046000.0,
-  "shares_cover": 71148170.0,
-  "shares_total": 71148170.0,
+  "shares_cover": 71238233.0,
+  "shares_total": 71238233.0,
   "size_gate": "float"
  },
  "name": "SL GREEN REALTY CORP",
@@ -2040,40 +2040,40 @@
    "val": 252986000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
+   "method": "year_to_date",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -175637000
+   "val": -128319000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
+   "method": "year_to_date",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 92152000
+   "val": 94175000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
-   "method": "four_quarters",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
+   "method": "year_to_date",
    "tags": [
     "Revenues"
    ],
-   "val": 1038365000
+   "val": 1066573000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 70669000
+   "val": 75972000
   }
  },
  "v2_annual": [
@@ -8113,68 +8113,60 @@
    "total_debt": 4448462000
   },
   {
-   "cash": 180788000,
-   "cash_and_sti": 180788000,
-   "end": "2026-06-30",
-   "equity": 3417575000,
-   "net_income": -22766000,
-   "operating_cash_flow": 88032000,
-   "revenue": 264001000,
-   "shares_diluted": 70669000,
+   "cash": 186439000,
+   "cash_and_sti": 186439000,
+   "end": "2026-09-30",
+   "equity": 3499934000,
+   "net_income": 75930000,
+   "revenue": 273025000,
+   "shares_diluted": 75972000,
    "src": {
     "cash": {
-     "accn": "0001628280-26-054436",
-     "filed": "2026-08-06",
+     "accn": "0001628280-26-071014",
+     "filed": "2026-11-05",
      "form": "10-Q",
      "tag": "CashAndCashEquivalentsAtCarryingValue"
     },
     "equity": {
-     "accn": "0001628280-26-054436",
-     "filed": "2026-08-06",
+     "accn": "0001628280-26-071014",
+     "filed": "2026-11-05",
      "form": "10-Q",
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0001628280-26-054436",
-     "filed": "2026-08-06",
+     "accn": "0001628280-26-071014",
+     "filed": "2026-11-05",
      "form": "10-Q",
      "tag": "NetIncomeLoss"
     },
-    "operating_cash_flow": {
-     "accn": "0001628280-26-054436",
-     "derived": true,
-     "filed": "2026-08-06",
-     "form": "10-Q",
-     "tag": "NetCashProvidedByUsedInOperatingActivities"
-    },
     "revenue": {
-     "accn": "0001628280-26-054436",
-     "filed": "2026-08-06",
+     "accn": "0001628280-26-071014",
+     "filed": "2026-11-05",
      "form": "10-Q",
      "tag": "Revenues"
     },
     "shares_diluted": {
-     "accn": "0001628280-26-054436",
-     "filed": "2026-08-06",
+     "accn": "0001628280-26-071014",
+     "filed": "2026-11-05",
      "form": "10-Q",
      "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
     },
     "total_debt": {
-     "filed": "2026-08-06",
+     "filed": "2026-11-05",
      "tags": [
       "SeniorNotes",
       "SecuredDebt",
       "LineOfCredit"
      ],
      "values": {
-      "LineOfCredit": 839670000,
-      "SecuredDebt": 2229405000,
-      "SeniorNotes": 1143344000
+      "LineOfCredit": 920186000,
+      "SecuredDebt": 2202767000,
+      "SeniorNotes": 1143881000
      }
     }
    },
-   "start": "2026-04-01",
-   "total_debt": 4212419000
+   "start": "2026-07-01",
+   "total_debt": 4266834000
   }
  ],
  "v2_tags_used": {

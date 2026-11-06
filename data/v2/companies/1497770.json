@@ -1385,15 +1385,15 @@
   "total_liabilities": 16
  },
  "balance": {
-  "cash_and_sti": 160858000,
-  "end": "2026-06-30",
-  "equity": 1707042000,
-  "total_debt": 820948000
+  "cash_and_sti": 183241000,
+  "end": "2026-09-30",
+  "equity": 1652291000,
+  "total_debt": 804609000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 37,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1402,74 +1402,35 @@
  },
  "cik": 1497770,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "stale_stock_comp"
+ ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001104659-26-091536",
-  "filed": "2026-08-06",
+  "accn": "0001104659-26-122986",
+  "filed": "2026-11-05",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 4893604000.0,
+  "assets": 4260013000.0,
   "classes": {
-   "common": 34325745.0
+   "common": 34534009.0
   },
-  "cover_accession": "0001104659-26-091536",
-  "cover_date": "2026-07-31",
+  "cover_accession": "0001104659-26-122986",
+  "cover_date": "2026-10-30",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-26",
   "note": null,
   "public_float": 1700000000.0,
   "revenue": 1234306000.0,
-  "shares_cover": 34325745.0,
-  "shares_total": 34325745.0,
+  "shares_cover": 34534009.0,
+  "shares_total": 34534009.0,
   "size_gate": "float"
  },
  "name": "Walker & Dunlop, Inc.",
  "quarterly": [
-  {
-   "buybacks": 871000,
-   "capex": 4379000,
-   "capex_filed": "2023-11-09",
-   "cash": 236321000,
-   "credit_loss_provision": -134000,
-   "d_and_a": 57479000,
-   "dividends_paid": 21139000,
-   "eps_diluted": 0.64,
-   "filed": "2024-11-07",
-   "form": "10-Q",
-   "goodwill": 949710000,
-   "impairments": 14000000,
-   "income_tax": 7069000,
-   "intangibles": 185927000,
-   "interest_expense": 13943000,
-   "net_income": 21458000,
-   "net_income_incl_nci": 21144000,
-   "net_income_parent": 21458000,
-   "net_interest_income": -2031000,
-   "operating_cash_flow": 548619000,
-   "period_end": "2023-09-30",
-   "pretax_income": 28213000,
-   "retained_earnings": 1287653000,
-   "revenue": 268743000,
-   "revenue_filed": "2023-11-09",
-   "shares_diluted": 32895000,
-   "shares_diluted_adj": 32895000,
-   "shares_diluted_filled": 32895000,
-   "shares_diluted_filled_filed": "2024-11-07",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 32779000,
-   "total_assets": 4277851000,
-   "total_debt": 1565419000,
-   "total_debt_basis": "tagged",
-   "total_debt_filed": "2023-11-09",
-   "total_equity": 1706179000,
-   "total_equity_incl_nci": 1730991000,
-   "total_equity_parent": 1706179000,
-   "total_liabilities": 2546860000
-  },
   {
    "buybacks": 1583000,
    "capex": 2321000,
@@ -1776,7 +1737,7 @@
    "d_and_a": 60041000,
    "dividends_paid": 22970000,
    "eps_diluted": 0.98,
-   "filed": "2025-11-06",
+   "filed": "2026-11-05",
    "form": "10-Q",
    "goodwill": 868710000,
    "impairments": 0,
@@ -1796,7 +1757,7 @@
    "shares_diluted": 33397000,
    "shares_diluted_adj": 33397000,
    "shares_diluted_filled": 33397000,
-   "shares_diluted_filled_filed": "2025-11-06",
+   "shares_diluted_filled_filed": "2026-11-05",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 33385000,
    "total_assets": 5797275000,
@@ -1932,6 +1893,46 @@
    "total_equity_incl_nci": 1719843000,
    "total_equity_parent": 1707042000,
    "total_liabilities": 3172852000
+  },
+  {
+   "buybacks": 792000,
+   "capex": 5349000,
+   "capex_filed": "2026-11-05",
+   "cash": 183241000,
+   "d_and_a": 61562000,
+   "dividends_paid": 23676000,
+   "eps_diluted": -1.15,
+   "filed": "2026-11-05",
+   "form": "10-Q",
+   "goodwill": 868710000,
+   "impairments": 0,
+   "income_tax": -10306000,
+   "intangibles": 130615000,
+   "interest_expense": 15330000,
+   "net_income": -37258000,
+   "net_income_incl_nci": -36868000,
+   "net_income_parent": -37258000,
+   "net_interest_income": 888000,
+   "operating_cash_flow": 724215000,
+   "period_end": "2026-09-30",
+   "pretax_income": -47174000,
+   "retained_earnings": 1182969000,
+   "revenue": 298449000,
+   "revenue_filed": "2026-11-05",
+   "shares_diluted": 33284000,
+   "shares_diluted_adj": 33284000,
+   "shares_diluted_filled": 33284000,
+   "shares_diluted_filled_filed": "2026-11-05",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 33290000,
+   "total_assets": 4260013000,
+   "total_debt": 804609000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-05",
+   "total_equity": 1652291000,
+   "total_equity_incl_nci": 1665103000,
+   "total_equity_parent": 1652291000,
+   "total_liabilities": 2593126000
   }
  ],
  "sec_name": "Walker & Dunlop, Inc.",
@@ -2010,59 +2011,60 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquireProductiveAssets"
    ],
-   "val": 12064000
+   "val": 15101000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": -131242000
+   "val": 1538055000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 38418000
+   "val": -32292000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -119178000
+   "val": 1553156000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "Revenues"
    ],
-   "val": 1285720000
+   "val": 1246494000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 33275000
+   "val": 33284000
   },
   "stock_comp": {
    "end": "2025-12-31",
    "filed": "2026-02-26",
    "method": "fiscal_year",
+   "stale": true,
    "tags": [
     "ShareBasedCompensation"
    ],
@@ -3470,13 +3472,6 @@
    "period": "2025-12-31",
    "rows": "annual",
    "v2": 947777000
-  },
-  {
-   "field": "total_debt",
-   "old": 790742000,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 1565419000
   },
   {
    "field": "total_debt",
@@ -8025,6 +8020,75 @@
    },
    "start": "2026-04-01",
    "total_debt": 820948000
+  },
+  {
+   "capex": 5349000,
+   "cash": 183241000,
+   "cash_and_sti": 183241000,
+   "end": "2026-09-30",
+   "equity": 1652291000,
+   "fcf": 718866000,
+   "net_income": -37258000,
+   "operating_cash_flow": 724215000,
+   "revenue": 298449000,
+   "shares_diluted": 33284000,
+   "src": {
+    "capex": {
+     "accn": "0001104659-26-122986",
+     "derived": true,
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireProductiveAssets"
+    },
+    "cash": {
+     "accn": "0001104659-26-122986",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001104659-26-122986",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001104659-26-122986",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001104659-26-122986",
+     "derived": true,
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001104659-26-122986",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001104659-26-122986",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2026-11-05",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 804609000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "total_debt": 804609000
   }
  ],
  "v2_tags_used": {

@@ -206,17 +206,17 @@
   "total_liabilities": 2
  },
  "balance": {
-  "cash_and_sti": 523349000,
-  "debt_current": 2126021000,
+  "cash_and_sti": 492914000,
+  "debt_current": 1957023000,
   "debt_noncurrent": 0,
-  "end": "2026-06-30",
-  "equity": -625657000,
-  "total_debt": 2126021000
+  "end": "2026-09-30",
+  "equity": -294372000,
+  "total_debt": 1957023000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 37,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -230,28 +230,28 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001104659-26-092020",
-  "filed": "2026-08-06",
+  "accn": "0001104659-26-123440",
+  "filed": "2026-11-05",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 2012521000.0,
+  "assets": 2044869000.0,
   "classes": {
    "CommonClassAMember": 25573685.0,
    "CommonClassBMember": 2530951.0,
-   "CommonClassCMember": 63900740.0
+   "CommonClassCMember": 63900854.0
   },
-  "cover_accession": "0001104659-26-092020",
-  "cover_date": "2026-07-31",
+  "cover_accession": "0001104659-26-123440",
+  "cover_date": "2026-10-31",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-26",
   "note": null,
   "public_float": 0.0,
   "revenue": 381951000.0,
-  "shares_cover": 92005376.0,
-  "shares_total": 92005376.0,
+  "shares_cover": 92005490.0,
+  "shares_total": 92005490.0,
   "size_gate": "no_float"
  },
  "name": "Liberty Live Holdings, Inc.",
@@ -320,7 +320,8 @@
    "current_liabilities": 2095810000,
    "d_and_a": 6531000,
    "debt_current": 1872867000,
-   "filed": "2025-11-13",
+   "eps_diluted": -0.61,
+   "filed": "2026-11-05",
    "form": "10-Q",
    "goodwill": 126890000,
    "income_tax": -15600000,
@@ -337,7 +338,7 @@
    "retained_earnings": -633411000,
    "revenue": 61729000,
    "revenue_filed": "2025-11-13",
-   "stock_comp": -1725000,
+   "stock_comp": 1725000,
    "total_assets": 1877844000,
    "total_debt": 1872867000,
    "total_debt_basis": "tagged",
@@ -375,7 +376,7 @@
    "shares_diluted_filled": 92471000,
    "shares_diluted_filled_filed": "2026-02-26",
    "shares_diluted_filled_source": "shares_diluted",
-   "stock_comp": 5311000,
+   "stock_comp": 1861000,
    "total_assets": 1888893000,
    "total_debt": 1666546000,
    "total_debt_basis": "tagged",
@@ -462,6 +463,45 @@
    "total_equity_incl_nci": -603711000,
    "total_equity_parent": -625657000,
    "total_liabilities": 2616232000
+  },
+  {
+   "cash": 492914000,
+   "current_assets": 641800000,
+   "current_liabilities": 2292210000,
+   "d_and_a": 6566000,
+   "debt_current": 1957023000,
+   "eps_diluted": 3.6,
+   "filed": "2026-11-05",
+   "form": "10-Q",
+   "goodwill": 133400000,
+   "income_tax": 92367000,
+   "interest_expense": 7599000,
+   "lt_debt_current": 1957023000,
+   "lt_debt_noncurrent": 0,
+   "net_income": 333841000,
+   "net_income_incl_nci": 333841000,
+   "net_income_parent": 333841000,
+   "operating_cash_flow": -18044000,
+   "operating_income": -11606000,
+   "period_end": "2026-09-30",
+   "pretax_income": 426208000,
+   "retained_earnings": -666046000,
+   "revenue": 105923000,
+   "revenue_filed": "2026-11-05",
+   "shares_diluted": 92690000,
+   "shares_diluted_adj": 92690000,
+   "shares_diluted_filled": 92690000,
+   "shares_diluted_filled_filed": "2026-11-05",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 2445000,
+   "total_assets": 2044869000,
+   "total_debt": 1957023000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-05",
+   "total_equity": -294372000,
+   "total_equity_incl_nci": -272426000,
+   "total_equity_parent": -294372000,
+   "total_liabilities": 2317295000
   }
  ],
  "sec_name": "Liberty Live Holdings,\u00a0Inc.",
@@ -470,7 +510,7 @@
  "splits": [],
  "tags_used": {
   "acquisition_cost_amort": null,
-  "acquisitions": "PaymentsToAcquireBusinessesNetOfCashAcquired",
+  "acquisitions": "PaymentsToAcquireBusinessesNetOfCashAcquired,PaymentsToAcquireBusinessesGross",
   "buybacks": null,
   "capex": null,
   "capitalized_software": null,
@@ -542,49 +582,49 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -439969000
+   "val": -50394000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -7330000
+   "val": -23306000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
    ],
-   "val": 406968000
+   "val": 451162000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 92604000
+   "val": 92690000
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 8537000
+   "val": 9257000
   }
  },
  "v2_annual": [
@@ -753,6 +793,13 @@
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 0
+  },
+  {
+   "field": "lt_debt_noncurrent",
+   "old": null,
+   "period": "2026-09-30",
    "rows": "quarterly",
    "v2": 0
   }
@@ -1215,6 +1262,78 @@
    "start": "2026-04-01",
    "stock_comp": 2445000,
    "total_debt": 2126021000
+  },
+  {
+   "cash": 492914000,
+   "cash_and_sti": 492914000,
+   "debt_current": 1957023000,
+   "debt_noncurrent": 0,
+   "end": "2026-09-30",
+   "equity": -294372000,
+   "net_income": 333841000,
+   "operating_cash_flow": -18044000,
+   "revenue": 105923000,
+   "shares_diluted": 92690000,
+   "src": {
+    "cash": {
+     "accn": "0001104659-26-123440",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001104659-26-123440",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001104659-26-123440",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001104659-26-123440",
+     "derived": true,
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001104659-26-123440",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001104659-26-123440",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001104659-26-123440",
+     "derived": true,
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-05",
+     "tags": [
+      "LongTermDebt",
+      "LongTermDebtCurrent"
+     ],
+     "values": {
+      "LongTermDebt": 1957023000,
+      "LongTermDebtCurrent": 1957023000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 2445000,
+   "total_debt": 1957023000
   }
  ],
  "v2_tags_used": {

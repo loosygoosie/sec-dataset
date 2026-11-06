@@ -1258,17 +1258,16 @@
   "total_liabilities": 7
  },
  "balance": {
-  "cash_and_sti": 1868500000,
-  "debt_current": 0,
-  "debt_noncurrent": 1177500000,
-  "end": "2026-06-30",
-  "equity": 845400000,
-  "total_debt": 1177500000
+  "cash_and_sti": 2236100000,
+  "debt_noncurrent": 1178800000,
+  "end": "2026-09-30",
+  "equity": 1105100000,
+  "total_debt": 1178800000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 37,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1277,79 +1276,39 @@
  },
  "cik": 1065059,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "stale_stock_comp",
+  "debt_one_side_only"
+ ],
  "instances_merged": [
   "0001628280-26-007117"
  ],
  "latest_filing": {
-  "accn": "0001628280-26-053863",
-  "filed": "2026-08-06",
+  "accn": "0001628280-26-070557",
+  "filed": "2026-11-05",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 2531000000.0,
+  "assets": 2871600000.0,
   "classes": {
-   "CommonClassAMember": 19233658.0,
+   "CommonClassAMember": 19899250.0,
    "CommonClassBMember": 719200.0
   },
-  "cover_accession": "0001628280-26-053863",
-  "cover_date": "2026-08-01",
+  "cover_accession": "0001628280-26-070557",
+  "cover_date": "2026-11-01",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-11",
   "note": null,
   "public_float": 3200000000.0,
   "revenue": 448700000.0,
-  "shares_cover": 19952858.0,
-  "shares_total": 19952858.0,
+  "shares_cover": 20618450.0,
+  "shares_total": 20618450.0,
   "size_gate": "float"
  },
  "name": "CENTRUS ENERGY CORP",
  "quarterly": [
-  {
-   "capex": 400000,
-   "capex_filed": "2023-11-08",
-   "cash": 183300000,
-   "current_assets": 531900000,
-   "current_liabilities": 337300000,
-   "d_and_a": 1600000,
-   "debt_current": 6100000,
-   "debt_current_total": 6100000,
-   "eps_diluted": 0.52,
-   "filed": "2024-10-29",
-   "form": "10-Q",
-   "gross_profit": 11300000,
-   "income_tax": -7600000,
-   "intangibles": 41500000,
-   "interest_expense": 400000,
-   "inventory": 210800000,
-   "lt_debt_noncurrent": 89600000,
-   "net_income": 8200000,
-   "net_income_parent": 8200000,
-   "operating_cash_flow": -24000000,
-   "operating_income": -2900000,
-   "period_end": "2023-09-30",
-   "pretax_income": 600000,
-   "rd_expense": 3300000,
-   "receivables": 9400000,
-   "retained_earnings": -205800000,
-   "revenue": 51300000,
-   "revenue_filed": "2023-11-08",
-   "sga_expense": 9500000,
-   "shares_diluted": 15626000,
-   "shares_diluted_adj": 15626000,
-   "shares_diluted_filled": 15626000,
-   "shares_diluted_filled_filed": "2024-10-29",
-   "shares_diluted_filled_source": "shares_diluted",
-   "total_assets": 644700000,
-   "total_debt": 95700000,
-   "total_debt_basis": "tagged",
-   "total_debt_filed": "2023-11-08",
-   "total_equity": -24000000,
-   "total_equity_parent": -24000000,
-   "total_liabilities": 668700000
-  },
   {
    "capex": 500000,
    "capex_filed": "2024-02-09",
@@ -1666,12 +1625,12 @@
    "debt_current": 0,
    "debt_current_total": 0,
    "eps_diluted": 0.19,
-   "filed": "2025-11-06",
+   "filed": "2026-11-05",
    "form": "10-Q",
    "gross_profit": -4300000,
    "income_tax": -11900000,
    "intangibles": 23700000,
-   "interest_expense": 3400000,
+   "interest_expense": 3200000,
    "inventory": 416300000,
    "lt_debt_noncurrent": 1173500000,
    "net_income": 3900000,
@@ -1685,11 +1644,11 @@
    "retained_earnings": -16300000,
    "revenue": 74900000,
    "revenue_filed": "2025-11-06",
-   "sga_expense": 8900000,
+   "sga_expense": 9500000,
    "shares_diluted": 20677000,
    "shares_diluted_adj": 20677000,
    "shares_diluted_filled": 20677000,
-   "shares_diluted_filled_filed": "2025-11-06",
+   "shares_diluted_filled_filed": "2026-11-05",
    "shares_diluted_filled_source": "shares_diluted",
    "total_assets": 2244900000,
    "total_debt": 1173500000,
@@ -1717,7 +1676,7 @@
    "gross_profit": 35000000,
    "income_tax": 3500000,
    "intangibles": 21200000,
-   "interest_expense": 2600000,
+   "interest_expense": 2800000,
    "inventory": 322900000,
    "lt_debt_noncurrent": 1174800000,
    "net_income": 17800000,
@@ -1732,7 +1691,7 @@
    "retained_earnings": 1500000,
    "revenue": 146200000,
    "revenue_filed": "2026-02-11",
-   "sga_expense": 5600000,
+   "sga_expense": 5000000,
    "shares_diluted": 19925000,
    "shares_diluted_adj": 19925000,
    "shares_diluted_filled": 19925000,
@@ -1831,9 +1790,50 @@
    "total_equity": 845400000,
    "total_equity_parent": 845400000,
    "total_liabilities": 1685600000
+  },
+  {
+   "capex": 131600000,
+   "capex_filed": "2026-11-05",
+   "cash": 2236100000,
+   "current_assets": 2485500000,
+   "current_liabilities": 288700000,
+   "d_and_a": 1700000,
+   "eps_diluted": 1.41,
+   "filed": "2026-11-05",
+   "form": "10-Q",
+   "gross_profit": -10600000,
+   "income_tax": -2900000,
+   "intangibles": 15700000,
+   "interest_expense": 3600000,
+   "inventory": 177700000,
+   "lt_debt_noncurrent": 1178800000,
+   "net_income": 31600000,
+   "net_income_parent": 31600000,
+   "operating_cash_flow": 5600000,
+   "operating_income": -29700000,
+   "period_end": "2026-09-30",
+   "pretax_income": 28700000,
+   "rd_expense": 4700000,
+   "receivables": 26800000,
+   "retained_earnings": 59900000,
+   "revenue": 55500000,
+   "revenue_filed": "2026-11-05",
+   "sga_expense": 13200000,
+   "shares_diluted": 22412000,
+   "shares_diluted_adj": 22412000,
+   "shares_diluted_filled": 22412000,
+   "shares_diluted_filled_filed": "2026-11-05",
+   "shares_diluted_filled_source": "shares_diluted",
+   "total_assets": 2871600000,
+   "total_debt": 1178800000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-05",
+   "total_equity": 1105100000,
+   "total_equity_parent": 1105100000,
+   "total_liabilities": 1766500000
   }
  ],
- "sec_name": "CENTRUS ENERGY CORP",
+ "sec_name": "Centrus Energy Corp.",
  "sic": "1400",
  "sic_description": "Mining & Quarrying of  Nonmetallic Minerals (No Fuels)",
  "splits": [
@@ -1919,59 +1919,60 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 108800000
+   "val": 236000000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": -163800000
+   "val": -295500000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 48500000
+   "val": 76200000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -55000000
+   "val": -59500000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
    ],
-   "val": 473900000
+   "val": 454500000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 21891000
+   "val": 22412000
   },
   "stock_comp": {
    "end": "2025-12-31",
    "filed": "2026-02-11",
    "method": "fiscal_year",
+   "stale": true,
    "tags": [
     "AllocatedShareBasedCompensationExpense"
    ],
@@ -3719,20 +3720,6 @@
   {
    "field": "total_debt",
    "old": 89600000,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 95700000
-  },
-  {
-   "field": "lt_debt_noncurrent",
-   "old": null,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 89600000
-  },
-  {
-   "field": "total_debt",
-   "old": 89600000,
    "period": "2023-12-31",
    "rows": "quarterly",
    "v2": 95700000
@@ -3848,6 +3835,13 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 1177500000
+  },
+  {
+   "field": "lt_debt_noncurrent",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 1178800000
   }
  ],
  "v2_notes": [],
@@ -8846,6 +8840,77 @@
    },
    "start": "2026-04-01",
    "total_debt": 1177500000
+  },
+  {
+   "capex": 131600000,
+   "cash": 2236100000,
+   "cash_and_sti": 2236100000,
+   "debt_noncurrent": 1178800000,
+   "end": "2026-09-30",
+   "equity": 1105100000,
+   "fcf": -126000000,
+   "net_income": 31600000,
+   "operating_cash_flow": 5600000,
+   "revenue": 55500000,
+   "shares_diluted": 22412000,
+   "src": {
+    "capex": {
+     "accn": "0001628280-26-070557",
+     "derived": true,
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001628280-26-070557",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001628280-26-070557",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001628280-26-070557",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001628280-26-070557",
+     "derived": true,
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001628280-26-070557",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001628280-26-070557",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2026-11-05",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LongTermDebt"
+     ],
+     "values": {
+      "LongTermDebt": 1178800000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "total_debt": 1178800000
   }
  ],
  "v2_tags_used": {

@@ -1553,18 +1553,17 @@
   "total_liabilities": 16
  },
  "balance": {
-  "cash_and_sti": 89127000,
-  "debt_current": 10450000,
-  "debt_noncurrent": 2007235000,
-  "end": "2026-06-30",
-  "equity": 1916716000,
-  "finance_leases": 19975000,
-  "total_debt": 2017685000
+  "cash_and_sti": 46515000,
+  "debt_noncurrent": 2079324000,
+  "end": "2026-09-30",
+  "equity": 1944665000,
+  "finance_leases": 19319000,
+  "total_debt": 2079324000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 37,
   "reconciled_fy": 2026,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1573,80 +1572,35 @@
  },
  "cik": 1295947,
  "fiscal_year_end": "0331",
- "flags": [],
+ "flags": [
+  "debt_one_side_only"
+ ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001295947-26-000042",
-  "filed": "2026-08-06",
+  "accn": "0001295947-26-000057",
+  "filed": "2026-11-05",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 4568573000.0,
+  "assets": 4721661000.0,
   "classes": {
-   "common": 47374522.0
+   "common": 47397106.0
   },
-  "cover_accession": "0001295947-26-000042",
-  "cover_date": "2026-07-31",
+  "cover_accession": "0001295947-26-000057",
+  "cover_date": "2026-10-30",
   "float_date": "2025-09-30",
   "float_filed": "2026-05-14",
   "note": null,
   "public_float": 2970200000.0,
   "revenue": 1088705000.0,
-  "shares_cover": 47374522.0,
-  "shares_total": 47374522.0,
+  "shares_cover": 47397106.0,
+  "shares_total": 47397106.0,
   "size_gate": "float"
  },
  "name": "Prestige Consumer Healthcare Inc.",
  "quarterly": [
-  {
-   "buybacks": 0,
-   "capex": 2934000,
-   "capex_filed": "2023-11-02",
-   "cash": 60067000,
-   "current_assets": 388198000,
-   "current_liabilities": 129704000,
-   "d_and_a": 7643000,
-   "debt_due_1y": 0,
-   "debt_due_2y": 0,
-   "debt_due_3y": 0,
-   "eps_diluted": 1.07,
-   "filed": "2024-11-07",
-   "finance_lease_liabilities": 3094000,
-   "form": "10-Q",
-   "goodwill": 526860000,
-   "gross_profit": 160020000,
-   "income_tax": 16856000,
-   "intangibles": 2328250000,
-   "interest_expense": 17606000,
-   "inventory": 161283000,
-   "lt_debt_noncurrent": 1275000000,
-   "net_income": 53559000,
-   "net_income_parent": 53559000,
-   "net_interest_income": -17606000,
-   "operating_cash_flow": 62460000,
-   "operating_income": 88250000,
-   "operating_leases": 13376000,
-   "period_end": "2023-09-30",
-   "receivables": 158456000,
-   "retained_earnings": 1238693000,
-   "revenue": 286316000,
-   "revenue_filed": "2023-11-02",
-   "shares_diluted": 50081000,
-   "shares_diluted_adj": 50081000,
-   "shares_diluted_filled": 50081000,
-   "shares_diluted_filled_filed": "2024-11-07",
-   "shares_diluted_filled_source": "shares_diluted",
-   "stock_comp": 3688000,
-   "total_assets": 3332874000,
-   "total_debt": 1275000000,
-   "total_debt_basis": "tagged",
-   "total_debt_filed": "2023-11-02",
-   "total_equity": 1535959000,
-   "total_equity_parent": 1535959000,
-   "total_liabilities": 1796915000
-  },
   {
    "buybacks": 0,
    "capex": 1996000,
@@ -1979,6 +1933,7 @@
    "total_liabilities": 1576143000
   },
   {
+   "acquisitions": 0,
    "buybacks": 75000000,
    "capex": 2102000,
    "capex_filed": "2025-11-06",
@@ -1990,7 +1945,7 @@
    "debt_due_2y": 400000000,
    "debt_due_3y": 0,
    "eps_diluted": 0.86,
-   "filed": "2025-11-06",
+   "filed": "2026-11-05",
    "finance_lease_liabilities": 21891000,
    "form": "10-Q",
    "goodwill": 528411000,
@@ -2013,7 +1968,7 @@
    "shares_diluted": 49264000,
    "shares_diluted_adj": 49264000,
    "shares_diluted_filled": 49264000,
-   "shares_diluted_filled_filed": "2025-11-06",
+   "shares_diluted_filled_filed": "2026-11-05",
    "shares_diluted_filled_source": "shares_diluted",
    "stock_comp": 1767000,
    "total_assets": 3442280000,
@@ -2025,6 +1980,7 @@
    "total_liabilities": 1617311000
   },
   {
+   "acquisitions": 125532000,
    "buybacks": 45818000,
    "capex": 3028000,
    "capex_filed": "2026-02-05",
@@ -2071,6 +2027,7 @@
    "total_liabilities": 1665292000
   },
   {
+   "acquisitions": -1796000,
    "buybacks": 690000,
    "capex": 5210000,
    "capex_filed": "2026-05-14",
@@ -2166,6 +2123,53 @@
    "total_equity": 1916716000,
    "total_equity_parent": 1916716000,
    "total_liabilities": 2651857000
+  },
+  {
+   "acquisitions": 148557000,
+   "buybacks": 0,
+   "capex": 3624000,
+   "capex_filed": "2026-11-05",
+   "cash": 46515000,
+   "current_assets": 492128000,
+   "current_liabilities": 168503000,
+   "d_and_a": 11964000,
+   "debt_due_1y": 0,
+   "debt_due_2y": 1350000,
+   "debt_due_3y": 11400000,
+   "eps_diluted": 0.53,
+   "filed": "2026-11-05",
+   "finance_lease_liabilities": 19319000,
+   "form": "10-Q",
+   "goodwill": 705264000,
+   "gross_profit": 172538000,
+   "income_tax": 22155000,
+   "intangibles": 3357059000,
+   "inventory": 179203000,
+   "lt_debt_noncurrent": 2079324000,
+   "net_income": 25295000,
+   "net_income_parent": 25295000,
+   "net_interest_income": -30026000,
+   "operating_cash_flow": 37865000,
+   "operating_income": 80712000,
+   "operating_leases": 24727000,
+   "period_end": "2026-09-30",
+   "receivables": 244124000,
+   "retained_earnings": 1800575000,
+   "revenue": 336307000,
+   "revenue_filed": "2026-11-05",
+   "shares_diluted": 47593000,
+   "shares_diluted_adj": 47593000,
+   "shares_diluted_filled": 47593000,
+   "shares_diluted_filled_filed": "2026-11-05",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 1231000,
+   "total_assets": 4721661000,
+   "total_debt": 2079324000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-05",
+   "total_equity": 1944665000,
+   "total_equity_parent": 1944665000,
+   "total_liabilities": 2776996000
   }
  ],
  "sec_name": "PRESTIGE CONSUMER HEALTHCARE INC.",
@@ -2244,63 +2248,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 14043000
+   "val": 15565000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": 235359000
+   "val": 214216000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 172012000
+   "val": 155096000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 249402000
+   "val": 229781000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
    ],
-   "val": 1104885000
+   "val": 1167078000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 47604000
+   "val": 47593000
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 11147000
+   "val": 10611000
   }
  },
  "v2_annual": [
@@ -3780,6 +3784,13 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 2017685000
+  },
+  {
+   "field": "total_debt",
+   "old": 2110000000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 2079324000
   }
  ],
  "v2_notes": [],
@@ -8830,6 +8841,86 @@
    "start": "2026-04-01",
    "stock_comp": 3994000,
    "total_debt": 2017685000
+  },
+  {
+   "capex": 3624000,
+   "cash": 46515000,
+   "cash_and_sti": 46515000,
+   "debt_noncurrent": 2079324000,
+   "end": "2026-09-30",
+   "equity": 1944665000,
+   "fcf": 34241000,
+   "finance_leases": 19319000,
+   "net_income": 25295000,
+   "operating_cash_flow": 37865000,
+   "revenue": 336307000,
+   "shares_diluted": 47593000,
+   "src": {
+    "capex": {
+     "accn": "0001295947-26-000057",
+     "derived": true,
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001295947-26-000057",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001295947-26-000057",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001295947-26-000057",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001295947-26-000057",
+     "derived": true,
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001295947-26-000057",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001295947-26-000057",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001295947-26-000057",
+     "derived": true,
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-05",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LongTermDebtNoncurrent"
+     ],
+     "values": {
+      "LongTermDebtNoncurrent": 2079324000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 1231000,
+   "total_debt": 2079324000
   }
  ],
  "v2_tags_used": {

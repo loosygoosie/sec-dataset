@@ -215,53 +215,48 @@
   "total_liabilities": 2
  },
  "balance": {
-  "cash_and_sti": 89807000,
-  "debt_end": "2025-12-31",
-  "debt_noncurrent": 0,
-  "end": "2026-06-30",
-  "equity": 257642000,
-  "finance_leases": 7582000,
-  "total_debt": 0
+  "cash_and_sti": 119655000,
+  "end": "2026-09-30",
+  "equity": 279720000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 37,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
-  "share_scale": "n/a",
-  "shares": "none"
+  "share_scale": "ok",
+  "shares": "annual-gaps:2"
  },
  "cik": 1802255,
  "fiscal_year_end": "1231",
  "flags": [
-  "no_debt_tagged",
-  "debt_one_side_only"
+  "no_debt_tagged"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001193125-26-338074",
-  "filed": "2026-08-06",
+  "accn": "0001628280-26-071056",
+  "filed": "2026-11-05",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 443578000.0,
+  "assets": 491776000.0,
   "classes": {
-   "CommonClassAMember": 49798904.0,
-   "CommonClassBMember": 13543400.0
+   "CommonClassAMember": 63320300.0,
+   "CommonClassBMember": 33619.0
   },
-  "cover_accession": "0001193125-26-338074",
-  "cover_date": "2026-08-03",
+  "cover_accession": "0001628280-26-071056",
+  "cover_date": "2026-11-03",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-11",
   "note": null,
   "public_float": 411599923.0,
   "revenue": 1448685000.0,
-  "shares_cover": 63342304.0,
-  "shares_total": 63342304.0,
+  "shares_cover": 63353919.0,
+  "shares_total": 63353919.0,
   "size_gate": "revenue"
  },
  "name": "Guardian Pharmacy Services, Inc.",
@@ -477,7 +472,8 @@
    "current_assets": 198280000,
    "current_liabilities": 161949000,
    "d_and_a": 5838000,
-   "filed": "2025-11-10",
+   "eps_diluted": 0.15,
+   "filed": "2026-11-05",
    "form": "10-Q",
    "goodwill": 79570000,
    "gross_profit": 74721000,
@@ -498,6 +494,11 @@
    "revenue": 377427000,
    "revenue_filed": "2025-11-10",
    "sga_expense": 58367000,
+   "shares_diluted": 63432000,
+   "shares_diluted_adj": 63432000,
+   "shares_diluted_filled": 63432000,
+   "shares_diluted_filled_filed": "2026-11-05",
+   "shares_diluted_filled_source": "shares_diluted",
    "stock_comp": 4356000,
    "total_assets": 390037000,
    "total_equity": 195497000,
@@ -606,6 +607,44 @@
    "total_equity": 257642000,
    "total_equity_incl_nci": 257642000,
    "total_liabilities": 185936000
+  },
+  {
+   "cash": 119655000,
+   "current_assets": 294817000,
+   "current_liabilities": 179089000,
+   "d_and_a": 5932000,
+   "eps_diluted": 0.29,
+   "filed": "2026-11-05",
+   "form": "10-Q",
+   "goodwill": 81954000,
+   "gross_profit": 85223000,
+   "income_tax": 6857000,
+   "intangibles": 20842000,
+   "interest_expense": 177000,
+   "inventory": 57051000,
+   "net_income": 18680000,
+   "net_income_incl_nci": 19120000,
+   "net_income_parent": 18680000,
+   "operating_cash_flow": 43370000,
+   "operating_income": 25063000,
+   "operating_leases": 27962000,
+   "period_end": "2026-09-30",
+   "pretax_income": 25977000,
+   "receivables": 107677000,
+   "retained_earnings": 120190000,
+   "revenue": 371070000,
+   "revenue_filed": "2026-11-05",
+   "sga_expense": 60160000,
+   "shares_diluted": 63916000,
+   "shares_diluted_adj": 63916000,
+   "shares_diluted_filled": 63916000,
+   "shares_diluted_filled_filed": "2026-11-05",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 2735000,
+   "total_assets": 491776000,
+   "total_equity": 279720000,
+   "total_equity_incl_nci": 279720000,
+   "total_liabilities": 212056000
   }
  ],
  "sec_name": "Guardian Pharmacy Services, Inc.",
@@ -614,7 +653,7 @@
  "splits": [],
  "tags_used": {
   "acquisition_cost_amort": null,
-  "acquisitions": null,
+  "acquisitions": "PaymentsToAcquireBusinessesNetOfCashAcquired",
   "buybacks": "PaymentsForRepurchaseOfCommonStock",
   "capex": "PaymentsToAcquireProductiveAssets",
   "capitalized_software": null,
@@ -633,7 +672,7 @@
   "debt_due_3y": "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
   "deposits": null,
   "dividends_paid": null,
-  "eps_diluted": null,
+  "eps_diluted": "EarningsPerShareDiluted",
   "finance_lease_liabilities": "FinanceLeaseLiabilityNoncurrent,FinanceLeaseLiabilityCurrent",
   "goodwill": "Goodwill",
   "gross_profit": "GrossProfit",
@@ -665,7 +704,7 @@
   "retained_earnings": "RetainedEarningsAccumulatedDeficit",
   "revenue": "Revenues",
   "sga_expense": "SellingGeneralAndAdministrativeExpense",
-  "shares_diluted": null,
+  "shares_diluted": "WeightedAverageNumberOfDilutedSharesOutstanding,WeightedAverageNumberOfSharesOutstandingBasic",
   "shares_outstanding": null,
   "short_term_borrowings": null,
   "short_term_investments": null,
@@ -692,46 +731,50 @@
    ],
    "val": 4496000
   },
-  "fcf": {
-   "end": "2026-06-30",
-   "method": "year_to_date",
-   "val": 94360000
-  },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 65908000
+   "val": 74770000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 98856000
+   "val": 114057000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "Revenues"
    ],
-   "val": 1463406000
+   "val": 1457049000
+  },
+  "shares_diluted": {
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
+   "method": "latest_quarter",
+   "tags": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ],
+   "val": 63916000
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-05",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 10229000
+   "val": 8608000
   }
  },
  "v2_annual": [
@@ -1343,6 +1386,7 @@
    "net_income": 9818000,
    "operating_cash_flow": 28169000,
    "revenue": 377427000,
+   "shares_diluted": 63432000,
    "src": {
     "capex": {
      "accn": "0001193125-25-274298",
@@ -1381,6 +1425,12 @@
      "filed": "2025-11-10",
      "form": "10-Q",
      "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001628280-26-071056",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
     },
     "stock_comp": {
      "accn": "0001193125-25-274298",
@@ -1567,6 +1617,64 @@
    },
    "start": "2026-04-01",
    "stock_comp": 2932000
+  },
+  {
+   "cash": 119655000,
+   "cash_and_sti": 119655000,
+   "end": "2026-09-30",
+   "equity": 279720000,
+   "net_income": 18680000,
+   "operating_cash_flow": 43370000,
+   "revenue": 371070000,
+   "shares_diluted": 63916000,
+   "src": {
+    "cash": {
+     "accn": "0001628280-26-071056",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001628280-26-071056",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+    },
+    "net_income": {
+     "accn": "0001628280-26-071056",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001628280-26-071056",
+     "derived": true,
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001628280-26-071056",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001628280-26-071056",
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001628280-26-071056",
+     "derived": true,
+     "filed": "2026-11-05",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 2735000
   }
  ],
  "v2_tags_used": {
@@ -1583,7 +1691,9 @@
   "revenue": [
    "Revenues"
   ],
-  "shares_diluted": [],
+  "shares_diluted": [
+   "WeightedAverageNumberOfDilutedSharesOutstanding"
+  ],
   "stock_comp": [
    "ShareBasedCompensation"
   ]
