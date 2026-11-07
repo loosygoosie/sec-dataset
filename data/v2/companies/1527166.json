@@ -1120,6 +1120,10 @@
    "total_assets": 29116000000,
    "total_assets_as_filed": 29116000000,
    "total_assets_as_filed_filed": "2026-02-27",
+   "total_debt": 3025100000,
+   "total_debt_as_filed": 3025100000,
+   "total_debt_as_filed_filed": "2026-11-06",
+   "total_debt_basis": "tagged",
    "total_equity": 7057100000,
    "total_equity_incl_nci": 7057100000,
    "total_liabilities": 22058900000
@@ -1185,21 +1189,21 @@
   "stock_comp": 14,
   "tier1_capital_ratio": 0,
   "total_assets": 16,
-  "total_debt": 13,
+  "total_debt": 14,
   "total_equity": 9,
   "total_equity_incl_nci": 9,
   "total_equity_parent": 0,
   "total_liabilities": 15
  },
  "balance": {
-  "cash_and_sti": 1256500000,
-  "end": "2026-06-30",
-  "equity": 7212800000
+  "cash_and_sti": 1583500000,
+  "end": "2026-09-30",
+  "equity": 6596600000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 129,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 38,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1210,73 +1214,37 @@
  "fiscal_year_end": "1231",
  "flags": [
   "no_debt_tagged",
-  "revenue_unverified_2024-12-31",
   "revenue_unverified_2023-12-31",
+  "revenue_unverified_2024-12-31",
   "revenue_unverified_2025-12-31",
   "interest_but_no_debt"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001527166-26-000045",
-  "filed": "2026-08-10",
+  "accn": "0001527166-26-000053",
+  "filed": "2026-11-06",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 28195600000.0,
+  "assets": 28179400000.0,
   "classes": {
-   "common": 356332798.0
+   "common": 353914742.0
   },
-  "cover_accession": "0001527166-26-000045",
-  "cover_date": "2026-08-04",
+  "cover_accession": "0001527166-26-000053",
+  "cover_date": "2026-11-03",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-27",
   "note": null,
   "public_float": 13579714543.0,
   "revenue": 4779800000.0,
-  "shares_cover": 356332798.0,
-  "shares_total": 356332798.0,
+  "shares_cover": 353914742.0,
+  "shares_total": 353914742.0,
   "size_gate": "float"
  },
  "name": "Carlyle Group Inc.",
  "quarterly": [
-  {
-   "buybacks": 42900000,
-   "capex": 17100000,
-   "capex_filed": "2023-11-07",
-   "cash": 1267700000,
-   "d_and_a": 48900000,
-   "dividends_paid": 126300000,
-   "eps_diluted": 0.22,
-   "filed": "2024-11-07",
-   "form": "10-Q",
-   "goodwill": 103800000,
-   "income_tax": 41200000,
-   "interest_expense": 31400000,
-   "interest_income": 57900000,
-   "net_income": 81300000,
-   "net_income_incl_nci": 111000000,
-   "net_income_parent": 81300000,
-   "operating_cash_flow": 799800000,
-   "operating_leases": 496000000,
-   "period_end": "2023-09-30",
-   "pretax_income": 152200000,
-   "retained_earnings": 2902600000,
-   "revenue": 716600000,
-   "revenue_filed": "2023-11-07",
-   "shares_diluted": 363655647,
-   "shares_diluted_adj": 363655647,
-   "shares_diluted_filled": 363655647,
-   "shares_diluted_filled_filed": "2024-11-07",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 360719374,
-   "stock_comp": 64400000,
-   "total_assets": 20957300000,
-   "total_equity": 6504800000,
-   "total_equity_incl_nci": 6504800000,
-   "total_liabilities": 14452500000
-  },
   {
    "buybacks": -200000,
    "capex": 17000000,
@@ -1540,7 +1508,7 @@
    "d_and_a": 48500000,
    "dividends_paid": 126500000,
    "eps_diluted": 0,
-   "filed": "2025-11-07",
+   "filed": "2026-11-06",
    "form": "10-Q",
    "goodwill": 104600000,
    "income_tax": -26700000,
@@ -1559,7 +1527,7 @@
    "shares_diluted": 376487705,
    "shares_diluted_adj": 376487705,
    "shares_diluted_filled": 376487705,
-   "shares_diluted_filled_filed": "2025-11-07",
+   "shares_diluted_filled_filed": "2026-11-06",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 360136508,
    "stock_comp": 90700000,
@@ -1600,6 +1568,8 @@
    "shares_outstanding": 357374023,
    "stock_comp": 87600000,
    "total_assets": 29116000000,
+   "total_debt": 3025100000,
+   "total_debt_basis": "tagged",
    "total_equity": 7057100000,
    "total_equity_incl_nci": 7057100000,
    "total_liabilities": 22058900000
@@ -1673,6 +1643,43 @@
    "total_equity": 7212800000,
    "total_equity_incl_nci": 7212800000,
    "total_liabilities": 20982800000
+  },
+  {
+   "buybacks": 210400000,
+   "capex": 27400000,
+   "capex_filed": "2026-11-06",
+   "cash": 1583500000,
+   "d_and_a": 52000000,
+   "dividends_paid": 124500000,
+   "eps_diluted": -0.02,
+   "filed": "2026-11-06",
+   "form": "10-Q",
+   "income_tax": -100000,
+   "interest_expense": 39100000,
+   "interest_income": 59400000,
+   "net_income": -7700000,
+   "net_income_incl_nci": -76800000,
+   "net_income_parent": -7700000,
+   "operating_cash_flow": 361100000,
+   "operating_leases": 436900000,
+   "period_end": "2026-09-30",
+   "pretax_income": -76900000,
+   "retained_earnings": 525700000,
+   "revenue": 334100000,
+   "revenue_filed": "2026-11-06",
+   "shares_diluted": 354291958,
+   "shares_diluted_adj": 354291958,
+   "shares_diluted_filled": 354291958,
+   "shares_diluted_filled_filed": "2026-11-06",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 353695343,
+   "stock_comp": 100800000,
+   "total_assets": 28179400000,
+   "total_debt": 3045400000,
+   "total_debt_basis": "tagged",
+   "total_equity": 6596600000,
+   "total_equity_incl_nci": 6596600000,
+   "total_liabilities": 21582800000
   }
  ],
  "sec_name": "Carlyle Group Inc.",
@@ -1752,63 +1759,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 125300000
+   "val": 129500000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": -4122800000
+   "val": -2206400000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 363900000
+   "val": 355300000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -3997500000
+   "val": -2076900000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
    "method": "four_quarters",
    "tags": [
     "Revenues"
    ],
-   "val": 3611300000
+   "val": 3612700000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 367301542
+   "val": 354291958
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 414100000
+   "val": 424200000
   }
  },
  "v2_annual": [
@@ -7156,6 +7163,72 @@
    },
    "start": "2026-04-01",
    "stock_comp": 116000000
+  },
+  {
+   "capex": 27400000,
+   "cash": 1583500000,
+   "cash_and_sti": 1583500000,
+   "end": "2026-09-30",
+   "equity": 6596600000,
+   "fcf": 333700000,
+   "net_income": -7700000,
+   "operating_cash_flow": 361100000,
+   "revenue": 334100000,
+   "shares_diluted": 354291958,
+   "src": {
+    "capex": {
+     "accn": "0001527166-26-000053",
+     "derived": true,
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001527166-26-000053",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001527166-26-000053",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+    },
+    "net_income": {
+     "accn": "0001527166-26-000053",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001527166-26-000053",
+     "derived": true,
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001527166-26-000053",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001527166-26-000053",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001527166-26-000053",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 100800000
   }
  ],
  "v2_tags_used": {

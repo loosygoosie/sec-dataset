@@ -433,15 +433,15 @@
   "total_liabilities": 5
  },
  "balance": {
-  "cash_and_sti": 219221000,
-  "end": "2026-06-30",
-  "equity": 1267537000,
-  "total_debt": 417620000
+  "cash_and_sti": 187615000,
+  "end": "2026-09-30",
+  "equity": 1276268000,
+  "total_debt": 417037000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 38,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -450,68 +450,35 @@
  },
  "cik": 1519449,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "stale_stock_comp"
+ ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001519449-26-000054",
-  "filed": "2026-08-07",
+  "accn": "0001519449-26-000063",
+  "filed": "2026-11-06",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 6781139000.0,
+  "assets": 7146446000.0,
   "classes": {
-   "common": 44396493.0
+   "common": 44413449.0
   },
-  "cover_accession": "0001519449-26-000054",
-  "cover_date": "2026-07-31",
+  "cover_accession": "0001519449-26-000063",
+  "cover_date": "2026-10-30",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-02",
   "note": null,
   "public_float": 2165161643.0,
   "revenue": 1416541000.0,
-  "shares_cover": 44396493.0,
-  "shares_total": 44396493.0,
+  "shares_cover": 44413449.0,
+  "shares_total": 44413449.0,
   "size_gate": "float"
  },
  "name": "Skyward Specialty Insurance Group, Inc.",
  "quarterly": [
-  {
-   "acquisition_cost_amort": 34071000,
-   "capex": -1198000,
-   "capex_filed": "2024-11-07",
-   "cash": 53730000,
-   "eps_diluted": 0.57,
-   "filed": "2024-11-07",
-   "form": "10-Q",
-   "income_tax": 6084000,
-   "interest_expense": 2632000,
-   "loss_reserves": 1268711000,
-   "net_income": 21711000,
-   "net_income_parent": 21711000,
-   "operating_cash_flow": 110062000,
-   "period_end": "2023-09-30",
-   "premiums_earned": 227033000,
-   "pretax_income": 27795000,
-   "retained_earnings": -50974000,
-   "revenue": 239223000,
-   "revenue_filed": "2023-11-09",
-   "shares_diluted": 38403843,
-   "shares_diluted_adj": 38403843,
-   "shares_diluted_filled": 38403843,
-   "shares_diluted_filled_filed": "2024-11-07",
-   "shares_diluted_filled_source": "shares_diluted",
-   "short_term_investments": 194049000,
-   "stock_comp": 2300000,
-   "total_assets": 2850695000,
-   "total_debt": 50000000,
-   "total_debt_basis": "tagged",
-   "total_debt_filed": "2023-11-09",
-   "total_equity": 535397000,
-   "total_equity_parent": 535397000,
-   "total_liabilities": 2315298000
-  },
   {
    "acquisition_cost_amort": 30072000,
    "capex": 3108000,
@@ -774,13 +741,18 @@
    "total_liabilities": 3436477000
   },
   {
+   "acquisition_cost_amort": 49243000,
+   "acquisitions": 0,
+   "buybacks": 0,
    "capex": 2460000,
    "capex_filed": "2025-11-06",
    "cash": 160068000,
    "eps_diluted": 1.1,
-   "filed": "2025-11-06",
+   "filed": "2026-11-06",
    "form": "10-Q",
+   "goodwill": 65734000,
    "income_tax": 14646000,
+   "intangibles": 22683000,
    "interest_expense": 1919000,
    "loss_reserves": 2061774000,
    "net_income": 45901000,
@@ -795,7 +767,7 @@
    "shares_diluted": 41868449,
    "shares_diluted_adj": 41868449,
    "shares_diluted_filled": 41868449,
-   "shares_diluted_filled_filed": "2025-11-06",
+   "shares_diluted_filled_filed": "2026-11-06",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 40487365,
    "short_term_investments": 247376000,
@@ -916,6 +888,43 @@
    "total_equity": 1267537000,
    "total_equity_parent": 1267537000,
    "total_liabilities": 5513602000
+  },
+  {
+   "acquisition_cost_amort": 61622000,
+   "acquisitions": -106336000,
+   "buybacks": 125000,
+   "cash": 187615000,
+   "eps_diluted": 1.09,
+   "filed": "2026-11-06",
+   "form": "10-Q",
+   "goodwill": 191142000,
+   "income_tax": 13848000,
+   "intangibles": 277912000,
+   "interest_expense": 6997000,
+   "loss_reserves": 3208137000,
+   "net_income": 49796000,
+   "net_income_parent": 49796000,
+   "operating_cash_flow": 205136000,
+   "period_end": "2026-09-30",
+   "premiums_earned": 406864000,
+   "pretax_income": 63644000,
+   "retained_earnings": 415713000,
+   "revenue": 455341000,
+   "revenue_filed": "2026-11-06",
+   "shares_diluted": 45799617,
+   "shares_diluted_adj": 45799617,
+   "shares_diluted_filled": 45799617,
+   "shares_diluted_filled_filed": "2026-11-06",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 44413449,
+   "short_term_investments": 531449000,
+   "total_assets": 7146446000,
+   "total_debt": 417037000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-06",
+   "total_equity": 1276268000,
+   "total_equity_parent": 1276268000,
+   "total_liabilities": 5870178000
   }
  ],
  "sec_name": "SKYWARD SPECIALTY INSURANCE GROUP, INC.",
@@ -1002,51 +1011,47 @@
    ],
    "val": 5132000
   },
-  "fcf": {
-   "end": "2026-06-30",
-   "method": "year_to_date",
-   "val": 402171000
-  },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-07",
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 187900000
+   "val": 191795000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-07",
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 407303000
+   "val": 441071000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-07",
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
    "method": "four_quarters",
    "tags": [
     "Revenues"
    ],
-   "val": 1733511000
+   "val": 1806326000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-07",
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 45692641
+   "val": 45799617
   },
   "stock_comp": {
    "end": "2025-12-31",
    "filed": "2026-03-02",
    "method": "fiscal_year",
+   "stale": true,
    "tags": [
     "ShareBasedCompensation"
    ],
@@ -2632,6 +2637,66 @@
    },
    "start": "2026-04-01",
    "total_debt": 417620000
+  },
+  {
+   "cash": 187615000,
+   "cash_and_sti": 187615000,
+   "end": "2026-09-30",
+   "equity": 1276268000,
+   "net_income": 49796000,
+   "operating_cash_flow": 205136000,
+   "revenue": 455341000,
+   "shares_diluted": 45799617,
+   "src": {
+    "cash": {
+     "accn": "0001519449-26-000063",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001519449-26-000063",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001519449-26-000063",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001519449-26-000063",
+     "derived": true,
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001519449-26-000063",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001519449-26-000063",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2026-11-06",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 417037000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "total_debt": 417037000
   }
  ],
  "v2_tags_used": {

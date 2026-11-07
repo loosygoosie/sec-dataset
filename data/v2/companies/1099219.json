@@ -1698,15 +1698,15 @@
   "total_liabilities": 18
  },
  "balance": {
-  "cash_and_sti": 27317000000,
-  "end": "2026-06-30",
-  "equity": 27441000000,
-  "total_debt": 14244000000
+  "cash_and_sti": 27665000000,
+  "end": "2026-09-30",
+  "equity": 22226000000,
+  "total_debt": 14301000000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 38,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1716,76 +1716,35 @@
  "cik": 1099219,
  "fiscal_year_end": "1231",
  "flags": [
-  "no_capex"
+  "no_capex",
+  "stale_stock_comp"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001099219-26-000050",
-  "filed": "2026-08-06",
+  "accn": "0001099219-26-000062",
+  "filed": "2026-11-06",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 759372000000.0,
+  "assets": 744608000000.0,
   "classes": {
-   "common": 635476927.0
+   "common": 628442143.0
   },
-  "cover_accession": "0001099219-26-000050",
-  "cover_date": "2026-07-31",
+  "cover_accession": "0001099219-26-000062",
+  "cover_date": "2026-10-30",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-19",
   "note": null,
   "public_float": 53600000000.0,
   "revenue": 77084000000.0,
-  "shares_cover": 635476927.0,
-  "shares_total": 635476927.0,
+  "shares_cover": 628442143.0,
+  "shares_total": 628442143.0,
   "size_gate": "float"
  },
  "name": "METLIFE INC",
  "quarterly": [
-  {
-   "acquisition_cost_amort": 460000000,
-   "buybacks": 792000000,
-   "cash": 14912000000,
-   "claims_incurred": 11130000000,
-   "d_and_a": 26000000,
-   "dividends_paid": 392000000,
-   "eps_diluted": 0.56,
-   "filed": "2024-11-01",
-   "form": "10-Q",
-   "goodwill": 9109000000,
-   "income_tax": 39000000,
-   "interest_expense": 265000000,
-   "loan_loss_allowance": 705000000,
-   "loss_reserves": 16605000000,
-   "net_income": 489000000,
-   "net_income_incl_nci": 495000000,
-   "net_income_parent": 489000000,
-   "operating_cash_flow": 3475000000,
-   "period_end": "2023-09-30",
-   "premiums_earned": 11230000000,
-   "pretax_income": 534000000,
-   "retained_earnings": 39958000000,
-   "revenue": 15866000000,
-   "revenue_filed": "2023-11-02",
-   "shares_diluted": 755500000,
-   "shares_diluted_adj": 755500000,
-   "shares_diluted_filled": 755500000,
-   "shares_diluted_filled_filed": "2024-11-01",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 744366475,
-   "short_term_borrowings": 161000000,
-   "short_term_investments": 6497000000,
-   "total_assets": 652120000000,
-   "total_debt": 15475000000,
-   "total_debt_basis": "tagged",
-   "total_debt_filed": "2023-11-02",
-   "total_equity": 25658000000,
-   "total_equity_incl_nci": 25895000000,
-   "total_equity_parent": 25658000000,
-   "total_liabilities": 626225000000
-  },
   {
    "acquisition_cost_amort": 467000000,
    "buybacks": 859000000,
@@ -2106,7 +2065,7 @@
    "d_and_a": 30000000,
    "dividends_paid": 378000000,
    "eps_diluted": 1.22,
-   "filed": "2025-11-07",
+   "filed": "2026-11-06",
    "form": "10-Q",
    "goodwill": 9095000000,
    "income_tax": 308000000,
@@ -2127,7 +2086,7 @@
    "shares_diluted": 669100000,
    "shares_diluted_adj": 669100000,
    "shares_diluted_filled": 669100000,
-   "shares_diluted_filled_filed": "2025-11-07",
+   "shares_diluted_filled_filed": "2026-11-06",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 660724727,
    "short_term_borrowings": 378000000,
@@ -2279,6 +2238,51 @@
    "total_equity_incl_nci": 27741000000,
    "total_equity_parent": 27441000000,
    "total_liabilities": 731411000000
+  },
+  {
+   "acquisition_cost_amort": 590000000,
+   "buybacks": 651000000,
+   "cash": 19786000000,
+   "claims_incurred": 11474000000,
+   "d_and_a": 31000000,
+   "dividends_paid": 379000000,
+   "eps_diluted": 3.67,
+   "filed": "2026-11-06",
+   "form": "10-Q",
+   "goodwill": 9544000000,
+   "income_tax": 588000000,
+   "interest_expense": 291000000,
+   "loan_loss_allowance": 1521000000,
+   "loans": 83774000000,
+   "loss_reserves": 18097000000,
+   "net_income": 2397000000,
+   "net_income_incl_nci": 2412000000,
+   "net_income_parent": 2397000000,
+   "operating_cash_flow": 2000000000,
+   "operating_income": 1826000000,
+   "period_end": "2026-09-30",
+   "premiums_earned": 11818000000,
+   "pretax_income": 3000000000,
+   "retained_earnings": 47352000000,
+   "revenue": 20522000000,
+   "revenue_filed": "2026-11-06",
+   "shares_diluted": 639900000,
+   "shares_diluted_adj": 639900000,
+   "shares_diluted_filled": 639900000,
+   "shares_diluted_filled_filed": "2026-11-06",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 631106615,
+   "short_term_borrowings": 289000000,
+   "short_term_investments": 7879000000,
+   "total_assets": 744608000000,
+   "total_debt": 14301000000,
+   "total_debt_basis": "components_exceed_tagged",
+   "total_debt_filed": "2026-11-06",
+   "total_debt_tagged": 254000000,
+   "total_equity": 22226000000,
+   "total_equity_incl_nci": 22519000000,
+   "total_equity_parent": 22226000000,
+   "total_liabilities": 721894000000
   }
  ],
  "sec_name": "MetLife, Inc.",
@@ -2360,45 +2364,46 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 3626000000
+   "val": 5127000000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 15558000000
+   "val": 13991000000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
    "method": "four_quarters",
    "tags": [
     "Revenues"
    ],
-   "val": 79403000000
+   "val": 82564000000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 646900000
+   "val": 639900000
   },
   "stock_comp": {
    "end": "2025-12-31",
    "filed": "2026-02-19",
    "method": "fiscal_year",
+   "stale": true,
    "tags": [
     "AllocatedShareBasedCompensationExpense"
    ],
@@ -3984,13 +3989,6 @@
   },
   {
    "field": "total_debt",
-   "old": 651000000,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 15475000000
-  },
-  {
-   "field": "total_debt",
    "old": 590000000,
    "period": "2024-03-31",
    "rows": "quarterly",
@@ -4044,6 +4042,13 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 14244000000
+  },
+  {
+   "field": "total_debt",
+   "old": 289000000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 14301000000
   }
  ],
  "v2_notes": [],
@@ -8920,6 +8925,73 @@
    },
    "start": "2026-04-01",
    "total_debt": 14244000000
+  },
+  {
+   "cash": 19786000000,
+   "cash_and_sti": 27665000000,
+   "end": "2026-09-30",
+   "equity": 22226000000,
+   "net_income": 2397000000,
+   "operating_cash_flow": 2000000000,
+   "revenue": 20522000000,
+   "shares_diluted": 639900000,
+   "short_term_investments": 7879000000,
+   "src": {
+    "cash": {
+     "accn": "0001099219-26-000062",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001099219-26-000062",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001099219-26-000062",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001099219-26-000062",
+     "derived": true,
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001099219-26-000062",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001099219-26-000062",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "short_term_investments": {
+     "accn": "0001099219-26-000062",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "ShortTermInvestments"
+    },
+    "total_debt": {
+     "filed": "2026-11-06",
+     "tags": [
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities"
+     ],
+     "values": {
+      "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities": 14301000000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "total_debt": 14301000000
   }
  ],
  "v2_tags_used": {

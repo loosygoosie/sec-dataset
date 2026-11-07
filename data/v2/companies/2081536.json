@@ -67,16 +67,16 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1593986,
+  "cash_and_sti": 1425090,
   "debt_current": 170551,
-  "end": "2026-06-30",
-  "equity": 1633967,
+  "end": "2026-09-30",
+  "equity": 1203465,
   "total_debt": 170551
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 38,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -93,20 +93,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-088399",
-  "filed": "2026-08-12",
+  "accn": "0001213900-26-116918",
+  "filed": "2026-11-06",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 118552223.0,
+  "assets": 119242789.0,
   "classes": {
    "CommonClassAMember": 11833125.0,
    "CommonClassBMember": 3833333.0
   },
-  "cover_accession": "0001213900-26-088399",
-  "cover_date": "2026-08-12",
+  "cover_accession": "0001213900-26-116918",
+  "cover_date": "2026-11-06",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -118,6 +118,17 @@
  },
  "name": "White Pearl Acquisition Corp.",
  "quarterly": [
+  {
+   "filed": "2026-11-06",
+   "form": "10-Q",
+   "net_income": -41921,
+   "net_income_parent": -41921,
+   "operating_cash_flow": -41601,
+   "operating_income": -41921,
+   "period_end": "2025-09-30",
+   "total_equity": -16921,
+   "total_equity_parent": -16921
+  },
   {
    "cash": 1974500,
    "current_assets": 2101058,
@@ -162,6 +173,28 @@
    "total_equity": 1633967,
    "total_equity_parent": 1633967,
    "total_liabilities": 267558
+  },
+  {
+   "cash": 1425090,
+   "current_assets": 1526209,
+   "current_liabilities": 322744,
+   "debt_current": 170551,
+   "filed": "2026-11-06",
+   "form": "10-Q",
+   "net_income": 635380,
+   "net_income_parent": 635380,
+   "operating_cash_flow": -168896,
+   "operating_income": -443106,
+   "period_end": "2026-09-30",
+   "retained_earnings": 1203465,
+   "short_term_borrowings": 170551,
+   "total_assets": 119242789,
+   "total_debt": 170551,
+   "total_debt_basis": "components_partial",
+   "total_debt_filed": "2026-11-06",
+   "total_equity": 1203465,
+   "total_equity_parent": 1203465,
+   "total_liabilities": 322744
   }
  ],
  "sec_name": "WHITE PEARL ACQUISITION CORP.",
@@ -256,10 +289,44 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 170551
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 170551
   }
  ],
  "v2_notes": [],
  "v2_quarterly": [
+  {
+   "end": "2025-09-30",
+   "equity": -16921,
+   "net_income": -38320,
+   "operating_cash_flow": -41601,
+   "src": {
+    "equity": {
+     "accn": "0001213900-26-116918",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-116918",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-116918",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2025-07-01"
+  },
   {
    "cash": 1974500,
    "cash_and_sti": 1974500,
@@ -353,6 +420,54 @@
     }
    },
    "start": "2026-04-01",
+   "total_debt": 170551
+  },
+  {
+   "cash": 1425090,
+   "cash_and_sti": 1425090,
+   "debt_current": 170551,
+   "end": "2026-09-30",
+   "equity": 1203465,
+   "net_income": 635380,
+   "operating_cash_flow": -168896,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-116918",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-116918",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-116918",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-116918",
+     "derived": true,
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "total_debt": {
+     "filed": "2026-11-06",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBorrowings"
+     ],
+     "values": {
+      "ShortTermBorrowings": 170551
+     }
+    }
+   },
+   "start": "2026-07-01",
    "total_debt": 170551
   }
  ],

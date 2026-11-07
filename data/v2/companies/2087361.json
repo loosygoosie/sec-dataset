@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 947796,
-  "end": "2026-06-30",
-  "equity": -10980634
+  "cash_and_sti": 877481,
+  "end": "2026-09-30",
+  "equity": -11370818
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 38,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-088476",
-  "filed": "2026-08-12",
+  "accn": "0001213900-26-116913",
+  "filed": "2026-11-06",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 305458981.0,
+  "assets": 308124584.0,
   "classes": {
    "CommonClassAMember": 30000000.0,
    "CommonClassBMember": 10000000.0
   },
-  "cover_accession": "0001213900-26-088476",
-  "cover_date": "2026-08-12",
+  "cover_accession": "0001213900-26-116913",
+  "cover_date": "2026-11-06",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -151,6 +151,24 @@
    "total_equity": -10980634,
    "total_equity_parent": -10980634,
    "total_liabilities": 12103924
+  },
+  {
+   "cash": 877481,
+   "current_assets": 985051,
+   "current_liabilities": 378879,
+   "filed": "2026-11-06",
+   "form": "10-Q",
+   "net_income": 2390648,
+   "net_income_parent": 2390648,
+   "operating_cash_flow": -70315,
+   "operating_income": -390184,
+   "period_end": "2026-09-30",
+   "retained_earnings": -11371818,
+   "stock_comp": 0,
+   "total_assets": 308124584,
+   "total_equity": -11370818,
+   "total_equity_parent": -11370818,
+   "total_liabilities": 12378879
   }
  ],
  "sec_name": "M EVO GLOBAL ACQUISITION CORP II",
@@ -318,6 +336,50 @@
     }
    },
    "start": "2026-04-01",
+   "stock_comp": 0
+  },
+  {
+   "cash": 877481,
+   "cash_and_sti": 877481,
+   "end": "2026-09-30",
+   "equity": -11370818,
+   "net_income": 2390648,
+   "operating_cash_flow": -70315,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-116913",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-116913",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-116913",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-116913",
+     "derived": true,
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "stock_comp": {
+     "accn": "0001213900-26-116913",
+     "derived": true,
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
    "stock_comp": 0
   }
  ],

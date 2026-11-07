@@ -67,14 +67,15 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 25000,
-  "end": "2026-06-30",
-  "equity": -113233
+  "cash_and_sti": 684320,
+  "end": "2026-09-30",
+  "equity": -905284,
+  "total_debt": 958
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 98,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 38,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -86,38 +87,37 @@
  "flags": [
   "no_operating_cash_flow",
   "no_capex",
-  "no_debt_tagged",
   "no_revenue"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001493152-26-041742",
-  "filed": "2026-09-08",
+  "accn": "0001493152-26-050460",
+  "filed": "2026-11-06",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 293513.0,
+  "assets": 106307677.0,
   "classes": {
    "CommonClassAMember": 560000.0,
-   "CommonClassBMember": 5175000.0
+   "CommonClassBMember": 4500000.0
   },
-  "cover_accession": "0001493152-26-041742",
-  "cover_date": "2026-09-08",
+  "cover_accession": "0001493152-26-050460",
+  "cover_date": "2026-11-06",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 5735000.0,
-  "shares_total": 5735000.0,
+  "shares_cover": 5060000.0,
+  "shares_total": 5060000.0,
   "size_gate": "no_float"
  },
  "name": "ARC Group Securities Acquisition I",
  "quarterly": [
   {
-   "filed": "2026-09-08",
+   "filed": "2026-11-06",
    "form": "10-Q",
    "net_income": -5598,
    "net_income_parent": -5598,
@@ -130,7 +130,7 @@
    "current_assets": 293513,
    "current_liabilities": 406746,
    "eps_diluted": -0.01,
-   "filed": "2026-09-08",
+   "filed": "2026-11-06",
    "form": "10-Q",
    "net_income": -45931,
    "net_income_parent": -45931,
@@ -144,6 +144,27 @@
    "total_assets": 293513,
    "total_equity": -113233,
    "total_equity_parent": -113233
+  },
+  {
+   "cash": 684320,
+   "current_assets": 739867,
+   "current_liabilities": 71109,
+   "filed": "2026-11-06",
+   "form": "10-Q",
+   "net_income": 464138,
+   "net_income_parent": 464138,
+   "operating_cash_flow": -124164,
+   "operating_cash_flow_filed": "2026-11-06",
+   "operating_income": -199734,
+   "period_end": "2026-09-30",
+   "retained_earnings": -905790,
+   "total_assets": 106307677,
+   "total_debt": 958,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-06",
+   "total_equity": -905284,
+   "total_equity_parent": -905284,
+   "total_liabilities": 1646109
   }
  ],
  "sec_name": "ARC GROUP SECURITIES ACQUISITION I",
@@ -192,7 +213,7 @@
   "net_income_parent": "NetIncomeLoss",
   "net_interest_income": null,
   "operating_cash_flow": "NetCashProvidedByUsedInOperatingActivities",
-  "operating_income": null,
+  "operating_income": "OperatingIncomeLoss",
   "operating_leases": null,
   "payments_for_intangibles": null,
   "pension_funded_status": null,
@@ -207,14 +228,14 @@
   "shares_outstanding": null,
   "short_term_borrowings": null,
   "short_term_investments": null,
-  "stock_comp": null,
+  "stock_comp": "ShareBasedCompensation",
   "tier1_capital_ratio": null,
   "total_assets": "Assets",
-  "total_debt": null,
+  "total_debt": "NotesPayable",
   "total_equity": "StockholdersEquity",
   "total_equity_incl_nci": null,
   "total_equity_parent": "StockholdersEquity",
-  "total_liabilities": null
+  "total_liabilities": "Liabilities"
  },
  "ticker": "FJDI",
  "tickers": [
@@ -235,7 +256,15 @@
   }
  },
  "v2_annual": [],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": -124164
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
   {
@@ -292,6 +321,52 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 684320,
+   "cash_and_sti": 684320,
+   "end": "2026-09-30",
+   "equity": -905284,
+   "net_income": 464138,
+   "operating_cash_flow": -124164,
+   "src": {
+    "cash": {
+     "accn": "0001493152-26-050460",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001493152-26-050460",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001493152-26-050460",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001493152-26-050460",
+     "derived": true,
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "total_debt": {
+     "filed": "2026-11-06",
+     "tags": [
+      "NotesPayable"
+     ],
+     "values": {
+      "NotesPayable": 958
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "total_debt": 958
   }
  ],
  "v2_tags_used": {
@@ -299,7 +374,9 @@
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [],
   "shares_diluted": [
    "WeightedAverageNumberOfDilutedSharesOutstanding"

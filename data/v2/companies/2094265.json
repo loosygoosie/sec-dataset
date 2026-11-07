@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1146565,
-  "end": "2026-06-30",
-  "equity": -11246229
+  "cash_and_sti": 1157070,
+  "end": "2026-09-30",
+  "equity": -11407977
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 38,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-087770",
-  "filed": "2026-08-11",
+  "accn": "0001213900-26-116867",
+  "filed": "2026-11-06",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 366761327.0,
+  "assets": 370127334.0,
   "classes": {
    "CommonClassAMember": 36980000.0,
    "CommonClassBMember": 12000000.0
   },
-  "cover_accession": "0001213900-26-087770",
-  "cover_date": "2026-08-11",
+  "cover_accession": "0001213900-26-116867",
+  "cover_date": "2026-11-06",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-20",
   "note": null,
@@ -151,6 +151,24 @@
    "total_equity": -11246229,
    "total_equity_parent": -11246229,
    "total_liabilities": 12638979
+  },
+  {
+   "cash": 1157070,
+   "current_assets": 1229703,
+   "current_liabilities": 60115,
+   "filed": "2026-11-06",
+   "form": "10-Q",
+   "income_tax": 0,
+   "net_income": 3344871,
+   "net_income_parent": 3344871,
+   "operating_cash_flow": 10505,
+   "operating_income": -161748,
+   "period_end": "2026-09-30",
+   "retained_earnings": -11409275,
+   "total_assets": 370127334,
+   "total_equity": -11407977,
+   "total_equity_parent": -11407977,
+   "total_liabilities": 12660115
   }
  ],
  "sec_name": "Mountain Lake Acquisition Corp. II",
@@ -304,6 +322,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 1157070,
+   "cash_and_sti": 1157070,
+   "end": "2026-09-30",
+   "equity": -11407977,
+   "net_income": 3344871,
+   "operating_cash_flow": 10505,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-116867",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-116867",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-116867",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-116867",
+     "derived": true,
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 659719,
-  "end": "2026-06-30",
-  "equity": 310262
+  "cash_and_sti": 551130,
+  "end": "2026-09-30",
+  "equity": 104029
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 38,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -84,27 +84,26 @@
  "cik": 2074878,
  "fiscal_year_end": "1231",
  "flags": [
-  "no_operating_cash_flow",
   "no_capex",
   "no_debt_tagged",
   "no_revenue"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001493152-26-038351",
-  "filed": "2026-08-14",
+  "accn": "0001493152-26-050472",
+  "filed": "2026-11-06",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 353089886.0,
+  "assets": 356021668.0,
   "classes": {
    "CommonClassAMember": 37300000.0,
    "CommonClassBMember": 12500000.0
   },
-  "cover_accession": "0001493152-26-038351",
-  "cover_date": "2026-08-14",
+  "cover_accession": "0001493152-26-050472",
+  "cover_date": "2026-11-06",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-31",
   "note": null,
@@ -116,6 +115,35 @@
  },
  "name": "New America Acquisition I Corp.",
  "quarterly": [
+  {
+   "filed": "2026-11-06",
+   "form": "10-Q (derived from YTD)",
+   "net_income": -30000,
+   "net_income_parent": -30000,
+   "operating_cash_flow": -190677,
+   "operating_income": -30000,
+   "period_end": "2025-09-30",
+   "pretax_income": -30000,
+   "total_equity": -5000,
+   "total_equity_parent": -5000
+  },
+  {
+   "current_assets": 1255298,
+   "current_liabilities": 247787,
+   "filed": "2026-03-31",
+   "form": "10-K (derived from YTD)",
+   "net_income": 507607,
+   "net_income_parent": 507607,
+   "operating_cash_flow": -473309,
+   "operating_income": -177359,
+   "period_end": "2025-12-31",
+   "pretax_income": 740149,
+   "retained_earnings": 477607,
+   "total_assets": 347460979,
+   "total_equity": 890858,
+   "total_equity_parent": 890858,
+   "total_liabilities": 885155
+  },
   {
    "current_assets": 1230468,
    "current_liabilities": 973994,
@@ -153,6 +181,24 @@
    "total_equity": 310262,
    "total_equity_parent": 310262,
    "total_liabilities": 2595657
+  },
+  {
+   "current_assets": 909505,
+   "current_liabilities": 3524433,
+   "filed": "2026-11-06",
+   "form": "10-Q",
+   "income_tax": 919380,
+   "net_income": 2003006,
+   "net_income_parent": 2003006,
+   "operating_cash_flow": -108589,
+   "operating_income": -206233,
+   "period_end": "2026-09-30",
+   "pretax_income": 2922386,
+   "retained_earnings": 102499,
+   "total_assets": 356021668,
+   "total_equity": 104029,
+   "total_equity_parent": 104029,
+   "total_liabilities": 3524433
   }
  ],
  "sec_name": "NEW AMERICA ACQUISITION I CORP.",
@@ -231,11 +277,88 @@
   "NWAX-UN",
   "NWAX-WT"
  ],
- "ttm": {},
+ "ttm": {
+  "net_income": {
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
+   "method": "four_quarters",
+   "tags": [
+    "NetIncomeLoss"
+   ],
+   "val": 6429018
+  },
+  "operating_cash_flow": {
+   "end": "2026-09-30",
+   "filed": "2026-11-06",
+   "method": "four_quarters",
+   "tags": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "val": -866285
+  }
+ },
  "v2_annual": [],
  "v2_fixes": [],
  "v2_notes": [],
  "v2_quarterly": [
+  {
+   "end": "2025-09-30",
+   "equity": -5000,
+   "net_income": 0,
+   "src": {
+    "equity": {
+     "accn": "0001493152-26-050472",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001493152-26-050472",
+     "derived": true,
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    }
+   },
+   "start": "2025-07-01"
+  },
+  {
+   "cash": 944106,
+   "cash_and_sti": 944106,
+   "end": "2025-12-31",
+   "equity": 890858,
+   "net_income": 507607,
+   "operating_cash_flow": -473309,
+   "src": {
+    "cash": {
+     "accn": "0001493152-26-014178",
+     "filed": "2026-03-31",
+     "form": "10-K",
+     "tag": "Cash"
+    },
+    "equity": {
+     "accn": "0001493152-26-014178",
+     "filed": "2026-03-31",
+     "form": "10-K",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001493152-26-014178",
+     "derived": true,
+     "filed": "2026-11-06",
+     "form": "10-K",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001493152-26-014178",
+     "derived": true,
+     "filed": "2026-11-06",
+     "form": "10-K",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2025-10-01"
+  },
   {
    "cash": 855526,
    "cash_and_sti": 855526,
@@ -306,6 +429,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 551130,
+   "cash_and_sti": 551130,
+   "end": "2026-09-30",
+   "equity": 104029,
+   "net_income": 2003006,
+   "operating_cash_flow": -108589,
+   "src": {
+    "cash": {
+     "accn": "0001493152-26-050472",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "Cash"
+    },
+    "equity": {
+     "accn": "0001493152-26-050472",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001493152-26-050472",
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001493152-26-050472",
+     "derived": true,
+     "filed": "2026-11-06",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {
