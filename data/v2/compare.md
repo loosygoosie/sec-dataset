@@ -1,9 +1,9 @@
-# v2 vs data/companies (2026-11-07)
+# v2 vs data/companies (2026-11-08)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
-- companies: 2471; with a difference: 1284
-- by field: capex 104, file 283, revenue 182, shares 655, total_debt 272
+- companies: 2471; with a difference: 1283
+- by field: capex 104, file 282, revenue 182, shares 655, total_debt 272
 
 | ticker | field | period | old | v2 | diff % |
 |---|---|---|---|---|---|
@@ -1325,7 +1325,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | OFRM | file | - | - | - | - |
 | QADR | file | - | - | - | - |
 | KSS | shares | 2026-08-28 | - | 0.11B | - |
-| PXED | file | - | - | - | - |
 | APMD | file | - | - | - | - |
 | AMCX | shares | 2026-07-24 | - | 41.2M | - |
 | PARK | file | - | - | - | - |
