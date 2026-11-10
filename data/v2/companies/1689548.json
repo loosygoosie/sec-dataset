@@ -541,14 +541,14 @@
   "total_liabilities": 7
  },
  "balance": {
-  "cash_and_sti": 1400000000,
-  "end": "2026-06-30",
-  "equity": 1341044000
+  "cash_and_sti": 1300000000,
+  "end": "2026-09-30",
+  "equity": 1259575000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 41,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -558,66 +558,35 @@
  "cik": 1689548,
  "fiscal_year_end": "1231",
  "flags": [
+  "stale_revenue",
   "no_debt_tagged"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001689548-26-000083",
-  "filed": "2026-08-06",
+  "accn": "0001689548-26-000089",
+  "filed": "2026-11-09",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 1390102000.0,
+  "assets": 1312073000.0,
   "classes": {
-   "common": 27919988.0
+   "common": 27951553.0
   },
-  "cover_accession": "0001689548-26-000083",
-  "cover_date": "2026-07-31",
+  "cover_accession": "0001689548-26-000089",
+  "cover_date": "2026-11-04",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-19",
   "note": null,
   "public_float": 883200000.0,
   "revenue": null,
-  "shares_cover": 27919988.0,
-  "shares_total": 27919988.0,
+  "shares_cover": 27951553.0,
+  "shares_total": 27951553.0,
   "size_gate": "float"
  },
  "name": "Praxis Precision Medicines, Inc.",
  "quarterly": [
-  {
-   "capex": 0,
-   "capex_filed": "2023-11-07",
-   "cash": 101085000,
-   "current_assets": 103327000,
-   "current_liabilities": 16792000,
-   "d_and_a": 109000,
-   "eps_diluted": -2.72,
-   "filed": "2024-11-06",
-   "form": "10-Q",
-   "net_income": -24632000,
-   "net_income_parent": -24632000,
-   "operating_cash_flow": -23215000,
-   "operating_income": -25516000,
-   "operating_leases": 1661000,
-   "period_end": "2023-09-30",
-   "rd_expense": 17260000,
-   "retained_earnings": -627043000,
-   "revenue": 468000,
-   "revenue_filed": "2023-11-07",
-   "shares_diluted": 9039427,
-   "shares_diluted_adj": 9039427,
-   "shares_diluted_filled": 9039427,
-   "shares_diluted_filled_filed": "2024-11-06",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 128547336,
-   "stock_comp": 5763000,
-   "total_assets": 106725000,
-   "total_equity": 86756000,
-   "total_equity_parent": 86756000,
-   "total_liabilities": 19969000
-  },
   {
    "capex": 50000,
    "capex_filed": "2024-03-05",
@@ -884,7 +853,7 @@
    "shares_diluted": 21977268,
    "shares_diluted_adj": 21977268,
    "shares_diluted_filled": 21977268,
-   "shares_diluted_filled_filed": "2025-11-05",
+   "shares_diluted_filled_filed": "2026-11-09",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 21165933,
    "short_term_investments": 117630000,
@@ -994,6 +963,38 @@
    "total_equity": 1341044000,
    "total_equity_parent": 1341044000,
    "total_liabilities": 49058000
+  },
+  {
+   "capex": 1552000,
+   "capex_filed": "2026-11-09",
+   "cash": 361851000,
+   "cash_and_short_term_investments": 1300000000,
+   "current_assets": 762800000,
+   "current_liabilities": 52498000,
+   "d_and_a": 33000,
+   "eps_diluted": -3.23,
+   "filed": "2026-11-09",
+   "form": "10-Q",
+   "long_term_investments": 540703000,
+   "net_income": -94234000,
+   "net_income_parent": -94234000,
+   "operating_cash_flow": -81738000,
+   "operating_income": -106914000,
+   "period_end": "2026-09-30",
+   "rd_expense": 64205000,
+   "retained_earnings": -1410523000,
+   "shares_diluted": 29178396,
+   "shares_diluted_adj": 29178396,
+   "shares_diluted_filled": 29178396,
+   "shares_diluted_filled_filed": "2026-11-09",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 27948243,
+   "short_term_investments": 383472000,
+   "stock_comp": 14891000,
+   "total_assets": 1312073000,
+   "total_equity": 1259575000,
+   "total_equity_parent": 1259575000,
+   "total_liabilities": 52498000
   }
  ],
  "sec_name": "PRAXIS PRECISION MEDICINES, INC.",
@@ -1082,63 +1083,64 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 307000
+   "val": 1859000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": -305383000
+   "val": -323616000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -339126000
+   "val": -359426000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -305076000
+   "val": -321757000
   },
   "revenue": {
    "end": "2025-12-31",
    "filed": "2026-02-19",
    "method": "fiscal_year",
+   "stale": true,
    "tags": [
     "Revenues"
    ],
    "val": 0
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 29131375
+   "val": 29178396
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 45806000
+   "val": 53250000
   }
  },
  "v2_annual": [
@@ -3463,6 +3465,73 @@
    },
    "start": "2026-04-01",
    "stock_comp": 11309000
+  },
+  {
+   "capex": 1552000,
+   "cash": 361851000,
+   "cash_and_sti": 1300000000,
+   "end": "2026-09-30",
+   "equity": 1259575000,
+   "fcf": -83290000,
+   "net_income": -94234000,
+   "operating_cash_flow": -81738000,
+   "shares_diluted": 29178396,
+   "short_term_investments": 383472000,
+   "src": {
+    "capex": {
+     "accn": "0001689548-26-000089",
+     "derived": true,
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001689548-26-000089",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001689548-26-000089",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001689548-26-000089",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001689548-26-000089",
+     "derived": true,
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "shares_diluted": {
+     "accn": "0001689548-26-000089",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "short_term_investments": {
+     "accn": "0001689548-26-000089",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "MarketableSecuritiesCurrent"
+    },
+    "stock_comp": {
+     "accn": "0001689548-26-000089",
+     "derived": true,
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 14891000
   }
  ],
  "v2_tags_used": {

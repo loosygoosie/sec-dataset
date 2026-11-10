@@ -1026,15 +1026,15 @@
   "total_liabilities": 5
  },
  "balance": {
-  "cash_and_sti": 1868000000,
-  "end": "2026-06-30",
-  "equity": 7794000000,
-  "total_debt": 25966000000
+  "cash_and_sti": 1590000000,
+  "end": "2026-09-30",
+  "equity": 7824000000,
+  "total_debt": 25478000000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 130,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 41,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1045,74 +1045,37 @@
  "fiscal_year_end": "1231",
  "flags": [
   "no_capex",
+  "stale_stock_comp",
   "revenue_unverified_2023-12-31",
   "revenue_unverified_2024-12-31",
   "revenue_unverified_2025-12-31"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001567094-26-000018",
-  "filed": "2026-08-03",
+  "accn": "0001567094-26-000022",
+  "filed": "2026-11-09",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 42172000000.0,
+  "assets": 41452000000.0,
   "classes": {
-   "common": 1237725958.0
+   "common": 1235413682.0
   },
-  "cover_accession": "0001567094-26-000018",
-  "cover_date": "2026-06-30",
+  "cover_accession": "0001567094-26-000022",
+  "cover_date": "2026-09-30",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-26",
   "note": null,
   "public_float": 11500000000.0,
   "revenue": 18095000000.0,
-  "shares_cover": 1237725958.0,
-  "shares_total": 1237725958.0,
+  "shares_cover": 1235413682.0,
+  "shares_total": 1235413682.0,
   "size_gate": "float"
  },
  "name": "CNH Industrial N.V.",
  "quarterly": [
-  {
-   "cash": 2979000000,
-   "dividends_paid": 2000000,
-   "eps_diluted": 0.4,
-   "filed": "2024-11-12",
-   "form": "10-Q",
-   "goodwill": 3490000000,
-   "income_tax": 171000000,
-   "intangibles": 1237000000,
-   "interest_expense": 346000000,
-   "inventory": 6447000000,
-   "loans": 22240000000,
-   "net_income": 537000000,
-   "net_income_incl_nci": 540000000,
-   "net_income_parent": 537000000,
-   "operating_cash_flow": 232000000,
-   "operating_leases": 241000000,
-   "period_end": "2023-09-30",
-   "pretax_income": 711000000,
-   "rd_expense": 266000000,
-   "retained_earnings": 9134000000,
-   "revenue": 5332000000,
-   "revenue_filed": "2023-11-08",
-   "sga_expense": 462000000,
-   "shares_diluted": 1351000000,
-   "shares_diluted_adj": 1351000000,
-   "shares_diluted_filled": 1351000000,
-   "shares_diluted_filled_filed": "2024-11-12",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 1330483676,
-   "total_assets": 43041000000,
-   "total_debt": 24958000000,
-   "total_debt_basis": "tagged",
-   "total_debt_filed": "2023-11-08",
-   "total_equity": 8007000000,
-   "total_equity_incl_nci": 8007000000,
-   "total_liabilities": 34926000000
-  },
   {
    "cash": 4322000000,
    "dividends_paid": 7000000,
@@ -1388,7 +1351,7 @@
    "cash": 2303000000,
    "dividends_paid": 1000000,
    "eps_diluted": 0.06,
-   "filed": "2025-11-07",
+   "filed": "2026-11-09",
    "form": "10-Q",
    "goodwill": 3613000000,
    "income_tax": 1000000,
@@ -1412,7 +1375,7 @@
    "shares_diluted": 1253000000,
    "shares_diluted_adj": 1253000000,
    "shares_diluted_filled": 1253000000,
-   "shares_diluted_filled_filed": "2025-11-07",
+   "shares_diluted_filled_filed": "2026-11-09",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 1246404668,
    "total_assets": 43258000000,
@@ -1539,6 +1502,45 @@
    "total_equity": 7794000000,
    "total_equity_incl_nci": 7794000000,
    "total_liabilities": 34319000000
+  },
+  {
+   "cash": 1590000000,
+   "dividends_paid": 2000000,
+   "eps_diluted": 0.02,
+   "filed": "2026-11-09",
+   "form": "10-Q",
+   "goodwill": 3607000000,
+   "income_tax": 204000000,
+   "intangibles": 1053000000,
+   "inventory": 5134000000,
+   "loan_loss_allowance": 702000000,
+   "loans": 22273000000,
+   "net_income": 30000000,
+   "net_income_incl_nci": 35000000,
+   "net_income_parent": 30000000,
+   "net_interest_income": -30000000,
+   "operating_cash_flow": 686000000,
+   "operating_leases": 318000000,
+   "period_end": "2026-09-30",
+   "pretax_income": 227000000,
+   "rd_expense": 223000000,
+   "retained_earnings": 10557000000,
+   "revenue": 3684000000,
+   "revenue_filed": "2026-11-09",
+   "sga_expense": 490000000,
+   "shares_diluted": 1239000000,
+   "shares_diluted_adj": 1239000000,
+   "shares_diluted_filled": 1239000000,
+   "shares_diluted_filled_filed": "2026-11-09",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 1235413682,
+   "total_assets": 41452000000,
+   "total_debt": 25478000000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-09",
+   "total_equity": 7824000000,
+   "total_equity_incl_nci": 7824000000,
+   "total_liabilities": 33565000000
   }
  ],
  "sec_name": "CNH INDUSTRIAL N.V.",
@@ -1617,45 +1619,46 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-03",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 311000000
+   "val": 261000000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-03",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 1784000000
+   "val": 1811000000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-03",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
    ],
-   "val": 15466000000
+   "val": 15448000000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-03",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 1241000000
+   "val": 1239000000
   },
   "stock_comp": {
    "end": "2025-12-31",
    "filed": "2026-02-26",
    "method": "fiscal_year",
+   "stale": true,
    "tags": [
     "ShareBasedCompensation"
    ],
@@ -2099,13 +2102,6 @@
   },
   {
    "field": "revenue",
-   "old": 5986000000,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 5332000000
-  },
-  {
-   "field": "revenue",
    "old": 6792000000,
    "period": "2023-12-31",
    "rows": "quarterly",
@@ -2180,6 +2176,13 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 4143000000
+  },
+  {
+   "field": "revenue",
+   "old": 4354000000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 3684000000
   }
  ],
  "v2_notes": [],
@@ -3317,6 +3320,66 @@
    },
    "start": "2026-04-01",
    "total_debt": 25966000000
+  },
+  {
+   "cash": 1590000000,
+   "cash_and_sti": 1590000000,
+   "end": "2026-09-30",
+   "equity": 7824000000,
+   "net_income": 30000000,
+   "operating_cash_flow": 686000000,
+   "revenue": 3684000000,
+   "shares_diluted": 1239000000,
+   "src": {
+    "cash": {
+     "accn": "0001567094-26-000022",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001567094-26-000022",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+    },
+    "net_income": {
+     "accn": "0001567094-26-000022",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001567094-26-000022",
+     "derived": true,
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001567094-26-000022",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001567094-26-000022",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2026-11-09",
+     "tags": [
+      "DebtAndCapitalLeaseObligations"
+     ],
+     "values": {
+      "DebtAndCapitalLeaseObligations": 25478000000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "total_debt": 25478000000
   }
  ],
  "v2_tags_used": {

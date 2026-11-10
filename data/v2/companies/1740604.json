@@ -67,16 +67,16 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 158963000,
-  "debt_current": 133169000,
-  "end": "2026-06-30",
-  "equity": 423059000,
-  "total_debt": 133169000
+  "cash_and_sti": 143154000,
+  "debt_current": 187978000,
+  "end": "2026-09-30",
+  "equity": 487351000,
+  "total_debt": 187978000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 41,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -93,27 +93,27 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001740604-26-000050",
-  "filed": "2026-08-12",
+  "accn": "0001740604-26-000069",
+  "filed": "2026-11-09",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 6047795000.0,
+  "assets": 5977695000.0,
   "classes": {
-   "CommonClassAMember": 108690240.0,
+   "CommonClassAMember": 111563509.0,
    "CommonClassBMember": 8855382.0
   },
-  "cover_accession": "0001740604-26-000050",
-  "cover_date": "2026-08-07",
+  "cover_accession": "0001740604-26-000069",
+  "cover_date": "2026-11-04",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 117545622.0,
-  "shares_total": 117545622.0,
+  "shares_cover": 120418891.0,
+  "shares_total": 120418891.0,
   "size_gate": "assets"
  },
  "name": "BITGO HOLDINGS, INC.",
@@ -169,6 +169,32 @@
    "total_debt_filed": "2026-08-12",
    "total_equity": 343383000,
    "total_equity_incl_nci": 343383000
+  },
+  {
+   "capex": 2082000,
+   "capex_filed": "2026-11-09",
+   "cash": 77455000,
+   "d_and_a": 400000,
+   "debt_current": 118848000,
+   "filed": "2026-11-09",
+   "form": "10-Q",
+   "income_tax": 6149000,
+   "net_income": 22672000,
+   "net_income_incl_nci": 22672000,
+   "net_income_parent": 7125000,
+   "operating_cash_flow": 11678000,
+   "operating_income": 3882000,
+   "period_end": "2025-09-30",
+   "pretax_income": 28821000,
+   "revenue": 5810456000,
+   "revenue_filed": "2026-11-09",
+   "short_term_borrowings": 118848000,
+   "stock_comp": 823000,
+   "total_debt": 118848000,
+   "total_debt_basis": "components_partial",
+   "total_debt_filed": "2026-11-09",
+   "total_equity": 367691000,
+   "total_equity_incl_nci": 367691000
   },
   {
    "capex": 2308000,
@@ -237,6 +263,41 @@
    "total_equity": 423059000,
    "total_equity_incl_nci": 423059000,
    "total_liabilities": 5624736000
+  },
+  {
+   "capex": 2251000,
+   "capex_filed": "2026-11-09",
+   "cash": 143154000,
+   "current_assets": 5893781000,
+   "current_liabilities": 5477951000,
+   "d_and_a": 2100000,
+   "debt_current": 187978000,
+   "filed": "2026-11-09",
+   "form": "10-Q",
+   "goodwill": 43715000,
+   "income_tax": 15543000,
+   "intangibles": 11949000,
+   "net_income": 44084000,
+   "net_income_incl_nci": 44084000,
+   "net_income_parent": 44084000,
+   "operating_cash_flow": -18489000,
+   "operating_income": -19236000,
+   "operating_leases": 12373000,
+   "period_end": "2026-09-30",
+   "pretax_income": 59627000,
+   "receivables": 17663000,
+   "retained_earnings": 26491000,
+   "revenue": 2851864000,
+   "revenue_filed": "2026-11-09",
+   "short_term_borrowings": 187978000,
+   "stock_comp": 2762000,
+   "total_assets": 5977695000,
+   "total_debt": 187978000,
+   "total_debt_basis": "components_partial",
+   "total_debt_filed": "2026-11-09",
+   "total_equity": 487351000,
+   "total_equity_incl_nci": 487351000,
+   "total_liabilities": 5490344000
   }
  ],
  "sec_name": "BITGO HOLDINGS, INC.",
@@ -245,8 +306,8 @@
  "splits": [],
  "tags_used": {
   "acquisition_cost_amort": null,
-  "acquisitions": null,
-  "buybacks": null,
+  "acquisitions": "PaymentsToAcquireBusinessesNetOfCashAcquired",
+  "buybacks": "PaymentsForRepurchaseOfCommonStock",
   "capex": "PaymentsToAcquirePropertyPlantAndEquipment",
   "capitalized_software": null,
   "cash": "CashAndCashEquivalentsAtCarryingValue",
@@ -266,7 +327,7 @@
   "dividends_paid": null,
   "eps_diluted": null,
   "finance_lease_liabilities": null,
-  "goodwill": null,
+  "goodwill": "Goodwill",
   "gross_profit": null,
   "impairments": null,
   "income_tax": "IncomeTaxExpenseBenefit",
@@ -333,6 +394,13 @@
   {
    "field": "debt_current",
    "old": null,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": 118848000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
    "period": "2026-03-31",
    "rows": "quarterly",
    "v2": 139679000
@@ -343,6 +411,13 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 133169000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 187978000
   }
  ],
  "v2_notes": [],
@@ -489,6 +564,78 @@
    "total_debt": 68354000
   },
   {
+   "capex": 2082000,
+   "cash": 77455000,
+   "cash_and_sti": 77455000,
+   "debt_current": 118848000,
+   "end": "2025-09-30",
+   "equity": 367691000,
+   "fcf": 9596000,
+   "net_income": 7125000,
+   "operating_cash_flow": 11678000,
+   "revenue": 5810456000,
+   "src": {
+    "capex": {
+     "accn": "0001740604-26-000069",
+     "derived": true,
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001740604-26-000069",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001740604-26-000069",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+    },
+    "net_income": {
+     "accn": "0001740604-26-000069",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetIncomeLossAvailableToCommonStockholdersBasic"
+    },
+    "operating_cash_flow": {
+     "accn": "0001740604-26-000069",
+     "derived": true,
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001740604-26-000069",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "stock_comp": {
+     "accn": "0001740604-26-000069",
+     "derived": true,
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-09",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBorrowings"
+     ],
+     "values": {
+      "ShortTermBorrowings": 118848000
+     }
+    }
+   },
+   "start": "2025-07-01",
+   "stock_comp": 823000,
+   "total_debt": 118848000
+  },
+  {
    "capex": 2308000,
    "cash": 186598000,
    "cash_and_sti": 186598000,
@@ -628,6 +775,78 @@
    "start": "2026-04-01",
    "stock_comp": 3613000,
    "total_debt": 133169000
+  },
+  {
+   "capex": 2251000,
+   "cash": 143154000,
+   "cash_and_sti": 143154000,
+   "debt_current": 187978000,
+   "end": "2026-09-30",
+   "equity": 487351000,
+   "fcf": -20740000,
+   "net_income": 44084000,
+   "operating_cash_flow": -18489000,
+   "revenue": 2851864000,
+   "src": {
+    "capex": {
+     "accn": "0001740604-26-000069",
+     "derived": true,
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001740604-26-000069",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001740604-26-000069",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+    },
+    "net_income": {
+     "accn": "0001740604-26-000069",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetIncomeLossAvailableToCommonStockholdersBasic"
+    },
+    "operating_cash_flow": {
+     "accn": "0001740604-26-000069",
+     "derived": true,
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001740604-26-000069",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "stock_comp": {
+     "accn": "0001740604-26-000069",
+     "derived": true,
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-09",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBorrowings"
+     ],
+     "values": {
+      "ShortTermBorrowings": 187978000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 2762000,
+   "total_debt": 187978000
   }
  ],
  "v2_tags_used": {

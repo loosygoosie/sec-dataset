@@ -1363,15 +1363,15 @@
   "total_liabilities": 17
  },
  "balance": {
-  "cash_and_sti": 30388000,
-  "end": "2026-06-30",
-  "equity": 1571426000,
-  "total_debt": 1274522000
+  "cash_and_sti": 46559000,
+  "end": "2026-09-30",
+  "equity": 2089956000,
+  "total_debt": 1040329000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 130,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 41,
   "reconciled_fy": 2025,
   "reconciles": "off:capex",
   "revenue": "below-income:2008,2009",
@@ -1381,6 +1381,7 @@
  "cik": 877860,
  "fiscal_year_end": "1231",
  "flags": [
+  "stale_capex",
   "quarters_off_year_capex_2023-12-31",
   "quarters_off_year_capex_2024-12-31",
   "revenue_unverified_2023-12-31",
@@ -1389,19 +1390,19 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0000877860-26-000199",
-  "filed": "2026-08-10",
+  "accn": "0000877860-26-000221",
+  "filed": "2026-11-09",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 2964202000.0,
+  "assets": 3243455000.0,
   "classes": {
    "common": 49110434.0
   },
-  "cover_accession": "0000877860-26-000199",
-  "cover_date": "2026-08-03",
+  "cover_accession": "0000877860-26-000221",
+  "cover_date": "2026-11-02",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-26",
   "note": null,
@@ -1413,41 +1414,6 @@
  },
  "name": "NATIONAL HEALTH INVESTORS INC",
  "quarterly": [
-  {
-   "capex": 0,
-   "cash": 16579000,
-   "d_and_a": 17515000,
-   "dividends_paid": 39069000,
-   "eps_diluted": 0.68,
-   "filed": "2024-11-05",
-   "form": "10-Q",
-   "interest_expense": 15086000,
-   "loans": 242960000,
-   "net_income": 29346000,
-   "net_income_incl_nci": 29033000,
-   "net_income_parent": 29346000,
-   "net_interest_income": 67153000,
-   "operating_cash_flow": 49703000,
-   "period_end": "2023-09-30",
-   "retained_earnings": 2434799000,
-   "revenue": 80106000,
-   "revenue_filed": "2023-11-07",
-   "shares_diluted": 43388841,
-   "shares_diluted_adj": 43388841,
-   "shares_diluted_filled": 43388841,
-   "shares_diluted_filled_filed": "2024-11-05",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 43409841,
-   "stock_comp": 866000,
-   "total_assets": 2499090000,
-   "total_debt": 1144438000,
-   "total_debt_basis": "tagged",
-   "total_debt_filed": "2023-11-07",
-   "total_equity": 1260111000,
-   "total_equity_incl_nci": 1270903000,
-   "total_equity_parent": 1260111000,
-   "total_liabilities": 1218265000
-  },
   {
    "capex": 28175000,
    "cash": 22347000,
@@ -1702,8 +1668,9 @@
    "d_and_a": 20216000,
    "dividends_paid": 42725000,
    "eps_diluted": 0.69,
-   "filed": "2025-11-06",
+   "filed": "2026-11-09",
    "form": "10-Q",
+   "income_tax": 0,
    "interest_expense": 13766000,
    "loans": 209169000,
    "net_income": 32862000,
@@ -1711,13 +1678,14 @@
    "net_income_parent": 32862000,
    "operating_cash_flow": 62532000,
    "period_end": "2025-09-30",
+   "pretax_income": 32405000,
    "retained_earnings": 2708843000,
    "revenue": 89847000,
    "revenue_filed": "2025-11-06",
    "shares_diluted": 47623623,
    "shares_diluted_adj": 47623623,
    "shares_diluted_filled": 47623623,
-   "shares_diluted_filled_filed": "2025-11-06",
+   "shares_diluted_filled_filed": "2026-11-09",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 45687942,
    "stock_comp": 983000,
@@ -1836,6 +1804,42 @@
    "total_equity_incl_nci": 1578890000,
    "total_equity_parent": 1571426000,
    "total_liabilities": 1374945000
+  },
+  {
+   "cash": 46559000,
+   "d_and_a": 25763000,
+   "dividends_paid": 45187000,
+   "eps_diluted": 11.47,
+   "filed": "2026-11-09",
+   "form": "10-Q",
+   "income_tax": 279000,
+   "interest_expense": 12521000,
+   "loans": 209445000,
+   "net_income": 563525000,
+   "net_income_incl_nci": 563214000,
+   "net_income_parent": 563525000,
+   "operating_cash_flow": 47975000,
+   "operating_leases": 3725000,
+   "period_end": "2026-09-30",
+   "pretax_income": 562805000,
+   "retained_earnings": 3406304000,
+   "revenue": 113483000,
+   "revenue_filed": "2026-11-09",
+   "shares_diluted": 49041952,
+   "shares_diluted_adj": 49041952,
+   "shares_diluted_filled": 49041952,
+   "shares_diluted_filled_filed": "2026-11-09",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 48302944,
+   "stock_comp": 1463000,
+   "total_assets": 3243455000,
+   "total_debt": 1040329000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-09",
+   "total_equity": 2089956000,
+   "total_equity_incl_nci": 2097041000,
+   "total_equity_parent": 2089956000,
+   "total_liabilities": 1136303000
   }
  ],
  "sec_name": "National Health Investors, Inc.",
@@ -1917,55 +1921,56 @@
    "end": "2025-12-31",
    "filed": "2026-02-26",
    "method": "fiscal_year_stale",
+   "stale": true,
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
    "val": 294034000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 166798000
+   "val": 697461000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 248681000
+   "val": 234124000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "Revenues"
    ],
-   "val": 432119000
+   "val": 455755000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 48498181
+   "val": 49041952
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "AllocatedShareBasedCompensationExpense"
    ],
-   "val": 6547000
+   "val": 7027000
   }
  },
  "v2_annual": [
@@ -3438,13 +3443,6 @@
   },
   {
    "field": "total_debt",
-   "old": 1156345000,
-   "period": "2023-09-30",
-   "rows": "quarterly",
-   "v2": 1144438000
-  },
-  {
-   "field": "total_debt",
    "old": 1146241000,
    "period": "2023-12-31",
    "rows": "quarterly",
@@ -3526,6 +3524,13 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 1274522000
+  },
+  {
+   "field": "total_debt",
+   "old": 1053000000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 1040329000
   }
  ],
  "v2_notes": [
@@ -8571,6 +8576,73 @@
    "start": "2026-04-01",
    "stock_comp": 2360000,
    "total_debt": 1274522000
+  },
+  {
+   "cash": 46559000,
+   "cash_and_sti": 46559000,
+   "end": "2026-09-30",
+   "equity": 2089956000,
+   "net_income": 563525000,
+   "operating_cash_flow": 47975000,
+   "revenue": 113483000,
+   "shares_diluted": 49041952,
+   "src": {
+    "cash": {
+     "accn": "0000877860-26-000221",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0000877860-26-000221",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0000877860-26-000221",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0000877860-26-000221",
+     "derived": true,
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0000877860-26-000221",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0000877860-26-000221",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0000877860-26-000221",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2026-11-09",
+     "tags": [
+      "DebtLongtermAndShorttermCombinedAmount"
+     ],
+     "values": {
+      "DebtLongtermAndShorttermCombinedAmount": 1040329000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 1463000,
+   "total_debt": 1040329000
   }
  ],
  "v2_tags_used": {

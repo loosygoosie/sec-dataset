@@ -274,17 +274,17 @@
   "total_liabilities": 2
  },
  "balance": {
-  "cash_and_sti": 208039000,
-  "debt_current": 1600000,
-  "end": "2026-06-30",
-  "equity": 422699000,
-  "finance_leases": 27722000,
-  "total_debt": 1600000
+  "cash_and_sti": 138990000,
+  "debt_current": 1460000,
+  "end": "2026-09-30",
+  "equity": 364456000,
+  "finance_leases": 25493000,
+  "total_debt": 1460000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 41,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -298,26 +298,26 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001062993-26-004434",
-  "filed": "2026-08-14",
+  "accn": "0001062993-26-005842",
+  "filed": "2026-11-09",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 924640000.0,
+  "assets": 857686000.0,
   "classes": {
-   "common": 274277338.0
+   "common": 276878228.0
   },
-  "cover_accession": "0001062993-26-004434",
-  "cover_date": "2026-08-14",
+  "cover_accession": "0001062993-26-005842",
+  "cover_date": "2026-11-06",
   "float_date": "2026-03-31",
   "float_filed": "2026-06-02",
   "note": null,
   "public_float": 950740231000.0,
   "revenue": 297791000.0,
-  "shares_cover": 274277338.0,
-  "shares_total": 274277338.0,
+  "shares_cover": 276878228.0,
+  "shares_total": 276878228.0,
   "size_gate": "float"
  },
  "name": "HIVE Digital Technologies Ltd.",
@@ -387,6 +387,34 @@
    "total_equity_parent": 560521000
   },
   {
+   "capex": 0,
+   "capex_filed": "2026-11-09",
+   "cash": 22643000,
+   "d_and_a": 38292000,
+   "eps_diluted": -0.07,
+   "filed": "2026-11-09",
+   "form": "10-Q",
+   "gross_profit": 4112000,
+   "impairments": 0,
+   "income_tax": 1019000,
+   "interest_expense": 328000,
+   "net_income": -15797000,
+   "net_income_parent": -15797000,
+   "operating_cash_flow": -10612000,
+   "period_end": "2025-09-30",
+   "revenue": 87253000,
+   "revenue_filed": "2026-11-09",
+   "sga_expense": 7800000,
+   "shares_diluted": 228137757,
+   "shares_diluted_adj": 228137757,
+   "shares_diluted_filled": 228137757,
+   "shares_diluted_filled_filed": "2026-11-09",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 5472000,
+   "total_equity": 624600000,
+   "total_equity_parent": 624600000
+  },
+  {
    "cash": 23113000,
    "current_assets": 59848000,
    "current_liabilities": 54435000,
@@ -449,6 +477,47 @@
    "total_equity": 422699000,
    "total_equity_parent": 422699000,
    "total_liabilities": 501941000
+  },
+  {
+   "capex": 7281000,
+   "capex_filed": "2026-11-09",
+   "cash": 138990000,
+   "current_assets": 213357000,
+   "current_liabilities": 137791000,
+   "d_and_a": 54863000,
+   "debt_current": 1460000,
+   "eps_diluted": -0.29,
+   "filed": "2026-11-09",
+   "finance_lease_liabilities": 25493000,
+   "form": "10-Q",
+   "gross_profit": -24661000,
+   "impairments": 31187000,
+   "income_tax": 167000,
+   "interest_expense": 1544000,
+   "net_income": -78701000,
+   "net_income_parent": -78701000,
+   "operating_cash_flow": 8139000,
+   "operating_leases": 82935000,
+   "period_end": "2026-09-30",
+   "receivables": 18645000,
+   "retained_earnings": -643918000,
+   "revenue": 84882000,
+   "revenue_filed": "2026-11-09",
+   "sga_expense": 10698000,
+   "shares_diluted": 274082247,
+   "shares_diluted_adj": 274082247,
+   "shares_diluted_filled": 274082247,
+   "shares_diluted_filled_filed": "2026-11-09",
+   "shares_diluted_filled_source": "shares_diluted",
+   "short_term_borrowings": 1202000,
+   "stock_comp": 8628000,
+   "total_assets": 857686000,
+   "total_debt": 1460000,
+   "total_debt_basis": "components_partial",
+   "total_debt_filed": "2026-11-09",
+   "total_equity": 364456000,
+   "total_equity_parent": 364456000,
+   "total_liabilities": 493230000
   }
  ],
  "sec_name": "HIVE DIGITAL TECHNOLOGIES LTD.",
@@ -480,7 +549,7 @@
   "finance_lease_liabilities": "FinanceLeaseLiability,FinanceLeaseLiabilityNoncurrent,FinanceLeaseLiabilityCurrent",
   "goodwill": null,
   "gross_profit": "GrossProfit",
-  "impairments": null,
+  "impairments": "AssetImpairmentCharges",
   "income_tax": "IncomeTaxExpenseBenefit",
   "intangibles": null,
   "interest_expense": "InterestExpense,InterestExpenseDebt,InterestExpenseNonoperating",
@@ -527,63 +596,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-03-31",
-   "filed": "2026-06-02",
-   "method": "fiscal_year_stale",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
+   "method": "year_to_date",
    "tags": [
     "PaymentsToAcquireOtherPropertyPlantAndEquipment"
    ],
-   "val": 21573000
+   "val": 43599000
   },
   "fcf": {
-   "end": "2026-03-31",
-   "method": "fiscal_year_stale",
-   "val": 40764000
+   "end": "2026-09-30",
+   "method": "year_to_date",
+   "val": 31318000
   },
   "net_income": {
-   "end": "2026-03-31",
-   "filed": "2026-06-02",
-   "method": "fiscal_year_stale",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
+   "method": "year_to_date",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -148448000
+   "val": -389275000
   },
   "operating_cash_flow": {
-   "end": "2026-03-31",
-   "filed": "2026-06-02",
-   "method": "fiscal_year_stale",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
+   "method": "year_to_date",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 62337000
+   "val": 74917000
   },
   "revenue": {
-   "end": "2026-03-31",
-   "filed": "2026-06-02",
-   "method": "fiscal_year_stale",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
+   "method": "year_to_date",
    "tags": [
     "Revenues"
    ],
-   "val": 297791000
+   "val": 328929000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-14",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 266251300
+   "val": 274082247
   },
   "stock_comp": {
-   "end": "2026-03-31",
-   "filed": "2026-06-02",
-   "method": "fiscal_year_stale",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
+   "method": "year_to_date",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 25457000
+   "val": 29945000
   }
  },
  "v2_annual": [
@@ -827,6 +896,20 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 1600000
+  },
+  {
+   "field": "total_debt",
+   "old": 1202000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 1460000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 1460000
   }
  ],
  "v2_notes": [],
@@ -894,6 +977,72 @@
    },
    "start": "2025-04-01",
    "stock_comp": 5750000
+  },
+  {
+   "capex": 0,
+   "cash": 22643000,
+   "cash_and_sti": 22643000,
+   "end": "2025-09-30",
+   "equity": 624600000,
+   "fcf": -10612000,
+   "net_income": -15797000,
+   "operating_cash_flow": -10612000,
+   "revenue": 87253000,
+   "shares_diluted": 228137757,
+   "src": {
+    "capex": {
+     "accn": "0001062993-26-005842",
+     "derived": true,
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireOtherPropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001062993-26-005842",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001062993-26-005842",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001062993-26-005842",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001062993-26-005842",
+     "derived": true,
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001062993-26-005842",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001062993-26-005842",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001062993-26-005842",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2025-07-01",
+   "stock_comp": 5472000
   },
   {
    "capex": 14745000,
@@ -971,6 +1120,85 @@
    "start": "2026-04-01",
    "stock_comp": 7082000,
    "total_debt": 1600000
+  },
+  {
+   "capex": 7281000,
+   "cash": 138990000,
+   "cash_and_sti": 138990000,
+   "debt_current": 1460000,
+   "end": "2026-09-30",
+   "equity": 364456000,
+   "fcf": 858000,
+   "finance_leases": 25493000,
+   "net_income": -78701000,
+   "operating_cash_flow": 8139000,
+   "revenue": 84882000,
+   "shares_diluted": 274082247,
+   "src": {
+    "capex": {
+     "accn": "0001062993-26-005842",
+     "derived": true,
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireOtherPropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001062993-26-005842",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001062993-26-005842",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001062993-26-005842",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001062993-26-005842",
+     "derived": true,
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001062993-26-005842",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001062993-26-005842",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001062993-26-005842",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-09",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 1460000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 8628000,
+   "total_debt": 1460000
   }
  ],
  "v2_tags_used": {

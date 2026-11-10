@@ -180,6 +180,7 @@
    "operating_cash_flow_as_filed": 2101000000,
    "operating_cash_flow_as_filed_filed": "2026-03-02",
    "operating_cash_flow_filed": "2026-03-02",
+   "operating_leases": 67000000,
    "period_end": "2025-12-31",
    "pretax_income": 2925000000,
    "pretax_income_as_filed": 2925000000,
@@ -251,7 +252,7 @@
   "net_interest_income": 0,
   "operating_cash_flow": 3,
   "operating_income": 0,
-  "operating_leases": 0,
+  "operating_leases": 1,
   "payments_for_intangibles": 0,
   "pension_funded_status": 0,
   "premiums_earned": 0,
@@ -275,16 +276,17 @@
   "total_liabilities": 3
  },
  "balance": {
-  "cash_and_sti": 1503000000,
+  "cash_and_sti": 657000000,
+  "debt_end": "2026-06-30",
   "debt_noncurrent": 4084000000,
-  "end": "2026-06-30",
-  "equity": 9188000000,
+  "end": "2026-09-30",
+  "equity": 11810000000,
   "total_debt": 4084000000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 130,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 41,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -297,33 +299,33 @@
   "quarter_exceeds_year_capex_2024-12-31",
   "quarters_off_year_capex_2024-12-31",
   "revenue_unverified_2023-12-31",
-  "revenue_unverified_2025-12-31",
   "revenue_unverified_2024-12-31",
+  "revenue_unverified_2025-12-31",
   "debt_one_side_only"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001628280-26-054933",
-  "filed": "2026-08-10",
+  "accn": "0001628280-26-071827",
+  "filed": "2026-11-09",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 20080000000.0,
+  "assets": 27409000000.0,
   "classes": {
-   "CommonClassAMember": 1597230353.0,
+   "CommonClassAMember": 1597856916.0,
    "CommonClassBMember": 21280.0
   },
-  "cover_accession": "0001628280-26-054933",
-  "cover_date": "2026-08-06",
+  "cover_accession": "0001628280-26-071827",
+  "cover_date": "2026-11-05",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-02",
   "note": null,
   "public_float": 23200000000.0,
   "revenue": 4817000000.0,
-  "shares_cover": 1597251633.0,
-  "shares_total": 1597251633.0,
+  "shares_cover": 1597878196.0,
+  "shares_total": 1597878196.0,
   "size_gate": "float"
  },
  "name": "Brookfield Asset Management Ltd.",
@@ -493,7 +495,7 @@
    "cash": 1062000000,
    "d_and_a": 16000000,
    "dividends_paid": 706000000,
-   "filed": "2025-11-10",
+   "filed": "2026-11-09",
    "form": "10-Q",
    "income_tax": 78000000,
    "interest_income": 24000000,
@@ -532,6 +534,7 @@
    "net_income_incl_nci": 615000000,
    "net_income_parent": 615000000,
    "operating_cash_flow": 713000000,
+   "operating_leases": 67000000,
    "period_end": "2025-12-31",
    "pretax_income": 914000000,
    "retained_earnings": -851000000,
@@ -614,6 +617,37 @@
    "total_equity": 9188000000,
    "total_equity_incl_nci": 9188000000,
    "total_liabilities": 8212000000
+  },
+  {
+   "acquisitions": 1393000000,
+   "capex": 33000000,
+   "capex_filed": "2026-11-09",
+   "cash": 657000000,
+   "d_and_a": 60000000,
+   "dividends_paid": 802000000,
+   "filed": "2026-11-09",
+   "form": "10-Q",
+   "goodwill": 1868000000,
+   "income_tax": 331000000,
+   "intangibles": 6019000000,
+   "interest_income": 24000000,
+   "net_income": 2999000000,
+   "net_income_incl_nci": 2999000000,
+   "net_income_parent": 2999000000,
+   "operating_cash_flow": 554000000,
+   "operating_leases": 252000000,
+   "period_end": "2026-09-30",
+   "pretax_income": 3330000000,
+   "retained_earnings": 884000000,
+   "revenue": 1283000000,
+   "revenue_filed": "2026-11-09",
+   "stock_comp": 40000000,
+   "total_assets": 27409000000,
+   "total_debt": 3466000000,
+   "total_debt_basis": "tagged",
+   "total_equity": 11810000000,
+   "total_equity_incl_nci": 11810000000,
+   "total_liabilities": 12680000000
   }
  ],
  "sec_name": "BROOKFIELD ASSET MANAGEMENT LTD.",
@@ -663,7 +697,7 @@
   "net_interest_income": null,
   "operating_cash_flow": "NetCashProvidedByUsedInOperatingActivities",
   "operating_income": "OperatingIncomeLoss",
-  "operating_leases": null,
+  "operating_leases": "OperatingLeaseLiability",
   "payments_for_intangibles": null,
   "pension_funded_status": null,
   "premiums_earned": null,
@@ -692,54 +726,54 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquireOtherPropertyPlantAndEquipment"
    ],
-   "val": 22000000
+   "val": 51000000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": 2312000000
+   "val": 2092000000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 3065000000
+   "val": 5372000000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 2334000000
+   "val": 2143000000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
    ],
-   "val": 4096000000
+   "val": 4405000000
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-10",
+   "end": "2026-09-30",
+   "filed": "2026-11-09",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 140000000
+   "val": 148000000
   }
  },
  "v2_annual": [
@@ -1036,6 +1070,13 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 4084000000
+  },
+  {
+   "field": "revenue",
+   "old": 2149000000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 1283000000
   }
  ],
  "v2_notes": [],
@@ -1649,6 +1690,63 @@
    "start": "2026-04-01",
    "stock_comp": 42000000,
    "total_debt": 4084000000
+  },
+  {
+   "capex": 33000000,
+   "cash": 657000000,
+   "cash_and_sti": 657000000,
+   "end": "2026-09-30",
+   "equity": 11810000000,
+   "fcf": 521000000,
+   "net_income": 2999000000,
+   "operating_cash_flow": 554000000,
+   "revenue": 1283000000,
+   "src": {
+    "capex": {
+     "accn": "0001628280-26-071827",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireOtherPropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001628280-26-071827",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001628280-26-071827",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+    },
+    "net_income": {
+     "accn": "0001628280-26-071827",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001628280-26-071827",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001628280-26-071827",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "stock_comp": {
+     "accn": "0001628280-26-071827",
+     "filed": "2026-11-09",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 40000000
   }
  ],
  "v2_tags_used": {
