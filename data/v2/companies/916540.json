@@ -1707,18 +1707,18 @@
   "total_liabilities": 17
  },
  "balance": {
-  "cash_and_sti": 160742000,
-  "debt_current": 96761000,
-  "debt_noncurrent": 3850963000,
-  "end": "2026-07-04",
-  "equity": 5245729000,
-  "finance_leases": 1200000,
-  "total_debt": 3947724000
+  "cash_and_sti": 121716000,
+  "debt_current": 74009000,
+  "debt_noncurrent": 3414433000,
+  "end": "2026-10-03",
+  "equity": 5369321000,
+  "finance_leases": 1700000,
+  "total_debt": 3488442000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-07-04",
-  "quarter_age_days": 83,
+  "latest_quarter_end": "2026-10-03",
+  "quarter_age_days": 39,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -1727,80 +1727,35 @@
  },
  "cik": 916540,
  "fiscal_year_end": "0102",
- "flags": [],
+ "flags": [
+  "stale_capex"
+ ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0000916540-26-000023",
-  "filed": "2026-08-07",
+  "accn": "0000916540-26-000029",
+  "filed": "2026-11-10",
   "form": "10-Q",
-  "report": "2026-07-04"
+  "report": "2026-10-03"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 10984208000.0,
+  "assets": 10691065000.0,
   "classes": {
-   "common": 157802916.0
+   "common": 154935065.0
   },
-  "cover_accession": "0000916540-26-000023",
-  "cover_date": "2026-08-03",
+  "cover_accession": "0000916540-26-000029",
+  "cover_date": "2026-11-05",
   "float_date": "2025-06-28",
   "float_filed": "2026-03-03",
   "note": null,
   "public_float": 5963190000.0,
   "revenue": 6135877000.0,
-  "shares_cover": 157802916.0,
-  "shares_total": 157802916.0,
+  "shares_cover": 154935065.0,
+  "shares_total": 154935065.0,
   "size_gate": "float"
  },
  "name": "DARLING INGREDIENTS INC.",
  "quarterly": [
-  {
-   "acquisitions": 14100000,
-   "buybacks": 0,
-   "cash": 118977000,
-   "current_assets": 1842995000,
-   "current_liabilities": 1033703000,
-   "d_and_a": 125994000,
-   "debt_current": 73862000,
-   "eps_diluted": 0.77,
-   "filed": "2024-11-06",
-   "finance_lease_liabilities": 4600000,
-   "form": "10-Q",
-   "goodwill": 2447376000,
-   "income_tax": -15364000,
-   "intangibles": 1091446000,
-   "inventory": 822765000,
-   "lt_debt_current": 73862000,
-   "lt_debt_noncurrent": 4338126000,
-   "net_income": 125026000,
-   "net_income_incl_nci": 128081000,
-   "net_income_parent": 125026000,
-   "operating_cash_flow": 276588000,
-   "operating_income": 178369000,
-   "operating_leases": 154858000,
-   "payments_for_intangibles": 4000,
-   "period_end": "2023-09-30",
-   "pretax_income": 112717000,
-   "receivables": 735582000,
-   "retained_earnings": 3648738000,
-   "revenue": 1625204000,
-   "revenue_filed": "2023-11-07",
-   "sga_expense": 137697000,
-   "shares_diluted": 162425000,
-   "shares_diluted_adj": 162425000,
-   "shares_diluted_filled": 162425000,
-   "shares_diluted_filled_filed": "2024-11-06",
-   "shares_diluted_filled_source": "shares_diluted",
-   "stock_comp": 8961000,
-   "total_assets": 10810337000,
-   "total_debt": 4411988000,
-   "total_debt_basis": "tagged",
-   "total_debt_filed": "2023-11-07",
-   "total_equity": 4380714000,
-   "total_equity_incl_nci": 4466982000,
-   "total_equity_parent": 4380714000,
-   "total_liabilities": 6343355000
-  },
   {
    "acquisitions": 0,
    "buybacks": 0,
@@ -2148,11 +2103,12 @@
    "d_and_a": 124064000,
    "debt_current": 76911000,
    "eps_diluted": 0.12,
-   "filed": "2025-11-05",
+   "filed": "2026-11-10",
    "finance_lease_liabilities": 1800000,
    "form": "10-Q",
    "goodwill": 2499229000,
    "gross_profit": 387009000,
+   "impairments": 0,
    "income_tax": -1248000,
    "intangibles": 881448000,
    "interest_expense": 56925000,
@@ -2175,7 +2131,7 @@
    "shares_diluted": 159947000,
    "shares_diluted_adj": 159947000,
    "shares_diluted_filled": 159947000,
-   "shares_diluted_filled_filed": "2025-11-05",
+   "shares_diluted_filled_filed": "2026-11-10",
    "shares_diluted_filled_source": "shares_diluted",
    "stock_comp": 8266000,
    "total_assets": 10452339000,
@@ -2201,6 +2157,7 @@
    "form": "10-K (derived from YTD)",
    "goodwill": 2459031000,
    "gross_profit": 429181000,
+   "impairments": 57797000,
    "income_tax": -11022000,
    "intangibles": 845003000,
    "interest_expense": 55514000,
@@ -2333,6 +2290,55 @@
    "total_equity_incl_nci": 5306252000,
    "total_equity_parent": 5245729000,
    "total_liabilities": 5677956000
+  },
+  {
+   "acquisitions": 0,
+   "buybacks": 75926000,
+   "cash": 121716000,
+   "current_assets": 1604179000,
+   "current_liabilities": 1129379000,
+   "d_and_a": 135667000,
+   "debt_current": 74009000,
+   "eps_diluted": 1.67,
+   "filed": "2026-11-10",
+   "finance_lease_liabilities": 1700000,
+   "form": "10-Q",
+   "goodwill": 2535780000,
+   "gross_profit": 477544000,
+   "impairments": 0,
+   "income_tax": 76810000,
+   "intangibles": 794483000,
+   "interest_expense": 51460000,
+   "inventory": 610881000,
+   "lt_debt_current": 74009000,
+   "lt_debt_noncurrent": 3414433000,
+   "net_income": 266986000,
+   "net_income_incl_nci": 268313000,
+   "net_income_parent": 266986000,
+   "operating_cash_flow": 461258000,
+   "operating_income": 333271000,
+   "operating_leases": 160133000,
+   "payments_for_intangibles": 640000,
+   "period_end": "2026-10-03",
+   "pretax_income": 345123000,
+   "retained_earnings": 4863549000,
+   "revenue": 1791116000,
+   "revenue_filed": "2026-11-10",
+   "sga_expense": 166893000,
+   "shares_diluted": 160134000,
+   "shares_diluted_adj": 160134000,
+   "shares_diluted_filled": 160134000,
+   "shares_diluted_filled_filed": "2026-11-10",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 24115000,
+   "total_assets": 10691065000,
+   "total_debt": 3488442000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-10",
+   "total_equity": 5369321000,
+   "total_equity_incl_nci": 5431837000,
+   "total_equity_parent": 5369321000,
+   "total_liabilities": 5259228000
   }
  ],
  "sec_name": "DARLING INGREDIENTS INC.",
@@ -2414,55 +2420,56 @@
    "end": "2026-01-03",
    "filed": "2026-03-03",
    "method": "fiscal_year",
+   "stale": true,
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
    "val": 380477000
   },
   "net_income": {
-   "end": "2026-07-04",
-   "filed": "2026-08-07",
+   "end": "2026-10-03",
+   "filed": "2026-11-10",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 597928000
+   "val": 845551000
   },
   "operating_cash_flow": {
-   "end": "2026-07-04",
-   "filed": "2026-08-07",
+   "end": "2026-10-03",
+   "filed": "2026-11-10",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 1351407000
+   "val": 1588326000
   },
   "revenue": {
-   "end": "2026-07-04",
-   "filed": "2026-08-07",
+   "end": "2026-10-03",
+   "filed": "2026-11-10",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
    ],
-   "val": 6548664000
+   "val": 6775814000
   },
   "shares_diluted": {
-   "end": "2026-07-04",
-   "filed": "2026-08-07",
+   "end": "2026-10-03",
+   "filed": "2026-11-10",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 160627000
+   "val": 160134000
   },
   "stock_comp": {
-   "end": "2026-07-04",
-   "filed": "2026-08-07",
+   "end": "2026-10-03",
+   "filed": "2026-11-10",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 36653000
+   "val": 52502000
   }
  },
  "v2_annual": [
@@ -9038,6 +9045,79 @@
    "start": "2026-04-05",
    "stock_comp": 8562000,
    "total_debt": 3947724000
+  },
+  {
+   "cash": 121716000,
+   "cash_and_sti": 121716000,
+   "debt_current": 74009000,
+   "debt_noncurrent": 3414433000,
+   "end": "2026-10-03",
+   "equity": 5369321000,
+   "finance_leases": 1700000,
+   "net_income": 266986000,
+   "operating_cash_flow": 461258000,
+   "revenue": 1791116000,
+   "shares_diluted": 160134000,
+   "src": {
+    "cash": {
+     "accn": "0000916540-26-000029",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0000916540-26-000029",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0000916540-26-000029",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0000916540-26-000029",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0000916540-26-000029",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0000916540-26-000029",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0000916540-26-000029",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-10",
+     "tags": [
+      "LongTermDebtAndCapitalLeaseObligations",
+      "LongTermDebtAndCapitalLeaseObligationsCurrent"
+     ],
+     "values": {
+      "LongTermDebtAndCapitalLeaseObligations": 3414433000,
+      "LongTermDebtAndCapitalLeaseObligationsCurrent": 74009000
+     }
+    }
+   },
+   "start": "2026-07-05",
+   "stock_comp": 24115000,
+   "total_debt": 3488442000
   }
  ],
  "v2_tags_used": {

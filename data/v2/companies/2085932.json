@@ -67,15 +67,16 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 747253,
-  "end": "2026-06-30",
-  "equity": -5177346,
+  "cash_and_sti": 647771,
+  "debt_end": "2026-06-30",
+  "end": "2026-09-30",
+  "equity": -5480524,
   "total_debt": 300000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 42,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +92,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-086273",
-  "filed": "2026-08-07",
+  "accn": "0001213900-26-118031",
+  "filed": "2026-11-10",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 152418322.0,
+  "assets": 153657432.0,
   "classes": {
    "CommonClassAMember": 15000000.0,
    "CommonClassBMember": 5000000.0
   },
-  "cover_accession": "0001213900-26-086273",
-  "cover_date": "2026-08-06",
+  "cover_accession": "0001213900-26-118031",
+  "cover_date": "2026-11-10",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -116,6 +117,16 @@
  },
  "name": "Energy Transition Special Opportunities",
  "quarterly": [
+  {
+   "filed": "2026-11-10",
+   "form": "10-Q",
+   "net_income": -45622,
+   "net_income_parent": -45622,
+   "operating_income": -45622,
+   "period_end": "2025-09-30",
+   "total_equity": -20622,
+   "total_equity_parent": -20622
+  },
   {
    "current_assets": 2513,
    "filed": "2026-06-29",
@@ -151,6 +162,26 @@
    "total_equity": -5177346,
    "total_equity_parent": -5177346,
    "total_liabilities": 6217143
+  },
+  {
+   "cash": 647771,
+   "current_assets": 804463,
+   "current_liabilities": 376228,
+   "filed": "2026-11-10",
+   "form": "10-Q",
+   "net_income": 1080025,
+   "net_income_parent": 1080025,
+   "operating_cash_flow": 178141,
+   "operating_cash_flow_filed": "2026-11-10",
+   "operating_income": -303178,
+   "period_end": "2026-09-30",
+   "retained_earnings": -5481024,
+   "stock_comp": 0,
+   "stock_comp_filed": "2026-11-10",
+   "total_assets": 153657432,
+   "total_equity": -5480524,
+   "total_equity_parent": -5480524,
+   "total_liabilities": 6376228
   }
  ],
  "sec_name": "Energy Transition Special Opportunities",
@@ -231,9 +262,44 @@
  ],
  "ttm": {},
  "v2_annual": [],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 178141
+  },
+  {
+   "field": "stock_comp",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 0
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
+  {
+   "end": "2025-09-30",
+   "equity": -20622,
+   "net_income": -45622,
+   "src": {
+    "equity": {
+     "accn": "0001213900-26-118031",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-118031",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    }
+   },
+   "start": "2025-07-11"
+  },
   {
    "end": "2026-03-31",
    "equity": -62030,
@@ -301,6 +367,50 @@
    },
    "start": "2026-04-01",
    "total_debt": 300000
+  },
+  {
+   "cash": 647771,
+   "cash_and_sti": 647771,
+   "end": "2026-09-30",
+   "equity": -5480524,
+   "net_income": 1080025,
+   "operating_cash_flow": 178141,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-118031",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-118031",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-118031",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-118031",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "stock_comp": {
+     "accn": "0001213900-26-118031",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 0
   }
  ],
  "v2_tags_used": {
@@ -308,9 +418,13 @@
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [],
   "shares_diluted": [],
-  "stock_comp": []
+  "stock_comp": [
+   "ShareBasedCompensation"
+  ]
  }
 }

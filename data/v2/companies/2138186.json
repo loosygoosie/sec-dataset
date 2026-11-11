@@ -67,16 +67,16 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 52748000,
-  "debt_current": 85000000,
-  "end": "2026-06-30",
-  "equity": 189196000,
-  "total_debt": 85000000
+  "cash_and_sti": 97987000,
+  "debt_current": 45157000,
+  "end": "2026-09-30",
+  "equity": 187391000,
+  "total_debt": 45157000
  },
  "bank": true,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 129,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 42,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -93,26 +93,26 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001193125-26-396522",
-  "filed": "2026-09-21",
+  "accn": "0001193125-26-455495",
+  "filed": "2026-11-10",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 2874485000.0,
+  "assets": 2962416000.0,
   "classes": {
-   "common": 0
+   "common": 21160000.0
   },
-  "cover_accession": "0001193125-26-396522",
-  "cover_date": "2026-09-21",
+  "cover_accession": "0001193125-26-455495",
+  "cover_date": "2026-11-04",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 0,
-  "shares_total": 0.0,
+  "shares_cover": 21160000.0,
+  "shares_total": 21160000.0,
   "size_gate": "no_float"
  },
  "name": "Narragansett Bancorp, Inc.",
@@ -133,6 +133,27 @@
    "revenue_filed": "2026-09-21",
    "total_equity": 176705000,
    "total_equity_parent": 176705000
+  },
+  {
+   "capex": 580000,
+   "capex_filed": "2026-11-10",
+   "credit_loss_provision": 1860000,
+   "filed": "2026-11-10",
+   "form": "10-Q",
+   "income_tax": 122000,
+   "interest_income": 36337000,
+   "loan_loss_allowance": 31116000,
+   "net_income": 1053000,
+   "net_income_parent": 1053000,
+   "net_interest_income": 19515000,
+   "operating_cash_flow": 7950000,
+   "operating_cash_flow_filed": "2026-11-10",
+   "period_end": "2025-09-30",
+   "pretax_income": 1175000,
+   "revenue": 32644000,
+   "revenue_filed": "2026-11-10",
+   "total_equity": 179075000,
+   "total_equity_parent": 179075000
   },
   {
    "cash": 52748000,
@@ -161,9 +182,45 @@
    "total_equity": 189196000,
    "total_equity_parent": 189196000,
    "total_liabilities": 2685289000
+  },
+  {
+   "capex": 709000,
+   "capex_filed": "2026-11-10",
+   "cash": 97987000,
+   "credit_loss_provision": -250000,
+   "debt_current": 45157000,
+   "filed": "2026-11-10",
+   "form": "10-Q",
+   "income_tax": 1429000,
+   "interest_income": 36764000,
+   "loan_loss_allowance": 29843000,
+   "loans": 2242028000,
+   "net_income": 4425000,
+   "net_income_parent": 4425000,
+   "net_interest_income": 22797000,
+   "operating_cash_flow": 19161000,
+   "operating_cash_flow_filed": "2026-11-10",
+   "operating_leases": 9566000,
+   "period_end": "2026-09-30",
+   "pretax_income": 5854000,
+   "retained_earnings": 198538000,
+   "revenue": 35585000,
+   "revenue_filed": "2026-11-10",
+   "shares_diluted_adj": 21160000,
+   "shares_diluted_filled": 21160000,
+   "shares_diluted_filled_filed": "2026-11-10",
+   "shares_diluted_filled_source": "cover",
+   "short_term_borrowings": 45157000,
+   "total_assets": 2962416000,
+   "total_debt": 45157000,
+   "total_debt_basis": "components_partial",
+   "total_debt_filed": "2026-11-10",
+   "total_equity": 187391000,
+   "total_equity_parent": 187391000,
+   "total_liabilities": 2775025000
   }
  ],
- "sec_name": "Narragansett Bancorp, Inc.",
+ "sec_name": "NARRAGANSETT BANCORP, INC.",
  "sic": "6036",
  "sic_description": "Savings Institutions, Not Federally Chartered",
  "splits": [],
@@ -249,6 +306,27 @@
   },
   {
    "field": "revenue",
+   "old": 36337000,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": 32644000
+  },
+  {
+   "field": "capex",
+   "old": null,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": 580000
+  },
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": 7950000
+  },
+  {
+   "field": "revenue",
    "old": 35144000,
    "period": "2026-06-30",
    "rows": "quarterly",
@@ -260,6 +338,34 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 85000000
+  },
+  {
+   "field": "revenue",
+   "old": 36764000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 35585000
+  },
+  {
+   "field": "capex",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 709000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 45157000
+  },
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 19161000
   }
  ],
  "v2_notes": [],
@@ -290,6 +396,50 @@
     }
    },
    "start": "2025-04-01"
+  },
+  {
+   "capex": 580000,
+   "end": "2025-09-30",
+   "equity": 179075000,
+   "fcf": 7370000,
+   "net_income": 1053000,
+   "operating_cash_flow": 7950000,
+   "revenue": 32644000,
+   "src": {
+    "capex": {
+     "accn": "0001193125-26-455495",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "equity": {
+     "accn": "0001193125-26-455495",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001193125-26-455495",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-455495",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001193125-26-455495",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "InterestIncomeExpenseNet+NoninterestIncome"
+    }
+   },
+   "start": "2025-07-01"
   },
   {
    "cash": 52748000,
@@ -337,14 +487,82 @@
    },
    "start": "2026-04-01",
    "total_debt": 85000000
+  },
+  {
+   "capex": 709000,
+   "cash": 97987000,
+   "cash_and_sti": 97987000,
+   "debt_current": 45157000,
+   "end": "2026-09-30",
+   "equity": 187391000,
+   "fcf": 18452000,
+   "net_income": 4425000,
+   "operating_cash_flow": 19161000,
+   "revenue": 35585000,
+   "src": {
+    "capex": {
+     "accn": "0001193125-26-455495",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001193125-26-455495",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001193125-26-455495",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001193125-26-455495",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-455495",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001193125-26-455495",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "InterestIncomeExpenseNet+NoninterestIncome"
+    },
+    "total_debt": {
+     "filed": "2026-11-10",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBorrowings"
+     ],
+     "values": {
+      "ShortTermBorrowings": 45157000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "total_debt": 45157000
   }
  ],
  "v2_tags_used": {
-  "capex": [],
+  "capex": [
+   "PaymentsToAcquirePropertyPlantAndEquipment"
+  ],
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [
    "InterestIncomeExpenseNet+NoninterestIncome"
   ],

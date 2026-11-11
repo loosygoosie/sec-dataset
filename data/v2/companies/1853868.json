@@ -67,17 +67,17 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 2106371000,
-  "debt_current": 11042000,
-  "debt_noncurrent": 217376000,
-  "end": "2026-06-30",
-  "equity": 2793837000,
-  "total_debt": 228418000
+  "cash_and_sti": 1916477000,
+  "debt_current": 18686000,
+  "debt_noncurrent": 282923000,
+  "end": "2026-09-30",
+  "equity": 2790677000,
+  "total_debt": 301609000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 42,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -93,27 +93,27 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001628280-26-056457",
-  "filed": "2026-08-13",
+  "accn": "0001628280-26-072482",
+  "filed": "2026-11-10",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 3535089000.0,
+  "assets": 3638547000.0,
   "classes": {
-   "CommonClassAMember": 286977787.0,
-   "CommonClassBMember": 7785412.0
+   "CommonClassAMember": 287225439.0,
+   "CommonClassBMember": 7795412.0
   },
-  "cover_accession": "0001628280-26-056457",
-  "cover_date": "2026-08-10",
+  "cover_accession": "0001628280-26-072482",
+  "cover_date": "2026-11-05",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 294763199.0,
-  "shares_total": 294763199.0,
+  "shares_cover": 295020851.0,
+  "shares_total": 295020851.0,
   "size_gate": "no_float"
  },
  "name": "Fervo Energy Co",
@@ -172,6 +172,35 @@
    "stock_comp": 613000,
    "total_equity": -198482000,
    "total_equity_parent": -198482000
+  },
+  {
+   "buybacks": 0,
+   "capex": 91816000,
+   "capex_filed": "2026-11-10",
+   "cash": 49723000,
+   "d_and_a": 105000,
+   "eps_diluted": -1.9,
+   "filed": "2026-11-10",
+   "form": "10-Q",
+   "income_tax": 0,
+   "interest_expense": 2438000,
+   "net_income": -15787000,
+   "net_income_incl_nci": -15787000,
+   "net_income_parent": -15787000,
+   "operating_cash_flow": -18628000,
+   "operating_income": -13659000,
+   "period_end": "2025-09-30",
+   "pretax_income": -15787000,
+   "revenue": 55000,
+   "revenue_filed": "2026-11-10",
+   "shares_diluted": 8919000,
+   "shares_diluted_adj": 8919000,
+   "shares_diluted_filled": 8919000,
+   "shares_diluted_filled_filed": "2026-11-10",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 606000,
+   "total_equity": -215042000,
+   "total_equity_parent": -215042000
   },
   {
    "buybacks": 0,
@@ -249,6 +278,47 @@
    "total_equity": 2793837000,
    "total_equity_parent": 2793837000,
    "total_liabilities": 554276000
+  },
+  {
+   "buybacks": 0,
+   "capex": 256744000,
+   "capex_filed": "2026-11-10",
+   "cash": 1916477000,
+   "current_assets": 1947348000,
+   "current_liabilities": 245127000,
+   "d_and_a": 346000,
+   "debt_current": 18686000,
+   "eps_diluted": -0.07,
+   "filed": "2026-11-10",
+   "form": "10-Q",
+   "income_tax": -29911000,
+   "interest_expense": 2144000,
+   "lt_debt_current": 18686000,
+   "lt_debt_noncurrent": 282923000,
+   "net_income": -19527000,
+   "net_income_incl_nci": 11660000,
+   "net_income_parent": -19527000,
+   "operating_cash_flow": -11676000,
+   "operating_income": -43746000,
+   "operating_leases": 129700000,
+   "period_end": "2026-09-30",
+   "pretax_income": -18251000,
+   "retained_earnings": -351804000,
+   "revenue": 116000,
+   "revenue_filed": "2026-11-10",
+   "shares_diluted": 294782000,
+   "shares_diluted_adj": 294782000,
+   "shares_diluted_filled": 294782000,
+   "shares_diluted_filled_filed": "2026-11-10",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 2300000,
+   "total_assets": 3638547000,
+   "total_debt": 301609000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-10",
+   "total_equity": 2790677000,
+   "total_equity_parent": 2790677000,
+   "total_liabilities": 628417000
   }
  ],
  "sec_name": "Fervo Energy Co",
@@ -292,8 +362,8 @@
   "loss_reserves": null,
   "lt_debt_current": "LongTermDebtCurrent",
   "lt_debt_noncurrent": "LongTermDebtNoncurrent",
-  "net_income": "NetIncomeLoss,NetIncomeLossAvailableToCommonStockholdersBasic",
-  "net_income_incl_nci": null,
+  "net_income": "NetIncomeLoss,ProfitLoss,NetIncomeLossAvailableToCommonStockholdersBasic",
+  "net_income_incl_nci": "ProfitLoss",
   "net_income_parent": "NetIncomeLoss,NetIncomeLossAvailableToCommonStockholdersBasic",
   "net_interest_income": null,
   "operating_cash_flow": "NetCashProvidedByUsedInOperatingActivities",
@@ -327,13 +397,13 @@
  ],
  "ttm": {
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-10",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 157003000
+   "val": 294782000
   }
  },
  "v2_annual": [],
@@ -351,6 +421,13 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 228418000
+  },
+  {
+   "field": "total_debt",
+   "old": 317483000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 301609000
   }
  ],
  "v2_notes": [],
@@ -485,6 +562,73 @@
    },
    "start": "2025-04-01",
    "stock_comp": 613000
+  },
+  {
+   "capex": 91816000,
+   "cash": 49723000,
+   "cash_and_sti": 49723000,
+   "end": "2025-09-30",
+   "equity": -215042000,
+   "fcf": -110444000,
+   "net_income": -15787000,
+   "operating_cash_flow": -18628000,
+   "revenue": 55000,
+   "shares_diluted": 8919000,
+   "src": {
+    "capex": {
+     "accn": "0001628280-26-072482",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireProductiveAssets"
+    },
+    "cash": {
+     "accn": "0001628280-26-072482",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001628280-26-072482",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001628280-26-072482",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001628280-26-072482",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001628280-26-072482",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001628280-26-072482",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001628280-26-072482",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2025-07-01",
+   "stock_comp": 606000
   },
   {
    "capex": 172793000,
@@ -642,6 +786,87 @@
    "start": "2026-04-01",
    "stock_comp": 8230000,
    "total_debt": 228418000
+  },
+  {
+   "capex": 256744000,
+   "cash": 1916477000,
+   "cash_and_sti": 1916477000,
+   "debt_current": 18686000,
+   "debt_noncurrent": 282923000,
+   "end": "2026-09-30",
+   "equity": 2790677000,
+   "fcf": -268420000,
+   "net_income": -19527000,
+   "operating_cash_flow": -11676000,
+   "revenue": 116000,
+   "shares_diluted": 294782000,
+   "src": {
+    "capex": {
+     "accn": "0001628280-26-072482",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireProductiveAssets"
+    },
+    "cash": {
+     "accn": "0001628280-26-072482",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001628280-26-072482",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001628280-26-072482",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001628280-26-072482",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001628280-26-072482",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001628280-26-072482",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001628280-26-072482",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-10",
+     "tags": [
+      "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent"
+     ],
+     "values": {
+      "LongTermDebtCurrent": 18686000,
+      "LongTermDebtNoncurrent": 282923000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 14221000,
+   "total_debt": 301609000
   }
  ],
  "v2_tags_used": {

@@ -67,19 +67,19 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 568601,
-  "end": "2026-06-30",
-  "equity": -14680621
+  "cash_and_sti": 356941,
+  "end": "2026-09-30",
+  "equity": -16151341
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 42,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
   "share_scale": "ok",
-  "shares": "ok"
+  "shares": "none"
  },
  "cik": 2079253,
  "fiscal_year_end": "1231",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-087813",
-  "filed": "2026-08-11",
+  "accn": "0001213900-26-118126",
+  "filed": "2026-11-10",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 353888235.0,
+  "assets": 356847120.0,
   "classes": {
    "CommonClassAMember": 34470000.0,
    "CommonClassBMember": 11490000.0
   },
-  "cover_accession": "0001213900-26-087813",
-  "cover_date": "2026-08-10",
+  "cover_accession": "0001213900-26-118126",
+  "cover_date": "2026-11-09",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-26",
   "note": null,
@@ -118,11 +118,12 @@
  "quarterly": [
   {
    "eps_diluted": -0.01,
-   "filed": "2025-12-05",
+   "filed": "2026-11-10",
    "form": "10-Q",
    "net_income": -68198,
    "net_income_parent": -68198,
    "operating_cash_flow": 0,
+   "operating_income": -68198,
    "period_end": "2025-09-30",
    "retained_earnings": -68198,
    "shares_diluted": 10000000,
@@ -144,6 +145,7 @@
    "net_income": 2087786,
    "net_income_parent": 2087786,
    "operating_cash_flow": -369663,
+   "operating_income": -203149,
    "period_end": "2025-12-31",
    "retained_earnings": -12731957,
    "total_assets": 348131627,
@@ -184,6 +186,23 @@
    "total_equity": -14680621,
    "total_equity_parent": -14680621,
    "total_liabilities": 15423352
+  },
+  {
+   "cash": 356941,
+   "current_assets": 474876,
+   "current_liabilities": 2844997,
+   "filed": "2026-11-10",
+   "form": "10-Q",
+   "net_income": 1749240,
+   "net_income_parent": 1749240,
+   "operating_cash_flow": -211660,
+   "operating_income": -1550844,
+   "period_end": "2026-09-30",
+   "retained_earnings": -16152490,
+   "total_assets": 356847120,
+   "total_equity": -16151341,
+   "total_equity_parent": -16151341,
+   "total_liabilities": 16632997
   }
  ],
  "sec_name": "APEX TREASURY CORPORATION",
@@ -264,22 +283,22 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-11",
+   "end": "2026-09-30",
+   "filed": "2026-11-10",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 6243118
+   "val": 8041782
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-11",
+   "end": "2026-09-30",
+   "filed": "2026-11-10",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -792594
+   "val": -1004254
   },
   "shares_diluted": {
    "end": "2025-09-30",
@@ -437,6 +456,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 356941,
+   "cash_and_sti": 356941,
+   "end": "2026-09-30",
+   "equity": -16151341,
+   "net_income": 1749240,
+   "operating_cash_flow": -211660,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-118126",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-118126",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-118126",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-118126",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

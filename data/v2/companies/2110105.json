@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 2106686000,
-  "end": "2026-06-30",
-  "equity": 413082000
+  "cash_and_sti": 1936114000,
+  "end": "2026-09-30",
+  "equity": 454091000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 42,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,33 +91,33 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001628280-26-056743",
-  "filed": "2026-08-13",
+  "accn": "0001628280-26-072454",
+  "filed": "2026-11-10",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 3229971000.0,
+  "assets": 3084876000.0,
   "classes": {
-   "CommonClassAMember": 36893857.0,
-   "CommonClassBMember": 226414285.0
+   "CommonClassAMember": 45555575.0,
+   "CommonClassBMember": 220260482.0
   },
-  "cover_accession": "0001628280-26-056743",
-  "cover_date": "2026-08-13",
+  "cover_accession": "0001628280-26-072454",
+  "cover_date": "2026-11-09",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 263308142.0,
-  "shares_total": 263308142.0,
+  "shares_cover": 265816057.0,
+  "shares_total": 265816057.0,
   "size_gate": "no_float"
  },
  "name": "Quantinuum Inc.",
  "quarterly": [
   {
-   "filed": "2026-08-13",
+   "filed": "2026-11-10",
    "form": "10-Q",
    "net_income": -30489000,
    "net_income_incl_nci": -30489000,
@@ -142,6 +142,28 @@
    "stock_comp": 0,
    "total_equity": 299145000,
    "total_equity_incl_nci": 299145000
+  },
+  {
+   "capex": 23300000,
+   "capex_filed": "2026-11-10",
+   "cash": 617155000,
+   "d_and_a": 4700000,
+   "filed": "2026-11-10",
+   "form": "10-Q",
+   "income_tax": 130000,
+   "net_income": -52036000,
+   "net_income_incl_nci": -52036000,
+   "operating_cash_flow": -31079000,
+   "operating_cash_flow_filed": "2026-11-10",
+   "operating_income": -52875000,
+   "period_end": "2025-09-30",
+   "pretax_income": -51906000,
+   "rd_expense": 42382000,
+   "revenue": 2715000,
+   "revenue_filed": "2026-11-10",
+   "stock_comp": 0,
+   "total_equity": 222702000,
+   "total_equity_incl_nci": 222702000
   },
   {
    "cash": 2106686000,
@@ -174,6 +196,43 @@
    "total_equity": 413082000,
    "total_equity_incl_nci": 3005354000,
    "total_equity_parent": 413082000
+  },
+  {
+   "capex": 25528000,
+   "capex_filed": "2026-11-10",
+   "cash": 1936114000,
+   "current_assets": 1993428000,
+   "current_liabilities": 79953000,
+   "d_and_a": 5200000,
+   "eps_diluted": -0.46,
+   "filed": "2026-11-10",
+   "form": "10-Q",
+   "goodwill": 771506000,
+   "income_tax": -357000,
+   "inventory": 8057000,
+   "net_income": -16952000,
+   "net_income_incl_nci": -117851000,
+   "net_income_parent": -16952000,
+   "operating_cash_flow": -100827000,
+   "operating_cash_flow_filed": "2026-11-10",
+   "operating_income": -132815000,
+   "operating_leases": 31995000,
+   "period_end": "2026-09-30",
+   "pretax_income": -118208000,
+   "rd_expense": 97482000,
+   "retained_earnings": -82370000,
+   "revenue": 9050000,
+   "revenue_filed": "2026-11-10",
+   "shares_diluted": 36806913,
+   "shares_diluted_adj": 36806913,
+   "shares_diluted_filled": 36806913,
+   "shares_diluted_filled_filed": "2026-11-10",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 37239000,
+   "total_assets": 3084876000,
+   "total_equity": 454091000,
+   "total_equity_incl_nci": 2919836000,
+   "total_equity_parent": 454091000
   }
  ],
  "sec_name": "Quantinuum Inc.",
@@ -210,7 +269,7 @@
   "intangibles": null,
   "interest_expense": null,
   "interest_income": null,
-  "inventory": null,
+  "inventory": "InventoryNet",
   "loan_loss_allowance": null,
   "loans": null,
   "long_term_investments": null,
@@ -252,17 +311,46 @@
  ],
  "ttm": {
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-10",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 33914995
+   "val": 36806913
   }
  },
  "v2_annual": [],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "capex",
+   "old": null,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": 23300000
+  },
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": -31079000
+  },
+  {
+   "field": "capex",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 25528000
+  },
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": -100827000
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
   {
@@ -328,6 +416,66 @@
    "stock_comp": 0
   },
   {
+   "capex": 23300000,
+   "cash": 617155000,
+   "cash_and_sti": 617155000,
+   "end": "2025-09-30",
+   "equity": 222702000,
+   "fcf": -54379000,
+   "net_income": -52036000,
+   "operating_cash_flow": -31079000,
+   "revenue": 2715000,
+   "src": {
+    "capex": {
+     "accn": "0001628280-26-072454",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireProductiveAssets"
+    },
+    "cash": {
+     "accn": "0001628280-26-072454",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001628280-26-072454",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+    },
+    "net_income": {
+     "accn": "0001628280-26-072454",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "ProfitLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001628280-26-072454",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001628280-26-072454",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "stock_comp": {
+     "accn": "0001628280-26-072454",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2025-07-01",
+   "stock_comp": 0
+  },
+  {
    "cash": 2106686000,
    "cash_and_sti": 2106686000,
    "end": "2026-06-30",
@@ -375,15 +523,86 @@
    },
    "start": "2026-04-01",
    "stock_comp": 447460000
+  },
+  {
+   "capex": 25528000,
+   "cash": 1936114000,
+   "cash_and_sti": 1936114000,
+   "end": "2026-09-30",
+   "equity": 454091000,
+   "fcf": -126355000,
+   "net_income": -16952000,
+   "operating_cash_flow": -100827000,
+   "revenue": 9050000,
+   "shares_diluted": 36806913,
+   "src": {
+    "capex": {
+     "accn": "0001628280-26-072454",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireProductiveAssets"
+    },
+    "cash": {
+     "accn": "0001628280-26-072454",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001628280-26-072454",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001628280-26-072454",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001628280-26-072454",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001628280-26-072454",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001628280-26-072454",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001628280-26-072454",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 37245000
   }
  ],
  "v2_tags_used": {
-  "capex": [],
+  "capex": [
+   "PaymentsToAcquireProductiveAssets"
+  ],
   "net_income": [
    "NetIncomeLoss",
    "ProfitLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [
    "Revenues"
   ],
@@ -391,7 +610,8 @@
    "WeightedAverageNumberOfDilutedSharesOutstanding"
   ],
   "stock_comp": [
-   "AllocatedShareBasedCompensationExpense"
+   "AllocatedShareBasedCompensationExpense",
+   "ShareBasedCompensation"
   ]
  }
 }

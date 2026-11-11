@@ -306,53 +306,55 @@
   "total_liabilities": 2
  },
  "balance": {
-  "cash_and_sti": 443000000,
+  "cash_and_sti": 359000000,
   "debt_current": 2000000,
-  "debt_noncurrent": 3635000000,
-  "end": "2026-06-30",
-  "equity": 1212000000,
-  "finance_leases": 216000000,
-  "total_debt": 3637000000
+  "debt_noncurrent": 4227000000,
+  "end": "2026-09-30",
+  "equity": 1250000000,
+  "finance_leases": 238000000,
+  "total_debt": 4229000000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
-  "reconciled_fy": null,
-  "reconciles": "n/a",
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 42,
+  "reconciled_fy": 2025,
+  "reconciles": "ok",
   "revenue": "ok",
   "share_scale": "ok",
   "shares": "ok"
  },
  "cik": 1693736,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "stale_shares_diluted"
+ ],
  "instances_merged": [
   "0001628280-26-019656",
-  "0001693736-26-000020"
+  "0001693736-26-000030"
  ],
  "latest_filing": {
-  "accn": "0001693736-26-000020",
-  "filed": "2026-08-13",
+  "accn": "0001693736-26-000030",
+  "filed": "2026-11-10",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 7111000000.0,
+  "assets": 7848000000.0,
   "classes": {
-   "CommonClassAMember": 215807019.0,
+   "CommonClassAMember": 216171299.0,
    "CommonClassBMember": 37568944.0
   },
-  "cover_accession": "0001693736-26-000020",
-  "cover_date": "2026-08-07",
+  "cover_accession": "0001693736-26-000030",
+  "cover_date": "2026-11-06",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-19",
   "note": null,
   "public_float": 0.0,
   "revenue": 4379000000.0,
-  "shares_cover": 253375963.0,
-  "shares_total": 253375963.0,
+  "shares_cover": 253740243.0,
+  "shares_total": 253740243.0,
   "size_gate": "assets"
  },
  "name": "EquipmentShare.com Inc",
@@ -423,8 +425,6 @@
   },
   {
    "acquisitions": 8000000,
-   "capex": 72000000,
-   "capex_filed": "2026-08-13",
    "capitalized_software": 10000000,
    "cash": 361000000,
    "d_and_a": 10000000,
@@ -447,32 +447,75 @@
    "total_equity_parent": 467000000
   },
   {
+   "acquisitions": 35000000,
+   "capex": 79000000,
+   "capex_filed": "2026-11-10",
+   "capitalized_software": 10000000,
+   "cash": 402000000,
+   "d_and_a": 11000000,
+   "filed": "2026-11-10",
+   "form": "10-Q",
+   "gross_profit": 306000000,
+   "income_tax": 9000000,
+   "interest_expense": 75000000,
+   "net_income": 6000000,
+   "net_income_parent": 6000000,
+   "operating_cash_flow": 113000000,
+   "operating_income": 64000000,
+   "period_end": "2025-09-30",
+   "pretax_income": 15000000,
+   "revenue": 945000000,
+   "revenue_filed": "2026-11-10",
+   "sga_expense": 242000000,
+   "stock_comp": 1000000,
+   "total_equity": 471000000,
+   "total_equity_parent": 471000000
+  },
+  {
+   "acquisitions": 4000000,
+   "capex": 82000000,
+   "capex_filed": "2026-11-10",
+   "capitalized_software": 9000000,
    "cash": 306000000,
    "current_assets": 1730000000,
    "current_liabilities": 880000000,
+   "d_and_a": 265000000,
    "debt_current": 4000000,
    "debt_due_1y": 4000000,
    "debt_due_2y": 0,
    "debt_due_3y": 1035000000,
-   "filed": "2026-08-13",
+   "filed": "2026-03-19",
    "finance_lease_liabilities": 188000000,
-   "form": "10-Q",
+   "form": "10-K (derived from YTD)",
+   "gross_profit": 440000000,
+   "income_tax": 37000000,
+   "interest_expense": 78000000,
    "inventory": 401000000,
    "lt_debt_current": 4000000,
    "lt_debt_noncurrent": 3268000000,
+   "net_income": 66000000,
+   "net_income_parent": 66000000,
+   "operating_cash_flow": 278000000,
+   "operating_income": 179000000,
    "operating_leases": 724000000,
    "period_end": "2025-12-31",
+   "pretax_income": 103000000,
    "receivables": 748000000,
    "retained_earnings": 0,
+   "revenue": 1571000000,
+   "revenue_filed": "2026-11-10",
+   "sga_expense": 261000000,
    "shares_diluted": 226000000,
    "shares_diluted_adj": 226000000,
    "shares_diluted_filled": 226000000,
    "shares_diluted_filled_filed": "2026-03-19",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 79000000,
+   "stock_comp": 1000000,
    "total_assets": 5987000000,
-   "total_debt": 3335000000,
+   "total_debt": 3272000000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-03-19",
    "total_equity": 528000000,
    "total_equity_parent": 528000000,
    "total_liabilities": 5099000000
@@ -517,8 +560,6 @@
   },
   {
    "acquisitions": 2000000,
-   "capex": 91000000,
-   "capex_filed": "2026-08-13",
    "capitalized_software": 8000000,
    "cash": 443000000,
    "current_assets": 2210000000,
@@ -554,6 +595,46 @@
    "total_equity": 1212000000,
    "total_equity_parent": 1212000000,
    "total_liabilities": 5529000000
+  },
+  {
+   "acquisitions": 3000000,
+   "capex": 100000000,
+   "capex_filed": "2026-11-10",
+   "capitalized_software": 8000000,
+   "cash": 359000000,
+   "current_assets": 2341000000,
+   "current_liabilities": 955000000,
+   "d_and_a": 17000000,
+   "debt_current": 2000000,
+   "filed": "2026-11-10",
+   "finance_lease_liabilities": 238000000,
+   "form": "10-Q",
+   "gross_profit": 462000000,
+   "income_tax": 16000000,
+   "interest_expense": 88000000,
+   "inventory": 478000000,
+   "lt_debt_current": 2000000,
+   "lt_debt_noncurrent": 4227000000,
+   "net_income": 20000000,
+   "net_income_parent": 20000000,
+   "operating_cash_flow": -37000000,
+   "operating_income": 117000000,
+   "operating_leases": 710000000,
+   "period_end": "2026-09-30",
+   "pretax_income": 36000000,
+   "receivables": 1154000000,
+   "retained_earnings": -27000000,
+   "revenue": 1468000000,
+   "revenue_filed": "2026-11-10",
+   "sga_expense": 345000000,
+   "stock_comp": 26000000,
+   "total_assets": 7848000000,
+   "total_debt": 4229000000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-10",
+   "total_equity": 1250000000,
+   "total_equity_parent": 1250000000,
+   "total_liabilities": 6217000000
   }
  ],
  "sec_name": "EquipmentShare.com Inc",
@@ -632,63 +713,64 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-10",
    "method": "year_to_date",
    "tags": [
     "ext:RentalEquipmentDepreciation"
    ],
-   "val": 334000000
+   "val": 354000000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "year_to_date",
-   "val": -85000000
+   "val": -255000000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
-   "method": "year_to_date",
+   "end": "2026-09-30",
+   "filed": "2026-11-10",
+   "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 62000000
+   "val": 75000000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
-   "method": "year_to_date",
+   "end": "2026-09-30",
+   "filed": "2026-11-10",
+   "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 249000000
+   "val": 99000000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
-   "method": "year_to_date",
+   "end": "2026-09-30",
+   "filed": "2026-11-10",
+   "method": "four_quarters",
    "tags": [
     "Revenues"
    ],
-   "val": 4952000000
+   "val": 5477000000
   },
   "shares_diluted": {
    "end": "2025-12-31",
    "filed": "2026-03-19",
    "method": "fiscal_year",
+   "stale": true,
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
    "val": 226000000
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
-   "method": "year_to_date",
+   "end": "2026-09-30",
+   "filed": "2026-11-10",
+   "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 47000000
+   "val": 72000000
   }
  },
  "v2_annual": [
@@ -954,9 +1036,23 @@
   {
    "field": "capex",
    "old": null,
-   "period": "2025-06-30",
+   "period": "2025-09-30",
    "rows": "quarterly",
-   "v2": 72000000
+   "v2": 79000000
+  },
+  {
+   "field": "capex",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": 82000000
+  },
+  {
+   "field": "total_debt",
+   "old": 3335000000,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": 3272000000
   },
   {
    "field": "total_debt",
@@ -966,18 +1062,25 @@
    "v2": 3082000000
   },
   {
-   "field": "capex",
-   "old": null,
-   "period": "2026-06-30",
-   "rows": "quarterly",
-   "v2": 91000000
-  },
-  {
    "field": "total_debt",
    "old": 3691000000,
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 3637000000
+  },
+  {
+   "field": "capex",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 100000000
+  },
+  {
+   "field": "total_debt",
+   "old": 4292000000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 4229000000
   }
  ],
  "v2_notes": [],
@@ -1032,22 +1135,14 @@
    "stock_comp": 1000000
   },
   {
-   "capex": 72000000,
    "cash": 361000000,
    "cash_and_sti": 361000000,
    "end": "2025-06-30",
    "equity": 467000000,
-   "fcf": -148000000,
    "net_income": 16000000,
    "operating_cash_flow": -76000000,
    "revenue": 1147000000,
    "src": {
-    "capex": {
-     "accn": "0001693736-26-000020",
-     "filed": "2026-08-13",
-     "form": "10-Q",
-     "tag": "ext:RentalEquipmentDepreciation"
-    },
     "cash": {
      "accn": "0001693736-26-000020",
      "filed": "2026-08-13",
@@ -1089,6 +1184,142 @@
    },
    "start": "2025-04-01",
    "stock_comp": 1000000
+  },
+  {
+   "capex": 79000000,
+   "cash": 402000000,
+   "cash_and_sti": 402000000,
+   "end": "2025-09-30",
+   "equity": 471000000,
+   "fcf": 34000000,
+   "net_income": 6000000,
+   "operating_cash_flow": 113000000,
+   "revenue": 945000000,
+   "src": {
+    "capex": {
+     "accn": "0001693736-26-000030",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "ext:RentalEquipmentDepreciation"
+    },
+    "cash": {
+     "accn": "0001693736-26-000030",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001693736-26-000030",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001693736-26-000030",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001693736-26-000030",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001693736-26-000030",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "stock_comp": {
+     "accn": "0001693736-26-000030",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2025-07-01",
+   "stock_comp": 1000000
+  },
+  {
+   "capex": 82000000,
+   "cash": 306000000,
+   "cash_and_sti": 306000000,
+   "debt_current": 4000000,
+   "debt_noncurrent": 3268000000,
+   "end": "2025-12-31",
+   "equity": 528000000,
+   "fcf": 196000000,
+   "finance_leases": 188000000,
+   "net_income": 65000000,
+   "operating_cash_flow": 278000000,
+   "revenue": 1571000000,
+   "src": {
+    "capex": {
+     "accn": "0001628280-26-019656",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-K",
+     "tag": "ext:RentalEquipmentDepreciation"
+    },
+    "cash": {
+     "accn": "0001628280-26-019656",
+     "filed": "2026-03-19",
+     "form": "10-K",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001628280-26-019656",
+     "filed": "2026-03-19",
+     "form": "10-K",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001628280-26-019656",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-K",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001628280-26-019656",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-K",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001628280-26-019656",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-K",
+     "tag": "Revenues"
+    },
+    "stock_comp": {
+     "accn": "0001628280-26-019656",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-K",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-03-19",
+     "tags": [
+      "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent"
+     ],
+     "values": {
+      "LongTermDebtCurrent": 4000000,
+      "LongTermDebtNoncurrent": 3268000000
+     }
+    }
+   },
+   "start": "2025-10-01",
+   "stock_comp": 1000000,
+   "total_debt": 3272000000
   },
   {
    "cash": 329000000,
@@ -1155,25 +1386,17 @@
    "total_debt": 3082000000
   },
   {
-   "capex": 91000000,
    "cash": 443000000,
    "cash_and_sti": 443000000,
    "debt_current": 2000000,
    "debt_noncurrent": 3635000000,
    "end": "2026-06-30",
    "equity": 1212000000,
-   "fcf": -33000000,
    "finance_leases": 216000000,
    "net_income": 19000000,
    "operating_cash_flow": 58000000,
    "revenue": 1449000000,
    "src": {
-    "capex": {
-     "accn": "0001693736-26-000020",
-     "filed": "2026-08-13",
-     "form": "10-Q",
-     "tag": "ext:RentalEquipmentDepreciation"
-    },
     "cash": {
      "accn": "0001693736-26-000020",
      "filed": "2026-08-13",
@@ -1227,6 +1450,80 @@
    "start": "2026-04-01",
    "stock_comp": 26000000,
    "total_debt": 3637000000
+  },
+  {
+   "capex": 100000000,
+   "cash": 359000000,
+   "cash_and_sti": 359000000,
+   "debt_current": 2000000,
+   "debt_noncurrent": 4227000000,
+   "end": "2026-09-30",
+   "equity": 1250000000,
+   "fcf": -137000000,
+   "finance_leases": 238000000,
+   "net_income": 20000000,
+   "operating_cash_flow": -37000000,
+   "revenue": 1468000000,
+   "src": {
+    "capex": {
+     "accn": "0001693736-26-000030",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "ext:RentalEquipmentDepreciation"
+    },
+    "cash": {
+     "accn": "0001693736-26-000030",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001693736-26-000030",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001693736-26-000030",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001693736-26-000030",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001693736-26-000030",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "stock_comp": {
+     "accn": "0001693736-26-000030",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-10",
+     "tags": [
+      "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent"
+     ],
+     "values": {
+      "LongTermDebtCurrent": 2000000,
+      "LongTermDebtNoncurrent": 4227000000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 26000000,
+   "total_debt": 4229000000
   }
  ],
  "v2_tags_used": {

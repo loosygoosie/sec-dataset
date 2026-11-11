@@ -106,14 +106,14 @@
   "total_liabilities": 1
  },
  "balance": {
-  "cash_and_sti": 263443761,
-  "end": "2026-06-30",
-  "equity": -9562652
+  "cash_and_sti": 841878,
+  "end": "2026-09-30",
+  "equity": -9988891
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 42,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -130,20 +130,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-087419",
-  "filed": "2026-08-11",
+  "accn": "0001213900-26-118032",
+  "filed": "2026-11-10",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 263630827.0,
+  "assets": 265563076.0,
   "classes": {
    "CommonClassAMember": 26020000.0,
    "CommonClassBMember": 8673333.0
   },
-  "cover_accession": "0001213900-26-087419",
-  "cover_date": "2026-08-10",
+  "cover_accession": "0001213900-26-118032",
+  "cover_date": "2026-11-10",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-25",
   "note": null,
@@ -189,7 +189,7 @@
    "cash": 1751613,
    "current_assets": 1909067,
    "current_liabilities": 83442,
-   "filed": "2025-11-13",
+   "filed": "2026-11-10",
    "form": "10-Q",
    "long_term_investments": 255585138,
    "net_income": 2279555,
@@ -259,6 +259,24 @@
    "total_equity": -9562652,
    "total_equity_parent": -9562652,
    "total_liabilities": 10977038
+  },
+  {
+   "cash": 841878,
+   "current_assets": 950663,
+   "current_liabilities": 159554,
+   "filed": "2026-11-10",
+   "form": "10-Q",
+   "long_term_investments": 264612413,
+   "net_income": 1969733,
+   "net_income_parent": 1969733,
+   "operating_cash_flow": -310442,
+   "operating_income": -426239,
+   "period_end": "2026-09-30",
+   "retained_earnings": -9989830,
+   "total_assets": 265563076,
+   "total_equity": -9988891,
+   "total_equity_parent": -9988891,
+   "total_liabilities": 10939554
   }
  ],
  "sec_name": "COHEN CIRCLE ACQUISITION CORP. II",
@@ -339,22 +357,22 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-11",
+   "end": "2026-09-30",
+   "filed": "2026-11-10",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 8236956
+   "val": 7927134
   },
   "operating_cash_flow": {
-   "end": "2025-12-31",
-   "filed": "2026-03-25",
-   "method": "fiscal_year_stale",
+   "end": "2026-09-30",
+   "filed": "2026-11-10",
+   "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -819729
+   "val": -1234735
   },
   "shares_diluted": {
    "end": "2025-06-30",
@@ -625,6 +643,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 841878,
+   "cash_and_sti": 841878,
+   "end": "2026-09-30",
+   "equity": -9988891,
+   "net_income": 1969733,
+   "operating_cash_flow": -310442,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-118032",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-118032",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-118032",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-118032",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

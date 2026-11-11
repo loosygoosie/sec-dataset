@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 2309856,
-  "end": "2026-06-30",
-  "equity": -8413846
+  "cash_and_sti": 1974926,
+  "end": "2026-09-30",
+  "equity": -9001750
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 42,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-086724",
-  "filed": "2026-08-07",
+  "accn": "0001213900-26-118060",
+  "filed": "2026-11-10",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 259732886.0,
+  "assets": 261699593.0,
   "classes": {
    "CommonClassAMember": 26125000.0,
    "CommonClassBMember": 8708333.0
   },
-  "cover_accession": "0001213900-26-086724",
-  "cover_date": "2026-08-07",
+  "cover_accession": "0001213900-26-118060",
+  "cover_date": "2026-11-10",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-17",
   "note": null,
@@ -129,6 +129,7 @@
    "total_assets": 294899,
    "total_debt": 300000,
    "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-03-17",
    "total_equity": -92419,
    "total_equity_parent": -92419,
    "total_liabilities": 387318
@@ -166,6 +167,23 @@
    "total_equity": -8413846,
    "total_equity_parent": -8413846,
    "total_liabilities": 10898862
+  },
+  {
+   "cash": 1974926,
+   "current_assets": 2082401,
+   "current_liabilities": 322901,
+   "filed": "2026-11-10",
+   "form": "10-Q",
+   "net_income": 1762668,
+   "net_income_parent": 1762668,
+   "operating_cash_flow": -334930,
+   "operating_income": -587904,
+   "period_end": "2026-09-30",
+   "retained_earnings": -9002703,
+   "total_assets": 261699593,
+   "total_equity": -9001750,
+   "total_equity_parent": -9001750,
+   "total_liabilities": 11102901
   }
  ],
  "sec_name": "ART TECHNOLOGY ACQUISITION CORP.",
@@ -244,11 +262,60 @@
   "ARTCU",
   "ARTCW"
  ],
- "ttm": {},
+ "ttm": {
+  "net_income": {
+   "end": "2026-09-30",
+   "filed": "2026-11-10",
+   "method": "four_quarters",
+   "tags": [
+    "NetIncomeLoss"
+   ],
+   "val": 5104800
+  }
+ },
  "v2_annual": [],
  "v2_fixes": [],
  "v2_notes": [],
  "v2_quarterly": [
+  {
+   "cash": 0,
+   "cash_and_sti": 0,
+   "end": "2025-12-31",
+   "equity": -92419,
+   "net_income": -68710,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-055078",
+     "filed": "2026-05-12",
+     "form": "10-Q",
+     "tag": "Cash"
+    },
+    "equity": {
+     "accn": "0001213900-26-029258",
+     "filed": "2026-03-17",
+     "form": "10-K",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-029258",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-K",
+     "tag": "NetIncomeLoss"
+    },
+    "total_debt": {
+     "filed": "2026-03-17",
+     "tags": [
+      "UnsecuredDebt"
+     ],
+     "values": {
+      "UnsecuredDebt": 300000
+     }
+    }
+   },
+   "start": "2025-10-01",
+   "total_debt": 300000
+  },
   {
    "cash": 2609277,
    "cash_and_sti": 2609277,
@@ -319,6 +386,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 1974926,
+   "cash_and_sti": 1974926,
+   "end": "2026-09-30",
+   "equity": -9001750,
+   "net_income": 1762668,
+   "operating_cash_flow": -334930,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-118060",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-118060",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-118060",
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-118060",
+     "derived": true,
+     "filed": "2026-11-10",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {
