@@ -1,4 +1,4 @@
-# v2 vs data/companies (2026-11-11)
+# v2 vs data/companies (2026-11-12)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
@@ -168,8 +168,8 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | CPNG | total_debt | 2026-09-30 | 0.99B | 1.64B | 66.2 |
 | CPNG | shares | 2026-10-29 | - | 1.79B | - |
 | WEC | total_debt | 2026-09-30 | 21.62B | 22.76B | 5.2 |
-| ACGLN | total_debt | 2021-12-31 | 0 | 2.72B | - |
-| ACGLN | shares | 2026-10-29 | 0.36B | 0.33B | -9.3 |
+| ACGL | total_debt | 2021-12-31 | 0 | 2.72B | - |
+| ACGL | shares | 2026-10-29 | 0.36B | 0.33B | -9.3 |
 | FWONA | shares | 2026-10-31 | - | 0.25B | - |
 | TTD | total_debt | - / 2016-09-30 | - | 0.7M | - |
 | TTD | shares | 2026-10-31 | - | 0.47B | - |
