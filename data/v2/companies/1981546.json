@@ -232,17 +232,17 @@
   "total_liabilities": 2
  },
  "balance": {
-  "cash_and_sti": 170114306,
-  "debt_current": 102569888,
-  "debt_noncurrent": 73247223,
-  "end": "2026-06-30",
-  "equity": 302618533,
-  "total_debt": 175817111
+  "cash_and_sti": 182579394,
+  "debt_current": 142422098,
+  "debt_noncurrent": 68903555,
+  "end": "2026-09-30",
+  "equity": 311306691,
+  "total_debt": 211325653
  },
  "bank": true,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 44,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -251,29 +251,31 @@
  },
  "cik": 1981546,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "stale_stock_comp"
+ ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-088408",
-  "filed": "2026-08-12",
+  "accn": "0001213900-26-119047",
+  "filed": "2026-11-12",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 2376584291.0,
+  "assets": 2442325963.0,
   "classes": {
-   "common": 13701269.5
+   "common": 13710195.0
   },
-  "cover_accession": "0001213900-26-088408",
-  "cover_date": "2026-08-12",
+  "cover_accession": "0001213900-26-119047",
+  "cover_date": "2026-11-12",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-24",
   "note": null,
   "public_float": 0.0,
   "revenue": null,
-  "shares_cover": 13701269.5,
-  "shares_total": 13701269.5,
+  "shares_cover": 13710195.0,
+  "shares_total": 13710195.0,
   "size_gate": "no_float"
  },
  "name": "Commercial Bancgroup, Inc.",
@@ -408,7 +410,7 @@
    "deposits": 1780633582,
    "dividends_paid": 0,
    "eps_diluted": 0.77,
-   "filed": "2025-11-14",
+   "filed": "2026-11-12",
    "form": "10-Q",
    "goodwill": 8510852,
    "income_tax": 2828954,
@@ -427,7 +429,7 @@
    "shares_diluted": 12239644,
    "shares_diluted_adj": 12239644,
    "shares_diluted_filled": 12239644,
-   "shares_diluted_filled_filed": "2025-11-14",
+   "shares_diluted_filled_filed": "2026-11-12",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 12239644,
    "short_term_borrowings": 62662527,
@@ -577,6 +579,51 @@
    "total_equity": 302618533,
    "total_equity_parent": 302618533,
    "total_liabilities": 2073965758
+  },
+  {
+   "capex": 1370846,
+   "capex_filed": "2026-11-12",
+   "cash": 182579394,
+   "d_and_a": 964327,
+   "debt_current": 142422098,
+   "debt_due_1y": 4818432,
+   "debt_due_2y": 4867083,
+   "debt_due_3y": 4938988,
+   "deposits": 1887395364,
+   "dividends_paid": 1644152,
+   "eps_diluted": 0.79,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "goodwill": 8510852,
+   "income_tax": 2969188,
+   "interest_income": 31432434,
+   "lt_debt_noncurrent": 68903555,
+   "net_income": 10868147,
+   "net_income_parent": 10868147,
+   "net_interest_income": 22486851,
+   "operating_cash_flow": 10340915,
+   "period_end": "2026-09-30",
+   "pretax_income": 13837335,
+   "retained_earnings": 273739267,
+   "revenue": 25186392,
+   "revenue_filed": "2026-11-12",
+   "shares_diluted": 13701368,
+   "shares_diluted_adj": 13701368,
+   "shares_diluted_filled": 13701368,
+   "shares_diluted_filled_filed": "2026-11-12",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 13710195,
+   "short_term_borrowings": 142422098,
+   "stock_comp": 162359,
+   "tier1_capital_ratio": 0.133,
+   "total_assets": 2442325963,
+   "total_debt": 211325653,
+   "total_debt_basis": "components_exceed_tagged",
+   "total_debt_filed": "2026-11-12",
+   "total_debt_tagged": 68903555,
+   "total_equity": 311306691,
+   "total_equity_parent": 311306691,
+   "total_liabilities": 2131019272
   }
  ],
  "sec_name": "Commercial Bancgroup, Inc.",
@@ -655,59 +702,60 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 2315408
+   "val": 3197154
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": 38578205
+   "val": 39652030
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 39355104
+   "val": 40757102
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 40893613
+   "val": 42849184
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "four_quarters",
    "tags": [
     "InterestIncomeExpenseNet+NoninterestIncome"
    ],
-   "val": 93529769
+   "val": 95868617
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 13700296
+   "val": 13701368
   },
   "stock_comp": {
    "end": "2025-12-31",
    "filed": "2026-03-24",
    "method": "fiscal_year_stale",
+   "stale": true,
    "tags": [
     "ShareBasedCompensation"
    ],
@@ -1012,6 +1060,20 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 102569888
+  },
+  {
+   "field": "revenue",
+   "old": 31432434,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 25186392
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 142422098
   }
  ],
  "v2_notes": [],
@@ -1543,6 +1605,87 @@
    "start": "2026-04-01",
    "stock_comp": 147730,
    "total_debt": 175817111
+  },
+  {
+   "capex": 1370846,
+   "cash": 182579394,
+   "cash_and_sti": 182579394,
+   "debt_current": 142422098,
+   "debt_noncurrent": 68903555,
+   "end": "2026-09-30",
+   "equity": 311306691,
+   "fcf": 8970069,
+   "net_income": 10868147,
+   "operating_cash_flow": 10340915,
+   "revenue": 25186392,
+   "shares_diluted": 13701368,
+   "src": {
+    "capex": {
+     "accn": "0001213900-26-119047",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001213900-26-119047",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-119047",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-119047",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-119047",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001213900-26-119047",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "InterestIncomeExpenseNet+NoninterestIncome"
+    },
+    "shares_diluted": {
+     "accn": "0001213900-26-119047",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001213900-26-119047",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-12",
+     "tags": [
+      "LongTermDebtNoncurrent",
+      "ShortTermBorrowings"
+     ],
+     "values": {
+      "LongTermDebtNoncurrent": 68903555,
+      "ShortTermBorrowings": 142422098
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 162359,
+   "total_debt": 211325653
   }
  ],
  "v2_tags_used": {

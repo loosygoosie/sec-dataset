@@ -110,14 +110,14 @@
   "total_liabilities": 1
  },
  "balance": {
-  "cash_and_sti": 530907,
-  "end": "2026-06-30",
-  "equity": -3486163
+  "cash_and_sti": 458862,
+  "end": "2026-09-30",
+  "equity": -3626863
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 44,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -134,19 +134,19 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-089283",
-  "filed": "2026-08-14",
+  "accn": "0001213900-26-119092",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 118506601.0,
+  "assets": 119465535.0,
   "classes": {
    "common": 15713333.0
   },
-  "cover_accession": "0001213900-26-089283",
-  "cover_date": "2026-08-12",
+  "cover_accession": "0001213900-26-119092",
+  "cover_date": "2026-11-12",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-11",
   "note": null,
@@ -206,10 +206,11 @@
    "current_assets": 9976,
    "debt_current": 150000,
    "eps_diluted": -0.01,
-   "filed": "2025-12-04",
+   "filed": "2026-11-13",
    "form": "10-Q",
    "net_income": -43476,
    "net_income_parent": -43476,
+   "operating_income": -43476,
    "period_end": "2025-09-30",
    "retained_earnings": -61901,
    "shares_diluted": 3333333,
@@ -269,6 +270,29 @@
    "total_equity": -3486163,
    "total_equity_parent": -3486163,
    "total_liabilities": 4155724
+  },
+  {
+   "cash": 458862,
+   "current_assets": 552420,
+   "current_liabilities": 154283,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "long_term_investments": 118913115,
+   "net_income": 935375,
+   "net_income_parent": 935375,
+   "operating_cash_flow": -72045,
+   "operating_income": -140700,
+   "period_end": "2026-09-30",
+   "retained_earnings": -3627284,
+   "shares_diluted_adj": 15713333,
+   "shares_diluted_filled": 15713333,
+   "shares_diluted_filled_filed": "2026-11-13",
+   "shares_diluted_filled_source": "cover",
+   "shares_outstanding": 4213333,
+   "total_assets": 119465535,
+   "total_equity": -3626863,
+   "total_equity_parent": -3626863,
+   "total_liabilities": 4179283
   }
  ],
  "sec_name": "LaFayette Acquisition Corp.",
@@ -349,22 +373,22 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-14",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 2295608
+   "val": 3274459
   },
   "operating_cash_flow": {
-   "end": "2025-12-31",
-   "filed": "2026-03-11",
-   "method": "fiscal_year_stale",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
+   "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -351873
+   "val": -665611
   },
   "shares_diluted": {
    "end": "2025-09-30",
@@ -655,6 +679,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 458862,
+   "cash_and_sti": 458862,
+   "end": "2026-09-30",
+   "equity": -3626863,
+   "net_income": 935375,
+   "operating_cash_flow": -72045,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-119092",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-119092",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-119092",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-119092",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

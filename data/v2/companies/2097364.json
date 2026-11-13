@@ -67,16 +67,16 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1124088,
+  "cash_and_sti": 1032632,
   "debt_current": 300000,
-  "end": "2026-06-30",
-  "equity": -1144328,
+  "end": "2026-09-30",
+  "equity": -1285847,
   "total_debt": 300000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 44,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -93,20 +93,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-087868",
-  "filed": "2026-08-11",
+  "accn": "0001213900-26-118917",
+  "filed": "2026-11-12",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 234073267.0,
+  "assets": 236082683.0,
   "classes": {
    "CommonClassAMember": 23000000.0,
    "CommonClassBMember": 7666667.0
   },
-  "cover_accession": "0001213900-26-087868",
-  "cover_date": "2026-08-11",
+  "cover_accession": "0001213900-26-118917",
+  "cover_date": "2026-11-12",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-27",
   "note": null,
@@ -161,6 +161,28 @@
    "total_equity": -1144328,
    "total_equity_parent": -1144328,
    "total_liabilities": 2420345
+  },
+  {
+   "cash": 1032632,
+   "current_assets": 1135768,
+   "current_liabilities": 144123,
+   "debt_current": 300000,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "net_income": 1985638,
+   "net_income_parent": 1985638,
+   "operating_cash_flow": -91456,
+   "operating_income": -141519,
+   "period_end": "2026-09-30",
+   "retained_earnings": -1286614,
+   "short_term_borrowings": 300000,
+   "total_assets": 236082683,
+   "total_debt": 300000,
+   "total_debt_basis": "components_partial",
+   "total_debt_filed": "2026-11-12",
+   "total_equity": -1285847,
+   "total_equity_parent": -1285847,
+   "total_liabilities": 2444123
   }
  ],
  "sec_name": "SPARTACUS ACQUISITION CORP. II",
@@ -253,6 +275,13 @@
    "field": "debt_current",
    "old": null,
    "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 300000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
    "rows": "quarterly",
    "v2": 300000
   }
@@ -352,6 +381,54 @@
     }
    },
    "start": "2026-04-01",
+   "total_debt": 300000
+  },
+  {
+   "cash": 1032632,
+   "cash_and_sti": 1032632,
+   "debt_current": 300000,
+   "end": "2026-09-30",
+   "equity": -1285847,
+   "net_income": 1985638,
+   "operating_cash_flow": -91456,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-118917",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-118917",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-118917",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-118917",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "total_debt": {
+     "filed": "2026-11-12",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBorrowings"
+     ],
+     "values": {
+      "ShortTermBorrowings": 300000
+     }
+    }
+   },
+   "start": "2026-07-01",
    "total_debt": 300000
   }
  ],

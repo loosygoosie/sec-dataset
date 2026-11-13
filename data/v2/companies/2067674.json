@@ -67,17 +67,17 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 55825576,
+  "cash_and_sti": 9890538,
   "debt_current": 500000,
   "debt_noncurrent": 3500000,
-  "end": "2026-06-30",
-  "equity": 96651193,
+  "end": "2026-09-30",
+  "equity": 84348423,
   "total_debt": 4000000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 44,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -93,26 +93,26 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001539497-26-002208",
-  "filed": "2026-08-13",
+  "accn": "0001539497-26-002935",
+  "filed": "2026-11-12",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 102567853.0,
+  "assets": 93480406.0,
   "classes": {
-   "common": 29528500.0
+   "common": 29550399.0
   },
-  "cover_accession": "0001539497-26-002208",
-  "cover_date": "2026-08-12",
+  "cover_accession": "0001539497-26-002935",
+  "cover_date": "2026-11-09",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 29528500.0,
-  "shares_total": 29528500.0,
+  "shares_cover": 29550399.0,
+  "shares_total": 29550399.0,
   "size_gate": "no_float"
  },
  "name": "SILVER BOW MINING CORP.",
@@ -162,6 +162,29 @@
    "stock_comp": 151586,
    "total_equity": 39077583,
    "total_equity_parent": 39077583
+  },
+  {
+   "cash": 1505702,
+   "d_and_a": 8530,
+   "eps_diluted": 0.12,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "net_income": -2090985,
+   "net_income_incl_nci": -2090985,
+   "net_income_parent": -2090985,
+   "operating_cash_flow": -1250347,
+   "operating_income": -2029997,
+   "period_end": "2025-09-30",
+   "revenue": 0,
+   "revenue_filed": "2026-11-12",
+   "shares_diluted": 17285885,
+   "shares_diluted_adj": 17285885,
+   "shares_diluted_filled": 17285885,
+   "shares_diluted_filled_filed": "2026-11-12",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 0,
+   "total_equity": 38111598,
+   "total_equity_parent": 38111598
   },
   {
    "capex": 9744,
@@ -235,6 +258,45 @@
    "total_equity": 96651193,
    "total_equity_parent": 96651193,
    "total_liabilities": 5916660
+  },
+  {
+   "acquisitions": 35675808,
+   "capex": 369195,
+   "capex_filed": "2026-11-12",
+   "cash": 9890538,
+   "current_assets": 11959046,
+   "current_liabilities": 5284203,
+   "d_and_a": 46668,
+   "debt_current": 500000,
+   "eps_diluted": 0.43,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "lt_debt_noncurrent": 3500000,
+   "net_income": -12712192,
+   "net_income_incl_nci": -12712192,
+   "net_income_parent": -12712192,
+   "operating_cash_flow": -9890035,
+   "operating_income": -12965158,
+   "operating_leases": 187822,
+   "period_end": "2026-09-30",
+   "retained_earnings": -44817035,
+   "revenue": 0,
+   "revenue_filed": "2026-11-12",
+   "shares_diluted": 29528500,
+   "shares_diluted_adj": 29528500,
+   "shares_diluted_filled": 29528500,
+   "shares_diluted_filled_filed": "2026-11-12",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 29528500,
+   "short_term_borrowings": 500000,
+   "stock_comp": 393626,
+   "total_assets": 93480406,
+   "total_debt": 4000000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-12",
+   "total_equity": 84348423,
+   "total_equity_parent": 84348423,
+   "total_liabilities": 9131983
   }
  ],
  "sec_name": "SILVER BOW MINING CORP.",
@@ -243,7 +305,7 @@
  "splits": [],
  "tags_used": {
   "acquisition_cost_amort": null,
-  "acquisitions": null,
+  "acquisitions": "PaymentsToAcquireBusinessesGross",
   "buybacks": null,
   "capex": "PaymentsToAcquirePropertyPlantAndEquipment,PaymentsToAcquireProductiveAssets,PaymentsToAcquireOtherPropertyPlantAndEquipment",
   "capitalized_software": null,
@@ -273,7 +335,7 @@
   "interest_income": null,
   "inventory": null,
   "loan_loss_allowance": null,
-  "loans": null,
+  "loans": "NotesReceivableNet",
   "long_term_investments": null,
   "loss_reserves": null,
   "lt_debt_current": null,
@@ -313,13 +375,13 @@
  ],
  "ttm": {
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 27850167
+   "val": 29528500
   }
  },
  "v2_annual": [],
@@ -363,6 +425,27 @@
    "field": "debt_current",
    "old": null,
    "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 500000
+  },
+  {
+   "field": "total_debt",
+   "old": 3500000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 4000000
+  },
+  {
+   "field": "lt_debt_noncurrent",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 3500000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
    "rows": "quarterly",
    "v2": 500000
   }
@@ -482,6 +565,64 @@
    },
    "start": "2025-04-01",
    "stock_comp": 151586
+  },
+  {
+   "cash": 1505702,
+   "cash_and_sti": 1505702,
+   "end": "2025-09-30",
+   "equity": 38111598,
+   "net_income": -2090985,
+   "operating_cash_flow": -1250347,
+   "revenue": 0,
+   "shares_diluted": 17285885,
+   "src": {
+    "cash": {
+     "accn": "0001539497-26-002935",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001539497-26-002935",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001539497-26-002935",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001539497-26-002935",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001539497-26-002935",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "OperatingLeaseLeaseIncome"
+    },
+    "shares_diluted": {
+     "accn": "0001539497-26-002935",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001539497-26-002935",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2025-07-01",
+   "stock_comp": 0
   },
   {
    "capex": 9744,
@@ -633,6 +774,87 @@
    },
    "start": "2026-04-01",
    "stock_comp": 127676,
+   "total_debt": 4000000
+  },
+  {
+   "capex": 369195,
+   "cash": 9890538,
+   "cash_and_sti": 9890538,
+   "debt_current": 500000,
+   "debt_noncurrent": 3500000,
+   "end": "2026-09-30",
+   "equity": 84348423,
+   "fcf": -10259230,
+   "net_income": -12712192,
+   "operating_cash_flow": -9890035,
+   "revenue": 0,
+   "shares_diluted": 29528500,
+   "src": {
+    "capex": {
+     "accn": "0001539497-26-002935",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001539497-26-002935",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001539497-26-002935",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001539497-26-002935",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001539497-26-002935",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001539497-26-002935",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "OperatingLeaseLeaseIncome"
+    },
+    "shares_diluted": {
+     "accn": "0001539497-26-002935",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001539497-26-002935",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-12",
+     "tags": [
+      "LongTermDebt",
+      "ShortTermBorrowings"
+     ],
+     "values": {
+      "LongTermDebt": 3500000,
+      "ShortTermBorrowings": 500000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 409422,
    "total_debt": 4000000
   }
  ],

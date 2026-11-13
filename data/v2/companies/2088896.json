@@ -67,16 +67,16 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1635176000,
+  "cash_and_sti": 1558402000,
   "debt_noncurrent": 0,
-  "end": "2026-06-30",
-  "equity": 1814769000,
+  "end": "2026-09-30",
+  "equity": 1485344000,
   "total_debt": 0
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 44,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -93,30 +93,30 @@
   "no_revenue"
  ],
  "instances_merged": [
-  "0001193125-26-347752"
+  "0001193125-26-456659"
  ],
  "latest_filing": {
-  "accn": "0001193125-26-347752",
-  "filed": "2026-08-13",
+  "accn": "0001193125-26-456659",
+  "filed": "2026-11-12",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 2255211000.0,
+  "assets": 2219515000.0,
   "classes": {
-   "CommonClassAMember": 287458734.0,
-   "CommonClassBMember": 118907374.0
+   "CommonClassAMember": 297495177.0,
+   "CommonClassBMember": 108710889.0
   },
-  "cover_accession": "0001193125-26-347752",
-  "cover_date": "2026-08-10",
+  "cover_accession": "0001193125-26-456659",
+  "cover_date": "2026-11-09",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 406366108.0,
-  "shares_total": 406366108.0,
+  "shares_cover": 406206066.0,
+  "shares_total": 406206066.0,
   "size_gate": "no_float"
  },
  "name": "X-Energy, Inc.",
@@ -162,6 +162,27 @@
    "stock_comp": 6359000,
    "total_equity": -940335000,
    "total_equity_incl_nci": -940335000
+  },
+  {
+   "capex": 43732000,
+   "capex_filed": "2026-11-12",
+   "cash": 430502000,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "interest_expense": -8000,
+   "net_income": 0,
+   "net_income_incl_nci": -219018000,
+   "net_income_parent": 0,
+   "operating_cash_flow": -30839000,
+   "operating_income": -40689000,
+   "period_end": "2025-09-30",
+   "rd_expense": 166000,
+   "revenue": 30427000,
+   "revenue_filed": "2026-11-12",
+   "sga_expense": 32124000,
+   "stock_comp": 4169000,
+   "total_equity": -1155581000,
+   "total_equity_incl_nci": -1155581000
   },
   {
    "capex": 42967000,
@@ -231,6 +252,41 @@
    "total_equity_incl_nci": 2095647000,
    "total_equity_parent": 1814769000,
    "total_liabilities": 159564000
+  },
+  {
+   "capex": 71846000,
+   "capex_filed": "2026-11-12",
+   "cash": 1044054000,
+   "current_assets": 1742276000,
+   "current_liabilities": 131224000,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "interest_expense": 0,
+   "long_term_investments": 247113000,
+   "lt_debt_noncurrent": 0,
+   "net_income": -59444000,
+   "net_income_incl_nci": -83680000,
+   "net_income_parent": -59444000,
+   "operating_cash_flow": -51210000,
+   "operating_income": -103600000,
+   "operating_leases": 24255000,
+   "period_end": "2026-09-30",
+   "rd_expense": 355000,
+   "receivables": 51407000,
+   "retained_earnings": -118534000,
+   "revenue": 66340000,
+   "revenue_filed": "2026-11-12",
+   "sga_expense": 76032000,
+   "short_term_investments": 514348000,
+   "stock_comp": 26880000,
+   "total_assets": 2219515000,
+   "total_debt": 0,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-12",
+   "total_equity": 1485344000,
+   "total_equity_incl_nci": 2037903000,
+   "total_equity_parent": 1485344000,
+   "total_liabilities": 181612000
   }
  ],
  "sec_name": "X-Energy, Inc.",
@@ -321,6 +377,13 @@
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 0
+  },
+  {
+   "field": "lt_debt_noncurrent",
+   "old": null,
+   "period": "2026-09-30",
    "rows": "quarterly",
    "v2": 0
   }
@@ -443,6 +506,66 @@
    },
    "start": "2025-04-01",
    "stock_comp": 6359000
+  },
+  {
+   "capex": 43732000,
+   "cash": 430502000,
+   "cash_and_sti": 430502000,
+   "end": "2025-09-30",
+   "equity": -1155581000,
+   "fcf": -74571000,
+   "net_income": 0,
+   "operating_cash_flow": -30839000,
+   "revenue": 30427000,
+   "src": {
+    "capex": {
+     "accn": "0001193125-26-456659",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireProductiveAssets"
+    },
+    "cash": {
+     "accn": "0001193125-26-456659",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001193125-26-456659",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+    },
+    "net_income": {
+     "accn": "0001193125-26-456659",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-456659",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001193125-26-456659",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "stock_comp": {
+     "accn": "0001193125-26-456659",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2025-07-01",
+   "stock_comp": 4169000
   },
   {
    "capex": 42967000,
@@ -597,6 +720,85 @@
    },
    "start": "2026-04-01",
    "stock_comp": 39661000,
+   "total_debt": 0
+  },
+  {
+   "capex": 71846000,
+   "cash": 1044054000,
+   "cash_and_sti": 1558402000,
+   "debt_noncurrent": 0,
+   "end": "2026-09-30",
+   "equity": 1485344000,
+   "fcf": -123056000,
+   "net_income": -59444000,
+   "operating_cash_flow": -51210000,
+   "revenue": 66340000,
+   "short_term_investments": 514348000,
+   "src": {
+    "capex": {
+     "accn": "0001193125-26-456659",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireProductiveAssets"
+    },
+    "cash": {
+     "accn": "0001193125-26-456659",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001193125-26-456659",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001193125-26-456659",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-456659",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001193125-26-456659",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "short_term_investments": {
+     "accn": "0001193125-26-456659",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "ShortTermInvestments"
+    },
+    "stock_comp": {
+     "accn": "0001193125-26-456659",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-12",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LongTermDebt"
+     ],
+     "values": {
+      "LongTermDebt": 0
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 26880000,
    "total_debt": 0
   }
  ],

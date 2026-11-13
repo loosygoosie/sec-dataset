@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1131577,
-  "end": "2026-06-30",
-  "equity": -1665198
+  "cash_and_sti": 855829,
+  "end": "2026-09-30",
+  "equity": -1872626
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 44,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-089080",
-  "filed": "2026-08-13",
+  "accn": "0001213900-26-118984",
+  "filed": "2026-11-12",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 303722700.0,
+  "assets": 306235198.0,
   "classes": {
    "CommonClassAMember": 30050000.0,
    "CommonClassBMember": 9966667.0
   },
-  "cover_accession": "0001213900-26-089080",
-  "cover_date": "2026-08-13",
+  "cover_accession": "0001213900-26-118984",
+  "cover_date": "2026-11-12",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -153,6 +153,25 @@
    "total_equity": -1665198,
    "total_equity_parent": -1665198,
    "total_liabilities": 3157709
+  },
+  {
+   "cash": 855829,
+   "current_assets": 1171183,
+   "current_liabilities": 116042,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "long_term_investments": 304991782,
+   "net_income": 2554165,
+   "net_income_parent": 2554165,
+   "operating_cash_flow": -275748,
+   "operating_income": -207428,
+   "period_end": "2026-09-30",
+   "retained_earnings": -1873637,
+   "stock_comp": 0,
+   "total_assets": 306235198,
+   "total_equity": -1872626,
+   "total_equity_parent": -1872626,
+   "total_liabilities": 3116042
   }
  ],
  "sec_name": "COLOMBIER ACQUISITION CORP. III",
@@ -320,6 +339,50 @@
     }
    },
    "start": "2026-04-01",
+   "stock_comp": 0
+  },
+  {
+   "cash": 855829,
+   "cash_and_sti": 855829,
+   "end": "2026-09-30",
+   "equity": -1872626,
+   "net_income": 2554165,
+   "operating_cash_flow": -275748,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-118984",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-118984",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-118984",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-118984",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "stock_comp": {
+     "accn": "0001213900-26-118984",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
    "stock_comp": 0
   }
  ],

@@ -178,16 +178,16 @@
   "total_liabilities": 2
  },
  "balance": {
-  "cash_and_sti": 11542000,
-  "end": "2026-06-30",
-  "equity": 10939000
+  "cash_and_sti": 8440000,
+  "end": "2026-09-30",
+  "equity": 7611000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
-  "reconciled_fy": null,
-  "reconciles": "n/a",
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 44,
+  "reconciled_fy": 2025,
+  "reconciles": "ok",
   "revenue": "ok",
   "share_scale": "ok",
   "shares": "ok"
@@ -201,19 +201,19 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-089118",
-  "filed": "2026-08-13",
+  "accn": "0001213900-26-118950",
+  "filed": "2026-11-12",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 11812000.0,
+  "assets": 8610000.0,
   "classes": {
    "common": 49845993.0
   },
-  "cover_accession": "0001213900-26-089118",
-  "cover_date": "2026-07-31",
+  "cover_accession": "0001213900-26-118950",
+  "cover_date": "2026-10-31",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-24",
   "note": null,
@@ -283,12 +283,37 @@
    "total_equity_parent": 3246000
   },
   {
+   "eps_diluted": -0.03,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "net_income": -1430000,
+   "net_income_parent": -1430000,
+   "operating_cash_flow": -887000,
+   "operating_income": -974000,
+   "period_end": "2025-09-30",
+   "rd_expense": 514000,
+   "shares_diluted": 45792898,
+   "shares_diluted_adj": 45792898,
+   "shares_diluted_filled": 45792898,
+   "shares_diluted_filled_filed": "2026-11-12",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 108000,
+   "total_equity": 5301000,
+   "total_equity_parent": 5301000
+  },
+  {
    "cash": 5143000,
    "current_assets": 5170000,
    "current_liabilities": 605000,
-   "filed": "2026-08-13",
-   "form": "10-Q",
+   "eps_diluted": -0.04000000000000001,
+   "filed": "2026-03-24",
+   "form": "10-K (derived from YTD)",
+   "net_income": -1495000,
+   "net_income_parent": -1495000,
+   "operating_cash_flow": -1490000,
+   "operating_income": -911000,
    "period_end": "2025-12-31",
+   "rd_expense": 560000,
    "retained_earnings": -99635000,
    "shares_diluted": 45422581,
    "shares_diluted_adj": 45422581,
@@ -296,6 +321,7 @@
    "shares_diluted_filled_filed": "2026-03-24",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 47343297,
+   "stock_comp": 57000,
    "total_assets": 5170000,
    "total_equity": 4565000,
    "total_equity_parent": 4565000,
@@ -352,6 +378,32 @@
    "total_equity": 10939000,
    "total_equity_parent": 10939000,
    "total_liabilities": 873000
+  },
+  {
+   "cash": 8440000,
+   "current_assets": 8610000,
+   "current_liabilities": 999000,
+   "eps_diluted": -0.07,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "net_income": -3328000,
+   "net_income_parent": -3328000,
+   "operating_cash_flow": -3102000,
+   "operating_income": -3328000,
+   "period_end": "2026-09-30",
+   "rd_expense": 2451000,
+   "retained_earnings": -106887000,
+   "shares_diluted": 49845993,
+   "shares_diluted_adj": 49845993,
+   "shares_diluted_filled": 49845993,
+   "shares_diluted_filled_filed": "2026-11-12",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 49845993,
+   "stock_comp": 0,
+   "total_assets": 8610000,
+   "total_equity": 7611000,
+   "total_equity_parent": 7611000,
+   "total_liabilities": 999000
   }
  ],
  "sec_name": "Polaryx Therapeutics, Inc.",
@@ -430,40 +482,40 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
-   "method": "year_to_date",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
+   "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -6849000
+   "val": -8747000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
-   "method": "year_to_date",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
+   "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -5809000
+   "val": -8024000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 48278370
+   "val": 49845993
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
-   "method": "year_to_date",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
+   "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 632000
+   "val": 524000
   }
  },
  "v2_annual": [
@@ -654,6 +706,94 @@
    "stock_comp": 109000
   },
   {
+   "end": "2025-09-30",
+   "equity": 5301000,
+   "net_income": -1430000,
+   "operating_cash_flow": -887000,
+   "shares_diluted": 45792898,
+   "src": {
+    "equity": {
+     "accn": "0001213900-26-118950",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-118950",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-118950",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "shares_diluted": {
+     "accn": "0001213900-26-118950",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001213900-26-118950",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2025-07-01",
+   "stock_comp": 108000
+  },
+  {
+   "cash": 5143000,
+   "cash_and_sti": 5143000,
+   "end": "2025-12-31",
+   "equity": 4565000,
+   "net_income": -1495000,
+   "operating_cash_flow": -1490000,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-033064",
+     "filed": "2026-03-24",
+     "form": "10-K",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-033064",
+     "filed": "2026-03-24",
+     "form": "10-K",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-033064",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-K",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-033064",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-K",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "stock_comp": {
+     "accn": "0001213900-26-033064",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-K",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2025-10-01",
+   "stock_comp": 57000
+  },
+  {
    "cash": 3080000,
    "cash_and_sti": 3080000,
    "end": "2026-03-31",
@@ -751,6 +891,57 @@
     }
    },
    "start": "2026-04-01",
+   "stock_comp": 0
+  },
+  {
+   "cash": 8440000,
+   "cash_and_sti": 8440000,
+   "end": "2026-09-30",
+   "equity": 7611000,
+   "net_income": -3328000,
+   "operating_cash_flow": -3102000,
+   "shares_diluted": 49845993,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-118950",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-118950",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-118950",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-118950",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "shares_diluted": {
+     "accn": "0001213900-26-118950",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001213900-26-118950",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
    "stock_comp": 0
   }
  ],

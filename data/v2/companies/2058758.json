@@ -182,14 +182,14 @@
   "total_liabilities": 2
  },
  "balance": {
-  "cash_and_sti": 70474000,
-  "end": "2026-06-30",
-  "equity": 389536000
+  "cash_and_sti": 60300000,
+  "end": "2026-09-30",
+  "equity": 366573000
  },
  "bank": true,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 44,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -203,26 +203,26 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001193125-26-349298",
-  "filed": "2026-08-13",
+  "accn": "0001193125-26-458706",
+  "filed": "2026-11-12",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 2780104000.0,
+  "assets": 2775104000.0,
   "classes": {
-   "common": 19970306.0
+   "common": 19451097.0
   },
-  "cover_accession": "0001193125-26-349298",
-  "cover_date": "2026-08-13",
+  "cover_accession": "0001193125-26-458706",
+  "cover_date": "2026-11-12",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-27",
   "note": null,
   "public_float": 0.0,
   "revenue": null,
-  "shares_cover": 19970306.0,
-  "shares_total": 19970306.0,
+  "shares_cover": 19451097.0,
+  "shares_total": 19451097.0,
   "size_gate": "no_float"
  },
  "name": "Avidia Bancorp, Inc.",
@@ -390,7 +390,7 @@
    "d_and_a": 633000,
    "deposits": 2075868000,
    "eps_diluted": -0.05,
-   "filed": "2025-11-14",
+   "filed": "2026-11-12",
    "finance_lease_liabilities": 407000,
    "form": "10-Q",
    "goodwill": 11936000,
@@ -410,7 +410,7 @@
    "shares_diluted": 18520449,
    "shares_diluted_adj": 18520449,
    "shares_diluted_filled": 18520449,
-   "shares_diluted_filled_filed": "2025-11-14",
+   "shares_diluted_filled_filed": "2026-11-12",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 20076250,
    "short_term_investments": 96384000,
@@ -534,6 +534,45 @@
    "total_equity": 389536000,
    "total_equity_parent": 389536000,
    "total_liabilities": 2390568000
+  },
+  {
+   "capex": 577000,
+   "capex_filed": "2026-11-12",
+   "cash_and_short_term_investments": 60300000,
+   "credit_loss_provision": 19000,
+   "d_and_a": 662000,
+   "deposits": 2206649000,
+   "dividends_paid": 1192000,
+   "eps_diluted": 0.47,
+   "filed": "2026-11-12",
+   "finance_lease_liabilities": 367000,
+   "form": "10-Q",
+   "goodwill": 11936000,
+   "income_tax": 2963000,
+   "interest_income": 34765000,
+   "loans": 2237632000,
+   "net_income": 8601000,
+   "net_income_parent": 8601000,
+   "net_interest_income": 25503000,
+   "operating_cash_flow": 20078000,
+   "operating_leases": 4982000,
+   "period_end": "2026-09-30",
+   "pretax_income": 11564000,
+   "retained_earnings": 230546000,
+   "revenue": 31155000,
+   "revenue_filed": "2026-11-12",
+   "shares_diluted": 18246656,
+   "shares_diluted_adj": 18246656,
+   "shares_diluted_filled": 18246656,
+   "shares_diluted_filled_filed": "2026-11-12",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 19238111,
+   "short_term_investments": 42300000,
+   "tier1_capital_ratio": 0.173,
+   "total_assets": 2775104000,
+   "total_equity": 366573000,
+   "total_equity_parent": 366573000,
+   "total_liabilities": 2408531000
   }
  ],
  "sec_name": "Avidia Bancorp, Inc.",
@@ -543,7 +582,7 @@
  "tags_used": {
   "acquisition_cost_amort": null,
   "acquisitions": null,
-  "buybacks": null,
+  "buybacks": "PaymentsForRepurchaseOfCommonStock",
   "capex": "PaymentsToAcquirePropertyPlantAndEquipment",
   "capitalized_software": null,
   "cash": null,
@@ -597,7 +636,7 @@
   "shares_outstanding": "dei:EntityCommonStockSharesOutstanding,CommonStockSharesOutstanding",
   "short_term_borrowings": null,
   "short_term_investments": "ShortTermInvestments",
-  "stock_comp": null,
+  "stock_comp": "ShareBasedCompensation",
   "tier1_capital_ratio": "TierOneRiskBasedCapitalToRiskWeightedAssets",
   "total_assets": "Assets",
   "total_debt": null,
@@ -612,54 +651,54 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 3224000
+   "val": 2930000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": 48181000
+   "val": 44427000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 17592000
+   "val": 27100000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 51405000
+   "val": 47357000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "four_quarters",
    "tags": [
     "InterestIncomeExpenseNet+NoninterestIncome"
    ],
-   "val": 112895000
+   "val": 116092000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 18577444
+   "val": 18246656
   }
  },
  "v2_annual": [
@@ -855,6 +894,13 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 29866000
+  },
+  {
+   "field": "revenue",
+   "old": 34765000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 31155000
   }
  ],
  "v2_notes": [],
@@ -1365,6 +1411,65 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "capex": 577000,
+   "cash_and_sti": 60300000,
+   "end": "2026-09-30",
+   "equity": 366573000,
+   "fcf": 19501000,
+   "net_income": 8601000,
+   "operating_cash_flow": 20078000,
+   "revenue": 31155000,
+   "shares_diluted": 18246656,
+   "short_term_investments": 42300000,
+   "src": {
+    "capex": {
+     "accn": "0001193125-26-458706",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "equity": {
+     "accn": "0001193125-26-458706",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001193125-26-458706",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-458706",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001193125-26-458706",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "InterestIncomeExpenseNet+NoninterestIncome"
+    },
+    "shares_diluted": {
+     "accn": "0001193125-26-458706",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "short_term_investments": {
+     "accn": "0001193125-26-458706",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "ShortTermInvestments"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

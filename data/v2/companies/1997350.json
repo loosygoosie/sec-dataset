@@ -264,16 +264,16 @@
   "total_liabilities": 2
  },
  "balance": {
-  "cash_and_sti": 1572800000,
-  "debt_noncurrent": 120100000,
-  "end": "2026-06-30",
-  "equity": 717400000,
-  "total_debt": 120100000
+  "cash_and_sti": 2019300000,
+  "debt_noncurrent": 119500000,
+  "end": "2026-09-30",
+  "equity": 731900000,
+  "total_debt": 119500000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 123,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 44,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -288,27 +288,27 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001997350-26-000015",
-  "filed": "2026-08-13",
+  "accn": "0001997350-26-000023",
+  "filed": "2026-11-12",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 8943300000.0,
+  "assets": 9456100000.0,
   "classes": {
-   "CommonClassAMember": 118548679.0,
-   "CommonClassBMember": 98639873.0
+   "CommonClassAMember": 126450970.0,
+   "CommonClassBMember": 90916741.0
   },
-  "cover_accession": "0001997350-26-000015",
-  "cover_date": "2026-08-07",
+  "cover_accession": "0001997350-26-000023",
+  "cover_date": "2026-11-06",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-18",
   "note": null,
   "public_float": 0.0,
   "revenue": 912900000.0,
-  "shares_cover": 217188552.0,
-  "shares_total": 217188552.0,
+  "shares_cover": 217367711.0,
+  "shares_total": 217367711.0,
   "size_gate": "assets"
  },
  "name": "Accelerant Holdings",
@@ -498,12 +498,13 @@
   {
    "acquisition_cost_amort": 22800000,
    "acquisitions": 8500000,
+   "buybacks": 0,
    "capitalized_software": 12500000,
    "cash": 1604000000,
    "claims_incurred": 50800000,
    "d_and_a": 10000000,
    "eps_diluted": -6.99,
-   "filed": "2025-11-12",
+   "filed": "2026-11-12",
    "form": "10-Q",
    "income_tax": 9500000,
    "interest_expense": 2600000,
@@ -523,7 +524,7 @@
    "shares_diluted": 206064119,
    "shares_diluted_adj": 206064119,
    "shares_diluted_filled": 206064119,
-   "shares_diluted_filled_filed": "2025-11-12",
+   "shares_diluted_filled_filed": "2026-11-12",
    "shares_diluted_filled_source": "shares_diluted",
    "stock_comp": 27000000,
    "total_assets": 7859400000,
@@ -531,6 +532,7 @@
    "total_debt_basis": "tagged",
    "total_debt_filed": "2025-11-12",
    "total_equity": 676100000,
+   "total_equity_incl_nci": 703800000,
    "total_equity_parent": 676100000,
    "total_liabilities": 7155600000
   },
@@ -655,9 +657,49 @@
    "total_equity_incl_nci": 744000000,
    "total_equity_parent": 717400000,
    "total_liabilities": 8199300000
+  },
+  {
+   "acquisition_cost_amort": 31200000,
+   "acquisitions": 0,
+   "buybacks": 1000000,
+   "capitalized_software": 15900000,
+   "cash": 2019300000,
+   "claims_incurred": 70500000,
+   "d_and_a": 11200000,
+   "eps_diluted": -0.06,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "income_tax": 7600000,
+   "interest_expense": 2400000,
+   "loss_reserves": 2389800000,
+   "lt_debt_noncurrent": 119500000,
+   "net_income": -9200000,
+   "net_income_incl_nci": -9200000,
+   "net_income_parent": -12300000,
+   "operating_cash_flow": 321000000,
+   "period_end": "2026-09-30",
+   "premiums_earned": 113900000,
+   "pretax_income": -1600000,
+   "retained_earnings": -1475700000,
+   "revenue": 278600000,
+   "revenue_filed": "2026-11-12",
+   "shares_diluted": 217173937,
+   "shares_diluted_adj": 217173937,
+   "shares_diluted_filled": 217173937,
+   "shares_diluted_filled_filed": "2026-11-12",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 32300000,
+   "total_assets": 9456100000,
+   "total_debt": 119500000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-12",
+   "total_equity": 731900000,
+   "total_equity_incl_nci": 761000000,
+   "total_equity_parent": 731900000,
+   "total_liabilities": 8695100000
   }
  ],
- "sec_name": "Accelerant Holdings",
+ "sec_name": "ACCELERANT HOLDINGS",
  "sic": "6411",
  "sic_description": "Insurance Agents, Brokers & Service",
  "splits": [],
@@ -733,50 +775,49 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "four_quarters",
    "tags": [
-    "NetIncomeLoss",
     "NetIncomeLossAvailableToCommonStockholdersBasic"
    ],
-   "val": -1295900000
+   "val": 60600000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 45800000
+   "val": 292900000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "four_quarters",
    "tags": [
     "Revenues"
    ],
-   "val": 1146000000
+   "val": 1157200000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 219690786
+   "val": 217173937
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 89400000
+   "val": 96400000
   }
  },
  "v2_annual": [
@@ -1064,6 +1105,13 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 120100000
+  },
+  {
+   "field": "lt_debt_noncurrent",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 119500000
   }
  ],
  "v2_notes": [],
@@ -1638,6 +1686,76 @@
    "start": "2026-04-01",
    "stock_comp": 22900000,
    "total_debt": 120100000
+  },
+  {
+   "cash": 2019300000,
+   "cash_and_sti": 2019300000,
+   "debt_noncurrent": 119500000,
+   "end": "2026-09-30",
+   "equity": 731900000,
+   "net_income": -12300000,
+   "operating_cash_flow": 321000000,
+   "revenue": 278600000,
+   "shares_diluted": 217173937,
+   "src": {
+    "cash": {
+     "accn": "0001997350-26-000023",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001997350-26-000023",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001997350-26-000023",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLossAvailableToCommonStockholdersBasic"
+    },
+    "operating_cash_flow": {
+     "accn": "0001997350-26-000023",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001997350-26-000023",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001997350-26-000023",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001997350-26-000023",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-12",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LongTermDebt"
+     ],
+     "values": {
+      "LongTermDebt": 119500000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 24200000,
+   "total_debt": 119500000
   }
  ],
  "v2_tags_used": {

@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 993632,
-  "end": "2026-06-30",
-  "equity": 1093111
+  "cash_and_sti": 940541,
+  "end": "2026-09-30",
+  "equity": 705304
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 115,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 44,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001493152-26-035959",
-  "filed": "2026-08-04",
+  "accn": "0001493152-26-051403",
+  "filed": "2026-11-12",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 122557916.0,
+  "assets": 123575928.0,
   "classes": {
    "CommonClassAMember": 683000.0,
    "CommonClassBMember": 5175000.0
   },
-  "cover_accession": "0001493152-26-035959",
-  "cover_date": "2026-08-04",
+  "cover_accession": "0001493152-26-051403",
+  "cover_date": "2026-11-12",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -117,9 +117,18 @@
  "name": "ARC Group Acquisition I Corp.",
  "quarterly": [
   {
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "net_income": -18000,
+   "net_income_parent": -18000,
+   "period_end": "2025-09-30",
+   "total_equity": -41400,
+   "total_equity_parent": -41400
+  },
+  {
    "current_liabilities": 542582,
    "eps_diluted": -0.01,
-   "filed": "2026-08-04",
+   "filed": "2026-11-12",
    "form": "10-Q",
    "net_income": -27000,
    "net_income_parent": -27000,
@@ -137,7 +146,7 @@
   {
    "cash": 993632,
    "current_assets": 1093111,
-   "filed": "2026-08-04",
+   "filed": "2026-11-12",
    "form": "10-Q",
    "net_income": 625846,
    "net_income_parent": 625846,
@@ -146,6 +155,22 @@
    "total_assets": 122557916,
    "total_equity": 1093111,
    "total_equity_parent": 1093111
+  },
+  {
+   "cash": 940541,
+   "current_assets": 1003614,
+   "current_liabilities": 298310,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "net_income": 719702,
+   "net_income_parent": 719702,
+   "operating_cash_flow": -53091,
+   "operating_cash_flow_filed": "2026-11-12",
+   "period_end": "2026-09-30",
+   "retained_earnings": 704718,
+   "total_assets": 123575928,
+   "total_equity": 705304,
+   "total_equity_parent": 705304
   }
  ],
  "sec_name": "ARC GROUP ACQUISITION I CORP",
@@ -237,9 +262,37 @@
   }
  },
  "v2_annual": [],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": -53091
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
+  {
+   "end": "2025-09-30",
+   "equity": -41400,
+   "net_income": -18000,
+   "src": {
+    "equity": {
+     "accn": "0001493152-26-051403",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001493152-26-051403",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    }
+   },
+   "start": "2025-07-01"
+  },
   {
    "cash": 0,
    "cash_and_sti": 0,
@@ -302,6 +355,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 940541,
+   "cash_and_sti": 940541,
+   "end": "2026-09-30",
+   "equity": 705304,
+   "net_income": 719702,
+   "operating_cash_flow": -53091,
+   "src": {
+    "cash": {
+     "accn": "0001493152-26-051403",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001493152-26-051403",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001493152-26-051403",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001493152-26-051403",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {
@@ -309,7 +398,9 @@
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [],
   "shares_diluted": [
    "WeightedAverageNumberOfDilutedSharesOutstanding"

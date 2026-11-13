@@ -104,14 +104,14 @@
   "total_liabilities": 1
  },
  "balance": {
-  "cash_and_sti": 441542,
-  "end": "2026-06-30",
-  "equity": -4901076
+  "cash_and_sti": 385972,
+  "end": "2026-09-30",
+  "equity": -5031557
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 44,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -127,20 +127,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-085683",
-  "filed": "2026-08-05",
+  "accn": "0001213900-26-118426",
+  "filed": "2026-11-12",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 130501601.0,
+  "assets": 131521148.0,
   "classes": {
    "CommonClassAMember": 13058000.0,
    "CommonClassBMember": 4216667.0
   },
-  "cover_accession": "0001213900-26-085683",
-  "cover_date": "2026-08-05",
+  "cover_accession": "0001213900-26-118426",
+  "cover_date": "2026-11-11",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-25",
   "note": null,
@@ -178,7 +178,7 @@
    "total_liabilities": 184729
   },
   {
-   "filed": "2026-08-05",
+   "filed": "2026-11-12",
    "form": "10-Q",
    "net_income": -19632,
    "net_income_parent": -19632,
@@ -200,7 +200,7 @@
    "cash": 1195873,
    "current_assets": 1267748,
    "current_liabilities": 1372869,
-   "filed": "2025-11-14",
+   "filed": "2026-11-12",
    "form": "10-Q",
    "net_income": 62926,
    "net_income_parent": 62926,
@@ -263,6 +263,23 @@
    "total_equity": -4901076,
    "total_equity_parent": -4901076,
    "total_liabilities": 5402710
+  },
+  {
+   "cash": 385972,
+   "current_assets": 415663,
+   "current_liabilities": 387220,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "net_income": 975037,
+   "net_income_parent": 975037,
+   "operating_cash_flow": -55570,
+   "operating_income": -130481,
+   "period_end": "2026-09-30",
+   "retained_earnings": -5032020,
+   "total_assets": 131521148,
+   "total_equity": -5031557,
+   "total_equity_parent": -5031557,
+   "total_liabilities": 5447220
   }
  ],
  "sec_name": "CHENGHE ACQUISITION III CO.",
@@ -343,22 +360,22 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 2790419
+   "val": 3702530
   },
   "operating_cash_flow": {
-   "end": "2025-12-31",
-   "filed": "2026-03-25",
-   "method": "fiscal_year_stale",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
+   "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -189897
+   "val": -480751
   }
  },
  "v2_annual": [
@@ -605,6 +622,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 385972,
+   "cash_and_sti": 385972,
+   "end": "2026-09-30",
+   "equity": -5031557,
+   "net_income": 975037,
+   "operating_cash_flow": -55570,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-118426",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-118426",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-118426",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-118426",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

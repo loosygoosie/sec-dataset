@@ -67,17 +67,17 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 7921547000,
-  "debt_current": 736036000,
-  "debt_noncurrent": 182208000,
-  "end": "2026-06-30",
-  "equity": 9154642000,
-  "total_debt": 918244000
+  "cash_and_sti": 7360778000,
+  "debt_current": 706518000,
+  "debt_noncurrent": 122564000,
+  "end": "2026-09-30",
+  "equity": 9158913000,
+  "total_debt": 829082000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 44,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -93,28 +93,28 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001628280-26-056357",
-  "filed": "2026-08-12",
+  "accn": "0001628280-26-073494",
+  "filed": "2026-11-12",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 11627872000.0,
+  "assets": 11938412000.0,
   "classes": {
-   "CommonClassAMember": 112247109.0,
-   "CommonClassBMember": 111601424.0,
+   "CommonClassAMember": 160084168.0,
+   "CommonClassBMember": 69203688.0,
    "CommonClassNMember": 13715508.0
   },
-  "cover_accession": "0001628280-26-056357",
-  "cover_date": "2026-08-05",
+  "cover_accession": "0001628280-26-073494",
+  "cover_date": "2026-11-05",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 237564041.0,
-  "shares_total": 237564041.0,
+  "shares_cover": 243003364.0,
+  "shares_total": 243003364.0,
   "size_gate": "assets"
  },
  "name": "Cerebras Systems Inc.",
@@ -174,6 +174,34 @@
    "stock_comp": 13281000,
    "total_equity": -651118000,
    "total_equity_parent": -651118000
+  },
+  {
+   "capex": 116045000,
+   "capex_filed": "2026-11-12",
+   "cash": 1334134000,
+   "d_and_a": 8625000,
+   "eps_diluted": -0.41,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "gross_profit": 55135000,
+   "income_tax": 1519000,
+   "net_income": -22201000,
+   "net_income_parent": -22201000,
+   "operating_cash_flow": -10373000,
+   "operating_income": -26469000,
+   "period_end": "2025-09-30",
+   "pretax_income": -20682000,
+   "rd_expense": 57257000,
+   "revenue": 135714000,
+   "revenue_filed": "2026-11-12",
+   "shares_diluted": 53983000,
+   "shares_diluted_adj": 53983000,
+   "shares_diluted_filled": 53983000,
+   "shares_diluted_filled_filed": "2026-11-12",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 11346000,
+   "total_equity": -656888000,
+   "total_equity_parent": -656888000
   },
   {
    "capex": 131970000,
@@ -260,6 +288,49 @@
    "total_equity": 9154642000,
    "total_equity_parent": 9154642000,
    "total_liabilities": 2473230000
+  },
+  {
+   "capex": 497186000,
+   "capex_filed": "2026-11-12",
+   "cash": 3074752000,
+   "current_assets": 8865661000,
+   "current_liabilities": 1680871000,
+   "d_and_a": 29794000,
+   "debt_current": 706518000,
+   "eps_diluted": -0.67,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "gross_profit": 42094000,
+   "income_tax": 969000,
+   "inventory": 146100000,
+   "lt_debt_current": 706518000,
+   "lt_debt_noncurrent": 122564000,
+   "net_income": -161218000,
+   "net_income_parent": -161218000,
+   "operating_cash_flow": -341406000,
+   "operating_income": -224149000,
+   "operating_leases": 621139000,
+   "period_end": "2026-09-30",
+   "pretax_income": -160249000,
+   "rd_expense": 177842000,
+   "receivables": 231762000,
+   "retained_earnings": -1531082000,
+   "revenue": 210809000,
+   "revenue_filed": "2026-11-12",
+   "shares_diluted": 238885000,
+   "shares_diluted_adj": 238885000,
+   "shares_diluted_filled": 238885000,
+   "shares_diluted_filled_filed": "2026-11-12",
+   "shares_diluted_filled_source": "shares_diluted",
+   "short_term_investments": 4286026000,
+   "stock_comp": 155105000,
+   "total_assets": 11938412000,
+   "total_debt": 829082000,
+   "total_debt_basis": "components",
+   "total_debt_filed": "2026-11-12",
+   "total_equity": 9158913000,
+   "total_equity_parent": 9158913000,
+   "total_liabilities": 2779499000
   }
  ],
  "sec_name": "Cerebras Systems Inc.",
@@ -338,13 +409,13 @@
  ],
  "ttm": {
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 150968000
+   "val": 238885000
   }
  },
  "v2_annual": [],
@@ -481,6 +552,73 @@
    },
    "start": "2025-04-01",
    "stock_comp": 13281000
+  },
+  {
+   "capex": 116045000,
+   "cash": 1334134000,
+   "cash_and_sti": 1334134000,
+   "end": "2025-09-30",
+   "equity": -656888000,
+   "fcf": -126418000,
+   "net_income": -22201000,
+   "operating_cash_flow": -10373000,
+   "revenue": 135714000,
+   "shares_diluted": 53983000,
+   "src": {
+    "capex": {
+     "accn": "0001628280-26-073494",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001628280-26-073494",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001628280-26-073494",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001628280-26-073494",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001628280-26-073494",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001628280-26-073494",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001628280-26-073494",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001628280-26-073494",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2025-07-01",
+   "stock_comp": 11346000
   },
   {
    "capex": 131970000,
@@ -654,6 +792,94 @@
    "start": "2026-04-01",
    "stock_comp": 377008000,
    "total_debt": 918244000
+  },
+  {
+   "capex": 497186000,
+   "cash": 3074752000,
+   "cash_and_sti": 7360778000,
+   "debt_current": 706518000,
+   "debt_noncurrent": 122564000,
+   "end": "2026-09-30",
+   "equity": 9158913000,
+   "fcf": -838592000,
+   "net_income": -161218000,
+   "operating_cash_flow": -341406000,
+   "revenue": 210809000,
+   "shares_diluted": 238885000,
+   "short_term_investments": 4286026000,
+   "src": {
+    "capex": {
+     "accn": "0001628280-26-073494",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001628280-26-073494",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001628280-26-073494",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001628280-26-073494",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001628280-26-073494",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001628280-26-073494",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001628280-26-073494",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "short_term_investments": {
+     "accn": "0001628280-26-073494",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "AvailableForSaleSecuritiesDebtSecuritiesCurrent"
+    },
+    "stock_comp": {
+     "accn": "0001628280-26-073494",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-12",
+     "tags": [
+      "LongTermDebtNoncurrent",
+      "LongTermDebtCurrent"
+     ],
+     "values": {
+      "LongTermDebtCurrent": 706518000,
+      "LongTermDebtNoncurrent": 122564000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 155105000,
+   "total_debt": 829082000
   }
  ],
  "v2_tags_used": {

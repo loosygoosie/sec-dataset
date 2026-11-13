@@ -67,17 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 709155,
-  "debt_current": 135369,
-  "debt_end": "2025-12-31",
-  "end": "2026-06-30",
-  "equity": -9309768,
-  "total_debt": 135369
+  "cash_and_sti": 618867,
+  "end": "2026-09-30",
+  "equity": -9466462
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 44,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -89,25 +86,25 @@
  "flags": [
   "no_operating_cash_flow",
   "no_capex",
-  "debt_one_side_only",
+  "no_debt_tagged",
   "no_revenue"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-089156",
-  "filed": "2026-08-13",
+  "accn": "0001213900-26-119036",
+  "filed": "2026-11-12",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 293171994.0,
+  "assets": 295697782.0,
   "classes": {
    "CommonClassAMember": 29510000.0,
    "CommonClassBMember": 9583333.0
   },
-  "cover_accession": "0001213900-26-089156",
-  "cover_date": "2026-08-12",
+  "cover_accession": "0001213900-26-119036",
+  "cover_date": "2026-11-12",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-25",
   "note": null,
@@ -154,6 +151,24 @@
    "total_equity": -9309768,
    "total_equity_parent": -9309768,
    "total_liabilities": 10230192
+  },
+  {
+   "cash": 618867,
+   "current_assets": 747289,
+   "current_liabilities": 179759,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "interest_income": 7234,
+   "net_income": 2513721,
+   "net_income_parent": 2513721,
+   "operating_cash_flow": -90288,
+   "operating_income": -163928,
+   "period_end": "2026-09-30",
+   "retained_earnings": -9467496,
+   "total_assets": 295697782,
+   "total_equity": -9466462,
+   "total_equity_parent": -9466462,
+   "total_liabilities": 10242259
   }
  ],
  "sec_name": "LAFAYETTE DIGITAL ACQUISITION CORP. I",
@@ -232,7 +247,17 @@
   "ZKPU",
   "ZKPW"
  ],
- "ttm": {},
+ "ttm": {
+  "net_income": {
+   "end": "2026-09-30",
+   "filed": "2026-11-12",
+   "method": "four_quarters",
+   "tags": [
+    "NetIncomeLoss"
+   ],
+   "val": 6784464
+  }
+ },
  "v2_annual": [],
  "v2_fixes": [],
  "v2_notes": [],
@@ -348,6 +373,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 618867,
+   "cash_and_sti": 618867,
+   "end": "2026-09-30",
+   "equity": -9466462,
+   "net_income": 2513721,
+   "operating_cash_flow": -90288,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-119036",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-119036",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-119036",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-119036",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

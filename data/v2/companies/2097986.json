@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1042341,
-  "end": "2026-06-30",
-  "equity": -1860847
+  "cash_and_sti": 885826,
+  "end": "2026-09-30",
+  "equity": -2029795
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 44,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-089208",
-  "filed": "2026-08-13",
+  "accn": "0001213900-26-118221",
+  "filed": "2026-11-12",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 102139364.0,
+  "assets": 102842230.0,
   "classes": {
    "CommonClassAMember": 10370000.0,
    "CommonClassBMember": 3333333.0
   },
-  "cover_accession": "0001213900-26-089208",
-  "cover_date": "2026-08-12",
+  "cover_accession": "0001213900-26-118221",
+  "cover_date": "2026-11-10",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -145,6 +145,24 @@
    "total_equity": -1860847,
    "total_equity_parent": -1860847,
    "total_liabilities": 3139803
+  },
+  {
+   "cash": 885826,
+   "current_assets": 1015037,
+   "current_liabilities": 80312,
+   "filed": "2026-11-12",
+   "form": "10-Q",
+   "net_income": 745337,
+   "net_income_parent": 745337,
+   "operating_cash_flow": -157230,
+   "operating_cash_flow_filed": "2026-11-12",
+   "operating_income": -168948,
+   "period_end": "2026-09-30",
+   "retained_earnings": -2030165,
+   "total_assets": 102842230,
+   "total_equity": -2029795,
+   "total_equity_parent": -2029795,
+   "total_liabilities": 3097332
   }
  ],
  "sec_name": "Forefront Tech Holdings Acquisition Corp",
@@ -225,7 +243,15 @@
  ],
  "ttm": {},
  "v2_annual": [],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": -157230
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
   {
@@ -275,6 +301,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 885826,
+   "cash_and_sti": 885826,
+   "end": "2026-09-30",
+   "equity": -2029795,
+   "net_income": 745337,
+   "operating_cash_flow": -157230,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-118221",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-118221",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-118221",
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-118221",
+     "derived": true,
+     "filed": "2026-11-12",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {
@@ -282,7 +344,9 @@
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [],
   "shares_diluted": [],
   "stock_comp": []

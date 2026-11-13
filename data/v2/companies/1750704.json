@@ -67,16 +67,16 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 503355000,
+  "cash_and_sti": 494850000,
   "debt_noncurrent": 0,
-  "end": "2026-06-30",
-  "equity": 794818000,
+  "end": "2026-09-30",
+  "equity": 805285000,
   "total_debt": 0
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 44,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -94,26 +94,26 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001750704-26-000022",
-  "filed": "2026-08-14",
+  "accn": "0001750704-26-000034",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 904222000.0,
+  "assets": 902945000.0,
   "classes": {
-   "common": 97965552.0
+   "common": 99317330.0
   },
-  "cover_accession": "0001750704-26-000022",
-  "cover_date": "2026-08-10",
+  "cover_accession": "0001750704-26-000034",
+  "cover_date": "2026-11-09",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 97965552.0,
-  "shares_total": 97965552.0,
+  "shares_cover": 99317330.0,
+  "shares_total": 99317330.0,
   "size_gate": "no_float"
  },
  "name": "HawkEye 360, Inc.",
@@ -175,6 +175,35 @@
    "stock_comp": 1000000,
    "total_equity": -112202000,
    "total_equity_parent": -112202000
+  },
+  {
+   "capex": 9947000,
+   "capex_filed": "2026-11-13",
+   "cash": 88964000,
+   "d_and_a": 5934000,
+   "eps_diluted": 0.01,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "income_tax": 0,
+   "interest_expense": 0,
+   "net_income": 1681000,
+   "net_income_parent": 1681000,
+   "operating_cash_flow": 3978000,
+   "operating_income": 1731000,
+   "period_end": "2025-09-30",
+   "pretax_income": 1681000,
+   "rd_expense": 8175000,
+   "revenue": 32196000,
+   "revenue_filed": "2026-11-13",
+   "sga_expense": 10505000,
+   "shares_diluted": 14362624,
+   "shares_diluted_adj": 14362624,
+   "shares_diluted_filled": 14362624,
+   "shares_diluted_filled_filed": "2026-11-13",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 1317000,
+   "total_equity": -109173000,
+   "total_equity_parent": -109173000
   },
   {
    "capex": 4055000,
@@ -261,6 +290,49 @@
    "total_equity": 794818000,
    "total_equity_parent": 794818000,
    "total_liabilities": 109404000
+  },
+  {
+   "capex": 9484000,
+   "capex_filed": "2026-11-13",
+   "cash": 494850000,
+   "current_assets": 565483000,
+   "current_liabilities": 43865000,
+   "d_and_a": 9275000,
+   "eps_diluted": 0,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "goodwill": 117958000,
+   "income_tax": 152000,
+   "interest_expense": 0,
+   "inventory": 3516000,
+   "lt_debt_noncurrent": 0,
+   "net_income": -163000,
+   "net_income_parent": -163000,
+   "operating_cash_flow": 9621000,
+   "operating_income": -4370000,
+   "operating_leases": 16059000,
+   "period_end": "2026-09-30",
+   "pretax_income": -11000,
+   "rd_expense": 8040000,
+   "receivables": 41384000,
+   "retained_earnings": -170271000,
+   "revenue": 59336000,
+   "revenue_filed": "2026-11-13",
+   "sga_expense": 24308000,
+   "shares_diluted": 98251708,
+   "shares_diluted_adj": 98251708,
+   "shares_diluted_filled": 98251708,
+   "shares_diluted_filled_filed": "2026-11-13",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 99091643,
+   "stock_comp": 7384000,
+   "total_assets": 902945000,
+   "total_debt": 0,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-13",
+   "total_equity": 805285000,
+   "total_equity_parent": 805285000,
+   "total_liabilities": 97660000
   }
  ],
  "sec_name": "HawkEye 360, Inc.",
@@ -339,13 +411,13 @@
  ],
  "ttm": {
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-14",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 61924756
+   "val": 98251708
   }
  },
  "v2_annual": [],
@@ -368,6 +440,13 @@
    "field": "lt_debt_noncurrent",
    "old": null,
    "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 0
+  },
+  {
+   "field": "lt_debt_noncurrent",
+   "old": null,
+   "period": "2026-09-30",
    "rows": "quarterly",
    "v2": 0
   }
@@ -504,6 +583,73 @@
    },
    "start": "2025-04-01",
    "stock_comp": 1000000
+  },
+  {
+   "capex": 9947000,
+   "cash": 88964000,
+   "cash_and_sti": 88964000,
+   "end": "2025-09-30",
+   "equity": -109173000,
+   "fcf": -5969000,
+   "net_income": 1681000,
+   "operating_cash_flow": 3978000,
+   "revenue": 32196000,
+   "shares_diluted": 14362624,
+   "src": {
+    "capex": {
+     "accn": "0001750704-26-000034",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001750704-26-000034",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001750704-26-000034",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001750704-26-000034",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001750704-26-000034",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001750704-26-000034",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001750704-26-000034",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001750704-26-000034",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2025-07-01",
+   "stock_comp": 1317000
   },
   {
    "capex": 4055000,
@@ -658,6 +804,85 @@
    },
    "start": "2026-04-01",
    "stock_comp": 7516000,
+   "total_debt": 0
+  },
+  {
+   "capex": 9484000,
+   "cash": 494850000,
+   "cash_and_sti": 494850000,
+   "debt_noncurrent": 0,
+   "end": "2026-09-30",
+   "equity": 805285000,
+   "fcf": 137000,
+   "net_income": -163000,
+   "operating_cash_flow": 9621000,
+   "revenue": 59336000,
+   "shares_diluted": 98251708,
+   "src": {
+    "capex": {
+     "accn": "0001750704-26-000034",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001750704-26-000034",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001750704-26-000034",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001750704-26-000034",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001750704-26-000034",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001750704-26-000034",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001750704-26-000034",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001750704-26-000034",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-13",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LongTermDebt"
+     ],
+     "values": {
+      "LongTermDebt": 0
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 7344000,
    "total_debt": 0
   }
  ],
