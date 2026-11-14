@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1066548,
-  "end": "2026-06-30",
-  "equity": -10596021
+  "cash_and_sti": 894954,
+  "end": "2026-09-30",
+  "equity": -10833291
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-089140",
-  "filed": "2026-08-13",
+  "accn": "0001213900-26-119723",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 290326815.0,
+  "assets": 292741236.0,
   "classes": {
    "CommonClassAMember": 28750000.0,
    "CommonClassBMember": 9583333.0
   },
-  "cover_accession": "0001213900-26-089140",
-  "cover_date": "2026-08-10",
+  "cover_accession": "0001213900-26-119723",
+  "cover_date": "2026-11-02",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -117,7 +117,7 @@
  "name": "Keystone Acquisition Corp.",
  "quarterly": [
   {
-   "filed": "2026-08-13",
+   "filed": "2026-11-13",
    "form": "10-Q",
    "net_income": -37240,
    "net_income_parent": -37240,
@@ -140,6 +140,26 @@
    "total_equity": -10596021,
    "total_equity_parent": -10596021,
    "total_liabilities": 11949255
+  },
+  {
+   "cash": 894954,
+   "current_assets": 1061387,
+   "current_liabilities": 466102,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "net_income": 2397574,
+   "net_income_parent": 2397574,
+   "operating_cash_flow": -152410,
+   "operating_cash_flow_filed": "2026-11-13",
+   "operating_income": -274770,
+   "period_end": "2026-09-30",
+   "retained_earnings": -10834249,
+   "stock_comp": 0,
+   "stock_comp_filed": "2026-11-13",
+   "total_assets": 292741236,
+   "total_equity": -10833291,
+   "total_equity_parent": -10833291,
+   "total_liabilities": 11966102
   }
  ],
  "sec_name": "KEYSTONE ACQUISITION CORP.",
@@ -220,7 +240,22 @@
  ],
  "ttm": {},
  "v2_annual": [],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": -152410
+  },
+  {
+   "field": "stock_comp",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 0
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
   {
@@ -270,6 +305,50 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 894954,
+   "cash_and_sti": 894954,
+   "end": "2026-09-30",
+   "equity": -10833291,
+   "net_income": 2397574,
+   "operating_cash_flow": -152410,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-119723",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-119723",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-119723",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-119723",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "stock_comp": {
+     "accn": "0001213900-26-119723",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 0
   }
  ],
  "v2_tags_used": {
@@ -277,9 +356,13 @@
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [],
   "shares_diluted": [],
-  "stock_comp": []
+  "stock_comp": [
+   "ShareBasedCompensation"
+  ]
  }
 }

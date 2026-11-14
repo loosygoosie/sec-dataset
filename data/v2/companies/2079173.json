@@ -68,13 +68,13 @@
  },
  "balance": {
   "cash_and_sti": 0,
-  "end": "2026-06-30",
-  "equity": -20358830
+  "end": "2026-09-30",
+  "equity": -20803529
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -90,20 +90,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001193125-26-347016",
-  "filed": "2026-08-12",
+  "accn": "0001193125-26-460840",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 355066789.0,
+  "assets": 358095220.0,
   "classes": {
    "CommonClassAMember": 34675000.0,
    "CommonClassBMember": 14785714.0
   },
-  "cover_accession": "0001193125-26-347016",
-  "cover_date": "2026-08-12",
+  "cover_accession": "0001193125-26-460840",
+  "cover_date": "2026-11-13",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-30",
   "note": null,
@@ -120,7 +120,7 @@
    "current_assets": 1042443,
    "current_liabilities": 295162,
    "debt_current": 122830,
-   "filed": "2025-11-14",
+   "filed": "2026-11-13",
    "form": "10-Q",
    "net_income": -10423509,
    "net_income_parent": -10423509,
@@ -185,9 +185,26 @@
    "total_equity": -20358830,
    "total_equity_parent": -20358830,
    "total_liabilities": 20885646
+  },
+  {
+   "cash": 0,
+   "current_assets": 315679,
+   "current_liabilities": 419208,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "net_income": 2794869,
+   "net_income_parent": 2794869,
+   "operating_cash_flow": -137087,
+   "operating_income": -444699,
+   "period_end": "2026-09-30",
+   "retained_earnings": -20805025,
+   "total_assets": 358095220,
+   "total_equity": -20803529,
+   "total_equity_parent": -20803529,
+   "total_liabilities": 21119208
   }
  ],
- "sec_name": "AMERICAN EXCEPTIONALISM ACQUISITION CORP. A",
+ "sec_name": "AMERICAN\u00a0EXCEPTIONALISM\u00a0ACQUISITION\u00a0CORP.\u00a0A",
  "sic": "6770",
  "sic_description": "Blank Checks",
  "splits": [],
@@ -263,22 +280,22 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -1463535
+   "val": 11754843
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -728431
+   "val": -544871
   }
  },
  "v2_annual": [],
@@ -454,6 +471,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 0,
+   "cash_and_sti": 0,
+   "end": "2026-09-30",
+   "equity": -20803529,
+   "net_income": 2794869,
+   "operating_cash_flow": -137087,
+   "src": {
+    "cash": {
+     "accn": "0001193125-26-460840",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001193125-26-460840",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001193125-26-460840",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-460840",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1135885,
-  "end": "2026-06-30",
-  "equity": -11183063
+  "cash_and_sti": 1107915,
+  "end": "2026-09-30",
+  "equity": -11305705
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-087876",
-  "filed": "2026-08-11",
+  "accn": "0001213900-26-119675",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 210066216.0,
+  "assets": 211924841.0,
   "classes": {
    "CommonClassAMember": 20857000.0,
    "CommonClassBMember": 5158000.0
   },
-  "cover_accession": "0001213900-26-087876",
-  "cover_date": "2026-08-11",
+  "cover_accession": "0001213900-26-119675",
+  "cover_date": "2026-11-13",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -153,6 +153,25 @@
    "total_equity": -11183063,
    "total_equity_parent": -11183063,
    "total_liabilities": 12499400
+  },
+  {
+   "cash": 1107915,
+   "current_assets": 1218238,
+   "current_liabilities": 173701,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "income_tax": 0,
+   "net_income": 1805124,
+   "net_income_parent": 1805124,
+   "operating_cash_flow": -27970,
+   "operating_income": -122642,
+   "period_end": "2026-09-30",
+   "retained_earnings": -11306244,
+   "stock_comp": 0,
+   "total_assets": 211924841,
+   "total_equity": -11305705,
+   "total_equity_parent": -11305705,
+   "total_liabilities": 12552901
   }
  ],
  "sec_name": "TRG Latin America Acquisitions Corp.",
@@ -320,6 +339,50 @@
     }
    },
    "start": "2026-04-01",
+   "stock_comp": 0
+  },
+  {
+   "cash": 1107915,
+   "cash_and_sti": 1107915,
+   "end": "2026-09-30",
+   "equity": -11305705,
+   "net_income": 1805124,
+   "operating_cash_flow": -27970,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-119675",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-119675",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-119675",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-119675",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "stock_comp": {
+     "accn": "0001213900-26-119675",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
    "stock_comp": 0
   }
  ],

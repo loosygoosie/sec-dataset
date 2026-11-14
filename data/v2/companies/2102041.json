@@ -67,16 +67,16 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1754303,
+  "cash_and_sti": 1341865,
   "debt_current": 0,
-  "end": "2026-06-30",
-  "equity": -10863013,
+  "end": "2026-09-30",
+  "equity": -1777960,
   "total_debt": 0
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -94,20 +94,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-091724",
-  "filed": "2026-08-19",
+  "accn": "0001213900-26-119683",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 257887965.0,
+  "assets": 270207081.0,
   "classes": {
    "CommonClassAMember": 25300000.0,
    "CommonClassBMember": 8433333.0
   },
-  "cover_accession": "0001213900-26-091724",
-  "cover_date": "2026-08-19",
+  "cover_accession": "0001213900-26-119683",
+  "cover_date": "2026-11-13",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -164,6 +164,30 @@
    "total_equity": -10863013,
    "total_equity_parent": -10863013,
    "total_liabilities": 13973888
+  },
+  {
+   "cash": 1341865,
+   "current_assets": 13001737,
+   "current_liabilities": 2810132,
+   "debt_current": 0,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "net_income": 11437872,
+   "net_income_parent": 11437872,
+   "operating_cash_flow": -2689528,
+   "operating_income": -1346947,
+   "period_end": "2026-09-30",
+   "pretax_income": 10337599,
+   "retained_earnings": -1778803,
+   "short_term_borrowings": 0,
+   "stock_comp": 0,
+   "total_assets": 270207081,
+   "total_debt": 0,
+   "total_debt_basis": "components_partial",
+   "total_debt_filed": "2026-11-13",
+   "total_equity": -1777960,
+   "total_equity_parent": -1777960,
+   "total_liabilities": 14855132
   }
  ],
  "sec_name": "INFLECTION POINT ACQUISITION CORP. VI",
@@ -217,7 +241,7 @@
   "payments_for_intangibles": null,
   "pension_funded_status": null,
   "premiums_earned": null,
-  "pretax_income": null,
+  "pretax_income": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
   "rd_expense": null,
   "receivables": null,
   "retained_earnings": "RetainedEarningsAccumulatedDeficit",
@@ -256,6 +280,13 @@
    "field": "debt_current",
    "old": null,
    "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 0
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
    "rows": "quarterly",
    "v2": 0
   }
@@ -369,6 +400,62 @@
     }
    },
    "start": "2026-04-01",
+   "stock_comp": 0,
+   "total_debt": 0
+  },
+  {
+   "cash": 1341865,
+   "cash_and_sti": 1341865,
+   "debt_current": 0,
+   "end": "2026-09-30",
+   "equity": -1777960,
+   "net_income": 11437872,
+   "operating_cash_flow": -2689528,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-119683",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-119683",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-119683",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-119683",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "stock_comp": {
+     "accn": "0001213900-26-119683",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-13",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBorrowings"
+     ],
+     "values": {
+      "ShortTermBorrowings": 0
+     }
+    }
+   },
+   "start": "2026-07-01",
    "stock_comp": 0,
    "total_debt": 0
   }

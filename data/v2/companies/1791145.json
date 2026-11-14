@@ -212,16 +212,16 @@
   "total_liabilities": 2
  },
  "balance": {
-  "cash_and_sti": 141329000,
-  "debt_current": 0,
-  "end": "2026-06-30",
-  "equity": 172810000,
-  "total_debt": 0
+  "cash_and_sti": 113340000,
+  "debt_current": 60000000,
+  "end": "2026-09-30",
+  "equity": 175379000,
+  "total_debt": 60000000
  },
  "bank": true,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -231,31 +231,30 @@
  "cik": 1791145,
  "fiscal_year_end": "1231",
  "flags": [
-  "no_debt_tagged",
   "debt_one_side_only"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001193125-26-349269",
-  "filed": "2026-08-13",
+  "accn": "0001193125-26-461040",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 1431702000.0,
+  "assets": 1456591000.0,
   "classes": {
-   "common": 14516457.0
+   "common": 14571526.0
   },
-  "cover_accession": "0001193125-26-349269",
-  "cover_date": "2026-08-07",
+  "cover_accession": "0001193125-26-461040",
+  "cover_date": "2026-09-30",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-30",
   "note": null,
   "public_float": 330600000.0,
   "revenue": 1235000000.0,
-  "shares_cover": 14516457.0,
-  "shares_total": 14516457.0,
+  "shares_cover": 14571526.0,
+  "shares_total": 14571526.0,
   "size_gate": "revenue"
  },
  "name": "GBank Financial Holdings Inc.",
@@ -475,7 +474,7 @@
    "d_and_a": 59000,
    "deposits": 1092177000,
    "eps_diluted": 0.3,
-   "filed": "2025-11-12",
+   "filed": "2026-11-13",
    "form": "10-Q",
    "income_tax": 1282000,
    "interest_income": 21622000,
@@ -494,7 +493,7 @@
    "shares_diluted": 14525422,
    "shares_diluted_adj": 14525422,
    "shares_diluted_filled": 14525422,
-   "shares_diluted_filled_filed": "2025-11-12",
+   "shares_diluted_filled_filed": "2026-11-13",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 14287776,
    "stock_comp": 523000,
@@ -627,6 +626,47 @@
    "total_equity": 172810000,
    "total_equity_parent": 172810000,
    "total_liabilities": 1258892000
+  },
+  {
+   "capex": -5000,
+   "capex_filed": "2026-11-13",
+   "cash": 113340000,
+   "credit_loss_provision": 2646000,
+   "d_and_a": 138000,
+   "debt_current": 60000000,
+   "deposits": 1163928000,
+   "eps_diluted": 0.27,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "income_tax": 1008000,
+   "interest_income": 23672000,
+   "loans": 1057895000,
+   "net_income": 3853000,
+   "net_income_incl_nci": 3853000,
+   "net_income_parent": 3853000,
+   "net_interest_income": 13614000,
+   "operating_cash_flow": -9196000,
+   "operating_leases": 5191000,
+   "period_end": "2026-09-30",
+   "pretax_income": 4873000,
+   "retained_earnings": 95996000,
+   "revenue": 20340000,
+   "revenue_filed": "2026-11-13",
+   "shares_diluted": 14532208,
+   "shares_diluted_adj": 14532208,
+   "shares_diluted_filled": 14532208,
+   "shares_diluted_filled_filed": "2026-11-13",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 14571526,
+   "short_term_borrowings": 60000000,
+   "stock_comp": 730000,
+   "total_assets": 1456591000,
+   "total_debt": 60000000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-13",
+   "total_equity": 175379000,
+   "total_equity_parent": 175379000,
+   "total_liabilities": 1281212000
   }
  ],
  "sec_name": "GBANK FINANCIAL HOLDINGS INC.",
@@ -693,7 +733,7 @@
   "stock_comp": "AllocatedShareBasedCompensationExpense",
   "tier1_capital_ratio": null,
   "total_assets": "Assets",
-  "total_debt": "LineOfCredit",
+  "total_debt": "DebtInstrumentCarryingAmount,LineOfCredit",
   "total_equity": "StockholdersEquity",
   "total_equity_incl_nci": null,
   "total_equity_parent": "StockholdersEquity",
@@ -705,63 +745,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquireProductiveAssets"
    ],
-   "val": 830000
+   "val": 681000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": 31049000
+   "val": 34206000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 18481000
+   "val": 18026000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": 31879000
+   "val": 34887000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "four_quarters",
    "tags": [
     "InterestIncomeExpenseNet+NoninterestIncome"
    ],
-   "val": 82488000
+   "val": 82653000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 14543745
+   "val": 14532208
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "four_quarters",
    "tags": [
     "AllocatedShareBasedCompensationExpense"
    ],
-   "val": 2184000
+   "val": 2391000
   }
  },
  "v2_annual": [
@@ -949,7 +989,7 @@
   },
   {
    "field": "total_debt",
-   "old": 747000,
+   "old": 658900000,
    "period": "2025-12-31",
    "rows": "annual",
    "v2": 371000
@@ -1033,7 +1073,7 @@
   },
   {
    "field": "total_debt",
-   "old": 747000,
+   "old": 658900000,
    "period": "2025-12-31",
    "rows": "quarterly",
    "v2": 371000
@@ -1086,6 +1126,27 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 0
+  },
+  {
+   "field": "revenue",
+   "old": 23672000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 20340000
+  },
+  {
+   "field": "total_debt",
+   "old": 633200000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 60000000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 60000000
   }
  ],
  "v2_notes": [],
@@ -1788,6 +1849,85 @@
    "start": "2026-04-01",
    "stock_comp": 608000,
    "total_debt": 0
+  },
+  {
+   "capex": -5000,
+   "cash": 113340000,
+   "cash_and_sti": 113340000,
+   "debt_current": 60000000,
+   "end": "2026-09-30",
+   "equity": 175379000,
+   "fcf": -9191000,
+   "net_income": 3853000,
+   "operating_cash_flow": -9196000,
+   "revenue": 20340000,
+   "shares_diluted": 14532208,
+   "src": {
+    "capex": {
+     "accn": "0001193125-26-461040",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireProductiveAssets"
+    },
+    "cash": {
+     "accn": "0001193125-26-461040",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001193125-26-461040",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001193125-26-461040",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-461040",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001193125-26-461040",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "InterestIncomeExpenseNet+NoninterestIncome"
+    },
+    "shares_diluted": {
+     "accn": "0001193125-26-461040",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001193125-26-461040",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "AllocatedShareBasedCompensationExpense"
+    },
+    "total_debt": {
+     "filed": "2026-11-13",
+     "note": "one side only (a floor)",
+     "tags": [
+      "ShortTermBorrowings"
+     ],
+     "values": {
+      "ShortTermBorrowings": 60000000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 730000,
+   "total_debt": 60000000
   }
  ],
  "v2_tags_used": {

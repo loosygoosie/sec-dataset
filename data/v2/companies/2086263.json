@@ -67,15 +67,16 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1798910,
-  "end": "2026-06-30",
-  "equity": 1741594,
+  "cash_and_sti": 1690764,
+  "debt_end": "2026-06-30",
+  "end": "2026-09-30",
+  "equity": 1514144,
   "total_debt": 300000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +92,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-089096",
-  "filed": "2026-08-13",
+  "accn": "0001213900-26-119230",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 259291232.0,
+  "assets": 261537357.0,
   "classes": {
    "CommonClassAMember": 26300000.0,
    "CommonClassBMember": 8433333.0
   },
-  "cover_accession": "0001213900-26-089096",
-  "cover_date": "2026-08-13",
+  "cover_accession": "0001213900-26-119230",
+  "cover_date": "2026-11-13",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-27",
   "note": null,
@@ -179,6 +180,23 @@
    "total_equity": 1741594,
    "total_equity_parent": 1741594,
    "total_liabilities": 302615
+  },
+  {
+   "cash": 1690764,
+   "current_assets": 1843472,
+   "current_liabilities": 83752,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "net_income": 2188508,
+   "net_income_parent": 2188508,
+   "operating_cash_flow": -109034,
+   "operating_income": -227450,
+   "period_end": "2026-09-30",
+   "retained_earnings": 1513201,
+   "total_assets": 261537357,
+   "total_equity": 1514144,
+   "total_equity_parent": 1514144,
+   "total_liabilities": 360232
   }
  ],
  "sec_name": "SOREN ACQUISITION CORP.",
@@ -257,7 +275,17 @@
   "SORNU",
   "SORNW"
  ],
- "ttm": {},
+ "ttm": {
+  "net_income": {
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
+   "method": "four_quarters",
+   "tags": [
+    "NetIncomeLoss"
+   ],
+   "val": 5840258
+  }
+ },
  "v2_annual": [],
  "v2_fixes": [],
  "v2_notes": [],
@@ -383,6 +411,42 @@
    },
    "start": "2026-04-01",
    "total_debt": 300000
+  },
+  {
+   "cash": 1690764,
+   "cash_and_sti": 1690764,
+   "end": "2026-09-30",
+   "equity": 1514144,
+   "net_income": 2188508,
+   "operating_cash_flow": -109034,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-119230",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-119230",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-119230",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-119230",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

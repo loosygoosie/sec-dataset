@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 377377,
-  "end": "2026-06-30",
-  "equity": -7833095
+  "cash_and_sti": 171403,
+  "end": "2026-09-30",
+  "equity": -8100888
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-089650",
-  "filed": "2026-08-14",
+  "accn": "0001213900-26-119815",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 202510576.0,
+  "assets": 204110674.0,
   "classes": {
    "CommonClassAMember": 20000000.0,
    "CommonClassBMember": 5000000.0
   },
-  "cover_accession": "0001213900-26-089650",
-  "cover_date": "2026-08-14",
+  "cover_accession": "0001213900-26-119815",
+  "cover_date": "2026-11-13",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -149,6 +149,23 @@
    "total_equity": -7833095,
    "total_equity_parent": -7833095,
    "total_liabilities": 8533874
+  },
+  {
+   "cash": 171403,
+   "current_assets": 438951,
+   "current_liabilities": 159380,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "net_income": 1562681,
+   "net_income_parent": 1562681,
+   "operating_cash_flow": -179085,
+   "operating_income": -267793,
+   "period_end": "2026-09-30",
+   "retained_earnings": -8101388,
+   "total_assets": 204110674,
+   "total_equity": -8100888,
+   "total_equity_parent": -8100888,
+   "total_liabilities": 8571291
   }
  ],
  "sec_name": "QDRO ACQUISITION CORP.",
@@ -302,6 +319,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 171403,
+   "cash_and_sti": 171403,
+   "end": "2026-09-30",
+   "equity": -8100888,
+   "net_income": 1562681,
+   "operating_cash_flow": -179085,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-119815",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-119815",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-119815",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-119815",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

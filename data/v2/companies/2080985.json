@@ -67,17 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 526042,
-  "debt_current": 8468,
-  "debt_end": "2025-12-31",
-  "end": "2026-06-30",
-  "equity": -9118288,
-  "total_debt": 8468
+  "cash_and_sti": 451052,
+  "end": "2026-09-30",
+  "equity": -9235298
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -89,25 +86,25 @@
  "flags": [
   "no_operating_cash_flow",
   "no_capex",
-  "debt_one_side_only",
+  "no_debt_tagged",
   "no_revenue"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001104659-26-096023",
-  "filed": "2026-08-13",
+  "accn": "0001104659-26-127193",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 235117055.0,
+  "assets": 237100114.0,
   "classes": {
    "CommonClassAMember": 23000000.0,
    "CommonClassBMember": 7666667.0
   },
-  "cover_accession": "0001104659-26-096023",
-  "cover_date": "2026-08-13",
+  "cover_accession": "0001104659-26-127193",
+  "cover_date": "2026-11-13",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -121,12 +118,13 @@
  "quarterly": [
   {
    "cash": 0,
-   "filed": "2026-01-27",
+   "filed": "2026-11-13",
    "form": "10-Q",
    "income_tax": 0,
    "net_income": -37638,
    "net_income_incl_nci": -37638,
    "net_income_parent": -37638,
+   "operating_income": -37638,
    "period_end": "2025-09-30",
    "retained_earnings": -37638,
    "total_assets": 30900,
@@ -142,12 +140,13 @@
    "current_assets": 958865,
    "current_liabilities": 97468,
    "debt_current": 8468,
-   "filed": "2026-08-13",
-   "form": "10-Q (derived from YTD)",
+   "filed": "2026-03-24",
+   "form": "10-K (derived from YTD)",
    "income_tax": 0,
    "net_income": -18406,
    "net_income_incl_nci": -18406,
    "net_income_parent": -18406,
+   "operating_income": -96238,
    "period_end": "2025-12-31",
    "retained_earnings": -8821039,
    "total_assets": 231373278,
@@ -194,6 +193,25 @@
    "total_equity": -9118288,
    "total_equity_parent": -9118288,
    "total_liabilities": 9894414
+  },
+  {
+   "cash": 451052,
+   "current_assets": 644252,
+   "current_liabilities": 104516,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "income_tax": 0,
+   "net_income": 1972957,
+   "net_income_incl_nci": 1972957,
+   "net_income_parent": 1972957,
+   "operating_cash_flow": -74990,
+   "operating_income": -117010,
+   "period_end": "2026-09-30",
+   "retained_earnings": -9236065,
+   "total_assets": 237100114,
+   "total_equity": -9235298,
+   "total_equity_parent": -9235298,
+   "total_liabilities": 9904516
   }
  ],
  "sec_name": "ITHAX ACQUISITION CORP III",
@@ -274,13 +292,13 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 3690787
+   "val": 5701382
   }
  },
  "v2_annual": [],
@@ -451,6 +469,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 451052,
+   "cash_and_sti": 451052,
+   "end": "2026-09-30",
+   "equity": -9235298,
+   "net_income": 1972957,
+   "operating_cash_flow": -74990,
+   "src": {
+    "cash": {
+     "accn": "0001104659-26-127193",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001104659-26-127193",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001104659-26-127193",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001104659-26-127193",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

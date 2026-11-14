@@ -68,13 +68,13 @@
  },
  "balance": {
   "cash_and_sti": 0,
-  "end": "2026-06-30",
-  "equity": -15807359
+  "end": "2026-09-30",
+  "equity": -16051504
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -90,20 +90,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001193125-26-349239",
-  "filed": "2026-08-13",
+  "accn": "0001193125-26-460644",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 474170404.0,
+  "assets": 478540519.0,
   "classes": {
    "ClassAOrdinarySharesMember": 46900000.0,
    "CommonClassBMember": 11500000.0
   },
-  "cover_accession": "0001193125-26-349239",
-  "cover_date": "2026-08-11",
+  "cover_accession": "0001193125-26-460644",
+  "cover_date": "2026-11-10",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-20",
   "note": null,
@@ -119,8 +119,8 @@
    "cash": 0,
    "filed": "2026-08-13",
    "form": "10-Q",
-   "net_income": -50568,
-   "net_income_parent": -50568,
+   "net_income": -29960,
+   "net_income_parent": -29960,
    "operating_cash_flow": 0,
    "operating_income": -50568,
    "period_end": "2025-06-30",
@@ -130,7 +130,7 @@
   {
    "cash": 0,
    "current_assets": 2000000,
-   "filed": "2025-11-14",
+   "filed": "2026-11-13",
    "form": "10-Q",
    "net_income": -20600,
    "net_income_parent": -20600,
@@ -149,8 +149,8 @@
    "current_liabilities": 291711,
    "filed": "2026-03-20",
    "form": "10-K (derived from YTD)",
-   "net_income": 4330753,
-   "net_income_parent": 4330753,
+   "net_income": 4310145,
+   "net_income_parent": 4310145,
    "operating_cash_flow": -543284,
    "operating_income": -317330,
    "period_end": "2025-12-31",
@@ -193,6 +193,23 @@
    "total_equity": -15807359,
    "total_equity_parent": -15807359,
    "total_liabilities": 16755874
+  },
+  {
+   "cash": 0,
+   "current_assets": 868565,
+   "current_liabilities": 820069,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "net_income": 4205920,
+   "net_income_parent": 4205920,
+   "operating_cash_flow": -27046,
+   "operating_income": -244145,
+   "period_end": "2026-09-30",
+   "retained_earnings": -16052744,
+   "total_assets": 478540519,
+   "total_equity": -16051504,
+   "total_equity_parent": -16051504,
+   "total_liabilities": 16920069
   }
  ],
  "sec_name": "Bain Capital GSS Investment Corp.",
@@ -273,22 +290,22 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 12275798
+   "val": 16502318
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -807029
+   "val": -834075
   }
  },
  "v2_annual": [],
@@ -473,6 +490,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 0,
+   "cash_and_sti": 0,
+   "end": "2026-09-30",
+   "equity": -16051504,
+   "net_income": 4205920,
+   "operating_cash_flow": -27046,
+   "src": {
+    "cash": {
+     "accn": "0001193125-26-460644",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001193125-26-460644",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001193125-26-460644",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-460644",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

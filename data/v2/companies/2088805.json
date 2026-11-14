@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1087184,
-  "end": "2026-06-30",
-  "equity": -264279
+  "cash_and_sti": 613400,
+  "end": "2026-09-30",
+  "equity": -1609120
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 101,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-091771",
-  "filed": "2026-08-19",
+  "accn": "0001213900-26-119889",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 234438667.0,
+  "assets": 236035492.0,
   "classes": {
    "CommonClassAMember": 23665000.0,
    "CommonClassBMember": 7666667.0
   },
-  "cover_accession": "0001213900-26-091771",
-  "cover_date": "2026-08-19",
+  "cover_accession": "0001213900-26-119889",
+  "cover_date": "2026-11-13",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-30",
   "note": null,
@@ -123,8 +123,32 @@
    "net_income_parent": -4644,
    "operating_income": -4644,
    "period_end": "2025-06-30",
-   "total_equity": -20356,
-   "total_equity_parent": -20356
+   "total_equity": 20356,
+   "total_equity_parent": 20356
+  },
+  {
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "net_income": -10419,
+   "net_income_parent": -10419,
+   "operating_income": -10419,
+   "period_end": "2025-09-30",
+   "total_equity": 9937,
+   "total_equity_parent": 9937
+  },
+  {
+   "current_assets": 6013,
+   "filed": "2026-03-30",
+   "form": "10-K (derived from YTD)",
+   "net_income": -31001,
+   "net_income_parent": -31001,
+   "operating_income": -31001,
+   "period_end": "2025-12-31",
+   "retained_earnings": -46064,
+   "total_assets": 153984,
+   "total_equity": -21064,
+   "total_equity_parent": -21064,
+   "total_liabilities": 175048
   },
   {
    "cash": 1187974,
@@ -157,9 +181,25 @@
    "total_equity": -264279,
    "total_equity_parent": -264279,
    "total_liabilities": 1605114
+  },
+  {
+   "cash": 613400,
+   "current_assets": 759943,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "net_income": 785063,
+   "net_income_parent": 785063,
+   "operating_cash_flow": -473784,
+   "operating_income": -1344841,
+   "period_end": "2026-09-30",
+   "retained_earnings": -1609954,
+   "total_assets": 236035492,
+   "total_equity": -1609120,
+   "total_equity_parent": -1609120,
+   "total_liabilities": 2416876
   }
  ],
- "sec_name": "Inflection Point Acquisition Corp. VII",
+ "sec_name": "INFLECTION POINT ACQUISITION CORP. VII",
  "sic": "7373",
  "sic_description": "Services-Computer Integrated Systems Design",
  "splits": [],
@@ -235,19 +275,31 @@
   "IPXGU",
   "IPXGW"
  ],
- "ttm": {},
+ "ttm": {
+  "net_income": {
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
+   "method": "four_quarters",
+   "tags": [
+    "NetIncomeLoss"
+   ],
+   "val": 1973121
+  }
+ },
  "v2_annual": [],
  "v2_fixes": [],
  "v2_notes": [],
  "v2_quarterly": [
   {
    "end": "2025-06-30",
-   "equity": -20356,
+   "equity": 20356,
    "net_income": -4644,
    "src": {
     "equity": {
-     "accn": "0001213900-26-091771",
-     "filed": "2026-08-19",
+     "accn": "0001213900-26-119889",
+     "filed": "2026-11-13",
+     "first_filed": "2026-08-19",
+     "first_val": -20356,
      "form": "10-Q",
      "tag": "StockholdersEquity"
     },
@@ -259,6 +311,47 @@
     }
    },
    "start": "2025-04-03"
+  },
+  {
+   "end": "2025-09-30",
+   "equity": 9937,
+   "net_income": -10419,
+   "src": {
+    "equity": {
+     "accn": "0001213900-26-119889",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-119889",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    }
+   },
+   "start": "2025-07-01"
+  },
+  {
+   "end": "2025-12-31",
+   "equity": -21064,
+   "net_income": -31001,
+   "src": {
+    "equity": {
+     "accn": "0001213900-26-036382",
+     "filed": "2026-03-30",
+     "form": "10-K",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-036382",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-K",
+     "tag": "NetIncomeLoss"
+    }
+   },
+   "start": "2025-10-01"
   },
   {
    "cash": 1187974,
@@ -330,6 +423,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 613400,
+   "cash_and_sti": 613400,
+   "end": "2026-09-30",
+   "equity": -1609120,
+   "net_income": 785063,
+   "operating_cash_flow": -473784,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-119889",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-119889",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-119889",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-119889",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

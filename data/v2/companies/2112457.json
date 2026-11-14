@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1634424,
-  "end": "2026-06-30",
-  "equity": -789950
+  "cash_and_sti": 1080559,
+  "end": "2026-09-30",
+  "equity": -2841818
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-088708",
-  "filed": "2026-08-13",
+  "accn": "0001213900-26-119223",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 77221210.0,
+  "assets": 77290942.0,
   "classes": {
    "CommonClassAMember": 7800000.0,
    "CommonClassBMember": 1875000.0
   },
-  "cover_accession": "0001213900-26-088708",
-  "cover_date": "2026-08-10",
+  "cover_accession": "0001213900-26-119223",
+  "cover_date": "2026-11-11",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -132,6 +132,25 @@
    "total_equity": -789950,
    "total_equity_parent": -789950,
    "total_liabilities": 2721136
+  },
+  {
+   "cash": 1080559,
+   "current_assets": 1239947,
+   "current_liabilities": 329982,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "net_income": -1482711,
+   "net_income_parent": -1482711,
+   "operating_cash_flow": -353865,
+   "operating_cash_flow_filed": "2026-11-13",
+   "operating_income": -2177118,
+   "period_end": "2026-09-30",
+   "retained_earnings": -2842036,
+   "stock_comp": 112050,
+   "total_assets": 77290942,
+   "total_equity": -2841818,
+   "total_equity_parent": -2841818,
+   "total_liabilities": 4161529
   }
  ],
  "sec_name": "AMANAT ACQUISITION CORP",
@@ -164,7 +183,7 @@
   "goodwill": null,
   "gross_profit": null,
   "impairments": null,
-  "income_tax": null,
+  "income_tax": "IncomeTaxExpenseBenefit",
   "intangibles": null,
   "interest_expense": null,
   "interest_income": null,
@@ -210,7 +229,15 @@
  ],
  "ttm": {},
  "v2_annual": [],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": -353865
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
   {
@@ -247,6 +274,49 @@
    },
    "start": "2026-04-01",
    "stock_comp": 52290
+  },
+  {
+   "cash": 1080559,
+   "cash_and_sti": 1080559,
+   "end": "2026-09-30",
+   "equity": -2841818,
+   "net_income": -1482711,
+   "operating_cash_flow": -353865,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-119223",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-119223",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-119223",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-119223",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "stock_comp": {
+     "accn": "0001213900-26-119223",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 112050
   }
  ],
  "v2_tags_used": {
@@ -254,7 +324,9 @@
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [],
   "shares_diluted": [],
   "stock_comp": [

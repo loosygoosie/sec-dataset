@@ -67,15 +67,15 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 726504,
-  "end": "2026-06-30",
-  "equity": -6123441,
+  "cash_and_sti": 593780,
+  "end": "2026-09-30",
+  "equity": -6322990,
   "total_debt": 500000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-089303",
-  "filed": "2026-08-14",
+  "accn": "0001213900-26-119731",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 177467547.0,
+  "assets": 178840510.0,
   "classes": {
    "CommonClassAMember": 17795000.0,
    "CommonClassBMember": 5750000.0
   },
-  "cover_accession": "0001213900-26-089303",
-  "cover_date": "2026-08-13",
+  "cover_accession": "0001213900-26-119731",
+  "cover_date": "2026-11-12",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-31",
   "note": null,
@@ -120,7 +120,7 @@
    "current_assets": 9533,
    "current_liabilities": 305586,
    "debt_current": 147055,
-   "filed": "2025-12-22",
+   "filed": "2026-11-13",
    "form": "10-Q",
    "net_income": -29800,
    "net_income_parent": -29800,
@@ -192,6 +192,26 @@
    "total_equity": -6123441,
    "total_equity_parent": -6123441,
    "total_liabilities": 7091337
+  },
+  {
+   "cash": 593780,
+   "current_assets": 776328,
+   "current_liabilities": 211033,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "net_income": 1353267,
+   "net_income_parent": 1353267,
+   "operating_cash_flow": -126873,
+   "operating_income": -199550,
+   "period_end": "2026-09-30",
+   "retained_earnings": -6323620,
+   "total_assets": 178840510,
+   "total_debt": 500000,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-13",
+   "total_equity": -6322990,
+   "total_equity_parent": -6322990,
+   "total_liabilities": 7111033
   }
  ],
  "sec_name": "Tailwind 2.0 Acquisition Corp.",
@@ -272,13 +292,13 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-14",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 3285126
+   "val": 4668193
   },
   "stock_comp": {
    "end": "2026-06-30",
@@ -490,6 +510,52 @@
    },
    "start": "2026-04-01",
    "stock_comp": 0,
+   "total_debt": 500000
+  },
+  {
+   "cash": 593780,
+   "cash_and_sti": 593780,
+   "end": "2026-09-30",
+   "equity": -6322990,
+   "net_income": 1353267,
+   "operating_cash_flow": -126873,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-119731",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-119731",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-119731",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-119731",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "total_debt": {
+     "filed": "2026-11-13",
+     "tags": [
+      "UnsecuredDebt"
+     ],
+     "values": {
+      "UnsecuredDebt": 500000
+     }
+    }
+   },
+   "start": "2026-07-01",
    "total_debt": 500000
   }
  ],

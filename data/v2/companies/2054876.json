@@ -99,14 +99,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 106746,
-  "end": "2026-06-30",
-  "equity": 69658
+  "cash_and_sti": 16965,
+  "end": "2026-09-30",
+  "equity": -385706
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -123,20 +123,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-089213",
-  "filed": "2026-08-13",
+  "accn": "0001213900-26-119846",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 119466308.0,
+  "assets": 120274717.0,
   "classes": {
    "CommonClassAMember": 12137500.0,
    "CommonClassBMember": 3833333.0
   },
-  "cover_accession": "0001213900-26-089213",
-  "cover_date": "2026-08-13",
+  "cover_accession": "0001213900-26-119846",
+  "cover_date": "2026-11-12",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-20",
   "note": null,
@@ -149,7 +149,7 @@
  "name": "NMP Acquisition Corp.",
  "quarterly": [
   {
-   "filed": "2026-08-13",
+   "filed": "2026-11-13",
    "form": "10-Q",
    "net_income": -55567,
    "net_income_parent": -55567,
@@ -162,7 +162,7 @@
    "current_assets": 1354949,
    "current_liabilities": 1728309,
    "eps_diluted": -0.02,
-   "filed": "2026-08-13",
+   "filed": "2026-11-13",
    "form": "10-Q",
    "net_income": -77889,
    "net_income_parent": -77889,
@@ -181,8 +181,8 @@
    "cash": 440824,
    "current_assets": 672177,
    "current_liabilities": 105464,
-   "filed": "2026-03-20",
-   "form": "10-K",
+   "filed": "2026-11-13",
+   "form": "10-Q",
    "net_income": 971953,
    "net_income_parent": 971953,
    "operating_cash_flow": -591637,
@@ -213,7 +213,7 @@
    "cash": 156475,
    "current_assets": 352291,
    "current_liabilities": 404198,
-   "filed": "2026-08-13",
+   "filed": "2026-11-13",
    "form": "10-Q",
    "net_income": 593067,
    "net_income_parent": 593067,
@@ -228,7 +228,7 @@
    "cash": 106746,
    "current_assets": 254391,
    "current_liabilities": 434733,
-   "filed": "2026-08-13",
+   "filed": "2026-11-13",
    "form": "10-Q",
    "net_income": 768616,
    "net_income_parent": 768616,
@@ -238,6 +238,23 @@
    "total_assets": 119466308,
    "total_equity": 69658,
    "total_equity_parent": 69658
+  },
+  {
+   "cash": 16965,
+   "current_assets": 123939,
+   "current_liabilities": 609645,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "net_income": 633497,
+   "net_income_parent": 633497,
+   "operating_cash_flow": -239781,
+   "period_end": "2026-09-30",
+   "retained_earnings": -386153,
+   "total_assets": 120274717,
+   "total_debt": 82000000,
+   "total_debt_basis": "tagged",
+   "total_equity": -385706,
+   "total_equity_parent": -385706
   }
  ],
  "sec_name": "NMP Acquisition Corp.",
@@ -304,7 +321,7 @@
   "stock_comp": null,
   "tier1_capital_ratio": null,
   "total_assets": "Assets",
-  "total_debt": null,
+  "total_debt": "LineOfCredit",
   "total_equity": "StockholdersEquity",
   "total_equity_incl_nci": null,
   "total_equity_parent": "StockholdersEquity",
@@ -318,22 +335,22 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 3273815
+   "val": 2935359
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -1079375
+   "val": -727519
   },
   "shares_diluted": {
    "end": "2025-06-30",
@@ -598,6 +615,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 16965,
+   "cash_and_sti": 16965,
+   "end": "2026-09-30",
+   "equity": -385706,
+   "net_income": 633497,
+   "operating_cash_flow": -239781,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-119846",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-119846",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-119846",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-119846",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

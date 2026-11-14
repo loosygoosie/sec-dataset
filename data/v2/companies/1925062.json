@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 834716000,
-  "end": "2026-06-30",
-  "equity": 967163000
+  "cash_and_sti": 848959000,
+  "end": "2026-09-30",
+  "equity": 991749000
  },
  "bank": true,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001925062-26-000023",
-  "filed": "2026-08-13",
+  "accn": "0001925062-26-000046",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 8505504000.0,
+  "assets": 9624350000.0,
   "classes": {
-   "CommonClassAMember": 30016203.0,
-   "CommonClassBMember": 20748177.0
+   "CommonClassAMember": 33601078.0,
+   "CommonClassBMember": 17163302.0
   },
-  "cover_accession": "0001925062-26-000023",
-  "cover_date": "2026-08-10",
+  "cover_accession": "0001925062-26-000046",
+  "cover_date": "2026-11-09",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -135,6 +135,29 @@
    "total_equity_parent": 752296000
   },
   {
+   "capex": 0,
+   "capex_filed": "2026-11-13",
+   "cash": 630216000,
+   "credit_loss_provision": 4762000,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "income_tax": 9969000,
+   "interest_income": 139769000,
+   "net_income": 32096000,
+   "net_income_incl_nci": 32096000,
+   "net_income_parent": 32096000,
+   "net_interest_income": 73193000,
+   "operating_cash_flow": -11557000,
+   "operating_cash_flow_filed": "2026-11-13",
+   "period_end": "2025-09-30",
+   "pretax_income": 42065000,
+   "revenue": 97329000,
+   "revenue_filed": "2026-11-13",
+   "stock_comp": 2300000,
+   "total_equity": 789773000,
+   "total_equity_parent": 789773000
+  },
+  {
    "cash": 834716000,
    "credit_loss_provision": 5899000,
    "deposits": 7265835000,
@@ -159,6 +182,37 @@
    "total_equity": 967163000,
    "total_equity_parent": 967163000,
    "total_liabilities": 7538341000
+  },
+  {
+   "capex": 0,
+   "capex_filed": "2026-11-13",
+   "cash": 848959000,
+   "credit_loss_provision": 1499000,
+   "deposits": 7610670000,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "goodwill": 18519000,
+   "income_tax": 8465000,
+   "intangibles": 16933000,
+   "interest_income": 147338000,
+   "loans": 6107883000,
+   "net_income": 20623000,
+   "net_income_incl_nci": 20708000,
+   "net_income_parent": 20623000,
+   "net_interest_income": 71952000,
+   "operating_cash_flow": 17690000,
+   "operating_cash_flow_filed": "2026-11-13",
+   "operating_leases": 5912000,
+   "period_end": "2026-09-30",
+   "pretax_income": 29173000,
+   "retained_earnings": 365205000,
+   "revenue": 101052000,
+   "revenue_filed": "2026-11-13",
+   "stock_comp": 4400000,
+   "total_assets": 9624350000,
+   "total_equity": 991749000,
+   "total_equity_parent": 991749000,
+   "total_liabilities": 8629716000
   }
  ],
  "sec_name": "Forbright, Inc.",
@@ -202,8 +256,8 @@
   "loss_reserves": null,
   "lt_debt_current": null,
   "lt_debt_noncurrent": null,
-  "net_income": "NetIncomeLoss",
-  "net_income_incl_nci": null,
+  "net_income": "NetIncomeLoss,ProfitLoss",
+  "net_income_incl_nci": "ProfitLoss",
   "net_income_parent": "NetIncomeLoss",
   "net_interest_income": "InterestIncomeExpenseNet",
   "operating_cash_flow": "NetCashProvidedByUsedInOperatingActivities",
@@ -247,10 +301,52 @@
   },
   {
    "field": "revenue",
+   "old": 139769000,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": 97329000
+  },
+  {
+   "field": "capex",
+   "old": null,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": 0
+  },
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": -11557000
+  },
+  {
+   "field": "revenue",
    "old": 129064000,
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 84991000
+  },
+  {
+   "field": "revenue",
+   "old": 147338000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 101052000
+  },
+  {
+   "field": "capex",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 0
+  },
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 17690000
   }
  ],
  "v2_notes": [],
@@ -298,6 +394,66 @@
    "stock_comp": 2200000
   },
   {
+   "capex": 0,
+   "cash": 630216000,
+   "cash_and_sti": 630216000,
+   "end": "2025-09-30",
+   "equity": 789773000,
+   "fcf": -11557000,
+   "net_income": 32096000,
+   "operating_cash_flow": -11557000,
+   "revenue": 97329000,
+   "src": {
+    "capex": {
+     "accn": "0001925062-26-000046",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001925062-26-000046",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001925062-26-000046",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001925062-26-000046",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001925062-26-000046",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001925062-26-000046",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "InterestIncomeExpenseNet+NoninterestIncome"
+    },
+    "stock_comp": {
+     "accn": "0001925062-26-000046",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2025-07-01",
+   "stock_comp": 2289000
+  },
+  {
    "cash": 834716000,
    "cash_and_sti": 834716000,
    "end": "2026-06-30",
@@ -338,20 +494,85 @@
    },
    "start": "2026-04-01",
    "stock_comp": 4500000
+  },
+  {
+   "capex": 0,
+   "cash": 848959000,
+   "cash_and_sti": 848959000,
+   "end": "2026-09-30",
+   "equity": 991749000,
+   "fcf": 17690000,
+   "net_income": 20623000,
+   "operating_cash_flow": 17690000,
+   "revenue": 101052000,
+   "src": {
+    "capex": {
+     "accn": "0001925062-26-000046",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001925062-26-000046",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001925062-26-000046",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001925062-26-000046",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001925062-26-000046",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001925062-26-000046",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "InterestIncomeExpenseNet+NoninterestIncome"
+    },
+    "stock_comp": {
+     "accn": "0001925062-26-000046",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 4429000
   }
  ],
  "v2_tags_used": {
-  "capex": [],
+  "capex": [
+   "PaymentsToAcquirePropertyPlantAndEquipment"
+  ],
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [
    "InterestIncomeExpenseNet+NoninterestIncome"
   ],
   "shares_diluted": [],
   "stock_comp": [
-   "AllocatedShareBasedCompensationExpense"
+   "AllocatedShareBasedCompensationExpense",
+   "ShareBasedCompensation"
   ]
  }
 }

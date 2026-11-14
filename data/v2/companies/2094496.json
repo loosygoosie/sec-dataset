@@ -66,68 +66,137 @@
   "total_equity_parent": 0,
   "total_liabilities": 0
  },
- "balance": {},
+ "balance": {
+  "cash_and_sti": 298870517,
+  "debt_noncurrent": 0,
+  "end": "2026-09-30",
+  "equity": 332993290,
+  "total_debt": 0
+ },
  "bank": false,
  "checks": {
-  "latest_quarter_end": null,
-  "quarter_age_days": null,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
-  "share_scale": "n/a",
-  "shares": "none"
+  "share_scale": "ok",
+  "shares": "ok"
  },
  "cik": 2094496,
  "fiscal_year_end": "1231",
  "flags": [
   "no_operating_cash_flow",
   "no_capex",
+  "no_debt_tagged",
+  "debt_one_side_only",
   "no_revenue"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001628280-26-056788",
-  "filed": "2026-08-13",
+  "accn": "0001628280-26-073910",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 1.0,
+  "assets": 468013493.0,
   "classes": {
-   "common": 163265685.0
+   "common": 163536181.0
   },
-  "cover_accession": "0001628280-26-056788",
-  "cover_date": "2026-08-13",
+  "cover_accession": "0001628280-26-073910",
+  "cover_date": "2026-11-13",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 163265685.0,
-  "shares_total": 163265685.0,
+  "shares_cover": 163536181.0,
+  "shares_total": 163536181.0,
   "size_gate": "no_float"
  },
  "name": "Securitize Corp.",
- "quarterly": [],
- "sec_name": "Securitize Corp.",
+ "quarterly": [
+  {
+   "cash": 17379037,
+   "credit_loss_provision": 108877,
+   "eps_diluted": -0.09,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "impairments": 4122926,
+   "income_tax": 81138,
+   "interest_expense": 2029981,
+   "net_income": 4085884,
+   "net_income_incl_nci": 4085884,
+   "net_income_parent": 4085884,
+   "operating_income": 1575970,
+   "period_end": "2025-09-30",
+   "pretax_income": 8678821,
+   "revenue": 16500042,
+   "revenue_filed": "2026-11-13",
+   "shares_diluted": 53028921,
+   "shares_diluted_adj": 53028921,
+   "shares_diluted_filled": 53028921,
+   "shares_diluted_filled_filed": "2026-11-13",
+   "shares_diluted_filled_source": "shares_diluted",
+   "total_equity": -106648744,
+   "total_equity_incl_nci": -106648744
+  },
+  {
+   "cash": 298870517,
+   "credit_loss_provision": 341259,
+   "current_assets": 404220055,
+   "current_liabilities": 29898349,
+   "eps_diluted": -0.41,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "goodwill": 26365270,
+   "income_tax": 44090,
+   "interest_expense": 0,
+   "lt_debt_noncurrent": 0,
+   "net_income": -66146567,
+   "net_income_incl_nci": -66263756,
+   "net_income_parent": -66146567,
+   "operating_income": -23572563,
+   "period_end": "2026-09-30",
+   "pretax_income": -66219666,
+   "retained_earnings": -261271259,
+   "revenue": 18610270,
+   "revenue_filed": "2026-11-13",
+   "shares_diluted": 161493354,
+   "shares_diluted_adj": 161493354,
+   "shares_diluted_filled": 161493354,
+   "shares_diluted_filled_filed": "2026-11-13",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 163496850,
+   "total_assets": 468013493,
+   "total_debt": 0,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-13",
+   "total_equity": 332993290,
+   "total_equity_incl_nci": 332993290,
+   "total_liabilities": 130436402
+  }
+ ],
+ "sec_name": "SECURITIZE CORP.",
  "sic": "6199",
  "sic_description": "Finance Services",
  "splits": [],
  "tags_used": {
   "acquisition_cost_amort": null,
-  "acquisitions": null,
+  "acquisitions": "PaymentsToAcquireBusinessesNetOfCashAcquired",
   "buybacks": null,
-  "capex": null,
+  "capex": "PaymentsToAcquireProductiveAssets",
   "capitalized_software": null,
-  "cash": "CashAndCashEquivalentsAtCarryingValue",
+  "cash": "CashAndCashEquivalentsAtCarryingValue,CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
   "cash_and_short_term_investments": null,
   "claims_incurred": null,
   "commercial_paper": null,
-  "credit_loss_provision": null,
-  "current_assets": null,
-  "current_liabilities": null,
-  "d_and_a": null,
+  "credit_loss_provision": "ProvisionForLoanLeaseAndOtherLosses",
+  "current_assets": "AssetsCurrent",
+  "current_liabilities": "LiabilitiesCurrent",
+  "d_and_a": "DepreciationDepletionAndAmortization",
   "debt_current": null,
   "debt_current_total": null,
   "debt_due_1y": null,
@@ -135,14 +204,14 @@
   "debt_due_3y": null,
   "deposits": null,
   "dividends_paid": null,
-  "eps_diluted": null,
+  "eps_diluted": "EarningsPerShareDiluted",
   "finance_lease_liabilities": null,
-  "goodwill": null,
+  "goodwill": "Goodwill",
   "gross_profit": null,
-  "impairments": null,
-  "income_tax": null,
+  "impairments": "GoodwillImpairmentLoss",
+  "income_tax": "IncomeTaxExpenseBenefit",
   "intangibles": null,
-  "interest_expense": null,
+  "interest_expense": "InterestExpenseNonoperating",
   "interest_income": null,
   "inventory": null,
   "loan_loss_allowance": null,
@@ -150,33 +219,33 @@
   "long_term_investments": null,
   "loss_reserves": null,
   "lt_debt_current": null,
-  "lt_debt_noncurrent": null,
-  "net_income": null,
-  "net_income_incl_nci": null,
-  "net_income_parent": null,
+  "lt_debt_noncurrent": "LongTermDebtNoncurrent",
+  "net_income": "NetIncomeLoss,ProfitLoss,NetIncomeLossAvailableToCommonStockholdersBasic",
+  "net_income_incl_nci": "ProfitLoss",
+  "net_income_parent": "NetIncomeLoss,NetIncomeLossAvailableToCommonStockholdersBasic",
   "net_interest_income": null,
-  "operating_cash_flow": null,
-  "operating_income": null,
+  "operating_cash_flow": "NetCashProvidedByUsedInOperatingActivities,NetCashProvidedByUsedInOperatingActivitiesContinuingOperations",
+  "operating_income": "OperatingIncomeLoss",
   "operating_leases": null,
   "payments_for_intangibles": null,
   "pension_funded_status": null,
   "premiums_earned": null,
-  "pretax_income": null,
+  "pretax_income": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
   "rd_expense": null,
   "receivables": null,
-  "retained_earnings": null,
-  "revenue": null,
+  "retained_earnings": "RetainedEarningsAccumulatedDeficit",
+  "revenue": "RevenueFromContractWithCustomerExcludingAssessedTax",
   "sga_expense": null,
-  "shares_diluted": null,
+  "shares_diluted": "WeightedAverageNumberOfDilutedSharesOutstanding,WeightedAverageNumberOfSharesOutstandingBasic",
   "shares_outstanding": "dei:EntityCommonStockSharesOutstanding,CommonStockSharesOutstanding",
   "short_term_borrowings": null,
   "short_term_investments": null,
-  "stock_comp": null,
+  "stock_comp": "ShareBasedCompensation,AllocatedShareBasedCompensationExpense",
   "tier1_capital_ratio": null,
   "total_assets": "Assets",
-  "total_debt": null,
-  "total_equity": "StockholdersEquity",
-  "total_equity_incl_nci": null,
+  "total_debt": "LongTermDebt",
+  "total_equity": "StockholdersEquity,StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+  "total_equity_incl_nci": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
   "total_equity_parent": "StockholdersEquity",
   "total_liabilities": "Liabilities"
  },
@@ -184,17 +253,130 @@
  "tickers": [
   "SECZ"
  ],
- "ttm": {},
+ "ttm": {
+  "shares_diluted": {
+   "end": "2026-09-30",
+   "filed": "2026-11-13",
+   "method": "latest_quarter",
+   "tags": [
+    "WeightedAverageNumberOfDilutedSharesOutstanding"
+   ],
+   "val": 161493354
+  }
+ },
  "v2_annual": [],
  "v2_fixes": [],
  "v2_notes": [],
- "v2_quarterly": [],
+ "v2_quarterly": [
+  {
+   "cash": 17379037,
+   "cash_and_sti": 17379037,
+   "end": "2025-09-30",
+   "equity": -106648744,
+   "net_income": 4085884,
+   "revenue": 16500042,
+   "shares_diluted": 53028921,
+   "src": {
+    "cash": {
+     "accn": "0001628280-26-073910",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001628280-26-073910",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+    },
+    "net_income": {
+     "accn": "0001628280-26-073910",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "revenue": {
+     "accn": "0001628280-26-073910",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001628280-26-073910",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    }
+   },
+   "start": "2025-07-01"
+  },
+  {
+   "cash": 298870517,
+   "cash_and_sti": 298870517,
+   "debt_noncurrent": 0,
+   "end": "2026-09-30",
+   "equity": 332993290,
+   "net_income": -66146567,
+   "revenue": 18610270,
+   "shares_diluted": 161493354,
+   "src": {
+    "cash": {
+     "accn": "0001628280-26-073910",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001628280-26-073910",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+    },
+    "net_income": {
+     "accn": "0001628280-26-073910",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "revenue": {
+     "accn": "0001628280-26-073910",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001628280-26-073910",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2026-11-13",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LongTermDebtNoncurrent"
+     ],
+     "values": {
+      "LongTermDebtNoncurrent": 0
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "total_debt": 0
+  }
+ ],
  "v2_tags_used": {
   "capex": [],
-  "net_income": [],
+  "net_income": [
+   "NetIncomeLoss"
+  ],
   "operating_cash_flow": [],
-  "revenue": [],
-  "shares_diluted": [],
+  "revenue": [
+   "RevenueFromContractWithCustomerExcludingAssessedTax"
+  ],
+  "shares_diluted": [
+   "WeightedAverageNumberOfDilutedSharesOutstanding"
+  ],
   "stock_comp": []
  }
 }

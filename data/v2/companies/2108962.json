@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1238941,
-  "end": "2026-06-30",
-  "equity": -13551429
+  "cash_and_sti": 477704,
+  "end": "2026-09-30",
+  "equity": -13810122
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 45,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-087292",
-  "filed": "2026-08-10",
+  "accn": "0001213900-26-119780",
+  "filed": "2026-11-13",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 406281674.0,
+  "assets": 409109791.0,
   "classes": {
    "CommonClassAMember": 41155000.0,
    "CommonClassBMember": 5031250.0
   },
-  "cover_accession": "0001213900-26-087292",
-  "cover_date": "2026-08-10",
+  "cover_accession": "0001213900-26-119780",
+  "cover_date": "2026-11-13",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -131,6 +131,24 @@
    "total_equity": -13551429,
    "total_equity_parent": -13551429,
    "total_liabilities": 15089744
+  },
+  {
+   "cash": 477704,
+   "current_assets": 639309,
+   "current_liabilities": 439048,
+   "filed": "2026-11-13",
+   "form": "10-Q",
+   "net_income": 3391313,
+   "net_income_parent": 3391313,
+   "operating_cash_flow": -78536,
+   "operating_cash_flow_filed": "2026-11-13",
+   "operating_income": -258693,
+   "period_end": "2026-09-30",
+   "retained_earnings": -13810716,
+   "total_assets": 409109791,
+   "total_equity": -13810122,
+   "total_equity_parent": -13810122,
+   "total_liabilities": 14526548
   }
  ],
  "sec_name": "GENERAL CATALYST GLOBAL RESILIENCE MERGER CORP.",
@@ -211,7 +229,15 @@
  ],
  "ttm": {},
  "v2_annual": [],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": -78536
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
   {
@@ -241,6 +267,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 477704,
+   "cash_and_sti": 477704,
+   "end": "2026-09-30",
+   "equity": -13810122,
+   "net_income": 3391313,
+   "operating_cash_flow": -78536,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-119780",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-119780",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-119780",
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-119780",
+     "derived": true,
+     "filed": "2026-11-13",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {
@@ -248,7 +310,9 @@
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [],
   "shares_diluted": [],
   "stock_comp": []
