@@ -1,9 +1,9 @@
-# v2 vs data/companies (2026-11-14)
+# v2 vs data/companies (2026-11-15)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
 - companies: 2489; with a difference: 1302
-- by field: capex 104, file 299, revenue 183, shares 652, total_debt 275
+- by field: capex 104, file 297, revenue 183, shares 653, total_debt 275
 
 | ticker | field | period | old | v2 | diff % |
 |---|---|---|---|---|---|
@@ -381,7 +381,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | ERIE | shares | 2026-10-23 | - | 46.2M | - |
 | HRL | shares | 2026-08-23 | - | 0.55B | - |
 | AGNC | total_debt | 2026-09-30 / - | 0 | - | - |
-| AGNC | shares | 2026-07-30 | 1.26B | 1.19B | -6.0 |
 | RYAN | capex | 2025-12-31 | 68.0M | 3.0M | -95.6 |
 | RYAN | shares | 2026-10-26 | - | 0.25B | - |
 | BROS | shares | 2026-11-01 | 0.15B | 0.17B | 13.3 |
@@ -1256,8 +1255,8 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | HACQ | file | - | - | - | - |
 | KEYY | file | - | - | - | - |
 | DBCA | file | - | - | - | - |
-| ATLCL | revenue | 2025-12-31 | 1.97B | 0.56B | -71.7 |
-| ATLCL | total_debt | 2026-09-30 / - | 5.75B | - | - |
+| ATLC | revenue | 2025-12-31 | 1.97B | 0.56B | -71.7 |
+| ATLC | total_debt | 2026-09-30 / - | 5.75B | - | - |
 | CTOS | capex | 2025-12-31 | - | 0.46B | - |
 | IPHX | file | - | - | - | - |
 | HYAC | file | - | - | - | - |
@@ -1302,7 +1301,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | ADAC | file | - | - | - | - |
 | ITHA | file | - | - | - | - |
 | SAAQ | file | - | - | - | - |
-| LEGO | file | - | - | - | - |
+| LEGO | shares | 2026-11-13 | 8.3M | 31.3M | 278.2 |
 | MTAL | file | - | - | - | - |
 | AACO | file | - | - | - | - |
 | TMTS | file | - | - | - | - |
@@ -1423,7 +1422,7 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | QRED | file | - | - | - | - |
 | GLED | file | - | - | - | - |
 | CEPS | shares | 2026-08-14 | - | 14.7M | - |
-| TRAD | file | - | - | - | - |
+| TRAD | shares | 2026-10-27 | 3.1M | 14.6M | 366.6 |
 | ACDC | shares | 2026-11-02 | - | 0.18B | - |
 | OCLT | file | - | - | - | - |
 | ALPX | file | - | - | - | - |
