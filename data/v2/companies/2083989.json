@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 891230,
-  "end": "2026-06-30",
-  "equity": -11896678
+  "cash_and_sti": 765012,
+  "end": "2026-09-30",
+  "equity": -12048772
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -84,27 +84,26 @@
  "cik": 2083989,
  "fiscal_year_end": "1231",
  "flags": [
-  "no_operating_cash_flow",
   "no_capex",
   "no_debt_tagged",
   "no_revenue"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001104659-26-096074",
-  "filed": "2026-08-14",
+  "accn": "0001104659-26-127300",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 304892715.0,
+  "assets": 308358252.0,
   "classes": {
    "CommonClassAMember": 30015000.0,
    "CommonClassBMember": 7503750.0
   },
-  "cover_accession": "0001104659-26-096074",
-  "cover_date": "2026-08-12",
+  "cover_accession": "0001104659-26-127300",
+  "cover_date": "2026-11-10",
   "float_date": "2025-12-31",
   "float_filed": "2026-03-30",
   "note": null,
@@ -151,6 +150,24 @@
    "total_equity": -11896678,
    "total_equity_parent": -11896678,
    "total_liabilities": 12889431
+  },
+  {
+   "cash": 765012,
+   "current_assets": 850304,
+   "current_liabilities": 110076,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "net_income": 3455892,
+   "net_income_incl_nci": 3455892,
+   "net_income_parent": 3455892,
+   "operating_cash_flow": -126218,
+   "operating_income": -152094,
+   "period_end": "2026-09-30",
+   "retained_earnings": -12049522,
+   "total_assets": 308358252,
+   "total_equity": -12048772,
+   "total_equity_parent": -12048772,
+   "total_liabilities": 12899076
   }
  ],
  "sec_name": "ALDABRA 4 LIQUIDITY OPPORTUNITY VEHICLE,\u00a0INC.",
@@ -229,11 +246,79 @@
   "ALOVU",
   "ALOVW"
  ],
- "ttm": {},
+ "ttm": {
+  "net_income": {
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
+   "method": "four_quarters",
+   "tags": [
+    "NetIncomeLoss"
+   ],
+   "val": 6334410
+  },
+  "operating_cash_flow": {
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
+   "method": "four_quarters",
+   "tags": [
+    "NetCashProvidedByUsedInOperatingActivities"
+   ],
+   "val": -1023669
+  }
+ },
  "v2_annual": [],
  "v2_fixes": [],
  "v2_notes": [],
  "v2_quarterly": [
+  {
+   "cash": 23583,
+   "cash_and_sti": 23583,
+   "debt_current": 200000,
+   "end": "2025-12-31",
+   "equity": -53082,
+   "net_income": -9371,
+   "operating_cash_flow": -7191,
+   "src": {
+    "cash": {
+     "accn": "0001104659-26-036353",
+     "filed": "2026-03-30",
+     "form": "10-K",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001104659-26-036353",
+     "filed": "2026-03-30",
+     "form": "10-K",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001104659-26-036353",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-K",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001104659-26-036353",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-K",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "total_debt": {
+     "filed": "2026-03-30",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 200000
+     }
+    }
+   },
+   "start": "2025-10-01",
+   "total_debt": 200000
+  },
   {
    "cash": 1070844,
    "cash_and_sti": 1070844,
@@ -304,6 +389,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 765012,
+   "cash_and_sti": 765012,
+   "end": "2026-09-30",
+   "equity": -12048772,
+   "net_income": 3455892,
+   "operating_cash_flow": -126218,
+   "src": {
+    "cash": {
+     "accn": "0001104659-26-127300",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001104659-26-127300",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001104659-26-127300",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001104659-26-127300",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

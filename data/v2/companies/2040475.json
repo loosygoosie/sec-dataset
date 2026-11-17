@@ -10,6 +10,7 @@
    "current_liabilities": 300864,
    "current_liabilities_as_filed": 300864,
    "current_liabilities_as_filed_filed": "2026-04-15",
+   "debt_current": 0,
    "filed": "2026-04-15",
    "fiscal_year": 2025,
    "net_income": 4187050,
@@ -37,6 +38,8 @@
    "total_assets": 504959837,
    "total_assets_as_filed": 504959837,
    "total_assets_as_filed_filed": "2026-04-15",
+   "total_debt": 0,
+   "total_debt_filed": "2026-11-16",
    "total_equity": -17774827,
    "total_equity_parent": -17774827,
    "total_liabilities": 17800864
@@ -109,16 +112,16 @@
   "total_liabilities": 1
  },
  "balance": {
-  "cash_and_sti": 174974,
+  "cash_and_sti": 118232,
   "debt_current": 450000,
-  "end": "2026-06-30",
-  "equity": -17926751,
+  "end": "2026-09-30",
+  "equity": -18003761,
   "total_debt": 450000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -134,19 +137,19 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-090017",
-  "filed": "2026-08-14",
+  "accn": "0001477932-26-007044",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 514100156.0,
+  "assets": 518717529.0,
   "classes": {
    "common": 63700000.0
   },
-  "cover_accession": "0001213900-26-090017",
-  "cover_date": "2026-08-14",
+  "cover_accession": "0001477932-26-007044",
+  "cover_date": "2026-11-16",
   "float_date": "2025-06-30",
   "float_filed": "2026-04-15",
   "note": null,
@@ -211,7 +214,7 @@
    "cash": 315087,
    "current_assets": 896356,
    "current_liabilities": 677345,
-   "filed": "2025-11-18",
+   "filed": "2026-11-16",
    "form": "10-Q",
    "net_income": -46158,
    "net_income_parent": -46158,
@@ -233,6 +236,7 @@
    "cash": 223,
    "current_assets": 26037,
    "current_liabilities": 300864,
+   "debt_current": 0,
    "filed": "2026-04-15",
    "form": "10-K (derived from YTD)",
    "net_income": 4330608,
@@ -247,6 +251,8 @@
    "shares_diluted_filled_source": "cover",
    "shares_outstanding": 13700000,
    "total_assets": 504959837,
+   "total_debt": 0,
+   "total_debt_filed": "2026-11-16",
    "total_equity": -17774827,
    "total_equity_parent": -17774827,
    "total_liabilities": 17800864
@@ -304,6 +310,31 @@
    "total_equity": -17926751,
    "total_equity_parent": -17926751,
    "total_liabilities": 18144574
+  },
+  {
+   "cash": 118232,
+   "current_assets": 139657,
+   "current_liabilities": 643418,
+   "debt_current": 450000,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "net_income": 4618529,
+   "net_income_parent": 4618529,
+   "operating_cash_flow": -56742,
+   "operating_income": -77010,
+   "period_end": "2026-09-30",
+   "retained_earnings": -18005130,
+   "shares_diluted_adj": 63700000,
+   "shares_diluted_filled": 63700000,
+   "shares_diluted_filled_filed": "2026-11-16",
+   "shares_diluted_filled_source": "cover",
+   "shares_outstanding": 13700000,
+   "total_assets": 518717529,
+   "total_debt": 450000,
+   "total_debt_filed": "2026-11-16",
+   "total_equity": -18003761,
+   "total_equity_parent": -18003761,
+   "total_liabilities": 18143418
   }
  ],
  "sec_name": "DRUGS MADE IN AMERICA ACQUISITION II CORP.",
@@ -384,28 +415,29 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-14",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 13018726
+   "val": 17683413
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-14",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -1280839
+   "val": -646855
   }
  },
  "v2_annual": [
   {
    "cash": 223,
    "cash_and_sti": 223,
+   "debt_current": 0,
    "end": "2025-12-31",
    "equity": -17774827,
    "net_income": 4187050,
@@ -434,12 +466,37 @@
      "filed": "2026-04-15",
      "form": "10-K",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "total_debt": {
+     "filed": "2026-11-16",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 0
+     }
     }
    },
-   "start": "2025-01-01"
+   "start": "2025-01-01",
+   "total_debt": 0
   }
  ],
  "v2_fixes": [
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "annual",
+   "v2": 0
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "annual",
+   "v2": 0
+  },
   {
    "field": "total_debt",
    "old": null,
@@ -455,6 +512,20 @@
    "v2": 250100
   },
   {
+   "field": "total_debt",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": 0
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": 0
+  },
+  {
    "field": "debt_current",
    "old": null,
    "period": "2026-03-31",
@@ -465,6 +536,20 @@
    "field": "debt_current",
    "old": null,
    "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 450000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 450000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
    "rows": "quarterly",
    "v2": 450000
   }
@@ -630,6 +715,7 @@
   {
    "cash": 223,
    "cash_and_sti": 223,
+   "debt_current": 0,
    "end": "2025-12-31",
    "equity": -17774827,
    "net_income": 4330608,
@@ -660,9 +746,20 @@
      "filed": "2026-04-15",
      "form": "10-K",
      "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "total_debt": {
+     "filed": "2026-11-16",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 0
+     }
     }
    },
-   "start": "2025-10-01"
+   "start": "2025-10-01",
+   "total_debt": 0
   },
   {
    "cash": 347720,
@@ -757,6 +854,54 @@
     }
    },
    "start": "2026-04-01",
+   "total_debt": 450000
+  },
+  {
+   "cash": 118232,
+   "cash_and_sti": 118232,
+   "debt_current": 450000,
+   "end": "2026-09-30",
+   "equity": -18003761,
+   "net_income": 4618529,
+   "operating_cash_flow": -56742,
+   "src": {
+    "cash": {
+     "accn": "0001477932-26-007044",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001477932-26-007044",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001477932-26-007044",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001477932-26-007044",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "total_debt": {
+     "filed": "2026-11-16",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 450000
+     }
+    }
+   },
+   "start": "2026-07-01",
    "total_debt": 450000
   }
  ],

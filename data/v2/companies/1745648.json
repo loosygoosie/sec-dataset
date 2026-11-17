@@ -67,16 +67,16 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 172804000,
-  "debt_noncurrent": 40267000,
-  "end": "2026-06-30",
-  "equity": -176181000,
-  "total_debt": 40267000
+  "cash_and_sti": 351826000,
+  "debt_noncurrent": 39059000,
+  "end": "2026-09-30",
+  "equity": 284757000,
+  "total_debt": 39059000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 137,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -93,19 +93,19 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001193125-26-385356",
-  "filed": "2026-09-08",
+  "accn": "0001193125-26-462185",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 195456000.0,
+  "assets": 371490000.0,
   "classes": {
    "common": 41630779.0
   },
-  "cover_accession": "0001193125-26-385356",
-  "cover_date": "2026-09-04",
+  "cover_accession": "0001193125-26-462185",
+  "cover_date": "2026-11-10",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -118,8 +118,8 @@
  "name": "Apnimed, Inc.",
  "quarterly": [
   {
-   "filed": "2026-11-13",
-   "form": "10-Q/A",
+   "filed": "2026-11-16",
+   "form": "10-Q",
    "net_income": -28646000,
    "net_income_parent": -28646000,
    "period_end": "2025-03-31",
@@ -147,8 +147,32 @@
    "total_equity_parent": -345031000
   },
   {
-   "filed": "2026-11-13",
-   "form": "10-Q/A",
+   "cash": 56617000,
+   "eps_diluted": -2.29,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "net_income": -10910000,
+   "net_income_parent": -10910000,
+   "operating_cash_flow": -17275000,
+   "operating_cash_flow_filed": "2026-11-16",
+   "operating_income": -8984000,
+   "period_end": "2025-09-30",
+   "pretax_income": -8721000,
+   "rd_expense": 9754000,
+   "revenue": 8802000,
+   "revenue_filed": "2026-11-16",
+   "shares_diluted": 4768110,
+   "shares_diluted_adj": 4768110,
+   "shares_diluted_filled": 4768110,
+   "shares_diluted_filled_filed": "2026-11-16",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 1226000,
+   "total_equity": -354644000,
+   "total_equity_parent": -354644000
+  },
+  {
+   "filed": "2026-11-16",
+   "form": "10-Q",
    "net_income": 67719000,
    "net_income_parent": 67719000,
    "period_end": "2026-03-31",
@@ -187,6 +211,42 @@
    "total_equity": -176181000,
    "total_equity_parent": -176181000,
    "total_liabilities": 125698000
+  },
+  {
+   "cash": 351826000,
+   "current_assets": 360956000,
+   "current_liabilities": 36963000,
+   "eps_diluted": -1.05,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "lt_debt_noncurrent": 39059000,
+   "net_income": -29524000,
+   "net_income_parent": -29524000,
+   "operating_cash_flow": -21182000,
+   "operating_cash_flow_filed": "2026-11-16",
+   "operating_income": -32205000,
+   "operating_leases": 687000,
+   "period_end": "2026-09-30",
+   "pretax_income": -29524000,
+   "rd_expense": 11812000,
+   "receivables": 588000,
+   "retained_earnings": -233214000,
+   "revenue": 2480000,
+   "revenue_filed": "2026-11-16",
+   "shares_diluted": 28019494,
+   "shares_diluted_adj": 28019494,
+   "shares_diluted_filled": 28019494,
+   "shares_diluted_filled_filed": "2026-11-16",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 41630779,
+   "stock_comp": 6273000,
+   "total_assets": 371490000,
+   "total_debt": 39059000,
+   "total_debt_basis": "components_partial",
+   "total_debt_filed": "2026-11-16",
+   "total_equity": 284757000,
+   "total_equity_parent": 284757000,
+   "total_liabilities": 86733000
   }
  ],
  "sec_name": "Apnimed, Inc.",
@@ -214,7 +274,7 @@
   "debt_due_3y": null,
   "deposits": null,
   "dividends_paid": null,
-  "eps_diluted": null,
+  "eps_diluted": "EarningsPerShareDiluted",
   "finance_lease_liabilities": null,
   "goodwill": null,
   "gross_profit": null,
@@ -265,17 +325,32 @@
  ],
  "ttm": {
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-09-08",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 32353048
+   "val": 28019494
   }
  },
  "v2_annual": [],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2025-09-30",
+   "rows": "quarterly",
+   "v2": -17275000
+  },
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": -21182000
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
   {
@@ -331,6 +406,64 @@
     }
    },
    "start": "2025-04-01"
+  },
+  {
+   "cash": 56617000,
+   "cash_and_sti": 56617000,
+   "end": "2025-09-30",
+   "equity": -354644000,
+   "net_income": -10910000,
+   "operating_cash_flow": -17275000,
+   "revenue": 8802000,
+   "shares_diluted": 4768110,
+   "src": {
+    "cash": {
+     "accn": "0001193125-26-462185",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001193125-26-462185",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001193125-26-462185",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-462185",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001193125-26-462185",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001193125-26-462185",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001193125-26-462185",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2025-07-01",
+   "stock_comp": 1226000
   },
   {
    "end": "2026-03-31",
@@ -405,6 +538,76 @@
    },
    "start": "2026-04-01",
    "total_debt": 40267000
+  },
+  {
+   "cash": 351826000,
+   "cash_and_sti": 351826000,
+   "debt_noncurrent": 39059000,
+   "end": "2026-09-30",
+   "equity": 284757000,
+   "net_income": -29524000,
+   "operating_cash_flow": -21182000,
+   "revenue": 2480000,
+   "shares_diluted": 28019494,
+   "src": {
+    "cash": {
+     "accn": "0001193125-26-462185",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001193125-26-462185",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001193125-26-462185",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-462185",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001193125-26-462185",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001193125-26-462185",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001193125-26-462185",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-16",
+     "note": "one side only (a floor)",
+     "tags": [
+      "LongTermDebtNoncurrent"
+     ],
+     "values": {
+      "LongTermDebtNoncurrent": 39059000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 6273000,
+   "total_debt": 39059000
   }
  ],
  "v2_tags_used": {
@@ -412,13 +615,17 @@
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [
    "Revenues"
   ],
   "shares_diluted": [
    "WeightedAverageNumberOfDilutedSharesOutstanding"
   ],
-  "stock_comp": []
+  "stock_comp": [
+   "ShareBasedCompensation"
+  ]
  }
 }

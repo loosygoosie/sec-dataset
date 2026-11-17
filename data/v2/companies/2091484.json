@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 312210,
-  "end": "2026-06-30",
-  "equity": 560305
+  "cash_and_sti": 177210,
+  "end": "2026-09-30",
+  "equity": 16111
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,19 +91,19 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001829126-26-008878",
-  "filed": "2026-08-14",
+  "accn": "0001829126-26-012504",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 117207426.0,
+  "assets": 117863389.0,
   "classes": {
    "common": 15982500.0
   },
-  "cover_accession": "0001829126-26-008878",
-  "cover_date": "2026-08-14",
+  "cover_accession": "0001829126-26-012504",
+  "cover_date": "2026-11-16",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -160,6 +160,29 @@
    "total_equity": 560305,
    "total_equity_incl_nci": 560305,
    "total_equity_parent": 560305
+  },
+  {
+   "cash": 177210,
+   "current_liabilities": 479268,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "net_income": 518532,
+   "net_income_incl_nci": 518532,
+   "net_income_parent": 518532,
+   "net_interest_income": 1062726,
+   "operating_cash_flow": -135000,
+   "operating_income": -544194,
+   "period_end": "2026-09-30",
+   "retained_earnings": 15663,
+   "shares_diluted_adj": 15982500,
+   "shares_diluted_filled": 15982500,
+   "shares_diluted_filled_filed": "2026-11-16",
+   "shares_diluted_filled_source": "cover",
+   "shares_outstanding": 4482500,
+   "total_assets": 117863389,
+   "total_equity": 16111,
+   "total_equity_incl_nci": 16111,
+   "total_equity_parent": 16111
   }
  ],
  "sec_name": "GalaxyEdge Acquisition Corporation",
@@ -313,6 +336,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 177210,
+   "cash_and_sti": 177210,
+   "end": "2026-09-30",
+   "equity": 16111,
+   "net_income": 518532,
+   "operating_cash_flow": -135000,
+   "src": {
+    "cash": {
+     "accn": "0001829126-26-012504",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001829126-26-012504",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001829126-26-012504",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001829126-26-012504",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

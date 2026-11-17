@@ -67,19 +67,19 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 18856144,
-  "end": "2026-06-30",
-  "equity": 214267174,
-  "total_debt": 4000000
+  "cash_and_sti": 10352692,
+  "end": "2026-09-30",
+  "equity": 114678782,
+  "total_debt": 28900000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
-  "share_scale": "ok",
+  "share_scale": "suspect:levels",
   "shares": "ok"
  },
  "cik": 2080215,
@@ -91,31 +91,52 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-090250",
-  "filed": "2026-08-14",
+  "accn": "0001213900-26-120713",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 232559178.0,
+  "assets": 226212451.0,
   "classes": {
-   "CommonClassAMember": 24029375.0,
+   "CommonClassAMember": 24139576.0,
    "CommonClassBMember": 3157754.0
   },
-  "cover_accession": "0001213900-26-090250",
-  "cover_date": "2026-08-12",
+  "cover_accession": "0001213900-26-120713",
+  "cover_date": "2026-11-13",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 27187129.0,
-  "shares_total": 27187129.0,
+  "shares_cover": 27297330.0,
+  "shares_total": 27297330.0,
   "size_gate": "no_float"
  },
  "name": "StableCoinX Inc.",
  "quarterly": [
+  {
+   "cash": 52419,
+   "eps_diluted": -0.21,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "net_income": -148714,
+   "net_income_parent": -148714,
+   "operating_cash_flow": -247581,
+   "operating_income": -148714,
+   "period_end": "2025-09-30",
+   "pretax_income": -148714,
+   "rd_expense": 1290,
+   "sga_expense": 122299,
+   "shares_diluted": 700000,
+   "shares_diluted_adj": 700000,
+   "shares_diluted_filled": 700000,
+   "shares_diluted_filled_filed": "2026-11-16",
+   "shares_diluted_filled_source": "shares_diluted",
+   "total_equity": 653786,
+   "total_equity_parent": 653786
+  },
   {
    "cash": 18856144,
    "current_assets": 19038337,
@@ -147,6 +168,40 @@
    "total_equity": 214267174,
    "total_equity_parent": 214267174,
    "total_liabilities": 18292004
+  },
+  {
+   "cash": 10352692,
+   "current_assets": 12771432,
+   "current_liabilities": 1983077,
+   "eps_diluted": -4.17,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "intangibles": 689375,
+   "net_income": -100174338,
+   "net_income_parent": -100174338,
+   "operating_cash_flow": -8161798,
+   "operating_cash_flow_filed": "2026-11-16",
+   "operating_income": -1931290,
+   "period_end": "2026-09-30",
+   "pretax_income": -100174338,
+   "rd_expense": 111256,
+   "retained_earnings": -135080081,
+   "revenue": 477993,
+   "revenue_filed": "2026-11-16",
+   "sga_expense": 2463394,
+   "shares_diluted": 24029383,
+   "shares_diluted_adj": 24029383,
+   "shares_diluted_filled": 24029383,
+   "shares_diluted_filled_filed": "2026-11-16",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 583634,
+   "stock_comp_filed": "2026-11-16",
+   "total_assets": 226212451,
+   "total_debt": 28900000,
+   "total_debt_filed": "2026-11-16",
+   "total_equity": 114678782,
+   "total_equity_parent": 114678782,
+   "total_liabilities": 111533669
   }
  ],
  "sec_name": "StablecoinX Inc.",
@@ -226,13 +281,13 @@
  ],
  "ttm": {
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-14",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 2238201
+   "val": 24029383
   }
  },
  "v2_annual": [],
@@ -243,10 +298,73 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 4000000
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 28900000
+  },
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": -8161798
+  },
+  {
+   "field": "stock_comp",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 583634
   }
  ],
  "v2_notes": [],
  "v2_quarterly": [
+  {
+   "cash": 52419,
+   "cash_and_sti": 52419,
+   "end": "2025-09-30",
+   "equity": 653786,
+   "net_income": -122643,
+   "operating_cash_flow": -247581,
+   "shares_diluted": 700000,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-120713",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-120713",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-120713",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-120713",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "shares_diluted": {
+     "accn": "0001213900-26-120713",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    }
+   },
+   "start": "2025-07-01"
+  },
   {
    "cash": 18856144,
    "cash_and_sti": 18856144,
@@ -305,6 +423,74 @@
    "start": "2026-04-01",
    "stock_comp": 8100,
    "total_debt": 4000000
+  },
+  {
+   "cash": 10352692,
+   "cash_and_sti": 10352692,
+   "end": "2026-09-30",
+   "equity": 114678782,
+   "net_income": -100174338,
+   "operating_cash_flow": -8161798,
+   "revenue": 477993,
+   "shares_diluted": 24029383,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-120713",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-120713",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-120713",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-120713",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001213900-26-120713",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001213900-26-120713",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001213900-26-120713",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-16",
+     "tags": [
+      "ConvertibleNotesPayable"
+     ],
+     "values": {
+      "ConvertibleNotesPayable": 28900000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 583634,
+   "total_debt": 28900000
   }
  ],
  "v2_tags_used": {
@@ -312,7 +498,9 @@
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [
    "Revenues"
   ],
@@ -320,7 +508,8 @@
    "WeightedAverageNumberOfDilutedSharesOutstanding"
   ],
   "stock_comp": [
-   "AllocatedShareBasedCompensationExpense"
+   "AllocatedShareBasedCompensationExpense",
+   "ShareBasedCompensation"
   ]
  }
 }

@@ -229,17 +229,17 @@
   "total_liabilities": 2
  },
  "balance": {
-  "cash_and_sti": 7737601,
-  "debt_current": 53731686,
-  "debt_noncurrent": 3263451,
-  "end": "2026-06-30",
-  "equity": 12058102,
-  "total_debt": 56995137
+  "cash_and_sti": 4296433,
+  "debt_current": 41990434,
+  "debt_noncurrent": 2889657,
+  "end": "2026-09-30",
+  "equity": 9264831,
+  "total_debt": 44880091
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -248,22 +248,24 @@
  },
  "cik": 2067767,
  "fiscal_year_end": "1231",
- "flags": [],
+ "flags": [
+  "stale_stock_comp"
+ ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001493152-26-037815",
-  "filed": "2026-08-13",
+  "accn": "0001493152-26-052445",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 100493104.0,
+  "assets": 86290775.0,
   "classes": {
    "common": 25142895.0
   },
-  "cover_accession": "0001493152-26-037815",
-  "cover_date": "2026-08-13",
+  "cover_accession": "0001493152-26-052445",
+  "cover_date": "2026-11-13",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-31",
   "note": null,
@@ -363,6 +365,7 @@
    "gross_profit": 2676629,
    "interest_expense": 545298,
    "net_income": 289774,
+   "net_income_incl_nci": 289774,
    "net_income_parent": 289774,
    "operating_cash_flow": -5376344,
    "operating_income": 820623,
@@ -377,6 +380,7 @@
    "shares_diluted_filled_filed": "2026-05-14",
    "shares_diluted_filled_source": "shares_diluted",
    "total_equity": 665258,
+   "total_equity_incl_nci": 665258,
    "total_equity_parent": 665258
   },
   {
@@ -416,22 +420,24 @@
    "d_and_a": 87162,
    "debt_current": 219321,
    "debt_due_1y": 32549,
-   "eps_diluted": -0.003,
-   "filed": "2025-12-15",
+   "eps_diluted": 0,
+   "filed": "2026-11-16",
    "form": "10-Q",
    "goodwill": 570000,
-   "gross_profit": 3029799,
+   "gross_profit": 4238234,
    "intangibles": 456111,
    "interest_expense": 500360,
    "inventory": 24015983,
    "lt_debt_current": 219321,
    "lt_debt_noncurrent": 67924,
    "net_income": -66666,
+   "net_income_incl_nci": -66666,
    "net_income_parent": -66666,
    "operating_cash_flow": -445527,
    "operating_income": 310408,
    "operating_leases": 1893115,
    "period_end": "2025-09-30",
+   "pretax_income": -66666,
    "receivables": 244400,
    "retained_earnings": -3405479,
    "revenue": 24005345,
@@ -440,7 +446,7 @@
    "shares_diluted": 20000000,
    "shares_diluted_adj": 20000000,
    "shares_diluted_filled": 20000000,
-   "shares_diluted_filled_filed": "2025-12-15",
+   "shares_diluted_filled_filed": "2026-11-16",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 20000000,
    "total_assets": 32613883,
@@ -448,6 +454,7 @@
    "total_debt_basis": "tagged",
    "total_debt_filed": "2025-12-15",
    "total_equity": -610535,
+   "total_equity_incl_nci": -610535,
    "total_equity_parent": -610535,
    "total_liabilities": 33224418
   },
@@ -461,11 +468,11 @@
    "debt_current": 25312694,
    "debt_due_1y": 32453,
    "debt_due_2y": 31105,
-   "eps_diluted": -0.127,
+   "eps_diluted": -0.13,
    "filed": "2026-03-31",
    "form": "10-K (derived from YTD)",
    "goodwill": 570000,
-   "gross_profit": 993353,
+   "gross_profit": -215082,
    "intangibles": 560406,
    "interest_expense": 644369,
    "inventory": 26035844,
@@ -476,6 +483,7 @@
    "operating_income": -1780586,
    "operating_leases": 6613896,
    "period_end": "2025-12-31",
+   "pretax_income": -2780701,
    "receivables": 269938,
    "retained_earnings": -6503434,
    "revenue": 37274110,
@@ -573,7 +581,7 @@
    "net_income_parent": -1869068,
    "operating_cash_flow": 2776011,
    "operating_income": -1033949,
-   "operating_leases": 19241284,
+   "operating_leases": 16690631,
    "payments_for_intangibles": 37500,
    "period_end": "2026-06-30",
    "pretax_income": -2231557,
@@ -597,6 +605,57 @@
    "total_equity": 12058102,
    "total_equity_incl_nci": 12058102,
    "total_liabilities": 88435002
+  },
+  {
+   "capex": 206317,
+   "capex_filed": "2026-11-16",
+   "cash": 4296433,
+   "current_assets": 57947550,
+   "current_liabilities": 57723208,
+   "d_and_a": 165675,
+   "debt_current": 41990434,
+   "debt_due_1y": 981901,
+   "debt_due_2y": 98617,
+   "debt_due_3y": 85633,
+   "eps_diluted": -0.18,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "goodwill": 5489816,
+   "gross_profit": 8062043,
+   "income_tax": 0,
+   "intangibles": 536277,
+   "interest_expense": 1117362,
+   "inventory": 50842626,
+   "lt_debt_noncurrent": 2889657,
+   "net_income": -4638322,
+   "net_income_incl_nci": -4625046,
+   "net_income_parent": -4638322,
+   "operating_cash_flow": 8555530,
+   "operating_income": -3533200,
+   "operating_leases": 18239775,
+   "payments_for_intangibles": 0,
+   "period_end": "2026-09-30",
+   "pretax_income": -4625046,
+   "receivables": 1302710,
+   "retained_earnings": -16478346,
+   "revenue": 50570592,
+   "revenue_filed": "2026-11-16",
+   "sga_expense": 2514633,
+   "shares_diluted": 25253112,
+   "shares_diluted_adj": 25253112,
+   "shares_diluted_filled": 25253112,
+   "shares_diluted_filled_filed": "2026-11-16",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 25142895,
+   "short_term_borrowings": 1028227,
+   "stock_comp": 1547998,
+   "total_assets": 86290775,
+   "total_debt": 44880091,
+   "total_debt_basis": "tagged",
+   "total_debt_filed": "2026-11-16",
+   "total_equity": 9264831,
+   "total_equity_incl_nci": 9264831,
+   "total_liabilities": 77025944
   }
  ],
  "sec_name": "NextBoat Inc.",
@@ -675,59 +734,60 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 3517962
+   "val": 3538646
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": -22087842
+   "val": -13107469
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -8052002
+   "val": -12623658
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -18569880
+   "val": -9568823
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
    ],
-   "val": 150186398
+   "val": 176751645
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-13",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 24791031
+   "val": 25253112
   },
   "stock_comp": {
    "end": "2025-12-31",
    "filed": "2026-03-31",
    "method": "fiscal_year_stale",
+   "stale": true,
    "tags": [
     "ShareBasedCompensation"
    ],
@@ -962,6 +1022,20 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 53731686
+  },
+  {
+   "field": "total_debt",
+   "old": 4874114,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 44880091
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 41990434
   }
  ],
  "v2_notes": [],
@@ -1511,6 +1585,89 @@
    "start": "2026-04-01",
    "stock_comp": 1689311,
    "total_debt": 56995137
+  },
+  {
+   "capex": 206317,
+   "cash": 4296433,
+   "cash_and_sti": 4296433,
+   "debt_current": 41990434,
+   "debt_noncurrent": 2889657,
+   "end": "2026-09-30",
+   "equity": 9264831,
+   "fcf": 8349213,
+   "net_income": -4638322,
+   "operating_cash_flow": 8555530,
+   "revenue": 50570592,
+   "shares_diluted": 25253112,
+   "src": {
+    "capex": {
+     "accn": "0001493152-26-052445",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001493152-26-052445",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001493152-26-052445",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+    },
+    "net_income": {
+     "accn": "0001493152-26-052445",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001493152-26-052445",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001493152-26-052445",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001493152-26-052445",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001493152-26-052445",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-16",
+     "tags": [
+      "LongTermDebtNoncurrent",
+      "NotesPayableCurrent",
+      "ShortTermBorrowings"
+     ],
+     "values": {
+      "LongTermDebtNoncurrent": 2889657,
+      "NotesPayableCurrent": 40962207,
+      "ShortTermBorrowings": 1028227
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 1547998,
+   "total_debt": 44880091
   }
  ],
  "v2_tags_used": {

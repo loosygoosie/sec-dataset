@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 716054,
-  "end": "2026-06-30",
-  "equity": 851870
+  "cash_and_sti": 444349,
+  "end": "2026-09-30",
+  "equity": 518735
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -89,20 +89,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001193125-26-335034",
-  "filed": "2026-08-05",
+  "accn": "0001193125-26-463486",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 260675430.0,
+  "assets": 262717603.0,
   "classes": {
    "CommonClassAMember": 25657625.0,
    "CommonClassBMember": 10814432.0
   },
-  "cover_accession": "0001193125-26-335034",
-  "cover_date": "2026-08-05",
+  "cover_accession": "0001193125-26-463486",
+  "cover_date": "2026-11-16",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-31",
   "note": null,
@@ -117,7 +117,7 @@
   {
    "cash": 3292163,
    "current_assets": 3292163,
-   "filed": "2025-11-06",
+   "filed": "2026-11-16",
    "form": "10-Q",
    "income_tax": 0,
    "net_income": -86973,
@@ -197,6 +197,27 @@
    "total_equity": 851870,
    "total_equity_parent": 851870,
    "total_liabilities": 120309
+  },
+  {
+   "cash": 444349,
+   "current_assets": 540909,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "income_tax": 0,
+   "net_income": 2039361,
+   "net_income_parent": 2039361,
+   "net_interest_income": 153,
+   "operating_cash_flow": -271705,
+   "operating_income": -333288,
+   "period_end": "2026-09-30",
+   "pretax_income": 2039361,
+   "retained_earnings": 517618,
+   "revenue": 0,
+   "revenue_filed": "2026-11-16",
+   "total_assets": 262717603,
+   "total_equity": 518735,
+   "total_equity_parent": 518735,
+   "total_liabilities": 123121
   }
  ],
  "sec_name": "GigCapital8 Corp.",
@@ -277,26 +298,26 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 5772272
+   "val": 7893243
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -1156818
+   "val": -1428532
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-05",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
@@ -479,6 +500,49 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 444349,
+   "cash_and_sti": 444349,
+   "end": "2026-09-30",
+   "equity": 518735,
+   "net_income": 2039361,
+   "operating_cash_flow": -271705,
+   "revenue": 0,
+   "src": {
+    "cash": {
+     "accn": "0001193125-26-463486",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001193125-26-463486",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001193125-26-463486",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-463486",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001193125-26-463486",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 30220,
-  "end": "2026-06-30",
-  "equity": -8232471
+  "cash_and_sti": 0,
+  "end": "2026-09-30",
+  "equity": -9274256
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 94,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001829126-26-009082",
-  "filed": "2026-08-19",
+  "accn": "0001829126-26-012510",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 211611587.0,
+  "assets": 213490744.0,
   "classes": {
    "ClassAOrdinarySharesMember": 21314000.0,
    "ClassBOrdinarySharesMember": 7883293.0
   },
-  "cover_accession": "0001829126-26-009082",
-  "cover_date": "2026-08-13",
+  "cover_accession": "0001829126-26-012510",
+  "cover_date": "2026-11-12",
   "float_date": "2025-06-30",
   "float_filed": "2026-09-30",
   "note": null,
@@ -116,6 +116,53 @@
  },
  "name": "Hall Chadwick Acquisition Corp",
  "quarterly": [
+  {
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "interest_income": 0,
+   "net_income": -3451,
+   "net_income_incl_nci": -3451,
+   "net_income_parent": -3451,
+   "operating_income": -3451,
+   "period_end": "2025-09-30",
+   "revenue": 0,
+   "total_equity": 1236,
+   "total_equity_parent": 1236
+  },
+  {
+   "filed": "2026-09-30",
+   "form": "10-Q/A (derived from YTD)",
+   "net_income": -6457,
+   "net_income_parent": -6457,
+   "period_end": "2025-11-24",
+   "total_equity": -7463365,
+   "total_equity_parent": -7463365
+  },
+  {
+   "filed": "2026-04-15",
+   "form": "10-K (derived from YTD)",
+   "net_income_incl_nci": -16862,
+   "period_end": "2025-11-30",
+   "total_equity": 4687,
+   "total_equity_incl_nci": 4687
+  },
+  {
+   "cash": 0,
+   "current_assets": 710677,
+   "current_liabilities": 59550,
+   "filed": "2026-09-30",
+   "form": "10-K/A (derived from YTD)",
+   "net_income": 676686,
+   "net_income_filed": "2026-11-16",
+   "operating_income": -129902,
+   "period_end": "2025-12-31",
+   "retained_earnings": -7567347,
+   "total_assets": 208559328,
+   "total_equity": -7566498,
+   "total_equity_incl_nci": -7566498,
+   "total_equity_parent": -7566498,
+   "total_liabilities": 8339550
+  },
   {
    "cash": 350200,
    "current_assets": 534889,
@@ -145,7 +192,7 @@
    "interest_income": 1856718,
    "net_income": 1374237,
    "net_income_incl_nci": 1374237,
-   "net_income_parent": 696336,
+   "net_income_parent": 687405,
    "net_interest_income": 567,
    "operating_cash_flow": -422407,
    "operating_income": -485567,
@@ -153,13 +200,35 @@
    "retained_earnings": -8233321,
    "revenue": 1856718,
    "total_assets": 211611587,
-   "total_equity": -8232471,
+   "total_equity": -8241402,
    "total_equity_incl_nci": -8232471,
-   "total_equity_parent": -8232471,
+   "total_equity_parent": -8241402,
    "total_liabilities": 8365292
+  },
+  {
+   "cash": 0,
+   "current_assets": 70466,
+   "current_liabilities": 1041854,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "interest_income": 1931197,
+   "net_income": 898343,
+   "net_income_incl_nci": 898344,
+   "net_income_parent": 898343,
+   "net_interest_income": -1835406,
+   "operating_cash_flow": -34688,
+   "operating_income": -1033109,
+   "period_end": "2026-09-30",
+   "retained_earnings": -9275105,
+   "revenue": 1931197,
+   "total_assets": 213490744,
+   "total_equity": -9274256,
+   "total_equity_incl_nci": -9274256,
+   "total_equity_parent": -9274256,
+   "total_liabilities": 9355036
   }
  ],
- "sec_name": "Hall Chadwick Acquisition Corp.",
+ "sec_name": "HALL CHADWICK ACQUISITION CORP.",
  "sic": "3341",
  "sic_description": "Secondary Smelting & Refining of  Nonferrous Metals",
  "splits": [],
@@ -235,11 +304,81 @@
   "HCACU",
   "HCACR"
  ],
- "ttm": {},
+ "ttm": {
+  "net_income": {
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
+   "method": "four_quarters",
+   "tags": [
+    "NetIncomeLoss",
+    "NetIncomeLossAvailableToCommonStockholdersBasic"
+   ],
+   "val": 4592615
+  }
+ },
  "v2_annual": [],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "net_income",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": 676686
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
+  {
+   "end": "2025-09-30",
+   "equity": 1236,
+   "net_income": -3451,
+   "src": {
+    "equity": {
+     "accn": "0001829126-26-012510",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001829126-26-012510",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    }
+   },
+   "start": "2025-07-01"
+  },
+  {
+   "cash": 0,
+   "cash_and_sti": 0,
+   "end": "2025-12-31",
+   "equity": -7566498,
+   "net_income": 676686,
+   "src": {
+    "cash": {
+     "accn": "0001829126-26-003527",
+     "filed": "2026-04-15",
+     "form": "10-K",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001829126-26-010335",
+     "filed": "2026-09-23",
+     "first_filed": "2026-04-15",
+     "first_val": -6780223,
+     "form": "10-K/A",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001829126-26-003527",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-K",
+     "tag": "NetIncomeLossAvailableToCommonStockholdersBasic"
+    }
+   },
+   "start": "2025-10-01"
+  },
   {
    "cash": 350200,
    "cash_and_sti": 350200,
@@ -279,8 +418,8 @@
    "cash": 30220,
    "cash_and_sti": 30220,
    "end": "2026-06-30",
-   "equity": -8232471,
-   "net_income": 696336,
+   "equity": -8241402,
+   "net_income": 687405,
    "operating_cash_flow": -422407,
    "src": {
     "cash": {
@@ -290,18 +429,18 @@
      "tag": "CashAndCashEquivalentsAtCarryingValue"
     },
     "equity": {
-     "accn": "0001829126-26-010338",
-     "filed": "2026-09-23",
+     "accn": "0001829126-26-012510",
+     "filed": "2026-11-16",
      "first_filed": "2026-08-19",
      "first_val": -3753705,
-     "form": "10-Q/A",
+     "form": "10-Q",
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0001829126-26-010338",
+     "accn": "0001829126-26-012510",
      "derived": true,
-     "filed": "2026-09-23",
-     "form": "10-Q/A",
+     "filed": "2026-11-16",
+     "form": "10-Q",
      "tag": "NetIncomeLoss"
     },
     "operating_cash_flow": {
@@ -313,12 +452,48 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 0,
+   "cash_and_sti": 0,
+   "end": "2026-09-30",
+   "equity": -9274256,
+   "net_income": 898343,
+   "operating_cash_flow": -34688,
+   "src": {
+    "cash": {
+     "accn": "0001829126-26-012510",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001829126-26-012510",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001829126-26-012510",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001829126-26-012510",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {
   "capex": [],
   "net_income": [
-   "NetIncomeLoss"
+   "NetIncomeLoss",
+   "NetIncomeLossAvailableToCommonStockholdersBasic"
   ],
   "operating_cash_flow": [
    "NetCashProvidedByUsedInOperatingActivities"

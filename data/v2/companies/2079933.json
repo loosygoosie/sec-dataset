@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 386697,
-  "end": "2026-06-30",
-  "equity": -5733668
+  "cash_and_sti": 48099,
+  "end": "2026-09-30",
+  "equity": -5776257
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-089995",
-  "filed": "2026-08-14",
+  "accn": "0001213900-26-120620",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 152977723.0,
+  "assets": 154207655.0,
   "classes": {
    "CommonClassAMember": 15000000.0,
    "CommonClassBMember": 5000000.0
   },
-  "cover_accession": "0001213900-26-089995",
-  "cover_date": "2026-08-14",
+  "cover_accession": "0001213900-26-120620",
+  "cover_date": "2026-11-16",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -116,6 +116,18 @@
  },
  "name": "TGE Value Creative Solutions Corp",
  "quarterly": [
+  {
+   "cash": 7398,
+   "filed": "2026-11-16",
+   "form": "10-Q (derived from YTD)",
+   "net_income": -56176,
+   "net_income_parent": -56176,
+   "operating_cash_flow": -7002,
+   "operating_income": -56176,
+   "period_end": "2025-09-30",
+   "total_equity": -31176,
+   "total_equity_parent": -31176
+  },
   {
    "cash": 642920,
    "current_assets": 647907,
@@ -151,6 +163,24 @@
    "total_equity": -5733668,
    "total_equity_parent": -5733668,
    "total_liabilities": 6166102
+  },
+  {
+   "cash": 48099,
+   "current_assets": 372586,
+   "current_liabilities": 148843,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "income_tax": 0,
+   "net_income": 1247191,
+   "net_income_parent": 1247191,
+   "operating_cash_flow": -337732,
+   "operating_income": -43884,
+   "period_end": "2026-09-30",
+   "retained_earnings": -5776757,
+   "total_assets": 154207655,
+   "total_equity": -5776257,
+   "total_equity_parent": -5776257,
+   "total_liabilities": 6148843
   }
  ],
  "sec_name": "TGE Value Creative Solutions Corp",
@@ -235,6 +265,34 @@
  "v2_notes": [],
  "v2_quarterly": [
   {
+   "cash": 7398,
+   "cash_and_sti": 7398,
+   "end": "2025-09-30",
+   "equity": -31176,
+   "net_income": -56176,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-120620",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-120620",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-120620",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    }
+   },
+   "start": "2025-07-01"
+  },
+  {
    "cash": 642920,
    "cash_and_sti": 642920,
    "end": "2026-03-31",
@@ -304,6 +362,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 48099,
+   "cash_and_sti": 48099,
+   "end": "2026-09-30",
+   "equity": -5776257,
+   "net_income": 1247191,
+   "operating_cash_flow": -337732,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-120620",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-120620",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-120620",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-120620",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

@@ -67,16 +67,16 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 879639,
+  "cash_and_sti": 798440,
   "debt_current": 0,
-  "end": "2026-06-30",
-  "equity": 574777,
+  "end": "2026-09-30",
+  "equity": 439833,
   "total_debt": 0
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -94,19 +94,19 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001193125-26-345364",
-  "filed": "2026-08-12",
+  "accn": "0001193125-26-463724",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 117806772.0,
+  "assets": 118790684.0,
   "classes": {
    "common": 16049583.0
   },
-  "cover_accession": "0001193125-26-345364",
-  "cover_date": "2026-08-07",
+  "cover_accession": "0001193125-26-463724",
+  "cover_date": "2026-11-13",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -168,6 +168,32 @@
    "total_equity": 574777,
    "total_equity_parent": 574777,
    "total_liabilities": 430544
+  },
+  {
+   "cash": 798440,
+   "current_assets": 900710,
+   "current_liabilities": 195282,
+   "debt_current": 0,
+   "eps_diluted": 0.06,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "net_income": 931674,
+   "net_income_parent": 931674,
+   "operating_cash_flow": -83535,
+   "operating_income": -134944,
+   "period_end": "2026-09-30",
+   "retained_earnings": 439378,
+   "shares_diluted": 4549583,
+   "shares_diluted_adj": 4549583,
+   "shares_diluted_filled": 4549583,
+   "shares_diluted_filled_filed": "2026-11-16",
+   "shares_diluted_filled_source": "shares_diluted",
+   "total_assets": 118790684,
+   "total_debt": 0,
+   "total_debt_filed": "2026-11-16",
+   "total_equity": 439833,
+   "total_equity_parent": 439833,
+   "total_liabilities": 482782
   }
  ],
  "sec_name": "West Enclave Merger Corp.",
@@ -248,13 +274,13 @@
  ],
  "ttm": {
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 4388484
+   "val": 4549583
   }
  },
  "v2_annual": [],
@@ -284,6 +310,20 @@
    "field": "debt_current",
    "old": null,
    "period": "2026-06-30",
+   "rows": "quarterly",
+   "v2": 0
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 0
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
    "rows": "quarterly",
    "v2": 0
   }
@@ -390,6 +430,61 @@
     }
    },
    "start": "2026-04-01",
+   "total_debt": 0
+  },
+  {
+   "cash": 798440,
+   "cash_and_sti": 798440,
+   "debt_current": 0,
+   "end": "2026-09-30",
+   "equity": 439833,
+   "net_income": 931674,
+   "operating_cash_flow": -83535,
+   "shares_diluted": 4549583,
+   "src": {
+    "cash": {
+     "accn": "0001193125-26-463724",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001193125-26-463724",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001193125-26-463724",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001193125-26-463724",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "shares_diluted": {
+     "accn": "0001193125-26-463724",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "total_debt": {
+     "filed": "2026-11-16",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 0
+     }
+    }
+   },
+   "start": "2026-07-01",
    "total_debt": 0
   }
  ],

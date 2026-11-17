@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 767364,
-  "end": "2026-06-30",
-  "equity": -8883014
+  "cash_and_sti": 649173,
+  "end": "2026-09-30",
+  "equity": -9196294
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-090084",
-  "filed": "2026-08-14",
+  "accn": "0001213900-26-120721",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 159536102.0,
+  "assets": 160765787.0,
   "classes": {
    "CommonClassAMember": 15900000.0,
    "CommonClassBMember": 5300000.0
   },
-  "cover_accession": "0001213900-26-090084",
-  "cover_date": "2026-08-14",
+  "cover_accession": "0001213900-26-120721",
+  "cover_date": "2026-11-16",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -147,6 +147,24 @@
    "total_equity": -8883014,
    "total_equity_parent": -8883014,
    "total_liabilities": 9977345
+  },
+  {
+   "cash": 649173,
+   "current_assets": 915542,
+   "current_liabilities": 1700,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "net_income": 1087694,
+   "net_income_parent": 1087694,
+   "operating_cash_flow": -330912,
+   "operating_cash_flow_filed": "2026-11-16",
+   "operating_income": 1087694,
+   "period_end": "2026-09-30",
+   "retained_earnings": -9196844,
+   "total_assets": 160765787,
+   "total_equity": -9196294,
+   "total_equity_parent": -9196294,
+   "total_liabilities": 10111836
   }
  ],
  "sec_name": "Iron Dome Acquisition I Corp.",
@@ -237,7 +255,15 @@
   }
  },
  "v2_annual": [],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": -330912
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
   {
@@ -267,6 +293,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 649173,
+   "cash_and_sti": 649173,
+   "end": "2026-09-30",
+   "equity": -9196294,
+   "net_income": 1087694,
+   "operating_cash_flow": -330912,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-120721",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-120721",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-120721",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-120721",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {
@@ -274,7 +336,9 @@
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [],
   "shares_diluted": [
    "WeightedAverageNumberOfDilutedSharesOutstanding"

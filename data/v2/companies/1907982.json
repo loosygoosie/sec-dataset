@@ -564,17 +564,17 @@
   "total_liabilities": 6
  },
  "balance": {
-  "cash_and_sti": 546215000,
-  "debt_current": 146000,
-  "debt_noncurrent": 34886000,
-  "end": "2026-06-30",
-  "equity": 1083110000,
-  "total_debt": 35032000
+  "cash_and_sti": 503356000,
+  "debt_current": 1946000,
+  "debt_noncurrent": 40073000,
+  "end": "2026-09-30",
+  "equity": 1037272000,
+  "total_debt": 42019000
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -586,73 +586,30 @@
  "flags": [],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001907982-26-000129",
-  "filed": "2026-08-06",
+  "accn": "0001907982-26-000186",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 1158430000.0,
+  "assets": 1123244000.0,
   "classes": {
-   "common": 369263837.0
+   "common": 376886897.0
   },
-  "cover_accession": "0001907982-26-000129",
-  "cover_date": "2026-08-05",
+  "cover_accession": "0001907982-26-000186",
+  "cover_date": "2026-11-13",
   "float_date": "2025-06-30",
   "float_filed": "2026-02-26",
   "note": null,
   "public_float": 4929610182.0,
   "revenue": 24587000.0,
-  "shares_cover": 369263837.0,
-  "shares_total": 369263837.0,
+  "shares_cover": 376886897.0,
+  "shares_total": 376886897.0,
   "size_gate": "float"
  },
  "name": "D-Wave Quantum Inc.",
  "quarterly": [
-  {
-   "capex": 62000,
-   "capex_filed": "2024-08-08",
-   "capitalized_software": 15000,
-   "cash": 53317000,
-   "current_assets": 58194000,
-   "current_liabilities": 43521000,
-   "d_and_a": 200000,
-   "debt_current": 30199000,
-   "eps_diluted": -0.12,
-   "filed": "2024-11-14",
-   "form": "10-Q",
-   "gross_profit": 1529000,
-   "intangibles": 195000,
-   "inventory": 2244000,
-   "lt_debt_current": 30199000,
-   "lt_debt_noncurrent": 32830000,
-   "net_income": -16106000,
-   "net_income_parent": -16106000,
-   "operating_cash_flow": -16866000,
-   "operating_income": -18407000,
-   "operating_leases": 6884000,
-   "period_end": "2023-09-30",
-   "rd_expense": 9459000,
-   "receivables": 763000,
-   "retained_earnings": -467047000,
-   "revenue": 2562000,
-   "revenue_filed": "2023-11-09",
-   "shares_diluted": 133222318,
-   "shares_diluted_adj": 133222318,
-   "shares_diluted_filled": 133222318,
-   "shares_diluted_filled_filed": "2024-11-14",
-   "shares_diluted_filled_source": "shares_diluted",
-   "shares_outstanding": 155288763,
-   "stock_comp": 5884000,
-   "total_assets": 70179000,
-   "total_debt": 63029000,
-   "total_debt_basis": "components",
-   "total_debt_filed": "2024-03-18",
-   "total_equity": -15119000,
-   "total_equity_parent": -15119000,
-   "total_liabilities": 85298000
-  },
   {
    "capex": 442000,
    "capex_filed": "2024-03-29",
@@ -964,6 +921,7 @@
    "total_liabilities": 149348000
   },
   {
+   "acquisitions": 0,
    "capex": 1016000,
    "capex_filed": "2025-11-06",
    "capitalized_software": 194000,
@@ -973,10 +931,12 @@
    "d_and_a": 300000,
    "debt_current": 144000,
    "eps_diluted": -0.41,
-   "filed": "2025-11-06",
+   "filed": "2026-11-16",
    "form": "10-Q",
    "gross_profit": 2669000,
+   "income_tax": 0,
    "intangibles": 803000,
+   "interest_expense": 201000,
    "inventory": 2831000,
    "long_term_investments": 3400000,
    "lt_debt_noncurrent": 32054000,
@@ -986,6 +946,7 @@
    "operating_income": -27736000,
    "operating_leases": 6101000,
    "period_end": "2025-09-30",
+   "pretax_income": -139986000,
    "rd_expense": 14075000,
    "receivables": 1927000,
    "retained_earnings": -939676000,
@@ -994,7 +955,7 @@
    "shares_diluted": 342204831,
    "shares_diluted_adj": 342204831,
    "shares_diluted_filled": 342204831,
-   "shares_diluted_filled_filed": "2025-11-06",
+   "shares_diluted_filled_filed": "2026-11-16",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 345971195,
    "stock_comp": 6455000,
@@ -1020,7 +981,9 @@
    "form": "10-K (derived from YTD)",
    "goodwill": 0,
    "gross_profit": 1784000,
+   "income_tax": 0,
    "intangibles": 915000,
+   "interest_expense": 3380000,
    "inventory": 2776000,
    "long_term_investments": 2391000,
    "lt_debt_noncurrent": 35825000,
@@ -1030,6 +993,7 @@
    "operating_income": -34839000,
    "operating_leases": 7498000,
    "period_end": "2025-12-31",
+   "pretax_income": -42326000,
    "rd_expense": 13677000,
    "receivables": 1587000,
    "retained_earnings": -982002000,
@@ -1148,9 +1112,58 @@
    "total_equity": 1083110000,
    "total_equity_parent": 1083110000,
    "total_liabilities": 75320000
+  },
+  {
+   "acquisitions": 0,
+   "capex": 7436000,
+   "capex_filed": "2026-11-16",
+   "capitalized_software": 286000,
+   "cash": 279366000,
+   "current_assets": 524470000,
+   "current_liabilities": 30302000,
+   "d_and_a": 1200000,
+   "debt_current": 1946000,
+   "eps_diluted": -0.13,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "goodwill": 342588000,
+   "gross_profit": 2386000,
+   "income_tax": -68000,
+   "intangibles": 208422000,
+   "interest_expense": 350000,
+   "inventory": 6375000,
+   "long_term_investments": 5114000,
+   "lt_debt_noncurrent": 40073000,
+   "net_income": -48197000,
+   "net_income_parent": -48197000,
+   "operating_cash_flow": -35562000,
+   "operating_income": -53482000,
+   "operating_leases": 13409000,
+   "period_end": "2026-09-30",
+   "pretax_income": -48265000,
+   "rd_expense": 31543000,
+   "receivables": 3543000,
+   "retained_earnings": -1096584000,
+   "revenue": 4513000,
+   "revenue_filed": "2026-11-16",
+   "shares_diluted": 374112327,
+   "shares_diluted_adj": 374112327,
+   "shares_diluted_filled": 374112327,
+   "shares_diluted_filled_filed": "2026-11-16",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 379681691,
+   "short_term_investments": 223990000,
+   "stock_comp": 10667000,
+   "total_assets": 1123244000,
+   "total_debt": 42019000,
+   "total_debt_basis": "components_partial",
+   "total_debt_filed": "2026-11-16",
+   "total_equity": 1037272000,
+   "total_equity_parent": 1037272000,
+   "total_liabilities": 85972000
   }
  ],
- "sec_name": "D-Wave Quantum Inc.",
+ "sec_name": "D-WAVE QUANTUM INC.",
  "sic": "7374",
  "sic_description": "Services-Computer Processing & Data Preparation",
  "splits": [],
@@ -1226,63 +1239,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquirePropertyPlantAndEquipment"
    ],
-   "val": 8196000
+   "val": 14616000
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": -119076000
+   "val": -142013000
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -248697000
+   "val": -156908000
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -110880000
+   "val": -127397000
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "RevenueFromContractWithCustomerExcludingAssessedTax"
    ],
-   "val": 12425000
+   "val": 13199000
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 370840115
+   "val": 374112327
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-06",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 31125000
+   "val": 35338000
   }
  },
  "v2_annual": [
@@ -1991,6 +2004,20 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 146000
+  },
+  {
+   "field": "total_debt",
+   "old": 40073000,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 42019000
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 1946000
   }
  ],
  "v2_notes": [],
@@ -3655,6 +3682,94 @@
    "start": "2026-04-01",
    "stock_comp": 11113000,
    "total_debt": 35032000
+  },
+  {
+   "capex": 7436000,
+   "cash": 279366000,
+   "cash_and_sti": 503356000,
+   "debt_current": 1946000,
+   "debt_noncurrent": 40073000,
+   "end": "2026-09-30",
+   "equity": 1037272000,
+   "fcf": -42998000,
+   "net_income": -48197000,
+   "operating_cash_flow": -35562000,
+   "revenue": 4513000,
+   "shares_diluted": 374112327,
+   "short_term_investments": 223990000,
+   "src": {
+    "capex": {
+     "accn": "0001907982-26-000186",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquirePropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001907982-26-000186",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001907982-26-000186",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001907982-26-000186",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001907982-26-000186",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001907982-26-000186",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001907982-26-000186",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "short_term_investments": {
+     "accn": "0001907982-26-000186",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "MarketableSecuritiesCurrent"
+    },
+    "stock_comp": {
+     "accn": "0001907982-26-000186",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-16",
+     "tags": [
+      "LongTermDebtNoncurrent",
+      "OtherLongTermDebtCurrent"
+     ],
+     "values": {
+      "LongTermDebtNoncurrent": 40073000,
+      "OtherLongTermDebtCurrent": 1946000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 10668000,
+   "total_debt": 42019000
   }
  ],
  "v2_tags_used": {

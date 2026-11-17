@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1257143,
-  "end": "2026-06-30",
-  "equity": 887441
+  "cash_and_sti": 1339431,
+  "end": "2026-09-30",
+  "equity": 657361
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-090005",
-  "filed": "2026-08-14",
+  "accn": "0001213900-26-120615",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 234977968.0,
+  "assets": 237100360.0,
   "classes": {
    "CommonClassAMember": 23654500.0,
    "CommonClassBMember": 6325000.0
   },
-  "cover_accession": "0001213900-26-090005",
-  "cover_date": "2026-08-14",
+  "cover_accession": "0001213900-26-120615",
+  "cover_date": "2026-11-16",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -121,7 +121,7 @@
    "current_assets": 126910,
    "current_liabilities": 499831,
    "eps_diluted": -0.01,
-   "filed": "2026-08-14",
+   "filed": "2026-11-16",
    "form": "10-Q",
    "net_income": -48012,
    "net_income_parent": -48012,
@@ -153,9 +153,26 @@
    "total_equity": 887441,
    "total_equity_parent": 887441,
    "total_liabilities": 775888
+  },
+  {
+   "cash": 1339431,
+   "current_assets": 1531318,
+   "current_liabilities": 298957,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "net_income": 2024323,
+   "net_income_parent": 2024323,
+   "operating_cash_flow": -98811,
+   "operating_income": 2254480,
+   "period_end": "2026-09-30",
+   "retained_earnings": 656663,
+   "total_assets": 237100360,
+   "total_equity": 657361,
+   "total_equity_parent": 657361,
+   "total_liabilities": 873957
   }
  ],
- "sec_name": "Quantum Leap Acquisition Corp.",
+ "sec_name": "Quantum Leap Acquisition Corp",
  "sic": "6770",
  "sic_description": "Blank Checks",
  "splits": [],
@@ -322,6 +339,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 1339431,
+   "cash_and_sti": 1339431,
+   "end": "2026-09-30",
+   "equity": 657361,
+   "net_income": 2024323,
+   "operating_cash_flow": -98811,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-120615",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-120615",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-120615",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-120615",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

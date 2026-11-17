@@ -68,13 +68,13 @@
  },
  "balance": {
   "cash_and_sti": 0,
-  "end": "2026-06-30",
-  "equity": -3985008
+  "end": "2026-09-30",
+  "equity": -4279188
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001493152-26-038326",
-  "filed": "2026-08-14",
+  "accn": "0001493152-26-052503",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 131866221.0,
+  "assets": 132767194.0,
   "classes": {
    "CommonClassAMember": 13425000.0,
    "CommonClassBMember": 4333334.0
   },
-  "cover_accession": "0001493152-26-038326",
-  "cover_date": "2026-08-14",
+  "cover_accession": "0001493152-26-052503",
+  "cover_date": "2026-11-16",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -149,6 +149,23 @@
    "total_equity": -3985008,
    "total_equity_parent": -3985008,
    "total_liabilities": 4606376
+  },
+  {
+   "cash": 0,
+   "current_assets": 308355,
+   "current_liabilities": 67953,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "net_income": 889396,
+   "net_income_parent": 889396,
+   "operating_cash_flow": 0,
+   "operating_income": -294180,
+   "period_end": "2026-09-30",
+   "retained_earnings": -4279664,
+   "total_assets": 132767194,
+   "total_equity": -4279188,
+   "total_equity_parent": -4279188,
+   "total_liabilities": 4617953
   }
  ],
  "sec_name": "Blue Water Acquisition Corp. IV",
@@ -302,6 +319,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 0,
+   "cash_and_sti": 0,
+   "end": "2026-09-30",
+   "equity": -4279188,
+   "net_income": 889396,
+   "operating_cash_flow": 0,
+   "src": {
+    "cash": {
+     "accn": "0001493152-26-052503",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001493152-26-052503",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001493152-26-052503",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001493152-26-052503",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

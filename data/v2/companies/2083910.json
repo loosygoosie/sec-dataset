@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1009308,
-  "end": "2026-06-30",
-  "equity": -8538684
+  "cash_and_sti": 860213,
+  "end": "2026-09-30",
+  "equity": -8766981
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,19 +91,19 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-089169",
-  "filed": "2026-08-13",
+  "accn": "0001213900-26-120675",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 281499401.0,
+  "assets": 283860125.0,
   "classes": {
    "common": 35262000.0
   },
-  "cover_accession": "0001213900-26-089169",
-  "cover_date": "2026-08-12",
+  "cover_accession": "0001213900-26-120675",
+  "cover_date": "2026-11-16",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -158,6 +158,28 @@
    "total_equity": -8538684,
    "total_equity_parent": -8538684,
    "total_liabilities": 9783960
+  },
+  {
+   "cash": 860213,
+   "current_assets": 1005082,
+   "current_liabilities": 149601,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "net_income": 2335083,
+   "net_income_parent": 2335083,
+   "operating_cash_flow": -136902,
+   "operating_income": -237214,
+   "period_end": "2026-09-30",
+   "retained_earnings": -8767747,
+   "shares_diluted_adj": 35262000,
+   "shares_diluted_filled": 35262000,
+   "shares_diluted_filled_filed": "2026-11-16",
+   "shares_diluted_filled_source": "cover",
+   "shares_outstanding": 7662000,
+   "total_assets": 283860125,
+   "total_equity": -8766981,
+   "total_equity_parent": -8766981,
+   "total_liabilities": 9809601
   }
  ],
  "sec_name": "ARCHIMEDES TECH SPAC PARTNERS III CO.",
@@ -311,6 +333,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 860213,
+   "cash_and_sti": 860213,
+   "end": "2026-09-30",
+   "equity": -8766981,
+   "net_income": 2335083,
+   "operating_cash_flow": -136902,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-120675",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-120675",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-120675",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-120675",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

@@ -67,15 +67,17 @@
   "total_liabilities": 0
  },
  "balance": {
+  "cash_and_sti": 1583947,
   "debt_current": 153534,
-  "end": "2026-06-30",
-  "equity": -78076,
+  "debt_end": "2026-06-30",
+  "end": "2026-09-30",
+  "equity": -11045733,
   "total_debt": 153534
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 98,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -92,33 +94,33 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-098787",
-  "filed": "2026-09-10",
+  "accn": "0001213900-26-120839",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 208904.0,
+  "assets": 214644223.0,
   "classes": {
    "CommonClassAMember": 21420000.0,
-   "CommonClassBMember": 5750000.0
+   "CommonClassBMember": 5287500.0
   },
-  "cover_accession": "0001213900-26-098787",
-  "cover_date": "2026-09-10",
+  "cover_accession": "0001213900-26-120839",
+  "cover_date": "2026-11-16",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 27170000.0,
-  "shares_total": 27170000.0,
+  "shares_cover": 26707500.0,
+  "shares_total": 26707500.0,
   "size_gate": "no_float"
  },
  "name": "Catalyst Acquisition Corp.",
  "quarterly": [
   {
-   "filed": "2026-09-10",
+   "filed": "2026-11-16",
    "form": "10-Q",
    "net_income": -43879,
    "net_income_parent": -43879,
@@ -143,6 +145,22 @@
    "total_equity": -78076,
    "total_equity_parent": -78076,
    "total_liabilities": 286980
+  },
+  {
+   "cash": 1583947,
+   "current_assets": 1704409,
+   "current_liabilities": 122479,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "net_income": -5054653,
+   "net_income_parent": -5054653,
+   "operating_income": -6543747,
+   "period_end": "2026-09-30",
+   "retained_earnings": -11046289,
+   "total_assets": 214644223,
+   "total_equity": -11045733,
+   "total_equity_parent": -11045733,
+   "total_liabilities": 12812479
   }
  ],
  "sec_name": "CATALYST ACQUISITION CORP.",
@@ -155,7 +173,7 @@
   "buybacks": null,
   "capex": null,
   "capitalized_software": null,
-  "cash": null,
+  "cash": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
   "cash_and_short_term_investments": null,
   "claims_incurred": null,
   "commercial_paper": null,
@@ -190,7 +208,7 @@
   "net_income_incl_nci": null,
   "net_income_parent": "NetIncomeLoss",
   "net_interest_income": null,
-  "operating_cash_flow": null,
+  "operating_cash_flow": "NetCashProvidedByUsedInOperatingActivities",
   "operating_income": "OperatingIncomeLoss",
   "operating_leases": null,
   "payments_for_intangibles": null,
@@ -292,6 +310,34 @@
    },
    "start": "2026-04-01",
    "total_debt": 153534
+  },
+  {
+   "cash": 1583947,
+   "cash_and_sti": 1583947,
+   "end": "2026-09-30",
+   "equity": -11045733,
+   "net_income": -5054653,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-120839",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-120839",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-120839",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

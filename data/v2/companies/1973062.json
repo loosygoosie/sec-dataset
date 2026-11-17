@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 14480176,
-  "end": "2026-06-30",
-  "equity": 17335645
+  "cash_and_sti": 9997528,
+  "end": "2026-09-30",
+  "equity": 16015497
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,27 +91,27 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001493152-26-038335",
-  "filed": "2026-08-14",
+  "accn": "0001493152-26-052362",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 18156693.0,
+  "assets": 16591786.0,
   "classes": {
-   "CommonClassAMember": 9156530.0,
+   "CommonClassAMember": 9868685.0,
    "CommonClassBMember": 5426402.0
   },
-  "cover_accession": "0001493152-26-038335",
-  "cover_date": "2026-08-14",
+  "cover_accession": "0001493152-26-052362",
+  "cover_date": "2026-11-16",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 14582932.0,
-  "shares_total": 14582932.0,
+  "shares_cover": 15295087.0,
+  "shares_total": 15295087.0,
   "size_gate": "no_float"
  },
  "name": "VIDA Global Inc.",
@@ -163,6 +163,30 @@
    "shares_diluted_filled_source": "shares_diluted",
    "total_equity": 3271359,
    "total_equity_parent": 3271359
+  },
+  {
+   "capitalized_software": 4814,
+   "cash": 3749731,
+   "d_and_a": 139589,
+   "eps_diluted": -0.17,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "net_income": -637773,
+   "net_income_parent": -637773,
+   "operating_cash_flow": -419582,
+   "operating_income": -701961,
+   "period_end": "2025-09-30",
+   "receivables": 34989,
+   "revenue": 175650,
+   "revenue_filed": "2026-11-16",
+   "sga_expense": 188954,
+   "shares_diluted": 3747405,
+   "shares_diluted_adj": 3747405,
+   "shares_diluted_filled": 3747405,
+   "shares_diluted_filled_filed": "2026-11-16",
+   "shares_diluted_filled_source": "shares_diluted",
+   "total_equity": 6616459,
+   "total_equity_parent": 6616459
   },
   {
    "capitalized_software": 181387,
@@ -224,6 +248,38 @@
    "total_equity": 17335645,
    "total_equity_parent": 17335645,
    "total_liabilities": 821048
+  },
+  {
+   "capitalized_software": 129769,
+   "cash": 10159356,
+   "cash_and_short_term_investments": 9997528,
+   "current_assets": 13221165,
+   "current_liabilities": 576289,
+   "d_and_a": 205906,
+   "eps_diluted": -0.11,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "net_income": -1469067,
+   "net_income_parent": -1469067,
+   "operating_cash_flow": -1613297,
+   "operating_income": -1769049,
+   "period_end": "2026-09-30",
+   "receivables": 117693,
+   "retained_earnings": -8736546,
+   "revenue": 329419,
+   "revenue_filed": "2026-11-16",
+   "sga_expense": 613098,
+   "shares_diluted": 13910899,
+   "shares_diluted_adj": 13910899,
+   "shares_diluted_filled": 13910899,
+   "shares_diluted_filled_filed": "2026-11-16",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 0,
+   "short_term_investments": 2498764,
+   "total_assets": 16591786,
+   "total_equity": 16015497,
+   "total_equity_parent": 16015497,
+   "total_liabilities": 576289
   }
  ],
  "sec_name": "VIDA GLOBAL INC.",
@@ -234,10 +290,10 @@
   "acquisition_cost_amort": null,
   "acquisitions": null,
   "buybacks": null,
-  "capex": null,
+  "capex": "PaymentsToAcquirePropertyPlantAndEquipment",
   "capitalized_software": "PaymentsForSoftware,PaymentsToDevelopSoftware",
-  "cash": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
-  "cash_and_short_term_investments": null,
+  "cash": "CashAndCashEquivalentsAtCarryingValue,CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+  "cash_and_short_term_investments": "CashCashEquivalentsAndShortTermInvestments",
   "claims_incurred": null,
   "commercial_paper": null,
   "credit_loss_provision": null,
@@ -286,7 +342,7 @@
   "shares_diluted": "WeightedAverageNumberOfDilutedSharesOutstanding,WeightedAverageNumberOfSharesOutstandingBasic",
   "shares_outstanding": "CommonStockSharesOutstanding",
   "short_term_borrowings": null,
-  "short_term_investments": null,
+  "short_term_investments": "ShortTermInvestments",
   "stock_comp": "StockOptionPlanExpense",
   "tier1_capital_ratio": null,
   "total_assets": "Assets",
@@ -302,13 +358,13 @@
  ],
  "ttm": {
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-14",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 9547002
+   "val": 13910899
   }
  },
  "v2_annual": [],
@@ -415,6 +471,56 @@
    "start": "2025-04-01"
   },
   {
+   "cash": 3749731,
+   "cash_and_sti": 3749731,
+   "end": "2025-09-30",
+   "equity": 6616459,
+   "net_income": -637773,
+   "operating_cash_flow": -419582,
+   "revenue": 175650,
+   "shares_diluted": 3747405,
+   "src": {
+    "cash": {
+     "accn": "0001493152-26-052362",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001493152-26-052362",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001493152-26-052362",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001493152-26-052362",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001493152-26-052362",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001493152-26-052362",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    }
+   },
+   "start": "2025-07-01"
+  },
+  {
    "cash": 1358556,
    "cash_and_sti": 1358556,
    "end": "2026-03-31",
@@ -512,6 +618,63 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 10159356,
+   "cash_and_sti": 9997528,
+   "end": "2026-09-30",
+   "equity": 16015497,
+   "net_income": -1469067,
+   "operating_cash_flow": -1613297,
+   "revenue": 329419,
+   "shares_diluted": 13910899,
+   "short_term_investments": 2498764,
+   "src": {
+    "cash": {
+     "accn": "0001493152-26-052362",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001493152-26-052362",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001493152-26-052362",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001493152-26-052362",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001493152-26-052362",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "RevenueFromContractWithCustomerExcludingAssessedTax"
+    },
+    "shares_diluted": {
+     "accn": "0001493152-26-052362",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "short_term_investments": {
+     "accn": "0001493152-26-052362",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "ShortTermInvestments"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

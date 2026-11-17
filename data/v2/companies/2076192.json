@@ -109,19 +109,19 @@
   "total_liabilities": 1
  },
  "balance": {
-  "cash_and_sti": 319009,
-  "end": "2026-06-30",
-  "equity": 1859847
+  "cash_and_sti": 55062,
+  "end": "2026-09-30",
+  "equity": 312201
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 92,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": 2026,
   "reconciles": "ok",
   "revenue": "ok",
   "share_scale": "ok",
-  "shares": "annual-gaps:1"
+  "shares": "outstanding-only"
  },
  "cik": 2076192,
  "fiscal_year_end": "0630",
@@ -133,19 +133,19 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-104251",
-  "filed": "2026-09-29",
-  "form": "10-K",
-  "report": "2026-06-30"
+  "accn": "0001493152-26-052011",
+  "filed": "2026-11-16",
+  "form": "10-Q",
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 59199792.0,
+  "assets": 59474406.0,
   "classes": {
    "common": 8055000.0
   },
-  "cover_accession": "0001213900-26-104251",
-  "cover_date": "2026-06-30",
+  "cover_accession": "0001493152-26-052011",
+  "cover_date": "2026-11-13",
   "float_date": "2026-06-30",
   "float_filed": "2026-09-29",
   "note": null,
@@ -242,6 +242,26 @@
    "total_equity": 1859847,
    "total_equity_parent": 1859847,
    "total_liabilities": 2904379
+  },
+  {
+   "current_assets": 55062,
+   "current_liabilities": 576377,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "income_tax": 0,
+   "net_income": 302616,
+   "net_income_parent": 302616,
+   "operating_cash_flow": -263947,
+   "period_end": "2026-09-30",
+   "retained_earnings": 311971,
+   "shares_diluted_adj": 8055000,
+   "shares_diluted_filled": 8055000,
+   "shares_diluted_filled_filed": "2026-11-16",
+   "shares_diluted_filled_source": "cover",
+   "total_assets": 59474406,
+   "total_equity": 312201,
+   "total_equity_parent": 312201,
+   "total_liabilities": 2876377
   }
  ],
  "sec_name": "Westin Acquisition Corp.",
@@ -322,18 +342,18 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-09-29",
-   "method": "fiscal_year",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
+   "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": 890446
+   "val": 1197401
   },
   "operating_cash_flow": {
    "end": "2026-06-30",
    "filed": "2026-09-29",
-   "method": "fiscal_year",
+   "method": "fiscal_year_stale",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
@@ -532,6 +552,41 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 55062,
+   "cash_and_sti": 55062,
+   "end": "2026-09-30",
+   "equity": 312201,
+   "net_income": 302616,
+   "operating_cash_flow": -263947,
+   "src": {
+    "cash": {
+     "accn": "0001493152-26-052011",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "Cash"
+    },
+    "equity": {
+     "accn": "0001493152-26-052011",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001493152-26-052011",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001493152-26-052011",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

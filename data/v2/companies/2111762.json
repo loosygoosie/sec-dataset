@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1558257,
-  "end": "2026-06-30",
-  "equity": -7486150
+  "cash_and_sti": 1310577,
+  "end": "2026-09-30",
+  "equity": -7738314
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-090249",
-  "filed": "2026-08-14",
+  "accn": "0001213900-26-120006",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 232804332.0,
+  "assets": 234598931.0,
   "classes": {
    "CommonClassAMember": 23671000.0,
    "CommonClassBMember": 6750000.0
   },
-  "cover_accession": "0001213900-26-090249",
-  "cover_date": "2026-08-13",
+  "cover_accession": "0001213900-26-120006",
+  "cover_date": "2026-11-13",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -119,7 +119,7 @@
   {
    "current_assets": 958,
    "current_liabilities": 128583,
-   "filed": "2026-08-14",
+   "filed": "2026-11-16",
    "form": "10-Q",
    "net_income": -56685,
    "net_income_parent": -56685,
@@ -146,6 +146,24 @@
    "total_equity": -7486150,
    "total_equity_parent": -7486150,
    "total_liabilities": 9251446
+  },
+  {
+   "cash": 301810,
+   "current_assets": 1474561,
+   "current_liabilities": 12875,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "net_income": 1833170,
+   "net_income_parent": 1833170,
+   "operating_cash_flow": -256447,
+   "operating_income": -260937,
+   "period_end": "2026-09-30",
+   "retained_earnings": -7730357,
+   "short_term_investments": 1008767,
+   "total_assets": 234598931,
+   "total_equity": -7738314,
+   "total_equity_parent": -7738314,
+   "total_liabilities": 9212875
   }
  ],
  "sec_name": "GSR V Acquisition Corp.",
@@ -208,7 +226,7 @@
   "shares_diluted": null,
   "shares_outstanding": null,
   "short_term_borrowings": null,
-  "short_term_investments": null,
+  "short_term_investments": "ShortTermInvestments",
   "stock_comp": null,
   "tier1_capital_ratio": null,
   "total_assets": "Assets",
@@ -291,6 +309,49 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 301810,
+   "cash_and_sti": 1310577,
+   "end": "2026-09-30",
+   "equity": -7738314,
+   "net_income": 1833170,
+   "operating_cash_flow": -256447,
+   "short_term_investments": 1008767,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-120006",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001213900-26-120006",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-120006",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-120006",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "short_term_investments": {
+     "accn": "0001213900-26-120006",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "ShortTermInvestments"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {

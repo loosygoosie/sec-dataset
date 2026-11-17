@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 362725,
-  "end": "2026-06-30",
-  "equity": -3438546
+  "cash_and_sti": 25000,
+  "end": "2026-09-30",
+  "equity": -3588022
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-090029",
-  "filed": "2026-08-14",
+  "accn": "0001213900-26-120672",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 250592161.0,
+  "assets": 252835896.0,
   "classes": {
    "CommonClassAMember": 25600000.0,
    "CommonClassBMember": 6250000.0
   },
-  "cover_accession": "0001213900-26-090029",
-  "cover_date": "2026-08-14",
+  "cover_accession": "0001213900-26-120672",
+  "cover_date": "2026-11-16",
   "float_date": null,
   "float_filed": null,
   "note": null,
@@ -117,7 +117,17 @@
  "name": "Cantor Equity Partners VII, Inc.",
  "quarterly": [
   {
-   "filed": "2026-08-14",
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "net_income": -2317,
+   "net_income_parent": -2317,
+   "operating_income": -2317,
+   "period_end": "2025-09-30",
+   "total_equity": -2181,
+   "total_equity_parent": -2181
+  },
+  {
+   "filed": "2026-11-16",
    "form": "10-Q",
    "net_income": -27141,
    "net_income_parent": -27141,
@@ -140,6 +150,24 @@
    "total_equity": -3438546,
    "total_equity_parent": -3438546,
    "total_liabilities": 51271
+  },
+  {
+   "cash": 25000,
+   "current_assets": 178039,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "long_term_investments": 252539675,
+   "net_income": 2206665,
+   "net_income_parent": 2206665,
+   "operating_cash_flow": -25060,
+   "operating_cash_flow_filed": "2026-11-16",
+   "operating_income": -149476,
+   "period_end": "2026-09-30",
+   "retained_earnings": -3593963,
+   "total_assets": 252835896,
+   "total_equity": -3588022,
+   "total_equity_parent": -3588022,
+   "total_liabilities": 108504
   }
  ],
  "sec_name": "CANTOR EQUITY PARTNERS VII, INC.",
@@ -218,9 +246,37 @@
  ],
  "ttm": {},
  "v2_annual": [],
- "v2_fixes": [],
+ "v2_fixes": [
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": -25060
+  }
+ ],
  "v2_notes": [],
  "v2_quarterly": [
+  {
+   "end": "2025-09-30",
+   "equity": -2181,
+   "net_income": -2317,
+   "src": {
+    "equity": {
+     "accn": "0001213900-26-120672",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-120672",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    }
+   },
+   "start": "2025-07-01"
+  },
   {
    "end": "2026-03-31",
    "equity": -90265,
@@ -268,6 +324,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 25000,
+   "cash_and_sti": 25000,
+   "end": "2026-09-30",
+   "equity": -3588022,
+   "net_income": 2206665,
+   "operating_cash_flow": -25060,
+   "src": {
+    "cash": {
+     "accn": "0001213900-26-120672",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-120672",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-120672",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-120672",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {
@@ -275,7 +367,9 @@
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [],
   "shares_diluted": [],
   "stock_comp": []

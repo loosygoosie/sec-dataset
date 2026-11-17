@@ -196,17 +196,14 @@
   "total_liabilities": 2
  },
  "balance": {
-  "cash_and_sti": 2563439,
-  "debt_end": "2025-12-31",
-  "debt_noncurrent": 2550930,
-  "end": "2026-06-30",
-  "equity": -52871,
-  "total_debt": 2550930
+  "cash_and_sti": 557155,
+  "end": "2026-09-30",
+  "equity": -5019830
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": 2025,
   "reconciles": "ok",
   "revenue": "ok",
@@ -216,30 +213,30 @@
  "cik": 1972234,
  "fiscal_year_end": "1231",
  "flags": [
-  "debt_one_side_only"
+  "no_debt_tagged"
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001213900-26-088442",
-  "filed": "2026-08-12",
+  "accn": "0001213900-26-120683",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 8117669.0,
+  "assets": 6521884.0,
   "classes": {
-   "common": 91392857.0
+   "common": 97915322.0
   },
-  "cover_accession": "0001213900-26-088442",
-  "cover_date": "2026-08-11",
+  "cover_accession": "0001213900-26-120683",
+  "cover_date": "2026-11-16",
   "float_date": "2025-12-31",
   "float_filed": "2026-03-24",
   "note": null,
   "public_float": 0.0,
   "revenue": 864450.0,
-  "shares_cover": 91392857.0,
-  "shares_total": 91392857.0,
+  "shares_cover": 97915322.0,
+  "shares_total": 97915322.0,
   "size_gate": "no_float"
  },
  "name": "VenHub Global, Inc.",
@@ -366,10 +363,10 @@
    "cash": 0,
    "current_assets": 2958121,
    "current_liabilities": 4366980,
-   "d_and_a": 40314,
+   "d_and_a": 12723,
    "eps_diluted": -0.54,
-   "filed": "2025-12-15",
-   "form": "10-Q/A",
+   "filed": "2026-11-16",
+   "form": "10-Q",
    "gross_profit": 75418,
    "interest_expense": 167896,
    "inventory": 1442605,
@@ -387,7 +384,7 @@
    "shares_diluted": 35625650,
    "shares_diluted_adj": 35625650,
    "shares_diluted_filled": 35625650,
-   "shares_diluted_filled_filed": "2025-12-15",
+   "shares_diluted_filled_filed": "2026-11-16",
    "shares_diluted_filled_source": "shares_diluted",
    "shares_outstanding": 36279355,
    "stock_comp": 17188570,
@@ -405,7 +402,7 @@
    "cash": 89634,
    "current_assets": 1361613,
    "current_liabilities": 10554350,
-   "d_and_a": 40297,
+   "d_and_a": 67888,
    "eps_diluted": -0.05999999999999983,
    "filed": "2026-03-24",
    "form": "10-K (derived from YTD)",
@@ -507,9 +504,44 @@
    "total_equity": -52871,
    "total_equity_parent": -52871,
    "total_liabilities": 8170540
+  },
+  {
+   "capex": 21931,
+   "capex_filed": "2026-11-16",
+   "cash": 557155,
+   "current_assets": 4316921,
+   "current_liabilities": 10989779,
+   "d_and_a": 108607,
+   "eps_diluted": -0.11,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "gross_profit": 18149,
+   "interest_expense": -502514,
+   "inventory": 2565155,
+   "net_income": -10998005,
+   "net_income_parent": -10998005,
+   "operating_cash_flow": -1893868,
+   "operating_income": -10959766,
+   "operating_leases": 846989,
+   "period_end": "2026-09-30",
+   "rd_expense": 254176,
+   "retained_earnings": -120265593,
+   "revenue": 89795,
+   "revenue_filed": "2026-11-16",
+   "shares_diluted": 91592599,
+   "shares_diluted_adj": 91592599,
+   "shares_diluted_filled": 91592599,
+   "shares_diluted_filled_filed": "2026-11-16",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 97790322,
+   "stock_comp": 4900200,
+   "total_assets": 6521884,
+   "total_equity": -5019830,
+   "total_equity_parent": -5019830,
+   "total_liabilities": 11541714
   }
  ],
- "sec_name": "VENHUB GLOBAL, INC.",
+ "sec_name": "VenHub Global, Inc.",
  "sic": "3590",
  "sic_description": "Misc Industrial & Commercial Machinery & Equipment",
  "splits": [],
@@ -585,63 +617,63 @@
  ],
  "ttm": {
   "capex": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "PaymentsToAcquireOtherPropertyPlantAndEquipment"
    ],
-   "val": 997411
+   "val": 845915
   },
   "fcf": {
-   "end": "2026-06-30",
+   "end": "2026-09-30",
    "method": "four_quarters",
-   "val": -16529618
+   "val": -15434238
   },
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "NetIncomeLoss"
    ],
-   "val": -59619727
+   "val": -51268612
   },
   "operating_cash_flow": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
-   "val": -15532207
+   "val": -14588323
   },
   "revenue": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "Revenues"
    ],
-   "val": 505285
+   "val": 299723
   },
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 86302690
+   "val": 91592599
   },
   "stock_comp": {
-   "end": "2026-06-30",
-   "filed": "2026-08-12",
+   "end": "2026-09-30",
+   "filed": "2026-11-16",
    "method": "four_quarters",
    "tags": [
     "ShareBasedCompensation"
    ],
-   "val": 32345063
+   "val": 20059769
   }
  },
  "v2_annual": [
@@ -1348,6 +1380,73 @@
    },
    "start": "2026-04-01",
    "stock_comp": 7095551
+  },
+  {
+   "capex": 21931,
+   "cash": 557155,
+   "cash_and_sti": 557155,
+   "end": "2026-09-30",
+   "equity": -5019830,
+   "fcf": -1915799,
+   "net_income": -10998005,
+   "operating_cash_flow": -1893868,
+   "revenue": 89795,
+   "shares_diluted": 91592599,
+   "src": {
+    "capex": {
+     "accn": "0001213900-26-120683",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "PaymentsToAcquireOtherPropertyPlantAndEquipment"
+    },
+    "cash": {
+     "accn": "0001213900-26-120683",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001213900-26-120683",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001213900-26-120683",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001213900-26-120683",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001213900-26-120683",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001213900-26-120683",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001213900-26-120683",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 4907046
   }
  ],
  "v2_tags_used": {

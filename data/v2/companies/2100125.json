@@ -67,14 +67,14 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 866504,
-  "end": "2026-06-30",
-  "equity": -7312816
+  "cash_and_sti": 705102,
+  "end": "2026-09-30",
+  "equity": -7570561
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 48,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -91,20 +91,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001104659-26-094170",
-  "filed": "2026-08-11",
+  "accn": "0001104659-26-128400",
+  "filed": "2026-11-16",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 234200414.0,
+  "assets": 236153241.0,
   "classes": {
    "CommonClassAMember": 23495500.0,
    "CommonClassBMember": 7666667.0
   },
-  "cover_accession": "0001104659-26-094170",
-  "cover_date": "2026-08-11",
+  "cover_accession": "0001104659-26-128400",
+  "cover_date": "2026-11-16",
   "float_date": "2025-06-30",
   "float_filed": "2026-03-27",
   "note": null,
@@ -155,6 +155,26 @@
    "total_equity": -7312816,
    "total_equity_parent": -7312816,
    "total_liabilities": 8331100
+  },
+  {
+   "cash": 705102,
+   "current_assets": 794046,
+   "current_liabilities": 97025,
+   "filed": "2026-11-16",
+   "form": "10-Q",
+   "income_tax": 0,
+   "net_income": 1896902,
+   "net_income_incl_nci": 1896902,
+   "net_income_parent": 1896902,
+   "operating_cash_flow": -160887,
+   "operating_income": -257745,
+   "period_end": "2026-09-30",
+   "retained_earnings": -7571378,
+   "stock_comp": 0,
+   "total_assets": 236153241,
+   "total_equity": -7570561,
+   "total_equity_parent": -7570561,
+   "total_liabilities": 8387025
   }
  ],
  "sec_name": "Cambridge Acquisition Corp.",
@@ -322,6 +342,50 @@
     }
    },
    "start": "2026-04-01",
+   "stock_comp": 0
+  },
+  {
+   "cash": 705102,
+   "cash_and_sti": 705102,
+   "end": "2026-09-30",
+   "equity": -7570561,
+   "net_income": 1896902,
+   "operating_cash_flow": -160887,
+   "src": {
+    "cash": {
+     "accn": "0001104659-26-128400",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    },
+    "equity": {
+     "accn": "0001104659-26-128400",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001104659-26-128400",
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001104659-26-128400",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "stock_comp": {
+     "accn": "0001104659-26-128400",
+     "derived": true,
+     "filed": "2026-11-16",
+     "form": "10-Q",
+     "tag": "AllocatedShareBasedCompensationExpense"
+    }
+   },
+   "start": "2026-07-01",
    "stock_comp": 0
   }
  ],
