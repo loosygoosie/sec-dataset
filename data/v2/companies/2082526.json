@@ -67,17 +67,17 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 302745,
+  "cash_and_sti": 293887,
   "debt_current": 498079,
   "debt_end": "2026-03-31",
-  "end": "2026-06-30",
-  "equity": -3894432,
+  "end": "2026-09-30",
+  "equity": -3926334,
   "total_debt": 498079
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 50,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -94,20 +94,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001493152-26-038809",
-  "filed": "2026-08-18",
+  "accn": "0001493152-26-053104",
+  "filed": "2026-11-18",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 144566012.0,
+  "assets": 145857147.0,
   "classes": {
    "CommonClassAMember": 15228125.0,
    "CommonClassBMember": 6160715.0
   },
-  "cover_accession": "0001493152-26-038809",
-  "cover_date": "2026-08-14",
+  "cover_accession": "0001493152-26-053104",
+  "cover_date": "2026-11-18",
   "float_date": "2025-06-30",
   "float_filed": "2026-04-14",
   "note": null,
@@ -123,8 +123,11 @@
    "cash": 0,
    "current_assets": 299009,
    "current_liabilities": 342760,
+   "debt_current": 307760,
    "filed": "2026-05-14",
    "form": "10-Q",
+   "net_income": -25000,
+   "net_income_filed": "2026-11-18",
    "period_end": "2025-12-31",
    "retained_earnings": -43751,
    "shares_diluted": 10714286,
@@ -133,6 +136,8 @@
    "shares_diluted_filled_filed": "2026-04-14",
    "shares_diluted_filled_source": "shares_diluted",
    "total_assets": 299009,
+   "total_debt": 307760,
+   "total_debt_filed": "2026-04-14",
    "total_equity": -43751,
    "total_equity_parent": -43751,
    "total_liabilities": 342760
@@ -142,7 +147,7 @@
    "current_liabilities": 533079,
    "debt_current": 498079,
    "eps_diluted": -0.01,
-   "filed": "2026-08-18",
+   "filed": "2026-11-18",
    "form": "10-Q",
    "net_income": -60065,
    "net_income_parent": -60065,
@@ -163,7 +168,7 @@
    "current_assets": 443222,
    "current_liabilities": 25154,
    "eps_diluted": 0.08,
-   "filed": "2026-08-18",
+   "filed": "2026-11-18",
    "form": "10-Q",
    "net_income": 268384,
    "net_income_parent": 268384,
@@ -173,6 +178,22 @@
    "total_equity": -3894432,
    "total_equity_parent": -3894432,
    "total_liabilities": 4337654
+  },
+  {
+   "current_assets": 416120,
+   "current_liabilities": 29954,
+   "filed": "2026-11-18",
+   "form": "10-Q",
+   "net_income": 1260919,
+   "net_income_parent": 1260919,
+   "operating_cash_flow": -30775,
+   "operating_cash_flow_filed": "2026-11-18",
+   "period_end": "2026-09-30",
+   "retained_earnings": -3902035,
+   "total_assets": 145857147,
+   "total_equity": -3926334,
+   "total_equity_parent": -3926334,
+   "total_liabilities": 4342454
   }
  ],
  "sec_name": "AEON ACQUISITION I CORP.",
@@ -239,7 +260,7 @@
   "stock_comp": null,
   "tier1_capital_ratio": null,
   "total_assets": "Assets",
-  "total_debt": null,
+  "total_debt": "UnsecuredDebt",
   "total_equity": "StockholdersEquity",
   "total_equity_incl_nci": null,
   "total_equity_parent": "StockholdersEquity",
@@ -252,9 +273,40 @@
   "AESPU",
   "AESPW"
  ],
- "ttm": {},
+ "ttm": {
+  "net_income": {
+   "end": "2026-09-30",
+   "filed": "2026-11-18",
+   "method": "four_quarters",
+   "tags": [
+    "NetIncomeLoss"
+   ],
+   "val": 1444238
+  }
+ },
  "v2_annual": [],
  "v2_fixes": [
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": 307760
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": 307760
+  },
+  {
+   "field": "net_income",
+   "old": null,
+   "period": "2025-12-31",
+   "rows": "quarterly",
+   "v2": -25000
+  },
   {
    "field": "total_debt",
    "old": null,
@@ -268,10 +320,58 @@
    "period": "2026-03-31",
    "rows": "quarterly",
    "v2": 498079
+  },
+  {
+   "field": "operating_cash_flow",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": -30775
   }
  ],
  "v2_notes": [],
  "v2_quarterly": [
+  {
+   "cash": 0,
+   "cash_and_sti": 0,
+   "debt_current": 307760,
+   "end": "2025-12-31",
+   "equity": -43751,
+   "net_income": -25000,
+   "src": {
+    "cash": {
+     "accn": "0001493152-26-016531",
+     "filed": "2026-04-14",
+     "form": "10-K",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001493152-26-016531",
+     "filed": "2026-04-14",
+     "form": "10-K",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001493152-26-016531",
+     "derived": true,
+     "filed": "2026-11-18",
+     "form": "10-K",
+     "tag": "NetIncomeLoss"
+    },
+    "total_debt": {
+     "filed": "2026-04-14",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent"
+     ],
+     "values": {
+      "NotesPayableCurrent": 307760
+     }
+    }
+   },
+   "start": "2025-10-01",
+   "total_debt": 307760
+  },
   {
    "cash": 0,
    "cash_and_sti": 0,
@@ -339,6 +439,42 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 293887,
+   "cash_and_sti": 293887,
+   "end": "2026-09-30",
+   "equity": -3926334,
+   "net_income": 1260919,
+   "operating_cash_flow": -30775,
+   "src": {
+    "cash": {
+     "accn": "0001493152-26-053104",
+     "filed": "2026-11-18",
+     "form": "10-Q",
+     "tag": "Cash"
+    },
+    "equity": {
+     "accn": "0001493152-26-053104",
+     "filed": "2026-11-18",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001493152-26-053104",
+     "filed": "2026-11-18",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001493152-26-053104",
+     "derived": true,
+     "filed": "2026-11-18",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {
@@ -346,7 +482,9 @@
   "net_income": [
    "NetIncomeLoss"
   ],
-  "operating_cash_flow": [],
+  "operating_cash_flow": [
+   "NetCashProvidedByUsedInOperatingActivities"
+  ],
   "revenue": [],
   "shares_diluted": [],
   "stock_comp": []
