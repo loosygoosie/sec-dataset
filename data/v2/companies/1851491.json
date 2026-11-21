@@ -67,16 +67,16 @@
   "total_liabilities": 0
  },
  "balance": {
-  "cash_and_sti": 1570517,
-  "debt_current": 2816998,
-  "end": "2026-06-30",
-  "equity": -1279486,
-  "total_debt": 2816998
+  "cash_and_sti": 818937,
+  "debt_current": 2416998,
+  "end": "2026-09-30",
+  "equity": -4630990,
+  "total_debt": 2416998
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 87,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 52,
   "reconciled_fy": null,
   "reconciles": "n/a",
   "revenue": "ok",
@@ -93,26 +93,26 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001575872-26-000579",
-  "filed": "2026-08-14",
+  "accn": "0001575872-26-000809",
+  "filed": "2026-11-20",
   "form": "10-Q",
-  "report": "2026-06-30"
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 28239982.0,
+  "assets": 23577359.0,
   "classes": {
-   "common": 11605081.0
+   "common": 12152149.0
   },
-  "cover_accession": "0001575872-26-000579",
-  "cover_date": "2026-08-14",
+  "cover_accession": "0001575872-26-000809",
+  "cover_date": "2026-11-19",
   "float_date": null,
   "float_filed": null,
   "note": null,
   "public_float": null,
   "revenue": null,
-  "shares_cover": 11605081.0,
-  "shares_total": 11605081.0,
+  "shares_cover": 12152149.0,
+  "shares_total": 12152149.0,
   "size_gate": "no_float"
  },
  "name": "AMASS BRANDS",
@@ -168,6 +168,32 @@
    "stock_comp": 176916,
    "total_equity": 10776719,
    "total_equity_incl_nci": 10776719
+  },
+  {
+   "cash": 831713,
+   "d_and_a": 168941,
+   "eps_diluted": -1.95,
+   "filed": "2026-11-20",
+   "form": "10-Q",
+   "gross_profit": 336665,
+   "impairments": 6064603,
+   "interest_expense": 448333,
+   "net_income": -6382831,
+   "net_income_incl_nci": -8900627,
+   "net_income_parent": -6382831,
+   "operating_cash_flow": 523589,
+   "operating_income": -8445162,
+   "period_end": "2025-09-30",
+   "revenue": 4067106,
+   "revenue_filed": "2026-11-20",
+   "shares_diluted": 3270919,
+   "shares_diluted_adj": 3270919,
+   "shares_diluted_filled": 3270919,
+   "shares_diluted_filled_filed": "2026-11-20",
+   "shares_diluted_filled_source": "shares_diluted",
+   "stock_comp": 159708,
+   "total_equity": 2465917,
+   "total_equity_incl_nci": 2465917
   },
   {
    "cash": 991806,
@@ -250,6 +276,46 @@
    "total_equity_incl_nci": 993404,
    "total_equity_parent": -1279486,
    "total_liabilities": 26062501
+  },
+  {
+   "cash": 818937,
+   "current_assets": 15083377,
+   "current_liabilities": 25230351,
+   "d_and_a": 130562,
+   "debt_current": 2416998,
+   "eps_diluted": -0.99,
+   "filed": "2026-11-20",
+   "form": "10-Q",
+   "goodwill": 2972280,
+   "gross_profit": -539371,
+   "impairments": 1100531,
+   "intangibles": 1700752,
+   "interest_expense": 374170,
+   "inventory": 9356390,
+   "net_income": -5714169,
+   "net_income_incl_nci": -5725783,
+   "net_income_parent": -5714169,
+   "operating_cash_flow": -1481178,
+   "operating_income": -4662174,
+   "period_end": "2026-09-30",
+   "receivables": 4118867,
+   "retained_earnings": -56929177,
+   "revenue": 5368515,
+   "revenue_filed": "2026-11-20",
+   "shares_diluted": 11627135,
+   "shares_diluted_adj": 11627135,
+   "shares_diluted_filled": 11627135,
+   "shares_diluted_filled_filed": "2026-11-20",
+   "shares_diluted_filled_source": "shares_diluted",
+   "shares_outstanding": 11858705,
+   "stock_comp": 90255,
+   "total_assets": 23577359,
+   "total_debt": 2416998,
+   "total_debt_filed": "2026-11-20",
+   "total_equity": -4630990,
+   "total_equity_incl_nci": -2369714,
+   "total_equity_parent": -4630990,
+   "total_liabilities": 25947073
   }
  ],
  "sec_name": "AMASS BRANDS",
@@ -293,9 +359,9 @@
   "loss_reserves": null,
   "lt_debt_current": null,
   "lt_debt_noncurrent": null,
-  "net_income": "NetIncomeLoss,ProfitLoss",
+  "net_income": "NetIncomeLoss,ProfitLoss,NetIncomeLossAvailableToCommonStockholdersBasic",
   "net_income_incl_nci": "ProfitLoss",
-  "net_income_parent": "NetIncomeLoss",
+  "net_income_parent": "NetIncomeLoss,NetIncomeLossAvailableToCommonStockholdersBasic",
   "net_interest_income": null,
   "operating_cash_flow": "NetCashProvidedByUsedInOperatingActivities",
   "operating_income": "OperatingIncomeLoss",
@@ -328,13 +394,13 @@
  ],
  "ttm": {
   "shares_diluted": {
-   "end": "2026-06-30",
-   "filed": "2026-08-14",
+   "end": "2026-09-30",
+   "filed": "2026-11-20",
    "method": "latest_quarter",
    "tags": [
     "WeightedAverageNumberOfDilutedSharesOutstanding"
    ],
-   "val": 10764492
+   "val": 11627135
   }
  },
  "v2_annual": [],
@@ -366,6 +432,20 @@
    "period": "2026-06-30",
    "rows": "quarterly",
    "v2": 2816998
+  },
+  {
+   "field": "total_debt",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 2416998
+  },
+  {
+   "field": "debt_current",
+   "old": null,
+   "period": "2026-09-30",
+   "rows": "quarterly",
+   "v2": 2416998
   }
  ],
  "v2_notes": [],
@@ -467,6 +547,64 @@
    },
    "start": "2025-04-01",
    "stock_comp": 176916
+  },
+  {
+   "cash": 831713,
+   "cash_and_sti": 831713,
+   "end": "2025-09-30",
+   "equity": 2465917,
+   "net_income": -6382831,
+   "operating_cash_flow": 523589,
+   "revenue": 4067106,
+   "shares_diluted": 3270919,
+   "src": {
+    "cash": {
+     "accn": "0001575872-26-000809",
+     "filed": "2026-11-20",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001575872-26-000809",
+     "filed": "2026-11-20",
+     "form": "10-Q",
+     "tag": "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"
+    },
+    "net_income": {
+     "accn": "0001575872-26-000809",
+     "filed": "2026-11-20",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001575872-26-000809",
+     "derived": true,
+     "filed": "2026-11-20",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001575872-26-000809",
+     "filed": "2026-11-20",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001575872-26-000809",
+     "filed": "2026-11-20",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001575872-26-000809",
+     "derived": true,
+     "filed": "2026-11-20",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    }
+   },
+   "start": "2025-07-01",
+   "stock_comp": 159708
   },
   {
    "cash": 991806,
@@ -609,6 +747,78 @@
    "start": "2026-04-01",
    "stock_comp": 226613,
    "total_debt": 2816998
+  },
+  {
+   "cash": 818937,
+   "cash_and_sti": 818937,
+   "debt_current": 2416998,
+   "end": "2026-09-30",
+   "equity": -4630990,
+   "net_income": -5714169,
+   "operating_cash_flow": -1481178,
+   "revenue": 5368515,
+   "shares_diluted": 11627135,
+   "src": {
+    "cash": {
+     "accn": "0001575872-26-000809",
+     "filed": "2026-11-20",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001575872-26-000809",
+     "filed": "2026-11-20",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001575872-26-000809",
+     "filed": "2026-11-20",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001575872-26-000809",
+     "derived": true,
+     "filed": "2026-11-20",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    },
+    "revenue": {
+     "accn": "0001575872-26-000809",
+     "filed": "2026-11-20",
+     "form": "10-Q",
+     "tag": "Revenues"
+    },
+    "shares_diluted": {
+     "accn": "0001575872-26-000809",
+     "filed": "2026-11-20",
+     "form": "10-Q",
+     "tag": "WeightedAverageNumberOfDilutedSharesOutstanding"
+    },
+    "stock_comp": {
+     "accn": "0001575872-26-000809",
+     "derived": true,
+     "filed": "2026-11-20",
+     "form": "10-Q",
+     "tag": "ShareBasedCompensation"
+    },
+    "total_debt": {
+     "filed": "2026-11-20",
+     "note": "one side only (a floor)",
+     "tags": [
+      "NotesPayableCurrent",
+      "LoansPayableCurrent"
+     ],
+     "values": {
+      "LoansPayableCurrent": 1016998,
+      "NotesPayableCurrent": 1400000
+     }
+    }
+   },
+   "start": "2026-07-01",
+   "stock_comp": 90255,
+   "total_debt": 2416998
   }
  ],
  "v2_tags_used": {
