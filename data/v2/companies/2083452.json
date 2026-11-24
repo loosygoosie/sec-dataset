@@ -102,14 +102,14 @@
   "total_liabilities": 1
  },
  "balance": {
-  "cash_and_sti": 840520,
-  "end": "2026-06-30",
-  "equity": 160873
+  "cash_and_sti": 689406,
+  "end": "2026-09-30",
+  "equity": 67082
  },
  "bank": false,
  "checks": {
-  "latest_quarter_end": "2026-06-30",
-  "quarter_age_days": 106,
+  "latest_quarter_end": "2026-09-30",
+  "quarter_age_days": 55,
   "reconciled_fy": 2026,
   "reconciles": "ok",
   "revenue": "ok",
@@ -125,20 +125,20 @@
  ],
  "instances_merged": [],
  "latest_filing": {
-  "accn": "0001829126-26-011085",
-  "filed": "2026-10-13",
-  "form": "10-K",
-  "report": "2026-06-30"
+  "accn": "0001829126-26-012748",
+  "filed": "2026-11-23",
+  "form": "10-Q",
+  "report": "2026-09-30"
  },
  "market": {
   "ads_ratio": null,
-  "assets": 111477991.0,
+  "assets": 112310202.0,
   "classes": {
    "CommonClassAMember": 11231750.0,
    "CommonClassBMember": 4714285.0
   },
-  "cover_accession": "0001829126-26-011085",
-  "cover_date": "2026-10-13",
+  "cover_accession": "0001829126-26-012748",
+  "cover_date": "2026-11-23",
   "float_date": "2026-06-30",
   "float_filed": "2026-10-13",
   "note": null,
@@ -151,10 +151,12 @@
  "name": "Shreya Acquisition Group",
  "quarterly": [
   {
-   "filed": "2026-06-18",
+   "filed": "2026-11-23",
    "form": "10-Q",
    "net_income": -77140,
    "net_income_incl_nci": -77140,
+   "net_income_parent": -77140,
+   "operating_income": -77140,
    "period_end": "2025-09-30",
    "total_equity": -58805,
    "total_equity_parent": -58805
@@ -195,6 +197,23 @@
    "total_equity": 160873,
    "total_equity_parent": 160873,
    "total_liabilities": 770505
+  },
+  {
+   "cash": 689406,
+   "current_liabilities": 85377,
+   "filed": "2026-11-23",
+   "form": "10-Q",
+   "net_income": 917339,
+   "net_income_incl_nci": 917339,
+   "net_income_parent": 917339,
+   "operating_cash_flow": -151114,
+   "operating_income": -93791,
+   "period_end": "2026-09-30",
+   "retained_earnings": -274924,
+   "total_assets": 112310202,
+   "total_equity": 67082,
+   "total_equity_parent": 67082,
+   "total_liabilities": 685377
   }
  ],
  "sec_name": "SHREYA ACQUISITION GROUP",
@@ -276,18 +295,20 @@
  ],
  "ttm": {
   "net_income": {
-   "end": "2026-06-30",
-   "filed": "2026-10-13",
-   "method": "fiscal_year",
+   "end": "2026-09-30",
+   "filed": "2026-11-23",
+   "method": "four_quarters",
    "tags": [
-    "NetIncomeLoss"
+    "NetIncomeLoss",
+    "NetIncomeLossAvailableToCommonStockholdersBasic",
+    "ProfitLoss"
    ],
-   "val": 372145
+   "val": 1366624
   },
   "operating_cash_flow": {
    "end": "2026-06-30",
    "filed": "2026-10-13",
-   "method": "fiscal_year",
+   "method": "fiscal_year_stale",
    "tags": [
     "NetCashProvidedByUsedInOperatingActivities"
    ],
@@ -346,10 +367,10 @@
      "tag": "StockholdersEquity"
     },
     "net_income": {
-     "accn": "0001829126-26-006697",
-     "filed": "2026-06-18",
+     "accn": "0001829126-26-012748",
+     "filed": "2026-11-23",
      "form": "10-Q",
-     "tag": "ProfitLoss"
+     "tag": "NetIncomeLoss"
     }
    },
    "start": "2025-07-01"
@@ -430,6 +451,41 @@
     }
    },
    "start": "2026-04-01"
+  },
+  {
+   "cash": 689406,
+   "cash_and_sti": 689406,
+   "end": "2026-09-30",
+   "equity": 67082,
+   "net_income": 917339,
+   "operating_cash_flow": -151114,
+   "src": {
+    "cash": {
+     "accn": "0001829126-26-012748",
+     "filed": "2026-11-23",
+     "form": "10-Q",
+     "tag": "CashAndCashEquivalentsAtCarryingValue"
+    },
+    "equity": {
+     "accn": "0001829126-26-012748",
+     "filed": "2026-11-23",
+     "form": "10-Q",
+     "tag": "StockholdersEquity"
+    },
+    "net_income": {
+     "accn": "0001829126-26-012748",
+     "filed": "2026-11-23",
+     "form": "10-Q",
+     "tag": "NetIncomeLoss"
+    },
+    "operating_cash_flow": {
+     "accn": "0001829126-26-012748",
+     "filed": "2026-11-23",
+     "form": "10-Q",
+     "tag": "NetCashProvidedByUsedInOperatingActivities"
+    }
+   },
+   "start": "2026-07-01"
   }
  ],
  "v2_tags_used": {
