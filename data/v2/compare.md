@@ -1,9 +1,9 @@
-# v2 vs data/companies (2026-11-27)
+# v2 vs data/companies (2026-11-28)
 
 For every universe company, the fields where pipeline v2 and the old build differ by more than 5% (or one side is missing): revenue and capex of the latest fiscal year both have, total debt at the latest balance date both have, and shares (old: latest quarterly shares_outstanding; v2: the latest cover's classes added up, before class weights and ADS ratios). The parallel week is judged on this file: each row is either a v2 fix (say which in the review) or a v2 bug.
 
-- companies: 2503; with a difference: 1320
-- by field: capex 104, file 309, revenue 184, shares 660, total_debt 278
+- companies: 2502; with a difference: 1319
+- by field: capex 104, file 308, revenue 184, shares 660, total_debt 278
 
 | ticker | field | period | old | v2 | diff % |
 |---|---|---|---|---|---|
@@ -817,6 +817,8 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | AGM | shares | 2026-11-02 | - | 10.9M | - |
 | BANC | revenue | 2025-12-31 | 1.82B | 1.12B | -38.4 |
 | PS | file | - | - | - | - |
+| CASH | total_debt | 2026-09-30 | 0.33B | 0.37B | 10.0 |
+| CASH | shares | 2026-11-18 | - | 20.7M | - |
 | MAN | shares | 2026-10-28 | - | 46.5M | - |
 | BETA | shares | 2026-10-30 | 37.6M | 0.23B | 525.3 |
 | MBLY | shares | 2026-10-21 | 94.7M | 0.25B | 166.7 |
@@ -840,8 +842,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | CUBI | revenue | 2025-12-31 | 1.36B | 0.82B | -39.8 |
 | NTSK | shares | 2026-08-31 | - | 0.41B | - |
 | CHCO | shares | 2026-11-02 | - | 14.1M | - |
-| CASH | total_debt | 2026-06-30 | 0.17B | 0.20B | 20.0 |
-| CASH | shares | 2026-07-29 | - | 20.8M | - |
 | ROCK | shares | 2026-11-03 | 34.5M | 29.7M | -13.8 |
 | LMAT | total_debt | 2020-12-31 / - | 38,032 | - | - |
 | AMRX | shares | 2026-10-30 | - | 0.35B | - |
@@ -1462,7 +1462,6 @@ For every universe company, the fields where pipeline v2 and the old build diffe
 | TLAC | file | - | - | - | - |
 | MYX | file | - | - | - | - |
 | EWAV | file | - | - | - | - |
-| XFLH | file | - | - | - | - |
 | NSAI | file | - | - | - | - |
 | REA | file | - | - | - | - |
 | SBMT | file | - | - | - | - |
